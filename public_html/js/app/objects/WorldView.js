@@ -46,6 +46,30 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
     this._backgroundImage = new Image();
     this._backgroundImage.src = "assets/images/bg.png";
     
+    /**
+     * @type {Image}
+     */
+    this._enemyImage = new Image();
+    this._enemyImage.src = "assets/images/enemy1.png";
+    
+    /**
+     * @type {Image}
+     */
+    this._towerHolderImage = new Image();
+    this._towerHolderImage.src = "assets/images/holder1.png";
+    
+    /**
+     * @type {Image}
+     */
+    this._towerImage = new Image();
+    this._towerImage.src = "assets/images/tower1.png";
+    
+    /**
+     * @type {Image}
+     */
+    this._bulletImage = new Image();
+    this._bulletImage.src = "assets/images/bullet1.png";
+    
 };
 
 /**
@@ -105,14 +129,14 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList){
         //hp bar
         //fillRect
         this.canvasContext.fillStyle = '#00FF00';
-        this.canvasContext.fillRect(enemy.getX()-hp/2,enemy.getY()-10,currentHp,5);
+        this.canvasContext.fillRect(enemy.getX()-hp/2,enemy.getY()-20,currentHp,5);
         
         //drawRect
         this.canvasContext.fillStyle = '#000000';
-        this.canvasContext.rect(enemy.getX()-hp/2,enemy.getY()-10,hp,5);
+        this.canvasContext.rect(enemy.getX()-hp/2,enemy.getY()-20,hp,5);
         
         //enemy
-        this.canvasContext.fillText("Enemy", enemy.getX(), enemy.getY());
+        this.canvasContext.drawImage(this._enemyImage, enemy.getX()-25, enemy.getY()-25, 50, 50);
     }
     
     this.canvasContext.lineWidth = 1;
@@ -133,7 +157,9 @@ app.objects.WorldView.prototype._drawTowers = function _drawTowers(towerList){
     max = towerList.length();
     for (i=0; i<max; i++){
         tower = towerList.getTower(i);
-        this.canvasContext.fillText("Tower", tower.getX(), tower.getY());
+        
+        this.canvasContext.drawImage(this._towerHolderImage, tower.getX()-25, tower.getY()-25, 50, 50);
+        this.canvasContext.drawImage(this._towerImage, tower.getX()-25, tower.getY()-25, 50, 50);
     }
 };
 
@@ -150,7 +176,12 @@ app.objects.WorldView.prototype._drawBullets = function _drawBullets(bulletList)
     max = bulletList.length();
     for (i=0; i<max; i++){
         bullet = bulletList.getBullet(i);
-        this.canvasContext.fillText("o", bullet.getX(), bullet.getY());
+        
+        //rotate bullet
+        
+        
+        //bullet
+        this.canvasContext.drawImage(this._bulletImage, bullet.getX()-25, bullet.getY()-25, 50, 50);
     }
 };
 
@@ -167,7 +198,7 @@ app.objects.WorldView.prototype._drawCheckpoints = function _drawCheckpoints(che
     max = checkpointList.length();
     for (i=0; i<max; i++){
         checkpoint = checkpointList.getCheckpoint(i);
-        this.canvasContext.fillText("CHECKPOINT", checkpoint.getX(), checkpoint.getY());
+        //this.canvasContext.fillText("CHECKPOINT", checkpoint.getX(), checkpoint.getY());
     }
 };
 
@@ -191,19 +222,19 @@ app.objects.WorldView.prototype._drawMap = function _drawMap(map){
             
             mapField = map.getField(x, y);
             
-            this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
+            //this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
             
             if(mapField.getAllowBuild()){
                 this.canvasContext.fillStyle = '#99FF99';
-                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+                //this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
             } else {
                 this.canvasContext.fillStyle = '#FF9999';
-                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+                //this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
             }
             
             if (mapField === map.getSelectedField()){
                 this.canvasContext.fillStyle = '#FFFFFF';
-                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+                //this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
             }
             
         }

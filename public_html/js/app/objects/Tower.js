@@ -55,6 +55,13 @@ app.objects.Tower = function Tower(x, y, range, rate, type) {
      */
     this._cooldown = 0;
     
+    /**
+     * @property _angle
+     * @type Number
+     */
+    this._angle = 0;
+    
+    
 };
 
 /**
@@ -76,4 +83,20 @@ app.objects.Tower.prototype.getCooldown = function getCooldown() {
  */
 app.objects.Tower.prototype.setCooldown = function setCooldown(cooldown) {
     this._cooldown = cooldown;
+};
+
+/**
+ * @methodName getAngle
+ * @return {Number} angle
+ */
+app.objects.Tower.prototype.getAngle = function getAngle() {
+    return this._angle;
+};
+
+/**
+ * @methodName setAngle
+ * @param {Number} angle
+ */
+app.objects.Tower.prototype.setAngle = function setAngle(angle) {
+    this._angle = angle;
 };

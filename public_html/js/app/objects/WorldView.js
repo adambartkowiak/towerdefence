@@ -70,6 +70,12 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
     this._bulletImage = new Image();
     this._bulletImage.src = "assets/images/bullet1.png";
     
+    /**
+     * @type {support.graphics.Image}
+     */
+    this._image = new support.graphics.Image();
+    
+    this._angle = 0;
 };
 
 /**
@@ -136,7 +142,7 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList){
         this.canvasContext.rect(enemy.getX()-hp/2,enemy.getY()-20,hp,5);
         
         //enemy
-        this.canvasContext.drawImage(this._enemyImage, enemy.getX()-25, enemy.getY()-25, 50, 50);
+        this._image.drawRotateImage(this.canvasContext, this._enemyImage, enemy.getX(), enemy.getY(), enemy.getAngle());
     }
     
     this.canvasContext.lineWidth = 1;
@@ -154,12 +160,14 @@ app.objects.WorldView.prototype._drawTowers = function _drawTowers(towerList){
         max,
         tower;
     
+    this._angle+=1;
+    
     max = towerList.length();
     for (i=0; i<max; i++){
         tower = towerList.getTower(i);
         
-        this.canvasContext.drawImage(this._towerHolderImage, tower.getX()-25, tower.getY()-25, 50, 50);
-        this.canvasContext.drawImage(this._towerImage, tower.getX()-25, tower.getY()-25, 50, 50);
+        this._image.drawRotateImage(this.canvasContext, this._towerHolderImage, tower.getX(), tower.getY(), 0);
+        this._image.drawRotateImage(this.canvasContext, this._towerImage, tower.getX(), tower.getY(), tower.getAngle());
     }
 };
 
@@ -181,7 +189,7 @@ app.objects.WorldView.prototype._drawBullets = function _drawBullets(bulletList)
         
         
         //bullet
-        this.canvasContext.drawImage(this._bulletImage, bullet.getX()-25, bullet.getY()-25, 50, 50);
+        this._image.drawRotateImage(this.canvasContext, this._bulletImage, bullet.getX(), bullet.getY(), bullet.getAngle());
     }
 };
 

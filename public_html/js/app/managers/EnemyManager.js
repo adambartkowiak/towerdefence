@@ -89,6 +89,11 @@ app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(delta){
         }
         
         enemyMoveVector = enemy.getMoveVector();
+
+        var normalizedVector = enemyMoveVector.getNormalizedVector();                    
+        //wpisanie angle do wiezy
+        enemy.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+0);
+        
         enemy.setX(enemyX + enemyMoveVector.getX());
         enemy.setY(enemyY + enemyMoveVector.getY());
     }

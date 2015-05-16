@@ -72,7 +72,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
         
         for (enemyIndex = 0; enemyIndex<enemyLength; enemyIndex++){
                 
-            if(tower.getCooldown() === 0){
+            if(true){//tower.getCooldown() === 0){
                 var enemy = this._enemyList.getEnemy(enemyIndex);
                 var target = new app.objects.Target(0, 0, enemy);
 
@@ -87,10 +87,22 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                 moveVector = new support.geom.SimpleVector2d(dX, dY);
                 moveVectorLength = moveVector.getVectorLength();
 
-                if (moveVectorLength < 90){
-                    var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 0, 0);
-                    this._bulletList.addBullet(bullet);
-                    tower.setCooldown(500);
+                if (moveVectorLength < 250){
+                    
+                    //TODO: refaktoring
+                    var normalizedVector = moveVector.getNormalizedVector();
+                    
+                    //wpisanie angle do wiezy
+                    tower.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
+        
+                    if(tower.getCooldown() === 0){
+                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 0, 0);
+                        this._bulletList.addBullet(bullet);
+                        tower.setCooldown(400);
+                    }
+                    //jezeli przeciwnik jest w zasiegu - to juz nie sprawdza kolejnych przeciwnikow.
+                    //bo albo odda strzal albo nie.
+                    break;
                 }
             }
         }

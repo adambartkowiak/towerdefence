@@ -69,7 +69,7 @@ setInterval(function(){
     if (timer.getDelta()>100)
         console.log(timer.getDelta());
     
-    if(enemyList.length()<10 && logicFrames%200 === 0){
+    if(enemyList.length()<50 && logicFrames%50 === 0){
         enemyList.addEnemy(new app.objects.Enemy(0, 75, 100, 0, 0));
     }
     

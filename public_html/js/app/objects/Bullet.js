@@ -48,6 +48,12 @@ app.objects.Bullet = function Bullet(x, y, target, speed, damage) {
      * @type Number
      */
     this._damage = damage;
+    
+    /**
+     * @property _angle
+     * @type Number
+     */
+    this._angle;
 
 };
 
@@ -63,3 +69,20 @@ Utils.inherits(app.objects.Bullet, support.geom.Point2d);
 app.objects.Bullet.prototype.getTarget = function getTarget() {
     return this._target;
 };
+
+/**
+ * @methodName getAngle
+ * @return {Number} angle
+ */
+app.objects.Bullet.prototype.getAngle = function getAngle() {
+    return this._angle;
+};
+
+/**
+ * @methodName setAngle
+ * @param {Number} angle
+ */
+app.objects.Bullet.prototype.setAngle = function setAngle(angle) {
+    this._angle = angle;
+};
+

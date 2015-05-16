@@ -60,7 +60,12 @@ app.objects.Enemy = function Enemy(x, y, hp, speed, type) {
      * @type support.geom.SimpleVector2d
      */
     this._moveVector = new support.geom.SimpleVector2d(0,0);
-
+    
+    /**
+     * @property _angle
+     * @type Number
+     */
+    this._angle = 0;
 };
 
 /**
@@ -106,4 +111,20 @@ app.objects.Enemy.prototype.setCurrentHp = function setCurrentHp(currentHp) {
  */
 app.objects.Enemy.prototype.getMoveVector = function getMoveVector() {
     return this._moveVector;
+};
+
+/**
+ * @methodName getAngle
+ * @return {Number} angle
+ */
+app.objects.Enemy.prototype.getAngle = function getAngle() {
+    return this._angle;
+};
+
+/**
+ * @methodName setAngle
+ * @param {Number} angle
+ */
+app.objects.Enemy.prototype.setAngle = function setAngle(angle) {
+    this._angle = angle;
 };

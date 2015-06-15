@@ -87,7 +87,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                 moveVector = new support.geom.SimpleVector2d(dX, dY);
                 moveVectorLength = moveVector.getVectorLength();
 
-                if (moveVectorLength < 250){
+                if (moveVectorLength < 100){
                     
                     //TODO: refaktoring
                     var normalizedVector = moveVector.getNormalizedVector();
@@ -98,7 +98,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                     if(tower.getCooldown() === 0){
                         var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 0, 0);
                         this._bulletList.addBullet(bullet);
-                        tower.setCooldown(400);
+                        tower.setCooldown(500);
                     }
                     //jezeli przeciwnik jest w zasiegu - to juz nie sprawdza kolejnych przeciwnikow.
                     //bo albo odda strzal albo nie.

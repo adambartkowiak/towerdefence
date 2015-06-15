@@ -77,8 +77,8 @@ app.managers.BulletManager.prototype.moveBullets = function moveBullets() {
         //ustawienie obrotu strzaly na podstawie vektora znormalizowanego
         bullet.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
         
-        bullet.setX(bullet.getX() + normalizedVector.getX()*5);
-        bullet.setY(bullet.getY() + normalizedVector.getY()*5);
+        bullet.setX(bullet.getX() + normalizedVector.getX()*10);
+        bullet.setY(bullet.getY() + normalizedVector.getY()*10);
     }
     
 };

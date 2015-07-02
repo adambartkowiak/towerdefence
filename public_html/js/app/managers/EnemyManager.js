@@ -47,9 +47,9 @@ Utils.inherits(app.managers.EnemyManager, Object);
 
 /**
  * @methodName moveEnemy
- * @param {Number} delta 
+ * @param {Number} timeDelta 
  */
-app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(delta){
+app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(timeDelta){
     
     var enemyLength = this._enemyList.length();
     var checkpointLength = this._checkpointList.length();
@@ -94,8 +94,8 @@ app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(delta){
         //wpisanie angle do wiezy
         enemy.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+0);
         
-        enemy.setX(enemyX + enemyMoveVector.getX());
-        enemy.setY(enemyY + enemyMoveVector.getY());
+        enemy.setX(enemyX + normalizedVector.getX()*timeDelta/1000*enemy.getSpeed());
+        enemy.setY(enemyY + normalizedVector.getY()*timeDelta/1000*enemy.getSpeed());
     }
 };
 

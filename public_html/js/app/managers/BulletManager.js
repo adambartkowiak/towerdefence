@@ -47,8 +47,9 @@ Utils.inherits(app.managers.BulletManager, Object);
 
 /**
  * @methodName moveBullets
+ * @param {Number} timeDelta 
  */
-app.managers.BulletManager.prototype.moveBullets = function moveBullets() {
+app.managers.BulletManager.prototype.moveBullets = function moveBullets(timeDelta) {
     
     var length = this._bulletList.length();
     var bulletIndex;
@@ -77,8 +78,8 @@ app.managers.BulletManager.prototype.moveBullets = function moveBullets() {
         //ustawienie obrotu strzaly na podstawie vektora znormalizowanego
         bullet.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
         
-        bullet.setX(bullet.getX() + normalizedVector.getX()*10);
-        bullet.setY(bullet.getY() + normalizedVector.getY()*10);
+        bullet.setX(bullet.getX() + normalizedVector.getX()*timeDelta/1000*bullet.getSpeed());
+        bullet.setY(bullet.getY() + normalizedVector.getY()*timeDelta/1000*bullet.getSpeed());
     }
     
 };

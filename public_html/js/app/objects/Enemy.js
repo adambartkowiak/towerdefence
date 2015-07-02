@@ -128,3 +128,19 @@ app.objects.Enemy.prototype.getAngle = function getAngle() {
 app.objects.Enemy.prototype.setAngle = function setAngle(angle) {
     this._angle = angle;
 };
+
+/**
+ * @methodName getSpeed
+ * @return {Number} speed
+ */
+app.objects.Enemy.prototype.getSpeed = function getSpeed() {
+    return this._speed;
+};
+
+/**
+ * @methodName setSpeed
+ * @param {Number} speed
+ */
+app.objects.Enemy.prototype.setSpeed = function setSpeed(speed) {
+    this._speed = speed;
+};

@@ -96,7 +96,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                     tower.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
         
                     if(tower.getCooldown() === 0){
-                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 0, 0);
+                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 150, 0);
                         this._bulletList.addBullet(bullet);
                         tower.setCooldown(500);
                     }
@@ -112,9 +112,9 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
 
 /**
  * @methodName cooldownTimer
- * @@param {Number} delta
+ * @@param {Number} timeDelta
  */
-app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(delta) {
+app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(timeDelta) {
     
     var length = this._towerList.length();
     var towerIndex;
@@ -126,7 +126,7 @@ app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(delta
         var tower = this._towerList.getTower(towerIndex);
         
         cooldownValue = tower.getCooldown();
-        cooldownValue -= delta;
+        cooldownValue -= timeDelta;
         
         if(cooldownValue < 0){
             cooldownValue = 0;

@@ -86,3 +86,18 @@ app.objects.Bullet.prototype.setAngle = function setAngle(angle) {
     this._angle = angle;
 };
 
+/**
+ * @methodName getSpeed
+ * @return {Number} speed
+ */
+app.objects.Bullet.prototype.getSpeed = function getSpeed() {
+    return this._speed;
+};
+
+/**
+ * @methodName setSpeed
+ * @param {Number} speed
+ */
+app.objects.Bullet.prototype.setSpeed = function setSpeed(speed) {
+    this._speed = speed;
+};

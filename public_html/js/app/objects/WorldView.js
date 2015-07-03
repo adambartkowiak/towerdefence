@@ -242,7 +242,7 @@ app.objects.WorldView.prototype._drawMap = function _drawMap(map){
             
             if (mapField === map.getSelectedField()){
                 this.canvasContext.fillStyle = '#FFFFFF';
-                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+                //this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
             }
             
         }

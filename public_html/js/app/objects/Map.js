@@ -86,8 +86,6 @@ app.objects.Map.prototype.init = function init() {
             this._fields.push(field);
         }
     }
-    
-    this._selectedField = this.getFieldByPixels(60, 60);
 };
 
 /**

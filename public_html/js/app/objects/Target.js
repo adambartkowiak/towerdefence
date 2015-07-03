@@ -22,10 +22,10 @@ var Utils = Utils || {};
  * @namespace app.objects
  * @param {Number} x
  * @param {Number} y
- * @param {app.objects.Enemy} enemy
+ * @param {String} enemyGuid
  * 
  */
-app.objects.Target = function Target(x, y, enemy) {
+app.objects.Target = function Target(x, y, enemyGuid) {
 
     support.geom.Point2d.call(this, x, y);
 
@@ -33,7 +33,7 @@ app.objects.Target = function Target(x, y, enemy) {
      * @property _range
      * @type Number
      */
-    this._enemy = enemy;
+    this._enemyGuid = enemyGuid;
 
 };
 
@@ -46,6 +46,6 @@ Utils.inherits(app.objects.Target, support.geom.Point2d);
  * @methodName getEnemy
  * @return {app.objects.Target} enemy
  */
-app.objects.Target.prototype.getEnemy = function getEnemy() {
-    return this._enemy;
+app.objects.Target.prototype.getEnemyGuid = function getEnemyGuid() {
+    return this._enemyGuid;
 };

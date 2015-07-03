@@ -66,6 +66,12 @@ app.objects.Enemy = function Enemy(x, y, hp, speed, type) {
      * @type Number
      */
     this._angle = 0;
+    
+    /**
+     * @property _guid
+     * @type String
+     */
+    this._guid = Math.random();
 };
 
 /**
@@ -143,4 +149,36 @@ app.objects.Enemy.prototype.getSpeed = function getSpeed() {
  */
 app.objects.Enemy.prototype.setSpeed = function setSpeed(speed) {
     this._speed = speed;
+};
+
+/**
+ * @methodName getGuid
+ * @return {String} guid
+ */
+app.objects.Enemy.prototype.getGuid = function getGuid() {
+    return this._guid;
+};
+
+/**
+ * @methodName setGuid
+ * @param {Number} guid
+ */
+app.objects.Enemy.prototype.setGuid = function setGuid(guid) {
+    this._guid = guid;
+};
+
+/**
+ * @methodName getMoveVector
+ * @return {support.geom.SimpleVector2d} guid
+ */
+app.objects.Enemy.prototype.getMoveVector = function getMoveVector() {
+    return this._moveVector;
+};
+
+/**
+ * @methodName setMoveVector
+ * @param {support.geom.SimpleVector2d} moveVector
+ */
+app.objects.Enemy.prototype.setMoveVector = function setMoveVector(moveVector) {
+    this._moveVector = moveVector;
 };

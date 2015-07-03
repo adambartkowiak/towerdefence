@@ -66,6 +66,20 @@ app.objects.EnemyList.prototype.getEnemy = function getEnemy(index) {
 };
 
 /**
+ * @methodName getEnemyByGuid
+ * @param {String} guid
+ * @return {app.objects.Enemy} enemy
+ */
+app.objects.EnemyList.prototype.getEnemyByGuid = function getEnemyByGuid(guid) {
+    for (var i=0; i<this._enemyList.length; i++){
+        if (this._enemyList[i].getGuid() === guid){
+            return this._enemyList[i];
+        }
+    }
+    return null;
+};
+
+/**
  * @methodName length
  * @return {Number} length
  */

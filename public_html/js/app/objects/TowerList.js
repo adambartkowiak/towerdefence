@@ -51,7 +51,7 @@ app.objects.TowerList.prototype.clear = function clear() {
 
 /**
  * @methodName getTowerList
- * @return {app.objects.TowerList}
+ * @return {Table}
  */
 app.objects.TowerList.prototype.getTowerList = function getTowerList() {
     return this._towerList;

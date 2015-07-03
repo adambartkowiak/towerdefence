@@ -84,11 +84,16 @@ var totalTimeDelta = 0;
 setInterval(function(){ 
     
     timer.updateDelta();
+    
+    if (timer.getDelta() === 0){
+        return;
+    }
+    
     totalTimeDelta += timer.getDelta();
     
-    if(enemyList.length()<50 && totalTimeDelta >= 1000){
+    if(enemyList.length()<20 && totalTimeDelta >= 2500){
         enemyList.addEnemy(new app.objects.Enemy(0, 75, 100, 50, 0));
-        totalTimeDelta -= 1000;
+        totalTimeDelta -= 2500;
     }
     
     towerManager.cooldownTimer(timer.getDelta());
@@ -107,5 +112,10 @@ setInterval(function(){
 
 //renderowanie
 setInterval(function(){ 
+    
+    if (timer.getDelta() === 0){
+        return;
+    }
+    
     worldView.draw(logicFrames);
 }, 16);

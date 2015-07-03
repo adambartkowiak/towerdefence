@@ -63,7 +63,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
     var enemyIndex;
     var tower;
     var enemy;
-    var tX, tY, eX, eY, dX, dY, target;
+    var tX, tY, eX, eY, dX, dY;
     var moveVector, moveVectorLength;
     
     for (towerIndex = 0; towerIndex<towerLength; towerIndex++){
@@ -74,7 +74,6 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                 
             if(true){//tower.getCooldown() === 0){
                 var enemy = this._enemyList.getEnemy(enemyIndex);
-                var target = new app.objects.Target(0, 0, enemy);
 
                 tX = tower.getX();
                 tY = tower.getY();
@@ -96,6 +95,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                     tower.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
         
                     if(tower.getCooldown() === 0){
+                        var target = new app.objects.Target(0, 0, enemy.getGuid());
                         var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 150, 0);
                         this._bulletList.addBullet(bullet);
                         tower.setCooldown(500);
@@ -133,5 +133,32 @@ app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(timeD
         }
         
         tower.setCooldown(cooldownValue);
+    }
+};
+
+/**
+ * @methodName saveTowerListToJsonText
+ * @return {String} result
+ */
+app.managers.TowerManager.prototype.saveTowerListToJsonText = function saveTowerListToJsonText() {
+    return JSON.stringify(this._towerList.getTowerList());
+};
+
+/**
+ * @methodName loadTowerListFromJsonText
+ * @param {String} jsonText
+ */
+app.managers.TowerManager.prototype.loadTowerListFromJsonText = function loadTowerListFromJsonText(jsonText) {
+    var myJson = JSON.parse(jsonText);
+    var jsonTower;
+    
+    this._towerList.clear();
+    
+    for(var i=0; i<myJson.length; i++){
+        jsonTower = myJson[i];
+        var newTower = new app.objects.Tower(jsonTower._x, jsonTower._y, jsonTower._range, jsonTower._rate, jsonTower._type);
+        newTower.setAngle(jsonTower._angle);
+        newTower.setCooldown(jsonTower._cooldown);
+        this._towerList.addTower(newTower);
     }
 };

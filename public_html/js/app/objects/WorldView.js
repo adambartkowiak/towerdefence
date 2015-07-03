@@ -135,11 +135,11 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList){
         //hp bar
         //fillRect
         this.canvasContext.fillStyle = '#00FF00';
-        this.canvasContext.fillRect(enemy.getX()-hp/2,enemy.getY()-20,currentHp,5);
+        this.canvasContext.fillRect(enemy.getX()-hp/6,enemy.getY()-20,currentHp/3,4);
         
         //drawRect
         this.canvasContext.fillStyle = '#000000';
-        this.canvasContext.rect(enemy.getX()-hp/2,enemy.getY()-20,hp,5);
+        this.canvasContext.rect(enemy.getX()-hp/6,enemy.getY()-20,hp/3,4);
         
         //enemy
         this._image.drawRotateImage(this.canvasContext, this._enemyImage, enemy.getX(), enemy.getY(), enemy.getAngle());

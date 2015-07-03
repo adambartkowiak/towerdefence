@@ -78,17 +78,17 @@ mouse.initMouse();
 
 var moveRight = true;
 var logicFrames = 0;
+var totalTimeDelta = 0;
     
 //logika
 setInterval(function(){ 
     
     timer.updateDelta();
+    totalTimeDelta += timer.getDelta();
     
-    if (timer.getDelta()>100)
-        console.log(timer.getDelta());
-    
-    if(enemyList.length()<50 && logicFrames%50 === 0){
-        enemyList.addEnemy(new app.objects.Enemy(0, 75, 100, 0, 0));
+    if(enemyList.length()<50 && totalTimeDelta >= 1000){
+        enemyList.addEnemy(new app.objects.Enemy(0, 75, 100, 50, 0));
+        totalTimeDelta -= 1000;
     }
     
     towerManager.cooldownTimer(timer.getDelta());
@@ -96,7 +96,7 @@ setInterval(function(){
     
     enemyManager.moveEnemy(timer.getDelta());
     
-    bulletManager.moveBullets();
+    bulletManager.moveBullets(timer.getDelta());
     bulletManager.checkTargetsToHit();
     
     enemyManager.removeDeadEnemy();
@@ -108,4 +108,4 @@ setInterval(function(){
 //renderowanie
 setInterval(function(){ 
     worldView.draw(logicFrames);
-}, 30);
+}, 16);

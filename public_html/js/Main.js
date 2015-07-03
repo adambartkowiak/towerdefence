@@ -8,6 +8,22 @@ var worldModel = new app.objects.WorldModel();
 var towerList = new app.objects.TowerList();
 var enemyList = new app.objects.EnemyList();
 var bulletList = new app.objects.BulletList();
+
+//load JSON file
+var jsonLoader = new support.Loader();
+
+var loadedMap = null;
+jsonLoader.loadJson(function(response) {
+  // Parse JSON string into object
+    loadedMap = JSON.parse(response);
+ }, "assets/maps/map1.json");
+
+
+
+console.log(loadedMap);
+
+
+//wczytywanie mapy
 var map = new app.objects.Map(14,10,50,50);
 map.init();
 
@@ -19,6 +35,8 @@ map.init();
 //Fields
 //checkpointList
 
+
+//create checkpoint list form JSON
 var checkpointList = new app.objects.CheckpointList();
 checkpointList.addCheckpoint(new app.objects.Checkpoint(0,75, 1, 0));
 checkpointList.addCheckpoint(new app.objects.Checkpoint(125,75, 0, 1));

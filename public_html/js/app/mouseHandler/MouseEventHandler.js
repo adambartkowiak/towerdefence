@@ -18,16 +18,32 @@ var Utils = Utils || {};
 /**
  * @constructor
  * @namespace app.meh
+ * @param {support.Timer} timer
  * @param {app.objects.WorldModel} worldModel
+ * @param {app.objects.HudModel} hudModel
  */
-app.mouseHandler.MouseEventHandler = function MouseEventHandler(worldModel) {
+app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, worldModel, hudModel) {
 
     /**
      *
-     * @type {app.objects.Map}
+     * @type {support.Timer}
+     * @private
+     */
+    this._timer = timer;
+
+    /**
+     *
+     * @type {app.objects.WorldModel}
      * @private
      */
     this._worldModel = worldModel;
+    
+    /**
+     *
+     * @type {app.objects.HudModel}
+     * @private
+     */
+    this._hudModel = hudModel;
 };
 
 /**
@@ -48,12 +64,43 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
     var fieldHeight = mapModel.getFieldHeight();
     var towerX = Math.floor(e.offsetX/fieldWidth)*fieldWidth + fieldWidth*0.5;
     var towerY = Math.floor(e.offsetY/fieldHeight)*fieldHeight + fieldHeight*0.5;
+    var tower = towerList.getTowerByPosition(towerX, towerY);
+    var towerType = 0;
     
     mapModel.setSelectedField(mapField);
 
-    if (mapField.getEmpty() === true){
-        towerList.addTower(new app.objects.Tower(towerX, towerY, 0, 0, 0));
-        mapField.setEmpty(false);
+    if (this._hudModel.getTowerGuidForCurrentMenu() === -1){
+        if (mapField.getEmpty() === true){
+            towerList.addTower(new app.objects.Tower(towerX, towerY, 0, 0, towerType));
+            mapField.setEmpty(false);
+        } else {
+            if (tower !== null){
+                this._hudModel.createMenuForTowerGuid(tower.getGuid(), towerX, towerY);
+                this._timer.changeMultiplier(0.03);
+            }
+        }
+    } else {
+        var okButtonRect = this._hudModel.getMenuOkButtonRect();
+        var cancleButtonRect = this._hudModel.getMenuCancelButtonRect();
+        var menuCircle = this._hudModel.getMenuCircle();
+        var point = new support.geom.Point2d(e.offsetX, e.offsetY);
+        var selectedTower = towerList.getTowerByGuid(this._hudModel.getTowerGuidForCurrentMenu());
+        var maxTowerType = 2;
+ 
+        if (menuCircle.isPointInside(point)){
+            if (okButtonRect.isPointInside(point)){
+                
+                if (selectedTower.getType() < maxTowerType){
+                    selectedTower.setType(selectedTower.getType()+1);
+                }
+            }
+            if (cancleButtonRect.isPointInside(point)){
+                console.log("KLIKNALES DELETE");
+            }
+        } else {
+            this._hudModel.disableMenuForTower();
+            this._timer.changeMultiplier(1);
+        }
     }
 };
 

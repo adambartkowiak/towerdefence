@@ -60,10 +60,45 @@ app.objects.TowerList.prototype.getTowerList = function getTowerList() {
 /**
  * @methodName getTower
  * @param {Number} index
- * @return {app.objects.Tower} bulet
+ * @return {app.objects.Tower} tower
  */
 app.objects.TowerList.prototype.getTower = function getTower(index) {
     return this._towerList[index];
+};
+
+/**
+ * @methodName getTowerByGuid
+ * @param {String} guid
+ * @return {app.objects.Tower} tower
+ */
+app.objects.TowerList.prototype.getTowerByGuid = function getTowerByGuid(guid) {
+    for (var i=0; i<this._towerList.length; i++){
+        if (this._towerList[i].getGuid() === guid){
+            return this._towerList[i];
+        }
+    }
+    return null;
+};
+
+/**
+ * @methodName getTowerByPosition
+ * @param {Number} x
+ * @param {Number} y
+ * @return {app.objects.Tower} tower
+ */
+app.objects.TowerList.prototype.getTowerByPosition = function getTowerByPosition(x, y) {
+    
+    var length = this._towerList.length;
+    var tower = null;
+    
+    for (var towerIndex=0; towerIndex<length; towerIndex++){
+        tower = this._towerList[towerIndex];
+        if (tower.getX() === x && tower.getY() === y){
+            return tower; 
+        }
+    }
+    
+    return null;
 };
 
 /**

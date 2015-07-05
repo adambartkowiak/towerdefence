@@ -45,6 +45,12 @@ support.Timer = function Timer() {
      */
     this._multiplier = 1.0;
     
+    /**
+     * @property {Interval} interval
+     */
+    this._interval = null;
+    
+    
     
 };
 
@@ -99,16 +105,24 @@ support.Timer.prototype.stop = function stop() {
 support.Timer.prototype.changeMultiplier = function changeMultiplier(newValue) {
     
     var that = this;
-    var step = (newValue - that._multiplier)/100;
+    var step = (newValue - that._multiplier)/20;
     
-    var interval = setInterval(function(){
+    if (that._interval !== null){
+        clearInterval(that._interval);
+    }
+    
+    that._interval = setInterval(function(){
         
-        that._multiplier += step;
+        that._multiplier += (newValue - that._multiplier)/4;
+        
+        //console.log(that._multiplier);
         
         if (Math.abs(newValue - that._multiplier) <= Math.abs(step)){
-            clearInterval(interval);
+            that._multiplier = newValue;
+            clearInterval(that._interval);
+            that._interval = null;
         }
-}, 10);
+}, 50);
     
 };
 

@@ -4,6 +4,7 @@ var app = app || {};
 var timer = new support.Timer();
 var canvas = document.getElementById("map");
 var worldModel = new app.objects.WorldModel();
+var hudModel = new app.objects.HudModel(0, 0);
 
 var towerList = new app.objects.TowerList();
 var enemyList = new app.objects.EnemyList();
@@ -65,14 +66,17 @@ worldModel.setBulletList(bulletList);
 worldModel.setCheckpointList(checkpointList);
 worldModel.setMap(map);
 
-var bulletManager = new app.managers.BulletManager(bulletList, enemyList);
+
+
+var bulletManager = new app.managers.BulletManager(bulletList, enemyList, hudModel);
 var towerManager = new app.managers.TowerManager(towerList, enemyList, bulletList);
 var enemyManager = new app.managers.EnemyManager(enemyList, checkpointList);
 
 var worldView = new app.objects.WorldView(canvas, worldModel);
+var hudView = new app.objects.HudView(canvas, hudModel);
 
 //Eventy myszki
-var mouseHandler = new app.mouseHandler.MouseEventHandler(worldModel);
+var mouseHandler = new app.mouseHandler.MouseEventHandler(timer, worldModel, hudModel);
 var mouse = new support.Mouse(mouseHandler);
 mouse.initMouse();
 
@@ -83,6 +87,8 @@ var totalTimeDelta = 0;
 //logika
 setInterval(function(){ 
     
+    var nextEnemyMilis = 2500;
+    
     timer.updateDelta();
     
     if (timer.getDelta() === 0){
@@ -91,9 +97,16 @@ setInterval(function(){
     
     totalTimeDelta += timer.getDelta();
     
-    if(enemyList.length()<20 && totalTimeDelta >= 2500){
-        enemyList.addEnemy(new app.objects.Enemy(0, 75, 100, 50, 0));
-        totalTimeDelta -= 2500;
+    if(enemyList.length()<3 && totalTimeDelta >= nextEnemyMilis){
+        
+        var enemyType = Math.floor(Math.random() * 4);
+        var speedBaseValue = 100;
+        var hpBaseValue = 40;
+        var enemySpeed = speedBaseValue / (enemyType + 1);
+        var enemyHp = hpBaseValue * (enemyType + 1);
+        
+        enemyList.addEnemy(new app.objects.Enemy(0, 75, enemyHp, enemySpeed, enemyType));
+        totalTimeDelta -= nextEnemyMilis;
     }
     
     towerManager.cooldownTimer(timer.getDelta());
@@ -118,4 +131,6 @@ setInterval(function(){
     }
     
     worldView.draw(logicFrames);
+    hudView.draw();
+    
 }, 16);

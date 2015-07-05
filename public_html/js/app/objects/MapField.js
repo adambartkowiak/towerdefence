@@ -62,7 +62,7 @@ app.objects.MapField.prototype.getEmpty = function getEmpty(){
 
 /**
  * @methodName setEmpty
- * @return {Boolean}
+ * @return {Boolean} empty
  */
 app.objects.MapField.prototype.setEmpty = function setEmpty(empty){
     this._empty = empty;

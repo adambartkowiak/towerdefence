@@ -61,6 +61,14 @@ app.objects.Tower = function Tower(x, y, range, rate, type) {
      */
     this._angle = 0;
     
+    /**
+     * @property _guid
+     * @type Number
+     */
+    this._guid = Math.random();
+    
+    
+    
     
 };
 
@@ -99,4 +107,36 @@ app.objects.Tower.prototype.getAngle = function getAngle() {
  */
 app.objects.Tower.prototype.setAngle = function setAngle(angle) {
     this._angle = angle;
+};
+
+/**
+ * @methodName getType
+ * @return {Number} type
+ */
+app.objects.Tower.prototype.getType = function getType() {
+    return this._type;
+};
+
+/**
+ * @methodName setType
+ * @param {Number} type
+ */
+app.objects.Tower.prototype.setType = function setType(type) {
+    this._type = type;
+};
+
+/**
+ * @methodName getGuid
+ * @return {Number} guid
+ */
+app.objects.Tower.prototype.getGuid = function getGuid() {
+    return this._guid;
+};
+
+/**
+ * @methodName setGuid
+ * @param {Number} guid
+ */
+app.objects.Tower.prototype.setGuid = function setGuid(guid) {
+    this._guid = guid;
 };

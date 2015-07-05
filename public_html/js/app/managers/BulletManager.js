@@ -22,9 +22,10 @@ var Utils = Utils || {};
  * @namespace app.managers
  * @param {app.objects.BulletList} bulletList
  * @param {app.objects.EnemyList} enemyList
+ * @param {app.objects.HudModel} hudModel
  * 
  */
-app.managers.BulletManager = function BulletManager(bulletList, enemyList) {
+app.managers.BulletManager = function BulletManager(bulletList, enemyList, hudModel) {
 
     /**
      * @property _bulletList
@@ -37,6 +38,12 @@ app.managers.BulletManager = function BulletManager(bulletList, enemyList) {
      * @type Number
      */
     this._enemyList = enemyList;
+
+    /**
+     * @property _hudModel
+     * @type Number
+     */
+    this._hudModel = hudModel;
 
 };
 
@@ -133,9 +140,12 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
             arrayToRemove.push(bulletIndex);
             if (enemy !== null){
                 currentHp = enemy.getCurrentHp();
-                currentHp -= 2;
+                currentHp -= bullet.getDamage();
+                this._hudModel.setScore(this._hudModel.getScore()+1);
                 if (currentHp < 0){
                     currentHp = 0;
+                    this._hudModel.setScore(this._hudModel.getScore()+999);
+                    this._hudModel.setCash(this._hudModel.getCash()+100);
                 }
                 enemy.setCurrentHp(currentHp);
             }
@@ -172,7 +182,7 @@ app.managers.BulletManager.prototype.loadBulletListFromJsonText = function loadB
         jsonBullet = myJson[i];
         
         var newTarget = new app.objects.Target(jsonBullet._target._x, jsonBullet._target._y, jsonBullet._target._enemyGuid);
-        var newBullet = new app.objects.Bullet(jsonBullet._x, jsonBullet._y, newTarget, jsonBullet._speed, jsonBullet._damage);
+        var newBullet = new app.objects.Bullet(jsonBullet._x, jsonBullet._y, newTarget, jsonBullet._speed, jsonBullet._damage, jsonBullet._type);
         newBullet.setAngle(jsonBullet._angle);
         
         this._bulletList.addBullet(newBullet);

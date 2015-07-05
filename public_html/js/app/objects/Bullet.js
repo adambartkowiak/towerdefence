@@ -25,9 +25,10 @@ var Utils = Utils || {};
  * @param {app.objects.Target} target
  * @param {Number} speed
  * @param {Number} damage
+ * @param {Number} type
  * 
  */
-app.objects.Bullet = function Bullet(x, y, target, speed, damage) {
+app.objects.Bullet = function Bullet(x, y, target, speed, damage, type) {
 
     support.geom.Point2d.call(this, x, y);
     
@@ -54,6 +55,12 @@ app.objects.Bullet = function Bullet(x, y, target, speed, damage) {
      * @type Number
      */
     this._angle;
+    
+    /**
+     * @property _type
+     * @type Number
+     */
+    this._type = type;
 
 };
 
@@ -100,4 +107,36 @@ app.objects.Bullet.prototype.getSpeed = function getSpeed() {
  */
 app.objects.Bullet.prototype.setSpeed = function setSpeed(speed) {
     this._speed = speed;
+};
+
+/**
+ * @methodName getType
+ * @return {Number} type
+ */
+app.objects.Bullet.prototype.getType = function getType() {
+    return this._type;
+};
+
+/**
+ * @methodName setType
+ * @param {Number} type
+ */
+app.objects.Bullet.prototype.setType = function setType(type) {
+    this._type = type;
+};
+
+/**
+ * @methodName getDamage
+ * @return {Number} damage
+ */
+app.objects.Bullet.prototype.getDamage = function getDamage() {
+    return this._damage;
+};
+
+/**
+ * @methodName setDamage
+ * @param {Number} damage
+ */
+app.objects.Bullet.prototype.setDamage = function setDamage(damage) {
+    this._damage = damage;
 };

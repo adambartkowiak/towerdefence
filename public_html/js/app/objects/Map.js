@@ -159,3 +159,46 @@ app.objects.Map.prototype.getSelectedField = function getSelectedField() {
 app.objects.Map.prototype.setSelectedField = function setSelectedField(mapField) {
     this._selectedField = mapField;
 };
+
+/**
+ * @methodName clear
+ */
+app.objects.Map.prototype.clear = function clear() {
+    this._fields.length = 0;
+};
+
+/**
+ * @methodName saveMapModelToJsonText
+ * @return {String} result
+ */
+app.objects.Map.prototype.saveMapModelToJsonText = function saveMapModelToJsonText() {
+    return JSON.stringify(this);
+};
+
+/**
+ * @methodName loadMapModelFromJsonText
+ * @param {String} jsonText
+ */
+app.objects.Map.prototype.loadMapModelFromJsonText = function loadMapModelFromJsonText(jsonText) {
+    var myJson = JSON.parse(jsonText);
+    var jsonField = null;
+    var newField;
+    
+    this.clear();
+    
+    this._width = myJson._width;
+    this._height = myJson._height;
+    this._fieldWidth = myJson._fieldWidth;
+    this._fieldHeight = myJson._fieldHeight;
+    this._selectedField = null;
+    
+    for (var i=0; i<myJson._fields.length; i++){
+        
+        jsonField = myJson._fields[i];
+        
+        newField = new app.objects.MapField(jsonField._allowBuild);
+        newField.setEmpty(jsonField._empty);
+        
+        this._fields.push(newField);
+    }
+};

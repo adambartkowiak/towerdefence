@@ -17,9 +17,9 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @namespace app.map
+ * @namespace app.objects
  * @param {HTMLCanvasElement} canvas
- * @param {app.map.WorldModel} worldModel
+ * @param {app.objects.WorldModel} worldModel
  */
 app.objects.WorldView = function WorldView(canvas, worldModel) {
 
@@ -36,7 +36,7 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
 
     /**
      *
-     * @type {app.map.MapModel} mapModel
+     * @type {app.objects.MapModel} mapModel
      */
     this._worldModel = worldModel;
     
@@ -49,26 +49,51 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
     /**
      * @type {Image}
      */
-    this._enemyImage = new Image();
-    this._enemyImage.src = "assets/images/enemy1.png";
+    this._enemyImage = []; 
+    this._enemyImage[0] = new Image();
+    this._enemyImage[0].src = "assets/images/enemy0.png";
+    
+    this._enemyImage[1] = new Image();
+    this._enemyImage[1].src = "assets/images/enemy1.png";
+    
+    this._enemyImage[2] = new Image();
+    this._enemyImage[2].src = "assets/images/enemy2.png";
+    
+    this._enemyImage[3] = new Image();
+    this._enemyImage[3].src = "assets/images/enemy3.png";
     
     /**
      * @type {Image}
      */
     this._towerHolderImage = new Image();
-    this._towerHolderImage.src = "assets/images/holder1.png";
+    this._towerHolderImage.src = "assets/images/holder0.png";
     
     /**
      * @type {Image}
      */
-    this._towerImage = new Image();
-    this._towerImage.src = "assets/images/tower1.png";
+    this._towerImage = [];
+    this._towerImage[0] =  new Image();
+    this._towerImage[0].src = "assets/images/tower0.png";
+    
+    this._towerImage[1] =  new Image();
+    this._towerImage[1].src = "assets/images/tower1.png";
+    
+    this._towerImage[2] =  new Image();
+    this._towerImage[2].src = "assets/images/tower2.png";
+    
     
     /**
      * @type {Image}
      */
-    this._bulletImage = new Image();
-    this._bulletImage.src = "assets/images/bullet1.png";
+    this._bulletImage = []; 
+    this._bulletImage[0] = new Image();
+    this._bulletImage[0].src = "assets/images/bullet0.png";
+    
+    this._bulletImage[1] = new Image();
+    this._bulletImage[1].src = "assets/images/bullet1.png";
+    
+    this._bulletImage[2] = new Image();
+    this._bulletImage[2].src = "assets/images/bullet2.png";
     
     /**
      * @type {support.graphics.Image}
@@ -109,6 +134,11 @@ app.objects.WorldView.prototype.draw = function draw(logicFrames){
         this._drawBullets(bullets);
         
         this.canvasContext.fillText(logicFrames, 10, 10);
+        
+        this.canvasContext.fillText("towers: " + towers.length(), 800, 10);
+        this.canvasContext.fillText("enemies: " + enemies.length(), 800, 30);
+        this.canvasContext.fillText("bullets: " + bullets.length(), 800, 50);
+        this.canvasContext.fillText("checkpoints: " + checkpoints.length(), 800, 70);
 };
 
 /**
@@ -142,7 +172,7 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList){
         this.canvasContext.rect(enemy.getX()-hp/6,enemy.getY()-20,hp/3,4);
         
         //enemy
-        this._image.drawRotateImage(this.canvasContext, this._enemyImage, enemy.getX(), enemy.getY(), enemy.getAngle());
+        this._image.drawRotateImage(this.canvasContext, this._enemyImage[enemy.getType()], enemy.getX(), enemy.getY(), enemy.getAngle());
     }
     
     this.canvasContext.lineWidth = 1;
@@ -167,7 +197,7 @@ app.objects.WorldView.prototype._drawTowers = function _drawTowers(towerList){
         tower = towerList.getTower(i);
         
         this._image.drawRotateImage(this.canvasContext, this._towerHolderImage, tower.getX(), tower.getY(), 0);
-        this._image.drawRotateImage(this.canvasContext, this._towerImage, tower.getX(), tower.getY(), tower.getAngle());
+        this._image.drawRotateImage(this.canvasContext, this._towerImage[tower.getType()], tower.getX(), tower.getY(), tower.getAngle());
     }
 };
 
@@ -184,12 +214,9 @@ app.objects.WorldView.prototype._drawBullets = function _drawBullets(bulletList)
     max = bulletList.length();
     for (i=0; i<max; i++){
         bullet = bulletList.getBullet(i);
-        
-        //rotate bullet
-        
-        
+
         //bullet
-        this._image.drawRotateImage(this.canvasContext, this._bulletImage, bullet.getX(), bullet.getY(), bullet.getAngle());
+        this._image.drawRotateImage(this.canvasContext, this._bulletImage[bullet.getType()], bullet.getX(), bullet.getY(), bullet.getAngle());
     }
 };
 
@@ -225,29 +252,29 @@ app.objects.WorldView.prototype._drawMap = function _drawMap(map){
     
     this.canvasContext.drawImage(this._backgroundImage, 0, 0, 700, 500);
     
-    for (x = 0; x<maxX; x++){
-        for (y = 0; y<maxY; y++){
-            
-            mapField = map.getField(x, y);
-            
-            //this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
-            
-            if(mapField.getAllowBuild()){
-                this.canvasContext.fillStyle = '#99FF99';
-                //this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-            } else {
-                this.canvasContext.fillStyle = '#FF9999';
-                //this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-            }
-            
-            if (mapField === map.getSelectedField()){
-                this.canvasContext.fillStyle = '#FFFFFF';
-                //this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-            }
-            
-        }
-    }
-    this.canvasContext.lineWidth = 0.5;
-    this.canvasContext.stroke();
+//    for (x = 0; x<maxX; x++){
+//        for (y = 0; y<maxY; y++){
+//            
+//            mapField = map.getField(x, y);
+//            
+//            //this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
+//            
+//            if(mapField.getAllowBuild()){
+//                this.canvasContext.fillStyle = '#99FF99';
+//                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+//            } else {
+//                this.canvasContext.fillStyle = '#FF9999';
+//                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+//            }
+//            
+//            if (mapField === map.getSelectedField()){
+//                this.canvasContext.fillStyle = '#FFFFFF';
+//                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+//            }
+//            
+//        }
+//    }
+//    this.canvasContext.lineWidth = 0.5;
+//    this.canvasContext.stroke();
     
 };

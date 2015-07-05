@@ -86,7 +86,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                 moveVector = new support.geom.SimpleVector2d(dX, dY);
                 moveVectorLength = moveVector.getVectorLength();
 
-                if (moveVectorLength < 100){
+                if (moveVectorLength < 200){
                     
                     //TODO: refaktoring
                     var normalizedVector = moveVector.getNormalizedVector();
@@ -96,9 +96,10 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
         
                     if(tower.getCooldown() === 0){
                         var target = new app.objects.Target(0, 0, enemy.getGuid());
-                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 150, 0);
+                        var bulletType = tower.getType();
+                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 300, (tower.getType()+1)*2, bulletType);
                         this._bulletList.addBullet(bullet);
-                        tower.setCooldown(500);
+                        tower.setCooldown(200);
                     }
                     //jezeli przeciwnik jest w zasiegu - to juz nie sprawdza kolejnych przeciwnikow.
                     //bo albo odda strzal albo nie.
@@ -159,6 +160,7 @@ app.managers.TowerManager.prototype.loadTowerListFromJsonText = function loadTow
         var newTower = new app.objects.Tower(jsonTower._x, jsonTower._y, jsonTower._range, jsonTower._rate, jsonTower._type);
         newTower.setAngle(jsonTower._angle);
         newTower.setCooldown(jsonTower._cooldown);
+        newTower.setGuid(jsonTower._guid);
         this._towerList.addTower(newTower);
     }
 };

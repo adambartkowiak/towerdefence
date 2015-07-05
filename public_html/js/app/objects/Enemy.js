@@ -182,3 +182,19 @@ app.objects.Enemy.prototype.getMoveVector = function getMoveVector() {
 app.objects.Enemy.prototype.setMoveVector = function setMoveVector(moveVector) {
     this._moveVector = moveVector;
 };
+
+/**
+ * @methodName getType
+ * @return {Number} type
+ */
+app.objects.Enemy.prototype.getType = function getType() {
+    return this._type;
+};
+
+/**
+ * @methodName setMoveVector
+ * @param {Number} type
+ */
+app.objects.Enemy.prototype.setType = function setType(type) {
+    this._type = type;
+};

@@ -222,16 +222,35 @@ app.objects.HudModel.prototype.saveHudModelToJsonText = function saveHudModelToJ
 };
 
 /**
- * @methodName loadTowerListFromJsonText
- * @param {String} jsonText
+ * @methodName saveScoreToJsonText
+ * @return {String} result
  */
-app.objects.HudModel.prototype.loadHudModelFromJsonText = function loadHudModelFromJsonText(jsonText) {
-    var myJson = JSON.parse(jsonText);
-    var jsonHud = myJson;
+app.objects.HudModel.prototype.saveScoreToJsonText = function saveScoreToJsonText() {
+    var result = {};
+    result.score = this._score;
+    
+    return JSON.stringify(result);
+};
+
+/**
+ * @methodName loadHudModelFromJson
+ * @param {String} json
+ */
+app.objects.HudModel.prototype.loadHudModelFromJson = function loadHudModelFromJson(json) {
+    var jsonHud = json;
     
     this._score = jsonHud._score;
     this._cash = jsonHud._cash;
     this._towerMenuByGuid = jsonHud._towerMenuByGuid;
     this._towerXMenu = jsonHud._towerXMenu;
     this._towerYMenu = jsonHud._towerYMenu;
+};
+
+/**
+ * @methodName loadTowerListFromJsonText
+ * @param {String} jsonText
+ */
+app.objects.HudModel.prototype.loadHudModelFromJsonText = function loadHudModelFromJsonText(jsonText) {
+    var myJson = JSON.parse(jsonText);
+    this.loadHudModelFromJson(myJson);
 };

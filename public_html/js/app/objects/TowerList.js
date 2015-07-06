@@ -43,6 +43,17 @@ app.objects.TowerList.prototype.addTower = function addTower(newTower) {
 };
 
 /**
+ * @methodName deleteTower
+ * @param {app.objects.Tower} tower
+ */
+app.objects.TowerList.prototype.deleteTower = function deleteTower(tower) {
+    var towerIndex = this._towerList.indexOf(tower);
+    if (towerIndex >= 0) {
+        this._towerList.splice(towerIndex, 1);
+    }
+};
+
+/**
  * @methodName clear
  */
 app.objects.TowerList.prototype.clear = function clear() {
@@ -107,4 +118,41 @@ app.objects.TowerList.prototype.getTowerByPosition = function getTowerByPosition
  */
 app.objects.TowerList.prototype.length = function length() {
     return this._towerList.length;
+};
+
+/**
+ * @methodName saveTowerListToJsonText
+ * @return {String} result
+ */
+app.objects.TowerList.prototype.saveTowerListToJsonText = function saveTowerListToJsonText() {
+    return JSON.stringify(this._towerList);
+};
+
+/**
+ * @methodName loadTowerListFromJson
+ * @param {String} json
+ */
+app.objects.TowerList.prototype.loadTowerListFromJson = function loadTowerListFromJson(json) {
+    var myJson = json;
+    var jsonTower;
+    
+    this.clear();
+    
+    for(var i=0; i<myJson.length; i++){
+        jsonTower = myJson[i];
+        var newTower = new app.objects.Tower(jsonTower._x, jsonTower._y, jsonTower._range, jsonTower._rate, jsonTower._type);
+        newTower.setAngle(jsonTower._angle);
+        newTower.setCooldown(jsonTower._cooldown);
+        newTower.setGuid(jsonTower._guid);
+        this.addTower(newTower);
+    }
+};
+
+/**
+ * @methodName loadTowerListFromJsonText
+ * @param {String} jsonText
+ */
+app.objects.TowerList.prototype.loadTowerListFromJsonText = function loadTowerListFromJsonText(jsonText) {
+    var myJson = JSON.parse(jsonText);
+    this.loadTowerListFromJson(myJson);
 };

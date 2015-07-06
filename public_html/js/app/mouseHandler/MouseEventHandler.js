@@ -69,17 +69,23 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
     
     mapModel.setSelectedField(mapField);
 
+    //nie mmay odpalonego menu edycji wiezy
     if (this._hudModel.getTowerGuidForCurrentMenu() === -1){
         if (mapField.getEmpty() === true){
-            towerList.addTower(new app.objects.Tower(towerX, towerY, 0, 0, towerType));
-            mapField.setEmpty(false);
+            if ( this._hudModel.getCash()>=200){
+                towerList.addTower(new app.objects.Tower(towerX, towerY, 0, 0, towerType));
+                mapField.setEmpty(false);
+                this._hudModel.setCash(this._hudModel.getCash()-200);
+            }
         } else {
             if (tower !== null){
                 this._hudModel.createMenuForTowerGuid(tower.getGuid(), towerX, towerY);
                 this._timer.changeMultiplier(0.03);
             }
         }
-    } else {
+    } 
+    //mamy juz odpalone meny edycji wiezy
+    else {
         var okButtonRect = this._hudModel.getMenuOkButtonRect();
         var cancleButtonRect = this._hudModel.getMenuCancelButtonRect();
         var menuCircle = this._hudModel.getMenuCircle();
@@ -88,14 +94,23 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
         var maxTowerType = 2;
  
         if (menuCircle.isPointInside(point)){
+            //updaradowanie wiezyczki
             if (okButtonRect.isPointInside(point)){
-                
                 if (selectedTower.getType() < maxTowerType){
                     selectedTower.setType(selectedTower.getType()+1);
                 }
             }
+            //kasowanie wiezyczki
             if (cancleButtonRect.isPointInside(point)){
-                console.log("KLIKNALES DELETE");
+                mapField = mapModel.getFieldByPixels(selectedTower.getX(), selectedTower.getY());
+                mapField.setEmpty(true);
+                this._worldModel.getTowerList().deleteTower(selectedTower);
+                
+                //this._hudModel.setCash(this._hudModel.getCash()+250*);
+                
+                this._hudModel.disableMenuForTower();
+                this._timer.changeMultiplier(1);
+                
             }
         } else {
             this._hudModel.disableMenuForTower();

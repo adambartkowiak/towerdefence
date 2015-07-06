@@ -77,8 +77,8 @@ Utils.inherits(app.objects.HudView, Object);
  */
 app.objects.HudView.prototype.draw = function draw(){
     
-    this.canvasContext.fillText(this._hudModel.getScore(), 710, 10);
-    this.canvasContext.fillText(this._hudModel.getCash(), 710, 30);
+    this.canvasContext.fillText("SCORE: " + this._hudModel.getScore(), 710, 10);
+    this.canvasContext.fillText("CASH: " + this._hudModel.getCash(), 710, 30);
     this.canvasContext.fillText(this._hudModel.getTowerGuidForCurrentMenu(), 710, 50);
     
     this._drawTowerMenu(this._hudModel.getTowerXMenu(), this._hudModel.getTowerYMenu());

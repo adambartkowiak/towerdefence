@@ -142,7 +142,7 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
                 currentHp = enemy.getCurrentHp();
                 currentHp -= bullet.getDamage();
                 this._hudModel.setScore(this._hudModel.getScore()+1);
-                if (currentHp < 0){
+                if (currentHp <= 0){
                     currentHp = 0;
                     this._hudModel.setScore(this._hudModel.getScore()+999);
                     this._hudModel.setCash(this._hudModel.getCash()+100);
@@ -156,35 +156,5 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
     for (bulletIndex = length-1; bulletIndex>=0; bulletIndex--){
         bulletToRemoveIndex = arrayToRemove[bulletIndex];
         this._bulletList.remove(bulletToRemoveIndex);
-    }
-};
-
-
-/**
- * @methodName saveBulletListToJsonText
- * @return {String} result
- */
-app.managers.BulletManager.prototype.saveBulletListToJsonText = function saveBulletListToJsonText() {
-    return JSON.stringify(this._bulletList.getBulletList());
-};
-
-/**
- * @methodName loadBulletListFromJsonText
- * @param {String} jsonText
- */
-app.managers.BulletManager.prototype.loadBulletListFromJsonText = function loadBulletListFromJsonText(jsonText) {
-    var myJson = JSON.parse(jsonText);
-    var jsonBullet;
-    
-    this._bulletList.clear();
-    
-    for(var i=0; i<myJson.length; i++){
-        jsonBullet = myJson[i];
-        
-        var newTarget = new app.objects.Target(jsonBullet._target._x, jsonBullet._target._y, jsonBullet._target._enemyGuid);
-        var newBullet = new app.objects.Bullet(jsonBullet._x, jsonBullet._y, newTarget, jsonBullet._speed, jsonBullet._damage, jsonBullet._type);
-        newBullet.setAngle(jsonBullet._angle);
-        
-        this._bulletList.addBullet(newBullet);
     }
 };

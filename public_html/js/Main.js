@@ -4,37 +4,84 @@ var app = app || {};
 var timer = new support.Timer();
 var canvas = document.getElementById("map");
 var worldModel = new app.objects.WorldModel();
-var hudModel = new app.objects.HudModel(0, 0);
+var hudModel = new app.objects.HudModel(0, 500);
 
 var towerList = new app.objects.TowerList();
 var enemyList = new app.objects.EnemyList();
 var bulletList = new app.objects.BulletList();
 
-//load JSON file
-var jsonLoader = new support.Loader();
+var map = new app.objects.Map(0,0,0,0);
 
+
+
+//load JSON file
+var jsonMapLoader = new support.Loader();
 var loadedMap = null;
-jsonLoader.loadJson(function(response) {
+var mapIsReady = false;
+jsonMapLoader.loadJson(function(response) {
   // Parse JSON string into object
     loadedMap = JSON.parse(response);
+    
+    map.loadMapModelFromJsonText(response);
+    
+    mapIsReady = true;
  }, "assets/maps/map1.json");
+ 
+ 
+ 
+
+//var jsonGameLoader = new support.Loader();
+//var loadedGame = null;
+//var gameIsReady = false;
+//jsonGameLoader.loadJson(function(response) {
+//  // Parse JSON string into object
+//    loadedGame = JSON.parse(response);
+//   
+//    
+//    gameIsReady = true;
+// }, "assets/maps/gameSave1.json");
+ 
+ 
+ 
+ 
+ 
+var createGameSaveJson = function createGameSaveJson(){
+    
+    var hudJSON = hudModel;
+    
+    var mapJSON = worldModel.getMap();
+    var towerListJSON = worldModel.getTowerList().getTowerList();
+    var bulletListJSON = worldModel.getBulletList().getBulletList();
+    var enemyListJSON = worldModel.getEnemyList().getEnemyList();
+    
+    var gameSave = new Object();
+    gameSave.hudJSON = hudJSON;
+    gameSave.mapJSON = mapJSON;
+    gameSave.towerListJSON = towerListJSON;
+    gameSave.bulletListJSON = bulletListJSON;
+    gameSave.enemyListJSON = enemyListJSON;
+    
+    return JSON.stringify(gameSave);
+};
 
 
+var loadGameFromJson = function loadGameFromJson(gameJsonText){
+    
+    var gameJSON = JSON.parse(gameJsonText);
+    var hudJSON = gameJSON.hudJSON;
+    var mapJSON = gameJSON.mapJSON;
+    var towerListJSON = gameJSON.towerListJSON;
+    var bulletListJSON = gameJSON.bulletListJSON;
+    var enemyListJSON = gameJSON.enemyListJSON;
+    
+    hudModel.loadHudModelFromJson(hudJSON);
+    worldModel.getMap().loadMapModelFromJson(mapJSON);
+    worldModel.getTowerList().loadTowerListFromJson(towerListJSON);
+    worldModel.getBulletList().loadBulletListFromJson(bulletListJSON);
+    worldModel.getEnemyList().loadEnemyListFromJson(enemyListJSON);
+};
 
-console.log(loadedMap);
 
-
-//wczytywanie mapy
-var map = new app.objects.Map(14,10,50,50);
-map.init();
-
-//loadMapFromJSON
-//
-//imagePath
-//mapFieldWidthAndHeight
-//mapWidthAndHeight
-//Fields
-//checkpointList
 
 
 //create checkpoint list form JSON
@@ -87,7 +134,12 @@ var totalTimeDelta = 0;
 //logika
 setInterval(function(){ 
     
-    var nextEnemyMilis = 2500;
+    if (!mapIsReady){
+        return;
+    }
+    
+    var nextEnemyMilis = 1500;
+    var maxEnemies = 3000;
     
     timer.updateDelta();
     
@@ -97,7 +149,7 @@ setInterval(function(){
     
     totalTimeDelta += timer.getDelta();
     
-    if(enemyList.length()<3 && totalTimeDelta >= nextEnemyMilis){
+    if(enemyList.length()<maxEnemies && totalTimeDelta >= nextEnemyMilis){
         
         var enemyType = Math.floor(Math.random() * 4);
         var speedBaseValue = 100;
@@ -125,6 +177,10 @@ setInterval(function(){
 
 //renderowanie
 setInterval(function(){ 
+    
+    if (!mapIsReady){
+        return;
+    }
     
     if (timer.getDelta() === 0){
         return;

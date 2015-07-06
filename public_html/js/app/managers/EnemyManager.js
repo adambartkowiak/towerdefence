@@ -89,13 +89,17 @@ app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(timeDelta){
         }
         
         enemyMoveVector = enemy.getMoveVector();
-
-        var normalizedVector = enemyMoveVector.getNormalizedVector();                    
-        //wpisanie angle do wiezy
-        enemy.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+0);
         
-        enemy.setX(enemyX + normalizedVector.getX()*timeDelta/1000*enemy.getSpeed());
-        enemy.setY(enemyY + normalizedVector.getY()*timeDelta/1000*enemy.getSpeed());
+        if (enemyMoveVector.getX() !== 0 || enemyMoveVector.getY() !== 0){
+            var normalizedVector = enemyMoveVector.getNormalizedVector();                    
+            //wpisanie angle do wiezy
+            enemy.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+0);
+
+            enemy.setX(enemyX + normalizedVector.getX()*timeDelta/1000*enemy.getSpeed());
+            enemy.setY(enemyY + normalizedVector.getY()*timeDelta/1000*enemy.getSpeed());   
+        } else {
+            enemy.setCurrentHp(0);
+        }
     }
 };
 
@@ -115,35 +119,5 @@ app.managers.EnemyManager.prototype.removeDeadEnemy = function removeDeadEnemy()
         if(enemy.getCurrentHp() === 0){
             this._enemyList.remove(enemyIndex);
         }
-    }
-};
-
-/**
- * @methodName stringify
- * @return {String} result
- */
-app.managers.EnemyManager.prototype.saveEnemyListToJsonText = function saveEnemyListToJsonText() {
-    return JSON.stringify(this._enemyList.getEnemyList());
-};
-
-/**
- * @methodName loadFromJson
- * @param {String} jsonText
- */
-app.managers.EnemyManager.prototype.loadEnemyListFromJsonText = function loadEnemyListFromJsonText(jsonText) {
-    var myJson = JSON.parse(jsonText);
-    var jsonEnemy;
-    
-    this._enemyList.clear();
-    
-    for(var i=0; i<myJson.length; i++){
-        jsonEnemy = myJson[i];
-        var newMoveVector = new support.geom.SimpleVector2d(jsonEnemy._moveVector._x, jsonEnemy._moveVector._y);
-        var newEnemy = new app.objects.Enemy(jsonEnemy._x, jsonEnemy._y, jsonEnemy._hp, jsonEnemy._speed, jsonEnemy._type);
-        newEnemy.setAngle(jsonEnemy._angle);
-        newEnemy.setMoveVector(newMoveVector);
-        newEnemy.setCurrentHp(jsonEnemy._currentHp);
-        newEnemy.setGuid(jsonEnemy._guid);
-        this._enemyList.addEnemy(newEnemy);
     }
 };

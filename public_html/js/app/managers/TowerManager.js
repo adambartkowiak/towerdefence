@@ -136,31 +136,3 @@ app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(timeD
         tower.setCooldown(cooldownValue);
     }
 };
-
-/**
- * @methodName saveTowerListToJsonText
- * @return {String} result
- */
-app.managers.TowerManager.prototype.saveTowerListToJsonText = function saveTowerListToJsonText() {
-    return JSON.stringify(this._towerList.getTowerList());
-};
-
-/**
- * @methodName loadTowerListFromJsonText
- * @param {String} jsonText
- */
-app.managers.TowerManager.prototype.loadTowerListFromJsonText = function loadTowerListFromJsonText(jsonText) {
-    var myJson = JSON.parse(jsonText);
-    var jsonTower;
-    
-    this._towerList.clear();
-    
-    for(var i=0; i<myJson.length; i++){
-        jsonTower = myJson[i];
-        var newTower = new app.objects.Tower(jsonTower._x, jsonTower._y, jsonTower._range, jsonTower._rate, jsonTower._type);
-        newTower.setAngle(jsonTower._angle);
-        newTower.setCooldown(jsonTower._cooldown);
-        newTower.setGuid(jsonTower._guid);
-        this._towerList.addTower(newTower);
-    }
-};

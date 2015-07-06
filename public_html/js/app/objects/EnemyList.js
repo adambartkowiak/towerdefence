@@ -94,3 +94,42 @@ app.objects.EnemyList.prototype.length = function length() {
 app.objects.EnemyList.prototype.remove = function remove(index) {
     this._enemyList.splice(index, 1);
 };
+
+/**
+ * @methodName stringify
+ * @return {String} result
+ */
+app.objects.EnemyList.prototype.saveEnemyListToJsonText = function saveEnemyListToJsonText() {
+    return JSON.stringify(this._enemyList);
+};
+
+/**
+ * @methodName loadEnemyListFromJson
+ * @param {String} json
+ */
+app.objects.EnemyList.prototype.loadEnemyListFromJson = function loadEnemyListFromJson(json) {
+    var myJson = json;
+    var jsonEnemy;
+    
+    this.clear();
+    
+    for(var i=0; i<myJson.length; i++){
+        jsonEnemy = myJson[i];
+        var newMoveVector = new support.geom.SimpleVector2d(jsonEnemy._moveVector._x, jsonEnemy._moveVector._y);
+        var newEnemy = new app.objects.Enemy(jsonEnemy._x, jsonEnemy._y, jsonEnemy._hp, jsonEnemy._speed, jsonEnemy._type);
+        newEnemy.setAngle(jsonEnemy._angle);
+        newEnemy.setMoveVector(newMoveVector);
+        newEnemy.setCurrentHp(jsonEnemy._currentHp);
+        newEnemy.setGuid(jsonEnemy._guid);
+        this.addEnemy(newEnemy);
+    }
+};
+
+/**
+ * @methodName loadEnemyListFromJsonText
+ * @param {String} jsonText
+ */
+app.objects.EnemyList.prototype.loadEnemyListFromJsonText = function loadEnemyListFromJsonText(jsonText) {
+    var myJson = JSON.parse(jsonText);
+    this.loadEnemyListFromJson(myJson);
+};

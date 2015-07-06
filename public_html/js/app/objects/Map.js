@@ -176,11 +176,11 @@ app.objects.Map.prototype.saveMapModelToJsonText = function saveMapModelToJsonTe
 };
 
 /**
- * @methodName loadMapModelFromJsonText
- * @param {String} jsonText
+ * @methodName loadMapModelFromJson
+ * @param {String} json
  */
-app.objects.Map.prototype.loadMapModelFromJsonText = function loadMapModelFromJsonText(jsonText) {
-    var myJson = JSON.parse(jsonText);
+app.objects.Map.prototype.loadMapModelFromJson = function loadMapModelFromJson(json) {
+    var myJson = json;
     var jsonField = null;
     var newField;
     
@@ -201,4 +201,13 @@ app.objects.Map.prototype.loadMapModelFromJsonText = function loadMapModelFromJs
         
         this._fields.push(newField);
     }
+};
+
+/**
+ * @methodName loadMapModelFromJsonText
+ * @param {String} jsonText
+ */
+app.objects.Map.prototype.loadMapModelFromJsonText = function loadMapModelFromJsonText(jsonText) {
+    var myJson = JSON.parse(jsonText);
+    this.loadMapModelFromJson(myJson);
 };

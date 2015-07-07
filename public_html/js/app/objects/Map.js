@@ -26,41 +26,40 @@ var Utils = Utils || {};
  * @param {Number} fieldHeight
  * 
  */
-app.objects.Map = function Map(width, height, fieldWidth, fieldHeight) {
+app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, mapUrl) {
 
     /**
-     * @property _width
-     * @type Number
+     * @property {Number} _width
      */
     this._width = width;
     
     /**
-     * @property _height
-     * @type Number
+     * @property {Number} _height
      */
     this._height = height;
     
     /**
-     * @property _height
-     * @type Number
+     * @property {Number} _height
      */
     this._fieldWidth = fieldWidth;
+        
+    /**
+     * @property {String} _mapUrl
+     */
+    this._mapUrl = mapUrl;
     
     /**
-     * @property _height
-     * @type Number
+     * @property {Number} _height
      */
     this._fieldHeight = fieldHeight;
     
     /**
-     * @property _height
-     * @type Array
+     * @property {Array} _height
      */
     this._fields = [];
     
     /**
-     * @property _selectedField
-     * @type app.objects.MapField
+     * @property {app.objects.MapField} _selectedField
      */
     this._selectedField;
     
@@ -83,6 +82,7 @@ app.objects.Map.prototype.init = function init() {
     for (x = 0; x<maxX; x++){
         for (y = 0; y<maxY; y++){
             field = new app.objects.MapField(true);
+            field.setEmpty(true);
             this._fields.push(field);
         }
     }
@@ -161,6 +161,22 @@ app.objects.Map.prototype.setSelectedField = function setSelectedField(mapField)
 };
 
 /**
+ * @methodName getMapUrl
+ * @return {String} mapUrl
+ */
+app.objects.Map.prototype.getMapUrl = function getMapUrl() {
+    return this._mapUrl;
+};
+
+/**
+ * @methodName setMapUrl
+ * @param {String} mapUrl
+ */
+app.objects.Map.prototype.setMapUrl = function setMapUrl(mapUrl) {
+    this._mapUrl = mapUrl;
+};
+
+/**
  * @methodName clear
  */
 app.objects.Map.prototype.clear = function clear() {
@@ -191,6 +207,7 @@ app.objects.Map.prototype.loadMapModelFromJson = function loadMapModelFromJson(j
     this._fieldWidth = myJson._fieldWidth;
     this._fieldHeight = myJson._fieldHeight;
     this._selectedField = null;
+    this._mapUrl = myJson._mapUrl;
     
     for (var i=0; i<myJson._fields.length; i++){
         

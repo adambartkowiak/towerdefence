@@ -44,7 +44,6 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
      * @type {Image}
      */
     this._backgroundImage = new Image();
-    this._backgroundImage.src = "assets/images/bg.png";
     
     /**
      * @type {Image}
@@ -119,6 +118,8 @@ app.objects.WorldView.prototype.draw = function draw(logicFrames){
         bullets = this._worldModel.getBulletList(),
         checkpoints = this._worldModel.getCheckpointList(),
         map = this._worldModel.getMap();
+
+        this._backgroundImage.src = map.getMapUrl();
 
         this.canvasContext.clearRect ( 0 , 0 , this.canvas.width, this.canvas.height );
         
@@ -252,29 +253,29 @@ app.objects.WorldView.prototype._drawMap = function _drawMap(map){
     
     this.canvasContext.drawImage(this._backgroundImage, 0, 0, 700, 500);
     
-//    for (x = 0; x<maxX; x++){
-//        for (y = 0; y<maxY; y++){
-//            
-//            mapField = map.getField(x, y);
-//            
-//            //this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
-//            
-//            if(mapField.getAllowBuild()){
-//                this.canvasContext.fillStyle = '#99FF99';
-//                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-//            } else {
-//                this.canvasContext.fillStyle = '#FF9999';
-//                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-//            }
-//            
-//            if (mapField === map.getSelectedField()){
-//                this.canvasContext.fillStyle = '#FFFFFF';
-//                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-//            }
-//            
-//        }
-//    }
-//    this.canvasContext.lineWidth = 0.5;
-//    this.canvasContext.stroke();
+    for (x = 0; x<maxX; x++){
+        for (y = 0; y<maxY; y++){
+            
+            mapField = map.getField(x, y);
+            
+            this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
+            
+            if(mapField.getAllowBuild()){
+                this.canvasContext.fillStyle = '#99FF99';
+                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+            } else {
+                this.canvasContext.fillStyle = '#FF9999';
+                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+            }
+            
+            if (mapField === map.getSelectedField()){
+                this.canvasContext.fillStyle = '#FFFFFF';
+                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+            }
+            
+        }
+    }
+    this.canvasContext.lineWidth = 0.5;
+    this.canvasContext.stroke();
     
 };

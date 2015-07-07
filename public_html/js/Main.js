@@ -10,22 +10,24 @@ var towerList = new app.objects.TowerList();
 var enemyList = new app.objects.EnemyList();
 var bulletList = new app.objects.BulletList();
 
-var map = new app.objects.Map(0,0,0,0);
-
+//var map = new app.objects.Map(14,10,50,50, "assets/images/map1.png");
+var map = new app.objects.Map(18,13,37.5,37.5, "assets/images/map2.png");
+map.init();
 
 
 //load JSON file
-var jsonMapLoader = new support.Loader();
-var loadedMap = null;
-var mapIsReady = false;
-jsonMapLoader.loadJson(function(response) {
-  // Parse JSON string into object
-    loadedMap = JSON.parse(response);
-    
-    map.loadMapModelFromJsonText(response);
-    
-    mapIsReady = true;
- }, "assets/maps/map1.json");
+var mapIsReady = true;
+//mapIsReady = false;
+//var jsonMapLoader = new support.Loader();
+//var loadedMap = null;
+//jsonMapLoader.loadJson(function(response) {
+//  // Parse JSON string into object
+//    loadedMap = JSON.parse(response);
+//    
+//    map.loadMapModelFromJsonText(response);
+//    
+//    mapIsReady = true;
+// }, "assets/maps/map1.json");
  
  
  

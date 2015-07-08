@@ -1,0 +1,1166 @@
+{
+    "hudJSON": {
+        "_score": 0,
+        "_cash": 500,
+        "_towerMenuByGuid": -1,
+        "_towerXMenu": 0,
+        "_towerYMenu": 0,
+        "_menuCircle": {
+            "_x": 0,
+            "_y": 0,
+            "_radius": 0
+        },
+        "_menuOkButtonRect": {
+            "_x": 0,
+            "_y": 0,
+            "_width": 0,
+            "_height": 0
+        },
+        "_menuCancelButtonRect": {
+            "_x": 0,
+            "_y": 0,
+            "_width": 0,
+            "_height": 0
+        }
+    },
+    "mapJSON": {
+        "_width": 18,
+        "_height": 13,
+        "_fieldWidth": 37.5,
+        "_mapUrl": "assets/images/map2.png",
+        "_fieldHeight": 37.5,
+        "_fields": [
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": false
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            },
+            {
+                "_allowBuild": true,
+                "_empty": true
+            }
+        ],
+        "_selectedField": {
+            "_allowBuild": true,
+            "_empty": false
+        }
+    },
+    "checkpointListJSON": [
+        {
+            "_x": 0,
+            "_y": 56.25,
+            "_moveVector": {
+                "_x": 1,
+                "_y": 0
+            }
+        },
+        {
+            "_x": 93.75,
+            "_y": 56.25,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 1
+            }
+        },
+        {
+            "_x": 93.75,
+            "_y": 168.75,
+            "_moveVector": {
+                "_x": 1,
+                "_y": 0
+            }
+        },
+        {
+            "_x": 131.25,
+            "_y": 168.75,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 1
+            }
+        },
+        {
+            "_x":131.25, "_y":243.75,
+            "_moveVector": {
+                "_x": -1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":56.25, "_y":243.75,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 1
+            }
+        },
+        {
+            "_x":56.25, "_y":318.75,
+            "_moveVector": {
+                "_x": 1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":206.25, "_y":318.75,
+            "_moveVector": {
+                "_x": 0,
+                "_y": -1
+            }
+        },
+        {
+            "_x":206.25, "_y":206.25,
+            "_moveVector": {
+                "_x": 1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":243.75, "_y":206.25,
+            "_moveVector": {
+                "_x": 0,
+                "_y": -1
+            }
+        },
+        {
+            "_x":243.75, "_y":131.25,
+            "_moveVector": {
+                "_x": -1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":168.75, "_y":131.25,
+            "_moveVector": {
+                "_x": 0,
+                "_y": -1
+            }
+        },
+        {
+            "_x":168.75, "_y":56.25,
+            "_moveVector": {
+                "_x": 1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":468.75, "_y":56.25,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 1
+            }
+        },
+        {
+            "_x":468.75, "_y":206.25,
+            "_moveVector": {
+                "_x": -1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":393.75, "_y":206.25,
+            "_moveVector": {
+                "_x": 0,
+                "_y": -1
+            }
+        },
+        {
+            "_x":393.75, "_y":131.25,
+            "_moveVector": {
+                "_x": -1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":318.75, "_y":131.25,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 1
+            }
+        },
+        {
+            "_x":318.75, "_y":318.75,
+            "_moveVector": {
+                "_x": 1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":543.75, "_y":318.75,
+            "_moveVector": {
+                "_x": 0,
+                "_y": -1
+            }
+        },
+        {
+            "_x":543.75, "_y":93.75,
+            "_moveVector": {
+                "_x": 1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":618.75, "_y":93.75,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 1
+            }
+        },
+        {
+            "_x":618.75, "_y":393.75,
+            "_moveVector": {
+                "_x": -1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":356.25, "_y":393.75,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 1
+            }
+        },
+        {
+            "_x":356.25, "_y":468.75,
+            "_moveVector": {
+                "_x": -1,
+                "_y": 0
+            }
+        },
+        {
+            "_x":0, "_y":468.75,
+            "_moveVector": {
+                "_x": 0,
+                "_y": 0
+            }
+        }
+    ],
+    "towerListJSON": [],
+    "bulletListJSON": [],
+    "enemyListJSON": []
+}

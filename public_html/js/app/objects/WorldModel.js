@@ -26,32 +26,32 @@ app.objects.WorldModel = function WorldModel() {
      * @property _bulletList
      * @type {app.objects.BulletList}
      */
-    this._bulletList = null;
+    this._bulletList = new app.objects.BulletList();
     
     /**
      * @property _towerList
      * @type {app.objects.TowerList}
      */
-    this._towerList = null;
+    this._towerList = new app.objects.TowerList();
     
     /**
      * @property _enemyList
      * @type {app.objects.EnemyList}
      */
-    this._enemyList = null;
+    this._enemyList = new app.objects.EnemyList();
     
     /**
      * @property _checkpointList
      * @type {app.objects.CheckpointList}
      */
-    this._checkpointList = null;
+    this._checkpointList = new app.objects.CheckpointList();
     
     /**
      * 
      * @property _map
      * @type {app.objects.Map}
      */
-    this._map = null;
+    this._map = new app.objects.Map();
 };
 
 /**

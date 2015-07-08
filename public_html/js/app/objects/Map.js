@@ -24,7 +24,7 @@ var Utils = Utils || {};
  * @param {Number} height
  * @param {Number} fieldWidth
  * @param {Number} fieldHeight
- * 
+ * @param {String} mapUrl
  */
 app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, mapUrl) {
 

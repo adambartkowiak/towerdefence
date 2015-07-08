@@ -67,6 +67,9 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
     var tower = towerList.getTowerByPosition(towerX, towerY);
     var towerType = 0;
     
+    
+    console.log("\"_x\":" + towerX + ", \"_y\":" + towerY + ",");
+    
     mapModel.setSelectedField(mapField);
 
     //nie mmay odpalonego menu edycji wiezy
@@ -75,7 +78,7 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
             if ( this._hudModel.getCash()>=200){
                 towerList.addTower(new app.objects.Tower(towerX, towerY, 0, 0, towerType));
                 mapField.setEmpty(false);
-                this._hudModel.setCash(this._hudModel.getCash()-200);
+                //this._hudModel.setCash(this._hudModel.getCash()-200);
             }
         } else {
             if (tower !== null){

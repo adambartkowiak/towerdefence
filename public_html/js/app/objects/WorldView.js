@@ -247,35 +247,36 @@ app.objects.WorldView.prototype._drawMap = function _drawMap(map){
     var x, y, maxX = map.getWidth(), maxY = map.getHeight();
     var mapField;
     
-    this.canvasContext.beginPath();
-    this.canvasContext.textAlign="center";
-    this.canvasContext.textBaseline="middle"; 
     
     this.canvasContext.drawImage(this._backgroundImage, 0, 0, 700, 500);
     
-    for (x = 0; x<maxX; x++){
-        for (y = 0; y<maxY; y++){
-            
-            mapField = map.getField(x, y);
-            
-            this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
-            
-            if(mapField.getAllowBuild()){
-                this.canvasContext.fillStyle = '#99FF99';
-                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-            } else {
-                this.canvasContext.fillStyle = '#FF9999';
-                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-            }
-            
-            if (mapField === map.getSelectedField()){
-                this.canvasContext.fillStyle = '#FFFFFF';
-                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-            }
-            
-        }
-    }
-    this.canvasContext.lineWidth = 0.5;
-    this.canvasContext.stroke();
+//    this.canvasContext.beginPath();
+//    this.canvasContext.textAlign="center";
+//    this.canvasContext.textBaseline="middle"; 
+//    
+//    for (x = 0; x<maxX; x++){
+//        for (y = 0; y<maxY; y++){
+//            
+//            mapField = map.getField(x, y);
+//            
+//            this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
+//            
+//            if(mapField.getAllowBuild()){
+//                this.canvasContext.fillStyle = '#99FF99';
+//                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+//            } else {
+//                this.canvasContext.fillStyle = '#FF9999';
+//                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+//            }
+//            
+//            if (mapField === map.getSelectedField()){
+//                this.canvasContext.fillStyle = '#FFFFFF';
+//                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+//            }
+//            
+//        }
+//    }
+//    this.canvasContext.lineWidth = 0.5;
+//    this.canvasContext.stroke();
     
 };

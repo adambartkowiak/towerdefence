@@ -67,8 +67,7 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
     var tower = towerList.getTowerByPosition(towerX, towerY);
     var towerType = 0;
     
-    
-    console.log("\"_x\":" + towerX + ", \"_y\":" + towerY + ",");
+    //console.log("\"_x\":" + towerX + ", \"_y\":" + towerY + ",");
     
     mapModel.setSelectedField(mapField);
 

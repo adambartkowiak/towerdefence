@@ -17,7 +17,7 @@ app.loadGameSave = function loadGameSave(saveGameName){
         app.loadGameFromJson(response);
         mapIsReady = true;
      }, saveGameName);
-}
+};
 
 app.loadGameSave("assets/gamesaves/gamesave2.json");
 

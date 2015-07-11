@@ -52,6 +52,13 @@ app.objects.WorldModel = function WorldModel() {
      * @type {app.objects.Map}
      */
     this._map = new app.objects.Map();
+    
+    /**
+     * 
+     * @property _objectScale
+     * @type {Number}
+     */
+    this._objectScale = 1;
 };
 
 /**
@@ -105,6 +112,15 @@ app.objects.WorldModel.prototype.getMap = function getMap(){
 };
 
 /**
+ * @methodName getObjectScale
+ * @public
+ * @return {Number}
+ */
+app.objects.WorldModel.prototype.getObjectScale = function getObjectScale(){
+    return this._objectScale;
+};
+
+/**
  * @methodName setTowerList
  * @param {app.objects.TowerList} towerList
  * @public
@@ -147,4 +163,13 @@ app.objects.WorldModel.prototype.setCheckpointList = function setCheckpointList(
  */
 app.objects.WorldModel.prototype.setMap = function setMap(map){
     this._map = map;
+};
+
+/**
+ * @methodName setObjectScale
+ * @public
+ * @param {Number} objectScale
+ */
+app.objects.WorldModel.prototype.setObjectScale = function setObjectScale(objectScale){
+    this._objectScale = objectScale;
 };

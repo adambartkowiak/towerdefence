@@ -120,7 +120,6 @@ app.objects.WorldView.prototype.draw = function draw(logicFrames){
         map = this._worldModel.getMap();
 
         this._backgroundImage.src = map.getMapUrl();
-
         this.canvasContext.clearRect ( 0 , 0 , this.canvas.width, this.canvas.height );
         
         this.canvasContext.fillStyle = '#999999';
@@ -173,7 +172,11 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList){
         this.canvasContext.rect(enemy.getX()-hp/6,enemy.getY()-20,hp/3,4);
         
         //enemy
-        this._image.drawRotateImage(this.canvasContext, this._enemyImage[enemy.getType()], enemy.getX(), enemy.getY(), enemy.getAngle());
+        this.canvasContext.scale(this._worldModel.getObjectScale(),this._worldModel.getObjectScale());
+        
+        this._image.drawRotateImage(this.canvasContext, this._enemyImage[enemy.getType()], enemy.getX()/this._worldModel.getObjectScale(), enemy.getY()/this._worldModel.getObjectScale(), enemy.getAngle());
+        
+        this.canvasContext.scale(1/this._worldModel.getObjectScale(),1/this._worldModel.getObjectScale());
     }
     
     this.canvasContext.lineWidth = 1;
@@ -197,8 +200,12 @@ app.objects.WorldView.prototype._drawTowers = function _drawTowers(towerList){
     for (i=0; i<max; i++){
         tower = towerList.getTower(i);
         
-        this._image.drawRotateImage(this.canvasContext, this._towerHolderImage, tower.getX(), tower.getY(), 0);
-        this._image.drawRotateImage(this.canvasContext, this._towerImage[tower.getType()], tower.getX(), tower.getY(), tower.getAngle());
+        this.canvasContext.scale(this._worldModel.getObjectScale(),this._worldModel.getObjectScale());
+        
+        this._image.drawRotateImage(this.canvasContext, this._towerHolderImage, tower.getX()/this._worldModel.getObjectScale(), tower.getY()/this._worldModel.getObjectScale(), 0);
+        this._image.drawRotateImage(this.canvasContext, this._towerImage[tower.getType()], tower.getX()/this._worldModel.getObjectScale(), tower.getY()/this._worldModel.getObjectScale(), tower.getAngle());
+        
+        this.canvasContext.scale(1/this._worldModel.getObjectScale(),1/this._worldModel.getObjectScale());
     }
 };
 
@@ -217,7 +224,11 @@ app.objects.WorldView.prototype._drawBullets = function _drawBullets(bulletList)
         bullet = bulletList.getBullet(i);
 
         //bullet
-        this._image.drawRotateImage(this.canvasContext, this._bulletImage[bullet.getType()], bullet.getX(), bullet.getY(), bullet.getAngle());
+        this.canvasContext.scale(this._worldModel.getObjectScale(),this._worldModel.getObjectScale());
+        
+        this._image.drawRotateImage(this.canvasContext, this._bulletImage[bullet.getType()], bullet.getX()/this._worldModel.getObjectScale(), bullet.getY()/this._worldModel.getObjectScale(), bullet.getAngle());
+        
+        this.canvasContext.scale(1/this._worldModel.getObjectScale(),1/this._worldModel.getObjectScale());
     }
 };
 
@@ -250,33 +261,33 @@ app.objects.WorldView.prototype._drawMap = function _drawMap(map){
     
     this.canvasContext.drawImage(this._backgroundImage, 0, 0, 700, 500);
     
-//    this.canvasContext.beginPath();
-//    this.canvasContext.textAlign="center";
-//    this.canvasContext.textBaseline="middle"; 
-//    
-//    for (x = 0; x<maxX; x++){
-//        for (y = 0; y<maxY; y++){
-//            
-//            mapField = map.getField(x, y);
-//            
-//            this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
-//            
-//            if(mapField.getAllowBuild()){
-//                this.canvasContext.fillStyle = '#99FF99';
-//                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-//            } else {
-//                this.canvasContext.fillStyle = '#FF9999';
-//                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-//            }
-//            
-//            if (mapField === map.getSelectedField()){
-//                this.canvasContext.fillStyle = '#FFFFFF';
-//                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
-//            }
-//            
-//        }
-//    }
-//    this.canvasContext.lineWidth = 0.5;
-//    this.canvasContext.stroke();
+    this.canvasContext.beginPath();
+    this.canvasContext.textAlign="center";
+    this.canvasContext.textBaseline="middle"; 
+    
+    for (x = 0; x<maxX; x++){
+        for (y = 0; y<maxY; y++){
+            
+            mapField = map.getField(x, y);
+            
+            this.canvasContext.rect(x*map.getFieldWidth(),y*map.getFieldHeight(),map.getFieldWidth(),map.getFieldHeight());
+            
+            if(mapField.getAllowBuild()){
+                this.canvasContext.fillStyle = '#99FF99';
+                this.canvasContext.fillText("Y", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+            } else {
+                this.canvasContext.fillStyle = '#FF9999';
+                this.canvasContext.fillText("N", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+            }
+            
+            if (mapField === map.getSelectedField()){
+                this.canvasContext.fillStyle = '#FFFFFF';
+                this.canvasContext.fillText("SELECT", x*map.getFieldWidth()+map.getFieldWidth()*0.5, y*map.getFieldHeight()+map.getFieldHeight()*0.5);
+            }
+            
+        }
+    }
+    this.canvasContext.lineWidth = 0.5;
+    this.canvasContext.stroke();
     
 };

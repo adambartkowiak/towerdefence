@@ -19,8 +19,6 @@ var Utils = Utils || {};
  * @namespace support
  */
 support.Loader = function Loader() {
-
-    var that = this;
 };
 
 /**

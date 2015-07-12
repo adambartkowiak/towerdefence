@@ -24,51 +24,48 @@ var Utils = Utils || {};
  * @param {Number} y
  * @param {Number} range
  * @param {Number} rate
- * @param {Number} type
+ * @param {app.objects.Bullet} bullet
+ * @param {String} graphicUrl
  * 
  */
-app.objects.Tower = function Tower(x, y, range, rate, type) {
+app.objects.Tower = function Tower(x, y, range, rate, bullet, graphicUrl) {
 
     support.geom.Point2d.call(this, x, y);
 
     /**
-     * @property _range
-     * @type Number
+     * @property {Number} _range
      */
     this._range = range;
 
     /**
-     * @property _rate
-     * @type Number
+     * @property {Number} _rate
      */
     this._rate = rate;
 
     /**
-     * @property _type
-     * @type Number
+     * @property {String} _graphicUrl
      */
-    this._type = type;
+    this._graphicUrl = graphicUrl;
     
     /**
-     * @property _cooldown
-     * @type Number
+     * @property {app.objects.Bullet} _bullet
+     */
+    this._bullet = bullet;
+    
+    /**
+     * @property {Number} _cooldown
      */
     this._cooldown = 0;
     
     /**
-     * @property _angle
-     * @type Number
+     * @property {Number} _angle
      */
     this._angle = 0;
     
     /**
-     * @property _guid
-     * @type Number
+     * @property {Number} _guid
      */
     this._guid = Math.random();
-    
-    
-    
     
 };
 
@@ -76,6 +73,70 @@ app.objects.Tower = function Tower(x, y, range, rate, type) {
  * @inheritance
  */
 Utils.inherits(app.objects.Tower, support.geom.Point2d);
+
+/**
+ * @methodName getRange
+ * @return {Number} range
+ */
+app.objects.Tower.prototype.getRange = function getRange() {
+    return this._range;
+};
+
+/**
+ * @methodName setRange
+ * @param {Number} range
+ */
+app.objects.Tower.prototype.setRange = function setRange(range) {
+    this._range = range;
+};
+
+/**
+ * @methodName getRate
+ * @return {Number} rate
+ */
+app.objects.Tower.prototype.getRate = function getRate() {
+    return this._rate;
+};
+
+/**
+ * @methodName setRate
+ * @param {Number} rate
+ */
+app.objects.Tower.prototype.setRate = function setRate(rate) {
+    this._rate = rate;
+};
+
+/**
+ * @methodName getGraphicUrl
+ * @return {String} graphicUrl
+ */
+app.objects.Tower.prototype.getGraphicUrl = function getGraphicUrl() {
+    return this._graphicUrl;
+};
+
+/**
+ * @methodName setGraphicUrl
+ * @param {String} graphicUrl
+ */
+app.objects.Tower.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
+    this._graphicUrl = graphicUrl;
+};
+
+/**
+ * @methodName getBullet
+ * @return {app.objects.Bullet} bullet
+ */
+app.objects.Tower.prototype.getBullet = function getBullet() {
+    return this._bullet;
+};
+
+/**
+ * @methodName setBullet
+ * @param {app.objects.Bullet} bullet
+ */
+app.objects.Tower.prototype.setBullet = function setBullet(bullet) {
+    this._bullet = bullet;
+};
 
 /**
  * @methodName getCooldown
@@ -107,22 +168,6 @@ app.objects.Tower.prototype.getAngle = function getAngle() {
  */
 app.objects.Tower.prototype.setAngle = function setAngle(angle) {
     this._angle = angle;
-};
-
-/**
- * @methodName getType
- * @return {Number} type
- */
-app.objects.Tower.prototype.getType = function getType() {
-    return this._type;
-};
-
-/**
- * @methodName setType
- * @param {Number} type
- */
-app.objects.Tower.prototype.setType = function setType(type) {
-    this._type = type;
 };
 
 /**

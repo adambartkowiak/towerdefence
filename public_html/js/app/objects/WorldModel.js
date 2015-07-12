@@ -23,42 +23,41 @@ var Utils = Utils || {};
 app.objects.WorldModel = function WorldModel() {
 
     /**
-     * @property _bulletList
-     * @type {app.objects.BulletList}
+     * @property {Number} BASICSIZE
+     */
+    this.BASICSIZE = 50;
+    
+    /**
+     * @property {Number} BASICSIZE
+     */
+    this.SIZEPROPORTION = 1;
+    
+    
+    /**
+     * @property {app.objects.BulletList} _bulletList
      */
     this._bulletList = new app.objects.BulletList();
     
     /**
-     * @property _towerList
-     * @type {app.objects.TowerList}
+     * @property {app.objects.TowerList} _towerList
      */
     this._towerList = new app.objects.TowerList();
     
     /**
-     * @property _enemyList
-     * @type {app.objects.EnemyList}
+     * @property {app.objects.EnemyList} _enemyList
      */
     this._enemyList = new app.objects.EnemyList();
     
     /**
-     * @property _checkpointList
-     * @type {app.objects.CheckpointList}
+     * @property {app.objects.CheckpointList} _checkpointList
      */
     this._checkpointList = new app.objects.CheckpointList();
     
     /**
      * 
-     * @property _map
-     * @type {app.objects.Map}
+     * @property {app.objects.Map} _map
      */
     this._map = new app.objects.Map();
-    
-    /**
-     * 
-     * @property _objectScale
-     * @type {Number}
-     */
-    this._objectScale = 1;
 };
 
 /**
@@ -112,15 +111,6 @@ app.objects.WorldModel.prototype.getMap = function getMap(){
 };
 
 /**
- * @methodName getObjectScale
- * @public
- * @return {Number}
- */
-app.objects.WorldModel.prototype.getObjectScale = function getObjectScale(){
-    return this._objectScale;
-};
-
-/**
  * @methodName setTowerList
  * @param {app.objects.TowerList} towerList
  * @public
@@ -165,11 +155,12 @@ app.objects.WorldModel.prototype.setMap = function setMap(map){
     this._map = map;
 };
 
+
+
 /**
- * @methodName setObjectScale
+ * @methodName onMapLoadingEnd
  * @public
- * @param {Number} objectScale
  */
-app.objects.WorldModel.prototype.setObjectScale = function setObjectScale(objectScale){
-    this._objectScale = objectScale;
+app.objects.WorldModel.prototype.onMapLoadingEnd = function onMapLoadingEnd(){
+    this.SIZEPROPORTION = this._map.getFieldWidth() / this.BASICSIZE;
 };

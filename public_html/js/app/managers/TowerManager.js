@@ -86,9 +86,8 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                 moveVector = new support.geom.SimpleVector2d(dX, dY);
                 moveVectorLength = moveVector.getVectorLength();
 
-                if (moveVectorLength < 200){
+                if (moveVectorLength < tower.getRange()*worldModel.SIZEPROPORTION){
                     
-                    //TODO: refaktoring
                     var normalizedVector = moveVector.getNormalizedVector();
                     
                     //wpisanie angle do wiezy
@@ -96,10 +95,9 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
         
                     if(tower.getCooldown() === 0){
                         var target = new app.objects.Target(0, 0, enemy.getGuid());
-                        var bulletType = tower.getType();
-                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 300, (tower.getType()+1)*2, bulletType);
+                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 300, 5, "assets/images/bullet0.png");
                         this._bulletList.addBullet(bullet);
-                        tower.setCooldown(200);
+                        tower.setCooldown(tower.getRate());
                     }
                     //jezeli przeciwnik jest w zasiegu - to juz nie sprawdza kolejnych przeciwnikow.
                     //bo albo odda strzal albo nie.

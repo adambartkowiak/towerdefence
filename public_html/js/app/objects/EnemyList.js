@@ -116,7 +116,7 @@ app.objects.EnemyList.prototype.loadEnemyListFromJson = function loadEnemyListFr
     for(var i=0; i<myJson.length; i++){
         jsonEnemy = myJson[i];
         var newMoveVector = new support.geom.SimpleVector2d(jsonEnemy._moveVector._x, jsonEnemy._moveVector._y);
-        var newEnemy = new app.objects.Enemy(jsonEnemy._x, jsonEnemy._y, jsonEnemy._hp, jsonEnemy._speed, jsonEnemy._type);
+        var newEnemy = new app.objects.Enemy(jsonEnemy._x, jsonEnemy._y, jsonEnemy._hp, jsonEnemy._speed, jsonEnemy._graphicUrl);
         newEnemy.setAngle(jsonEnemy._angle);
         newEnemy.setMoveVector(newMoveVector);
         newEnemy.setCurrentHp(jsonEnemy._currentHp);

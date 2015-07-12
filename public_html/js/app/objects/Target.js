@@ -30,8 +30,7 @@ app.objects.Target = function Target(x, y, enemyGuid) {
     support.geom.Point2d.call(this, x, y);
 
     /**
-     * @property _range
-     * @type Number
+     * @property {Number} _range 
      */
     this._enemyGuid = enemyGuid;
 

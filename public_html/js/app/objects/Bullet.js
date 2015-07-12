@@ -25,42 +25,37 @@ var Utils = Utils || {};
  * @param {app.objects.Target} target
  * @param {Number} speed
  * @param {Number} damage
- * @param {Number} type
+ * @param {String} graphicUrl
  * 
  */
-app.objects.Bullet = function Bullet(x, y, target, speed, damage, type) {
+app.objects.Bullet = function Bullet(x, y, target, speed, damage, graphicUrl) {
 
     support.geom.Point2d.call(this, x, y);
     
     /**
-     * @property _target
-     * @type Number
+     * @property {app.objects.Target} _target
      */
     this._target = target;
 
     /**
-     * @property _speed
-     * @type Number
+     * @property {Number} _speed
      */
     this._speed = speed;
 
     /**
-     * @property _damage
-     * @type Number
+     * @property {Number} _damage 
      */
     this._damage = damage;
     
     /**
-     * @property _angle
-     * @type Number
+     * @property {Number} _angle
      */
     this._angle;
     
     /**
-     * @property _type
-     * @type Number
+     * @property {String} _graphicUrl
      */
-    this._type = type;
+    this._graphicUrl = graphicUrl;
 
 };
 
@@ -110,22 +105,6 @@ app.objects.Bullet.prototype.setSpeed = function setSpeed(speed) {
 };
 
 /**
- * @methodName getType
- * @return {Number} type
- */
-app.objects.Bullet.prototype.getType = function getType() {
-    return this._type;
-};
-
-/**
- * @methodName setType
- * @param {Number} type
- */
-app.objects.Bullet.prototype.setType = function setType(type) {
-    this._type = type;
-};
-
-/**
  * @methodName getDamage
  * @return {Number} damage
  */
@@ -139,4 +118,20 @@ app.objects.Bullet.prototype.getDamage = function getDamage() {
  */
 app.objects.Bullet.prototype.setDamage = function setDamage(damage) {
     this._damage = damage;
+};
+
+/**
+ * @methodName getGraphicUrl
+ * @return {String} graphicUrl
+ */
+app.objects.Bullet.prototype.getGraphicUrl = function getGraphicUrl() {
+    return this._graphicUrl;
+};
+
+/**
+ * @methodName setGraphicUrl
+ * @param {String} graphicUrl
+ */
+app.objects.Bullet.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
+    this._graphicUrl = graphicUrl;
 };

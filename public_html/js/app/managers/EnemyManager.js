@@ -27,14 +27,12 @@ var Utils = Utils || {};
 app.managers.EnemyManager = function EnemyManager(enemyList, checkpointList) {
 
     /**
-     * @property _enemyList
-     * @type app.objects.EnemyList
+     * @property {app.objects.EnemyList} _enemyList
      */
     this._enemyList = enemyList;
     
     /**
-     * @property _checkpointList
-     * @type app.objects.CheckpointList
+     * @property {app.objects.CheckpointList} _checkpointList
      */
     this._checkpointList = checkpointList;
 
@@ -79,7 +77,7 @@ app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(timeDelta){
             dVector = new support.geom.SimpleVector2d(dX, dY);
             
             
-            if (dVector.getVectorLength() < 5){
+            if (dVector.getVectorLength() < 5*worldModel.SIZEPROPORTION){
                 //zmien kierunek
                 checkpointMoveVector = checkpoint.getMoveVector();
                 
@@ -95,8 +93,8 @@ app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(timeDelta){
             //wpisanie angle do wiezy
             enemy.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+0);
 
-            enemy.setX(enemyX + normalizedVector.getX()*timeDelta/1000*enemy.getSpeed());
-            enemy.setY(enemyY + normalizedVector.getY()*timeDelta/1000*enemy.getSpeed());   
+            enemy.setX(enemyX + normalizedVector.getX()*timeDelta/1000*enemy.getSpeed()*worldModel.SIZEPROPORTION);
+            enemy.setY(enemyY + normalizedVector.getY()*timeDelta/1000*enemy.getSpeed()*worldModel.SIZEPROPORTION);   
         } else {
             enemy.setCurrentHp(0);
         }

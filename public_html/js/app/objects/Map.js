@@ -24,10 +24,10 @@ var Utils = Utils || {};
  * @param {Number} height
  * @param {Number} fieldWidth
  * @param {Number} fieldHeight
- * @param {String} mapUrl
+ * @param {String} graphicUrl
  */
-app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, mapUrl) {
-
+app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, graphicUrl) {
+    
     /**
      * @property {Number} _width
      */
@@ -39,14 +39,14 @@ app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, mapUrl) {
     this._height = height;
     
     /**
-     * @property {Number} _height
+     * @property {Number} _fieldWidth
      */
     this._fieldWidth = fieldWidth;
         
     /**
      * @property {String} _mapUrl
      */
-    this._mapUrl = mapUrl;
+    this._graphicUrl = graphicUrl;
     
     /**
      * @property {Number} _height
@@ -62,6 +62,7 @@ app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, mapUrl) {
      * @property {app.objects.MapField} _selectedField
      */
     this._selectedField;
+    
     
 };
 
@@ -161,19 +162,19 @@ app.objects.Map.prototype.setSelectedField = function setSelectedField(mapField)
 };
 
 /**
- * @methodName getMapUrl
+ * @methodName getGraphicUrl
  * @return {String} mapUrl
  */
-app.objects.Map.prototype.getMapUrl = function getMapUrl() {
-    return this._mapUrl;
+app.objects.Map.prototype.getGraphicUrl = function getGraphicUrl() {
+    return this._graphicUrl;
 };
 
 /**
- * @methodName setMapUrl
- * @param {String} mapUrl
+ * @methodName setGraphicUrl
+ * @param {String} graphicUrl
  */
-app.objects.Map.prototype.setMapUrl = function setMapUrl(mapUrl) {
-    this._mapUrl = mapUrl;
+app.objects.Map.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
+    this._graphicUrl = graphicUrl;
 };
 
 /**
@@ -207,7 +208,7 @@ app.objects.Map.prototype.loadMapModelFromJson = function loadMapModelFromJson(j
     this._fieldWidth = myJson._fieldWidth;
     this._fieldHeight = myJson._fieldHeight;
     this._selectedField = null;
-    this._mapUrl = myJson._mapUrl;
+    this._graphicUrl = myJson._graphicUrl;
     
     for (var i=0; i<myJson._fields.length; i++){
         
@@ -218,6 +219,8 @@ app.objects.Map.prototype.loadMapModelFromJson = function loadMapModelFromJson(j
         
         this._fields.push(newField);
     }
+    
+    worldModel.onMapLoadingEnd();
 };
 
 /**

@@ -38,6 +38,11 @@ app.objects.HudModel = function HudModel(score, cash) {
     this._cash = cash;
     
     /**
+     * @property {String} _menuGraphicUrl
+     */
+    this._menuGraphicUrl= "assets/images/menuBackground.png";
+    
+    /**
      * @property {Number} _towerMenu
      */
     this._towerMenuByGuid = -1;
@@ -104,6 +109,22 @@ app.objects.HudModel.prototype.getCash = function getCash() {
  */
 app.objects.HudModel.prototype.setCash = function setCash(cash) {
     this._cash = cash;
+};
+
+/**
+ * @methodName getMenuGraphicUrl
+ * @return {String} cash
+ */
+app.objects.HudModel.prototype.getMenuGraphicUrl = function getMenuGraphicUrl() {
+    return this._menuGraphicUrl;
+};
+
+/**
+ * @methodName setMenuGraphicUrl
+ * @param {Number} menuGraphicUrl
+ */
+app.objects.HudModel.prototype.setMenuGraphicUrl = function setMenuGraphicUrl(menuGraphicUrl) {
+    this._menuGraphicUrl = menuGraphicUrl;
 };
 
 /**

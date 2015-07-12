@@ -104,7 +104,7 @@ app.objects.BulletList.prototype.loadBulletListFromJson = function loadBulletLis
         jsonBullet = myJson[i];
         
         var newTarget = new app.objects.Target(jsonBullet._target._x, jsonBullet._target._y, jsonBullet._target._enemyGuid);
-        var newBullet = new app.objects.Bullet(jsonBullet._x, jsonBullet._y, newTarget, jsonBullet._speed, jsonBullet._damage, jsonBullet._type);
+        var newBullet = new app.objects.Bullet(jsonBullet._x, jsonBullet._y, newTarget, jsonBullet._speed, jsonBullet._damage, jsonBullet._graphicUrl);
         newBullet.setAngle(jsonBullet._angle);
         
         this.addBullet(newBullet);

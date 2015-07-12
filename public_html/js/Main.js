@@ -19,7 +19,7 @@ app.loadGameSave = function loadGameSave(saveGameName){
      }, saveGameName);
 };
 
-app.loadGameSave("assets/gamesaves/gamesave2.json");
+app.loadGameSave("assets/gamesaves/custom1.json");
 
 //MANAGERY
 var bulletManager = new app.managers.BulletManager(worldModel.getBulletList(), worldModel.getEnemyList(), hudModel);
@@ -38,7 +38,7 @@ mouse.initMouse();
 //LOGIKA GRY
 var logicFrames = 0;
 var totalTimeDelta = 0;
-var nextEnemyMilis = 1500;
+var nextEnemyMilis = 500;
 setInterval(function(){ 
     
     if (!mapIsReady){
@@ -64,7 +64,7 @@ setInterval(function(){
         var enemyHp = hpBaseValue * (enemyType + 1);
         
         //Dodawanie przeciwnika
-        worldModel.getEnemyList().addEnemy(new app.objects.Enemy(worldModel.getCheckpointList().getCheckpoint(0).getX(), worldModel.getCheckpointList().getCheckpoint(0).getY(), enemyHp, enemySpeed, enemyType));
+        worldModel.getEnemyList().addEnemy(new app.objects.Enemy(worldModel.getCheckpointList().getCheckpoint(0).getX(), worldModel.getCheckpointList().getCheckpoint(0).getY(), enemyHp, enemySpeed, "assets/images/enemy0.png"));
         totalTimeDelta -= nextEnemyMilis;
     }
     

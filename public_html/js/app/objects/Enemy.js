@@ -24,52 +24,45 @@ var Utils = Utils || {};
  * @param {Number} y
  * @param {Number} hp
  * @param {Number} speed
- * @param {Number} type
+ * @param {String} graphicUrl
  * 
  */
-app.objects.Enemy = function Enemy(x, y, hp, speed, type) {
+app.objects.Enemy = function Enemy(x, y, hp, speed, graphicUrl) {
 
     support.geom.Point2d.call(this, x, y);
 
     /**
-     * @property _hp
-     * @type Number
+     * @property {Number} _hp
      */
     this._hp = hp;
     
     /**
-     * @property _currentHp
-     * @type Number
+     * @property {Number} _currentHp
      */
     this._currentHp = this._hp;
 
     /**
-     * @property _speed
-     * @type Number
+     * @property {Number} _speed
      */
     this._speed = speed;
-    
+
     /**
-     * @property _type
-     * @type Number
+     * @property {String} _graphicUrl
      */
-    this._type = type;
+    this._graphicUrl = graphicUrl;
     
     /**
-     * @property _type
-     * @type support.geom.SimpleVector2d
+     * @property {support.geom.SimpleVector2d} _type
      */
     this._moveVector = new support.geom.SimpleVector2d(0,0);
     
     /**
-     * @property _angle
-     * @type Number
+     * @property {Number} _angle
      */
     this._angle = 0;
     
     /**
-     * @property _guid
-     * @type String
+     * @property {String} _guid
      */
     this._guid = Math.random();
 };
@@ -184,17 +177,17 @@ app.objects.Enemy.prototype.setMoveVector = function setMoveVector(moveVector) {
 };
 
 /**
- * @methodName getType
- * @return {Number} type
+ * @methodName getGraphicUrl
+ * @return {String} graphicUrl
  */
-app.objects.Enemy.prototype.getType = function getType() {
-    return this._type;
+app.objects.Enemy.prototype.getGraphicUrl = function getGraphicUrl() {
+    return this._graphicUrl;
 };
 
 /**
- * @methodName setMoveVector
- * @param {Number} type
+ * @methodName setGraphicUrl
+ * @param {String} graphicUrl
  */
-app.objects.Enemy.prototype.setType = function setType(type) {
-    this._type = type;
+app.objects.Enemy.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
+    this._graphicUrl = graphicUrl;
 };

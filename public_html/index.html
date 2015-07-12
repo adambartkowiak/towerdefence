@@ -11,7 +11,16 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <canvas style="margin:0 auto 0 auto;display:block;background:#AAAAAA" id="map" width="900" height="500" style=""></canvas>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=718520094854936";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        
+        <canvas style="margin:0 auto 0 auto;display:block;background:#AAAAAA" id="map" width="760" height="500" style=""></canvas>
         <div>HTML5 GAME</div>
         
         <!-- Utils -->
@@ -59,5 +68,11 @@ and open the template in the editor.
         <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
         
         <script type="text/javascript" src="js/Main.js"></script>
+        
+        
+        
+        
+        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+        
     </body>
 </html>

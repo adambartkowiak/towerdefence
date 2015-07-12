@@ -92,8 +92,8 @@ app.managers.BulletManager.prototype.moveBullets = function moveBullets(timeDelt
         //ustawienie obrotu strzaly na podstawie vektora znormalizowanego
         bullet.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
         
-        bullet.setX(bullet.getX() + normalizedVector.getX()*timeDelta/1000*bullet.getSpeed());
-        bullet.setY(bullet.getY() + normalizedVector.getY()*timeDelta/1000*bullet.getSpeed());
+        bullet.setX(bullet.getX() + normalizedVector.getX()*timeDelta/1000*bullet.getSpeed()*worldModel.SIZEPROPORTION);
+        bullet.setY(bullet.getY() + normalizedVector.getY()*timeDelta/1000*bullet.getSpeed()*worldModel.SIZEPROPORTION);
     }
     
 };
@@ -136,7 +136,7 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
         moveVector = new support.geom.SimpleVector2d(dX, dY);
         
         //remove bullet after hit target
-        if (moveVector.getVectorLength() < 5){
+        if (moveVector.getVectorLength() < 5*worldModel.SIZEPROPORTION){
             arrayToRemove.push(bulletIndex);
             if (enemy !== null){
                 currentHp = enemy.getCurrentHp();

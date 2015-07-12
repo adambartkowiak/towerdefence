@@ -42,6 +42,13 @@ app.objects.HudView = function HudView(canvas, hudModel) {
      */
     this._hudModel = hudModel;
     
+    
+    /**
+     * @type {Image}
+     */
+    this._menuGraphicBackgroundImage = new Image();
+    this._menuGraphicBackgroundImage.src = this._hudModel.getMenuGraphicUrl();
+    
     /**
      * @type {Image}
      */
@@ -76,6 +83,8 @@ Utils.inherits(app.objects.HudView, Object);
  * @public
  */
 app.objects.HudView.prototype.draw = function draw(){
+    
+    this.canvasContext.drawImage(this._menuGraphicBackgroundImage, 700, 0, 200, 500);
     
     this.canvasContext.fillText("SCORE: " + this._hudModel.getScore(), 710, 10);
     this.canvasContext.fillText("CASH: " + this._hudModel.getCash(), 710, 30);

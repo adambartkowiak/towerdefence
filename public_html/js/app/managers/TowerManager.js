@@ -22,26 +22,23 @@ var Utils = Utils || {};
  * @namespace app.managers
  * @param {app.objects.TowerList} towerList
  * @param {app.objects.EnemyList} enemyList
- * @param {app.objects.EnemyList} bulletList
+ * @param {app.objects.BulletList} bulletList
  * 
  */
 app.managers.TowerManager = function TowerManager(towerList, enemyList, bulletList) {
 
     /**
-     * @property _bulletList
-     * @type Number
+     * @property {app.objects.TowerList} _towerList
      */
     this._towerList = towerList;
 
     /**
-     * @property _enemyList
-     * @type Number
+     * @property {app.objects.EnemyList} _enemyList
      */
     this._enemyList = enemyList;
     
     /**
-     * @property _bulletList
-     * @type Number
+     * @property {app.objects.BulletList} _bulletList
      */
     this._bulletList = bulletList;
 
@@ -94,8 +91,9 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                     tower.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
         
                     if(tower.getCooldown() === 0){
+                        var bulletTemplate = tower.getBullet();
                         var target = new app.objects.Target(0, 0, enemy.getGuid());
-                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, 300, 5, "assets/images/bullet0.png");
+                        var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, bulletTemplate.getSpeed(), bulletTemplate.getDamage(), bulletTemplate.getGraphicUrl());
                         this._bulletList.addBullet(bullet);
                         tower.setCooldown(tower.getRate());
                     }

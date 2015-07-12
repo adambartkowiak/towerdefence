@@ -41,16 +41,16 @@ app.objects.Tower = function Tower(x, y, range, rate, bullet, graphicUrl) {
      * @property {Number} _rate
      */
     this._rate = rate;
-
-    /**
-     * @property {String} _graphicUrl
-     */
-    this._graphicUrl = graphicUrl;
     
     /**
      * @property {app.objects.Bullet} _bullet
      */
     this._bullet = bullet;
+
+    /**
+     * @property {String} _graphicUrl
+     */
+    this._graphicUrl = graphicUrl;
     
     /**
      * @property {Number} _cooldown
@@ -107,22 +107,6 @@ app.objects.Tower.prototype.setRate = function setRate(rate) {
 };
 
 /**
- * @methodName getGraphicUrl
- * @return {String} graphicUrl
- */
-app.objects.Tower.prototype.getGraphicUrl = function getGraphicUrl() {
-    return this._graphicUrl;
-};
-
-/**
- * @methodName setGraphicUrl
- * @param {String} graphicUrl
- */
-app.objects.Tower.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
-    this._graphicUrl = graphicUrl;
-};
-
-/**
  * @methodName getBullet
  * @return {app.objects.Bullet} bullet
  */
@@ -136,6 +120,22 @@ app.objects.Tower.prototype.getBullet = function getBullet() {
  */
 app.objects.Tower.prototype.setBullet = function setBullet(bullet) {
     this._bullet = bullet;
+};
+
+/**
+ * @methodName getGraphicUrl
+ * @return {String} graphicUrl
+ */
+app.objects.Tower.prototype.getGraphicUrl = function getGraphicUrl() {
+    return this._graphicUrl;
+};
+
+/**
+ * @methodName setGraphicUrl
+ * @param {String} graphicUrl
+ */
+app.objects.Tower.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
+    this._graphicUrl = graphicUrl;
 };
 
 /**

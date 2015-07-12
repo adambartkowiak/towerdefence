@@ -75,7 +75,8 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
     if (this._hudModel.getTowerGuidForCurrentMenu() === -1){
         if (mapField.getEmpty() === true){
             if ( this._hudModel.getCash()>=200){
-                towerList.addTower(new app.objects.Tower(towerX, towerY, 150, 500, "", "assets/images/tower0.png"));
+                var bullet = new app.objects.Bullet(0, 0, null, 150, 20, "assets/images/bullet0.png");
+                towerList.addTower(new app.objects.Tower(towerX, towerY, 150, 500, bullet, "assets/images/tower0.png"));
                 mapField.setEmpty(false);
                 //this._hudModel.setCash(this._hudModel.getCash()-200);
             }

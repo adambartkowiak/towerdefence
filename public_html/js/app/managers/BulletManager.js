@@ -28,20 +28,17 @@ var Utils = Utils || {};
 app.managers.BulletManager = function BulletManager(bulletList, enemyList, hudModel) {
 
     /**
-     * @property _bulletList
-     * @type Number
+     * @property {app.objects.BulletList} _bulletList
      */
     this._bulletList = bulletList;
 
     /**
-     * @property _enemyList
-     * @type Number
+     * @property {app.objects.EnemyList} _enemyList
      */
     this._enemyList = enemyList;
 
     /**
-     * @property _hudModel
-     * @type Number
+     * @property {app.objects.HudModel}_hudModel
      */
     this._hudModel = hudModel;
 

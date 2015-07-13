@@ -56,6 +56,11 @@ app.objects.Bullet = function Bullet(x, y, target, speed, damage, graphicUrl) {
      * @property {String} _graphicUrl
      */
     this._graphicUrl = graphicUrl;
+    
+    /**
+     * @property {support.geom.SimpleVector2d} _moveVector
+     */
+    this._moveVector = new support.geom.SimpleVector2d(0,0);
 
 };
 

@@ -109,7 +109,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
 
 /**
  * @methodName cooldownTimer
- * @@param {Number} timeDelta
+ * @param {Number} timeDelta
  */
 app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(timeDelta) {
     

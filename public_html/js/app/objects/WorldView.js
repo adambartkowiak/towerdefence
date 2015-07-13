@@ -135,10 +135,10 @@ app.objects.WorldView.prototype.draw = function draw(logicFrames){
         
         this.canvasContext.fillText(logicFrames, 10, 10);
         
-        this.canvasContext.fillText("towers: " + towers.length(), 800, 10);
-        this.canvasContext.fillText("enemies: " + enemies.length(), 800, 30);
-        this.canvasContext.fillText("bullets: " + bullets.length(), 800, 50);
-        this.canvasContext.fillText("checkpoints: " + checkpoints.length(), 800, 70);
+        this.canvasContext.fillText("towers: " + towers.length(), 500, 10);
+        this.canvasContext.fillText("enemies: " + enemies.length(), 500, 30);
+        this.canvasContext.fillText("bullets: " + bullets.length(), 500, 50);
+        this.canvasContext.fillText("checkpoints: " + checkpoints.length(), 500, 70);
 };
 
 /**

@@ -19,7 +19,7 @@ app.loadGameSave = function loadGameSave(saveGameName){
      }, saveGameName);
 };
 
-app.loadGameSave("assets/gamesaves/gamesave1.json");
+app.loadGameSave("assets/gamesaves/custom2.json");
 
 //MANAGERY
 var bulletManager = new app.managers.BulletManager(worldModel.getBulletList(), worldModel.getEnemyList(), hudModel);

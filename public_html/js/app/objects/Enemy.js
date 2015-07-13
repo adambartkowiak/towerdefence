@@ -52,7 +52,7 @@ app.objects.Enemy = function Enemy(x, y, hp, speed, graphicUrl) {
     this._graphicUrl = graphicUrl;
     
     /**
-     * @property {support.geom.SimpleVector2d} _type
+     * @property {support.geom.SimpleVector2d} _moveVector
      */
     this._moveVector = new support.geom.SimpleVector2d(0,0);
     

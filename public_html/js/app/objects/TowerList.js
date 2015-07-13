@@ -140,7 +140,8 @@ app.objects.TowerList.prototype.loadTowerListFromJson = function loadTowerListFr
     
     for(var i=0; i<myJson.length; i++){
         jsonTower = myJson[i];
-        var newTower = new app.objects.Tower(jsonTower._x, jsonTower._y, jsonTower._range, jsonTower._rate, jsonTower._name, jsonTower._graphicUrl);
+        var newBullet = new app.objects.Bullet(0, 0, null, jsonTower._bullet._speed, jsonTower._bullet._damage, jsonTower._bullet._graphicUrl);
+        var newTower = new app.objects.Tower(jsonTower._x, jsonTower._y, jsonTower._range, jsonTower._rate, newBullet, jsonTower._graphicUrl);
         newTower.setAngle(jsonTower._angle);
         newTower.setCooldown(jsonTower._cooldown);
         newTower.setGuid(jsonTower._guid);

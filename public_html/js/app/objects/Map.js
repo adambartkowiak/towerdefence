@@ -5,8 +5,8 @@
 'use strict';
 
 /**
- * @namespace
- * @type {app|*|{}}
+ * @namespace app.objects
+ * @memberOf app
  */
 var app = app || {};
 app.objects = app.objects || {};
@@ -19,7 +19,6 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @namespace app.objects
  * @param {Number} width
  * @param {Number} height
  * @param {Number} fieldWidth

@@ -5,8 +5,8 @@
 'use strict';
 
 /**
- * @namespace
- * @type {app|*|{}}
+ * @namespace app.managers
+ * @memberOf app
  */
 var app = app || {};
 app.managers = app.managers || {};
@@ -19,7 +19,6 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @namespace app.managers
  * @param {app.objects.TowerList} towerList
  * @param {app.objects.EnemyList} enemyList
  * @param {app.objects.BulletList} bulletList

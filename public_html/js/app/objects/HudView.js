@@ -5,8 +5,8 @@
 'use strict';
 
 /**
- * @namespace
- * @type {app|*|{}}
+ * @namespace app.objects
+ * @memberOf app
  */
 var app = app || {};
 app.objects = app.objects || {};
@@ -19,56 +19,55 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @namespace app.objects
  * @param {HTMLCanvasElement} canvas
  * @param {app.map.HudModel} hudModel
  */
 app.objects.HudView = function HudView(canvas, hudModel) {
     
     /**
-     * @type {Canvas}
+     * @property {Canvas} canvas
      */
     this.canvas = canvas;
 
     /**
      *
-     * @type {CanvasRenderingContext2D}
+     * @property {CanvasRenderingContext2D} canvasContext
      */
     this.canvasContext = canvas.getContext("2d");
 
     /**
      *
-     * @type {app.objects.HudModel} mapModel
+     * @property {app.objects.HudModel} mapModel
      */
     this._hudModel = hudModel;
     
     
     /**
-     * @type {Image}
+     * @property {Image} image
      */
     this._menuGraphicBackgroundImage = new Image();
     this._menuGraphicBackgroundImage.src = this._hudModel.getMenuGraphicUrl();
     
     /**
-     * @type {Image}
+     * @property {Image} image
      */
     this._towerMenuCircle = new Image();
     this._towerMenuCircle.src = "assets/images/menuCircle.png";
     
     /**
-     * @type {Image}
+     * @property {Image} image
      */
     this._towerMenuUpButton = new Image();
     this._towerMenuUpButton.src = "assets/images/menuUpButton.png";
     
     /**
-     * @type {Image}
+     * @property {Image} image
      */
     this._towerMenuCancelButton = new Image();
     this._towerMenuCancelButton.src = "assets/images/menuCancelButton.png";
     
     /**
-     * @type {support.graphics.Image}
+     * @property {support.graphics.Image} image
      */
     this._image = new support.graphics.Image();
 };

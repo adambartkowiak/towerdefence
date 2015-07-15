@@ -1,11 +1,12 @@
 /**
  * Created by adambartkowiak on 11.04.15.
  */
+
 'use strict';
 
 /**
- * @namespace
- * @type {app|*|{}}
+ * @namespace app.objects
+ * @memberOf app
  */
 var app = app || {};
 app.objects = app.objects || {};
@@ -17,8 +18,6 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @
- * @namespace app.objects
  */
 app.objects.WorldModel = function WorldModel() {
 

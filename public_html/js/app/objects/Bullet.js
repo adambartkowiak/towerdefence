@@ -5,8 +5,8 @@
 'use strict';
 
 /**
- * @namespace
- * @type {app|*|{}}
+ * @namespace app.objects
+ * @memberOf app
  */
 var app = app || {};
 app.objects = app.objects || {};
@@ -19,49 +19,23 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @namespace app.objects
  * @param {Number} x
  * @param {Number} y
  * @param {app.objects.Target} target
  * @param {Number} speed
  * @param {Number} damage
  * @param {String} graphicUrl
- * 
  */
 app.objects.Bullet = function Bullet(x, y, target, speed, damage, graphicUrl) {
 
     support.geom.Point2d.call(this, x, y);
-    
-    /**
-     * @property {app.objects.Target} _target
-     */
+
     this._target = target;
-
-    /**
-     * @property {Number} _speed
-     */
     this._speed = speed;
-
-    /**
-     * @property {Number} _damage 
-     */
     this._damage = damage;
-    
-    /**
-     * @property {Number} _angle
-     */
     this._angle;
-    
-    /**
-     * @property {String} _graphicUrl
-     */
     this._graphicUrl = graphicUrl;
-    
-    /**
-     * @property {support.geom.SimpleVector2d} _moveVector
-     */
     this._moveVector = new support.geom.SimpleVector2d(0,0);
-
 };
 
 /**
@@ -70,7 +44,6 @@ app.objects.Bullet = function Bullet(x, y, target, speed, damage, graphicUrl) {
 Utils.inherits(app.objects.Bullet, support.geom.Point2d);
 
 /**
- * @methodName getTarget
  * @return {app.objects.Target} target
  */
 app.objects.Bullet.prototype.getTarget = function getTarget() {
@@ -78,7 +51,7 @@ app.objects.Bullet.prototype.getTarget = function getTarget() {
 };
 
 /**
- * @methodName getAngle
+ * Ta funkcja to geter angle
  * @return {Number} angle
  */
 app.objects.Bullet.prototype.getAngle = function getAngle() {
@@ -86,7 +59,6 @@ app.objects.Bullet.prototype.getAngle = function getAngle() {
 };
 
 /**
- * @methodName setAngle
  * @param {Number} angle
  */
 app.objects.Bullet.prototype.setAngle = function setAngle(angle) {
@@ -94,7 +66,6 @@ app.objects.Bullet.prototype.setAngle = function setAngle(angle) {
 };
 
 /**
- * @methodName getSpeed
  * @return {Number} speed
  */
 app.objects.Bullet.prototype.getSpeed = function getSpeed() {
@@ -102,7 +73,6 @@ app.objects.Bullet.prototype.getSpeed = function getSpeed() {
 };
 
 /**
- * @methodName setSpeed
  * @param {Number} speed
  */
 app.objects.Bullet.prototype.setSpeed = function setSpeed(speed) {
@@ -110,7 +80,6 @@ app.objects.Bullet.prototype.setSpeed = function setSpeed(speed) {
 };
 
 /**
- * @methodName getDamage
  * @return {Number} damage
  */
 app.objects.Bullet.prototype.getDamage = function getDamage() {
@@ -118,7 +87,6 @@ app.objects.Bullet.prototype.getDamage = function getDamage() {
 };
 
 /**
- * @methodName setDamage
  * @param {Number} damage
  */
 app.objects.Bullet.prototype.setDamage = function setDamage(damage) {
@@ -126,7 +94,6 @@ app.objects.Bullet.prototype.setDamage = function setDamage(damage) {
 };
 
 /**
- * @methodName getGraphicUrl
  * @return {String} graphicUrl
  */
 app.objects.Bullet.prototype.getGraphicUrl = function getGraphicUrl() {
@@ -134,7 +101,6 @@ app.objects.Bullet.prototype.getGraphicUrl = function getGraphicUrl() {
 };
 
 /**
- * @methodName setGraphicUrl
  * @param {String} graphicUrl
  */
 app.objects.Bullet.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {

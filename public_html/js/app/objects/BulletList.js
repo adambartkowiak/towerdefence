@@ -1,10 +1,12 @@
 /**
  * Created by adambartkowiak on 11.04.2013.
  */
+
 'use strict';
+
 /**
- * @namespace
- * @type {app|*|{}}
+ * @namespace app.objects
+ * @memberOf app
  */
 var app = app || {};
 app.objects = app.objects || {};
@@ -16,13 +18,11 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @namespace app.objects
  */
 app.objects.BulletList = function BulletList() {
 
     /**
-     * @property _bulletList
-     * @type Array
+     * @property {Array} _bulletList
      */
     this._bulletList = [];
 

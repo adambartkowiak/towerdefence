@@ -1,11 +1,12 @@
 /**
  * Created by adambartkowiak on 11.04.2015.
  */
+
 'use strict';
 
 /**
- * @namespace
- * @type {app|*|{}}
+ * @namespace app.objects
+ * @memberOf app
  */
 var app = app || {};
 app.objects = app.objects || {};
@@ -17,7 +18,6 @@ var Utils = Utils || {};
 
 /**
  * @constructor
- * @namespace app.objects
  * @param {HTMLCanvasElement} canvas
  * @param {app.objects.WorldModel} worldModel
  */

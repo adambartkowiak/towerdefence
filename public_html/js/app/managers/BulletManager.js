@@ -31,16 +31,17 @@ app.managers.BulletManager = function BulletManager(bulletList, enemyList, hudMo
      */
     this._bulletList = bulletList;
 
+
     /**
      * @property {app.objects.EnemyList} _enemyList
      */
     this._enemyList = enemyList;
 
+
     /**
      * @property {app.objects.HudModel}_hudModel
      */
     this._hudModel = hudModel;
-
 };
 
 /**

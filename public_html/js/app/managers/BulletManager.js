@@ -23,7 +23,6 @@ var Utils = Utils || {};
  * @param {app.objects.BulletList} bulletList
  * @param {app.objects.EnemyList} enemyList
  * @param {app.objects.HudModel} hudModel
- * 
  */
 app.managers.BulletManager = function BulletManager(bulletList, enemyList, hudModel) {
 
@@ -51,123 +50,122 @@ Utils.inherits(app.managers.BulletManager, Object);
 
 /**
  * @methodName moveBullets
- * @param {Number} timeDelta 
+ * @param {Number} timeDelta
  */
 app.managers.BulletManager.prototype.moveBullets = function moveBullets(timeDelta) {
-    
+
     var length = this._bulletList.length();
     var bulletIndex;
     var bullet;
     var bX, bY, tX, tY, dX, dY, target, enemyGuid, enemy;
     var moveVector;
     var normalizedVector;
-    
-    for (bulletIndex = 0; bulletIndex<length; bulletIndex++){
+
+    for (bulletIndex = 0; bulletIndex < length; bulletIndex++) {
         bullet = this._bulletList.getBullet(bulletIndex);
-        
+
         bX = bullet.getX();
         bY = bullet.getY();
         target = bullet.getTarget();
         enemyGuid = target.getEnemyGuid();
         enemy = this._enemyList.getEnemyByGuid(enemyGuid);
-        
-        if (enemy !== null){
+
+        if (enemy !== null) {
             target.setX(enemy.getX());
             target.setY(enemy.getY());
         }
-        
+
         tX = target.getX();
         tY = target.getY();
-        
+
         //delta
         dX = tX - bX;
         dY = tY - bY;
 
         moveVector = new support.geom.SimpleVector2d(dX, dY);
         normalizedVector = moveVector.getNormalizedVector();
-        
+
         bullet._moveVector.setX(dX);
         bullet._moveVector.setY(dY);
-        
+
         //ustawienie obrotu strzaly na podstawie vektora znormalizowanego
-        bullet.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
-        
-        bullet.setX(bullet.getX() + normalizedVector.getX()*timeDelta/1000*bullet.getSpeed()*worldModel.SIZEPROPORTION);
-        bullet.setY(bullet.getY() + normalizedVector.getY()*timeDelta/1000*bullet.getSpeed()*worldModel.SIZEPROPORTION);
+        bullet.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX()) * 180 / Math.PI + 90);
+
+        bullet.setX(bullet.getX() + normalizedVector.getX() * timeDelta / 1000 * bullet.getSpeed() * worldModel.SIZEPROPORTION);
+        bullet.setY(bullet.getY() + normalizedVector.getY() * timeDelta / 1000 * bullet.getSpeed() * worldModel.SIZEPROPORTION);
     }
-    
+
 };
 
 /**
- * @methodName 
+ * @methodName
  */
-app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsToHit(){
-    
+app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsToHit() {
+
     var length = this._bulletList.length();
     var bulletIndex;
     var bullet;
     var bX, bY, tX, tY, dX, dY, target, enemyGuid, enemy, currentHp;
     var targetBulletVector;
-    
+
     var arrayToRemove = []
     var bulletToRemoveIndex = 0;
-    
-    for (bulletIndex = 0; bulletIndex<length; bulletIndex++){
+
+    for (bulletIndex = 0; bulletIndex < length; bulletIndex++) {
         bullet = this._bulletList.getBullet(bulletIndex);
-        
+
         bX = bullet.getX();
         bY = bullet.getY();
         target = bullet.getTarget();
         enemyGuid = target.getEnemyGuid();
         enemy = this._enemyList.getEnemyByGuid(enemyGuid);
-        
-        if (enemy !== null){
+
+        if (enemy !== null) {
             target.setX(enemy.getX());
             target.setY(enemy.getY());
         }
-        
+
         //pozycja celu
         tX = target.getX();
         tY = target.getY();
-        
+
         //delta (pozycja celu - pozycja pocisku)
         dX = tX - bX;
         dY = tY - bY;
 
         targetBulletVector = new support.geom.SimpleVector2d(dX, dY);
-        
-        
+
+
         this.CircleVectorColision(tX, tY, 5, bX, bY, bX - bullet._moveVector.getX(), bY - bullet._moveVector.getY());
-        
+
         //napisac kolizje w zaleznosci od 
-        
-        
+
+
         //remove bullet after hit target
-        if (targetBulletVector.getVectorLength() < 5*worldModel.SIZEPROPORTION){
+        if (targetBulletVector.getVectorLength() < 5 * worldModel.SIZEPROPORTION) {
             arrayToRemove.push(bulletIndex);
-            if (enemy !== null){
+            if (enemy !== null) {
                 currentHp = enemy.getCurrentHp();
                 currentHp -= bullet.getDamage();
-                this._hudModel.setScore(this._hudModel.getScore()+1);
-                if (currentHp <= 0){
+                this._hudModel.setScore(this._hudModel.getScore() + 1);
+                if (currentHp <= 0) {
                     currentHp = 0;
-                    this._hudModel.setScore(this._hudModel.getScore()+999);
-                    this._hudModel.setCash(this._hudModel.getCash()+100);
+                    this._hudModel.setScore(this._hudModel.getScore() + 999);
+                    this._hudModel.setCash(this._hudModel.getCash() + 100);
                 }
                 enemy.setCurrentHp(currentHp);
             }
         }
     }
-    
+
     length = arrayToRemove.length;
-    for (bulletIndex = length-1; bulletIndex>=0; bulletIndex--){
+    for (bulletIndex = length - 1; bulletIndex >= 0; bulletIndex--) {
         bulletToRemoveIndex = arrayToRemove[bulletIndex];
         this._bulletList.remove(bulletToRemoveIndex);
     }
 };
 
 app.managers.BulletManager.prototype.CircleVectorColision = function CircleVectorColision(cx, cy, r, vx1, vy1, vx2, vy2) {
-    
     return true;
 };
 
@@ -183,7 +181,7 @@ app.managers.BulletManager.prototype.CircleVectorColision = function CircleVecto
 //jezeli sie nie przecinaja to sprawdzic czy sredk kola jest w odleglosci od mniejszej niz promien w stosunku do koncow wektora)
 //3.         
 
-        
+
 //        //sprawdzenie czy 2 wektory sie przecianja lub czy wktor przecina okrag
 //        
 //        //wektor ruchu przeciwnika, ale nie musi byc bo moze to byc cel w miejscu 

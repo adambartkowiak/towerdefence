@@ -2,21 +2,16 @@
  * Created by adambartkowiak on 4.7.2015.
  */
 'use strict';
-/**
- * @namespace
- * @type {support|*|{}}
- */
+
 var support = support || {};
 support.geom = support.geom || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support.geom
+ * @class Rect
+ * @constructor
  * @param {Number} x
  * @param {Number} y
  * @param {Number} width
@@ -26,33 +21,34 @@ support.geom.Rect = function Rect(x, y, width, height) {
 
     /**
      * @property {Number} x
+     * @private
      */
     this._x = x;
 
     /**
-     * @@property {Number} y 
+     * @property {Number} y
+     * @private
      */
     this._y = y;
 
     /**
      * @property {Number} width
+     * @private
      */
     this._width = width;
 
     /**
      * @property {Number} height
+     * @private
      */
     this._height = height;
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.geom.Rect, Object);
 
 /**
- * @methodName getX
+ * @method getX
  * @return {Number} x
  */
 support.geom.Rect.prototype.getX = function getX() {
@@ -60,7 +56,7 @@ support.geom.Rect.prototype.getX = function getX() {
 };
 
 /**
- * @methodName getY
+ * @method getY
  * @return {Number} y
  */
 support.geom.Rect.prototype.getY = function getY() {
@@ -68,7 +64,7 @@ support.geom.Rect.prototype.getY = function getY() {
 };
 
 /**
- * @methodName getWidth
+ * @method getWidth
  * @return {Number} width
  */
 support.geom.Rect.prototype.getWidth = function getWidth() {
@@ -76,7 +72,7 @@ support.geom.Rect.prototype.getWidth = function getWidth() {
 };
 
 /**
- * @methodName getHeight
+ * @method getHeight
  * @return {Number} y
  */
 support.geom.Rect.prototype.getHeight = function getHeight() {
@@ -84,7 +80,7 @@ support.geom.Rect.prototype.getHeight = function getHeight() {
 };
 
 /**
- * @methodName setX
+ * @method setX
  * @param {Number} x
  */
 support.geom.Rect.prototype.setX = function setX(x) {
@@ -92,7 +88,7 @@ support.geom.Rect.prototype.setX = function setX(x) {
 };
 
 /**
- * @methodName setY
+ * @method setY
  * @param {Number} y
  */
 support.geom.Rect.prototype.setY = function setY(y) {
@@ -100,7 +96,7 @@ support.geom.Rect.prototype.setY = function setY(y) {
 };
 
 /**
- * @methodName setWidth
+ * @method setWidth
  * @param {Number} width
  */
 support.geom.Rect.prototype.setWidth = function setWidth(width) {
@@ -108,7 +104,7 @@ support.geom.Rect.prototype.setWidth = function setWidth(width) {
 };
 
 /**
- * @methodName setHeight
+ * @method setHeight
  * @param {Number} height
  */
 support.geom.Rect.prototype.setHeight = function setHeight(height) {
@@ -116,18 +112,18 @@ support.geom.Rect.prototype.setHeight = function setHeight(height) {
 };
 
 /**
- * @methodName isPontInside
+ * @method isPointInside
  * @param {support.geom.Point2d} pointToCheck
- * @return {Boolean} description
+ * @return {Boolean} inside
  */
 support.geom.Rect.prototype.isPointInside = function isPointInside(pointToCheck) {
-    
+
     var result = false;
     var p = pointToCheck;
-    
-    if (this._x < p.getX() && this._y < p.getY() && this._x + this._width > p.getX() && this._y + this._height > p.getY()){
+
+    if (this._x < p.getX() && this._y < p.getY() && this._x + this._width > p.getX() && this._y + this._height > p.getY()) {
         result = true;
     }
-    
+
     return result;
 };

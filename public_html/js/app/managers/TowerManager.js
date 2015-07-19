@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.managers
- * @memberOf app
- */
 var app = app || {};
 app.managers = app.managers || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.managers
+ * @class TowerManager
  * @constructor
  * @param {app.objects.TowerList} towerList
  * @param {app.objects.EnemyList} enemyList
@@ -28,28 +22,28 @@ app.managers.TowerManager = function TowerManager(towerList, enemyList, bulletLi
 
     /**
      * @property {app.objects.TowerList} _towerList
+     * @private
      */
     this._towerList = towerList;
 
     /**
      * @property {app.objects.EnemyList} _enemyList
+     * @private
      */
     this._enemyList = enemyList;
 
     /**
      * @property {app.objects.BulletList} _bulletList
+     * @private
      */
     this._bulletList = bulletList;
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.managers.TowerManager, Object);
 
 /**
- * @methodName tryShotToEnemy
+ * @method tryShotToEnemy
  */
 app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
 
@@ -107,7 +101,7 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
 };
 
 /**
- * @methodName cooldownTimer
+ * @method cooldownTimer
  * @param {Number} timeDelta
  */
 app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(timeDelta) {

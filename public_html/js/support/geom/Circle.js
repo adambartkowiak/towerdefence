@@ -2,21 +2,16 @@
  * Created by adambartkowiak on 4.7.2015.
  */
 'use strict';
-/**
- * @namespace
- * @type {support|*|{}}
- */
+
 var support = support || {};
 support.geom = support.geom || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support.geom
+ * @class Circle
+ * @constructor
  * @param {Number} x
  * @param {Number} y
  * @param {Number} radius
@@ -25,44 +20,44 @@ support.geom.Circle = function Circle(x, y, radius) {
 
     /**
      * @property {Number} x
+     * @private
      */
     this._x = x;
 
     /**
-     * @@property {Number} y 
+     * @@property {Number} y
+     * @private
      */
     this._y = y;
 
     /**
      * @property {Number} radius
+     * @private
      */
     this._radius = radius;
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.geom.Circle, Object);
 
 /**
- * @methodName getX
- * @return {Number} _x
+ * @method getX
+ * @return {Number} x
  */
 support.geom.Circle.prototype.getX = function getX() {
     return this._x;
 };
 
 /**
- * @methodName getY
- * @return {Number} _x
+ * @method getY
+ * @return {Number} y
  */
 support.geom.Circle.prototype.getY = function getY() {
     return this._y;
 };
 
 /**
- * @methodName getRadius
+ * @method getRadius
  * @return {Number} radius
  */
 support.geom.Circle.prototype.getRadius = function getRadius() {
@@ -70,7 +65,7 @@ support.geom.Circle.prototype.getRadius = function getRadius() {
 };
 
 /**
- * @methodName setX
+ * @method setX
  * @param {Number} value
  */
 support.geom.Circle.prototype.setX = function setX(value) {
@@ -78,7 +73,7 @@ support.geom.Circle.prototype.setX = function setX(value) {
 };
 
 /**
- * @methodName setY
+ * @method setY
  * @param {Number} value
  */
 support.geom.Circle.prototype.setY = function setY(value) {
@@ -86,7 +81,7 @@ support.geom.Circle.prototype.setY = function setY(value) {
 };
 
 /**
- * @methodName setRadius
+ * @method setRadius
  * @param {Number} radius
  */
 support.geom.Circle.prototype.setRadius = function setRadius(radius) {
@@ -94,20 +89,20 @@ support.geom.Circle.prototype.setRadius = function setRadius(radius) {
 };
 
 /**
- * @methodName isPontInside
+ * @method isPointInside
  * @param {support.geom.Point2d} pointToCheck
- * @return {Boolean} description
+ * @return {Boolean} inside
  */
 support.geom.Circle.prototype.isPointInside = function isPointInside(pointToCheck) {
-    
+
     var result = false;
     var dX = this.getX() - pointToCheck.getX();
     var dY = this.getY() - pointToCheck.getY();
     var vectorMenu = new support.geom.SimpleVector2d(dX, dY);
-        
-    if (vectorMenu.getVectorLength() < this.getRadius()){
+
+    if (vectorMenu.getVectorLength() < this.getRadius()) {
         result = true;
     }
-    
+
     return result;
 };

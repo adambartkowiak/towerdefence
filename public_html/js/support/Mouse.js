@@ -3,20 +3,14 @@
  */
 'use strict';
 
-/**
- * @namespace
- * @type {support|*|{}}
- */
 var support = support || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support
+ * @class Mouse
+ * @constructor
  * @param {support.AbstractMouseEventHandler} mouseEventHandler
  */
 support.Mouse = function Mouse(mouseEventHandler) {
@@ -25,27 +19,23 @@ support.Mouse = function Mouse(mouseEventHandler) {
 
     /**
      * @property _mouseDownEventReferenc
-     * @type Number
      */
     this._mouseDragHandler = function (e) {
         that.mouseDrag(e);
     };
 
     /**
-     * @property _mouseEventHandler
-     * @type support.AbstractMouseEventHandler
+     * @property {support.AbstractMouseEventHandler} _mouseEventHandler
+     * @private
      */
     this._mouseEventHandler = mouseEventHandler;
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.Mouse, Object);
 
 /**
- * @methodName initMouse
+ * @method initMouse
  */
 support.Mouse.prototype.initMouse = function initMouse() {
     var that = this;
@@ -65,7 +55,7 @@ support.Mouse.prototype.initMouse = function initMouse() {
 };
 
 /**
- * @methodName mouseDown
+ * @method mouseDown
  * @param {Event} e
  */
 support.Mouse.prototype.mouseDown = function mouseDown(e) {
@@ -79,7 +69,7 @@ support.Mouse.prototype.mouseDown = function mouseDown(e) {
 };
 
 /**
- * @methodName mouseMove
+ * @method mouseMove
  * @param {Event} e
  */
 support.Mouse.prototype.mouseMove = function mouseMove(e) {
@@ -91,7 +81,7 @@ support.Mouse.prototype.mouseMove = function mouseMove(e) {
 };
 
 /**
- * @methodName mouseDrag
+ * @method mouseDrag
  * @param {Event} e
  */
 support.Mouse.prototype.mouseDrag = function mouseDrag(e) {
@@ -103,7 +93,7 @@ support.Mouse.prototype.mouseDrag = function mouseDrag(e) {
 };
 
 /**
- * @methodName mouseUp
+ * @method mouseUp
  * @param {Event} e
  */
 support.Mouse.prototype.mouseUp = function mouseUp(e) {
@@ -117,7 +107,7 @@ support.Mouse.prototype.mouseUp = function mouseUp(e) {
 };
 
 /**
- * @methodName setMouseEventHandler
+ * @method setMouseEventHandler
  * @param {support.AbstractMouseEventHandler} abstractMouseEventHandler
  */
 support.Mouse.prototype.setMouseEventHandler = function setMouseEventHandler(abstractMouseEventHandler) {

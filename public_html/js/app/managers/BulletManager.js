@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.managers
- * @memberOf app
- */
 var app = app || {};
 app.managers = app.managers || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.managers
+ * @class BulletManager
  * @constructor
  * @param {app.objects.BulletList} bulletList
  * @param {app.objects.EnemyList} enemyList
@@ -27,29 +21,29 @@ app.managers.BulletManager = function BulletManager(bulletList, enemyList, hudMo
 
     /**
      * @property {app.objects.BulletList} _bulletList
+     * @private
      */
     this._bulletList = bulletList;
 
 
     /**
      * @property {app.objects.EnemyList} _enemyList
+     * @private
      */
     this._enemyList = enemyList;
 
 
     /**
      * @property {app.objects.HudModel}_hudModel
+     * @private
      */
     this._hudModel = hudModel;
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.managers.BulletManager, Object);
 
 /**
- * @methodName moveBullets
+ * @method moveBullets
  * @param {Number} timeDelta
  */
 app.managers.BulletManager.prototype.moveBullets = function moveBullets(timeDelta) {
@@ -98,7 +92,7 @@ app.managers.BulletManager.prototype.moveBullets = function moveBullets(timeDelt
 };
 
 /**
- * @methodName
+ * @method checkTargetsToHit
  */
 app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsToHit() {
 
@@ -165,6 +159,17 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
     }
 };
 
+
+/**
+ * @method checkTargetsToHit
+ * @param {Number} cx
+ * @param {Number} cy
+ * @param {Number} r
+ * @param {Number} vx1
+ * @param {Number} vy1
+ * @param {Number} vx2
+ * @param {Number} vy2
+ */
 app.managers.BulletManager.prototype.CircleVectorColision = function CircleVectorColision(cx, cy, r, vx1, vy1, vx2, vy2) {
     return true;
 };

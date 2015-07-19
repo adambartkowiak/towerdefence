@@ -17,17 +17,17 @@ var Utils = Utils || {};
  * @param {Number} y
  * @param {Number} moveX
  * @param {Number} moveY
- * 
+ *
  */
 app.objects.Checkpoint = function Checkpoint(x, y, moveX, moveY) {
 
     support.geom.Point2d.call(this, x, y);
-    
+
     /**
-     * @property _moveVector
-     * @type support.geom.SimpleVector2d
+     * @property {support.geom.SimpleVector2d} _moveVector
+     * @private
      */
-    this._moveVector = new support.geom.SimpleVector2d(moveX,moveY);
+    this._moveVector = new support.geom.SimpleVector2d(moveX, moveY);
 };
 
 Utils.inherits(app.objects.Checkpoint, support.geom.Point2d);

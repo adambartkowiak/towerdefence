@@ -3,62 +3,50 @@
  */
 'use strict';
 
-/**
- * @namespace
- * @type {support|*|{}}
- */
 var support = support || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support
+ * @class MouseEventHandlerManager
+ * @constructor
  * @param {support.Mouse} mouse
  */
 support.MouseEventHandlerManager = function MouseEventHandlerManager(mouse) {
 
     /**
-     *
-     * @type {Mouse}
+     * @property {support.Mouse} _mouse
      * @private
      */
     this._mouse = mouse;
 
     /**
-     *
-     * @type {Array}
+     * @property {Array} _eventHandlerArray
      * @private
      */
     this._eventHandlerArray = [];
 
     /**
-     *
-     * @type {number}
+     * @property {Number} _eventHandlerArrayIndex
      * @private
      */
     this._eventHandlerArrayIndex = 0;
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.MouseEventHandlerManager, Object);
 
 /**
-* @methodName setActive
-* @param {support.AbstractMouseEventHandler} mouseEventHandler
-*/
+ * @method setActive
+ * @param {support.AbstractMouseEventHandler} mouseEventHandler
+ */
 support.MouseEventHandlerManager.prototype.addMouseEventHandler = function addMouseEventHandler(mouseEventHandler) {
     this._eventHandlerArray.push(mouseEventHandler);
     mouseEventHandler.setMouseEventHandlerManager(this);
 };
 
 /**
- * @methodName setActive
+ * @method setActive
  * @param {support.AbstractMouseEventHandler} mouseEventHandler
  */
 support.MouseEventHandlerManager.prototype.setActive = function setActive(mouseEventHandler) {
@@ -68,7 +56,7 @@ support.MouseEventHandlerManager.prototype.setActive = function setActive(mouseE
 };
 
 /**
- * @methodName setActiveNext
+ * @method setActiveNext
  */
 support.MouseEventHandlerManager.prototype.setActiveNext = function setActiveNext() {
     var mouseEventHandler;

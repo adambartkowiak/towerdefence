@@ -14,22 +14,22 @@ var Utils = Utils || {};
  * @class MapField
  * @constructor
  * @param {Boolean} allowBuild
- * 
+ *
  */
 app.objects.MapField = function MapField(allowBuild) {
 
     /**
-     * @property build
-     * @type {Boolean}
+     * @property {Boolean} _allowBuild
+     * @private
      */
     this._allowBuild = allowBuild;
-    
+
     /**
-     * @property build
-     * @type {Boolean}
+     * @property {Boolean} _empty
+     * @private
      */
     this._empty = true;
-    
+
 };
 
 Utils.inherits(app.objects.MapField, Object);
@@ -38,7 +38,7 @@ Utils.inherits(app.objects.MapField, Object);
  * @method getAllowBuild
  * @return {Boolean}
  */
-app.objects.MapField.prototype.getAllowBuild = function getAllowBuild(){
+app.objects.MapField.prototype.getAllowBuild = function getAllowBuild() {
     return this._allowBuild;
 };
 
@@ -46,7 +46,7 @@ app.objects.MapField.prototype.getAllowBuild = function getAllowBuild(){
  * @method getEmpty
  * @return {Boolean}
  */
-app.objects.MapField.prototype.getEmpty = function getEmpty(){
+app.objects.MapField.prototype.getEmpty = function getEmpty() {
     return this._empty;
 };
 
@@ -54,6 +54,6 @@ app.objects.MapField.prototype.getEmpty = function getEmpty(){
  * @method setEmpty
  * @return {Boolean} empty
  */
-app.objects.MapField.prototype.setEmpty = function setEmpty(empty){
+app.objects.MapField.prototype.setEmpty = function setEmpty(empty) {
     this._empty = empty;
 };

@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.managers
- * @memberOf app
- */
 var app = app || {};
 app.managers = app.managers || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.managers
+ * @class EnemyManager
  * @constructor
  * @param {app.objects.EnemyList} enemyList
  * @param {app.objects.CheckpointList} checkpointList
@@ -27,23 +21,22 @@ app.managers.EnemyManager = function EnemyManager(enemyList, checkpointList) {
 
     /**
      * @property {app.objects.EnemyList} _enemyList
+     * @private
      */
     this._enemyList = enemyList;
 
     /**
      * @property {app.objects.CheckpointList} _checkpointList
+     * @private
      */
     this._checkpointList = checkpointList;
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.managers.EnemyManager, Object);
 
 /**
- * @methodName moveEnemy
+ * @method moveEnemy
  * @param {Number} timeDelta
  */
 app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(timeDelta) {
@@ -101,7 +94,7 @@ app.managers.EnemyManager.prototype.moveEnemy = function moveEnemy(timeDelta) {
 };
 
 /**
- * @methodName removeDeadEnemy
+ * @method removeDeadEnemy
  */
 app.managers.EnemyManager.prototype.removeDeadEnemy = function removeDeadEnemy() {
 

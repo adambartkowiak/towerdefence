@@ -13,7 +13,7 @@ var Utils = Utils || {};
  * @namespace app.objects
  * @class CheckpointList
  * @constructor
- * 
+ *
  */
 app.objects.CheckpointList = function CheckpointList() {
 
@@ -83,10 +83,10 @@ app.objects.CheckpointList.prototype.saveCheckpointListToJsonText = function sav
 app.objects.CheckpointList.prototype.loadCheckpointListFromJson = function loadCheckpointListFromJson(json) {
     var myJson = json;
     var jsonCheckpoint;
-    
+
     this.clear();
-    
-    for(var i=0; i<myJson.length; i++){
+
+    for (var i = 0; i < myJson.length; i++) {
         jsonCheckpoint = myJson[i];
         var newCheckpoint = new app.objects.Checkpoint(jsonCheckpoint._x, jsonCheckpoint._y, jsonCheckpoint._moveVector._x, jsonCheckpoint._moveVector._y);
         this.addCheckpoint(newCheckpoint);

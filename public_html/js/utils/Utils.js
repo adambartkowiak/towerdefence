@@ -1,13 +1,10 @@
 'use strict';
 
-//define class namespace
 var Utils = Utils || {};
 
-//using namespaces
-//!empty
-
 /**
- *
+ * @class Utils
+ * @method inherits
  * @param {Object} constructor
  * @param {Object} baseConstructor
  */

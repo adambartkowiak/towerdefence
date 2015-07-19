@@ -2,47 +2,39 @@
  * Created by adambartkowiak on 12.12.2013.
  */
 'use strict';
-/**
- * @namespace
- * @type {support|*|{}}
- */
+
 var support = support || {};
 support.geom = support.geom || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support.geom
+ * @class Point2d
+ * @constructor
  * @param {Number} x
  * @param {Number} y
  */
 support.geom.Point2d = function Point2d(x, y) {
 
     /**
-     * @property _x
-     * @type Number
+     * @property {Number} _x
+     * @private
      */
     this._x = x;
 
     /**
-     * @property _y
-     * @type Number
+     * @property {Number} _y
+     * @private
      */
     this._y = y;
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.geom.Point2d, Object);
 
 /**
- * @methodName getX
+ * @method getX
  * @return {Number} _x
  */
 support.geom.Point2d.prototype.getX = function getX() {
@@ -50,7 +42,7 @@ support.geom.Point2d.prototype.getX = function getX() {
 };
 
 /**
- * @methodName getY
+ * @method getY
  * @return {Number} _x
  */
 support.geom.Point2d.prototype.getY = function getY() {
@@ -58,7 +50,7 @@ support.geom.Point2d.prototype.getY = function getY() {
 };
 
 /**
- * @methodName setX
+ * @method setX
  * @param {Number} value
  */
 support.geom.Point2d.prototype.setX = function setX(value) {
@@ -66,7 +58,7 @@ support.geom.Point2d.prototype.setX = function setX(value) {
 };
 
 /**
- * @methodName setY
+ * @method setY
  * @param {Number} value
  */
 support.geom.Point2d.prototype.setY = function setY(value) {

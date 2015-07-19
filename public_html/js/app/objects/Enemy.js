@@ -18,7 +18,7 @@ var Utils = Utils || {};
  * @param {Number} hp
  * @param {Number} speed
  * @param {String} graphicUrl
- * 
+ *
  */
 app.objects.Enemy = function Enemy(x, y, hp, speed, graphicUrl) {
 
@@ -26,36 +26,43 @@ app.objects.Enemy = function Enemy(x, y, hp, speed, graphicUrl) {
 
     /**
      * @property {Number} _hp
+     * @private
      */
     this._hp = hp;
-    
+
     /**
      * @property {Number} _currentHp
+     * @private
      */
     this._currentHp = this._hp;
 
     /**
      * @property {Number} _speed
+     * @private
      */
     this._speed = speed;
 
     /**
      * @property {String} _graphicUrl
+     * @private
      */
     this._graphicUrl = graphicUrl;
-    
+
     /**
      * @property {support.geom.SimpleVector2d} _moveVector
+     * @private
      */
-    this._moveVector = new support.geom.SimpleVector2d(0,0);
-    
+    this._moveVector = new support.geom.SimpleVector2d(0, 0);
+
     /**
      * @property {Number} _angle
+     * @private
      */
     this._angle = 0;
-    
+
     /**
      * @property {String} _guid
+     * @private
      */
     this._guid = Math.random();
 };

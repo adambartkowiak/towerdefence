@@ -16,14 +16,15 @@ var Utils = Utils || {};
  * @param {Number} x
  * @param {Number} y
  * @param {String} enemyGuid
- * 
+ *
  */
 app.objects.Target = function Target(x, y, enemyGuid) {
 
     support.geom.Point2d.call(this, x, y);
 
     /**
-     * @property {Number} _range 
+     * @property {Number} _range
+     * @private
      */
     this._enemyGuid = enemyGuid;
 

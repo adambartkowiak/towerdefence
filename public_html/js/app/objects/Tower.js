@@ -19,7 +19,7 @@ var Utils = Utils || {};
  * @param {Number} rate
  * @param {app.objects.Bullet} bullet
  * @param {String} graphicUrl
- * 
+ *
  */
 app.objects.Tower = function Tower(x, y, range, rate, bullet, graphicUrl) {
 
@@ -27,39 +27,46 @@ app.objects.Tower = function Tower(x, y, range, rate, bullet, graphicUrl) {
 
     /**
      * @property {Number} _range
+     * @private
      */
     this._range = range;
 
     /**
      * @property {Number} _rate
+     * @private
      */
     this._rate = rate;
-    
+
     /**
      * @property {app.objects.Bullet} _bullet
+     * @private
      */
     this._bullet = bullet;
 
     /**
      * @property {String} _graphicUrl
+     * @private
      */
     this._graphicUrl = graphicUrl;
-    
+
     /**
      * @property {Number} _cooldown
+     * @private
      */
     this._cooldown = 0;
-    
+
     /**
      * @property {Number} _angle
+     * @private
      */
     this._angle = 0;
-    
+
     /**
      * @property {Number} _guid
+     * @private
      */
     this._guid = Math.random();
-    
+
 };
 
 Utils.inherits(app.objects.Tower, support.geom.Point2d);

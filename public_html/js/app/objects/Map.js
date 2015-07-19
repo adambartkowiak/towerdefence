@@ -4,8 +4,6 @@
 
 'use strict';
 
-/**
- */
 var app = app || {};
 app.objects = app.objects || {};
 
@@ -22,47 +20,53 @@ var Utils = Utils || {};
  * @param {String} graphicUrl
  */
 app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, graphicUrl) {
-    
+
     /**
      * @property {Number} _width
+     * @private
      */
     this._width = width;
-    
+
     /**
      * @property {Number} _height
+     * @private
      */
     this._height = height;
-    
+
     /**
      * @property {Number} _fieldWidth
+     * @private
      */
     this._fieldWidth = fieldWidth;
-        
+
     /**
-     * @property {String} _mapUrl
+     * @property {String} _graphicUrl
+     * @private
      */
     this._graphicUrl = graphicUrl;
-    
+
     /**
-     * @property {Number} _height
+     * @property {Number} _fieldHeight
+     * @private
      */
     this._fieldHeight = fieldHeight;
-    
+
     /**
-     * @property {Array} _height
+     * @property {Array} _fields
+     * @private
      */
     this._fields = [];
-    
+
     /**
      * @property {app.objects.MapField} _selectedField
+     * @private
      */
-    this._selectedField;
-    
-    
+    this._selectedField = null;
+
+
 };
 
 Utils.inherits(app.objects.Map, Object);
-
 
 
 /**
@@ -71,9 +75,9 @@ Utils.inherits(app.objects.Map, Object);
 app.objects.Map.prototype.init = function init() {
     var x, y, maxX = this._width, maxY = this._height;
     var field;
-    
-    for (x = 0; x<maxX; x++){
-        for (y = 0; y<maxY; y++){
+
+    for (x = 0; x < maxX; x++) {
+        for (y = 0; y < maxY; y++) {
             field = new app.objects.MapField(true);
             field.setEmpty(true);
             this._fields.push(field);
@@ -120,7 +124,7 @@ app.objects.Map.prototype.getFieldHeight = function getFieldHeight() {
  * @return {app.objects.MapField}
  */
 app.objects.Map.prototype.getField = function getField(x, y) {
-    return this._fields[ x+y*this._width ];
+    return this._fields[x + y * this._width];
 };
 
 /**
@@ -130,11 +134,11 @@ app.objects.Map.prototype.getField = function getField(x, y) {
  * @return {app.objects.MapField}
  */
 app.objects.Map.prototype.getFieldByPixels = function getFieldByPixels(xPx, yPx) {
-    
-    var fieldX = Math.floor(xPx/this._fieldWidth);
-    var fieldY = Math.floor(yPx/this._fieldHeight);
-    
-    return this._fields[ fieldX + fieldY*this._width ];
+
+    var fieldX = Math.floor(xPx / this._fieldWidth);
+    var fieldY = Math.floor(yPx / this._fieldHeight);
+
+    return this._fields[fieldX + fieldY * this._width];
 };
 
 /**
@@ -192,26 +196,26 @@ app.objects.Map.prototype.loadMapModelFromJson = function loadMapModelFromJson(j
     var myJson = json;
     var jsonField = null;
     var newField;
-    
+
     this.clear();
-    
+
     this._width = myJson._width;
     this._height = myJson._height;
     this._fieldWidth = myJson._fieldWidth;
     this._fieldHeight = myJson._fieldHeight;
     this._selectedField = null;
     this._graphicUrl = myJson._graphicUrl;
-    
-    for (var i=0; i<myJson._fields.length; i++){
-        
+
+    for (var i = 0; i < myJson._fields.length; i++) {
+
         jsonField = myJson._fields[i];
-        
+
         newField = new app.objects.MapField(jsonField._allowBuild);
         newField.setEmpty(jsonField._empty);
-        
+
         this._fields.push(newField);
     }
-    
+
     worldModel.onMapLoadingEnd();
 };
 

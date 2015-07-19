@@ -15,56 +15,65 @@ var Utils = Utils || {};
  * @constructor
  * @param {Number} score
  * @param {Number} cash
- * 
+ *
  */
 app.objects.HudModel = function HudModel(score, cash) {
 
-    
+
     /**
      * @property {Number} _score
+     * @private
      */
     this._score = score;
 
     /**
      * @property {Number} _score
+     * @private
      */
     this._cash = cash;
-    
+
     /**
      * @property {String} _menuGraphicUrl
+     * @private
      */
-    this._menuGraphicUrl= "assets/images/menuBackground.png";
-    
+    this._menuGraphicUrl = "assets/images/menuBackground.png";
+
     /**
-     * @property {Number} _towerMenu
+     * @property {Number} _towerMenuByGuid
+     * @private
      */
     this._towerMenuByGuid = -1;
-    
+
     /**
-     * @property {Number} _towerMenu
+     * @property {Number} _towerXMenu
+     * @private
      */
     this._towerXMenu = 0;
-    
+
     /**
      * @property {Number} _towerMenu
+     * @private
      */
     this._towerYMenu = 0;
-    
+
     /**
-     * @property {Number} _towerMenu
+     * @property {support.geom.Circle} _menuCircle
+     * @private
      */
     this._menuCircle = new support.geom.Circle(0, 0, 0);
-    
+
     /**
-     * @property {Number} _towerMenu
+     * @property {support.geom.Rect} _menuOkButtonRect
+     * @private
      */
     this._menuOkButtonRect = new support.geom.Rect(0, 0, 0, 0);
-    
+
     /**
-     * @property {Number} _towerMenu
+     * @property {support.geom.Rect} _menuCancelButtonRect
+     * @private
      */
     this._menuCancelButtonRect = new support.geom.Rect(0, 0, 0, 0);
-    
+
 };
 
 Utils.inherits(app.objects.HudModel, Object);
@@ -239,7 +248,7 @@ app.objects.HudModel.prototype.saveHudModelToJsonText = function saveHudModelToJ
 app.objects.HudModel.prototype.saveScoreToJsonText = function saveScoreToJsonText() {
     var result = {};
     result.score = this._score;
-    
+
     return JSON.stringify(result);
 };
 
@@ -249,7 +258,7 @@ app.objects.HudModel.prototype.saveScoreToJsonText = function saveScoreToJsonTex
  */
 app.objects.HudModel.prototype.loadHudModelFromJson = function loadHudModelFromJson(json) {
     var jsonHud = json;
-    
+
     this._score = jsonHud._score;
     this._cash = jsonHud._cash;
     this._towerMenuByGuid = jsonHud._towerMenuByGuid;

@@ -2,41 +2,33 @@
  * Created by adambartkowiak on 12.12.2013.
  */
 'use strict';
-/**
- * @namespace
- * @type {support|*|{}}
- */
+
 var support = support || {};
 support.geom = support.geom || {};
 support.geom.shape = support.geom.shape || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support.geom.shape
+ * @class FreeShape
+ * @constructor
  */
 support.geom.shape.FreeShape = function FreeShape() {
 
     /**
-     * @property _shapePoints
-     * @type Array
+     * @property {Array} _shapePoints
+     * @private
      */
     this._shapePoints = [];
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.geom.shape.FreeShape, Object);
 
 
 /**
- * @methodName addPoint
+ * @method addPoint
  * @param {support.geom.Point2d} newPoint
  */
 support.geom.shape.FreeShape.prototype.addPoint = function addPoint(newPoint) {
@@ -44,15 +36,15 @@ support.geom.shape.FreeShape.prototype.addPoint = function addPoint(newPoint) {
 };
 
 /**
- * @methodName clear
+ * @method clear
  */
 support.geom.shape.FreeShape.prototype.clear = function clear() {
     this._shapePoints.length = 0;
 };
 
 /**
- * @methodName getShapePoints
- * @return {Array} _x
+ * @method getShapePoints
+ * @return {Array} shapePoints
  */
 support.geom.shape.FreeShape.prototype.getShapePoints = function getShapePoints() {
     return this._shapePoints;

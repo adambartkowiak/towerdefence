@@ -18,6 +18,7 @@ app.objects.BulletList = function BulletList() {
 
     /**
      * @property {Array} _bulletList
+     * @private
      */
     this._bulletList = [];
 
@@ -89,16 +90,16 @@ app.objects.BulletList.prototype.saveBulletListToJsonText = function saveBulletL
 app.objects.BulletList.prototype.loadBulletListFromJson = function loadBulletListFromJson(json) {
     var myJson = json;
     var jsonBullet;
-    
+
     this.clear();
-    
-    for(var i=0; i<myJson.length; i++){
+
+    for (var i = 0; i < myJson.length; i++) {
         jsonBullet = myJson[i];
-        
+
         var newTarget = new app.objects.Target(jsonBullet._target._x, jsonBullet._target._y, jsonBullet._target._enemyGuid);
         var newBullet = new app.objects.Bullet(jsonBullet._x, jsonBullet._y, newTarget, jsonBullet._speed, jsonBullet._damage, jsonBullet._graphicUrl);
         newBullet.setAngle(jsonBullet._angle);
-        
+
         this.addBullet(newBullet);
     }
 };

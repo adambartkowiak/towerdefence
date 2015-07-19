@@ -17,8 +17,8 @@ var Utils = Utils || {};
 app.objects.TowerList = function TowerList() {
 
     /**
-     * @property _towerList
-     * @type Array
+     * @property {Array} _towerList
+     * @private
      */
     this._towerList = [];
 
@@ -76,8 +76,8 @@ app.objects.TowerList.prototype.getTower = function getTower(index) {
  * @return {app.objects.Tower} tower
  */
 app.objects.TowerList.prototype.getTowerByGuid = function getTowerByGuid(guid) {
-    for (var i=0; i<this._towerList.length; i++){
-        if (this._towerList[i].getGuid() === guid){
+    for (var i = 0; i < this._towerList.length; i++) {
+        if (this._towerList[i].getGuid() === guid) {
             return this._towerList[i];
         }
     }
@@ -91,17 +91,17 @@ app.objects.TowerList.prototype.getTowerByGuid = function getTowerByGuid(guid) {
  * @return {app.objects.Tower} tower
  */
 app.objects.TowerList.prototype.getTowerByPosition = function getTowerByPosition(x, y) {
-    
+
     var length = this._towerList.length;
     var tower = null;
-    
-    for (var towerIndex=0; towerIndex<length; towerIndex++){
+
+    for (var towerIndex = 0; towerIndex < length; towerIndex++) {
         tower = this._towerList[towerIndex];
-        if (tower.getX() === x && tower.getY() === y){
-            return tower; 
+        if (tower.getX() === x && tower.getY() === y) {
+            return tower;
         }
     }
-    
+
     return null;
 };
 
@@ -128,10 +128,10 @@ app.objects.TowerList.prototype.saveTowerListToJsonText = function saveTowerList
 app.objects.TowerList.prototype.loadTowerListFromJson = function loadTowerListFromJson(json) {
     var myJson = json;
     var jsonTower;
-    
+
     this.clear();
-    
-    for(var i=0; i<myJson.length; i++){
+
+    for (var i = 0; i < myJson.length; i++) {
         jsonTower = myJson[i];
         var newBullet = new app.objects.Bullet(0, 0, null, jsonTower._bullet._speed, jsonTower._bullet._damage, jsonTower._bullet._graphicUrl);
         var newTower = new app.objects.Tower(jsonTower._x, jsonTower._y, jsonTower._range, jsonTower._rate, newBullet, jsonTower._graphicUrl);

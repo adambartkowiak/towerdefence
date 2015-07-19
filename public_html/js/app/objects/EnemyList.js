@@ -17,8 +17,8 @@ var Utils = Utils || {};
 app.objects.EnemyList = function EnemyList() {
 
     /**
-     * @property _enemyList
-     * @type Array
+     * @property {Array} _enemyList
+     * @private
      */
     this._enemyList = [];
 
@@ -64,8 +64,8 @@ app.objects.EnemyList.prototype.getEnemy = function getEnemy(index) {
  * @return {app.objects.Enemy} enemy
  */
 app.objects.EnemyList.prototype.getEnemyByGuid = function getEnemyByGuid(guid) {
-    for (var i=0; i<this._enemyList.length; i++){
-        if (this._enemyList[i].getGuid() === guid){
+    for (var i = 0; i < this._enemyList.length; i++) {
+        if (this._enemyList[i].getGuid() === guid) {
             return this._enemyList[i];
         }
     }
@@ -103,10 +103,10 @@ app.objects.EnemyList.prototype.saveEnemyListToJsonText = function saveEnemyList
 app.objects.EnemyList.prototype.loadEnemyListFromJson = function loadEnemyListFromJson(json) {
     var myJson = json;
     var jsonEnemy;
-    
+
     this.clear();
-    
-    for(var i=0; i<myJson.length; i++){
+
+    for (var i = 0; i < myJson.length; i++) {
         jsonEnemy = myJson[i];
         var newMoveVector = new support.geom.SimpleVector2d(jsonEnemy._moveVector._x, jsonEnemy._moveVector._y);
         var newEnemy = new app.objects.Enemy(jsonEnemy._x, jsonEnemy._y, jsonEnemy._hp, jsonEnemy._speed, jsonEnemy._graphicUrl);

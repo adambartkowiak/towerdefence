@@ -2,21 +2,16 @@
  * Created by adambartkowiak on 12.12.2013.
  */
 'use strict';
-/**
- * @namespace
- * @type {support|*|{}}
- */
+
 var support = support || {};
 support.geom = support.geom || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support.geom
+ * @class Vector2d
+ * @constructor
  * @param {Number} x1
  * @param {Number} y1
  * @param {Number} x2
@@ -25,26 +20,23 @@ var Utils = Utils || {};
 support.geom.Vector2d = function Vector2d(x1, y1, x2, y2) {
 
     /**
-     * @property
-     * @type {support.geom.Point2d} startPoint
+     * @property {support.geom.Point2d} _startPoint
+     * @private
      */
     this._startPoint = new support.geom.Point2d(x1, y1);
-    
+
     /**
-     * @property
-     * @type {support.geom.Point2d} endPoint
+     * @property {support.geom.Point2d} _endPoint
+     * @private
      */
     this._endPoint = new support.geom.Point2d(x2, y2);
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.geom.Vector2d, Object);
 
 /**
- * @methodName getStartPoint
+ * @method getStartPoint
  * @return {support.geom.Point2d} startSpoint
  */
 support.geom.Vector2d.prototype.getStartPoint = function getStartPoint() {
@@ -52,7 +44,7 @@ support.geom.Vector2d.prototype.getStartPoint = function getStartPoint() {
 };
 
 /**
- * @methodName getEndPoint
+ * @method getEndPoint
  * @return {support.geom.Point2d} endPoint
  */
 support.geom.Vector2d.prototype.getEndPoint = function getEndPoint() {
@@ -61,29 +53,29 @@ support.geom.Vector2d.prototype.getEndPoint = function getEndPoint() {
 
 /**
  * Zwraca dlugosc wektora
- * 
- * @methodName getVectorLength
+ *
+ * @method getVectorLength
  * @return {Number} length
  */
 support.geom.Vector2d.prototype.getVectorLength = function getVectorLength() {
     var v1 = this._startPoint,
         v2 = this._endPoint;
-    
+
     return Math.sqrt(Math.pow(v2.getX() - v1.getX(), 2) + Math.pow(v2.getY() - v1.getY(), 2));
 };
 
 /**
  * Zwraca znormalizowany wektor
- * 
- * @methodName getNormalizedVector
- * @returns {undefined}
+ *
+ * @method getNormalizedVector
+ * @return {support.geom.Point2d} normalizedVector
  */
 support.geom.Vector2d.prototype.getNormalizedVector = function getNormalizedVector() {
     var v1 = this._startPoint,
         v2 = this._endPoint,
         length = this.getVectorLength(),
-        x1 = (v2.getX() - v1.getX())/length,
-        y1 = (v2.getY() - v1.getY())/length;
-    
+        x1 = (v2.getX() - v1.getX()) / length,
+        y1 = (v2.getY() - v1.getY()) / length;
+
     return new support.geom.Point2d(x1, y1);
 };

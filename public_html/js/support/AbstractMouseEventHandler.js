@@ -3,40 +3,30 @@
  */
 'use strict';
 
-/**
- * @namespace
- * @type {support|*|{}}
- */
 var support = support || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
- * @constructor
  * @namespace support
+ * @class AbstractMouseEventHandler
+ * @constructor
  */
 support.AbstractMouseEventHandler = function AbstractMouseEventHandler() {
     throw new Error("Constructor in " + this.constructor.name +
         "is abstract and should be override");
 
     /**
-     *
-     * @type {support.MouseEventHandlerManager}
+     * @type {support.MouseEventHandlerManager} _mouseEventHandlerManager
      * @private
      */
     this._mouseEventHandlerManager = null;
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(support.AbstractMouseEventHandler, Object);
 
 /**
- * @methodName onMouseDown
+ * @method onMouseDown
  * @param {Event} e
  */
 support.AbstractMouseEventHandler.prototype.onMouseDown = function onMouseDown(e) {
@@ -45,7 +35,7 @@ support.AbstractMouseEventHandler.prototype.onMouseDown = function onMouseDown(e
 };
 
 /**
- * @methodName onMouseMove
+ * @method onMouseMove
  * @param {Event} e
  */
 support.AbstractMouseEventHandler.prototype.onMouseMove = function onMouseMove(e) {
@@ -54,7 +44,7 @@ support.AbstractMouseEventHandler.prototype.onMouseMove = function onMouseMove(e
 };
 
 /**
- * @methodName onMouseDrag
+ * @method onMouseDrag
  * @param {Event} e
  */
 support.AbstractMouseEventHandler.prototype.onMouseDrag = function onMouseDrag(e) {
@@ -63,7 +53,7 @@ support.AbstractMouseEventHandler.prototype.onMouseDrag = function onMouseDrag(e
 };
 
 /**
- * @methodName onMouseUp
+ * @method onMouseUp
  * @param {Event} e
  */
 support.AbstractMouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
@@ -72,8 +62,7 @@ support.AbstractMouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
 };
 
 /**
- * @methodName getMouseEventHandlerManager
- * @public
+ * @method getMouseEventHandlerManager
  * @return {support.MouseEventHandlerManager} mouseEventHandlerManager
  */
 support.AbstractMouseEventHandler.prototype.getMouseEventHandlerManager = function getMouseEventHandlerManager() {
@@ -81,9 +70,8 @@ support.AbstractMouseEventHandler.prototype.getMouseEventHandlerManager = functi
 };
 
 /**
- * @methodName setMouseEventHandlerManager
+ * @method setMouseEventHandlerManager
  * @param {support.MouseEventHandlerManager} mouseEventHandlerManager
- * @public
  */
 support.AbstractMouseEventHandler.prototype.setMouseEventHandlerManager = function setMouseEventHandlerManager(mouseEventHandlerManager) {
     this._mouseEventHandlerManager = mouseEventHandlerManager;

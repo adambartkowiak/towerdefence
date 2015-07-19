@@ -4,19 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class TowerList
  * @constructor
  */
 app.objects.TowerList = function TowerList() {
@@ -29,14 +24,11 @@ app.objects.TowerList = function TowerList() {
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.TowerList, Object);
 
 
 /**
- * @methodName addTower
+ * @method addTower
  * @param {app.objects.Tower} newTower
  */
 app.objects.TowerList.prototype.addTower = function addTower(newTower) {
@@ -44,7 +36,7 @@ app.objects.TowerList.prototype.addTower = function addTower(newTower) {
 };
 
 /**
- * @methodName deleteTower
+ * @method deleteTower
  * @param {app.objects.Tower} tower
  */
 app.objects.TowerList.prototype.deleteTower = function deleteTower(tower) {
@@ -55,22 +47,22 @@ app.objects.TowerList.prototype.deleteTower = function deleteTower(tower) {
 };
 
 /**
- * @methodName clear
+ * @method clear
  */
 app.objects.TowerList.prototype.clear = function clear() {
     this._towerList.length = 0;
 };
 
 /**
- * @methodName getTowerList
- * @return {Table}
+ * @method getTowerList
+ * @return {Array}
  */
 app.objects.TowerList.prototype.getTowerList = function getTowerList() {
     return this._towerList;
 };
 
 /**
- * @methodName getTower
+ * @method getTower
  * @param {Number} index
  * @return {app.objects.Tower} tower
  */
@@ -79,7 +71,7 @@ app.objects.TowerList.prototype.getTower = function getTower(index) {
 };
 
 /**
- * @methodName getTowerByGuid
+ * @method getTowerByGuid
  * @param {String} guid
  * @return {app.objects.Tower} tower
  */
@@ -93,7 +85,7 @@ app.objects.TowerList.prototype.getTowerByGuid = function getTowerByGuid(guid) {
 };
 
 /**
- * @methodName getTowerByPosition
+ * @method getTowerByPosition
  * @param {Number} x
  * @param {Number} y
  * @return {app.objects.Tower} tower
@@ -114,7 +106,7 @@ app.objects.TowerList.prototype.getTowerByPosition = function getTowerByPosition
 };
 
 /**
- * @methodName length
+ * @method length
  * @return {Number} length
  */
 app.objects.TowerList.prototype.length = function length() {
@@ -122,7 +114,7 @@ app.objects.TowerList.prototype.length = function length() {
 };
 
 /**
- * @methodName saveTowerListToJsonText
+ * @method saveTowerListToJsonText
  * @return {String} result
  */
 app.objects.TowerList.prototype.saveTowerListToJsonText = function saveTowerListToJsonText() {
@@ -130,7 +122,7 @@ app.objects.TowerList.prototype.saveTowerListToJsonText = function saveTowerList
 };
 
 /**
- * @methodName loadTowerListFromJson
+ * @method loadTowerListFromJson
  * @param {String} json
  */
 app.objects.TowerList.prototype.loadTowerListFromJson = function loadTowerListFromJson(json) {
@@ -151,7 +143,7 @@ app.objects.TowerList.prototype.loadTowerListFromJson = function loadTowerListFr
 };
 
 /**
- * @methodName loadTowerListFromJsonText
+ * @method loadTowerListFromJsonText
  * @param {String} jsonText
  */
 app.objects.TowerList.prototype.loadTowerListFromJsonText = function loadTowerListFromJsonText(jsonText) {

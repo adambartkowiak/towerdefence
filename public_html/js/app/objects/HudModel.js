@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class HudModel
  * @constructor
  * @param {Number} score
  * @param {Number} cash
@@ -73,21 +67,18 @@ app.objects.HudModel = function HudModel(score, cash) {
     
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.HudModel, Object);
 
 /**
- * @methodName getScore
- * @return {NUmber} score
+ * @method getScore
+ * @return {Number} score
  */
 app.objects.HudModel.prototype.getScore = function getScore() {
     return this._score;
 };
 
 /**
- * @methodName setScore
+ * @method setScore
  * @param {Number} score
  */
 app.objects.HudModel.prototype.setScore = function setScore(score) {
@@ -95,7 +86,7 @@ app.objects.HudModel.prototype.setScore = function setScore(score) {
 };
 
 /**
- * @methodName getCash
+ * @method getCash
  * @return {Number} cash
  */
 app.objects.HudModel.prototype.getCash = function getCash() {
@@ -103,7 +94,7 @@ app.objects.HudModel.prototype.getCash = function getCash() {
 };
 
 /**
- * @methodName setCash
+ * @method setCash
  * @param {Number} cash
  */
 app.objects.HudModel.prototype.setCash = function setCash(cash) {
@@ -111,7 +102,7 @@ app.objects.HudModel.prototype.setCash = function setCash(cash) {
 };
 
 /**
- * @methodName getMenuGraphicUrl
+ * @method getMenuGraphicUrl
  * @return {String} cash
  */
 app.objects.HudModel.prototype.getMenuGraphicUrl = function getMenuGraphicUrl() {
@@ -119,7 +110,7 @@ app.objects.HudModel.prototype.getMenuGraphicUrl = function getMenuGraphicUrl() 
 };
 
 /**
- * @methodName setMenuGraphicUrl
+ * @method setMenuGraphicUrl
  * @param {Number} menuGraphicUrl
  */
 app.objects.HudModel.prototype.setMenuGraphicUrl = function setMenuGraphicUrl(menuGraphicUrl) {
@@ -127,7 +118,7 @@ app.objects.HudModel.prototype.setMenuGraphicUrl = function setMenuGraphicUrl(me
 };
 
 /**
- * @methodName getTowerXMenu
+ * @method getTowerXMenu
  * @return {Number} towerXMenu
  */
 app.objects.HudModel.prototype.getTowerXMenu = function getTowerXMenu() {
@@ -135,7 +126,7 @@ app.objects.HudModel.prototype.getTowerXMenu = function getTowerXMenu() {
 };
 
 /**
- * @methodName getTowerYMenu
+ * @method getTowerYMenu
  * @return {Number} towerYMenu
  */
 app.objects.HudModel.prototype.getTowerYMenu = function getTowerYMenu() {
@@ -143,7 +134,7 @@ app.objects.HudModel.prototype.getTowerYMenu = function getTowerYMenu() {
 };
 
 /**
- * @methodName getTowerGuidForCurrentMenu
+ * @method getTowerGuidForCurrentMenu
  * @return {Number} towerMenuByGuid
  */
 app.objects.HudModel.prototype.getTowerGuidForCurrentMenu = function getTowerGuidForCurrentMenu() {
@@ -151,7 +142,7 @@ app.objects.HudModel.prototype.getTowerGuidForCurrentMenu = function getTowerGui
 };
 
 /**
- * @methodName createMenuForTowerGuid
+ * @method createMenuForTowerGuid
  * @param {Number} towerGuid
  * @param {Number} towerXMenu
  * @param {Number} towerYMenu
@@ -163,14 +154,14 @@ app.objects.HudModel.prototype.createMenuForTowerGuid = function createMenuForTo
 };
 
 /**
- * @methodName disableMenuForTower
+ * @method disableMenuForTower
  */
 app.objects.HudModel.prototype.disableMenuForTower = function disableMenuForTower() {
     this._towerMenuByGuid = -1;
 };
 
 /**
- * @methodName getMenuCircle
+ * @method getMenuCircle
  * @return {support.geom.Circle} menuCircle
  */
 app.objects.HudModel.prototype.getMenuCircle = function getMenuCircle() {
@@ -178,7 +169,7 @@ app.objects.HudModel.prototype.getMenuCircle = function getMenuCircle() {
 };
 
 /**
- * @methodName setMenuCircle
+ * @method setMenuCircle
  * @param {Number} x
  * @param {Number} y
  * @param {Number} radius
@@ -190,7 +181,7 @@ app.objects.HudModel.prototype.setMenuCircle = function setMenuCircle(x, y, radi
 };
 
 /**
- * @methodName getMenuOkButtonRect
+ * @method getMenuOkButtonRect
  * @return {support.geom.Rect} menuOkButtonRect
  */
 app.objects.HudModel.prototype.getMenuOkButtonRect = function getMenuOkButtonRect() {
@@ -198,7 +189,7 @@ app.objects.HudModel.prototype.getMenuOkButtonRect = function getMenuOkButtonRec
 };
 
 /**
- * @methodName getMenuCancelButtonRect
+ * @method getMenuCancelButtonRect
  * @return {support.geom.Rect} menuOkButtonRect
  */
 app.objects.HudModel.prototype.getMenuCancelButtonRect = function getMenuCancelButtonRect() {
@@ -206,7 +197,7 @@ app.objects.HudModel.prototype.getMenuCancelButtonRect = function getMenuCancelB
 };
 
 /**
- * @methodName setMenuOkButtonRect
+ * @method setMenuOkButtonRect
  * @param {Number} x
  * @param {Number} y
  * @param {Number} width
@@ -220,7 +211,7 @@ app.objects.HudModel.prototype.setMenuOkButtonRect = function setMenuOkButtonRec
 };
 
 /**
- * @methodName setMenuCancelButtonRect
+ * @method setMenuCancelButtonRect
  * @param {Number} x
  * @param {Number} y
  * @param {Number} width
@@ -234,7 +225,7 @@ app.objects.HudModel.prototype.setMenuCancelButtonRect = function setMenuCancelB
 };
 
 /**
- * @methodName saveHudModelToJsonText
+ * @method saveHudModelToJsonText
  * @return {String} result
  */
 app.objects.HudModel.prototype.saveHudModelToJsonText = function saveHudModelToJsonText() {
@@ -242,7 +233,7 @@ app.objects.HudModel.prototype.saveHudModelToJsonText = function saveHudModelToJ
 };
 
 /**
- * @methodName saveScoreToJsonText
+ * @method saveScoreToJsonText
  * @return {String} result
  */
 app.objects.HudModel.prototype.saveScoreToJsonText = function saveScoreToJsonText() {
@@ -253,7 +244,7 @@ app.objects.HudModel.prototype.saveScoreToJsonText = function saveScoreToJsonTex
 };
 
 /**
- * @methodName loadHudModelFromJson
+ * @method loadHudModelFromJson
  * @param {String} json
  */
 app.objects.HudModel.prototype.loadHudModelFromJson = function loadHudModelFromJson(json) {
@@ -267,7 +258,7 @@ app.objects.HudModel.prototype.loadHudModelFromJson = function loadHudModelFromJ
 };
 
 /**
- * @methodName loadTowerListFromJsonText
+ * @method loadTowerListFromJsonText
  * @param {String} jsonText
  */
 app.objects.HudModel.prototype.loadHudModelFromJsonText = function loadHudModelFromJsonText(jsonText) {

@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class Target
  * @constructor
  * @param {Number} x
  * @param {Number} y
@@ -35,13 +29,10 @@ app.objects.Target = function Target(x, y, enemyGuid) {
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.Target, support.geom.Point2d);
 
 /**
- * @methodName getEnemy
+ * @method getEnemy
  * @return {app.objects.Target} enemy
  */
 app.objects.Target.prototype.getEnemyGuid = function getEnemyGuid() {

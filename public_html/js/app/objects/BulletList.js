@@ -4,19 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class BulletList
  * @constructor
  */
 app.objects.BulletList = function BulletList() {
@@ -28,14 +23,11 @@ app.objects.BulletList = function BulletList() {
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.BulletList, Object);
 
 
 /**
- * @methodName addBullet
+ * @method addBullet
  * @param {app.objects.Bullet} newBullet
  */
 app.objects.BulletList.prototype.addBullet = function addBullet(newBullet) {
@@ -43,14 +35,14 @@ app.objects.BulletList.prototype.addBullet = function addBullet(newBullet) {
 };
 
 /**
- * @methodName clear
+ * @method clear
  */
 app.objects.BulletList.prototype.clear = function clear() {
     this._bulletList.length = 0;
 };
 
 /**
- * @methodName remove
+ * @method remove
  * @param {Number} index
  */
 app.objects.BulletList.prototype.remove = function remove(index) {
@@ -58,7 +50,7 @@ app.objects.BulletList.prototype.remove = function remove(index) {
 };
 
 /**
- * @methodName getBulletList
+ * @method getBulletList
  * @return {Array} _x
  */
 app.objects.BulletList.prototype.getBulletList = function getBulletList() {
@@ -66,7 +58,7 @@ app.objects.BulletList.prototype.getBulletList = function getBulletList() {
 };
 
 /**
- * @methodName getBullet
+ * @method getBullet
  * @param {Number} index
  * @return {app.objects.Bullet} bulet
  */
@@ -75,7 +67,7 @@ app.objects.BulletList.prototype.getBullet = function getBullet(index) {
 };
 
 /**
- * @methodName length
+ * @method length
  * @return {Number} length
  */
 app.objects.BulletList.prototype.length = function length() {
@@ -83,7 +75,7 @@ app.objects.BulletList.prototype.length = function length() {
 };
 
 /**
- * @methodName saveBulletListToJsonText
+ * @method saveBulletListToJsonText
  * @return {String} result
  */
 app.objects.BulletList.prototype.saveBulletListToJsonText = function saveBulletListToJsonText() {
@@ -91,7 +83,7 @@ app.objects.BulletList.prototype.saveBulletListToJsonText = function saveBulletL
 };
 
 /**
- * @methodName loadBulletListFromJson
+ * @method loadBulletListFromJson
  * @param {String} json
  */
 app.objects.BulletList.prototype.loadBulletListFromJson = function loadBulletListFromJson(json) {
@@ -112,7 +104,7 @@ app.objects.BulletList.prototype.loadBulletListFromJson = function loadBulletLis
 };
 
 /**
- * @methodName loadBulletListFromJsonText
+ * @method loadBulletListFromJsonText
  * @param {String} jsonText
  */
 app.objects.BulletList.prototype.loadBulletListFromJsonText = function loadBulletListFromJsonText(jsonText) {

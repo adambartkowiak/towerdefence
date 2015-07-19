@@ -4,25 +4,18 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class CheckpointList
  * @constructor
- * @param {Number} x
  * 
  */
-app.objects.CheckpointList = function CheckpointList(x) {
+app.objects.CheckpointList = function CheckpointList() {
 
     /**
      * @property _damage
@@ -32,13 +25,10 @@ app.objects.CheckpointList = function CheckpointList(x) {
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.CheckpointList, Object);
 
 /**
- * @methodName addCheckpoint
+ * @method addCheckpoint
  * @param {app.objects.Checkpoint} newCheckpoint
  */
 app.objects.CheckpointList.prototype.addCheckpoint = function addCheckpoint(newCheckpoint) {
@@ -46,7 +36,7 @@ app.objects.CheckpointList.prototype.addCheckpoint = function addCheckpoint(newC
 };
 
 /**
- * @methodName getCheckpoint
+ * @method getCheckpoint
  * @param {Number} index
  * @return {app.objects.Checkpoint} bulet
  */
@@ -55,16 +45,15 @@ app.objects.CheckpointList.prototype.getCheckpoint = function getCheckpoint(inde
 };
 
 /**
- * @methodName getCheckpointList
- * @param {Number} index
- * @return {Array} bulet
+ * @method getCheckpointList
+ * @return {Array} checkpointList
  */
 app.objects.CheckpointList.prototype.getCheckpointList = function getCheckpointList() {
     return this._checkpointList;
 };
 
 /**
- * @methodName length
+ * @method length
  * @return {Number} length
  */
 app.objects.CheckpointList.prototype.length = function length() {
@@ -72,7 +61,7 @@ app.objects.CheckpointList.prototype.length = function length() {
 };
 
 /**
- * @methodName clear
+ * @method clear
  */
 app.objects.CheckpointList.prototype.clear = function clear() {
     this._checkpointList.length = 0;
@@ -80,7 +69,7 @@ app.objects.CheckpointList.prototype.clear = function clear() {
 
 
 /**
- * @methodName stringify
+ * @method stringify
  * @return {String} result
  */
 app.objects.CheckpointList.prototype.saveCheckpointListToJsonText = function saveCheckpointListToJsonText() {
@@ -88,7 +77,7 @@ app.objects.CheckpointList.prototype.saveCheckpointListToJsonText = function sav
 };
 
 /**
- * @methodName loadCheckpointListFromJson
+ * @method loadCheckpointListFromJson
  * @param {String} json
  */
 app.objects.CheckpointList.prototype.loadCheckpointListFromJson = function loadCheckpointListFromJson(json) {
@@ -105,7 +94,7 @@ app.objects.CheckpointList.prototype.loadCheckpointListFromJson = function loadC
 };
 
 /**
- * @methodName loadEnemyListFromJsonText
+ * @method loadEnemyListFromJsonText
  * @param {String} jsonText
  */
 app.objects.CheckpointList.prototype.loadCheckpointListFromJsonText = function loadCheckpointListFromJsonText(jsonText) {

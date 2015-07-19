@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class Enemy
  * @constructor
  * @param {Number} x
  * @param {Number} y
@@ -66,13 +60,10 @@ app.objects.Enemy = function Enemy(x, y, hp, speed, graphicUrl) {
     this._guid = Math.random();
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.Enemy, support.geom.Point2d);
 
 /**
- * @methodName getHp
+ * @method getHp
  * @return {Number} hp
  */
 app.objects.Enemy.prototype.getHp = function getHp() {
@@ -80,7 +71,7 @@ app.objects.Enemy.prototype.getHp = function getHp() {
 };
 
 /**
- * @methodName setHp
+ * @method setHp
  * @param {Number} hp
  */
 app.objects.Enemy.prototype.setHp = function setHp(hp) {
@@ -88,7 +79,7 @@ app.objects.Enemy.prototype.setHp = function setHp(hp) {
 };
 
 /**
- * @methodName getCurrentHp
+ * @method getCurrentHp
  * @return {Number} currentHp
  */
 app.objects.Enemy.prototype.getCurrentHp = function getCurrentHp() {
@@ -96,7 +87,7 @@ app.objects.Enemy.prototype.getCurrentHp = function getCurrentHp() {
 };
 
 /**
- * @methodName setCurrentHp
+ * @method setCurrentHp
  * @param {Number} currentHp
  */
 app.objects.Enemy.prototype.setCurrentHp = function setCurrentHp(currentHp) {
@@ -104,7 +95,7 @@ app.objects.Enemy.prototype.setCurrentHp = function setCurrentHp(currentHp) {
 };
 
 /**
- * @methodName getMoveVector
+ * @method getMoveVector
  * @return {support.geom.SimpleVector2d} moveVector
  */
 app.objects.Enemy.prototype.getMoveVector = function getMoveVector() {
@@ -112,7 +103,7 @@ app.objects.Enemy.prototype.getMoveVector = function getMoveVector() {
 };
 
 /**
- * @methodName getAngle
+ * @method getAngle
  * @return {Number} angle
  */
 app.objects.Enemy.prototype.getAngle = function getAngle() {
@@ -120,7 +111,7 @@ app.objects.Enemy.prototype.getAngle = function getAngle() {
 };
 
 /**
- * @methodName setAngle
+ * @method setAngle
  * @param {Number} angle
  */
 app.objects.Enemy.prototype.setAngle = function setAngle(angle) {
@@ -128,7 +119,7 @@ app.objects.Enemy.prototype.setAngle = function setAngle(angle) {
 };
 
 /**
- * @methodName getSpeed
+ * @method getSpeed
  * @return {Number} speed
  */
 app.objects.Enemy.prototype.getSpeed = function getSpeed() {
@@ -136,7 +127,7 @@ app.objects.Enemy.prototype.getSpeed = function getSpeed() {
 };
 
 /**
- * @methodName setSpeed
+ * @method setSpeed
  * @param {Number} speed
  */
 app.objects.Enemy.prototype.setSpeed = function setSpeed(speed) {
@@ -144,7 +135,7 @@ app.objects.Enemy.prototype.setSpeed = function setSpeed(speed) {
 };
 
 /**
- * @methodName getGuid
+ * @method getGuid
  * @return {String} guid
  */
 app.objects.Enemy.prototype.getGuid = function getGuid() {
@@ -152,7 +143,7 @@ app.objects.Enemy.prototype.getGuid = function getGuid() {
 };
 
 /**
- * @methodName setGuid
+ * @method setGuid
  * @param {Number} guid
  */
 app.objects.Enemy.prototype.setGuid = function setGuid(guid) {
@@ -160,7 +151,7 @@ app.objects.Enemy.prototype.setGuid = function setGuid(guid) {
 };
 
 /**
- * @methodName getMoveVector
+ * @method getMoveVector
  * @return {support.geom.SimpleVector2d} guid
  */
 app.objects.Enemy.prototype.getMoveVector = function getMoveVector() {
@@ -168,7 +159,7 @@ app.objects.Enemy.prototype.getMoveVector = function getMoveVector() {
 };
 
 /**
- * @methodName setMoveVector
+ * @method setMoveVector
  * @param {support.geom.SimpleVector2d} moveVector
  */
 app.objects.Enemy.prototype.setMoveVector = function setMoveVector(moveVector) {
@@ -176,7 +167,7 @@ app.objects.Enemy.prototype.setMoveVector = function setMoveVector(moveVector) {
 };
 
 /**
- * @methodName getGraphicUrl
+ * @method getGraphicUrl
  * @return {String} graphicUrl
  */
 app.objects.Enemy.prototype.getGraphicUrl = function getGraphicUrl() {
@@ -184,7 +175,7 @@ app.objects.Enemy.prototype.getGraphicUrl = function getGraphicUrl() {
 };
 
 /**
- * @methodName setGraphicUrl
+ * @method setGraphicUrl
  * @param {String} graphicUrl
  */
 app.objects.Enemy.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {

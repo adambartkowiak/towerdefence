@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class HudView
  * @constructor
  * @param {HTMLCanvasElement} canvas
  * @param {app.map.HudModel} hudModel
@@ -25,7 +19,7 @@ var Utils = Utils || {};
 app.objects.HudView = function HudView(canvas, hudModel) {
     
     /**
-     * @property {Canvas} canvas
+     * @property {HTMLCanvasElement} canvas
      */
     this.canvas = canvas;
 
@@ -72,13 +66,10 @@ app.objects.HudView = function HudView(canvas, hudModel) {
     this._image = new support.graphics.Image();
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.HudView, Object);
 
 /**
- * @methodName draw
+ * @method draw
  * @public
  */
 app.objects.HudView.prototype.draw = function draw(){
@@ -93,7 +84,7 @@ app.objects.HudView.prototype.draw = function draw(){
 };
 
 /**
- * @methodName _drawTowerMenu
+ * @method _drawTowerMenu
  * @private
  * @param {Number} towerXMenu
  * @param {Number} towerYMenu

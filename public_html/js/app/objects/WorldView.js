@@ -4,19 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class WorldView
  * @constructor
  * @param {HTMLCanvasElement} canvas
  * @param {app.objects.WorldModel} worldModel
@@ -24,7 +19,7 @@ var Utils = Utils || {};
 app.objects.WorldView = function WorldView(canvas, worldModel) {
 
     /**
-     * @type {Canvas}
+     * @type {HTMLCanvasElement}
      */
     this.canvas = canvas;
 
@@ -36,7 +31,7 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
 
     /**
      *
-     * @type {app.objects.MapModel} mapModel
+     * @type {app.objects.WorldModel} worldModel
      */
     this._worldModel = worldModel;
     
@@ -102,13 +97,10 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
     this._angle = 0;
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.WorldView, Object);
 
 /**
- * @methodName draw
+ * @method draw
  * @@param {Number} logicFrames 
  * @public
  */
@@ -126,7 +118,7 @@ app.objects.WorldView.prototype.draw = function draw(logicFrames){
         this._drawMap(map);
         
         this.canvasContext.fillStyle = '#FF0000';
-        this._drawCheckpoints(checkpoints)
+        this._drawCheckpoints(checkpoints);
         
         this.canvasContext.fillStyle = '#000000';
         this._drawEnemies(enemies);
@@ -142,7 +134,7 @@ app.objects.WorldView.prototype.draw = function draw(logicFrames){
 };
 
 /**
- * @methodName _drawEnemies
+ * @method _drawEnemies
  * @private
  * @param {app.objects.EnemyList} enemyList
  */
@@ -185,7 +177,7 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList){
 };
 
 /**
- * @methodName _drawTowers
+ * @method _drawTowers
  * @private
  * @param {app.objects.TowerList} towerList
  */
@@ -210,7 +202,7 @@ app.objects.WorldView.prototype._drawTowers = function _drawTowers(towerList){
 };
 
 /**
- * @methodName _drawBullets
+ * @method _drawBullets
  * @private
  * @param {app.objects.BulletList} bulletList
  */
@@ -233,7 +225,7 @@ app.objects.WorldView.prototype._drawBullets = function _drawBullets(bulletList)
 };
 
 /**
- * @methodName _drawCheckpoints
+ * @method _drawCheckpoints
  * @private
  * @param {app.objects.CheckpointList} checkpointList
  */
@@ -250,7 +242,7 @@ app.objects.WorldView.prototype._drawCheckpoints = function _drawCheckpoints(che
 };
 
 /**
- * @methodName _drawMap
+ * @method _drawMap
  * @private
  * @param {app.objects.Map} map
  */

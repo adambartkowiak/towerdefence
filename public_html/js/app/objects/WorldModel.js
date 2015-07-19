@@ -4,19 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class WorldModel
  * @constructor
  */
 app.objects.WorldModel = function WorldModel() {
@@ -59,13 +54,10 @@ app.objects.WorldModel = function WorldModel() {
     this._map = new app.objects.Map();
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.WorldModel, Object);
 
 /**
- * @methodName getBulletList
+ * @method getBulletList
  * @public
  * @return {app.objects.BulletList}
  */
@@ -74,7 +66,7 @@ app.objects.WorldModel.prototype.getBulletList = function getBulletList(){
 };
 
 /**
- * @methodName getTowerList
+ * @method getTowerList
  * @public
  * @return {app.objects.TowerList}
  */
@@ -83,7 +75,7 @@ app.objects.WorldModel.prototype.getTowerList = function getTowerList(){
 };
 
 /**
- * @methodName getEnemyList
+ * @method getEnemyList
  * @public
  * @return {app.objects.EnemyList}
  */
@@ -92,7 +84,7 @@ app.objects.WorldModel.prototype.getEnemyList = function getEnemyList(){
 };
 
 /**
- * @methodName getCheckpointList
+ * @method getCheckpointList
  * @public
  * @return {app.objects.CheckpointList}
  */
@@ -101,7 +93,7 @@ app.objects.WorldModel.prototype.getCheckpointList = function getCheckpointList(
 };
 
 /**
- * @methodName getMap
+ * @method getMap
  * @public
  * @return {app.objects.Map}
  */
@@ -110,7 +102,7 @@ app.objects.WorldModel.prototype.getMap = function getMap(){
 };
 
 /**
- * @methodName setTowerList
+ * @method setTowerList
  * @param {app.objects.TowerList} towerList
  * @public
  */
@@ -119,7 +111,7 @@ app.objects.WorldModel.prototype.setTowerList = function setTowerList(towerList)
 };
 
 /**
- * @methodName setEnemyList
+ * @method setEnemyList
  * @param {app.objects.EnemyList} enemyList
  * @public
  */
@@ -128,7 +120,7 @@ app.objects.WorldModel.prototype.setEnemyList = function setEnemyList(enemyList)
 };
 
 /**
- * @methodName setBulletList
+ * @method setBulletList
  * @param {app.objects.BulletList} bulletList
  * @public
  */
@@ -137,7 +129,7 @@ app.objects.WorldModel.prototype.setBulletList = function setBulletList(bulletLi
 };
 
 /**
- * @methodName setCheckpointList
+ * @method setCheckpointList
  * @param {app.objects.CheckpointList} checkpointList
  * @public
  */
@@ -146,7 +138,7 @@ app.objects.WorldModel.prototype.setCheckpointList = function setCheckpointList(
 };
 
 /**
- * @methodName setMap
+ * @method setMap
  * @param {app.objects.Map} map
  * @public
  */
@@ -157,7 +149,7 @@ app.objects.WorldModel.prototype.setMap = function setMap(map){
 
 
 /**
- * @methodName onMapLoadingEnd
+ * @method onMapLoadingEnd
  * @public
  */
 app.objects.WorldModel.prototype.onMapLoadingEnd = function onMapLoadingEnd(){

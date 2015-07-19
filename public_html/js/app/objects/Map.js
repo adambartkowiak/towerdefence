@@ -5,19 +5,15 @@
 'use strict';
 
 /**
- * @namespace app.objects
- * @memberOf app
  */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class Map
  * @constructor
  * @param {Number} width
  * @param {Number} height
@@ -65,15 +61,12 @@ app.objects.Map = function Map(width, height, fieldWidth, fieldHeight, graphicUr
     
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.Map, Object);
 
 
 
 /**
- * @methodName init
+ * @method init
  */
 app.objects.Map.prototype.init = function init() {
     var x, y, maxX = this._width, maxY = this._height;
@@ -89,7 +82,7 @@ app.objects.Map.prototype.init = function init() {
 };
 
 /**
- * @methodName getWidth
+ * @method getWidth
  * @return {Number}
  */
 app.objects.Map.prototype.getWidth = function getWidth() {
@@ -97,7 +90,7 @@ app.objects.Map.prototype.getWidth = function getWidth() {
 };
 
 /**
- * @methodName getHeight
+ * @method getHeight
  * @return {Number}
  */
 app.objects.Map.prototype.getHeight = function getHeight() {
@@ -105,7 +98,7 @@ app.objects.Map.prototype.getHeight = function getHeight() {
 };
 
 /**
- * @methodName getFieldWidth
+ * @method getFieldWidth
  * @return {Number}
  */
 app.objects.Map.prototype.getFieldWidth = function getFieldWidth() {
@@ -113,7 +106,7 @@ app.objects.Map.prototype.getFieldWidth = function getFieldWidth() {
 };
 
 /**
- * @methodName getFieldHeight
+ * @method getFieldHeight
  * @return {Number}
  */
 app.objects.Map.prototype.getFieldHeight = function getFieldHeight() {
@@ -121,7 +114,7 @@ app.objects.Map.prototype.getFieldHeight = function getFieldHeight() {
 };
 
 /**
- * @methodName getField
+ * @method getField
  * @param {Number} x
  * @param {Number} y
  * @return {app.objects.MapField}
@@ -131,7 +124,7 @@ app.objects.Map.prototype.getField = function getField(x, y) {
 };
 
 /**
- * @methodName getFieldByPixels
+ * @method getFieldByPixels
  * @param {Number} xPx
  * @param {Number} yPx
  * @return {app.objects.MapField}
@@ -145,7 +138,7 @@ app.objects.Map.prototype.getFieldByPixels = function getFieldByPixels(xPx, yPx)
 };
 
 /**
- * @methodName getSelectedField
+ * @method getSelectedField
  * @return {app.objects.MapField}
  */
 app.objects.Map.prototype.getSelectedField = function getSelectedField() {
@@ -153,7 +146,7 @@ app.objects.Map.prototype.getSelectedField = function getSelectedField() {
 };
 
 /**
- * @methodName setSelectedField
+ * @method setSelectedField
  * @param {app.objects.MapField} mapField
  */
 app.objects.Map.prototype.setSelectedField = function setSelectedField(mapField) {
@@ -161,7 +154,7 @@ app.objects.Map.prototype.setSelectedField = function setSelectedField(mapField)
 };
 
 /**
- * @methodName getGraphicUrl
+ * @method getGraphicUrl
  * @return {String} mapUrl
  */
 app.objects.Map.prototype.getGraphicUrl = function getGraphicUrl() {
@@ -169,7 +162,7 @@ app.objects.Map.prototype.getGraphicUrl = function getGraphicUrl() {
 };
 
 /**
- * @methodName setGraphicUrl
+ * @method setGraphicUrl
  * @param {String} graphicUrl
  */
 app.objects.Map.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
@@ -177,14 +170,14 @@ app.objects.Map.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
 };
 
 /**
- * @methodName clear
+ * @method clear
  */
 app.objects.Map.prototype.clear = function clear() {
     this._fields.length = 0;
 };
 
 /**
- * @methodName saveMapModelToJsonText
+ * @method saveMapModelToJsonText
  * @return {String} result
  */
 app.objects.Map.prototype.saveMapModelToJsonText = function saveMapModelToJsonText() {
@@ -192,7 +185,7 @@ app.objects.Map.prototype.saveMapModelToJsonText = function saveMapModelToJsonTe
 };
 
 /**
- * @methodName loadMapModelFromJson
+ * @method loadMapModelFromJson
  * @param {String} json
  */
 app.objects.Map.prototype.loadMapModelFromJson = function loadMapModelFromJson(json) {
@@ -223,7 +216,7 @@ app.objects.Map.prototype.loadMapModelFromJson = function loadMapModelFromJson(j
 };
 
 /**
- * @methodName loadMapModelFromJsonText
+ * @method loadMapModelFromJsonText
  * @param {String} jsonText
  */
 app.objects.Map.prototype.loadMapModelFromJsonText = function loadMapModelFromJsonText(jsonText) {

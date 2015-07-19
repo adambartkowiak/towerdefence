@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class MapField
  * @constructor
  * @param {Boolean} allowBuild
  * 
@@ -38,13 +32,10 @@ app.objects.MapField = function MapField(allowBuild) {
     
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.MapField, Object);
 
 /**
- * @methodName getAllowBuild
+ * @method getAllowBuild
  * @return {Boolean}
  */
 app.objects.MapField.prototype.getAllowBuild = function getAllowBuild(){
@@ -52,7 +43,7 @@ app.objects.MapField.prototype.getAllowBuild = function getAllowBuild(){
 };
 
 /**
- * @methodName getEmpty
+ * @method getEmpty
  * @return {Boolean}
  */
 app.objects.MapField.prototype.getEmpty = function getEmpty(){
@@ -60,7 +51,7 @@ app.objects.MapField.prototype.getEmpty = function getEmpty(){
 };
 
 /**
- * @methodName setEmpty
+ * @method setEmpty
  * @return {Boolean} empty
  */
 app.objects.MapField.prototype.setEmpty = function setEmpty(empty){

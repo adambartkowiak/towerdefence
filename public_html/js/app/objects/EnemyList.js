@@ -4,19 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class EnemyList
  * @constructor
  */
 app.objects.EnemyList = function EnemyList() {
@@ -29,13 +24,10 @@ app.objects.EnemyList = function EnemyList() {
 
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.EnemyList, Object);
 
 /**
- * @methodName addEnemy
+ * @method addEnemy
  * @param {app.objects.Bullet} newEnemy
  */
 app.objects.EnemyList.prototype.addEnemy = function addEnemy(newEnemy) {
@@ -43,14 +35,14 @@ app.objects.EnemyList.prototype.addEnemy = function addEnemy(newEnemy) {
 };
 
 /**
- * @methodName clear
+ * @method clear
  */
 app.objects.EnemyList.prototype.clear = function clear() {
     this._enemyList.length = 0;
 };
 
 /**
- * @methodName getEnemyList
+ * @method getEnemyList
  * @return {app.objects.EnemyList}
  */
 app.objects.EnemyList.prototype.getEnemyList = function getEnemyList() {
@@ -58,7 +50,7 @@ app.objects.EnemyList.prototype.getEnemyList = function getEnemyList() {
 };
 
 /**
- * @methodName getEnemy
+ * @method getEnemy
  * @param {Number} index
  * @return {app.objects.Enemy} enemy
  */
@@ -67,7 +59,7 @@ app.objects.EnemyList.prototype.getEnemy = function getEnemy(index) {
 };
 
 /**
- * @methodName getEnemyByGuid
+ * @method getEnemyByGuid
  * @param {String} guid
  * @return {app.objects.Enemy} enemy
  */
@@ -81,7 +73,7 @@ app.objects.EnemyList.prototype.getEnemyByGuid = function getEnemyByGuid(guid) {
 };
 
 /**
- * @methodName length
+ * @method length
  * @return {Number} length
  */
 app.objects.EnemyList.prototype.length = function length() {
@@ -89,7 +81,7 @@ app.objects.EnemyList.prototype.length = function length() {
 };
 
 /**
- * @methodName remove
+ * @method remove
  * @param {Number} index
  */
 app.objects.EnemyList.prototype.remove = function remove(index) {
@@ -97,7 +89,7 @@ app.objects.EnemyList.prototype.remove = function remove(index) {
 };
 
 /**
- * @methodName stringify
+ * @method stringify
  * @return {String} result
  */
 app.objects.EnemyList.prototype.saveEnemyListToJsonText = function saveEnemyListToJsonText() {
@@ -105,7 +97,7 @@ app.objects.EnemyList.prototype.saveEnemyListToJsonText = function saveEnemyList
 };
 
 /**
- * @methodName loadEnemyListFromJson
+ * @method loadEnemyListFromJson
  * @param {String} json
  */
 app.objects.EnemyList.prototype.loadEnemyListFromJson = function loadEnemyListFromJson(json) {
@@ -127,7 +119,7 @@ app.objects.EnemyList.prototype.loadEnemyListFromJson = function loadEnemyListFr
 };
 
 /**
- * @methodName loadEnemyListFromJsonText
+ * @method loadEnemyListFromJsonText
  * @param {String} jsonText
  */
 app.objects.EnemyList.prototype.loadEnemyListFromJsonText = function loadEnemyListFromJsonText(jsonText) {

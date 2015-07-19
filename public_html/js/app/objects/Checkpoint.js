@@ -4,20 +4,14 @@
 
 'use strict';
 
-/**
- * @namespace app.objects
- * @memberOf app
- */
 var app = app || {};
 app.objects = app.objects || {};
 
-
-/**
- * @imports
- */
 var Utils = Utils || {};
 
 /**
+ * @namespace app.objects
+ * @class Checkpoint
  * @constructor
  * @param {Number} x
  * @param {Number} y
@@ -36,13 +30,10 @@ app.objects.Checkpoint = function Checkpoint(x, y, moveX, moveY) {
     this._moveVector = new support.geom.SimpleVector2d(moveX,moveY);
 };
 
-/**
- * @inheritance
- */
 Utils.inherits(app.objects.Checkpoint, support.geom.Point2d);
 
 /**
- * @methodName getMoveVector
+ * @method getMoveVector
  * @return {support.geom.SimpleVector2d} moveVector
  */
 app.objects.Checkpoint.prototype.getMoveVector = function getMoveVector() {

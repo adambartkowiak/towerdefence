@@ -22,7 +22,7 @@ var Utils = Utils || {};
  * @param {app.objects.TowerList} towerList
  * @param {app.objects.EnemyList} enemyList
  * @param {app.objects.BulletList} bulletList
- * 
+ *
  */
 app.managers.TowerManager = function TowerManager(towerList, enemyList, bulletList) {
 
@@ -35,7 +35,7 @@ app.managers.TowerManager = function TowerManager(towerList, enemyList, bulletLi
      * @property {app.objects.EnemyList} _enemyList
      */
     this._enemyList = enemyList;
-    
+
     /**
      * @property {app.objects.BulletList} _bulletList
      */
@@ -52,7 +52,7 @@ Utils.inherits(app.managers.TowerManager, Object);
  * @methodName tryShotToEnemy
  */
 app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
-    
+
     var towerLength = this._towerList.length();
     var enemyLength = this._enemyList.length();
     var towerIndex;
@@ -61,14 +61,14 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
     var enemy;
     var tX, tY, eX, eY, dX, dY;
     var moveVector, moveVectorLength;
-    
-    for (towerIndex = 0; towerIndex<towerLength; towerIndex++){
-        
+
+    for (towerIndex = 0; towerIndex < towerLength; towerIndex++) {
+
         var tower = this._towerList.getTower(towerIndex);
-        
-        for (enemyIndex = 0; enemyIndex<enemyLength; enemyIndex++){
-                
-            if(true){//tower.getCooldown() === 0){
+
+        for (enemyIndex = 0; enemyIndex < enemyLength; enemyIndex++) {
+
+            if (true) {//tower.getCooldown() === 0){
                 var enemy = this._enemyList.getEnemy(enemyIndex);
 
                 tX = tower.getX();
@@ -82,14 +82,14 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                 moveVector = new support.geom.SimpleVector2d(dX, dY);
                 moveVectorLength = moveVector.getVectorLength();
 
-                if (moveVectorLength < tower.getRange()*worldModel.SIZEPROPORTION){
-                    
+                if (moveVectorLength < tower.getRange() * worldModel.SIZEPROPORTION) {
+
                     var normalizedVector = moveVector.getNormalizedVector();
-                    
+
                     //wpisanie angle do wiezy
-                    tower.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX())*180/Math.PI+90);
-        
-                    if(tower.getCooldown() === 0){
+                    tower.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX()) * 180 / Math.PI + 90);
+
+                    if (tower.getCooldown() === 0) {
                         var bulletTemplate = tower.getBullet();
                         var target = new app.objects.Target(0, 0, enemy.getGuid());
                         var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, bulletTemplate.getSpeed(), bulletTemplate.getDamage(), bulletTemplate.getGraphicUrl());
@@ -102,8 +102,8 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
                 }
             }
         }
-    }    
-    
+    }
+
 };
 
 /**
@@ -111,23 +111,23 @@ app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
  * @param {Number} timeDelta
  */
 app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(timeDelta) {
-    
+
     var length = this._towerList.length();
     var towerIndex;
     var tower;
     var cooldownValue;
-    
-    for (towerIndex = 0; towerIndex<length; towerIndex++){
+
+    for (towerIndex = 0; towerIndex < length; towerIndex++) {
 
         var tower = this._towerList.getTower(towerIndex);
-        
+
         cooldownValue = tower.getCooldown();
         cooldownValue -= timeDelta;
-        
-        if(cooldownValue < 0){
+
+        if (cooldownValue < 0) {
             cooldownValue = 0;
         }
-        
+
         tower.setCooldown(cooldownValue);
     }
 };

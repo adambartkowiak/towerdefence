@@ -1,1 +1,1331 @@
-{"hudJSON":{"_score":32127,"_cash":3700,"_menuGraphicUrl":"assets/images/menuBackground.png","_towerMenuByGuid":-1,"_towerXMenu":0,"_towerYMenu":0,"_menuCircle":{"_x":0,"_y":0,"_radius":0},"_menuOkButtonRect":{"_x":0,"_y":0,"_width":0,"_height":0},"_menuCancelButtonRect":{"_x":0,"_y":0,"_width":0,"_height":0}},"mapJSON":{"_width":14,"_height":10,"_fieldWidth":50,"_graphicUrl":"assets/images/map1.png","_fieldHeight":50,"_fields":[{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":false},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true},{"_allowBuild":true,"_empty":true}],"_selectedField":{"_allowBuild":true,"_empty":false}},"checkpointListJSON":[{"_x":0,"_y":75,"_moveVector":{"_x":1,"_y":0}},{"_x":125,"_y":75,"_moveVector":{"_x":0,"_y":1}},{"_x":125,"_y":225,"_moveVector":{"_x":1,"_y":0}},{"_x":175,"_y":225,"_moveVector":{"_x":0,"_y":1}},{"_x":175,"_y":325,"_moveVector":{"_x":-1,"_y":0}},{"_x":75,"_y":325,"_moveVector":{"_x":0,"_y":1}},{"_x":75,"_y":425,"_moveVector":{"_x":1,"_y":0}},{"_x":275,"_y":425,"_moveVector":{"_x":0,"_y":-1}},{"_x":275,"_y":275,"_moveVector":{"_x":1,"_y":0}},{"_x":325,"_y":275,"_moveVector":{"_x":0,"_y":-1}},{"_x":325,"_y":175,"_moveVector":{"_x":-1,"_y":0}},{"_x":225,"_y":175,"_moveVector":{"_x":0,"_y":-1}},{"_x":225,"_y":75,"_moveVector":{"_x":1,"_y":0}},{"_x":625,"_y":75,"_moveVector":{"_x":0,"_y":1}},{"_x":625,"_y":275,"_moveVector":{"_x":-1,"_y":0}},{"_x":525,"_y":275,"_moveVector":{"_x":0,"_y":-1}},{"_x":525,"_y":175,"_moveVector":{"_x":-1,"_y":0}},{"_x":425,"_y":175,"_moveVector":{"_x":0,"_y":1}},{"_x":425,"_y":425,"_moveVector":{"_x":1,"_y":0}},{"_x":700,"_y":425,"_moveVector":{"_x":0,"_y":0}}],"towerListJSON":[{"_x":175,"_y":125,"_range":150,"_rate":500,"_bullet":{"_x":0,"_y":0,"_target":null,"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png"},"_graphicUrl":"assets/images/tower0.png","_cooldown":378,"_angle":182.22096941085104,"_guid":0.823825990781188},{"_x":125,"_y":275,"_range":150,"_rate":500,"_bullet":{"_x":0,"_y":0,"_target":null,"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png"},"_graphicUrl":"assets/images/tower0.png","_cooldown":378,"_angle":175.89379840395569,"_guid":0.09772227378562093},{"_x":75,"_y":175,"_range":150,"_rate":500,"_bullet":{"_x":0,"_y":0,"_target":null,"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png"},"_graphicUrl":"assets/images/tower0.png","_cooldown":378,"_angle":137.91947036804814,"_guid":0.1365207836497575},{"_x":225,"_y":275,"_range":150,"_rate":500,"_bullet":{"_x":0,"_y":0,"_target":null,"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png"},"_graphicUrl":"assets/images/tower0.png","_cooldown":292,"_angle":176.35146381139984,"_guid":0.8084273096174002},{"_x":375,"_y":275,"_range":150,"_rate":500,"_bullet":{"_x":0,"_y":0,"_target":null,"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png"},"_graphicUrl":"assets/images/tower0.png","_cooldown":0,"_angle":227.60389024597163,"_guid":0.5229081902652979},{"_x":325,"_y":375,"_range":150,"_rate":500,"_bullet":{"_x":0,"_y":0,"_target":null,"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png"},"_graphicUrl":"assets/images/tower0.png","_cooldown":10,"_angle":241.973511328955,"_guid":0.2685477491468191}],"bulletListJSON":[{"_x":138.34250193843397,"_y":215.6610353324176,"_target":{"_x":134.84999999999988,"_y":224.47499999999988,"_enemyGuid":0.5520532643422484},"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png","_angle":201.61576956269147},{"_x":125.81495102062225,"_y":372.31176951430626,"_target":{"_x":136.5499999999998,"_y":423.3500000000001,"_enemyGuid":0.7752870835829526},"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png","_angle":168.12192176464262},{"_x":256.9413083142346,"_y":409.0505956248358,"_target":{"_x":235.35000000000005,"_y":423.19999999999965,"_enemyGuid":0.24564259219914675},"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png","_angle":236.7620235027126},{"_x":226.28479342785414,"_y":309.0151800961776,"_target":{"_x":235.35000000000005,"_y":423.19999999999965,"_enemyGuid":0.24564259219914675},"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png","_angle":175.46077182552904},{"_x":174.18938054793566,"_y":145.6841196241756,"_target":{"_x":170.19999999999956,"_y":249.36666666666537,"_enemyGuid":0.7045946882572025},"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png","_angle":182.20347566261137},{"_x":126.21179849755198,"_y":295.6623710466291,"_target":{"_x":136.5499999999998,"_y":423.3500000000001,"_enemyGuid":0.7752870835829526},"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png","_angle":175.3711563561297},{"_x":88.96646585634389,"_y":190.27770046514553,"_target":{"_x":170.83333333333277,"_y":281.7333333333324,"_enemyGuid":0.4707214329391718},"_speed":150,"_damage":20,"_graphicUrl":"assets/images/bullet0.png","_angle":138.16656122853897}],"enemyListJSON":[{"_x":235.35000000000005,"_y":423.19999999999965,"_hp":80,"_currentHp":40,"_speed":50,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.24564259219914675},{"_x":136.5499999999998,"_y":423.3500000000001,"_hp":80,"_currentHp":60,"_speed":50,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.7752870835829526},{"_x":120.00000000000004,"_y":596.6500000000003,"_hp":80,"_currentHp":80,"_speed":50,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.40488167805597186},{"_x":170.83333333333277,"_y":281.7333333333324,"_hp":120,"_currentHp":120,"_speed":33.333333333333336,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.4707214329391718},{"_x":120.00000000000001,"_y":1038.5999999999997,"_hp":40,"_currentHp":40,"_speed":100,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.30641245073638856},{"_x":170.19999999999956,"_y":249.36666666666537,"_hp":120,"_currentHp":120,"_speed":33.333333333333336,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.7045946882572025},{"_x":120.2499999999999,"_y":200.52500000000023,"_hp":160,"_currentHp":160,"_speed":25,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.8257909337989986},{"_x":123.00000000000011,"_y":322.7499999999999,"_hp":80,"_currentHp":80,"_speed":50,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":-1,"_y":0},"_angle":180,"_guid":0.0718993719201535},{"_x":120.10000000000007,"_y":837.5000000000006,"_hp":40,"_currentHp":40,"_speed":100,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.528721560491249},{"_x":120.02499999999992,"_y":163.47500000000014,"_hp":160,"_currentHp":160,"_speed":25,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.007299378281459212},{"_x":120.06666666666653,"_y":216.23333333333247,"_hp":120,"_currentHp":120,"_speed":33.333333333333336,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.35665098461322486},{"_x":170.15000000000003,"_y":271.80000000000007,"_hp":80,"_currentHp":80,"_speed":50,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.48910748423077166},{"_x":120.13333333333325,"_y":182.466666666666,"_hp":120,"_currentHp":120,"_speed":33.333333333333336,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.6606853064149618},{"_x":97.10000000000002,"_y":422.59999999999997,"_hp":40,"_currentHp":40,"_speed":100,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.7526063893456012},{"_x":143.34999999999997,"_y":223.25,"_hp":80,"_currentHp":80,"_speed":50,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.12455972633324564},{"_x":120.225,"_y":88.19999999999996,"_hp":160,"_currentHp":160,"_speed":25,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.206929262727499},{"_x":107.20000000000002,"_y":323.2,"_hp":40,"_currentHp":40,"_speed":100,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":-1,"_y":0},"_angle":180,"_guid":0.8933693356812},{"_x":156.89999999999998,"_y":322.7999999999998,"_hp":40,"_currentHp":40,"_speed":100,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":-1,"_y":0},"_angle":180,"_guid":0.9760342428926378},{"_x":95.97499999999994,"_y":75,"_hp":160,"_currentHp":160,"_speed":25,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.7904891413636506},{"_x":111.03333333333322,"_y":75,"_hp":120,"_currentHp":120,"_speed":33.333333333333336,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.16992918099276721},{"_x":70.82499999999995,"_y":75,"_hp":160,"_currentHp":160,"_speed":25,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.29516148986294866},{"_x":58.44999999999995,"_y":75,"_hp":160,"_currentHp":160,"_speed":25,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.6756562201771885},{"_x":121.5,"_y":136.80000000000004,"_hp":40,"_currentHp":40,"_speed":100,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.929575607413426},{"_x":120.50000000000007,"_y":87.2,"_hp":40,"_currentHp":40,"_speed":100,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":0,"_y":1},"_angle":90,"_guid":0.3425643804948777},{"_x":41.95,"_y":75,"_hp":80,"_currentHp":80,"_speed":50,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.8125719795934856},{"_x":11.166666666666664,"_y":75,"_hp":120,"_currentHp":120,"_speed":33.333333333333336,"_graphicUrl":"assets/images/enemy0.png","_moveVector":{"_x":1,"_y":0},"_angle":0,"_guid":0.726110702380538}]}
+{
+  "hudJSON": {
+    "_score": 32127,
+    "_cash": 3700,
+    "_menuGraphicUrl": "assets/images/menuBackground.png",
+    "_towerMenuByGuid": -1,
+    "_towerXMenu": 0,
+    "_towerYMenu": 0,
+    "_menuCircle": {
+      "_x": 0,
+      "_y": 0,
+      "_radius": 0
+    },
+    "_menuOkButtonRect": {
+      "_x": 0,
+      "_y": 0,
+      "_width": 0,
+      "_height": 0
+    },
+    "_menuCancelButtonRect": {
+      "_x": 0,
+      "_y": 0,
+      "_width": 0,
+      "_height": 0
+    }
+  },
+  "mapJSON": {
+    "_width": 14,
+    "_height": 10,
+    "_fieldWidth": 50,
+    "_graphicUrl": "assets/images/map1.png",
+    "_fieldHeight": 50,
+    "_fields": [
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": false
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      },
+      {
+        "_allowBuild": true,
+        "_empty": true
+      }
+    ],
+    "_selectedField": {
+      "_allowBuild": true,
+      "_empty": false
+    }
+  },
+  "checkpointListJSON": [
+    {
+      "_x": 0,
+      "_y": 75,
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 125,
+      "_y": 75,
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      }
+    },
+    {
+      "_x": 125,
+      "_y": 225,
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 175,
+      "_y": 225,
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      }
+    },
+    {
+      "_x": 175,
+      "_y": 325,
+      "_moveVector": {
+        "_x": -1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 75,
+      "_y": 325,
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      }
+    },
+    {
+      "_x": 75,
+      "_y": 425,
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 275,
+      "_y": 425,
+      "_moveVector": {
+        "_x": 0,
+        "_y": -1
+      }
+    },
+    {
+      "_x": 275,
+      "_y": 275,
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 325,
+      "_y": 275,
+      "_moveVector": {
+        "_x": 0,
+        "_y": -1
+      }
+    },
+    {
+      "_x": 325,
+      "_y": 175,
+      "_moveVector": {
+        "_x": -1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 225,
+      "_y": 175,
+      "_moveVector": {
+        "_x": 0,
+        "_y": -1
+      }
+    },
+    {
+      "_x": 225,
+      "_y": 75,
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 625,
+      "_y": 75,
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      }
+    },
+    {
+      "_x": 625,
+      "_y": 275,
+      "_moveVector": {
+        "_x": -1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 525,
+      "_y": 275,
+      "_moveVector": {
+        "_x": 0,
+        "_y": -1
+      }
+    },
+    {
+      "_x": 525,
+      "_y": 175,
+      "_moveVector": {
+        "_x": -1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 425,
+      "_y": 175,
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      }
+    },
+    {
+      "_x": 425,
+      "_y": 425,
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      }
+    },
+    {
+      "_x": 700,
+      "_y": 425,
+      "_moveVector": {
+        "_x": 0,
+        "_y": 0
+      }
+    }
+  ],
+  "towerListJSON": [
+    {
+      "_x": 175,
+      "_y": 125,
+      "_range": 150,
+      "_rate": 500,
+      "_bullet": {
+        "_x": 0,
+        "_y": 0,
+        "_target": null,
+        "_speed": 150,
+        "_damage": 20,
+        "_graphicUrl": "assets/images/bullet0.png"
+      },
+      "_graphicUrl": "assets/images/tower0.png",
+      "_cooldown": 378,
+      "_angle": 182.22096941085104,
+      "_guid": 0.823825990781188
+    },
+    {
+      "_x": 125,
+      "_y": 275,
+      "_range": 150,
+      "_rate": 500,
+      "_bullet": {
+        "_x": 0,
+        "_y": 0,
+        "_target": null,
+        "_speed": 150,
+        "_damage": 20,
+        "_graphicUrl": "assets/images/bullet0.png"
+      },
+      "_graphicUrl": "assets/images/tower0.png",
+      "_cooldown": 378,
+      "_angle": 175.89379840395569,
+      "_guid": 0.09772227378562093
+    },
+    {
+      "_x": 75,
+      "_y": 175,
+      "_range": 150,
+      "_rate": 500,
+      "_bullet": {
+        "_x": 0,
+        "_y": 0,
+        "_target": null,
+        "_speed": 150,
+        "_damage": 20,
+        "_graphicUrl": "assets/images/bullet0.png"
+      },
+      "_graphicUrl": "assets/images/tower0.png",
+      "_cooldown": 378,
+      "_angle": 137.91947036804814,
+      "_guid": 0.1365207836497575
+    },
+    {
+      "_x": 225,
+      "_y": 275,
+      "_range": 150,
+      "_rate": 500,
+      "_bullet": {
+        "_x": 0,
+        "_y": 0,
+        "_target": null,
+        "_speed": 150,
+        "_damage": 20,
+        "_graphicUrl": "assets/images/bullet0.png"
+      },
+      "_graphicUrl": "assets/images/tower0.png",
+      "_cooldown": 292,
+      "_angle": 176.35146381139984,
+      "_guid": 0.8084273096174002
+    },
+    {
+      "_x": 375,
+      "_y": 275,
+      "_range": 150,
+      "_rate": 500,
+      "_bullet": {
+        "_x": 0,
+        "_y": 0,
+        "_target": null,
+        "_speed": 150,
+        "_damage": 20,
+        "_graphicUrl": "assets/images/bullet0.png"
+      },
+      "_graphicUrl": "assets/images/tower0.png",
+      "_cooldown": 0,
+      "_angle": 227.60389024597163,
+      "_guid": 0.5229081902652979
+    },
+    {
+      "_x": 325,
+      "_y": 375,
+      "_range": 150,
+      "_rate": 500,
+      "_bullet": {
+        "_x": 0,
+        "_y": 0,
+        "_target": null,
+        "_speed": 150,
+        "_damage": 20,
+        "_graphicUrl": "assets/images/bullet0.png"
+      },
+      "_graphicUrl": "assets/images/tower0.png",
+      "_cooldown": 10,
+      "_angle": 241.973511328955,
+      "_guid": 0.2685477491468191
+    }
+  ],
+  "bulletListJSON": [
+    {
+      "_x": 138.34250193843397,
+      "_y": 215.6610353324176,
+      "_target": {
+        "_x": 134.84999999999988,
+        "_y": 224.47499999999988,
+        "_enemyGuid": 0.5520532643422484
+      },
+      "_speed": 150,
+      "_damage": 20,
+      "_graphicUrl": "assets/images/bullet0.png",
+      "_angle": 201.61576956269147
+    },
+    {
+      "_x": 125.81495102062225,
+      "_y": 372.31176951430626,
+      "_target": {
+        "_x": 136.5499999999998,
+        "_y": 423.3500000000001,
+        "_enemyGuid": 0.7752870835829526
+      },
+      "_speed": 150,
+      "_damage": 20,
+      "_graphicUrl": "assets/images/bullet0.png",
+      "_angle": 168.12192176464262
+    },
+    {
+      "_x": 256.9413083142346,
+      "_y": 409.0505956248358,
+      "_target": {
+        "_x": 235.35000000000005,
+        "_y": 423.19999999999965,
+        "_enemyGuid": 0.24564259219914675
+      },
+      "_speed": 150,
+      "_damage": 20,
+      "_graphicUrl": "assets/images/bullet0.png",
+      "_angle": 236.7620235027126
+    },
+    {
+      "_x": 226.28479342785414,
+      "_y": 309.0151800961776,
+      "_target": {
+        "_x": 235.35000000000005,
+        "_y": 423.19999999999965,
+        "_enemyGuid": 0.24564259219914675
+      },
+      "_speed": 150,
+      "_damage": 20,
+      "_graphicUrl": "assets/images/bullet0.png",
+      "_angle": 175.46077182552904
+    },
+    {
+      "_x": 174.18938054793566,
+      "_y": 145.6841196241756,
+      "_target": {
+        "_x": 170.19999999999956,
+        "_y": 249.36666666666537,
+        "_enemyGuid": 0.7045946882572025
+      },
+      "_speed": 150,
+      "_damage": 20,
+      "_graphicUrl": "assets/images/bullet0.png",
+      "_angle": 182.20347566261137
+    },
+    {
+      "_x": 126.21179849755198,
+      "_y": 295.6623710466291,
+      "_target": {
+        "_x": 136.5499999999998,
+        "_y": 423.3500000000001,
+        "_enemyGuid": 0.7752870835829526
+      },
+      "_speed": 150,
+      "_damage": 20,
+      "_graphicUrl": "assets/images/bullet0.png",
+      "_angle": 175.3711563561297
+    },
+    {
+      "_x": 88.96646585634389,
+      "_y": 190.27770046514553,
+      "_target": {
+        "_x": 170.83333333333277,
+        "_y": 281.7333333333324,
+        "_enemyGuid": 0.4707214329391718
+      },6
+      "_speed": 150,
+      "_damage": 20,
+      "_graphicUrl": "assets/images/bullet0.png",
+      "_angle": 138.16656122853897
+    }
+  ],
+  "enemyListJSON": [
+    {
+      "_x": 235.35000000000005,
+      "_y": 423.19999999999965,
+      "_hp": 80,
+      "_currentHp": 40,
+      "_speed": 50,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.24564259219914675
+    },
+    {
+      "_x": 136.5499999999998,
+      "_y": 423.3500000000001,
+      "_hp": 80,
+      "_currentHp": 60,
+      "_speed": 50,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.7752870835829526
+    },
+    {
+      "_x": 120.00000000000004,
+      "_y": 596.6500000000003,
+      "_hp": 80,
+      "_currentHp": 80,
+      "_speed": 50,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.40488167805597186
+    },
+    {
+      "_x": 170.83333333333277,
+      "_y": 281.7333333333324,
+      "_hp": 120,
+      "_currentHp": 120,
+      "_speed": 33.333333333333336,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.4707214329391718
+    },
+    {
+      "_x": 120.00000000000001,
+      "_y": 1038.5999999999997,
+      "_hp": 40,
+      "_currentHp": 40,
+      "_speed": 100,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.30641245073638856
+    },
+    {
+      "_x": 170.19999999999956,
+      "_y": 249.36666666666537,
+      "_hp": 120,
+      "_currentHp": 120,
+      "_speed": 33.333333333333336,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.7045946882572025
+    },
+    {
+      "_x": 120.2499999999999,
+      "_y": 200.52500000000023,
+      "_hp": 160,
+      "_currentHp": 160,
+      "_speed": 25,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.8257909337989986
+    },
+    {
+      "_x": 123.00000000000011,
+      "_y": 322.7499999999999,
+      "_hp": 80,
+      "_currentHp": 80,
+      "_speed": 50,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": -1,
+        "_y": 0
+      },
+      "_angle": 180,
+      "_guid": 0.0718993719201535
+    },
+    {
+      "_x": 120.10000000000007,
+      "_y": 837.5000000000006,
+      "_hp": 40,
+      "_currentHp": 40,
+      "_speed": 100,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.528721560491249
+    },
+    {
+      "_x": 120.02499999999992,
+      "_y": 163.47500000000014,
+      "_hp": 160,
+      "_currentHp": 160,
+      "_speed": 25,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.007299378281459212
+    },
+    {
+      "_x": 120.06666666666653,
+      "_y": 216.23333333333247,
+      "_hp": 120,
+      "_currentHp": 120,
+      "_speed": 33.333333333333336,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.35665098461322486
+    },
+    {
+      "_x": 170.15000000000003,
+      "_y": 271.80000000000007,
+      "_hp": 80,
+      "_currentHp": 80,
+      "_speed": 50,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.48910748423077166
+    },
+    {
+      "_x": 120.13333333333325,
+      "_y": 182.466666666666,
+      "_hp": 120,
+      "_currentHp": 120,
+      "_speed": 33.333333333333336,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.6606853064149618
+    },
+    {
+      "_x": 97.10000000000002,
+      "_y": 422.59999999999997,
+      "_hp": 40,
+      "_currentHp": 40,
+      "_speed": 100,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.7526063893456012
+    },
+    {
+      "_x": 143.34999999999997,
+      "_y": 223.25,
+      "_hp": 80,
+      "_currentHp": 80,
+      "_speed": 50,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.12455972633324564
+    },
+    {
+      "_x": 120.225,
+      "_y": 88.19999999999996,
+      "_hp": 160,
+      "_currentHp": 160,
+      "_speed": 25,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.206929262727499
+    },
+    {
+      "_x": 107.20000000000002,
+      "_y": 323.2,
+      "_hp": 40,
+      "_currentHp": 40,
+      "_speed": 100,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": -1,
+        "_y": 0
+      },
+      "_angle": 180,
+      "_guid": 0.8933693356812
+    },
+    {
+      "_x": 156.89999999999998,
+      "_y": 322.7999999999998,
+      "_hp": 40,
+      "_currentHp": 40,
+      "_speed": 100,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": -1,
+        "_y": 0
+      },
+      "_angle": 180,
+      "_guid": 0.9760342428926378
+    },
+    {
+      "_x": 95.97499999999994,
+      "_y": 75,
+      "_hp": 160,
+      "_currentHp": 160,
+      "_speed": 25,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.7904891413636506
+    },
+    {
+      "_x": 111.03333333333322,
+      "_y": 75,
+      "_hp": 120,
+      "_currentHp": 120,
+      "_speed": 33.333333333333336,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.16992918099276721
+    },
+    {
+      "_x": 70.82499999999995,
+      "_y": 75,
+      "_hp": 160,
+      "_currentHp": 160,
+      "_speed": 25,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.29516148986294866
+    },
+    {
+      "_x": 58.44999999999995,
+      "_y": 75,
+      "_hp": 160,
+      "_currentHp": 160,
+      "_speed": 25,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.6756562201771885
+    },
+    {
+      "_x": 121.5,
+      "_y": 136.80000000000004,
+      "_hp": 40,
+      "_currentHp": 40,
+      "_speed": 100,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.929575607413426
+    },
+    {
+      "_x": 120.50000000000007,
+      "_y": 87.2,
+      "_hp": 40,
+      "_currentHp": 40,
+      "_speed": 100,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_angle": 90,
+      "_guid": 0.3425643804948777
+    },
+    {
+      "_x": 41.95,
+      "_y": 75,
+      "_hp": 80,
+      "_currentHp": 80,
+      "_speed": 50,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.8125719795934856
+    },
+    {
+      "_x": 11.166666666666664,
+      "_y": 75,
+      "_hp": 120,
+      "_currentHp": 120,
+      "_speed": 33.333333333333336,
+      "_graphicUrl": "assets/images/enemy0.png",
+      "_moveVector": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_angle": 0,
+      "_guid": 0.726110702380538
+    }
+  ]
+}

@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="Poprawki jsdoc'ka dla YUIDoc'a">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/AbstractMouseEventHandler.js" afterPath="$PROJECT_DIR$/public_html/js/support/AbstractMouseEventHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/Bullet.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/Bullet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/BulletList.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/BulletList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/managers/BulletManager.js" afterPath="$PROJECT_DIR$/public_html/js/app/managers/BulletManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/Checkpoint.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/Checkpoint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/CheckpointList.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/CheckpointList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/Circle.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/Circle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/Enemy.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/Enemy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/EnemyList.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/EnemyList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/managers/EnemyManager.js" afterPath="$PROJECT_DIR$/public_html/js/app/managers/EnemyManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/shape/FreeShape.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/shape/FreeShape.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/HudModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/HudModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/HudView.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/HudView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/graphics/Image.js" afterPath="$PROJECT_DIR$/public_html/js/support/graphics/Image.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/Loader.js" afterPath="$PROJECT_DIR$/public_html/js/support/Loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/Map.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/MapField.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/MapField.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/Mouse.js" afterPath="$PROJECT_DIR$/public_html/js/support/Mouse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js" afterPath="$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/MouseEventHandlerManager.js" afterPath="$PROJECT_DIR$/public_html/js/support/MouseEventHandlerManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/Point2d.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/Point2d.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/Rect.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/Rect.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/SimpleVector2d.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/SimpleVector2d.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/Target.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/Target.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/Timer.js" afterPath="$PROJECT_DIR$/public_html/js/support/Timer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/Tower.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/Tower.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/TowerList.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/TowerList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/managers/TowerManager.js" afterPath="$PROJECT_DIR$/public_html/js/app/managers/TowerManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/utils/Utils.js" afterPath="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/Vector2d.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/Vector2d.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/WorldModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/WorldModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/objects/WorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/objects/WorldView.js" />
+    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.html" afterPath="$PROJECT_DIR$/public_html/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HTML5GAME.iws" />
@@ -59,108 +28,7 @@
     <favorites_list name="HTML5GAME" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Vector2d.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/Vector2d.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.62963">
-              <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleVector2d.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/SimpleVector2d.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.333334">
-              <caret line="45" column="10" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rect.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/Rect.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.037037">
-              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Point2d.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/Point2d.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.148148">
-              <caret line="35" column="3" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Image.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/graphics/Image.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BulletManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/managers/BulletManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bullet.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/objects/Bullet.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MouseEventHandlerManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/MouseEventHandlerManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="12" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MouseEventHandler.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09256198">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -168,7 +36,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/index.html" />
         <option value="$PROJECT_DIR$/public_html/js/app/objects/CheckpointList.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/objects/Checkpoint.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/objects/BulletList.js" />
@@ -201,6 +68,7 @@
         <option value="$PROJECT_DIR$/public_html/js/support/graphics/Image.js" />
         <option value="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js" />
+        <option value="$PROJECT_DIR$/public_html/index.html" />
       </list>
     </option>
   </component>
@@ -216,8 +84,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="70" />
-    <option name="y" value="56" />
+    <option name="x" value="49" />
+    <option name="y" value="100" />
     <option name="width" value="1497" />
     <option name="height" value="919" />
   </component>
@@ -278,8 +146,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -309,6 +177,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
   </component>
@@ -335,17 +209,21 @@
       <option name="project" value="LOCAL" />
       <updated>1437327836855</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Poprawki jsdoc'ka dla YUIDoc'a">
+      <created>1437339695556</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1437339695556</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="56" width="1497" height="919" extended-state="0" />
+    <frame x="49" y="100" width="1497" height="919" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2552941" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -353,7 +231,9 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2552941" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -378,6 +258,62 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/Point2d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="3" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/support/graphics/Image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/managers/BulletManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/objects/Bullet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/support/MouseEventHandlerManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -390,7 +326,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -406,7 +341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -414,7 +348,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -422,7 +355,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -430,7 +362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -438,7 +369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -446,17 +376,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.608696">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -464,9 +383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -602,7 +518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -656,7 +571,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/Vector2d.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.62963">
+        <state vertical-scroll-proportion="0.0">
           <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
           <folding />
         </state>
@@ -664,7 +579,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/SimpleVector2d.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.333334">
+        <state vertical-scroll-proportion="0.0">
           <caret line="45" column="10" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="10" />
           <folding />
         </state>
@@ -672,7 +587,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/Rect.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.037037">
+        <state vertical-scroll-proportion="0.0">
           <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding />
         </state>
@@ -680,7 +595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/support/geom/Point2d.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.148148">
+        <state vertical-scroll-proportion="0.0">
           <caret line="35" column="3" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
           <folding />
         </state>
@@ -710,10 +625,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/objects/Bullet.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9474343">
+          <caret line="93" column="35" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -726,10 +649,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/objects/Bullet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09256198">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="14" selection-end-column="15" />
           <folding />
         </state>
       </provider>

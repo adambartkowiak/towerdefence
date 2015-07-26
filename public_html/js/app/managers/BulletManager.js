@@ -111,7 +111,7 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
     var length = this._bulletList.length();
     var bulletIndex;
     var bullet;
-    var bX, bY, tX, tY, target, enemyGuid, enemy, currentHp;
+    var target, enemyGuid, enemy, currentHp;
     //var targetBulletVector;
 
     var arrayToRemove = []
@@ -120,8 +120,6 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
     for (bulletIndex = 0; bulletIndex < length; bulletIndex++) {
         bullet = this._bulletList.getBullet(bulletIndex);
 
-        bX = bullet.getX();
-        bY = bullet.getY();
         target = bullet.getTarget();
         enemyGuid = target.getEnemyGuid();
         enemy = this._enemyList.getEnemyByGuid(enemyGuid);
@@ -131,40 +129,12 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
             target.setY(enemy.getY());
         }
 
-        //pozycja celu
-        tX = target.getX();
-        tY = target.getY();
-
-
-        //kolizje 2 wektorow
-        //@TODO: powinno byc kolizje wektora (poruszajacego sie punktu) i poruszajacego sie okregu
-
-        var v1 = null;
-        if (enemy !== null) {
-            v1 = new support.geom.Vector2d(tX, tY, enemy.getLastPosition().getX(), enemy.getLastPosition().getY());
-        } else {
-            v1 = new support.geom.Vector2d(tX, tY, tX , tY);
-        }
-
-
-        var c1 = new support.geom.Circle(tX, tY, 5);
-        var v2 = new support.geom.Vector2d(bX, bY, bullet.getLastPosition().getX(), bullet.getLastPosition().getY());
-
-
+        //okrag reprezentujacy przeciwnika
+        var c1 = new support.geom.Circle(target.getX(), target.getY(), 5);
+        //odcinek reprezentujacy ostatni ruch wektora
+        var v2 = new support.geom.Vector2d(bullet.getX(), bullet.getY(), bullet.getLastPosition().getX(), bullet.getLastPosition().getY());
+        //wynik detekcji kolizji
         var collision = support.geom.collision.Collision.CircleVector2d(c1, v2);
-        //var collision = support.geom.collision.Collision.Vector2dVector2d(v1, v2);
-
-        if (collision) {
-            this._collisionTrue += 1;
-        } else {
-            this._collisionFalse += 1;
-
-        }
-
-        if ((this._collisionTrue % 50 === 0 && this._collisionTrue !== 0) || ( this._collisionFalse % 50 === 0 && this._collisionFalse !== 0)) {
-            console.log("CollitionTrue: " + this._collisionTrue);
-            console.log("CollitionFalse: " + this._collisionFalse);
-        }
 
         //remove bullet after hit target
         if (collision) {

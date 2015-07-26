@@ -97,7 +97,7 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
      * @property {Boolean} _debug
      * @private
      */
-    this._debug = true;
+    this._debug = false;
 
 };
 
@@ -151,16 +151,16 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList) 
 
     max = enemyList.length();
 
-    for (i = 0; i < max; i++) {
+    //graficzne rysowanie przeciwnikow
+    if (!this._debug) {
+        for (i = 0; i < max; i++) {
 
-        enemy = enemyList.getEnemy(i);
-        hp = enemy.getHp();
-        currentHp = enemy.getCurrentHp();
+            enemy = enemyList.getEnemy(i);
 
-        //enemy
-        //this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
-        //this._image.drawRotateImage(this._canvasContext, this._enemyImage[enemy.getGraphicUrl()], enemy.getX() / this._worldModel.SIZEPROPORTION, enemy.getY() / this._worldModel.SIZEPROPORTION, enemy.getAngle());
-        //this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+            this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
+            this._image.drawRotateImage(this._canvasContext, this._enemyImage[enemy.getGraphicUrl()], enemy.getX() / this._worldModel.SIZEPROPORTION, enemy.getY() / this._worldModel.SIZEPROPORTION, enemy.getAngle());
+            this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+        }
     }
 
 

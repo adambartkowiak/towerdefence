@@ -19,7 +19,7 @@ app.loadGameSave = function loadGameSave(saveGameName) {
     }, saveGameName);
 };
 
-app.loadGameSave("assets/gamesaves/gamesave1.json");
+app.loadGameSave("assets/gamesaves/custom1.json");
 
 //MANAGERY
 var bulletManager = new app.managers.BulletManager(worldModel.getBulletList(), worldModel.getEnemyList(), hudModel);
@@ -38,7 +38,7 @@ mouse.initMouse();
 //LOGIKA GRY
 var logicFrames = 0;
 var totalTimeDelta = 0;
-var maxEnemies = 1;
+var maxEnemies = 1000;
 var nextEnemyMilis = 1500;
 setInterval(function () {
 

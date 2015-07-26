@@ -25,6 +25,12 @@ app.objects.Enemy = function Enemy(x, y, hp, speed, graphicUrl) {
     support.geom.Point2d.call(this, x, y);
 
     /**
+     * @property {support.geom.Point2d} _lastPosition
+     * @private
+     */
+    this._lastPosition = new support.geom.Point2d(x, y);
+
+    /**
      * @property {Number} _hp
      * @private
      */
@@ -69,6 +75,29 @@ app.objects.Enemy = function Enemy(x, y, hp, speed, graphicUrl) {
 
 Utils.inherits(app.objects.Enemy, support.geom.Point2d);
 
+/**
+ * @method setX
+ * @param {Number} value
+ */
+app.objects.Enemy.prototype.setX = function setX(value) {
+
+    this._lastPosition.setX(this._x);
+
+    //set base param
+    this._x = value;
+};
+
+/**
+ * @method setY
+ * @param {Number} value
+ */
+app.objects.Enemy.prototype.setY = function setY(value) {
+
+    this._lastPosition.setY(this._y);
+
+    //set base param
+    this._y = value;
+};
 /**
  * @method getHp
  * @return {Number} hp
@@ -187,4 +216,12 @@ app.objects.Enemy.prototype.getGraphicUrl = function getGraphicUrl() {
  */
 app.objects.Enemy.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
     this._graphicUrl = graphicUrl;
+};
+
+/**
+ * @method getLastPosition
+ * @return {support.geom.Point2d} lastPosition
+ */
+app.objects.Enemy.prototype.getLastPosition = function getLastPosition() {
+    return this._lastPosition;
 };

@@ -93,6 +93,12 @@ app.objects.WorldView = function WorldView(canvas, worldModel) {
      */
     this._image = new support.graphics.Image();
 
+    /**
+     * @property {Boolean} _debug
+     * @private
+     */
+    this._debug = true;
+
 };
 
 Utils.inherits(app.objects.WorldView, Object);
@@ -145,6 +151,19 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList) 
 
     max = enemyList.length();
 
+    for (i = 0; i < max; i++) {
+
+        enemy = enemyList.getEnemy(i);
+        hp = enemy.getHp();
+        currentHp = enemy.getCurrentHp();
+
+        //enemy
+        //this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
+        //this._image.drawRotateImage(this._canvasContext, this._enemyImage[enemy.getGraphicUrl()], enemy.getX() / this._worldModel.SIZEPROPORTION, enemy.getY() / this._worldModel.SIZEPROPORTION, enemy.getAngle());
+        //this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+    }
+
+
     this._canvasContext.beginPath();
     for (i = 0; i < max; i++) {
 
@@ -152,33 +171,31 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList) 
         hp = enemy.getHp();
         currentHp = enemy.getCurrentHp();
 
-        //hp bar
-        //fillRect
-        this._canvasContext.fillStyle = '#00FF00';
-        this._canvasContext.fillRect(enemy.getX() - hp / 6, enemy.getY() - 20, currentHp / 3, 4);
+        if (!this._debug) {
+            //hp bar
+            //fillRect
+            this._canvasContext.fillStyle = '#474747';
+            this._canvasContext.fillRect(enemy.getX() - hp / 6 + currentHp / 3, enemy.getY() - 20, (hp - currentHp) / 3, 4);
 
-        ////drawRect
-        this._canvasContext.fillStyle = '#000000';
-        this._canvasContext.rect(enemy.getX() - hp / 6, enemy.getY() - 20, hp / 3, 4);
+            this._canvasContext.fillStyle = '#00FF00';
+            this._canvasContext.fillRect(enemy.getX() - hp / 6, enemy.getY() - 20, currentHp / 3, 4);
 
-        //enemy
-        this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
+            ////drawRect
+            this._canvasContext.fillStyle = '#000000';
+            this._canvasContext.rect(enemy.getX() - hp / 6, enemy.getY() - 20, hp / 3, 4);
+        } else {
+            //layout debugerski
+            var moveToX = enemy.getX() / this._worldModel.SIZEPROPORTION,
+                moveToY = enemy.getY() / this._worldModel.SIZEPROPORTION,
+                moveVectorX = enemy.getMoveVector().getX() / this._worldModel.SIZEPROPORTION,
+                moveVectorY = enemy.getMoveVector().getY() / this._worldModel.SIZEPROPORTION;
 
-        this._image.drawRotateImage(this._canvasContext, this._enemyImage[enemy.getGraphicUrl()], enemy.getX() / this._worldModel.SIZEPROPORTION, enemy.getY() / this._worldModel.SIZEPROPORTION, enemy.getAngle());
+            this._canvasContext.moveTo(moveToX, moveToY);
+            this._canvasContext.lineTo(moveToX - moveVectorX, moveToY - moveVectorY);
 
-        this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
-
-        ////layout debugerski
-        //var moveToX = enemy.getX() / this._worldModel.SIZEPROPORTION,
-        //    moveToY = enemy.getY() / this._worldModel.SIZEPROPORTION,
-        //    moveVectorX = enemy.getMoveVector().getX() / this._worldModel.SIZEPROPORTION,
-        //    moveVectorY = enemy.getMoveVector().getY() / this._worldModel.SIZEPROPORTION;
-        //
-        //this._canvasContext.moveTo(moveToX, moveToY);
-        //this._canvasContext.lineTo(moveToX - moveVectorX, moveToY - moveVectorY);
-        //
-        //this._canvasContext.fillStyle = '#FF0000';
-        //this._canvasContext.fillRect(moveToX, moveToY, 2, 2);
+            this._canvasContext.fillStyle = '#FF0000';
+            this._canvasContext.fillRect(moveToX, moveToY, 2, 2);
+        }
     }
 
 
@@ -186,7 +203,8 @@ app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList) 
     this._canvasContext.lineWidth = 1;
     this._canvasContext.stroke();
 
-};
+}
+;
 
 /**
  * @method _drawTowers
@@ -225,30 +243,32 @@ app.objects.WorldView.prototype._drawBullets = function _drawBullets(bulletList)
     for (i = 0; i < max; i++) {
         bullet = bulletList.getBullet(i);
 
-        //bullet
-        this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
+        if (!this._debug) {
+            //bullet
+            this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
 
-        this._image.drawRotateImage(this._canvasContext, this._bulletImage[bullet.getGraphicUrl()], bullet.getX() / this._worldModel.SIZEPROPORTION, bullet.getY() / this._worldModel.SIZEPROPORTION, bullet.getAngle());
+            this._image.drawRotateImage(this._canvasContext, this._bulletImage[bullet.getGraphicUrl()], bullet.getX() / this._worldModel.SIZEPROPORTION, bullet.getY() / this._worldModel.SIZEPROPORTION, bullet.getAngle());
 
-        this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+            this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+        } else {
+            var moveToX = bullet.getX() / this._worldModel.SIZEPROPORTION,
+                moveToY = bullet.getY() / this._worldModel.SIZEPROPORTION,
+                moveVectorX = bullet.getLastPosition().getX() / this._worldModel.SIZEPROPORTION,
+                moveVectorY = bullet.getLastPosition().getY() / this._worldModel.SIZEPROPORTION;
 
+            this._canvasContext.moveTo(moveToX, moveToY);
+            this._canvasContext.lineTo(moveVectorX, moveVectorY);
 
-        //layout debugerski
-        //var moveToX = bullet.getX() / this._worldModel.SIZEPROPORTION,
-        //    moveToY = bullet.getY() / this._worldModel.SIZEPROPORTION,
-        //    moveVectorX = bullet.getLastPosition().getX() / this._worldModel.SIZEPROPORTION,
-        //    moveVectorY = bullet.getLastPosition().getY() / this._worldModel.SIZEPROPORTION;
-        //
-        //this._canvasContext.moveTo(moveToX, moveToY);
-        //this._canvasContext.lineTo(moveVectorX, moveVectorY);
-        //
-        //this._canvasContext.fillStyle = '#FFFFFF';
-        //this._canvasContext.fillRect(moveToX, moveToY, 5, 5);
+            this._canvasContext.fillStyle = '#FFFFFF';
+            this._canvasContext.fillRect(moveToX, moveToY, 5, 5);
+        }
     }
 
-    //this._canvasContext.strokeStyle = '#0000FF';
-    //this._canvasContext.lineWidth = 1;
-    //this._canvasContext.stroke();
+    if (this._debug) {
+        this._canvasContext.strokeStyle = '#0000FF';
+        this._canvasContext.lineWidth = 1;
+        this._canvasContext.stroke();
+    }
 };
 
 /**

@@ -81,7 +81,7 @@ support.geom.collision.Collision.CircleCircle = function CircleCircle(c1, c2) {
 
     var vector2d = new support.geom.Vector2d(c1.getX(), c1.getY(), c2.getX(), c2.getY());
 
-    if (vector2d.getVectorLength() <= c1.getRadius() + c2.getRadius() ){
+    if (vector2d.getVectorLength() <= c1.getRadius() + c2.getRadius()) {
         return true;
     }
 
@@ -90,13 +90,52 @@ support.geom.collision.Collision.CircleCircle = function CircleCircle(c1, c2) {
 
 /**
  * @method CircleVector2d
+ * @param {support.geom.Circle} c1 circle1
+ * @param {support.geom.Vector2d} v1 vector1
  * @return {Boolean} result
  */
-support.geom.collision.Collision.CircleVector2d = function CircleVector2d() {
+support.geom.collision.Collision.CircleVector2d = function CircleVector2d(c1, v1) {
 
     //odleglosc punktu od prostej w przedziale
 
-    return true;
+    //wektor kierunkowy z odcinka v1
+    var dX = v1.getEndPoint().getX() - v1.getStartPoint().getX();
+    var dY = v1.getEndPoint().getY() - v1.getStartPoint().getY();
+
+    //wektor od srodka kuli do poczatku odcinka
+    var fX = v1.getStartPoint().getX() - c1.getX();
+    var fY = v1.getStartPoint().getY() - c1.getY();
+
+    var a = dX * dX + dY * dY;
+    var b = 2 * (fX * dX + fY * dY);
+    var c = (fX * fX + fY * fY) - Math.pow(c1.getRadius(), 2);
+
+    var delta = b * b - 4 * a * c;
+
+    if (delta >= 0) {
+        delta = Math.sqrt(delta);
+
+        var t1 = (-b - delta) / (2 * a);
+        var t2 = (-b + delta) / (2 * a);
+
+        if (t1 >= 0 && t1 <= 1) {
+            return true;
+        }
+        if (t2 >= 0 && t2 <= 1) {
+            return true;
+        }
+    }
+
+
+    //var u = ((c1.getX() - v1.getStartPoint().getX()) * (v1.getEndPoint().getX() - v1.getStartPoint().getX()) + (c1.getY() - v1.getStartPoint().getY()) * (v1.getEndPoint().getY() - v1.getStartPoint().getY())) / (Math.pow((v1.getStartPoint().getX() - v1.getEndPoint().getX()), 2) + Math.pow((v1.getStartPoint().getY() - v1.getEndPoint().getY()), 2))
+    //
+    //var v4x = v1.getStartPoint().getX() + (v1.getStartPoint().getX() - v1.getEndPoint().getX()) * u;
+    //var v4y = v1.getStartPoint().getY() + (v1.getStartPoint().getY() - v1.getEndPoint().getY()) * u;
+    //
+    //var v4 = new support.geom.Point2d(v4x, v4y);
+
+
+    return false;
 };
 
 /**
@@ -118,34 +157,34 @@ support.geom.collision.Collision.CircleRect = function CircleRect() {
  */
 support.geom.collision.Collision.Vector2dVector2d = function Vector2dVector2d(v1, v2) {
 
-        //wyznaczenie prostej Ax + By + C = 0 dla wektora 1
-        var a = v1.getEndPoint().getY() - v1.getStartPoint().getY();
-        var b = - (v1.getEndPoint().getX() - v1.getStartPoint().getX());
-        var c = -a * v1.getStartPoint().getX() - b * v1.getStartPoint().getY();
+    //wyznaczenie prostej Ax + By + C = 0 dla wektora 1
+    var a = v1.getEndPoint().getY() - v1.getStartPoint().getY();
+    var b = -(v1.getEndPoint().getX() - v1.getStartPoint().getX());
+    var c = -a * v1.getStartPoint().getX() - b * v1.getStartPoint().getY();
 
-        //Odleglosci punktu poczatkowego i koncowego
-        var k1 = a * v2.getStartPoint().getX() + b * v2.getStartPoint().getY() + c;
-        var k2 = a * v2.getEndPoint().getX() + b * v2.getEndPoint().getY() + c;
+    //Odleglosci punktu poczatkowego i koncowego
+    var k1 = a * v2.getStartPoint().getX() + b * v2.getStartPoint().getY() + c;
+    var k2 = a * v2.getEndPoint().getX() + b * v2.getEndPoint().getY() + c;
 
-        //Kiedy punkty koncowe sa po tej samej stronie wektory sie nie przecianja
-        if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)){
-            return false;
-        }
+    //Kiedy punkty koncowe sa po tej samej stronie wektory sie nie przecianja
+    if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)) {
+        return false;
+    }
 
 
-        //wyznaczenie prostej Ax + By + C = 0 dla wektora 2
-        a = v2.getEndPoint().getY() - v2.getStartPoint().getY();
-        b = - (v2.getEndPoint().getX() - v2.getStartPoint().getX());
-        c = -a * v2.getStartPoint().getX() - b * v2.getStartPoint().getY();
+    //wyznaczenie prostej Ax + By + C = 0 dla wektora 2
+    a = v2.getEndPoint().getY() - v2.getStartPoint().getY();
+    b = -(v2.getEndPoint().getX() - v2.getStartPoint().getX());
+    c = -a * v2.getStartPoint().getX() - b * v2.getStartPoint().getY();
 
-        //Odleglosci punktu poczatkowego i koncowego
-        k1 = a * v1.getStartPoint().getX() + b * v1.getStartPoint().getY() + c;
-        k2 = a * v1.getEndPoint().getX() + b * v1.getEndPoint().getY() + c;
+    //Odleglosci punktu poczatkowego i koncowego
+    k1 = a * v1.getStartPoint().getX() + b * v1.getStartPoint().getY() + c;
+    k2 = a * v1.getEndPoint().getX() + b * v1.getEndPoint().getY() + c;
 
-        //Kiedy punkty koncowe sa po tej samej stronie wektory sie nie przecianja
-        if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)){
-            return false;
-        }
+    //Kiedy punkty koncowe sa po tej samej stronie wektory sie nie przecianja
+    if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)) {
+        return false;
+    }
 
     return true;
 };

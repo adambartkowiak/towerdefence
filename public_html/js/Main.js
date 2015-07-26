@@ -38,7 +38,7 @@ mouse.initMouse();
 //LOGIKA GRY
 var logicFrames = 0;
 var totalTimeDelta = 0;
-var maxEnemies = 1000;
+var maxEnemies = 1;
 var nextEnemyMilis = 1500;
 setInterval(function () {
 

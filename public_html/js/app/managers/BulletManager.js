@@ -138,30 +138,36 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
 
         //kolizje 2 wektorow
         //@TODO: powinno byc kolizje wektora (poruszajacego sie punktu) i poruszajacego sie okregu
+
         var v1 = null;
         if (enemy !== null) {
-            v1 = new support.geom.Vector2d(tX + enemy.getMoveVector().getNormalizedVector().getX(), tY + enemy.getMoveVector().getNormalizedVector().getY(), enemy.getLastPosition().getX(), enemy.getLastPosition().getY());
+            v1 = new support.geom.Vector2d(tX, tY, enemy.getLastPosition().getX(), enemy.getLastPosition().getY());
         } else {
-            v1 = new support.geom.Vector2d(tX, tY, tX - 3, tY - 3);
+            v1 = new support.geom.Vector2d(tX, tY, tX , tY);
         }
 
+
+        var c1 = new support.geom.Circle(tX, tY, 5);
         var v2 = new support.geom.Vector2d(bX, bY, bullet.getLastPosition().getX(), bullet.getLastPosition().getY());
 
-        //
-        //if (support.geom.collision.Collision.Vector2dVector2d(v1, v2)) {
-        //    this._collisionTrue += 1;
-        //} else {
-        //    this._collisionFalse += 1;
-        //
-        //}
-        //
-        //if ((this._collisionTrue % 50 === 0 && this._collisionTrue !== 0) || ( this._collisionFalse % 50 === 0 && this._collisionFalse !== 0)) {
-        //    console.log("CollitionTrue: " + this._collisionTrue);
-        //    console.log("CollitionFalse: " + this._collisionFalse);
-        //}
+
+        var collision = support.geom.collision.Collision.CircleVector2d(c1, v2);
+        //var collision = support.geom.collision.Collision.Vector2dVector2d(v1, v2);
+
+        if (collision) {
+            this._collisionTrue += 1;
+        } else {
+            this._collisionFalse += 1;
+
+        }
+
+        if ((this._collisionTrue % 50 === 0 && this._collisionTrue !== 0) || ( this._collisionFalse % 50 === 0 && this._collisionFalse !== 0)) {
+            console.log("CollitionTrue: " + this._collisionTrue);
+            console.log("CollitionFalse: " + this._collisionFalse);
+        }
 
         //remove bullet after hit target
-        if (support.geom.collision.Collision.Vector2dVector2d(v1, v2)) {
+        if (collision) {
             arrayToRemove.push(bulletIndex);
             if (enemy !== null) {
                 currentHp = enemy.getCurrentHp();

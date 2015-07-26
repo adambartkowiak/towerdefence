@@ -25,19 +25,31 @@ app.managers.BulletManager = function BulletManager(bulletList, enemyList, hudMo
      */
     this._bulletList = bulletList;
 
-
     /**
      * @property {app.objects.EnemyList} _enemyList
      * @private
      */
     this._enemyList = enemyList;
 
-
     /**
      * @property {app.objects.HudModel}_hudModel
      * @private
      */
     this._hudModel = hudModel;
+
+    /**
+     * @property {Number} _collisionTrue
+     * @private
+     */
+    this._collisionTrue = 0;
+
+    /**
+     * @property {Number} _collisionFalse
+     * @private
+     */
+    this._collisionFalse = 0;
+
+
 };
 
 Utils.inherits(app.managers.BulletManager, Object);
@@ -99,8 +111,8 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
     var length = this._bulletList.length();
     var bulletIndex;
     var bullet;
-    var bX, bY, tX, tY, dX, dY, target, enemyGuid, enemy, currentHp;
-    var targetBulletVector;
+    var bX, bY, tX, tY, target, enemyGuid, enemy, currentHp;
+    //var targetBulletVector;
 
     var arrayToRemove = []
     var bulletToRemoveIndex = 0;
@@ -123,20 +135,33 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
         tX = target.getX();
         tY = target.getY();
 
-        //delta (pozycja celu - pozycja pocisku)
-        dX = tX - bX;
-        dY = tY - bY;
 
-        targetBulletVector = new support.geom.SimpleVector2d(dX, dY);
+        //kolizje 2 wektorow
+        //@TODO: powinno byc kolizje wektora (poruszajacego sie punktu) i poruszajacego sie okregu
+        var v1 = null;
+        if (enemy !== null) {
+            v1 = new support.geom.Vector2d(tX + enemy.getMoveVector().getNormalizedVector().getX(), tY + enemy.getMoveVector().getNormalizedVector().getY(), enemy.getLastPosition().getX(), enemy.getLastPosition().getY());
+        } else {
+            v1 = new support.geom.Vector2d(tX, tY, tX - 3, tY - 3);
+        }
 
+        var v2 = new support.geom.Vector2d(bX, bY, bullet.getLastPosition().getX(), bullet.getLastPosition().getY());
 
-        this.CircleVectorColision(tX, tY, 5, bX, bY, bX - bullet._moveVector.getX(), bY - bullet._moveVector.getY());
-
-        //napisac kolizje w zaleznosci od 
-
+        //
+        //if (support.geom.collision.Collision.Vector2dVector2d(v1, v2)) {
+        //    this._collisionTrue += 1;
+        //} else {
+        //    this._collisionFalse += 1;
+        //
+        //}
+        //
+        //if ((this._collisionTrue % 50 === 0 && this._collisionTrue !== 0) || ( this._collisionFalse % 50 === 0 && this._collisionFalse !== 0)) {
+        //    console.log("CollitionTrue: " + this._collisionTrue);
+        //    console.log("CollitionFalse: " + this._collisionFalse);
+        //}
 
         //remove bullet after hit target
-        if (targetBulletVector.getVectorLength() < 5 * worldModel.SIZEPROPORTION) {
+        if (support.geom.collision.Collision.Vector2dVector2d(v1, v2)) {
             arrayToRemove.push(bulletIndex);
             if (enemy !== null) {
                 currentHp = enemy.getCurrentHp();
@@ -173,99 +198,3 @@ app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsTo
 app.managers.BulletManager.prototype.CircleVectorColision = function CircleVectorColision(cx, cy, r, vx1, vy1, vx2, vy2) {
     return true;
 };
-
-
-//kolizja wektora z okregiem zwiera kolizje 2 wektorow.
-
-
-//W sumie przeciecie 2 wektorow trzeba sprawdzic zawsze kied
-
-
-//1. kolizja 2 wektorow
-//2. kolizja wektora z okregiem (trzeba wyznaczyc wektor prostopadly do wektora 2 i sprawdzic czy sie przecinaja, je
-//jezeli sie nie przecinaja to sprawdzic czy sredk kola jest w odleglosci od mniejszej niz promien w stosunku do koncow wektora)
-//3.         
-
-
-//        //sprawdzenie czy 2 wektory sie przecianja lub czy wktor przecina okrag
-//        
-//        //wektor ruchu przeciwnika, ale nie musi byc bo moze to byc cel w miejscu 
-//        //to wtedy np zrobic ze jest okregiem o promieniu 5 :)
-//        
-//        //wektor ruchu pocisku
-//        
-//        //sprawdzenie przeciecia wektorow lub czy wektor przecina okrag
-//        
-//        
-//        
-//        
-//        //ruch gracza
-//        //o ile gracz sie poruszy
-//        var pMoveVx = Math.cos(this._angle);
-//        var pMoveVy = - Math.sin(this._angle);
-//        
-//        //pozycja targetu
-//        target.getX();
-//        target.getY();
-//        
-//        //poprzednia pozycja targetu
-//        target.getX-()
-//        
-//
-//        //pozycja gracza
-//        //this._getX();
-//        //this._getY();
-//
-//
-//        //pozcyja pocisku
-//        
-//        //poprzednia pozycja pocisku
-//
-//
-//        //sciana
-//        //punkt sciany A - poczatek odcinka sciany
-//        var wV1x = wall.getWallPoint(wallNo-1).getX();
-//        var wV1y = wall.getWallPoint(wallNo-1).getY();
-//
-//        //punkt sciany B - koniec odcinka sciany
-//        var wV2x = wall.getWallPoint(wallNo).getX();
-//        var wV2y = wall.getWallPoint(wallNo).getY();
-//
-//
-//
-//
-//
-//
-//        //Sciana
-//        //Wyznaczenie prostej Ax + By + C = 0 dla gracza
-//        var a = pMoveVy;
-//        var b = - pMoveVx;
-//        var c = - a * this.getX() - b * this.getY();
-//
-//        //odleglosci punktu poczatkowego i koncowego
-//        var k1 = k1_1 = a * wV1x + b * wV1y + c;
-//        var k2 = k1_2 = a * wV2x + b * wV2y + c;
-//
-//        //kiedy punkty koncowe sa po tej samej stronie
-//        //wektory sie nie przecianja
-//        if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)){
-//            continue;
-//        } 
-//
-//
-//
-//
-//        //Wyznaczenie prostej dla sciany
-//        a = wV2y - wV1y;
-//        b = -(wV2x - wV1x);
-//        c = - a * wV1x - b * wV1y;
-//
-//        //odleglosci punktu poczatkowego i koncowego
-//        k1 = k2_1 = a * this.getX() + b * this.getY() + c;
-//        k2 = k2_2 = a * (this.getX() + pMoveVx) + b * (this.getY() + pMoveVy) + c;
-//
-//        //kiedy punkty koncowe sa po tej samej stronie
-//        //wektory sie nie przecianja
-//        if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)){
-//            continue;
-//        }

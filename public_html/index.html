@@ -5,83 +5,97 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>HTML5 GAME - MAIN PAGE</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="background-color: dimgray">
-        <div id="fb-root"></div>
+<head>
+    <title>HTML5 GAME - MAIN PAGE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: dimgray">
+<div id="fb-root"></div>
 
-        <!-- facebook login script-->
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=718520094854936";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-
-        <canvas style="margin:0 auto 0 auto;display:block;background:#AAAAAA" id="map" width="760" height="500"></canvas>
-
-        <div>HTML5 GAME</div>
-        
-        <!-- Utils -->
-        <script type="text/javascript" src="js/utils/Utils.js"></script>
-        
-        <!-- Support -->   
-        <script type="text/javascript" src="js/support/Timer.js"></script>
-        <script type="text/javascript" src="js/support/Mouse.js"></script>
-        <script type="text/javascript" src="js/support/AbstractMouseEventHandler.js"></script>
-        <script type="text/javascript" src="js/support/AbstractMouseEventHandler.js"></script>
-        <script type="text/javascript" src="js/support/Loader.js"></script>
-        
-        <script type="text/javascript" src="js/support/geom/Point2d.js"></script>
-        <script type="text/javascript" src="js/support/geom/SimpleVector2d.js"></script>
-        <script type="text/javascript" src="js/support/geom/Vector2d.js"></script>
-        <script type="text/javascript" src="js/support/geom/Circle.js"></script>
-        <script type="text/javascript" src="js/support/geom/Rect.js"></script>
-        <script type="text/javascript" src="js/support/geom/shape/FreeShape.js"></script>
-
-        <script type="text/javascript" src="js/support/geom/collisions/Collision.js"></script>
-        
-        <script type="text/javascript" src="js/support/graphics/Image.js"></script>
-        
-        <!-- Game Files -->
-        <script type="text/javascript" src="js/app/objects/Target.js"></script>
-        <script type="text/javascript" src="js/app/objects/Bullet.js"></script>
-        <script type="text/javascript" src="js/app/objects/Enemy.js"></script>
-        <script type="text/javascript" src="js/app/objects/Tower.js"></script>
-        <script type="text/javascript" src="js/app/objects/Checkpoint.js"></script>
-        
-        <script type="text/javascript" src="js/app/objects/BulletList.js"></script>
-        <script type="text/javascript" src="js/app/objects/EnemyList.js"></script>
-        <script type="text/javascript" src="js/app/objects/TowerList.js"></script>
-        <script type="text/javascript" src="js/app/objects/CheckpointList.js"></script>
-        <script type="text/javascript" src="js/app/objects/MapField.js"></script>
-        <script type="text/javascript" src="js/app/objects/Map.js"></script>        
-        
-        <script type="text/javascript" src="js/app/objects/WorldModel.js"></script>
-        <script type="text/javascript" src="js/app/objects/WorldView.js"></script>
-        
-        <script type="text/javascript" src="js/app/objects/HudModel.js"></script>
-        <script type="text/javascript" src="js/app/objects/HudView.js"></script>
-        
-        <script type="text/javascript" src="js/app/managers/TowerManager.js"></script>
-        <script type="text/javascript" src="js/app/managers/BulletManager.js"></script>
-        <script type="text/javascript" src="js/app/managers/EnemyManager.js"></script>
-        
-        <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
-        
-        <script type="text/javascript" src="js/Main.js"></script>
+<!-- facebook login script-->
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=718520094854936";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
-        <!-- facebook login div -->
-        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+<!-- google analytics -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        <br>
-        <br>
+    ga('create', 'UA-64834812-5', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<canvas style="margin:0 auto 0 auto;display:block;background:#AAAAAA" id="map" width="760" height="500"></canvas>
+
+<div>HTML5 GAME</div>
+
+<!-- Utils -->
+<script type="text/javascript" src="js/utils/Utils.js"></script>
+
+<!-- Support -->
+<script type="text/javascript" src="js/support/Timer.js"></script>
+<script type="text/javascript" src="js/support/Mouse.js"></script>
+<script type="text/javascript" src="js/support/AbstractMouseEventHandler.js"></script>
+<script type="text/javascript" src="js/support/AbstractMouseEventHandler.js"></script>
+<script type="text/javascript" src="js/support/Loader.js"></script>
+
+<script type="text/javascript" src="js/support/geom/Point2d.js"></script>
+<script type="text/javascript" src="js/support/geom/SimpleVector2d.js"></script>
+<script type="text/javascript" src="js/support/geom/Vector2d.js"></script>
+<script type="text/javascript" src="js/support/geom/Circle.js"></script>
+<script type="text/javascript" src="js/support/geom/Rect.js"></script>
+<script type="text/javascript" src="js/support/geom/shape/FreeShape.js"></script>
+
+<script type="text/javascript" src="js/support/geom/collisions/Collision.js"></script>
+
+<script type="text/javascript" src="js/support/graphics/Image.js"></script>
+
+<!-- Game Files -->
+<script type="text/javascript" src="js/app/objects/Target.js"></script>
+<script type="text/javascript" src="js/app/objects/Bullet.js"></script>
+<script type="text/javascript" src="js/app/objects/Enemy.js"></script>
+<script type="text/javascript" src="js/app/objects/Tower.js"></script>
+<script type="text/javascript" src="js/app/objects/Checkpoint.js"></script>
+
+<script type="text/javascript" src="js/app/objects/BulletList.js"></script>
+<script type="text/javascript" src="js/app/objects/EnemyList.js"></script>
+<script type="text/javascript" src="js/app/objects/TowerList.js"></script>
+<script type="text/javascript" src="js/app/objects/CheckpointList.js"></script>
+<script type="text/javascript" src="js/app/objects/MapField.js"></script>
+<script type="text/javascript" src="js/app/objects/Map.js"></script>
+
+<script type="text/javascript" src="js/app/objects/WorldModel.js"></script>
+<script type="text/javascript" src="js/app/objects/WorldView.js"></script>
+
+<script type="text/javascript" src="js/app/objects/HudModel.js"></script>
+<script type="text/javascript" src="js/app/objects/HudView.js"></script>
+
+<script type="text/javascript" src="js/app/managers/TowerManager.js"></script>
+<script type="text/javascript" src="js/app/managers/BulletManager.js"></script>
+<script type="text/javascript" src="js/app/managers/EnemyManager.js"></script>
+
+<script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
+
+<script type="text/javascript" src="js/Main.js"></script>
+
+
+<!-- facebook login div -->
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false"
+     data-auto-logout-link="false"></div>
+
+<br>
+<br>
 
         <span>
             <span style="font-weight: 600">TODO:</span><br>
@@ -100,5 +114,5 @@ and open the template in the editor.
             <span style="color:darkgray"> - inne TODO dojdzie</span><br>
         </span>
 
-    </body>
+</body>
 </html>

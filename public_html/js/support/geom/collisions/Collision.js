@@ -126,15 +126,6 @@ support.geom.collision.Collision.CircleVector2d = function CircleVector2d(c1, v1
         }
     }
 
-
-    //var u = ((c1.getX() - v1.getStartPoint().getX()) * (v1.getEndPoint().getX() - v1.getStartPoint().getX()) + (c1.getY() - v1.getStartPoint().getY()) * (v1.getEndPoint().getY() - v1.getStartPoint().getY())) / (Math.pow((v1.getStartPoint().getX() - v1.getEndPoint().getX()), 2) + Math.pow((v1.getStartPoint().getY() - v1.getEndPoint().getY()), 2))
-    //
-    //var v4x = v1.getStartPoint().getX() + (v1.getStartPoint().getX() - v1.getEndPoint().getX()) * u;
-    //var v4y = v1.getStartPoint().getY() + (v1.getStartPoint().getY() - v1.getEndPoint().getY()) * u;
-    //
-    //var v4 = new support.geom.Point2d(v4x, v4y);
-
-
     return false;
 };
 
@@ -221,95 +212,5 @@ support.geom.collision.Collision.RectRect = function RectRect(r1, r2) {
  square
  rectangle
 
-
-
  */
 
-
-
-
-
-//kolizja wektora z okregiem zwiera kolizje 2 wektorow.
-
-
-//W sumie przeciecie 2 wektorow trzeba sprawdzic zawsze kied
-
-
-//1. kolizja 2 wektorow
-//2. kolizja wektora z okregiem (trzeba wyznaczyc wektor prostopadly do wektora 2 i sprawdzic czy sie przecinaja, je
-//jezeli sie nie przecinaja to sprawdzic czy sredk kola jest w odleglosci od mniejszej niz promien w stosunku do koncow wektora)
-//3.
-
-
-//        //sprawdzenie czy 2 wektory sie przecianja lub czy wktor przecina okrag
-//
-//        //wektor ruchu przeciwnika, ale nie musi byc bo moze to byc cel w miejscu
-//        //to wtedy np zrobic ze jest okregiem o promieniu 5 :)
-//
-//        //wektor ruchu pocisku
-//
-//        //sprawdzenie przeciecia wektorow lub czy wektor przecina okrag
-//
-//
-//
-//
-//        //ruch gracza
-//        //o ile gracz sie poruszy
-//        var pMoveVx = Math.cos(this._angle);
-//        var pMoveVy = - Math.sin(this._angle);
-//
-//
-//        //pozycja gracza
-//        //this._getX();
-//        //this._getY();
-//
-//
-//        //sciana
-//        //punkt sciany A - poczatek odcinka sciany
-//        var wV1x = wall.getWallPoint(wallNo-1).getX();
-//        var wV1y = wall.getWallPoint(wallNo-1).getY();
-//
-//        //punkt sciany B - koniec odcinka sciany
-//        var wV2x = wall.getWallPoint(wallNo).getX();
-//        var wV2y = wall.getWallPoint(wallNo).getY();
-//
-//
-//
-//
-//
-//
-//        //Sciana
-//        //Wyznaczenie prostej Ax + By + C = 0 dla gracza
-//        var a = pMoveVy;
-//        var b = - pMoveVx;
-//        var c = - a * this.getX() - b * this.getY();
-//
-//        //odleglosci punktu poczatkowego i koncowego
-//        var k1 = k1_1 = a * wV1x + b * wV1y + c;
-//        var k2 = k1_2 = a * wV2x + b * wV2y + c;
-//
-//        //kiedy punkty koncowe sa po tej samej stronie
-//        //wektory sie nie przecianja
-//        if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)){
-//            continue;
-//        }
-//
-//
-//
-//
-//
-//
-//        //Wyznaczenie prostej dla sciany
-//        a = wV2y - wV1y;
-//        b = -(wV2x - wV1x);
-//        c = - a * wV1x - b * wV1y;
-//
-//        //odleglosci punktu poczatkowego i koncowego
-//        k1 = k2_1 = a * this.getX() + b * this.getY() + c;
-//        k2 = k2_2 = a * (this.getX() + pMoveVx) + b * (this.getY() + pMoveVy) + c;
-//
-//        //kiedy punkty koncowe sa po tej samej stronie
-//        //wektory sie nie przecianja
-//        if ((k1 > 0 && k2 > 0) || (k1 < 0 && k2 < 0)){
-//            continue;
-//        }

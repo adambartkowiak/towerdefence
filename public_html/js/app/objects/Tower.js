@@ -137,7 +137,7 @@ app.objects.Tower.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
 
 /**
  * @method getCooldown
- * @return {app.objects.Target} target
+ * @return {Number} cooldown
  */
 app.objects.Tower.prototype.getCooldown = function getCooldown() {
     return this._cooldown;

@@ -101,7 +101,6 @@ app.managers.EnemyManager.prototype.removeDeadEnemy = function removeDeadEnemy()
     var length = this._enemyList.length();
     var enemyIndex;
     var enemy;
-    var x, y;
 
     for (enemyIndex = length - 1; enemyIndex >= 0; enemyIndex--) {
         enemy = this._enemyList.getEnemy(enemyIndex);

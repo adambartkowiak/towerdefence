@@ -37,19 +37,6 @@ app.managers.BulletManager = function BulletManager(bulletList, enemyList, hudMo
      */
     this._hudModel = hudModel;
 
-    /**
-     * @property {Number} _collisionTrue
-     * @private
-     */
-    this._collisionTrue = 0;
-
-    /**
-     * @property {Number} _collisionFalse
-     * @private
-     */
-    this._collisionFalse = 0;
-
-
 };
 
 Utils.inherits(app.managers.BulletManager, Object);

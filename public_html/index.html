@@ -61,29 +61,60 @@ and open the template in the editor.
 
 <script type="text/javascript" src="js/support/graphics/Image.js"></script>
 
+
+
 <!-- Game Files -->
-<script type="text/javascript" src="js/app/objects/Target.js"></script>
-<script type="text/javascript" src="js/app/objects/Bullet.js"></script>
-<script type="text/javascript" src="js/app/objects/Enemy.js"></script>
-<script type="text/javascript" src="js/app/objects/Tower.js"></script>
-<script type="text/javascript" src="js/app/objects/Checkpoint.js"></script>
 
-<script type="text/javascript" src="js/app/objects/BulletList.js"></script>
-<script type="text/javascript" src="js/app/objects/EnemyList.js"></script>
-<script type="text/javascript" src="js/app/objects/TowerList.js"></script>
-<script type="text/javascript" src="js/app/objects/CheckpointList.js"></script>
-<script type="text/javascript" src="js/app/objects/MapField.js"></script>
-<script type="text/javascript" src="js/app/objects/Map.js"></script>
+<!--MODEL-->
+<script type="text/javascript" src="js/app/model/WorldModel.js"></script>
+<script type="text/javascript" src="js/app/model/ActionTypeModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityTargetCollisionModel.js"></script>
+<script type="text/javascript" src="js/app/model/TargetModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/ListModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
 
-<script type="text/javascript" src="js/app/objects/WorldModel.js"></script>
-<script type="text/javascript" src="js/app/objects/WorldView.js"></script>
+<!--VIEW-->
+<script type="text/javascript" src="js/app/view/WorldView.js"></script>
+<script type="text/javascript" src="js/app/view/HudView.js"></script>
+<script type="text/javascript" src="js/app/view/EntityView.js"></script>
 
-<script type="text/javascript" src="js/app/objects/HudModel.js"></script>
-<script type="text/javascript" src="js/app/objects/HudView.js"></script>
+<!--CONTROLLER-->
+<script type="text/javascript" src="js/app/controller/BuildController.js"></script>
+<script type="text/javascript" src="js/app/controller/MoveController.js"></script>
+<script type="text/javascript" src="js/app/controller/CollisionDetectionController.js"></script>
+<script type="text/javascript" src="js/app/controller/CollisionReactionController.js"></script>
 
-<script type="text/javascript" src="js/app/managers/TowerManager.js"></script>
-<script type="text/javascript" src="js/app/managers/BulletManager.js"></script>
-<script type="text/javascript" src="js/app/managers/EnemyManager.js"></script>
+
+
+
+
+
+
+<!--<script type="text/javascript" src="js/app/objects/Target.js"></script>-->
+
+<!--<script type="text/javascript" src="js/app/objects/Bullet.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/Enemy.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/Tower.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/Checkpoint.js"></script>-->
+
+<!--<script type="text/javascript" src="js/app/objects/BulletList.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/EnemyList.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/TowerList.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/CheckpointList.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/MapField.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/Map.js"></script>-->
+
+<!--<script type="text/javascript" src="js/app/objects/WorldModel.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/WorldView.js"></script>-->
+
+<!--<script type="text/javascript" src="js/app/objects/HudModel.js"></script>-->
+<!--<script type="text/javascript" src="js/app/objects/HudView.js"></script>-->
+
+<!--<script type="text/javascript" src="js/app/managers/TowerManager.js"></script>-->
+<!--<script type="text/javascript" src="js/app/managers/BulletManager.js"></script>-->
+<!--<script type="text/javascript" src="js/app/managers/EnemyManager.js"></script>-->
+
 
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
 
@@ -100,7 +131,7 @@ and open the template in the editor.
         <span>
             <span style="font-weight: 600">TODO:</span><br>
             <span style="color:limegreen"> - usprawnienie systemu kolizji - DONE,</span><br>
-            <span style="color:darkgray"> - zmiana struktury dziedziczenia - bardziej uniwersalna - ala RTS,</span><br>
+            <span style="color:yellow"> - zmiana struktury dziedziczenia - bardziej uniwersalna - ala RTS - juz dozo zostalo zrobione ale jeszcze jest kilka razy wiecej do zrobienia :),</span><br>
             <span style="color:darkgray"> - nowy interface do budowania wiezyczek,</span><br>
             <span style="color:darkgray"> - zaznaczanie obiektow: przeciwnikow i wiezyczek,</span><br>
             <span style="color:darkgray"> - nowi przeciwnicy,</span><br>

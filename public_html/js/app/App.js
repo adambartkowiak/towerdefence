@@ -19,3 +19,30 @@
 //
 //
 //rysuj mape
+
+
+
+
+
+//Jezeli czas petli jest wiekszy niz 20 ms to zglasza sie blad ze komputer gracza tego i tego spowalnia gre i predkosc gry zostala zmniejszona...
+//--------------------------------------------//
+
+//TWORZENIE OBIEKTOW
+//entityBuildController - buduje entity (pociski, jednostki, budynki itp)
+//attactController
+
+//PORUSZANIE OBIEKTAMI
+//moveControler
+
+
+//ROZPOZNAWANIE KOLIZJI
+//collisionControler
+
+
+//REAKCJE NA KOLIZJE
+//
+//
+
+
+//SPRZETANIE PO PENTLI
+//removeEntityController

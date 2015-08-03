@@ -42,16 +42,24 @@ support.Mouse.prototype.initMouse = function initMouse() {
 
     window.addEventListener("mousedown", function (e) {
         that.mouseDown(e);
+        return false;
     }, false);
 
     window.addEventListener("mousemove", function (e) {
         that.mouseMove(e);
+        return false;
     }, false);
 
     window.addEventListener("mouseup", function (e) {
         that.mouseUp(e);
+        return false;
     }, false);
 
+    window.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        //alert('success!');
+        return false;
+    }, false);
 };
 
 /**

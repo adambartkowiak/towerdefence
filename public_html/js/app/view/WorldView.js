@@ -65,10 +65,25 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
      * @property {Boolean} _debug
      * @private
      */
-    this._debug = false;
+    this._debug = true;
 
-    this._drawHealthBar = false;
-    this._drawPath = false;
+    /**
+     * @property {Boolean} _drawHealthBar
+     * @private
+     */
+    this._drawHealthBar = true;
+
+    /**
+     * @property {Boolean} _drawPath
+     * @private
+     */
+    this._drawPath = true;
+
+    /**
+     * @property {Boolean} _drawPath
+     * @private
+     */
+    this._drawHud = true;
 
 };
 
@@ -115,7 +130,7 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         this._image.drawRotateImage(this._canvasContext, this._entityImage[entity.getGraphicUrl()], entity.getX(), entity.getY(), entity.getAngle());
 
         //SELECTED
-        if (entity._selected){
+        if (entity._selected) {
             this._canvasContext.beginPath();
             this._canvasContext.strokeStyle = '#32CD32';
             this._canvasContext.arc(entity.getX(), entity.getY(), entity.getRadius(), 0, 2 * Math.PI, true);
@@ -124,7 +139,7 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         }
 
         //HEALTH BAR
-        if (this._drawHealthBar){
+        if (this._drawHealthBar) {
             hp = entity.getHp();
             currentHp = entity.getCurrentHp();
 
@@ -142,28 +157,28 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         }
 
         //PATH
-        if (this._drawPath){
+        if (this._drawPath) {
 
             var moveList = entity.getMoveList();
 
-            if (moveList!=null){
+            if (moveList != null) {
 
                 this._canvasContext.beginPath();
 
                 var moveToX = entity.getX(),
                     moveToY = entity.getY();
 
-                    this._canvasContext.moveTo(moveToX, moveToY);
+                this._canvasContext.moveTo(moveToX, moveToY);
 
-                    this._canvasContext.strokeStyle = '#00FF00';
-                    this._canvasContext.fillStyle = '#00FF00';
+                this._canvasContext.strokeStyle = '#00FF00';
+                this._canvasContext.fillStyle = '#00FF00';
 
-                for (var j=0; j<moveList.length(); j++){
+                for (var j = 0; j < moveList.length(); j++) {
 
                     moveToX = moveList.getElement(j).getX();
                     moveToY = moveList.getElement(j).getY();
 
-                    if (moveList.getElement(j).getEntityId() === 0 && moveToX !== -1 && moveToX !== -1){
+                    if (moveList.getElement(j).getEntityId() === 0 && moveToX !== -1 && moveToX !== -1) {
                         this._canvasContext.lineTo(moveToX, moveToY);
                     }
 
@@ -194,8 +209,14 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
 
             this._canvasContext.fillStyle = '#FFFFFF';
             this._canvasContext.fillRect(moveToX - 2, moveToY - 2, 4, 4);
-
             this._canvasContext.stroke();
+
+            this._canvasContext.fillStyle = '#aaaaaa';
+            this._canvasContext.fillRect(entity.getX(), entity.getY() - 30, 30, 15);
+            //this._canvasContext.stroke();
+
+            this._canvasContext.fillStyle = '#FF0000';
+            this._canvasContext.fillText("ID: " + entity.getId(), entity.getX(), entity.getY() - 20);
         }
 
     }
@@ -203,158 +224,47 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
     this._canvasContext.fillStyle = '#FFFFFF';
     this._canvasContext.fillText("ENTITY COUNT: " + max, 0, 20);
 
-};
+
+    //RYSOWANIE ZAZNACZONEGO MIEJSCA
+
+    var selectRect = this._worldModel.getSelectRect();
+    if (selectRect !== null){
+        this._canvasContext.fillStyle = '#00FF00';
+        this._canvasContext.globalAlpha=0.5;
+        this._canvasContext.fillRect(selectRect.getX(), selectRect.getY(), selectRect.getWidth(), selectRect.getHeight());
+        this._canvasContext.globalAlpha=1;
+    }
+
+    //RYSOWANIE HUDA
+    if (this._drawHud) {
+
+        var hudHeight = 50;
+        var hudTop = this._canvas.height - hudHeight;
+
+        this._canvasContext.fillStyle = '#444444';
+        this._canvasContext.fillRect(0, hudTop, this._canvas.width, hudHeight);
+
+        this._canvasContext.fillStyle = '#FFFFFF';
+        this._canvasContext.fillText("EntityStats:", 10, hudTop + 10);
 
 
-/**
- * @method _drawEnemies
- * @private
- * @param {app.objects.EnemyList} enemyList
- */
-app.view.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList) {
-    var i,
-        max,
-        enemy,
-        hp,
-        currentHp;
+        var selectedElementLength = this._worldModel.getSelectedEntityListModel().length();
+        if (selectedElementLength === 1){
 
-    max = enemyList.length();
+            var selectedElement = this._worldModel.getSelectedEntityListModel().getElement(0);
+            this._canvasContext.fillText("HP: " + selectedElement.getCurrentHp() + "/" + selectedElement.getHp(), 10, hudTop + 30);
 
-    //graficzne rysowanie przeciwnikow
-    if (!this._debug) {
-        for (i = 0; i < max; i++) {
+        } else if (selectedElementLength > 1){
 
-            enemy = enemyList.getEnemy(i);
+            this._canvasContext.fillText("SELECTED COUNT: " + selectedElementLength, 10, hudTop + 30);
 
-            this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
-            this._image.drawRotateImage(this._canvasContext, this._enemyImage[enemy.getGraphicUrl()], enemy.getX() / this._worldModel.SIZEPROPORTION, enemy.getY() / this._worldModel.SIZEPROPORTION, enemy.getAngle());
-            this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
         }
+
     }
 
-
-    this._canvasContext.beginPath();
-    for (i = 0; i < max; i++) {
-
-        enemy = enemyList.getEnemy(i);
-        hp = enemy.getHp();
-        currentHp = enemy.getCurrentHp();
-
-        if (!this._debug) {
-            //hp bar
-            //fillRect
-            this._canvasContext.fillStyle = '#474747';
-            this._canvasContext.fillRect(enemy.getX() - hp / 6 + currentHp / 3, enemy.getY() - 20, (hp - currentHp) / 3, 4);
-
-            this._canvasContext.fillStyle = '#00FF00';
-            this._canvasContext.fillRect(enemy.getX() - hp / 6, enemy.getY() - 20, currentHp / 3, 4);
-
-            ////drawRect
-            this._canvasContext.fillStyle = '#000000';
-            this._canvasContext.rect(enemy.getX() - hp / 6, enemy.getY() - 20, hp / 3, 4);
-        } else {
-            //layout debugerski
-            var moveToX = enemy.getX() / this._worldModel.SIZEPROPORTION,
-                moveToY = enemy.getY() / this._worldModel.SIZEPROPORTION,
-                moveVectorX = enemy.getMoveVector().getX() / this._worldModel.SIZEPROPORTION,
-                moveVectorY = enemy.getMoveVector().getY() / this._worldModel.SIZEPROPORTION;
-
-            this._canvasContext.moveTo(moveToX, moveToY);
-            this._canvasContext.lineTo(moveToX - moveVectorX, moveToY - moveVectorY);
-
-            this._canvasContext.fillStyle = '#FF0000';
-            this._canvasContext.fillRect(moveToX, moveToY, 2, 2);
-        }
-    }
-
-
-    this._canvasContext.strokeStyle = '#000000';
-    this._canvasContext.lineWidth = 1;
-    this._canvasContext.stroke();
 
 };
 
-/**
- * @method _drawTowers
- * @private
- * @param {app.objects.TowerList} towerList
- */
-app.view.WorldView.prototype._drawTowers = function _drawTowers(towerList) {
-    var i,
-        max,
-        tower;
-
-    max = towerList.length();
-    for (i = 0; i < max; i++) {
-        tower = towerList.getTower(i);
-
-        this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
-
-        this._image.drawRotateImage(this._canvasContext, this._towerHolderImage, tower.getX() / this._worldModel.SIZEPROPORTION, tower.getY() / this._worldModel.SIZEPROPORTION, 0);
-        this._image.drawRotateImage(this._canvasContext, this._towerImage[tower.getGraphicUrl()], tower.getX() / this._worldModel.SIZEPROPORTION, tower.getY() / this._worldModel.SIZEPROPORTION, tower.getAngle());
-
-        this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
-    }
-};
-
-/**
- * @method _drawBullets
- * @private
- * @param {app.objects.BulletList} bulletList
- */
-app.view.WorldView.prototype._drawBullets = function _drawBullets(bulletList) {
-    var i,
-        max,
-        bullet;
-
-    max = bulletList.length();
-    for (i = 0; i < max; i++) {
-        bullet = bulletList.getBullet(i);
-
-        if (!this._debug) {
-            //bullet
-            this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
-
-            this._image.drawRotateImage(this._canvasContext, this._bulletImage[bullet.getGraphicUrl()], bullet.getX() / this._worldModel.SIZEPROPORTION, bullet.getY() / this._worldModel.SIZEPROPORTION, bullet.getAngle());
-
-            this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
-        } else {
-            var moveToX = bullet.getX() / this._worldModel.SIZEPROPORTION,
-                moveToY = bullet.getY() / this._worldModel.SIZEPROPORTION,
-                moveVectorX = bullet.getLastPosition().getX() / this._worldModel.SIZEPROPORTION,
-                moveVectorY = bullet.getLastPosition().getY() / this._worldModel.SIZEPROPORTION;
-
-            this._canvasContext.moveTo(moveToX, moveToY);
-            this._canvasContext.lineTo(moveVectorX, moveVectorY);
-
-            this._canvasContext.fillStyle = '#FFFFFF';
-            this._canvasContext.fillRect(moveToX, moveToY, 5, 5);
-        }
-    }
-
-    if (this._debug) {
-        this._canvasContext.strokeStyle = '#0000FF';
-        this._canvasContext.lineWidth = 1;
-        this._canvasContext.stroke();
-    }
-};
-
-/**
- * @method _drawCheckpoints
- * @private
- * @param {app.objects.CheckpointList} checkpointList
- */
-app.view.WorldView.prototype._drawCheckpoints = function _drawCheckpoints(checkpointList) {
-    var i,
-        max,
-        checkpoint;
-
-    max = checkpointList.length();
-    for (i = 0; i < max; i++) {
-        checkpoint = checkpointList.getCheckpoint(i);
-        //this._canvasContext.fillText("CHECKPOINT", checkpoint.getX(), checkpoint.getY());
-    }
-};
 
 /**
  * @method _drawMap

@@ -60,8 +60,10 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
         targetEntityId = element.getMoveList().getElement(0).getEntityId();
         if (targetEntityId>0){
             targetEntity = this._list.getElementById(targetEntityId);
-            nextStepX = element.getMoveList().getElement(0).setX(targetEntity.getX());
-            nextStepY = element.getMoveList().getElement(0).setY(targetEntity.getY());
+            if(targetEntity !== null){
+                nextStepX = element.getMoveList().getElement(0).setX(targetEntity.getX());
+                nextStepY = element.getMoveList().getElement(0).setY(targetEntity.getY());
+            }
         }
 
         nextStepX = element.getMoveList().getElement(0).getX();

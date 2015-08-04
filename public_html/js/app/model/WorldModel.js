@@ -23,6 +23,18 @@ app.model.WorldModel = function WorldModel() {
     this._entityModelList = new app.model.ListModel();
 
     /**
+     * @property {app.model.ListModel} _selectedEntityModelList
+     * @private
+     */
+    this._selectedEntityModelList = new app.model.ListModel();
+
+    /**
+     * @property {support.geom.Rect} _selectRect
+     * @private
+     */
+    this._selectRect = null;
+
+    /**
      * @property {app.model.Map} _map
      * @private
      */
@@ -46,6 +58,22 @@ app.model.WorldModel.prototype.getEntityListModel = function getEntityListModel(
 };
 
 /**
+ * @method getSelectedEntityListModel
+ * @return {app.model.ListModel}
+ */
+app.model.WorldModel.prototype.getSelectedEntityListModel = function getSelectedEntityListModel() {
+    return this._selectedEntityModelList;
+};
+
+/**
+ * @method getSelectRect
+ * @return {support.geom.Rect}
+ */
+app.model.WorldModel.prototype.getSelectRect = function getSelectRect() {
+    return this._selectRect;
+};
+
+/**
  * @method getMap
  * @return {app.model.Map}
  */
@@ -59,10 +87,26 @@ app.model.WorldModel.prototype.getMap = function getMap() {
 
 /**
  * @method setEntityListModel
- * @param {app.model.ListModel} towerList
+ * @param {app.model.ListModel} entityListModel
  */
 app.model.WorldModel.prototype.setEntityListModel = function setEntityListModel(entityListModel) {
     this._entityModelList = entityListModel;
+};
+
+/**
+ * @method setSelectRect
+ * @param {support.geom.Rect} selectRect
+ */
+app.model.WorldModel.prototype.setSelectRect = function setSelectRect(selectRect) {
+    this._selectRect = selectRect;
+};
+
+/**
+ * @method setSelectedEntityListModel
+ * @param {app.model.ListModel} selectedEntityListModel
+ */
+app.model.WorldModel.prototype.setSelectedEntityListModel = function setSelectedEntityListModel(selectedEntityListModel) {
+    this._selectedEntityModelList = entityListModel;
 };
 
 /**

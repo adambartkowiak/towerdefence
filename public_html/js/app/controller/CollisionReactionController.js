@@ -44,6 +44,7 @@ app.controller.CollisionReactionController.prototype.update = function update() 
     var collisionIndex;
     var collision;
     var collisionType;
+    var targetEntity;
 
     for (collisionIndex = 0; collisionIndex < listLength; collisionIndex++) {
 
@@ -59,9 +60,16 @@ app.controller.CollisionReactionController.prototype.update = function update() 
 
             //Kasuje entity, ktory trafil w cel ( czyli pocisk :) )
             this._list.removeElementById(collision.getEntityModel().getId());
-            //collision.getEntityModel().setGroundSpeed(0);
 
-            //console.log("REMOVE ELEMENT BY ID: " + collision.getEntityModel().getId());
+            //Zabiera zycie entity ktore zostalo trafione
+            targetEntity = this._list.getElementById(collision.getTargetModel().getEntityId());
+
+            if (targetEntity !== null) {
+                targetEntity.setCurrentHp(targetEntity.getCurrentHp() - 20);
+                if (targetEntity.getCurrentHp() <= 0){
+                    this._list.removeElementById(collision.getTargetModel().getEntityId());
+                }
+            }
         }
 
     }

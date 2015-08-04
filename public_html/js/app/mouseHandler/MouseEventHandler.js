@@ -15,7 +15,7 @@ var Utils = Utils || {};
  * @param {support.Timer} timer
  * @param {app.model.EntityListModel} entityList
  */
-app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityList) {
+app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityList, worldModel) {
 
     /**
      * @property {support.Timer} _timer
@@ -28,6 +28,20 @@ app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityLis
      * @private
      */
     this._entityListModel = entityList;
+
+    /**
+     * @property {app.model.WorldModel} _worldModel
+     * @private
+     */
+    this._worldModel = worldModel;
+
+
+
+    /**
+     * @property {app.model.ListModel} _dragSelectionRect
+     * @private
+     */
+    this._dragSelectionRect = null;
 };
 
 Utils.inherits(app.mouseHandler.MouseEventHandler, support.AbstractMouseEventHandler);
@@ -41,38 +55,32 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
     var listLength = this._entityListModel.length();
     var elementIndex;
     var element;
-    var collision = false;
-    var point2d = new support.geom.Point2d(e.offsetX, e.offsetY);
 
-    //left
     if (e.button === 0) {
+        this._dragSelectionRect = new support.geom.Rect(e.offsetX, e.offsetY, 1, 1);
+        this._worldModel.setSelectRect(this._dragSelectionRect);
 
+        //DESELECT ALL
         for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
-
             element = this._entityListModel.getElement(elementIndex);
-
-            collision = support.geom.collision.Collision.Point2dCircle(point2d, element.getCircle());
-
-            console.log("COLISION" + collision);
-
-            if (collision) {
-                if (element.getSelectable()){
-                    element._selected = true;
-                }
-            }
-
+            element._selected = false;
         }
 
+        worldModel.getSelectedEntityListModel().clear();
     }
+
     //right
-    else if (e.button === 2) {
+    if (e.button === 2) {
 
         for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
             element = this._entityListModel.getElement(elementIndex);
 
-            if (element._selected) {
+            if (element._selected && element.getMoveList()) {
                 element.getMoveList().clear();
+                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
+            } else if (element._selected){
+                element.setMoveList(new app.model.ListModel());
                 element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
             }
 
@@ -160,6 +168,49 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
 
+    var listLength = this._entityListModel.length();
+    var elementIndex;
+    var element;
+    var collision = false;
+    var point2d = new support.geom.Point2d(e.offsetX, e.offsetY);
+
+
+    console.log(this._dragSelectionRect);
+
+    //left
+    if (e.button === 0) {
+
+        for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+            element = this._entityListModel.getElement(elementIndex);
+
+            //collision = support.geom.collision.Collision.Point2dCircle(point2d, element.getCircle());
+
+            point2d.setX(element.getX());
+            point2d.setY(element.getY());
+            collision = support.geom.collision.Collision.Point2dRect(point2d, this._dragSelectionRect);
+
+            console.log("NEW COLLISION");
+            console.log(this._dragSelectionRect);
+            console.log(point2d);
+            console.log(collision);
+
+            if (collision) {
+                if (element.getSelectable()) {
+                    element._selected = true;
+
+                    worldModel.getSelectedEntityListModel().addElement(element);
+
+                }
+            }
+
+        }
+
+    }
+
+    this._dragSelectionRect = null;
+    this._worldModel.setSelectRect(this._dragSelectionRect);
+
 };
 
 /**
@@ -176,4 +227,32 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseMove = function onMouseMove(
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(e) {
 
+    var listLength = this._entityListModel.length();
+    var elementIndex;
+    var element;
+    var collision = false;
+    var point2d = new support.geom.Point2d(e.offsetX, e.offsetY);
+
+    if (e.button === 0) {
+        this._dragSelectionRect.setWidth(e.offsetX - this._dragSelectionRect.getX());
+        this._dragSelectionRect.setHeight(e.offsetY - this._dragSelectionRect.getY());
+    }
+
+    if (e.button === 2) {
+
+        for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+            element = this._entityListModel.getElement(elementIndex);
+
+            if (element._selected && element.getMoveList()) {
+                element.getMoveList().clear();
+                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
+            } else if (element._selected){
+                element.setMoveList(new app.model.ListModel());
+                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
+            }
+
+        }
+
+    }
 };

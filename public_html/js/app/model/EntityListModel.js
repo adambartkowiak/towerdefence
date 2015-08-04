@@ -41,6 +41,8 @@ app.model.EntityListModel.prototype.getElementById = function getElementById(id)
             return this._elements[index];
         }
     }
+
+    return null;
 };
 
 /**

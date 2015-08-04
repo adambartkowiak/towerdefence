@@ -70,8 +70,8 @@ entityToBuild2.setRadius(20);
 entityToBuild2.setGroundSpeed(100);
 entityToBuild2.setHp(100);
 entityToBuild2.setCurrentHp(80);
-entityToBuild2.setBuildTime(200);
-entityToBuild2.setSelectable(false);
+entityToBuild2.setBuildTime(2000);
+entityToBuild2.setSelectable(true);
 entityToBuild2.setGraphicUrl("assets/images/enemy0.png");
 
 var entityToBuild2MoveList = new app.model.ListModel();
@@ -117,6 +117,7 @@ entityToBuild.setCurrentHp(1);
 //entityToBuild.setBuildingTime(300);
 entityToBuild.setGraphicUrl("assets/images/bullet0.png");
 entityToBuild.setBuildTime(500);
+entityToBuild.setSelectable(false);
 
 //pocisk bedzie kierowany na entity 1 - to powinno byc ustalane w chwili wystrzalu a nie przy budowie
 var toBuildMoveList = new app.model.ListModel();
@@ -140,7 +141,7 @@ var worldView = new app.view.WorldView(canvas, worldModel);
 //var hudView = new app.objects.HudView(canvas, hudModel);
 
 //EVENTY MYSZKI
-var mouseHandler = new app.mouseHandler.MouseEventHandler(timer, entityListModel);
+var mouseHandler = new app.mouseHandler.MouseEventHandler(timer, entityListModel, worldModel);
 var mouse = new support.Mouse(mouseHandler);
 mouse.initMouse();
 

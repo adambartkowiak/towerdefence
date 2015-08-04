@@ -63,6 +63,16 @@ support.geom.collision.Collision.Point2dVector2d = function Point2dVector2d(p1, 
  */
 support.geom.collision.Collision.Point2dRect = function Point2dRect(p1, r1) {
 
+    if (r1.getWidth() < 0) {
+        r1.setX(r1.getX() + r1.getWidth());
+        r1.setWidth(-r1.getWidth());
+    }
+
+    if (r1.getHeight() < 0) {
+        r1.setY(r1.getY() + r1.getHeight());
+        r1.setHeight(-r1.getHeight());
+    }
+
     if (p1.getX() >= r1.getX() && p1.getX() <= r1.getX() + r1.getWidth() &&
         p1.getY() >= r1.getY() && p1.getY() <= r1.getY() + r1.getHeight()) {
         return true;

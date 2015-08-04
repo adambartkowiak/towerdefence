@@ -9,10 +9,12 @@ app.model = app.model || {};
 
 var Utils = Utils || {};
 
-var entityIndexModel = 0;
-function getEntityIndexModel(){
-    entityIndexModel += 1;
-    return entityIndexModel;
+
+app.model.ENTITY_INDEX_MODEL = 0;
+
+function getEntityIndexModel() {
+    app.model.ENTITY_INDEX_MODEL += 1;
+    return app.model.ENTITY_INDEX_MODEL;
 };
 
 /**
@@ -107,28 +109,28 @@ app.model.EntityModel = function EntityModel() {
 
     /**
      *
-     * @type {Number} _buildTime
+     * @property {Number} _buildTime
      * @private
      */
     this._buildTime = 0;
 
     /**
      *
-     * @type {Number} _currentBuildTime
+     * @property {Number} _currentBuildTime
      * @private
      */
     this._currentBuildTime = 0;
 
     /**
      *
-     * @type {Boolean} _selected
+     * @property {Boolean} _selected
      * @private
      */
     this._selected = false;
 
     /**
      *
-     * @type {Boolean} _selectable
+     * @property {Boolean} _selectable
      * @private
      */
     this._selectable = true;
@@ -159,20 +161,11 @@ app.model.EntityModel = function EntityModel() {
 Utils.inherits(app.model.EntityModel, Object);
 
 
-
-
-
-
 /*
-
-
 
  SETTERY
 
-
  */
-
-
 
 
 /**
@@ -356,16 +349,9 @@ app.model.EntityModel.prototype.setGraphicUrl = function setGraphicUrl(graphicUr
 };
 
 
-
-
-
-
 /*
 
-
-
-GETTERY
-
+ GETTERY
 
  */
 
@@ -547,9 +533,11 @@ app.model.EntityModel.prototype.getGraphicUrl = function getGraphicUrl() {
 };
 
 
+/*
 
+ CLONE
 
-
+ */
 
 
 /**
@@ -577,16 +565,15 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._selectable = this._selectable;
 
 
-
     //klonowanie obiektow
     clone._moveList = null;
     clone._buildList = null;
 
-    if (this._moveList !== null){
+    if (this._moveList !== null) {
         clone._moveList = this._moveList.clone();
     }
 
-    if (this._buildList !== null){
+    if (this._buildList !== null) {
         clone._buildList = this._buildList.clone();
     }
 

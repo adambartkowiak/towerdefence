@@ -32,6 +32,13 @@ app.model.EntityModel = function EntityModel() {
     this._id = getEntityIndexModel();
 
     /**
+     * Drozyna do kotrej nalezy jednostka 0 neutralna
+     * @property {Number} _id
+     * @private
+     */
+    this._team = 0;
+
+    /**
      * Figura geometryczna reprezentujaca jednostke
      * @property {support.geom.Circle} _circle
      * @private
@@ -136,6 +143,13 @@ app.model.EntityModel = function EntityModel() {
     this._selectable = true;
 
     /**
+     *
+     * @property {Boolean} _targetable
+     * @private
+     */
+    this._targetable = false;
+
+    /**
      * Aktualna lista ruchow do wykonania
      * @property {app.model.ListModel} _moveList
      * @private
@@ -174,6 +188,14 @@ Utils.inherits(app.model.EntityModel, Object);
  */
 app.model.EntityModel.prototype.setId = function setId(value) {
     this._id = value
+};
+
+/**
+ * @method setTeam
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setTeam = function setTeam(value) {
+    this._team = value
 };
 
 /**
@@ -325,6 +347,14 @@ app.model.EntityModel.prototype.setSelectable = function setSelectable(value) {
 };
 
 /**
+ * @method setTargetable
+ * @param {Boolean} value
+ */
+app.model.EntityModel.prototype.setTargetable = function setTargetable(value) {
+    this._targetable = value;
+};
+
+/**
  * @method setMoveList
  * @param {app.model.ListModel} value
  */
@@ -362,6 +392,14 @@ app.model.EntityModel.prototype.setGraphicUrl = function setGraphicUrl(graphicUr
  */
 app.model.EntityModel.prototype.getId = function getId() {
     return this._id;
+};
+
+/**
+ * @method getTeam
+ * @return {Number} team
+ */
+app.model.EntityModel.prototype.getTeam = function getTeam() {
+    return this._team;
 };
 
 /**
@@ -509,6 +547,14 @@ app.model.EntityModel.prototype.getSelectable = function getSelectable() {
 };
 
 /**
+ * @method getTargetable
+ * @return {Boolean} targetable
+ */
+app.model.EntityModel.prototype.getTargetable = function getTargetable() {
+    return this._targetable;
+};
+
+/**
  * @method getMoveList
  * @return {app.model.ListModel} moveList
  */
@@ -548,6 +594,7 @@ app.model.EntityModel.prototype.clone = function clone() {
 
     var clone = new app.model.EntityModel();
 
+    clone._team = this._team;
     clone._circle = new support.geom.Circle(this._circle.getX(), this._circle.getY(), this._circle.getRadius());
     clone._lastPosition = new support.geom.Point2d(this._lastPosition.getX(), this._lastPosition.getY());
     clone._angle = this._angle;
@@ -563,6 +610,7 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._currentBuildTime = this._currentBuildTime;
     clone._selected = this._selected;
     clone._selectable = this._selectable;
+    clone._targetable = this._targetable;
 
 
     //klonowanie obiektow

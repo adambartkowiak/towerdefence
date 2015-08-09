@@ -172,10 +172,11 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
     var elementIndex;
     var element;
     var collision = false;
-    var point2d = new support.geom.Point2d(e.offsetX, e.offsetY);
+    var point2d = new support.geom.Point2d(0, 0);
+    var circle = new support.geom.Circle(0,0,0);
 
 
-    console.log(this._dragSelectionRect);
+    //console.log(this._dragSelectionRect);
 
     //left
     if (e.button === 0) {
@@ -184,16 +185,12 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
 
             element = this._entityListModel.getElement(elementIndex);
 
-            //collision = support.geom.collision.Collision.Point2dCircle(point2d, element.getCircle());
 
-            point2d.setX(element.getX());
-            point2d.setY(element.getY());
-            collision = support.geom.collision.Collision.Point2dRect(point2d, this._dragSelectionRect);
+            circle.setX(element.getX());
+            circle.setY(element.getY());
+            circle.setRadius(element.getRadius());
 
-            console.log("NEW COLLISION");
-            console.log(this._dragSelectionRect);
-            console.log(point2d);
-            console.log(collision);
+            collision = support.geom.collision.Collision.CircleRect(circle, this._dragSelectionRect);
 
             if (collision) {
                 if (element.getSelectable()) {

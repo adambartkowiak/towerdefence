@@ -141,13 +141,74 @@ support.geom.collision.Collision.CircleVector2d = function CircleVector2d(c1, v1
 
 /**
  * @method CircleRect
+ * @param {support.geom.Circle} c1 circle1
+ * @param {support.geom.Rect} r1 rect1
  * @return {Boolean} result
  */
-support.geom.collision.Collision.CircleRect = function CircleRect() {
+support.geom.collision.Collision.CircleRect = function CircleRect(c1, r1) {
 
-    //Zastanowic sie jak to obliczyc najwydajnej
 
-    return true;
+    var point = new support.geom.Point2d(c1.getX(), c1.getY());
+
+    if (support.geom.collision.Collision.Point2dRect(point, r1)){
+        return true;
+    }
+
+
+    //PUNKTY
+    point.setX(r1.getX());
+    point.setY(r1.getY());
+    if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
+        return true;
+    }
+
+    point.setX(r1.getX()+r1.getWidth());
+    point.setY(r1.getY());
+    if (support.geom.collision.Collision.Point2dCircle(point, c1)){
+        return true;
+    }
+
+    point.setX(r1.getX()+r1.getWidth());
+    point.setY(r1.getY()+r1.getHeight());
+    if (support.geom.collision.Collision.Point2dCircle(point, c1)){
+        return true;
+    }
+
+    point.setX(r1.getX());
+    point.setY(r1.getY()+r1.getHeight());
+    if (support.geom.collision.Collision.Point2dCircle(point, c1)){
+        return true;
+    }
+
+
+
+    //WEKTORY
+    //gorna
+    var v1 = new support.geom.Vector2d(r1.getX(), r1.getY(), r1.getX() + r1.getWidth(), r1.getY());
+    //lewa
+    var v2 = new support.geom.Vector2d(r1.getX(), r1.getY(), r1.getX(), r1.getY() + r1.getHeight());
+    //prawa
+    var v3 = new support.geom.Vector2d(r1.getX() + r1.getWidth(), r1.getY(), r1.getX() + r1.getWidth(), r1.getY() + r1.getHeight());
+    //dolna
+    var v4 = new support.geom.Vector2d(r1.getX(), r1.getY() + r1.getHeight(), r1.getX() + r1.getWidth(), r1.getY() + r1.getHeight());
+
+    if (support.geom.collision.Collision.CircleVector2d(c1, v1)){
+        return true;
+    }
+
+    if (support.geom.collision.Collision.CircleVector2d(c1, v2)){
+        return true;
+    }
+
+    if (support.geom.collision.Collision.CircleVector2d(c1, v3)){
+        return true;
+    }
+
+    if (support.geom.collision.Collision.CircleVector2d(c1, v4)){
+        return true;
+    }
+
+    return false;
 };
 
 /**

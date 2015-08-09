@@ -15,7 +15,9 @@ var Utils = Utils || {};
  * @constructor
  */
 app.model.ActionTypeModel = {
-    MOVE : 0,
-    ATTACK : 1,
-    PATROL : 2
+    MOVE: 0,
+    ATTACK: 1,
+    PATROL: 2,
+    AIM: 3,
+    MOVE_AND_AIM: 4
 };

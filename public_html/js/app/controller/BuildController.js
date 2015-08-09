@@ -57,6 +57,11 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
             toBuild._currentBuildTime += timeDelta;
             if (toBuild._currentBuildTime >= toBuild._buildTime) {
 
+                if (toBuild.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK &&
+                    (toBuild.getMoveList().getElement(0).getEntityId() === 0 || this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId()) === null )) {
+                    continue;
+                }
+
                 //Wyzerowanie czasu
                 toBuild._currentBuildTime = 0;
 
@@ -64,18 +69,22 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
                 newEntity.setX(element.getX());
                 newEntity.setY(element.getY());
 
-                if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0){
-                    var enemy = this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId());
 
-                    if (enemy != null){
-                        //var randomX = enemy.getRadius() * (Math.random() - 0.5);
-                        //var randomY = enemy.getRadius() * (Math.random() - 0.5);
-
-                        //newEntity.getMoveList().getElement(0).setEntityId(0);
-                        //newEntity.getMoveList().getElement(0).setX(enemy.getX() + randomX);
-                        //newEntity.getMoveList().getElement(0).setY(enemy.getY() + randomY);
-                    }
-                }
+                /*
+                 sprawdzenie pozycji celu
+                 */
+                //if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0){
+                //    var enemy = this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId());
+                //
+                //    if (enemy != null){
+                //        var randomX = enemy.getRadius() * (Math.random() - 0.5);
+                //        var randomY = enemy.getRadius() * (Math.random() - 0.5);
+                //
+                //        newEntity.getMoveList().getElement(0).setEntityId(0);
+                //        newEntity.getMoveList().getElement(0).setX(enemy.getX() + randomX);
+                //        newEntity.getMoveList().getElement(0).setY(enemy.getY() + randomY);
+                //    }
+                //}
 
                 this._list.addElement(newEntity);
 

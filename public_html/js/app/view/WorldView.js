@@ -47,6 +47,9 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
     this._entityImage["assets/images/enemy0.png"] = new Image();
     this._entityImage["assets/images/enemy0.png"].src = "assets/images/enemy0.png";
 
+    this._entityImage["assets/images/enemy3.png"] = new Image();
+    this._entityImage["assets/images/enemy3.png"].src = "assets/images/enemy3.png";
+
     this._entityImage["assets/images/tower0.png"] = new Image();
     this._entityImage["assets/images/tower0.png"].src = "assets/images/tower0.png";
 
@@ -55,6 +58,12 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
 
     this._entityImage["assets/images/comandCenter0.png"] = new Image();
     this._entityImage["assets/images/comandCenter0.png"].src = "assets/images/comandCenter0.png";
+
+    this._entityImage["assets/images/base1.png"] = new Image();
+    this._entityImage["assets/images/base1.png"].src = "assets/images/base1.png";
+
+    this._entityImage["assets/images/base2.png"] = new Image();
+    this._entityImage["assets/images/base2.png"].src = "assets/images/base2.png";
 
     /**
      * @property {support.graphics.Image} _image
@@ -65,7 +74,7 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
      * @property {Boolean} _debug
      * @private
      */
-    this._debug = true;
+    this._debug = false;
 
     /**
      * @property {Boolean} _drawHealthBar
@@ -139,7 +148,7 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         }
 
         //HEALTH BAR
-        if (this._drawHealthBar) {
+        if (this._drawHealthBar && entity.getHp()>1) {
             hp = entity.getHp();
             currentHp = entity.getCurrentHp();
 
@@ -150,14 +159,16 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
             this._canvasContext.fillRect(entity.getX() - hp / 6, entity.getY() - 20, currentHp / 3, 4);
 
             ////drawRect
-            this._canvasContext.fillStyle = '#000000';
+            this._canvasContext.beginPath();
+            this._canvasContext.strokeStyle = '#000000';
             this._canvasContext.rect(entity.getX() - hp / 6, entity.getY() - 20, hp / 3, 4);
 
+            this._canvasContext.lineWidth = 1;
             this._canvasContext.stroke();
         }
 
         //PATH
-        if (this._drawPath) {
+        if (this._drawPath && entity.getSelected()) {
 
             var moveList = entity.getMoveList();
 
@@ -212,11 +223,11 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
             this._canvasContext.stroke();
 
             this._canvasContext.fillStyle = '#aaaaaa';
-            this._canvasContext.fillRect(entity.getX(), entity.getY() - 30, 30, 15);
+            this._canvasContext.fillRect(entity.getX(), entity.getY() - 40, 30, 15);
             //this._canvasContext.stroke();
 
             this._canvasContext.fillStyle = '#FF0000';
-            this._canvasContext.fillText("ID: " + entity.getId(), entity.getX(), entity.getY() - 20);
+            this._canvasContext.fillText("ID: " + entity.getId(), entity.getX(), entity.getY() - 30);
         }
 
     }
@@ -248,11 +259,27 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         this._canvasContext.fillText("EntityStats:", 10, hudTop + 10);
 
 
+        //Zaznaczanie
         var selectedElementLength = this._worldModel.getSelectedEntityListModel().length();
         if (selectedElementLength === 1){
 
             var selectedElement = this._worldModel.getSelectedEntityListModel().getElement(0);
+            //HP
             this._canvasContext.fillText("HP: " + selectedElement.getCurrentHp() + "/" + selectedElement.getHp(), 10, hudTop + 30);
+
+            var buildList = selectedElement.getBuildList();
+            if(buildList !== null){
+                var buildListIndex;
+                var buildListLength = buildList.length();
+                var buildListElement = null;
+
+                for (buildListIndex = 0; buildListIndex<buildListLength; buildListIndex++){
+                    buildListElement = buildList.getElement(buildListIndex);
+                    this._canvasContext.fillText("BUILDING: " + buildListElement.getCurrentBuildTime() + "/" + buildListElement.getBuildTime(), 70, hudTop + 10 + 20*buildListIndex);
+                }
+            }
+
+
 
         } else if (selectedElementLength > 1){
 

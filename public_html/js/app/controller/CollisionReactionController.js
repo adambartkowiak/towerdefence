@@ -65,7 +65,7 @@ app.controller.CollisionReactionController.prototype.update = function update() 
             targetEntity = this._list.getElementById(collision.getTargetModel().getEntityId());
 
             if (targetEntity !== null) {
-                targetEntity.setCurrentHp(targetEntity.getCurrentHp() - 20);
+                targetEntity.setCurrentHp(targetEntity.getCurrentHp() - collision.getEntityModel().getAttackDamage());
                 if (targetEntity.getCurrentHp() <= 0){
                     this._list.removeElementById(collision.getTargetModel().getEntityId());
                 }

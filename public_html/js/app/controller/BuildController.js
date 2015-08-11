@@ -65,6 +65,11 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
                 //Wyzerowanie czasu
                 toBuild._currentBuildTime = 0;
 
+                //Wykasowanie elemntu budowanego z kolejki
+                if (toBuild.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK){
+                    element.getBuildList().removeElement(0);
+                }
+
                 var newEntity = toBuild.clone();
                 newEntity.setX(element.getX());
                 newEntity.setY(element.getY());

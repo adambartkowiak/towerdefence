@@ -210,6 +210,11 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
             this._canvasContext.arc(entity.getX(), entity.getY(), entity.getRadius(), 0, 2 * Math.PI, true);
             this._canvasContext.stroke();
 
+            this._canvasContext.beginPath();
+            this._canvasContext.strokeStyle = '#00bfff';
+            this._canvasContext.arc(entity.getX(), entity.getY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
+            this._canvasContext.stroke();
+
             var moveToX = entity.getX(),
                 moveToY = entity.getY(),
                 moveVectorX = entity.getLastPosition().getX(),

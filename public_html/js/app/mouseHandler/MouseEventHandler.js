@@ -42,6 +42,8 @@ app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityLis
      * @private
      */
     this._dragSelectionRect = null;
+
+    this._isShiftPressed = false;
 };
 
 Utils.inherits(app.mouseHandler.MouseEventHandler, support.AbstractMouseEventHandler);
@@ -56,6 +58,14 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
     var elementIndex;
     var element;
 
+    if (event.shiftKey){
+        this._isShiftPressed = true;
+        console.log(this._isShiftPressed);
+    } else {
+        this._isShiftPressed = false;
+        console.log(this._isShiftPressed);
+    }
+
     if (e.button === 0) {
         this._dragSelectionRect = new support.geom.Rect(e.offsetX, e.offsetY, 1, 1);
         this._worldModel.setSelectRect(this._dragSelectionRect);
@@ -69,6 +79,8 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
         worldModel.getSelectedEntityListModel().clear();
     }
 
+
+
     //right
     if (e.button === 2) {
 
@@ -77,7 +89,9 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
             element = this._entityListModel.getElement(elementIndex);
 
             if (element._selected && element.getMoveList()) {
-                element.getMoveList().clear();
+                if (!this._isShiftPressed){
+                    element.getMoveList().clear();
+                }
                 element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
             } else if (element._selected){
                 element.setMoveList(new app.model.ListModel());
@@ -235,21 +249,21 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(
         this._dragSelectionRect.setHeight(e.offsetY - this._dragSelectionRect.getY());
     }
 
-    if (e.button === 2) {
-
-        for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
-
-            element = this._entityListModel.getElement(elementIndex);
-
-            if (element._selected && element.getMoveList()) {
-                element.getMoveList().clear();
-                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
-            } else if (element._selected){
-                element.setMoveList(new app.model.ListModel());
-                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
-            }
-
-        }
-
-    }
+    //if (e.button === 2) {
+    //
+    //    for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+    //
+    //        element = this._entityListModel.getElement(elementIndex);
+    //
+    //        if (element._selected && element.getMoveList()) {
+    //            element.getMoveList().clear();
+    //            element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
+    //        } else if (element._selected){
+    //            element.setMoveList(new app.model.ListModel());
+    //            element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
+    //        }
+    //
+    //    }
+    //
+    //}
 };

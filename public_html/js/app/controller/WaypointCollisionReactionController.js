@@ -11,12 +11,12 @@ var Utils = Utils || {};
 
 /**
  * @namespace app.controller
- * @class CollisionReactionController
+ * @class WaypointCollisionReactionController
  * @constructor
  * @param {app.model.ListModel} listModel
  *
  */
-app.controller.CollisionReactionController = function CollisionReactionController(listModel, collisionListModel) {
+app.controller.WaypointCollisionReactionController = function WaypointCollisionReactionController(listModel, collisionListModel) {
 
     /**
      * @property {app.model.ListModel} _list
@@ -33,12 +33,12 @@ app.controller.CollisionReactionController = function CollisionReactionControlle
 
 };
 
-Utils.inherits(app.controller.CollisionReactionController, Object);
+Utils.inherits(app.controller.WaypointCollisionReactionController, Object);
 
 /**
  * @method update
  */
-app.controller.CollisionReactionController.prototype.update = function update() {
+app.controller.WaypointCollisionReactionController.prototype.update = function update() {
 
     var listLength = this._collisionList.length();
     var collisionIndex;

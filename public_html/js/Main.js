@@ -29,7 +29,7 @@ var worldModel = new app.model.WorldModel();
 
 //DODANIE OBIEKTOW DO SWIATA
 var entityListModel = new app.model.EntityListModel();
-var collisionListModel = new app.model.ListModel();
+var waypointCollisionListModel = new app.model.ListModel();
 
 
 /*
@@ -50,7 +50,7 @@ unit1.setTeam(1);
 unit1.setX(60);
 unit1.setY(200);
 unit1.setRadius(20);
-unit1.setGroundSpeed(20);
+unit1.setGroundSpeed(120);
 unit1.setHp(100);
 unit1.setCurrentHp(100);
 unit1.setBuildTime(2000);
@@ -68,7 +68,7 @@ var unit1BuildList = new app.model.ListModel();
 
 var unit1Bullet = new app.model.EntityModel();
 unit1Bullet.setRadius(10);
-unit1Bullet.setAttackDamage(10);
+unit1Bullet.setAttackDamage(0);
 unit1Bullet.setGroundSpeed(400);
 unit1Bullet.setHp(1);
 unit1Bullet.setCurrentHp(1);
@@ -87,7 +87,16 @@ unit1.setBuildList(unit1BuildList);
 
 //base1 build list
 var base1buildList = new app.model.ListModel();
+
 base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+
 base1.setBuildList(base1buildList);
 
 
@@ -110,7 +119,7 @@ unit2.setTeam(2);
 unit2.setX(700);
 unit2.setY(150);
 unit2.setRadius(20);
-unit2.setGroundSpeed(10);
+unit2.setGroundSpeed(80);
 unit2.setHp(300);
 unit2.setCurrentHp(300);
 unit2.setBuildTime(3000);
@@ -128,7 +137,7 @@ var unit2BuildList = new app.model.ListModel();
 
 var unit2Bullet = new app.model.EntityModel();
 unit2Bullet.setRadius(10);
-unit2Bullet.setAttackDamage(20);
+unit2Bullet.setAttackDamage(0);
 unit2Bullet.setGroundSpeed(400);
 unit2Bullet.setHp(1);
 unit2Bullet.setCurrentHp(1);
@@ -146,7 +155,11 @@ unit2.setBuildList(unit2BuildList);
 
 //base2 build list
 var base2buildList = new app.model.ListModel();
+
 base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+
 base2.setBuildList(base2buildList);
 
 
@@ -283,8 +296,8 @@ mouse.initMouse();
 var selectTargetController = new app.controller.SelectTargetController(entityListModel);
 var buildController = new app.controller.BuildController(entityListModel);
 var moveController = new app.controller.MoveController(entityListModel);
-var collisionDetectionController = new app.controller.CollisionDetectionController(entityListModel, collisionListModel);
-var collisionReactionController = new app.controller.CollisionReactionController(entityListModel, collisionListModel);
+var waypointCollisionDetectionController = new app.controller.WaypointCollisionDetectionController(entityListModel, waypointCollisionListModel);
+var waypointCollisionReactionController = new app.controller.WaypointCollisionReactionController(entityListModel, waypointCollisionListModel);
 
 
 //LOGIKA GRY
@@ -332,15 +345,17 @@ setInterval(function () {
      sprawdzenia kolizji miedzy entytis
      tworzenie listy kolizji ktora zaszla w tym przebiegu petli
      */
-    collisionDetectionController.update();
+    waypointCollisionDetectionController.update();
 
 
     //REAKCJA NA KOLIZJE
     /*
-     modul reagowania na kolizje
+     modul reagowania na kolizje dotarcia do celu
+     Dotarcie do celu jest wejscie na waypoint, ale waypointem tez moze byc dotarcie pocisku
+     do przeciwnika - czyli kolizja trafienia.
      delegowanie o kolizji do wyspecjalizowanych modulow
      */
-    collisionReactionController.update(); //deleguje obsluge kolizji do wyspecyjalizowanych modulow
+    waypointCollisionReactionController.update(); //deleguje obsluge kolizji do wyspecyjalizowanych modulow
 
 
     //SPRZATANIE PO PETLI
@@ -350,7 +365,7 @@ setInterval(function () {
     //removeEntityController.update();
 
 
-    collisionListModel.clear();
+    waypointCollisionListModel.clear();
 
     //if (worldModel.getEnemyList().length() < maxEnemies && totalTimeDelta >= nextEnemyMilis) {
     //

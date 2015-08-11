@@ -46,6 +46,13 @@ app.model.EntityModel = function EntityModel() {
     this._circle = new support.geom.Circle(0, 0, 0);
 
     /**
+     * Radius wykrywania kolizji pomiedzy entity
+     * @property {Number} _moveCollisionDetectionRadius
+     * @private
+     */
+    this._moveCollisionDetectionRadius = 0;
+
+    /**
      * Poprzednia pozycja jednostki
      * @property {support.geom.Point2d} _lastPosition
      * @private
@@ -240,6 +247,7 @@ app.model.EntityModel.prototype.setY = function setY(value) {
  */
 app.model.EntityModel.prototype.setRadius = function setRadius(value) {
     this._circle.setRadius(value);
+    this._moveCollisionDetectionRadius = value + 5;
 };
 
 /**
@@ -427,6 +435,14 @@ app.model.EntityModel.prototype.getRadius = function getRadius() {
 };
 
 /**
+ * @method getMoveCollisionDetectionRadius
+ * @return {Number} moveCollisionDetectionRadius
+ */
+app.model.EntityModel.prototype.getMoveCollisionDetectionRadius = function getMoveCollisionDetectionRadius() {
+    return this._moveCollisionDetectionRadius;
+};
+
+/**
  * @method getCircle
  * @return {Number} circle
  */
@@ -596,6 +612,7 @@ app.model.EntityModel.prototype.clone = function clone() {
 
     clone._team = this._team;
     clone._circle = new support.geom.Circle(this._circle.getX(), this._circle.getY(), this._circle.getRadius());
+    clone._moveCollisionDetectionRadius = this._moveCollisionDetectionRadius;
     clone._lastPosition = new support.geom.Point2d(this._lastPosition.getX(), this._lastPosition.getY());
     clone._angle = this._angle;
     clone._groundSpeed = this._groundSpeed;

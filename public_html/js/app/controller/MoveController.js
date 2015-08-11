@@ -45,6 +45,13 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
     var nextStepY;
     var normalizedMoveVector;
 
+    var potentialCollisionElement;
+    var potentialCollisionIndex;
+    var potentialCollisionLength;
+
+    var collisionVector;
+    var collisionVector2;
+
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
         element = this._list.getElement(elementIndex);
@@ -66,14 +73,110 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
             }
         }
 
+        //Ustalenie pozycji Docelowej X, Y
         nextStepX = element.getMoveList().getElement(0).getX();
         nextStepY = element.getMoveList().getElement(0).getY();
 
+        //Wyznaczenie wektora do celu
         moveVector = new support.geom.SimpleVector2d(nextStepX - element.getX(), nextStepY - element.getY());
 
+        //Wektor ruchu
         normalizedMoveVector = moveVector.getNormalizedVector();
+
+
+
+
+
+
+        /*
+        SPRAWDZANIE KOLIZJI POC !!!!
+        A PODSTAWIE KOLIZJI ZOSTAJE ZMODYFIKOWANY WEKTOR NORMALNY RUCHU
+         */
+        //Sprawdzenie czy nie wystepuje kolizja na drodze w promieniu wykrywania kolizji - petla ze wszystkimi entitys
+        var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getMoveCollisionDetectionRadius());
+        var c2 = new support.geom.Circle(0, 0, 0);
+
+
+        //Pociski nie omijaja celow tylko leca przez nie !
+        if (element.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK){
+
+            potentialCollisionLength = this._list.length();
+            for (potentialCollisionIndex = 0; potentialCollisionIndex < potentialCollisionLength; potentialCollisionIndex++){
+                potentialCollisionElement = this._list.getElement(potentialCollisionIndex);
+
+                //samego ze soba nie sprawdzam kolizji bo to bez sensu :)
+                if(element === potentialCollisionElement){
+                    continue;
+                }
+
+                //omijanie pociskow tez nie ma sensu
+                if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length()>0 &&
+                    potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK){
+                    continue;
+                }
+
+                c2.setX(potentialCollisionElement.getX());
+                c2.setY(potentialCollisionElement.getY());
+                c2.setRadius(potentialCollisionElement.getRadius());
+
+                var collision = support.geom.collision.Collision.CircleCircle(c1, c2);
+
+                if (collision){
+                    //console.log("WYSTEPUJE KOLIZJA PODCZAS CHODZENIA!!!");
+
+                    //wektor miedzy srodkami
+                    collisionVector = new support.geom.SimpleVector2d(element.getX()-potentialCollisionElement.getX(), element.getY()-potentialCollisionElement.getY());
+
+                    //wektor do niego prostopadly
+                    collisionVector2 = new support.geom.SimpleVector2d(-collisionVector.getY(), collisionVector.getX());
+
+
+                    var vectorLength = collisionVector.getVectorLength();
+
+                    collisionVector.setX(element.getX()-potentialCollisionElement.getX()+normalizedMoveVector.getX());
+                    collisionVector.setY(element.getY()-potentialCollisionElement.getY()+normalizedMoveVector.getY());
+
+                    if (collisionVector.getVectorLength() >= vectorLength){
+                        break;
+                    }
+
+                    //Cosinus kata miedzy ektorem do celu, a kate przeciecia
+                    var xA = normalizedMoveVector.getX();
+                    var yA = normalizedMoveVector.getY();
+                    var xB = collisionVector2.getNormalizedVector().getX();
+                    var yB = collisionVector2.getNormalizedVector().getY();
+
+                    var cosA = xA*xB + yA*yB;
+
+                    //jezeli cosA to zmieniamy wektor na wektor styczny!
+                    if (!isNaN(cosA)){
+                        var acos = Math.acos(cosA)*180/Math.PI;
+
+                        if(acos > 90){
+                            yB = -yB;
+                            xB = -xB;
+                        }
+
+                        normalizedMoveVector.setX(xB);
+                        normalizedMoveVector.setY(yB);
+                    }
+
+
+
+
+                    //reakcja tylko na pierwszego napotkanego przeciwnika
+                    break;
+                }
+            }
+
+        }
+
+
+        //obrot postaci
         element.setAngle(Math.atan2(normalizedMoveVector.getY(), normalizedMoveVector.getX()) * 180 / Math.PI);
 
+
+        //Przemieszczenie entitty o podany wektor
         element.setX(element.getX() + normalizedMoveVector.getX() * timeDelta / 1000 * element.getGroundSpeed());
         element.setY(element.getY() + normalizedMoveVector.getY() * timeDelta / 1000 * element.getGroundSpeed());
 

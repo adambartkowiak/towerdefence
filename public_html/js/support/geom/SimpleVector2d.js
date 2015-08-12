@@ -43,5 +43,9 @@ support.geom.SimpleVector2d.prototype.getNormalizedVector = function getNormaliz
         x1 = this.getX() / length,
         y1 = this.getY() / length;
 
+    if (length === 0){
+        x1 = y1 = 0;
+    }
+
     return new support.geom.SimpleVector2d(x1, y1);
 };

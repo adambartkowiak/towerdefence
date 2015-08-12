@@ -77,5 +77,9 @@ support.geom.Vector2d.prototype.getNormalizedVector = function getNormalizedVect
         x1 = (v2.getX() - v1.getX()) / length,
         y1 = (v2.getY() - v1.getY()) / length;
 
+    if (length === 0){
+        x1 = y1 = 0;
+    }
+
     return new support.geom.Point2d(x1, y1);
 };

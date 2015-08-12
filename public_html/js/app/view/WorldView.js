@@ -74,13 +74,13 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
      * @property {Boolean} _debug
      * @private
      */
-    this._debug = false;
+    this._debug = true;
 
     /**
      * @property {Boolean} _drawHealthBar
      * @private
      */
-    this._drawHealthBar = true;
+    this._drawHealthBar = false;
 
     /**
      * @property {Boolean} _drawPath
@@ -141,9 +141,9 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         //SELECTED
         if (entity._selected) {
             this._canvasContext.beginPath();
-            this._canvasContext.strokeStyle = '#32CD32';
+            this._canvasContext.strokeStyle = '#FF0000';
             this._canvasContext.arc(entity.getX(), entity.getY(), entity.getRadius(), 0, 2 * Math.PI, true);
-            this._canvasContext.lineWidth = 3;
+            this._canvasContext.lineWidth = 1;
             this._canvasContext.stroke();
         }
 
@@ -153,15 +153,15 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
             currentHp = entity.getCurrentHp();
 
             this._canvasContext.fillStyle = '#474747';
-            this._canvasContext.fillRect(entity.getX() - hp / 6 + currentHp / 3, entity.getY() - 20, (hp - currentHp) / 3, 4);
+            this._canvasContext.fillRect(entity.getX() - hp / 10 + currentHp / 5, entity.getY() - 20, (hp - currentHp) / 5, 3);
 
             this._canvasContext.fillStyle = '#00FF00';
-            this._canvasContext.fillRect(entity.getX() - hp / 6, entity.getY() - 20, currentHp / 3, 4);
+            this._canvasContext.fillRect(entity.getX() - hp / 10, entity.getY() - 20, currentHp / 5, 3);
 
             ////drawRect
             this._canvasContext.beginPath();
             this._canvasContext.strokeStyle = '#000000';
-            this._canvasContext.rect(entity.getX() - hp / 6, entity.getY() - 20, hp / 3, 4);
+            this._canvasContext.rect(entity.getX() - hp / 10, entity.getY() - 20, hp / 5, 3);
 
             this._canvasContext.lineWidth = 1;
             this._canvasContext.stroke();
@@ -227,12 +227,11 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
             this._canvasContext.fillRect(moveToX - 2, moveToY - 2, 4, 4);
             this._canvasContext.stroke();
 
-            this._canvasContext.fillStyle = '#aaaaaa';
-            this._canvasContext.fillRect(entity.getX(), entity.getY() - 40, 30, 15);
-            //this._canvasContext.stroke();
-
-            this._canvasContext.fillStyle = '#FF0000';
-            this._canvasContext.fillText("ID: " + entity.getId(), entity.getX(), entity.getY() - 30);
+            //this._canvasContext.fillStyle = '#aaaaaa';
+            //this._canvasContext.fillRect(entity.getX(), entity.getY() - 40, 30, 15);
+            //
+            //this._canvasContext.fillStyle = '#FF0000';
+            //this._canvasContext.fillText("ID: " + entity.getId(), entity.getX(), entity.getY() - 30);
         }
 
     }

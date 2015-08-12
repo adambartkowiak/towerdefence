@@ -247,7 +247,7 @@ app.model.EntityModel.prototype.setY = function setY(value) {
  */
 app.model.EntityModel.prototype.setRadius = function setRadius(value) {
     this._circle.setRadius(value);
-    this._moveCollisionDetectionRadius = value + 5;
+    this._moveCollisionDetectionRadius = value - 5;
 };
 
 /**

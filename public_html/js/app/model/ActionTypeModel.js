@@ -19,5 +19,7 @@ app.model.ActionTypeModel = {
     ATTACK: 1,
     PATROL: 2,
     AIM: 3,
-    MOVE_AND_AIM: 4
+    MOVE_AND_AIM: 4,
+    HOLD: 5,
+    STAY: 6
 };

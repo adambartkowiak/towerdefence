@@ -21,10 +21,6 @@ var worldModel = new app.model.WorldModel();
 
 //app.loadGameSave("assets/gamesaves/custom1.json");
 
-//MANAGERY
-//var bulletManager = new app.managers.BulletManager(worldModel.getBulletList(), worldModel.getEnemyList(), hudModel);
-//var towerManager = new app.managers.TowerManager(worldModel.getTowerList(), worldModel.getEnemyList(), worldModel.getBulletList());
-//var enemyManager = new app.managers.EnemyManager(worldModel.getEnemyList(), worldModel.getCheckpointList());
 
 
 //DODANIE OBIEKTOW DO SWIATA
@@ -37,6 +33,7 @@ BASE1
  */
 var base1 = new app.model.EntityModel();
 base1.setTeam(1);
+base1.setRadius(80);
 base1.setStartValueX(60);
 base1.setStartValueY(200);
 base1.setHp(1000);
@@ -88,14 +85,14 @@ unit1.setBuildList(unit1BuildList);
 //base1 build list
 var base1buildList = new app.model.ListModel();
 
-base1buildList.addElement(unit1);
-base1buildList.addElement(unit1);
-base1buildList.addElement(unit1);
-base1buildList.addElement(unit1);
-base1buildList.addElement(unit1);
-base1buildList.addElement(unit1);
-base1buildList.addElement(unit1);
-base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
+//base1buildList.addElement(unit1);
 
 base1.setBuildList(base1buildList);
 
@@ -106,6 +103,7 @@ BASE2
  */
 var base2 = new app.model.EntityModel();
 base2.setTeam(2);
+base2.setRadius(80);
 base2.setStartValueX(700);
 base2.setStartValueY(150);
 base2.setHp(1000);
@@ -122,7 +120,7 @@ unit2.setRadius(20);
 unit2.setGroundSpeed(80);
 unit2.setHp(300);
 unit2.setCurrentHp(300);
-unit2.setBuildTime(3000);
+unit2.setBuildTime(30);
 unit2.setSelectable(true);
 unit2.setTargetable(true);
 unit2.setGraphicUrl("assets/images/enemy3.png");
@@ -144,7 +142,7 @@ unit2Bullet.setCurrentHp(1);
 unit2Bullet.setBuildTime(1000);
 unit2Bullet.setGraphicUrl("assets/images/bullet0.png");
 unit2Bullet.setSelectable(false);
-unit2Bullet.setAttackRange(300);
+unit2Bullet.setAttackRange(30);
 
 var unit2BulletMoveList = new app.model.ListModel();
 unit2BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 0, app.model.ActionTypeModel.ATTACK));
@@ -159,124 +157,53 @@ var base2buildList = new app.model.ListModel();
 base2buildList.addElement(unit2);
 base2buildList.addElement(unit2);
 base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
+base2buildList.addElement(unit2);
 
 base2.setBuildList(base2buildList);
 
 
 
-
-//var entity1 = new app.model.EntityModel();
-//entity1.setStartValueX(100);
-//entity1.setStartValueY(100);
-//entity1.setRadius(13);
-//entity1.setHp(100);
-//entity1.setCurrentHp(80);
-//entity1.setGroundSpeed(180);
-//entity1.setTargetable(true);
-//entity1.setGraphicUrl("assets/images/enemy0.png");
-//
-////move list for entity1
-//var moveList1 = new app.model.ListModel();
-////moveList1.addElement(new app.model.TargetModel(50, 50, 0, app.model.ActionTypeModel.MOVE));
-////moveList1.addElement(new app.model.TargetModel(150, 50, 0, app.model.ActionTypeModel.MOVE));
-////moveList1.addElement(new app.model.TargetModel(50, 150, 0, app.model.ActionTypeModel.MOVE));
-////moveList1.addElement(new app.model.TargetModel(300, 50, 0, app.model.ActionTypeModel.MOVE));
-////moveList1.addElement(new app.model.TargetModel(350, 200, 0, app.model.ActionTypeModel.MOVE));
-//entity1.setMoveList(moveList1);
-//
-//
-///*
-//    ENTITY 2 BUDYNEK!!!
-// */
-//var entity2 = new app.model.EntityModel();
-//entity2.setStartValueX(600);
-//entity2.setStartValueY(120);
-//entity2.setRadius(80);
-//entity2.setHp(500);
-//entity2.setCurrentHp(400);
-//entity2.setTargetable(true);
-//entity2.setGraphicUrl("assets/images/comandCenter0.png");
-//
-//var buildList2 = new app.model.ListModel();
-//var entityToBuild2 = new app.model.EntityModel();
-//
-//entityToBuild2.setX(200);
-//entityToBuild2.setY(200);
-//entityToBuild2.setRadius(20);
-//entityToBuild2.setGroundSpeed(100);
-//entityToBuild2.setHp(100);
-//entityToBuild2.setCurrentHp(80);
-//entityToBuild2.setBuildTime(2000);
-//entityToBuild2.setSelectable(true);
-//entityToBuild2.setTargetable(true);
-//entityToBuild2.setGraphicUrl("assets/images/enemy0.png");
-//
-//var entityToBuild2MoveList = new app.model.ListModel();
-//entityToBuild2MoveList.addElement(new app.model.TargetModel(50, 50, 0, app.model.ActionTypeModel.MOVE));
-//entityToBuild2MoveList.addElement(new app.model.TargetModel(50, 450, 0, app.model.ActionTypeModel.MOVE));
-//entityToBuild2MoveList.addElement(new app.model.TargetModel(550, 350, 0, app.model.ActionTypeModel.MOVE));
-//entityToBuild2MoveList.addElement(new app.model.TargetModel(450, 50, 0, app.model.ActionTypeModel.MOVE));
-//entityToBuild2.setMoveList(entityToBuild2MoveList);
-//
-//buildList2.addElement(entityToBuild2);
-//
-//entity2.setBuildList(buildList2);
-//entity2.setConstantBuild(true);
-//
-//
-///*
-//    ENTITY 3 WIEZYCZKA
-// */
-//var entity3 = new app.model.EntityModel();
-//entity3.setStartValueX(150);
-//entity3.setStartValueY(200);
-//entity3.setRadius(20);
-//entity3.setHp(300);
-//entity3.setCurrentHp(80);
-//entity3.setGraphicUrl("assets/images/tower0.png");
-//
-//
-////USTAWIC OPCJE WIEZYCZKI ZEBY ATAKOWALA NAJBLIZSZY CEL.
-////entity3.setTargetOptions();
-//
-//
-////move list for entity3 (tower)
-//var moveList3 = new app.model.ListModel();
-//moveList3.addElement(new app.model.TargetModel(-1, -1, entity1.getId(), app.model.ActionTypeModel.AIM));
-//entity3.setMoveList(moveList3);
-//
-//
-////build list for entity 3 (tower)
-//var buildList3 = new app.model.ListModel();
-//var entityToBuild = new app.model.EntityModel();
-//
-//entityToBuild.setRadius(10);
-//entityToBuild.setAttackDamage(10);
-//entityToBuild.setGroundSpeed(400);
-//entityToBuild.setHp(1);
-//entityToBuild.setCurrentHp(1);
-////entityToBuild.setBuildingTime(300);
-//entityToBuild.setGraphicUrl("assets/images/bullet0.png");
-//entityToBuild.setBuildTime(200);
-//entityToBuild.setSelectable(false);
-//
-////pocisk bedzie kierowany na entity 1 - to powinno byc ustalane w chwili wystrzalu a nie przy budowie
-//var toBuildMoveList = new app.model.ListModel();
-//
-////Przy budowaniu obiektow zostanie nadana obiektowi wlasciwosc kogo atakowac.
-//toBuildMoveList.addElement(new app.model.TargetModel(-1, -1, entity1.getId(), app.model.ActionTypeModel.ATTACK));
-//entityToBuild.setMoveList(toBuildMoveList);
-//
-//buildList3.addElement(entityToBuild);
-//entity3.setBuildList(buildList3);
-//entity3.setConstantBuild(true);
-//
-//
-//entityListModel.addElement(entity1);
-//entityListModel.addElement(entity2);
-//entityListModel.addElement(entity3);
-
-
+/*
+Dodanie budynkow do listy entity
+ */
 entityListModel.addElement(base1);
 entityListModel.addElement(base2);
 worldModel.setEntityListModel(entityListModel);
@@ -367,28 +294,6 @@ setInterval(function () {
 
     waypointCollisionListModel.clear();
 
-    //if (worldModel.getEnemyList().length() < maxEnemies && totalTimeDelta >= nextEnemyMilis) {
-    //
-    //    var enemyType = Math.floor(Math.random() * 4);
-    //    var speedBaseValue = 100;
-    //    var hpBaseValue = 40;
-    //    var enemySpeed = speedBaseValue / (enemyType + 1);
-    //    var enemyHp = hpBaseValue * (enemyType + 1);
-    //
-    //    //Dodawanie przeciwnika
-    //    worldModel.getEnemyList().addEnemy(new app.objects.Enemy(worldModel.getCheckpointList().getCheckpoint(0).getX(), worldModel.getCheckpointList().getCheckpoint(0).getY(), enemyHp, enemySpeed, "assets/images/enemy0.png"));
-    //    totalTimeDelta -= nextEnemyMilis;
-    //}
-    //
-    //towerManager.cooldownTimer(timer.getDelta());
-    //towerManager.tryShotToEnemy();
-    //
-    //enemyManager.moveEnemy(timer.getDelta());
-    //
-    //bulletManager.moveBullets(timer.getDelta());
-    //bulletManager.checkTargetsToHit();
-    //
-    //enemyManager.removeDeadEnemy();
 
     logicFrames++;
 

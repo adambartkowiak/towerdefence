@@ -46,11 +46,26 @@ app.model.EntityModel = function EntityModel() {
     this._circle = new support.geom.Circle(0, 0, 0);
 
     /**
-     * Radius wykrywania kolizji pomiedzy entity
+     * Mass -1 nieskonczona
+     * @property {number} _mass
+     * @private
+     * */
+    this._mass = 0;
+
+    /**
+     * Radius wykrywania kolizji pomiedzy entity kiedy entity sie nie rusza.
+     * @property {Number} _collisionRadius
+     * @private
+     */
+    this._collisionRadius = 0;
+
+    /**
+     * Radius wykrywania kolizji pomiedzy entity w ruchu. Reakcja na inne obiekty w czasie poruszania sie
      * @property {Number} _moveCollisionDetectionRadius
      * @private
      */
     this._moveCollisionDetectionRadius = 0;
+
 
     /**
      * Poprzednia pozycja jednostki
@@ -230,6 +245,10 @@ app.model.EntityModel.prototype.setStartValueY = function setStartValueY(value) 
 app.model.EntityModel.prototype.setX = function setX(value) {
     this._lastPosition.setX(this._x);
     this._circle.setX(value);
+
+    if (isNaN(value)){
+        //console.log("app.model.EntityModel.prototype.setX: " + NaN);
+    }
 };
 
 /**
@@ -239,6 +258,10 @@ app.model.EntityModel.prototype.setX = function setX(value) {
 app.model.EntityModel.prototype.setY = function setY(value) {
     this._lastPosition.setY(this._y);
     this._circle.setY(value);
+
+    if (isNaN(value)){
+        //console.log("app.model.EntityModel.prototype.setY: " + NaN);
+    }
 };
 
 /**
@@ -247,7 +270,16 @@ app.model.EntityModel.prototype.setY = function setY(value) {
  */
 app.model.EntityModel.prototype.setRadius = function setRadius(value) {
     this._circle.setRadius(value);
-    this._moveCollisionDetectionRadius = value - 5;
+    this._moveCollisionDetectionRadius = value + 100;
+    this._collisionRadius = value - 5;
+};
+
+/**
+ * @method setMass
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setMass = function setMass(value) {
+    this._mass = value;
 };
 
 /**
@@ -435,6 +467,22 @@ app.model.EntityModel.prototype.getRadius = function getRadius() {
 };
 
 /**
+ * @method getMass
+ * @return {Number} mass
+ */
+app.model.EntityModel.prototype.getMass = function getMass() {
+    return this._mass;
+};
+
+/**
+ * @method getCollisionRadius
+ * @return {Number} collisionRadius
+ */
+app.model.EntityModel.prototype.getCollisionRadius = function getCollisionRadius() {
+    return this._collisionRadius;
+};
+
+/**
  * @method getMoveCollisionDetectionRadius
  * @return {Number} moveCollisionDetectionRadius
  */
@@ -612,7 +660,9 @@ app.model.EntityModel.prototype.clone = function clone() {
 
     clone._team = this._team;
     clone._circle = new support.geom.Circle(this._circle.getX(), this._circle.getY(), this._circle.getRadius());
+    clone._mass = this._mass;
     clone._moveCollisionDetectionRadius = this._moveCollisionDetectionRadius;
+    clone._collisionRadius = this._collisionRadius;
     clone._lastPosition = new support.geom.Point2d(this._lastPosition.getX(), this._lastPosition.getY());
     clone._angle = this._angle;
     clone._groundSpeed = this._groundSpeed;

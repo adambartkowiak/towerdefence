@@ -60,10 +60,21 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
 
     if (event.shiftKey){
         this._isShiftPressed = true;
-        console.log(this._isShiftPressed);
     } else {
         this._isShiftPressed = false;
-        console.log(this._isShiftPressed);
+    }
+
+    if (event.altKey){
+
+        for (elementIndex = listLength-1; elementIndex >= 0; elementIndex--) {
+            element = this._entityListModel.getElement(elementIndex);
+
+            if (element.getSelected()){
+                this._entityListModel.removeElement(elementIndex);
+            }
+
+        }
+
     }
 
     if (e.button === 0) {
@@ -71,6 +82,7 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
         this._worldModel.setSelectRect(this._dragSelectionRect);
 
         //DESELECT ALL
+        listLength = this._entityListModel.length();
         for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
             element = this._entityListModel.getElement(elementIndex);
             element._selected = false;

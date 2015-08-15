@@ -57,6 +57,10 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
             toBuild._currentBuildTime += timeDelta;
             if (toBuild._currentBuildTime >= toBuild._buildTime) {
 
+                if (toBuild.getMoveList() === null || toBuild.getMoveList().length() === 0){
+                    continue;
+                }
+
                 if (toBuild.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK &&
                     (toBuild.getMoveList().getElement(0).getEntityId() === 0 || this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId()) === null )) {
                     continue;
@@ -66,7 +70,7 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
                 toBuild._currentBuildTime = 0;
 
                 //Wykasowanie elemntu budowanego z kolejki
-                if (toBuild.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK){
+                if (toBuild.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK) {
                     element.getBuildList().removeElement(0);
                 }
 

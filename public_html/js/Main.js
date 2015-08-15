@@ -34,6 +34,7 @@ BASE1
 var base1 = new app.model.EntityModel();
 base1.setTeam(1);
 base1.setRadius(80);
+base1.setMass(-1);
 base1.setStartValueX(60);
 base1.setStartValueY(200);
 base1.setHp(1000);
@@ -50,7 +51,7 @@ unit1.setRadius(20);
 unit1.setGroundSpeed(120);
 unit1.setHp(100);
 unit1.setCurrentHp(100);
-unit1.setBuildTime(2000);
+unit1.setBuildTime(200);
 unit1.setSelectable(true);
 unit1.setTargetable(true);
 unit1.setGraphicUrl("assets/images/enemy0.png");
@@ -85,14 +86,14 @@ unit1.setBuildList(unit1BuildList);
 //base1 build list
 var base1buildList = new app.model.ListModel();
 
-//base1buildList.addElement(unit1);
-//base1buildList.addElement(unit1);
-//base1buildList.addElement(unit1);
-//base1buildList.addElement(unit1);
-//base1buildList.addElement(unit1);
-//base1buildList.addElement(unit1);
-//base1buildList.addElement(unit1);
-//base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
+base1buildList.addElement(unit1);
 
 base1.setBuildList(base1buildList);
 
@@ -104,6 +105,7 @@ BASE2
 var base2 = new app.model.EntityModel();
 base2.setTeam(2);
 base2.setRadius(80);
+base2.setMass(-1);
 base2.setStartValueX(700);
 base2.setStartValueY(150);
 base2.setHp(1000);
@@ -139,10 +141,10 @@ unit2Bullet.setAttackDamage(0);
 unit2Bullet.setGroundSpeed(400);
 unit2Bullet.setHp(1);
 unit2Bullet.setCurrentHp(1);
-unit2Bullet.setBuildTime(1000);
+unit2Bullet.setBuildTime(100);
 unit2Bullet.setGraphicUrl("assets/images/bullet0.png");
 unit2Bullet.setSelectable(false);
-unit2Bullet.setAttackRange(30);
+unit2Bullet.setAttackRange(300);
 
 var unit2BulletMoveList = new app.model.ListModel();
 unit2BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 0, app.model.ActionTypeModel.ATTACK));
@@ -154,37 +156,6 @@ unit2.setBuildList(unit2BuildList);
 //base2 build list
 var base2buildList = new app.model.ListModel();
 
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
-base2buildList.addElement(unit2);
 base2buildList.addElement(unit2);
 base2buildList.addElement(unit2);
 base2buildList.addElement(unit2);

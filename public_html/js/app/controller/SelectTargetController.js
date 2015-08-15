@@ -42,6 +42,7 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
     var potentialTarget;
     var availableToBuild;
     var toBuild;
+    var foundTarget = false;
     var c1 = new support.geom.Circle(0, 0, 0);
     var p1 = new support.geom.Point2d(0, 0);
 
@@ -83,8 +84,12 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
                             potentialTarget.getTeam() !== 0 &&
                             support.geom.collision.Collision.Point2dCircle(p1, c1)){
                             toBuild.getMoveList().getElement(0).setEntityId(potentialTarget.getId());
-                            break;
+                            foundTarget = true;
                         }
+                    }
+
+                    if (!foundTarget){
+                        toBuild.getMoveList().getElement(0).setEntityId(0);
                     }
 
                 }

@@ -52,23 +52,24 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
     var collisionVector;
     var collisionVector2;
 
+
+    /*
+    Wyznaczenie przesuniec
+     */
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
         element = this._list.getElement(elementIndex);
 
         availableStep = element.getMoveList() && element.getMoveList().length() > 0;
 
-
         //PRZEPYCHANIE PRZECIWNIKOW KTORZY SIE NIE PORUSZAJA
-        var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getMoveCollisionDetectionRadius());
+        var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getCollisionRadius());
         var c2 = new support.geom.Circle(0, 0, 0);
 
 
-        //OMIJANIE PRZECIWNIKOW NA HOLDZIE oraz w RUCHU
-
         //ROZPYCHANIE OBIEKTOW JEZELI NACHODZA NA SIEBIE - w sumie to moze byc inny kontrolet
         if (true) {
-            var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getMoveCollisionDetectionRadius());
+            var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getCollisionRadius());
             var c2 = new support.geom.Circle(0, 0, 0);
 
 
@@ -84,17 +85,23 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         continue;
                     }
 
+                    //nie przesuwamy obiektu o nieskonczonej masie
+                    if (potentialCollisionElement.getMass() === -1){
+                        continue;
+                    }
+
+
                     //omijanie pociskow tez nie ma sensu
                     if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() > 0 &&
                         potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK) {
 
-
                         continue;
                     }
 
+
                     c2.setX(potentialCollisionElement.getX());
                     c2.setY(potentialCollisionElement.getY());
-                    c2.setRadius(potentialCollisionElement.getMoveCollisionDetectionRadius());
+                    c2.setRadius(potentialCollisionElement.getCollisionRadius());
 
                     var collision = support.geom.collision.Collision.CircleCircle(c1, c2);
 
@@ -102,16 +109,16 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
                         //wektor miedzy srodkami
                         collisionVector = new support.geom.SimpleVector2d(element.getX() - potentialCollisionElement.getX(), element.getY() - potentialCollisionElement.getY());
-                        var lengthVector = collisionVector.getVectorLength() - element.getMoveCollisionDetectionRadius() - potentialCollisionElement.getMoveCollisionDetectionRadius();
+                        var lengthVector = collisionVector.getVectorLength() - element.getCollisionRadius() - potentialCollisionElement.getCollisionRadius();
 
                         var vX = potentialCollisionElement.getX();
                         var vY = potentialCollisionElement.getY();
 
 
-                        if (element.getMoveList() === null || element.getMoveList().length() === 0){
+                        if (element.getMoveList() === null || element.getMoveList().length() === 0) {
 
                             if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() > 0 &&
-                                potentialCollisionElement.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK){
+                                potentialCollisionElement.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK) {
                                 continue;
                             }
 
@@ -122,13 +129,25 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
                     }
                 }
-
             }
         }
+    }
 
+
+
+
+
+
+    //OMIJANIE PRZECIWNIKOW NA HOLDZIE oraz w RUCHU
+
+    for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+        element = this._list.getElement(elementIndex);
+
+        availableStep = element.getMoveList() && element.getMoveList().length() > 0;
 
         //NO AVAILABLE STEPS!
-        if (!availableStep) {
+        if (!availableStep || element.getGroundSpeed() === 0) {
             continue;
         }
 
@@ -164,6 +183,9 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
             var c2 = new support.geom.Circle(0, 0, 0);
 
 
+            var totalMoveVector = new support.geom.SimpleVector2d(0, 0);
+
+
             //Pociski nie omijaja celow tylko leca przez nie !
             if (element.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK) {
 
@@ -183,7 +205,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                     }
 
                     //nie ma ruchow
-                    if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() === 0){
+                    if (potentialCollisionElement.getMoveList() === null || potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() === 0) {
                         continue;
                     }
 
@@ -201,8 +223,27 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         //wektor do niego prostopadly
                         collisionVector2 = new support.geom.SimpleVector2d(-collisionVector.getY(), collisionVector.getX());
 
-
+                        //jezenie obiekty oddalaja sie od siebie to sie nie wymijaja.
                         var vectorLength = collisionVector.getVectorLength();
+
+
+                        /*
+                         Liczenie wag wektora prostopadlego i normalnego
+                         Jak sa daleko to waga jest 1, jak sie stykaja to waga jest 0
+                         */
+                        var wag = (vectorLength - element.getCollisionRadius() - potentialCollisionElement.getCollisionRadius()) / (element.getMoveCollisionDetectionRadius() - element.getCollisionRadius() + potentialCollisionElement.getMoveCollisionDetectionRadius() - potentialCollisionElement.getCollisionRadius());
+
+                        //zamiana jak jest blisko to jest 1 jak daleko 0
+                        wag = 1 - wag;
+
+                        wag = Math.pow(wag, 6);
+
+
+
+
+                        if (wag>1) {wag = 1}
+                        if (wag<0) {wag = 0};
+
 
                         collisionVector.setX(element.getX() - potentialCollisionElement.getX() + normalizedMoveVector.getX());
                         collisionVector.setY(element.getY() - potentialCollisionElement.getY() + normalizedMoveVector.getY());
@@ -214,31 +255,81 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         //Cosinus kata miedzy ektorem do celu, a kate przeciecia
                         var xA = normalizedMoveVector.getX();
                         var yA = normalizedMoveVector.getY();
+
                         var xB = collisionVector2.getNormalizedVector().getX();
                         var yB = collisionVector2.getNormalizedVector().getY();
 
-                        var cosA = xA * xB + yA * yB;
 
+                        /*
+                         OBLICZANIE PO STREMU TEZ JEST POMOCNE
+                         */
+                        var cosA1 = xA * xB + yA * yB;
                         //jezeli cosA to zmieniamy wektor na wektor styczny!
-                        if (!isNaN(cosA)) {
-                            var acos = Math.acos(cosA) * 180 / Math.PI;
+                        if (!isNaN(cosA1)) {
+                            var acos = Math.acos(cosA1) * 180 / Math.PI;
 
                             if (acos > 90) {
                                 yB = -yB;
                                 xB = -xB;
                             }
-
-                            normalizedMoveVector.setX(xB);
-                            normalizedMoveVector.setY(yB);
                         }
 
-                        //reakcja tylko na pierwszego napotkanego przeciwnika
-                        break;
+
+                        /*
+                         OBLICZANIE PO NOWEMU
+                         */
+
+                        //NOWE LEPSZE OMIJANIE!
+                        var newMoveVector = new support.geom.SimpleVector2d(0, 0);
+
+                        //console.log(wag);
+
+                        newMoveVector.setX(xA*(1 - wag) + xB * wag);
+                        newMoveVector.setY(yA*(1 - wag) + yB * wag);
+
+                        //newMoveVector.setX(xA + xB);
+                        //newMoveVector.setY(yA + yB);
+
+                        //roznica pomiedzy newMoveVector, a normalizedVector
+                        var cosA2 = xA * newMoveVector.getNormalizedVector().getX() + yA * newMoveVector.getNormalizedVector().getY();
+                        if (cosA2 > 1) {cosA2 = 1};
+                        if (cosA2 > 0) {cosA2 = 0};
+
+
+                        var acos2 = Math.acos(cosA2) * 180 / Math.PI;
+
+                        var xC = newMoveVector.getX();
+                        var yC = newMoveVector.getY();
+
+                        xC = xC * acos2;
+                        yC = yC * acos2;
+
+                        //im wieksza roznica w kacie tym wieksza waga wektora
+
+
+                        totalMoveVector.setX(totalMoveVector.getX() + xC);
+                        totalMoveVector.setY(totalMoveVector.getY() + yC);
+
                     }
                 }
-
             }
+
+            //totalMoveVector.setX(totalMoveVector.getX() + xA);
+            //totalMoveVector.setY(totalMoveVector.getY() + yA);
+
+            if (totalMoveVector.getX() !== 0 || totalMoveVector.getY() !== 0){
+
+
+                normalizedMoveVector.setX(totalMoveVector.getNormalizedVector().getX());
+                normalizedMoveVector.setY(totalMoveVector.getNormalizedVector().getY());
+
+
+                //console.log(normalizedMoveVector.getX() + " " + normalizedMoveVector.getY());
+            }
+
         }
+
+
 
 
         //obrot postaci

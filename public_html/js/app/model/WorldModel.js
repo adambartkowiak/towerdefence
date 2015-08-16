@@ -17,10 +17,10 @@ var Utils = Utils || {};
 app.model.WorldModel = function WorldModel() {
 
     /**
-     * @property {app.model.ListModel} _entityModelList
+     * @property {app.model.EntityListModel} _entityModelList
      * @private
      */
-    this._entityModelList = new app.model.ListModel();
+    this._entityModelList = new app.model.EntityListModel();
 
     /**
      * @property {app.model.ListModel} _selectedEntityModelList
@@ -40,6 +40,11 @@ app.model.WorldModel = function WorldModel() {
      */
     //this._map = new app.model.Map();
 
+
+    this._entityModelIndex = 0;
+
+
+
 };
 
 Utils.inherits(app.model.WorldModel, Object);
@@ -51,7 +56,7 @@ Utils.inherits(app.model.WorldModel, Object);
 
 /**
  * @method getEntityListModel
- * @return {app.model.ListModel}
+ * @return {app.model.EntityListModel}
  */
 app.model.WorldModel.prototype.getEntityListModel = function getEntityListModel() {
     return this._entityModelList;
@@ -87,7 +92,7 @@ app.model.WorldModel.prototype.getMap = function getMap() {
 
 /**
  * @method setEntityListModel
- * @param {app.model.ListModel} entityListModel
+ * @param {app.model.EntityListModel} entityListModel
  */
 app.model.WorldModel.prototype.setEntityListModel = function setEntityListModel(entityListModel) {
     this._entityModelList = entityListModel;
@@ -115,4 +120,28 @@ app.model.WorldModel.prototype.setSelectedEntityListModel = function setSelected
  */
 app.model.WorldModel.prototype.setMap = function setMap(map) {
     this._map = map;
+};
+
+
+app.model.WorldModel.prototype.save = function save(){
+    this._entityModelIndex = app.model.EntityModelIndex.ENTITY_MODEL_INDEX;
+    return JSON.stringify(this);
+};
+
+
+app.model.WorldModel.prototype.laodFromString = function laodFromString(worldModelStringJSON){
+
+    /*
+    Parsowanie Stringa do JSONa
+     */
+    var worldModelJSON = JSON.parse(worldModelStringJSON);
+
+
+    /*
+    Wczytywanie modulow
+     */
+    this._entityModelList.loadFromJSON(worldModelJSON._entityModelList);
+    this._entityModelIndex = worldModelJSON._entityModelIndex;
+    app.model.EntityModelIndex.ENTITY_MODEL_INDEX = worldModelJSON._entityModelIndex;
+
 };

@@ -190,6 +190,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
             if (element.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK) {
 
                 potentialCollisionLength = this._list.length();
+                var normalDirectionWasCounted = false;
                 for (potentialCollisionIndex = 0; potentialCollisionIndex < potentialCollisionLength; potentialCollisionIndex++) {
                     potentialCollisionElement = this._list.getElement(potentialCollisionIndex);
 
@@ -226,6 +227,24 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         //jezenie obiekty oddalaja sie od siebie to sie nie wymijaja.
                         var vectorLength = collisionVector.getVectorLength();
 
+                        //SPRAWDZENIE CZY OBIEKTY SIE DO SIEBIE ZBLIZAJA
+                        collisionVector.setX(element.getLastPosition().getX() - potentialCollisionElement.getLastPosition().getX());
+                        collisionVector.setY(element.getLastPosition().getY() - potentialCollisionElement.getLastPosition().getY());
+
+                        var previousDistance = collisionVector.getVectorLength();
+                        /*
+                         DOKODZIC !!! IDZIE NA NAS I SIE SZYBKO ZBLIZA TO MA WIEKSZA WAGE !!
+                         */
+                        //Na te obiekty ktore sie zblizaja szybko trzeba zwraca duza uwage - dokodzic !!! i musze miec duzo wieksza wage !!
+
+                        //console.log(previousDistance - vectorLength);
+                        if (previousDistance <= vectorLength) {
+
+                            //console.log(previousDistance - vectorLength);
+
+                            break;
+                        }
+
 
                         /*
                          Liczenie wag wektora prostopadlego i normalnego
@@ -235,22 +254,10 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
                         //zamiana jak jest blisko to jest 1 jak daleko 0
                         wag = 1 - wag;
-
-                        wag = Math.pow(wag, 6);
-
+                        wag = Math.pow(wag, 4);
 
 
 
-                        if (wag>1) {wag = 1}
-                        if (wag<0) {wag = 0};
-
-
-                        collisionVector.setX(element.getX() - potentialCollisionElement.getX() + normalizedMoveVector.getX());
-                        collisionVector.setY(element.getY() - potentialCollisionElement.getY() + normalizedMoveVector.getY());
-
-                        if (collisionVector.getVectorLength() >= vectorLength) {
-                            break;
-                        }
 
                         //Cosinus kata miedzy ektorem do celu, a kate przeciecia
                         var xA = normalizedMoveVector.getX();
@@ -281,8 +288,16 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
                         //NOWE LEPSZE OMIJANIE!
                         var newMoveVector = new support.geom.SimpleVector2d(0, 0);
+                        var normalDirection = new support.geom.SimpleVector2d(0, 0);
+                        var specialDirection = new support.geom.SimpleVector2d(0, 0);
 
                         //console.log(wag);
+
+                        normalDirection.setX(xA*(1 - wag));
+                        normalDirection.setY(yA*(1 - wag));
+
+                        specialDirection.setX(xB * wag);
+                        specialDirection.setY(yB * wag);
 
                         newMoveVector.setX(xA*(1 - wag) + xB * wag);
                         newMoveVector.setY(yA*(1 - wag) + yB * wag);
@@ -292,30 +307,45 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
                         //roznica pomiedzy newMoveVector, a normalizedVector
                         var cosA2 = xA * newMoveVector.getNormalizedVector().getX() + yA * newMoveVector.getNormalizedVector().getY();
+
+
                         if (cosA2 > 1) {cosA2 = 1};
-                        if (cosA2 > 0) {cosA2 = 0};
+                        if (cosA2 < -1) {cosA2 = -1};
 
 
+                        //liczenie Kata w stopniach odchylenia
                         var acos2 = Math.acos(cosA2) * 180 / Math.PI;
 
-                        var xC = newMoveVector.getX();
-                        var yC = newMoveVector.getY();
+                        var xC = newMoveVector.getNormalizedVector().getX();
+                        var yC = newMoveVector.getNormalizedVector().getY();
 
-                        xC = xC * acos2;
-                        yC = yC * acos2;
+                        if (acos2 > 90) {
+                            yC = -yC;
+                            xC = -xC;
+                        }
+
+
+                        //im mniejsze odchylenie tym mniej sie liczy bo mnozymy przez kat odchylenia
+                        if (!normalDirectionWasCounted){
+                            //xC = xC * acos2/180;
+                            //yC = yC * acos2/180;
+                        } else {
+                            //tylko tutaj moze byc sytuacja ze sie wktory znasza.. moze powinny byc liczone oddzielnie i ma byc wybierany wiekszy ?
+                            xC = specialDirection.getX();// * acos2/180;
+                            yC = specialDirection.getY();// * acos2/180;
+                        }
 
                         //im wieksza roznica w kacie tym wieksza waga wektora
 
-
                         totalMoveVector.setX(totalMoveVector.getX() + xC);
                         totalMoveVector.setY(totalMoveVector.getY() + yC);
+
+                        //normalDirectionWasCounted = true;
 
                     }
                 }
             }
 
-            //totalMoveVector.setX(totalMoveVector.getX() + xA);
-            //totalMoveVector.setY(totalMoveVector.getY() + yA);
 
             if (totalMoveVector.getX() !== 0 || totalMoveVector.getY() !== 0){
 

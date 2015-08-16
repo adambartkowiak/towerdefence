@@ -58,7 +58,7 @@ unit1.setGraphicUrl("assets/images/enemy0.png");
 
 //unit1 move list
 var unit1MoveList = new app.model.ListModel();
-unit1MoveList.addElement(new app.model.TargetModel(700, 200, 0, app.model.ActionTypeModel.MOVE_AND_AIM));
+unit1MoveList.addElement(new app.model.TargetModel(700, 200, 5, 0, app.model.ActionTypeModel.MOVE_AND_AIM));
 unit1.setMoveList(unit1MoveList);
 
 //unit1 build list
@@ -67,7 +67,7 @@ var unit1BuildList = new app.model.ListModel();
 var unit1Bullet = new app.model.EntityModel();
 unit1Bullet.setRadius(10);
 unit1Bullet.setAttackDamage(0);
-unit1Bullet.setGroundSpeed(400);
+unit1Bullet.setGroundSpeed(1500);
 unit1Bullet.setHp(1);
 unit1Bullet.setCurrentHp(1);
 unit1Bullet.setBuildTime(200);
@@ -76,7 +76,7 @@ unit1Bullet.setSelectable(false);
 unit1Bullet.setAttackRange(300);
 
 var unit1BulletMoveList = new app.model.ListModel();
-unit1BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 0, app.model.ActionTypeModel.ATTACK));
+unit1BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 5, 0, app.model.ActionTypeModel.ATTACK));
 unit1Bullet.setMoveList(unit1BulletMoveList);
 
 
@@ -129,7 +129,7 @@ unit2.setGraphicUrl("assets/images/enemy3.png");
 
 //unit2 move list
 var unit2MoveList = new app.model.ListModel();
-unit2MoveList.addElement(new app.model.TargetModel(60, 170, 0, app.model.ActionTypeModel.MOVE_AND_AIM));
+unit2MoveList.addElement(new app.model.TargetModel(60, 170, 5, 0, app.model.ActionTypeModel.MOVE_AND_AIM));
 unit2.setMoveList(unit2MoveList);
 
 //unit2 build list
@@ -138,7 +138,7 @@ var unit2BuildList = new app.model.ListModel();
 var unit2Bullet = new app.model.EntityModel();
 unit2Bullet.setRadius(10);
 unit2Bullet.setAttackDamage(0);
-unit2Bullet.setGroundSpeed(400);
+unit2Bullet.setGroundSpeed(1500);
 unit2Bullet.setHp(1);
 unit2Bullet.setCurrentHp(1);
 unit2Bullet.setBuildTime(100);
@@ -147,7 +147,7 @@ unit2Bullet.setSelectable(false);
 unit2Bullet.setAttackRange(300);
 
 var unit2BulletMoveList = new app.model.ListModel();
-unit2BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 0, app.model.ActionTypeModel.ATTACK));
+unit2BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 5, 0, app.model.ActionTypeModel.ATTACK));
 unit2Bullet.setMoveList(unit2BulletMoveList);
 
 unit2BuildList.addElement(unit2Bullet);
@@ -279,6 +279,13 @@ setInterval(function () {
 
 }, 16);
 
+app.save = function save(){
+    return worldModel.save();
+};
+
+app.load = function load(stringJson){
+    worldModel.laodFromString(stringJson);
+};
 
 //app.createGameSaveJson = function createGameSaveJson() {
 //

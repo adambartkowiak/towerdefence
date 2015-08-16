@@ -104,10 +104,10 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
                 if (!this._isShiftPressed){
                     element.getMoveList().clear();
                 }
-                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
+                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 5, 0, app.model.ActionTypeModel.MOVE));
             } else if (element._selected){
                 element.setMoveList(new app.model.ListModel());
-                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 0, app.model.ActionTypeModel.MOVE));
+                element.getMoveList().addElement(new app.model.TargetModel(e.offsetX, e.offsetY, 5, 0, app.model.ActionTypeModel.MOVE));
             }
 
         }

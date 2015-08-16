@@ -65,20 +65,32 @@ app.controller.WaypointCollisionDetectionController.prototype.update = function 
 
 
         //RODZAJ TYPU WYKRYWANIA KOLIZJI MIEDZY OBIEKTAMI
-        //punkt
-        var p1 = new support.geom.Point2d(element.getMoveList().getElement(0).getX(), element.getMoveList().getElement(0).getY());
+        /*
+        KOLIZJA ZLOZONA
+         */
 
-        //okrag reprezentujacy element
-        //bo tu jest szukana kolizja z punktem docelowym a nie z wrogiem !!!!
-        var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getRadius());
+
+        //okrag
+        var targetCurrentPosition = element.getMoveList().getElement(0);
+        var c1 = new support.geom.Circle(targetCurrentPosition.getX(), targetCurrentPosition.getY(), targetCurrentPosition.getRadius());
 
         //odcinek reprezentujacy ostatni ruch elementu
-        //var v2 = new support.geom.Vector2d(element.getX(), element.getY(), element.getLastPosition().getX(), element.getLastPosition().getY());
+        var v1 = new support.geom.Vector2d(element.getX(), element.getY(), element.getLastPosition().getX(), element.getLastPosition().getY());
 
-        //wynik detekcji kolizji
-        //var collision = support.geom.collision.Collision.Point2dCircle(c1, v2);
+        //kolizja: okrag-odcinek
+        var collision = support.geom.collision.Collision.CircleVector2d(c1, v1);
 
-        var collision = support.geom.collision.Collision.Point2dCircle(p1, c1);
+        /*
+        KOLIZJA PROSTA
+         */
+        //punkt
+        //var p1 = new support.geom.Point2d(element.getMoveList().getElement(0).getX(), element.getMoveList().getElement(0).getY());
+        //
+        ////okrag
+        //var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getRadius());
+        //
+        ////kolizja: punkt-okrag
+        //var collision = support.geom.collision.Collision.Point2dCircle(p1, c1);
 
 
         /*@TODO: powinno tutaj zostac zgloszona kolizja - i inny modul powinien ja obsluzy

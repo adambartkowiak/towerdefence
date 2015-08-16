@@ -14,16 +14,16 @@ var Utils = Utils || {};
 
 /**
  * @namespace app.model
- * @class EntityListModel
+ * @class TargetListModel
  * @constructor
  */
-app.model.EntityListModel = function ListModel() {
+app.model.TargetListModel = function ListModel() {
 
     app.model.ListModel.call(this);
 
 };
 
-Utils.inherits(app.model.EntityListModel, app.model.ListModel);
+Utils.inherits(app.model.TargetListModel, app.model.ListModel);
 
 
 /**
@@ -31,7 +31,7 @@ Utils.inherits(app.model.EntityListModel, app.model.ListModel);
  * @param {Number} id
  * @return {Object} object
  */
-app.model.EntityListModel.prototype.getElementById = function getElementById(id) {
+app.model.TargetListModel.prototype.getElementById = function getElementById(id) {
 
     var index;
     var length = this.length();
@@ -49,7 +49,7 @@ app.model.EntityListModel.prototype.getElementById = function getElementById(id)
  * @method removeElementById
  * @param {Number} id
  */
-app.model.EntityListModel.prototype.removeElementById = function removeElementById(id) {
+app.model.TargetListModel.prototype.removeElementById = function removeElementById(id) {
 
     var index;
     var length = this.length();
@@ -68,7 +68,7 @@ app.model.EntityListModel.prototype.removeElementById = function removeElementBy
 
 };
 
-app.model.EntityListModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+app.model.TargetListModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
 
     /*
      przypisanie obiektow JSONowych do zmiennych
@@ -82,17 +82,16 @@ app.model.EntityListModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     this.clear();
 
     var elementJSON = null;
-    var elementToAdd = null;
+    var targetToAdd = null;
     var elementIndex;
     var elementJSONlength = _elementsJSON.length;
 
     for (elementIndex = 0; elementIndex<elementJSONlength; elementIndex++){
 
         elementJSON = _elementsJSON[elementIndex];
-        elementToAdd = new app.model.EntityModel();
-        elementToAdd.loadFromJSON(elementJSON);
+        targetToAdd = new app.model.TargetModel(elementJSON._circle._x, elementJSON._circle._y, elementJSON._circle._radius, elementJSON._entityId, elementJSON._actionType);
 
-        this.addElement(elementToAdd);
+        this.addElement(targetToAdd);
     }
 
 };

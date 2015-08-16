@@ -74,7 +74,7 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
      * @property {Boolean} _debug
      * @private
      */
-    this._debug = true;
+    this._debug = false;
 
     /**
      * @property {Boolean} _drawHealthBar
@@ -147,14 +147,13 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         //SELECTED
         if (entity._selected) {
             this._canvasContext.beginPath();
-            this._canvasContext.strokeStyle = '#FF0000';
+            this._canvasContext.strokeStyle = '#00FF00';
             this._canvasContext.arc(entity.getX(), entity.getY(), entity.getRadius(), 0, 2 * Math.PI, true);
-            this._canvasContext.lineWidth = 1;
             this._canvasContext.stroke();
         }
 
         //HEALTH BAR
-        if (this._drawHealthBar && entity.getHp()>1) {
+        if (this._drawHealthBar && entity.getHp() > 1) {
             hp = entity.getHp();
             currentHp = entity.getCurrentHp();
 
@@ -254,15 +253,20 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
     //RYSOWANIE ZAZNACZONEGO MIEJSCA
 
     var selectRect = this._worldModel.getSelectRect();
-    if (selectRect !== null){
+    if (selectRect !== null) {
         this._canvasContext.fillStyle = '#00FF00';
-        this._canvasContext.globalAlpha=0.5;
+        this._canvasContext.globalAlpha = 0.5;
         this._canvasContext.fillRect(selectRect.getX(), selectRect.getY(), selectRect.getWidth(), selectRect.getHeight());
-        this._canvasContext.globalAlpha=1;
+        this._canvasContext.globalAlpha = 1;
     }
+
+
+    var miniMapSize = 150;
+
 
     //RYSOWANIE HUDA
     if (this._drawHud) {
+
 
         var hudHeight = 50;
         var hudTop = this._canvas.height - hudHeight;
@@ -271,71 +275,83 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
         this._canvasContext.fillRect(0, hudTop, this._canvas.width, hudHeight);
 
         this._canvasContext.fillStyle = '#FFFFFF';
-        this._canvasContext.fillText("EntityStats:", 110, hudTop + 10);
+        this._canvasContext.fillText("EntityStats:", miniMapSize + 10, hudTop + 10);
+
+        this._canvasContext.fillStyle = '#FFFFFF';
+        this._canvasContext.fillText("EntityModelIndex: " + app.model.EntityModelIndex.ENTITY_MODEL_INDEX, miniMapSize + 160, hudTop + 10);
 
 
         //Zaznaczanie
         var selectedElementLength = this._worldModel.getSelectedEntityListModel().length();
-        if (selectedElementLength === 1){
+        if (selectedElementLength === 1) {
 
             var selectedElement = this._worldModel.getSelectedEntityListModel().getElement(0);
             //HP
-            this._canvasContext.fillText("HP: " + selectedElement.getCurrentHp() + "/" + selectedElement.getHp(), 110, hudTop + 30);
+            this._canvasContext.fillText("HP: " + selectedElement.getCurrentHp() + "/" + selectedElement.getHp(), miniMapSize + 10, hudTop + 40);
 
             var buildList = selectedElement.getBuildList();
-            if(buildList !== null){
+            if (buildList !== null) {
                 var buildListIndex;
                 var buildListLength = buildList.length();
                 var buildListElement = null;
 
-                for (buildListIndex = 0; buildListIndex<buildListLength; buildListIndex++){
+                for (buildListIndex = 0; buildListIndex < buildListLength; buildListIndex++) {
                     buildListElement = buildList.getElement(buildListIndex);
-                    this._canvasContext.fillText("BUILDING: " + buildListElement.getCurrentBuildTime() + "/" + buildListElement.getBuildTime(), 170, hudTop + 10 + 20*buildListIndex);
+                    this._canvasContext.fillText("BUILDING: " + buildListElement.getCurrentBuildTime() + "/" + buildListElement.getBuildTime(), miniMapSize + 10, hudTop + 25 + 20 * buildListIndex);
                 }
             }
 
 
+        } else if (selectedElementLength > 1) {
 
-        } else if (selectedElementLength > 1){
-
-            this._canvasContext.fillText("SELECTED COUNT: " + selectedElementLength, 110, hudTop + 30);
+            this._canvasContext.fillText("SELECTED COUNT: " + selectedElementLength, miniMapSize + 10, hudTop + 40);
 
         }
 
     }
 
     //MAP
-    if(this._drawMiniMap){
+    if (this._drawMiniMap) {
 
-        var miniMapSize = 100;
-
-        this._canvasContext.fillStyle = '#222222';
+        this._canvasContext.fillStyle = '#000000';
         this._canvasContext.fillRect(0, this._canvas.height - miniMapSize, miniMapSize, miniMapSize);
 
-        var proportion = Math.max(this._canvas.width, this._canvas.height);
+        var longerEdge = Math.max(this._canvas.width, this._canvas.height);
+
+        var widthProportion = this._canvas.width / longerEdge;
+        var heightProportion = this._canvas.height / longerEdge;
+
+        var mapX = miniMapSize / 2 - miniMapSize/2 * widthProportion;
+        var mapY = miniMapSize / 2 - miniMapSize/2 * heightProportion;
+        var mapWidth = miniMapSize * widthProportion;
+        var mapHeight = miniMapSize * heightProportion;
+
+        this._canvasContext.fillStyle = '#222222';
+        this._canvasContext.fillRect(mapX, this._canvas.height - miniMapSize + mapY, mapWidth, mapHeight);
+
         var entitySize = 0;
 
         for (i = 0; i < max; i++) {
             entity = entityListModel.getElement(i);
 
-            var miniMapX = entity.getX()/proportion*miniMapSize;
-            var miniMapY = entity.getY()/proportion*miniMapSize;
+            var miniMapX = mapX + entity.getX() / longerEdge * miniMapSize;
+            var miniMapY = mapY + entity.getY() / longerEdge * miniMapSize;
 
-            miniMapX = Math.round( miniMapX );
-            miniMapY = Math.round( miniMapY );
+            miniMapX = Math.round(miniMapX);
+            miniMapY = Math.round(miniMapY);
 
-            entitySize = entity.getRadius()/proportion*miniMapSize;
+            entitySize = entity.getRadius() / longerEdge * miniMapSize;
 
 
-            if(entity.getTeam() === 1){
+            if (entity.getTeam() === 1) {
                 this._canvasContext.fillStyle = '#0000FF';
-                this._canvasContext.fillRect(0+miniMapX - entitySize/2, this._canvas.height - miniMapSize + miniMapY - entitySize/2, entitySize, entitySize);
-            } else if (entity.getTeam() === 2){
+                this._canvasContext.fillRect(0 + miniMapX - entitySize / 2, this._canvas.height - miniMapSize + miniMapY - entitySize / 2, entitySize, entitySize);
+            } else if (entity.getTeam() === 2) {
                 this._canvasContext.fillStyle = '#FF0000';
-                this._canvasContext.fillRect(0+miniMapX - entitySize/2, this._canvas.height - miniMapSize + miniMapY - entitySize/2, entitySize, entitySize);
+                this._canvasContext.fillRect(0 + miniMapX - entitySize / 2, this._canvas.height - miniMapSize + miniMapY - entitySize / 2, entitySize, entitySize);
             } else {
                 this._canvasContext.fillStyle = '#FFFF00';
-                this._canvasContext.fillRect(0+miniMapX - entitySize/2, this._canvas.height - miniMapSize + miniMapY - entitySize/2, entitySize, entitySize);
+                this._canvasContext.fillRect(0 + miniMapX - entitySize / 2, this._canvas.height - miniMapSize + miniMapY - entitySize / 2, entitySize, entitySize);
             }
 
         }

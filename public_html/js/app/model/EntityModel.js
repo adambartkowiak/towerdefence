@@ -9,14 +9,6 @@ app.model = app.model || {};
 
 var Utils = Utils || {};
 
-
-app.model.ENTITY_INDEX_MODEL = 0;
-
-function getEntityIndexModel() {
-    app.model.ENTITY_INDEX_MODEL += 1;
-    return app.model.ENTITY_INDEX_MODEL;
-};
-
 /**
  * @namespace app.model
  * @class EntityModel
@@ -29,7 +21,7 @@ app.model.EntityModel = function EntityModel() {
      * @property {Number} _id
      * @private
      */
-    this._id = getEntityIndexModel();
+    this._id = app.model.EntityModelIndex.getEntityModelIndex();
 
     /**
      * Drozyna do kotrej nalezy jednostka 0 neutralna
@@ -173,14 +165,14 @@ app.model.EntityModel = function EntityModel() {
 
     /**
      * Aktualna lista ruchow do wykonania
-     * @property {app.model.ListModel} _moveList
+     * @property {app.model.TargetListModel} _moveList
      * @private
      */
     this._moveList = null;
 
     /**
      * Aktualna lista jednostek do wybudowania
-     * @property {app.model.ListModel} _buildList
+     * @property {app.model.EntityListModel} _buildList
      * @private
      */
     this._buildList = null;
@@ -243,11 +235,11 @@ app.model.EntityModel.prototype.setStartValueY = function setStartValueY(value) 
  * @param {Number} value
  */
 app.model.EntityModel.prototype.setX = function setX(value) {
-    this._lastPosition.setX(this._x);
+    this._lastPosition.setX(this._circle.getX());
     this._circle.setX(value);
 
     if (isNaN(value)){
-        //console.log("app.model.EntityModel.prototype.setX: " + NaN);
+        console.log("app.model.EntityModel.prototype.setX: " + NaN);
     }
 };
 
@@ -256,11 +248,11 @@ app.model.EntityModel.prototype.setX = function setX(value) {
  * @param {Number} value
  */
 app.model.EntityModel.prototype.setY = function setY(value) {
-    this._lastPosition.setY(this._y);
+    this._lastPosition.setY(this._circle.getY());
     this._circle.setY(value);
 
     if (isNaN(value)){
-        //console.log("app.model.EntityModel.prototype.setY: " + NaN);
+        console.log("app.model.EntityModel.prototype.setY: " + NaN);
     }
 };
 
@@ -396,7 +388,7 @@ app.model.EntityModel.prototype.setTargetable = function setTargetable(value) {
 
 /**
  * @method setMoveList
- * @param {app.model.ListModel} value
+ * @param {app.model.TargetListModel} value
  */
 app.model.EntityModel.prototype.setMoveList = function setMoveList(value) {
     this._moveList = value;
@@ -404,7 +396,7 @@ app.model.EntityModel.prototype.setMoveList = function setMoveList(value) {
 
 /**
  * @method setBuildList
- * @param {app.model.ListModel} value
+ * @param {app.model.EntityListModel} value
  */
 app.model.EntityModel.prototype.setBuildList = function setBuildList(value) {
     this._buildList = value;
@@ -620,7 +612,7 @@ app.model.EntityModel.prototype.getTargetable = function getTargetable() {
 
 /**
  * @method getMoveList
- * @return {app.model.ListModel} moveList
+ * @return {app.model.TargetListModel} moveList
  */
 app.model.EntityModel.prototype.getMoveList = function getMoveList() {
     return this._moveList;
@@ -628,7 +620,7 @@ app.model.EntityModel.prototype.getMoveList = function getMoveList() {
 
 /**
  * @method getBuildList
- * @return {app.model.ListModel} buildList
+ * @return {app.model.EntityListModel} buildList
  */
 app.model.EntityModel.prototype.getBuildList = function getBuildList() {
     return this._buildList;
@@ -696,3 +688,52 @@ app.model.EntityModel.prototype.clone = function clone() {
 
     return clone;
 };
+
+
+/*
+
+Load From JSON
+
+ */
+app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+
+    this._id = JSON._id;
+    this._team = JSON._team;
+    this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
+    this._mass = JSON._mass;
+    this._moveCollisionDetectionRadius = JSON._moveCollisionDetectionRadius;
+    this._collisionRadius = JSON._collisionRadius;
+    this._lastPosition = new support.geom.Point2d(JSON._lastPosition._x, JSON._lastPosition._y);
+    this._angle = JSON._angle;
+    this._groundSpeed = JSON._groundSpeed;
+    this._hp = JSON._hp;
+    this._currentHp = JSON._currentHp;
+    this._attackRange = JSON._attackRange;
+    this._attackDamage = JSON._attackDamage;
+    this._attackRate = JSON._attackRate;
+    this._attackCooldown = JSON._attackCooldown;
+    this._constantBuild = JSON._constantBuild;
+    this._buildTime = JSON._buildTime;
+    this._currentBuildTime = JSON._currentBuildTime;
+    this._selected = JSON._selected;
+    this._selectable = JSON._selectable;
+    this._targetable = JSON._targetable;
+
+
+    //klonowanie obiektow
+    this._moveList = null;
+    //this._buildList = null;
+    //
+    if (JSON._moveList !== null) {
+        this._moveList = new app.model.TargetListModel();
+        this._moveList.loadFromJSON(JSON._moveList);
+    }
+    if (JSON._buildList !== null) {
+        this._buildList = new app.model.EntityListModel();
+        this._buildList.loadFromJSON(JSON._buildList);
+    }
+
+    this._graphicUrl = JSON._graphicUrl;
+
+};
+

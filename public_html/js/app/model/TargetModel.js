@@ -15,18 +15,20 @@ var Utils = Utils || {};
  * @constructor
  * @param {Number} x
  * @param {Number} y
+ * @param {Number} radius
  * @param {Number} entityId
  * @param {app.model.ActionTypeModel} actionType
  *
  */
-app.model.TargetModel = function TargetModel(x, y, entityId, actionType) {
+app.model.TargetModel = function TargetModel(x, y, radius, entityId, actionType) {
 
     /**
      * Punkt celu
-     * @property {support.geom.Point2d} _position
+     * @property {support.geom.Circle} _circle
      * @private
      */
-    this._position = new support.geom.Point2d(x, y);
+    this._circle = new support.geom.Circle(x, y, radius);
+
 
     /**
      * @property {app.model.ActionTypeModel} _actionType
@@ -50,7 +52,7 @@ Utils.inherits(app.model.TargetModel, Object);
  * @param {Number} value
  */
 app.model.TargetModel.prototype.setX = function setX(value) {
-    this._position.setX(value);
+    this._circle.setX(value);
 };
 
 /**
@@ -58,7 +60,15 @@ app.model.TargetModel.prototype.setX = function setX(value) {
  * @param {Number} value
  */
 app.model.TargetModel.prototype.setY = function setY(value) {
-    this._position.setY(value);
+    this._circle.setY(value);
+};
+
+/**
+ * @method setRadius
+ * @param {Number} value
+ */
+app.model.TargetModel.prototype.setRadius = function setRadius(value) {
+    this._circle.setRadius(value);
 };
 
 /**
@@ -83,7 +93,7 @@ app.model.TargetModel.prototype.setEntityId = function setEntityId(value) {
  * @return {Number} x
  */
 app.model.TargetModel.prototype.getX = function getX() {
-    return this._position.getX();
+    return this._circle.getX();
 };
 
 /**
@@ -91,7 +101,15 @@ app.model.TargetModel.prototype.getX = function getX() {
  * @return {Number} y
  */
 app.model.TargetModel.prototype.getY = function getY() {
-    return this._position.getY();
+    return this._circle.getY();
+};
+
+/**
+ * @method getRadius
+ * @return {Number} radius
+ */
+app.model.TargetModel.prototype.getRadius = function getRadius() {
+    return this._circle.getRadius();
 };
 
 /**
@@ -116,5 +134,5 @@ app.model.TargetModel.prototype.getEntityId = function getEntityId() {
  * @return {app.model.TargetModel} clone
  */
 app.model.TargetModel.prototype.clone = function clone() {
-    return new app.model.TargetModel(this.getX(), this.getY(), this.getEntityId(), this.getActionType());
+    return new app.model.TargetModel(this.getX(), this.getY(), this.getRadius(), this.getEntityId(), this.getActionType());
 };

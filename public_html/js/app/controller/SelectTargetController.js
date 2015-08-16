@@ -43,6 +43,9 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
     var availableToBuild;
     var toBuild;
     var foundTarget = false;
+    var distanceVector = new support.geom.Vector2d(0,0,0,0);
+    var shotDistance = 0;
+    var currentShotDistance = 0;
     var c1 = new support.geom.Circle(0, 0, 0);
     var p1 = new support.geom.Point2d(0, 0);
 
@@ -70,7 +73,11 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
                     c1.setY(element.getY());
                     c1.setRadius(toBuild.getAttackRange());
 
+                    foundTarget = false;
                     targetListLength = this._list.length();
+
+                    shotDistance = Infinity;
+                    currentShotDistance = Infinity;
 
                     for (targetIndex = 0; targetIndex < targetListLength; targetIndex++){
                         potentialTarget = this._list.getElement(targetIndex);
@@ -83,13 +90,28 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
                             potentialTarget.getTeam() !== element.getTeam() &&
                             potentialTarget.getTeam() !== 0 &&
                             support.geom.collision.Collision.Point2dCircle(p1, c1)){
-                            toBuild.getMoveList().getElement(0).setEntityId(potentialTarget.getId());
-                            foundTarget = true;
+
+                            /*
+                            Wybieranie celu, ktory jest najblizej
+                             */
+                            distanceVector.getStartPoint().setX(p1.getX())
+                            distanceVector.getStartPoint().setY(p1.getY())
+                            distanceVector.getEndPoint().setX(c1.getX())
+                            distanceVector.getEndPoint().setY(c1.getY())
+                            currentShotDistance = distanceVector.getVectorLength();
+
+                            if (shotDistance > currentShotDistance){
+                                toBuild.getMoveList().getElement(0).setEntityId(potentialTarget.getId());
+                                foundTarget = true;
+                                shotDistance = currentShotDistance;
+                            }
+
                         }
                     }
 
                     if (!foundTarget){
                         toBuild.getMoveList().getElement(0).setEntityId(0);
+
                     }
 
                 }

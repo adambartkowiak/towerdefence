@@ -80,20 +80,18 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
 
 
                 /*
-                 sprawdzenie pozycji celu
+                 Brak precyzji celowania
                  */
-                //if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0){
-                //    var enemy = this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId());
-                //
-                //    if (enemy != null){
-                //        var randomX = enemy.getRadius() * (Math.random() - 0.5);
-                //        var randomY = enemy.getRadius() * (Math.random() - 0.5);
-                //
-                //        newEntity.getMoveList().getElement(0).setEntityId(0);
-                //        newEntity.getMoveList().getElement(0).setX(enemy.getX() + randomX);
-                //        newEntity.getMoveList().getElement(0).setY(enemy.getY() + randomY);
-                //    }
-                //}
+                var enemy = this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId());
+                if (enemy !== null) {
+                    var randomX = enemy.getRadius() * (Math.random() - 0.5) * 2;
+                    var randomY = enemy.getRadius() * (Math.random() - 0.5) * 2;
+
+                    newEntity.getMoveList().getElement(0).setEntityId(0);
+                    newEntity.getMoveList().getElement(0).setX(enemy.getX() + randomX);
+                    newEntity.getMoveList().getElement(0).setY(enemy.getY() + randomY);
+                }
+
 
                 this._list.addElement(newEntity);
 

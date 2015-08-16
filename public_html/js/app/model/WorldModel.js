@@ -23,6 +23,12 @@ app.model.WorldModel = function WorldModel() {
     this._entityModelList = new app.model.EntityListModel();
 
     /**
+     * @property {app.model.ListModel} _waypointCollisionListModel
+     * @private
+     */
+    this._waypointCollisionListModel = new app.model.ListModel();
+
+    /**
      * @property {app.model.ListModel} _selectedEntityModelList
      * @private
      */
@@ -60,6 +66,14 @@ Utils.inherits(app.model.WorldModel, Object);
  */
 app.model.WorldModel.prototype.getEntityListModel = function getEntityListModel() {
     return this._entityModelList;
+};
+
+/**
+ * @method getWaypointCollisionListModel
+ * @return {app.model.ListModel}
+ */
+app.model.WorldModel.prototype.getWaypointCollisionListModel = function getWaypointCollisionListModel() {
+    return this._waypointCollisionListModel;
 };
 
 /**

@@ -56,6 +56,10 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
     this._entityImage["assets/images/bullet0.png"] = new Image();
     this._entityImage["assets/images/bullet0.png"].src = "assets/images/bullet0.png";
 
+
+    this._entityImage["assets/images/bullet2.png"] = new Image();
+    this._entityImage["assets/images/bullet2.png"].src = "assets/images/bullet2.png";
+
     this._entityImage["assets/images/comandCenter0.png"] = new Image();
     this._entityImage["assets/images/comandCenter0.png"].src = "assets/images/comandCenter0.png";
 

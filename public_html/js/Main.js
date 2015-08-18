@@ -371,7 +371,7 @@ app.saveGame = function saveGame() {
 
 app.saveGameToMinifyString = function saveGameToMinifyString() {
     var minifyJson = worldModel.getMinifyJSON();
-    return return JSON.stringify(minifyJson);;
+    return JSON.stringify(minifyJson);
 };
 
 app.loadGame = function loadGame(stringJson) {
@@ -383,4 +383,3 @@ app.loadGameFromMinifyString = function loadGameFromMinifyString(stringJson) {
     var worldModelMinifyJSON = JSON.parse(stringJson);
     worldModel.loadFromMinifyJSON(worldModelMinifyJSON);
 };
-

@@ -15,7 +15,7 @@ var paramValue = atr[1];
 
 
 //USTALENIE CZY JSON STANU GRY LADUJE SIE Z PLIKU LOKALNEGO CZY Z WEBSERWISU
-var loadFromFile = false;
+var loadFromFile = true;
 var loadFromWebservice = !loadFromFile;
 
 
@@ -28,13 +28,15 @@ if (loadFromFile) {
 
     app.loadGameSave = function loadGameSave(saveGameName) {
         saveGameLoader.loadJson(function (response) {
-            app.load(response);
+            //app.loadGame(response);
+            app.loadGameFromMinifyString(response);
             mapIsReady = true;
         }, saveGameName);
     };
 
 
-    app.loadGameSave("assets/gamesaves/newSaveGame001.json");
+    app.loadGameSave("assets/gamesaves/newSaveGame001Minified.json");
+    //app.loadGameSave("assets/gamesaves/newSaveGame001.json");
 }
 
 
@@ -59,27 +61,33 @@ if (loadFromWebservice) {
                 callback(xmlhttp);
             }
         }
+
+        var stringDataToSend = JSON.stringify({ currentGameGuid: paramValue });
         xmlhttp.open("GET", url, true);
+        //xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
         xmlhttp.send();
     }
 
 
-    if (paramName === 'guid') {
-        alert(vars[0]);
+    //if (paramName === 'guid') {
+    //    alert(vars[0]);
         //pobranie JSONA mapy i zaladowanie go zaraz po pobraniu
         loadXMLDoc(function (response) {
             app.load(response);
             mapIsReady = true;
-        }, "http://towerdefence-001-site1.smarterasp.net/TowerDefenceService.svc?"+vars[0]);
+        }, "http://towerdefence-001-site1.smarterasp.net/TowerDefenceService.svc/json/LoadGame/C82D8128-A3B2-42B8-A6D0-EE9413961024");
 
         //adres do pytania o sejva
         //
 
-    } else {
-        alert("NIE MA PADANEGO GUIDA DLA GRY!!!");
-    }
+    //} else {
+    //    alert("NIE MA PADANEGO GUIDA DLA GRY!!!");
+    //}
 
 }
+
+
+
 
 
 /*
@@ -354,13 +362,25 @@ setInterval(function () {
 
     worldView.draw();
 
-}, 16);
+}, 32);
 
-app.save = function save() {
-    return worldModel.save();
+app.saveGame = function saveGame() {
+    var save = worldModel.save();
+    return save;
 };
 
-app.load = function load(stringJson) {
-    worldModel.laodFromString(stringJson);
+app.saveGameToMinifyString = function saveGameToMinifyString() {
+    var minifyJson = worldModel.getMinifyJSON();
+    return return JSON.stringify(minifyJson);;
+};
+
+app.loadGame = function loadGame(stringJson) {
+    var json = JSON.parse(stringJson);
+    worldModel.laodFromJSON(json);
+};
+
+app.loadGameFromMinifyString = function loadGameFromMinifyString(stringJson) {
+    var worldModelMinifyJSON = JSON.parse(stringJson);
+    worldModel.loadFromMinifyJSON(worldModelMinifyJSON);
 };
 

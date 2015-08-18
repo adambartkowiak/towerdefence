@@ -64,3 +64,31 @@ support.geom.Point2d.prototype.setX = function setX(value) {
 support.geom.Point2d.prototype.setY = function setY(value) {
     this._y = value;
 };
+
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+support.geom.Point2d.prototype.getMinifyJSON = function getMinifyJSON(){
+
+    var result = {
+        1:this._x,
+        2:this._y
+    }
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+support.geom.Point2d.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var result = {
+        _x: minifyJSON["1"],
+        _y: minifyJSON["2"]
+    };
+
+    return result;
+};

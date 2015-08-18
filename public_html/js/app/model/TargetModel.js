@@ -128,11 +128,49 @@ app.model.TargetModel.prototype.getEntityId = function getEntityId() {
     return this._entityId;
 };
 
-
 /**
  * @method clone
  * @return {app.model.TargetModel} clone
  */
 app.model.TargetModel.prototype.clone = function clone() {
     return new app.model.TargetModel(this.getX(), this.getY(), this.getRadius(), this.getEntityId(), this.getActionType());
+};
+
+
+app.model.TargetModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+    this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
+    this._actionType = JSON._actionType;
+    this._entityId = JSON._entityId;
+};
+
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+app.model.TargetModel.prototype.getMinifyJSON = function getMinifyJSON() {
+    var result = {
+        1:this._circle.getMinifyJSON(),
+        2:this._actionType,
+        3:this._entityId
+    }
+
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+app.model.TargetModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var circle = new support.geom.Circle(0,0,0);
+
+    var result = {
+        _circle: circle.unMinifyJSON(minifyJSON["1"]),
+        _actionType: minifyJSON["2"],
+        _entityId: minifyJSON["3"]
+    };
+
+    return result;
 };

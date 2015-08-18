@@ -106,3 +106,33 @@ support.geom.Circle.prototype.isPointInside = function isPointInside(pointToChec
 
     return result;
 };
+
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+support.geom.Circle.prototype.getMinifyJSON = function getMinifyJSON(){
+
+    var result = {
+        1:this._x,
+        2:this._y,
+        3:this._radius
+    }
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+support.geom.Circle.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var result = {
+        _x: minifyJSON["1"],
+        _y: minifyJSON["2"],
+        _radius: minifyJSON["3"]
+    };
+
+    return result;
+};

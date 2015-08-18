@@ -17,7 +17,7 @@ var Utils = Utils || {};
  * @class TargetListModel
  * @constructor
  */
-app.model.TargetListModel = function ListModel() {
+app.model.TargetListModel = function TargetListModel() {
 
     app.model.ListModel.call(this);
 
@@ -68,30 +68,10 @@ app.model.TargetListModel.prototype.removeElementById = function removeElementBy
 
 };
 
-app.model.TargetListModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
-
-    /*
-     przypisanie obiektow JSONowych do zmiennych
-     */
-    var _elementsJSON = JSON._elements;
-
-    /*
-     Wczytywanie obiektow do listy
-     */
-
-    this.clear();
-
-    var elementJSON = null;
-    var targetToAdd = null;
-    var elementIndex;
-    var elementJSONlength = _elementsJSON.length;
-
-    for (elementIndex = 0; elementIndex<elementJSONlength; elementIndex++){
-
-        elementJSON = _elementsJSON[elementIndex];
-        targetToAdd = new app.model.TargetModel(elementJSON._circle._x, elementJSON._circle._y, elementJSON._circle._radius, elementJSON._entityId, elementJSON._actionType);
-
-        this.addElement(targetToAdd);
-    }
-
+/**
+ * @method createListElement
+ * @returns {app.model.TargetModel}
+ */
+app.model.TargetListModel.prototype.createListElement = function createListElement() {
+    return new app.model.TargetModel(0,0,0,0,app.model.ActionTypeModel.MOVE);
 };

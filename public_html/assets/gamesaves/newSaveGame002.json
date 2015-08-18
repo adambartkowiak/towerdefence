@@ -1,0 +1,2433 @@
+{
+  "_entityModelList": {
+    "_elements": [
+      {
+        "_id": 1,
+        "_team": 1,
+        "_circle": {
+          "_x": 60,
+          "_y": 200,
+          "_radius": 80
+        },
+        "_mass": -1,
+        "_collisionRadius": 75,
+        "_moveCollisionDetectionRadius": 180,
+        "_lastPosition": {
+          "_x": 60,
+          "_y": 200
+        },
+        "_angle": null,
+        "_groundSpeed": 0,
+        "_hp": 1000,
+        "_currentHp": 1000,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 0,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/base1.png"
+      },
+      {
+        "_id": 4,
+        "_team": 2,
+        "_circle": {
+          "_x": 700,
+          "_y": 150,
+          "_radius": 80
+        },
+        "_mass": -1,
+        "_collisionRadius": 75,
+        "_moveCollisionDetectionRadius": 180,
+        "_lastPosition": {
+          "_x": 700,
+          "_y": 150
+        },
+        "_angle": null,
+        "_groundSpeed": 0,
+        "_hp": 1000,
+        "_currentHp": 1000,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 0,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/base2.png"
+      },
+      {
+        "_id": 7,
+        "_team": 2,
+        "_circle": {
+          "_x": 377.6290748798602,
+          "_y": 160.06855571378983,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 378.9884105635191,
+          "_y": 160.02605278293055
+        },
+        "_angle": 178.20909180542998,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 8,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 71,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 33
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 9,
+        "_team": 1,
+        "_circle": {
+          "_x": 489.6288539334702,
+          "_y": 216.81242959636828,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 487.5953375080246,
+          "_y": 216.9749440493962
+        },
+        "_angle": -4.569249699015473,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 10,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 71,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 23
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 11,
+        "_team": 2,
+        "_circle": {
+          "_x": 429.20581035514164,
+          "_y": 170.00340239134533,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 430.5658103550839,
+          "_y": 170.00341492433398
+        },
+        "_angle": -179.99947199459254,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 12,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 89,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 21
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 13,
+        "_team": 2,
+        "_circle": {
+          "_x": 400.92554523193434,
+          "_y": 179.86241808147892,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 402.2849765307037,
+          "_y": 179.90174420417353
+        },
+        "_angle": -178.34298898639298,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 14,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 53,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 27
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 15,
+        "_team": 1,
+        "_circle": {
+          "_x": 459.9090360758506,
+          "_y": 213.25801500759096,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 457.8721393040047,
+          "_y": 213.3704940760601
+        },
+        "_angle": -3.1607086790442627,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 16,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 0,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 23
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 17,
+        "_team": 2,
+        "_circle": {
+          "_x": 418.65327649065256,
+          "_y": 135.23192899440758,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 420.00693089129726,
+          "_y": 135.1007048974771
+        },
+        "_angle": 174.4630129371323,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 18,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 17,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 21
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 19,
+        "_team": 2,
+        "_circle": {
+          "_x": 447.7913535865106,
+          "_y": 128.12926191518682,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 449.1434947766537,
+          "_y": 127.98326807313086
+        },
+        "_angle": 173.83751435302239,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 20,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 71,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 21
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 21,
+        "_team": 1,
+        "_circle": {
+          "_x": 430.1452098546098,
+          "_y": 210.40503422052254,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 428.10672461175943,
+          "_y": 210.48363393223588
+        },
+        "_angle": -2.2081111395575905,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 22,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 53,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 13
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 23,
+        "_team": 2,
+        "_circle": {
+          "_x": 473.7736673480809,
+          "_y": 187.61356069588876,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 475.1324368305501,
+          "_y": 187.67140093716023
+        },
+        "_angle": -177.5624988476764,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 24,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 17,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 15
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 25,
+        "_team": 2,
+        "_circle": {
+          "_x": 456.10322385878374,
+          "_y": 156.81559539704043,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 457.4624711057461,
+          "_y": 156.77035247908375
+        },
+        "_angle": 178.09359807399017,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 26,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 71,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 15
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 27,
+        "_team": 1,
+        "_circle": {
+          "_x": 401.5898359768389,
+          "_y": 219.10266180111608,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 399.5540030243695,
+          "_y": 219.2329852051526
+        },
+        "_angle": -3.6627791051190393,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 28,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 17,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 13
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 29,
+        "_team": 2,
+        "_circle": {
+          "_x": 503.97627722766094,
+          "_y": 188.31274271717587,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 505.3351218008402,
+          "_y": 188.36879114214273
+        },
+        "_angle": -177.63805298813753,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 30,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 89,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 9
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 31,
+        "_team": 2,
+        "_circle": {
+          "_x": 476.9021060401138,
+          "_y": 135.15113325496415,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 478.25737943410746,
+          "_y": 135.03784588791535
+        },
+        "_angle": 175.22175143439262,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 32,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 53,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 15
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 33,
+        "_team": 1,
+        "_circle": {
+          "_x": 372.54465928863203,
+          "_y": 212.42359597705303,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 370.50996828914737,
+          "_y": 212.27651594232358
+        },
+        "_angle": 4.134501569198277,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 34,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 89,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 13
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 35,
+        "_team": 2,
+        "_circle": {
+          "_x": 489.46745826443544,
+          "_y": 162.22523358184299,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 490.8272354638349,
+          "_y": 162.20061716469047
+        },
+        "_angle": 178.96287218040638,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 36,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 17,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 9
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 37,
+        "_team": 2,
+        "_circle": {
+          "_x": 518.8108062300062,
+          "_y": 156.11908877820392,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 520.1701842454823,
+          "_y": 156.07796201027807
+        },
+        "_angle": 178.26709594268038,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_currentHp": 300,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 60,
+                "_y": 170,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 38,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 71,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 9
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet4.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy3.png"
+      },
+      {
+        "_id": 39,
+        "_team": 1,
+        "_circle": {
+          "_x": 342.7890315626987,
+          "_y": 216.23865859792357,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 340.8106535721555,
+          "_y": 215.74104376038932
+        },
+        "_angle": 14.118540460464343,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 40,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 36,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 7
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 41,
+        "_team": 1,
+        "_circle": {
+          "_x": 315.43890867631404,
+          "_y": 204.2652069172507,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 313.51037071088336,
+          "_y": 203.60011946744234
+        },
+        "_angle": 19.027580391414308,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 42,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 17,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 7
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 45,
+        "_team": 1,
+        "_circle": {
+          "_x": 285.6151844478911,
+          "_y": 205.07205380205409,
+          "_radius": 20
+        },
+        "_mass": 0,
+        "_collisionRadius": 15,
+        "_moveCollisionDetectionRadius": 120,
+        "_lastPosition": {
+          "_x": 283.60260671633455,
+          "_y": 204.7386908250417
+        },
+        "_angle": 9.40506781839836,
+        "_groundSpeed": 120,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_attackRange": 0,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 200,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": true,
+        "_targetable": true,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 700,
+                "_y": 200,
+                "_radius": 5
+              },
+              "_actionType": 4,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+            {
+              "_id": 46,
+              "_team": 0,
+              "_circle": {
+                "_x": 0,
+                "_y": 0,
+                "_radius": 10
+              },
+              "_mass": 0,
+              "_collisionRadius": 5,
+              "_moveCollisionDetectionRadius": 110,
+              "_lastPosition": {
+                "_x": 0,
+                "_y": 0
+              },
+              "_angle": null,
+              "_groundSpeed": 750,
+              "_hp": 1,
+              "_currentHp": 1,
+              "_attackRange": 300,
+              "_attackDamage": 0,
+              "_attackRate": 0,
+              "_attackCooldown": 0,
+              "_constantBuild": false,
+              "_buildTime": 100,
+              "_currentBuildTime": 71,
+              "_selected": false,
+              "_selectable": false,
+              "_targetable": false,
+              "_moveList": {
+                "_elements": [
+                  {
+                    "_circle": {
+                      "_x": -1,
+                      "_y": -1,
+                      "_radius": 5
+                    },
+                    "_actionType": 1,
+                    "_entityId": 7
+                  }
+                ]
+              },
+              "_buildList": {
+                "_elements": [
+
+                ]
+              },
+              "_graphicUrl": "assets/images/bullet3.png"
+            }
+          ]
+        },
+        "_graphicUrl": "assets/images/enemy0.png"
+      },
+      {
+        "_id": 331,
+        "_team": 0,
+        "_circle": {
+          "_x": 460.984462474702,
+          "_y": 194.01677916960986,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 459.8249105740932,
+          "_y": 181.31961651845845
+        },
+        "_angle": 84.782011214831,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 463.5749984852581,
+                "_y": 222.38330339541307,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet4.png"
+      },
+      {
+        "_id": 332,
+        "_team": 0,
+        "_circle": {
+          "_x": 453.56318856872895,
+          "_y": 222.36127086781963,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 455.3691906994026,
+          "_y": 209.73982656441274
+        },
+        "_angle": 98.14317533567738,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 452.49174511466015,
+                "_y": 229.84917115879824,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet4.png"
+      },
+      {
+        "_id": 334,
+        "_team": 0,
+        "_circle": {
+          "_x": 339.42598508814,
+          "_y": 183.4588969377516,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 327.2681724293919,
+          "_y": 187.29948170504736
+        },
+        "_angle": -17.53103417098969,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 400.8960847801742,
+                "_y": 164.04083752625812,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet3.png"
+      },
+      {
+        "_id": 337,
+        "_team": 0,
+        "_circle": {
+          "_x": 490.2037498855737,
+          "_y": 187.55235954008643,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 488.37569732861994,
+          "_y": 174.93409009261404
+        },
+        "_angle": 81.75671290763987,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 495.2607988284943,
+                "_y": 222.4590179554013,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet4.png"
+      },
+      {
+        "_id": 338,
+        "_team": 0,
+        "_circle": {
+          "_x": 363.42994763142013,
+          "_y": 184.94635137627293,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 354.9044091749179,
+          "_y": 194.426736074517
+        },
+        "_angle": -48.03552686058885,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 377.9194666443657,
+                "_y": 168.83403013860627,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet3.png"
+      },
+      {
+        "_id": 339,
+        "_team": 0,
+        "_circle": {
+          "_x": 428.14101844915257,
+          "_y": 161.1296357877845,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 425.0158940413107,
+          "_y": 148.76856393152903
+        },
+        "_angle": 75.8117957347264,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 435.91228540803974,
+                "_y": 191.8679926518832,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet4.png"
+      },
+      {
+        "_id": 340,
+        "_team": 0,
+        "_circle": {
+          "_x": 471.01507524276616,
+          "_y": 214.01565179805905,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 473.70867893563,
+          "_y": 201.553428916655
+        },
+        "_angle": 102.19637957414255,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 467.98331656343044,
+                "_y": 228.04238204223353,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet4.png"
+      },
+      {
+        "_id": 342,
+        "_team": 0,
+        "_circle": {
+          "_x": 486.07270810929185,
+          "_y": 188.42523957741588,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 488.98701060853,
+          "_y": 176.0127724196372
+        },
+        "_angle": 103.21305783925834,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 480.45212540625334,
+                "_y": 212.36417461497027,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet4.png"
+      },
+      {
+        "_id": 343,
+        "_team": 0,
+        "_circle": {
+          "_x": 334.32938839359633,
+          "_y": 188.6838660932406,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 323.51706198747974,
+          "_y": 195.44079569829006
+        },
+        "_angle": -32.00243218852482,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 364.29650481178254,
+                "_y": 169.9565646320621,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet3.png"
+      },
+      {
+        "_id": 344,
+        "_team": 0,
+        "_circle": {
+          "_x": 461.54756347013586,
+          "_y": 201.16251921693714,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_collisionRadius": 5,
+        "_moveCollisionDetectionRadius": 110,
+        "_lastPosition": {
+          "_x": 457.87318902054824,
+          "_y": 213.37159258080132
+        },
+        "_angle": -73.25060054534418,
+        "_groundSpeed": 750,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 0,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 100,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": 469.03682489984755,
+                "_y": 176.27748273221763,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": [
+
+          ]
+        },
+        "_graphicUrl": "assets/images/bullet3.png"
+      }
+    ]
+  },
+  "_waypointCollisionListModel": {
+    "_elements": [
+
+    ]
+  },
+  "_selectedEntityModelList": {
+    "_elements": [
+
+    ]
+  },
+  "_selectRect": null,
+  "_entityModelIndex": 344
+}

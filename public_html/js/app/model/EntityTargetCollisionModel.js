@@ -35,7 +35,6 @@ app.model.EntityTargetCollisionModel = function EntityTargetCollisionModel(entit
 
 Utils.inherits(app.model.EntityTargetCollisionModel, Object);
 
-
 /**
  * @method setEntityModel
  * @param {app.model.EntityModel} value

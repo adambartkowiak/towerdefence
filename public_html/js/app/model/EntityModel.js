@@ -70,7 +70,7 @@ app.model.EntityModel = function EntityModel() {
      * @property {Number} _angle
      * @private
      */
-    this._angle = null;
+    this._angle = 0;
 
     /**
      * Maksymalna predkosc jednostki
@@ -168,14 +168,14 @@ app.model.EntityModel = function EntityModel() {
      * @property {app.model.TargetListModel} _moveList
      * @private
      */
-    this._moveList = null;
+    this._moveList = new app.model.TargetListModel();
 
     /**
      * Aktualna lista jednostek do wybudowania
      * @property {app.model.EntityListModel} _buildList
      * @private
      */
-    this._buildList = null;
+    this._buildList = new app.model.EntityListModel();
 
     /**
      * @property {String} _graphicUrl
@@ -634,14 +634,6 @@ app.model.EntityModel.prototype.getGraphicUrl = function getGraphicUrl() {
     return this._graphicUrl;
 };
 
-
-/*
-
- CLONE
-
- */
-
-
 /**
  * @method clone
  * @return {app.model.EntityModel} clone
@@ -670,33 +662,20 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._selected = this._selected;
     clone._selectable = this._selectable;
     clone._targetable = this._targetable;
-
+    clone._graphicUrl = this._graphicUrl;
 
     //klonowanie obiektow
-    clone._moveList = null;
-    clone._buildList = null;
-
-    if (this._moveList !== null) {
-        clone._moveList = this._moveList.clone();
-    }
-
-    if (this._buildList !== null) {
-        clone._buildList = this._buildList.clone();
-    }
-
-    clone._graphicUrl = this._graphicUrl;
+    clone._moveList = this._moveList.clone();
+    clone._buildList = this._buildList.clone();
 
     return clone;
 };
 
-
-/*
-
-Load From JSON
-
+/**
+ * @method loadFromJSON
+ * @property {Object} unMinifyJSON
  */
 app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
-
     this._id = JSON._id;
     this._team = JSON._team;
     this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
@@ -718,22 +697,84 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     this._selected = JSON._selected;
     this._selectable = JSON._selectable;
     this._targetable = JSON._targetable;
-
-
-    //klonowanie obiektow
-    this._moveList = null;
-    //this._buildList = null;
-    //
-    if (JSON._moveList !== null) {
-        this._moveList = new app.model.TargetListModel();
-        this._moveList.loadFromJSON(JSON._moveList);
-    }
-    if (JSON._buildList !== null) {
-        this._buildList = new app.model.EntityListModel();
-        this._buildList.loadFromJSON(JSON._buildList);
-    }
-
     this._graphicUrl = JSON._graphicUrl;
-
+    this._moveList.loadFromJSON(JSON._moveList);
+    this._buildList.loadFromJSON(JSON._buildList);
 };
 
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
+
+    var result = {
+        1:this._id,
+        2:this._team,
+        3:this._circle.getMinifyJSON(),
+        4:this._mass,
+        5:this._moveCollisionDetectionRadius,
+        6:this._collisionRadius,
+        7:this._lastPosition.getMinifyJSON(),
+        8:this._angle,
+        9:this._groundSpeed,
+        a:this._hp,
+        b:this._currentHp,
+        c:this._attackRange,
+        d:this._attackDamage,
+        e:this._attackRate,
+        f:this._attackCooldown,
+        g:this._constantBuild,
+        h:this._buildTime,
+        i:this._currentBuildTime,
+        j:this._selected,
+        k:this._selectable,
+        l:this._targetable,
+        m:this._graphicUrl,
+        n:this._moveList.getMinifyJSON(),
+        o:this._buildList.getMinifyJSON()
+    };
+
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var circle = new support.geom.Circle(0,0,0);
+    var point2d = new support.geom.Point2d(0,0);
+    var targetListModel = new app.model.TargetListModel();
+    var entityListModel = new app.model.EntityListModel();
+
+    var result = {
+        _id: minifyJSON["1"],
+        _team: minifyJSON["2"],
+        _circle: circle.unMinifyJSON(minifyJSON["3"]),
+        _mass: minifyJSON["4"],
+        _moveCollisionDetectionRadius: minifyJSON["5"],
+        _collisionRadius: minifyJSON["6"],
+        _lastPosition: point2d.unMinifyJSON(minifyJSON["7"]),
+        _angle: minifyJSON["8"],
+        _groundSpeed: minifyJSON["9"],
+        _hp: minifyJSON["a"],
+        _currentHp: minifyJSON["b"],
+        _attackRange: minifyJSON["c"],
+        _attackDamage: minifyJSON["d"],
+        _attackRate: minifyJSON["e"],
+        _attackCooldown: minifyJSON["f"],
+        _constantBuild: minifyJSON["g"],
+        _buildTime: minifyJSON["h"],
+        _currentBuildTime: minifyJSON["i"],
+        _selected: minifyJSON["j"],
+        _selectable: minifyJSON["k"],
+        _targetable: minifyJSON["l"],
+        _graphicUrl: minifyJSON["m"],
+        _moveList: targetListModel.unMinifyJSON(minifyJSON["n"]),
+        _buildList: entityListModel.unMinifyJSON(minifyJSON["o"])
+    };
+    return result;
+};

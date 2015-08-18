@@ -17,7 +17,7 @@ var Utils = Utils || {};
  * @class EntityListModel
  * @constructor
  */
-app.model.EntityListModel = function ListModel() {
+app.model.EntityListModel = function EntityListModel() {
 
     app.model.ListModel.call(this);
 
@@ -68,31 +68,10 @@ app.model.EntityListModel.prototype.removeElementById = function removeElementBy
 
 };
 
-app.model.EntityListModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
-
-    /*
-     przypisanie obiektow JSONowych do zmiennych
-     */
-    var _elementsJSON = JSON._elements;
-
-    /*
-     Wczytywanie obiektow do listy
-     */
-
-    this.clear();
-
-    var elementJSON = null;
-    var elementToAdd = null;
-    var elementIndex;
-    var elementJSONlength = _elementsJSON.length;
-
-    for (elementIndex = 0; elementIndex<elementJSONlength; elementIndex++){
-
-        elementJSON = _elementsJSON[elementIndex];
-        elementToAdd = new app.model.EntityModel();
-        elementToAdd.loadFromJSON(elementJSON);
-
-        this.addElement(elementToAdd);
-    }
-
+/**
+ * @method createListElement
+ * @returns {app.model.EntityModel}
+ */
+app.model.EntityListModel.prototype.createListElement = function createListElement() {
+    return new app.model.EntityModel();
 };

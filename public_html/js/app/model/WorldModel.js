@@ -136,26 +136,67 @@ app.model.WorldModel.prototype.setMap = function setMap(map) {
     this._map = map;
 };
 
-
+/**
+ * @method save
+ * @returns {String} String form stringify app.model.WorldModel
+ */
 app.model.WorldModel.prototype.save = function save(){
     this._entityModelIndex = app.model.EntityModelIndex.ENTITY_MODEL_INDEX;
     return JSON.stringify(this);
 };
 
+/*
 
-app.model.WorldModel.prototype.laodFromString = function laodFromString(worldModelStringJSON){
+ Ładowanie JSONa NORMALNEGO, Minifikacja, Odminifikowanie, Ładowanie JSONa ZMINIFIKOWANEGO,
 
-    /*
-    Parsowanie Stringa do JSONa
-     */
-    var worldModelJSON = JSON.parse(worldModelStringJSON);
+ */
 
+/**
+ * @method laodFromJSON
+ * @param {String} unMinifyJSON
+ */
+app.model.WorldModel.prototype.laodFromJSON = function laodFromJSON(worldModelJSON){
 
-    /*
-    Wczytywanie modulow
-     */
     this._entityModelList.loadFromJSON(worldModelJSON._entityModelList);
     this._entityModelIndex = worldModelJSON._entityModelIndex;
     app.model.EntityModelIndex.ENTITY_MODEL_INDEX = worldModelJSON._entityModelIndex;
+};
 
+/**
+ * @method loadFromMinifyJSON
+ */
+app.model.WorldModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(worldModelMinifyJSON) {
+
+    var worldModelJSON = this.unMinifyJSON(worldModelMinifyJSON);
+    this.laodFromJSON(worldModelJSON);
+};
+
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+app.model.WorldModel.prototype.getMinifyJSON = function getMinifyJSON() {
+    var result = {
+        1: this._entityModelList.getMinifyJSON(),
+        2: app.model.EntityModelIndex.ENTITY_MODEL_INDEX
+    };
+
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var entityListModel = new app.model.EntityListModel();
+
+    var result = {
+        _entityModelList: entityListModel.unMinifyJSON(minifyJSON["1"]),
+        _entityModelIndex: minifyJSON["2"]
+    };
+
+    return result;
 };

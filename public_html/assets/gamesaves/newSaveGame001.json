@@ -30,7 +30,7 @@
         "_selected": false,
         "_selectable": true,
         "_targetable": true,
-        "_moveList": null,
+        "_moveList": { "_elements": [] },
         "_buildList": {
           "_elements": [
             {
@@ -93,7 +93,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -119,8 +119,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -186,7 +186,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -212,8 +212,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -279,7 +279,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -305,8 +305,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -372,7 +372,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -398,8 +398,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -465,7 +465,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -491,8 +491,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -558,7 +558,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -584,8 +584,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -651,7 +651,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -677,8 +677,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -744,7 +744,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -770,8 +770,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet0.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet3.png"
                   }
                 ]
               },
@@ -810,7 +810,7 @@
         "_selected": false,
         "_selectable": true,
         "_targetable": true,
-        "_moveList": null,
+        "_moveList": { "_elements": [] },
         "_buildList": {
           "_elements": [
             {
@@ -873,7 +873,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -881,7 +881,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -899,8 +899,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -966,7 +966,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -974,7 +974,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -992,8 +992,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1059,7 +1059,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1067,7 +1067,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1085,8 +1085,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1152,7 +1152,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1160,7 +1160,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1178,8 +1178,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1245,7 +1245,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1253,7 +1253,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1271,8 +1271,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1338,7 +1338,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1346,7 +1346,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1364,8 +1364,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1431,7 +1431,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1439,7 +1439,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1457,8 +1457,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1524,7 +1524,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1532,7 +1532,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1550,8 +1550,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1617,7 +1617,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1625,7 +1625,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1643,8 +1643,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1710,7 +1710,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1718,7 +1718,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1736,8 +1736,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },
@@ -1803,7 +1803,7 @@
                       "_y": 0
                     },
                     "_angle": null,
-                    "_groundSpeed": 1500,
+                    "_groundSpeed": 750,
                     "_hp": 1,
                     "_currentHp": 1,
                     "_attackRange": 300,
@@ -1811,7 +1811,7 @@
                     "_attackRate": 0,
                     "_attackCooldown": 0,
                     "_constantBuild": false,
-                    "_buildTime": 30,
+                    "_buildTime": 100,
                     "_currentBuildTime": 0,
                     "_selected": false,
                     "_selectable": false,
@@ -1829,8 +1829,8 @@
                         }
                       ]
                     },
-                    "_buildList": null,
-                    "_graphicUrl": "assets/images/bullet2.png"
+                    "_buildList": { "_elements": [] },
+                    "_graphicUrl": "assets/images/bullet4.png"
                   }
                 ]
               },

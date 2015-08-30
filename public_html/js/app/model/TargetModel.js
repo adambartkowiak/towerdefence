@@ -136,7 +136,10 @@ app.model.TargetModel.prototype.clone = function clone() {
     return new app.model.TargetModel(this.getX(), this.getY(), this.getRadius(), this.getEntityId(), this.getActionType());
 };
 
-
+/**
+ * @method loadFromJSON
+ * @property {Object} unMinifyJSON
+ */
 app.model.TargetModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
     this._actionType = JSON._actionType;

@@ -362,7 +362,7 @@ setInterval(function () {
 
     worldView.draw();
 
-}, 32);
+}, 16);
 
 app.saveGame = function saveGame() {
     var save = worldModel.save();

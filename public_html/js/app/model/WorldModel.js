@@ -17,10 +17,39 @@ var Utils = Utils || {};
 app.model.WorldModel = function WorldModel() {
 
     /**
+     * Wszystkie obiekty znajdujace sie w swiecie gry
      * @property {app.model.EntityListModel} _entityModelList
      * @private
      */
     this._entityModelList = new app.model.EntityListModel();
+
+    /**
+     * Informacje na temat mapy.
+     * @property {app.model.MapModel} _mapModel
+     * @private
+     */
+    this._mapModel = new app.model.MapModel(4800, 1200, 400, 400);
+
+    /**
+     * Informacje na temat minimapy
+     * @property {app.model.MiniMapModel} _miniMapModel
+     * @private
+     */
+    this._miniMapModel = new app.model.MiniMapModel(150, 150, this._mapModel);
+
+    /**
+     * Informacje na temat kamery
+     * @property {app.model.CameraModel} _cameraModel
+     * @private
+     */
+    this._cameraModel = new app.model.CameraModel(0, 0, 760, 500);
+
+    /**
+     * Licznik stworzonych obiektow w swiecie gry - potrzebny aby kazdy kolejny obiekt mial unikatowa nazwe
+     * @property {number} _entityModelIndex
+     * @private
+     */
+    this._entityModelIndex = 0;
 
     /**
      * @property {app.model.ListModel} _waypointCollisionListModel
@@ -40,25 +69,9 @@ app.model.WorldModel = function WorldModel() {
      */
     this._selectRect = null;
 
-    /**
-     * @property {app.model.Map} _map
-     * @private
-     */
-    //this._map = new app.model.Map();
-
-
-    this._entityModelIndex = 0;
-
-
-
 };
 
 Utils.inherits(app.model.WorldModel, Object);
-
-
-
-
-
 
 /**
  * @method getEntityListModel
@@ -93,15 +106,28 @@ app.model.WorldModel.prototype.getSelectRect = function getSelectRect() {
 };
 
 /**
- * @method getMap
- * @return {app.model.Map}
+ * @method getMapModel
+ * @return {app.model.MapModel}
  */
-app.model.WorldModel.prototype.getMap = function getMap() {
-    return this._map;
+app.model.WorldModel.prototype.getMapModel = function getMapModel() {
+    return this._mapModel;
 };
 
+/**
+ * @method getMiniMapModel
+ * @return {app.model.MiniMapModel}
+ */
+app.model.WorldModel.prototype.getMiniMapModel = function getMiniMapModel() {
+    return this._miniMapModel;
+};
 
-
+/**
+ * @method getCameraModel
+ * @return {app.model.CameraModel}
+ */
+app.model.WorldModel.prototype.getCameraModel = function getCameraModel() {
+    return this._cameraModel;
+};
 
 
 /**
@@ -129,33 +155,47 @@ app.model.WorldModel.prototype.setSelectedEntityListModel = function setSelected
 };
 
 /**
- * @method setMap
- * @param {app.model.Map} map
+ * @method setMapModel
+ * @param {app.model.MapModel} mapModel
  */
-app.model.WorldModel.prototype.setMap = function setMap(map) {
-    this._map = map;
+app.model.WorldModel.prototype.setMapModel = function setMapModel(mapModel) {
+    this._mapModel = mapModel;
+};
+
+/**
+ * @method setMiniMapModel
+ * @param {app.model.MiniMapModel} miniMapModel
+ */
+app.model.WorldModel.prototype.setMiniMapModel = function setMiniMapModel(miniMapModel) {
+    this._miniMapModel = miniMapModel;
+};
+
+/**
+ * @method setCameraModel
+ * @param {app.model.CameraModel} cameraModel
+ */
+app.model.WorldModel.prototype.setCameraModel = function setCameraModel(cameraModel) {
+    this._cameraModel = cameraModel;
 };
 
 /**
  * @method save
  * @returns {String} String form stringify app.model.WorldModel
  */
-app.model.WorldModel.prototype.save = function save(){
+app.model.WorldModel.prototype.save = function save() {
     this._entityModelIndex = app.model.EntityModelIndex.ENTITY_MODEL_INDEX;
     return JSON.stringify(this);
 };
 
 /*
-
  Ładowanie JSONa NORMALNEGO, Minifikacja, Odminifikowanie, Ładowanie JSONa ZMINIFIKOWANEGO,
-
  */
 
 /**
  * @method laodFromJSON
- * @param {String} unMinifyJSON
+ * @param {Object} unMinifyJSON
  */
-app.model.WorldModel.prototype.laodFromJSON = function laodFromJSON(worldModelJSON){
+app.model.WorldModel.prototype.laodFromJSON = function laodFromJSON(worldModelJSON) {
 
     this._entityModelList.loadFromJSON(worldModelJSON._entityModelList);
     this._entityModelIndex = worldModelJSON._entityModelIndex;
@@ -164,6 +204,7 @@ app.model.WorldModel.prototype.laodFromJSON = function laodFromJSON(worldModelJS
 
 /**
  * @method loadFromMinifyJSON
+ * @param {Object} minifyJSON
  */
 app.model.WorldModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(worldModelMinifyJSON) {
 

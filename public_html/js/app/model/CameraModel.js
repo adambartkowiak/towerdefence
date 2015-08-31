@@ -162,44 +162,50 @@ app.model.CameraModel.prototype.getScale = function getScale() {
  Ładowanie JSONa NORMALNEGO, Minifikacja, Odminifikowanie, Ładowanie JSONa ZMINIFIKOWANEGO,
  */
 
-///**
-// * @method loadFromJSON
-// * @property {Object} unMinifyJSON
-// */
-//app.model.CameraModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
-//    this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
-//    this._actionType = JSON._actionType;
-//    this._entityId = JSON._entityId;
-//};
-//
-///**
-// * @method getMinifyJSON
-// * @returns {Object} minifyJSON
-// */
-//app.model.CameraModel.prototype.getMinifyJSON = function getMinifyJSON() {
-//    var result = {
-//        1: this._circle.getMinifyJSON(),
-//        2: this._actionType,
-//        3: this._entityId
-//    }
-//
-//    return result;
-//};
-//
-///**
-// * @method unMinifyJSON
-// * @property {Object} minifyJSON
-// * @return {Object} unMinifyJSON
-// */
-//app.model.CameraModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
-//
-//    var circle = new support.geom.Circle(0, 0, 0);
-//
-//    var result = {
-//        _circle: circle.unMinifyJSON(minifyJSON["1"]),
-//        _actionType: minifyJSON["2"],
-//        _entityId: minifyJSON["3"]
-//    };
-//
-//    return result;
-//};
+/**
+ * @method loadFromJSON
+ * @property {Object} unMinifyJSON
+ */
+app.model.CameraModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+
+    this._positionX = JSON._positionX;
+    this._positionY = JSON._positionY;
+    this._viewPortWidth = JSON._viewPortWidth;
+    this._viewPortHeight = JSON._viewPortHeight;
+    this._scale = JSON._scale;
+
+};
+
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+app.model.CameraModel.prototype.getMinifyJSON = function getMinifyJSON() {
+    var result = {
+        1: this._positionX,
+        2: this._positionY,
+        3: this._viewPortWidth,
+        4: this._viewPortHeight,
+        5: this._scale
+    }
+
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+app.model.CameraModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var result = {
+        _positionX: minifyJSON["1"],
+        _positionY: minifyJSON["2"],
+        _viewPortWidth: minifyJSON["3"],
+        _viewPortHeight: minifyJSON["4"],
+        _scale: minifyJSON["5"]
+    };
+
+    return result;
+};

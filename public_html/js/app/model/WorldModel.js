@@ -200,6 +200,7 @@ app.model.WorldModel.prototype.laodFromJSON = function laodFromJSON(worldModelJS
     this._entityModelList.loadFromJSON(worldModelJSON._entityModelList);
     this._entityModelIndex = worldModelJSON._entityModelIndex;
     app.model.EntityModelIndex.ENTITY_MODEL_INDEX = worldModelJSON._entityModelIndex;
+    this._cameraModel.loadFromJSON(worldModelJSON._cameraModel);
 };
 
 /**
@@ -219,7 +220,8 @@ app.model.WorldModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(
 app.model.WorldModel.prototype.getMinifyJSON = function getMinifyJSON() {
     var result = {
         1: this._entityModelList.getMinifyJSON(),
-        2: app.model.EntityModelIndex.ENTITY_MODEL_INDEX
+        2: app.model.EntityModelIndex.ENTITY_MODEL_INDEX,
+        3: this._cameraModel.getMinifyJSON()
     };
 
     return result;
@@ -232,11 +234,13 @@ app.model.WorldModel.prototype.getMinifyJSON = function getMinifyJSON() {
  */
 app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
-    var entityListModel = new app.model.EntityListModel();
+    var entityListModel = new app.model.EntityListModel(),
+        cameraModel = new app.model.CameraModel(0,0,0,0);
 
     var result = {
         _entityModelList: entityListModel.unMinifyJSON(minifyJSON["1"]),
-        _entityModelIndex: minifyJSON["2"]
+        _entityModelIndex: minifyJSON["2"],
+        _cameraModel: cameraModel.unMinifyJSON(minifyJSON["3"])
     };
 
     return result;

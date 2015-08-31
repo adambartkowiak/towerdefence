@@ -122,7 +122,7 @@ app.view.WorldView.prototype.draw = function draw() {
 
     this._drawMap(this._worldModel.getMapModel(), this._worldModel.getCameraModel());
     this._drawEntities(this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
-
+    this._drawSelectedArea(this._worldModel.getCameraModel());
     this._drawMiniMap(this._worldModel.getMapModel(), this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
 
 };
@@ -157,7 +157,7 @@ app.view.WorldView.prototype._drawMap = function _drawMap(mapModel, cameraModel)
             //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
             //this._image.drawRotateImage(this._canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
 
-            this._canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
+            //this._canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
         }
     }
 
@@ -197,23 +197,20 @@ app.view.WorldView.prototype._drawMiniMap = function _drawMiniMap(mapModel, enti
     this._canvasContext.fillStyle = '#444444';
     this._canvasContext.fillRect(mapXOnMiniMap, this._canvas.height - miniMapHeight + mapYOnMiniMap, Math.round(mapWidthOnMiniMap), Math.round(mapHeightOnMiniMap));
 
-    //rysowanie obiektow na minimapie
+    //Rysowanie obiektow na minimapie
     for (entityIndex = 0; entityIndex < entityIndexMax; entityIndex++) {
         entity = entityListModel.getElement(entityIndex);
 
         var posXonMiniMap = Math.round(mapXOnMiniMap + entity.getX() * miniMapScaleWidth);
         var posYonMiniMap = Math.round(mapYOnMiniMap + entity.getY() * miniMapScaleHeight);
 
-        entitySizeOnMiniMap = entity.getRadius() * miniMapScaleWidth;
+        entitySizeOnMiniMap = Math.ceil(entity.getRadius() * miniMapScaleWidth);
 
         if (entity.getTeam() === 1) {
             this._canvasContext.fillStyle = '#0000FF';
             this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
         } else if (entity.getTeam() === 2) {
             this._canvasContext.fillStyle = '#FF0000';
-            this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
-        } else {
-            this._canvasContext.fillStyle = '#FFFF00';
             this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
         }
 
@@ -351,23 +348,6 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
     this._canvasContext.fillText("ENTITY COUNT: " + max, 0, 20);
 
 
-    //RYSOWANIE ZAZNACZONEGO MIEJSCA
-
-    var selectRect = this._worldModel.getSelectRect();
-    if (selectRect !== null) {
-        this._canvasContext.fillStyle = '#00FF00';
-        this._canvasContext.globalAlpha = 0.2;
-        this._canvasContext.fillRect(selectRect.getX() - cameraModel.getViewPortX(), selectRect.getY() - cameraModel.getViewPortY(), selectRect.getWidth(), selectRect.getHeight());
-        this._canvasContext.globalAlpha = 1;
-
-        this._canvasContext.beginPath();
-        this._canvasContext.strokeStyle = '#00FF00';
-        this._canvasContext.rect(selectRect.getX() - 1 - cameraModel.getViewPortX(), selectRect.getY() - 1 - cameraModel.getViewPortY(), selectRect.getWidth() + 2, selectRect.getHeight() + 2);
-        this._canvasContext.lineWidth = 1;
-        this._canvasContext.stroke();
-    }
-
-
     ////RYSOWANIE HUDA
     //if (this._drawHud) {
     //
@@ -415,4 +395,28 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
     //}
 
 
+};
+
+
+
+/**
+ * @method _drawSelectedArea
+ * @private
+ * @param {app.model.ListModel} entityListModel
+ * @param {app.model.CameraModel} cameraModel
+ */
+app.view.WorldView.prototype._drawSelectedArea = function _drawSelectedArea(cameraModel) {
+    var selectRect = this._worldModel.getSelectRect();
+    if (selectRect !== null) {
+        this._canvasContext.fillStyle = '#00FF00';
+        this._canvasContext.globalAlpha = 0.2;
+        this._canvasContext.fillRect(selectRect.getX() - cameraModel.getViewPortX(), selectRect.getY() - cameraModel.getViewPortY(), selectRect.getWidth(), selectRect.getHeight());
+        this._canvasContext.globalAlpha = 1;
+
+        this._canvasContext.beginPath();
+        this._canvasContext.strokeStyle = '#00FF00';
+        this._canvasContext.rect(selectRect.getX() - 1 - cameraModel.getViewPortX(), selectRect.getY() - 1 - cameraModel.getViewPortY(), selectRect.getWidth() + 2, selectRect.getHeight() + 2);
+        this._canvasContext.lineWidth = 1;
+        this._canvasContext.stroke();
+    }
 };

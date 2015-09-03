@@ -118,13 +118,23 @@ Utils.inherits(app.view.WorldView, Object);
  */
 app.view.WorldView.prototype.draw = function draw() {
 
+
+    //this._canvasContext.scale(1,0.5);
+    //this._canvasContext.rotate(45*Math.PI/180);
+
     this._canvasContext.clearRect(0, 0, this._canvas.width, this._canvas.height);
 
     this._drawMap(this._worldModel.getMapModel(), this._worldModel.getCameraModel());
     this._drawEntities(this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
     this._drawSelectedArea(this._worldModel.getCameraModel());
-    this._drawMiniMap(this._worldModel.getMapModel(), this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
 
+
+    this._drawMiniMap(this._worldModel.getMapModel(), this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
+    this._drawEntitysStatusMenu();
+    this._drawActionMenu(this._worldModel.getSelectedEntityListModel());
+
+
+    //this._canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 };
 
 /**
@@ -145,6 +155,7 @@ app.view.WorldView.prototype._drawMap = function _drawMap(mapModel, cameraModel)
         drawY;
 
     this._canvasContext.beginPath();
+    this._canvasContext.strokeStyle = '#FFFFFF';
 
     for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
         for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
@@ -157,72 +168,12 @@ app.view.WorldView.prototype._drawMap = function _drawMap(mapModel, cameraModel)
             //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
             //this._image.drawRotateImage(this._canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
 
-            //this._canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
+            this._canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
         }
     }
 
     this._canvasContext.lineWidth = 1;
     this._canvasContext.stroke();
-};
-
-/**
- * @method _drawMiniMap
- * @private
- * @param {app.model.MapModel} mapModel
- * @param {app.model.ListModel} entityListModel
- * @param {app.model.CameraModel} cameraModel
- */
-app.view.WorldView.prototype._drawMiniMap = function _drawMiniMap(mapModel, entityListModel, cameraModel) {
-
-    var miniMapWidth = this._worldModel.getMiniMapModel().getMiniMapWidth(),
-        miniMapHeight = this._worldModel.getMiniMapModel().getMiniMapHeight(),
-        miniMapScaleWidth = this._worldModel.getMiniMapModel().getMiniMapScaleWidth(),
-        miniMapScaleHeight = this._worldModel.getMiniMapModel().getMiniMapScaleHeight(),
-        mapXOnMiniMap = this._worldModel.getMiniMapModel().getMapStartXOnMiniMap(),
-        mapYOnMiniMap = this._worldModel.getMiniMapModel().getMapStartYOnMiniMap(),
-        mapWidthOnMiniMap = this._worldModel.getMiniMapModel().getMapWidthOnMiniMap(),
-        mapHeightOnMiniMap = this._worldModel.getMiniMapModel().getMapHeightOnMiniMap(),
-        viewPortWidthOnMiniMap = cameraModel.getViewPortWidth() * miniMapScaleWidth,
-        viewPortHeightOnMiniMap = cameraModel.getViewPortHeight() * miniMapScaleHeight,
-        entity,
-        entityIndex,
-        entityIndexMax = entityListModel.length(),
-        entitySizeOnMiniMap;
-
-    //Rysowanie backgrounda miniMapy
-    this._canvasContext.fillStyle = '#222222';
-    this._canvasContext.fillRect(0, this._canvas.height - miniMapHeight, miniMapWidth, miniMapHeight);
-
-    //Rysowanie mapy na minimapie
-    this._canvasContext.fillStyle = '#444444';
-    this._canvasContext.fillRect(mapXOnMiniMap, this._canvas.height - miniMapHeight + mapYOnMiniMap, Math.round(mapWidthOnMiniMap), Math.round(mapHeightOnMiniMap));
-
-    //Rysowanie obiektow na minimapie
-    for (entityIndex = 0; entityIndex < entityIndexMax; entityIndex++) {
-        entity = entityListModel.getElement(entityIndex);
-
-        var posXonMiniMap = Math.round(mapXOnMiniMap + entity.getX() * miniMapScaleWidth);
-        var posYonMiniMap = Math.round(mapYOnMiniMap + entity.getY() * miniMapScaleHeight);
-
-        entitySizeOnMiniMap = Math.ceil(entity.getRadius() * miniMapScaleWidth);
-
-        if (entity.getTeam() === 1) {
-            this._canvasContext.fillStyle = '#0000FF';
-            this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
-        } else if (entity.getTeam() === 2) {
-            this._canvasContext.fillStyle = '#FF0000';
-            this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
-        }
-
-    }
-
-    //viewPort na minimapie
-    this._canvasContext.beginPath();
-    this._canvasContext.strokeStyle = '#FFFFFF';
-    this._canvasContext.rect(mapXOnMiniMap + cameraModel.getViewPortX() * miniMapScaleWidth, this._canvas.height - miniMapHeight + mapYOnMiniMap + cameraModel.getViewPortY() * miniMapScaleHeight, viewPortWidthOnMiniMap, viewPortHeightOnMiniMap);
-    this._canvasContext.lineWidth = 1;
-    this._canvasContext.stroke();
-
 };
 
 /**
@@ -347,57 +298,7 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
     this._canvasContext.fillStyle = '#FFFFFF';
     this._canvasContext.fillText("ENTITY COUNT: " + max, 0, 20);
 
-
-    ////RYSOWANIE HUDA
-    //if (this._drawHud) {
-    //
-    //
-    //    var hudHeight = 50;
-    //    var hudTop = this._canvas.height - hudHeight;
-    //
-    //    this._canvasContext.fillStyle = '#444444';
-    //    this._canvasContext.fillRect(0, hudTop, this._canvas.width, hudHeight);
-    //
-    //    this._canvasContext.fillStyle = '#FFFFFF';
-    //    this._canvasContext.fillText("EntityStats:", miniMapSize + 10, hudTop + 10);
-    //
-    //    this._canvasContext.fillStyle = '#FFFFFF';
-    //    this._canvasContext.fillText("EntityModelIndex: " + app.model.EntityModelIndex.ENTITY_MODEL_INDEX, miniMapSize + 160, hudTop + 10);
-    //
-    //
-    //    //Zaznaczanie
-    //    var selectedElementLength = this._worldModel.getSelectedEntityListModel().length();
-    //    if (selectedElementLength === 1) {
-    //
-    //        var selectedElement = this._worldModel.getSelectedEntityListModel().getElement(0);
-    //        //HP
-    //        this._canvasContext.fillText("HP: " + selectedElement.getCurrentHp() + "/" + selectedElement.getHp(), miniMapSize + 10, hudTop + 40);
-    //
-    //        var buildList = selectedElement.getBuildList();
-    //        if (buildList !== null) {
-    //            var buildListIndex;
-    //            var buildListLength = buildList.length();
-    //            var buildListElement = null;
-    //
-    //            for (buildListIndex = 0; buildListIndex < buildListLength; buildListIndex++) {
-    //                buildListElement = buildList.getElement(buildListIndex);
-    //                this._canvasContext.fillText("BUILDING: " + buildListElement.getCurrentBuildTime() + "/" + buildListElement.getBuildTime(), miniMapSize + 10, hudTop + 25 + 20 * buildListIndex);
-    //            }
-    //        }
-    //
-    //
-    //    } else if (selectedElementLength > 1) {
-    //
-    //        this._canvasContext.fillText("SELECTED COUNT: " + selectedElementLength, miniMapSize + 10, hudTop + 40);
-    //
-    //    }
-    //
-    //}
-
-
 };
-
-
 
 /**
  * @method _drawSelectedArea
@@ -419,4 +320,170 @@ app.view.WorldView.prototype._drawSelectedArea = function _drawSelectedArea(came
         this._canvasContext.lineWidth = 1;
         this._canvasContext.stroke();
     }
+};
+
+/**
+ * @method _drawMiniMap
+ * @private
+ * @param {app.model.MapModel} mapModel
+ * @param {app.model.ListModel} entityListModel
+ * @param {app.model.CameraModel} cameraModel
+ */
+app.view.WorldView.prototype._drawMiniMap = function _drawMiniMap(mapModel, entityListModel, cameraModel) {
+
+    var miniMapWidth = this._worldModel.getMiniMapModel().getMiniMapWidth(),
+        miniMapHeight = this._worldModel.getMiniMapModel().getMiniMapHeight(),
+        miniMapScaleWidth = this._worldModel.getMiniMapModel().getMiniMapScaleWidth(),
+        miniMapScaleHeight = this._worldModel.getMiniMapModel().getMiniMapScaleHeight(),
+        mapXOnMiniMap = this._worldModel.getMiniMapModel().getMapStartXOnMiniMap(),
+        mapYOnMiniMap = this._worldModel.getMiniMapModel().getMapStartYOnMiniMap(),
+        mapWidthOnMiniMap = this._worldModel.getMiniMapModel().getMapWidthOnMiniMap(),
+        mapHeightOnMiniMap = this._worldModel.getMiniMapModel().getMapHeightOnMiniMap(),
+        viewPortWidthOnMiniMap = cameraModel.getViewPortWidth() * miniMapScaleWidth,
+        viewPortHeightOnMiniMap = cameraModel.getViewPortHeight() * miniMapScaleHeight,
+        entity,
+        entityIndex,
+        entityIndexMax = entityListModel.length(),
+        entitySizeOnMiniMap;
+
+    //Rysowanie backgrounda miniMapy
+    this._canvasContext.fillStyle = '#222222';
+    this._canvasContext.fillRect(0, this._canvas.height - miniMapHeight, miniMapWidth, miniMapHeight);
+
+    //Rysowanie mapy na minimapie
+    this._canvasContext.fillStyle = '#444444';
+    this._canvasContext.fillRect(mapXOnMiniMap, this._canvas.height - miniMapHeight + mapYOnMiniMap, Math.round(mapWidthOnMiniMap), Math.round(mapHeightOnMiniMap));
+
+    //Rysowanie obiektow na minimapie
+    for (entityIndex = 0; entityIndex < entityIndexMax; entityIndex++) {
+        entity = entityListModel.getElement(entityIndex);
+
+        var posXonMiniMap = Math.round(mapXOnMiniMap + entity.getX() * miniMapScaleWidth);
+        var posYonMiniMap = Math.round(mapYOnMiniMap + entity.getY() * miniMapScaleHeight);
+
+        entitySizeOnMiniMap = Math.ceil(entity.getRadius() * miniMapScaleWidth);
+
+        if (entity.getTeam() === 1) {
+            this._canvasContext.fillStyle = '#0000FF';
+            this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
+        } else if (entity.getTeam() === 2) {
+            this._canvasContext.fillStyle = '#FF0000';
+            this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
+        }
+
+    }
+
+    //viewPort na minimapie
+    this._canvasContext.beginPath();
+    this._canvasContext.strokeStyle = '#FFFFFF';
+    this._canvasContext.rect(mapXOnMiniMap + cameraModel.getViewPortX() * miniMapScaleWidth, this._canvas.height - miniMapHeight + mapYOnMiniMap + cameraModel.getViewPortY() * miniMapScaleHeight, viewPortWidthOnMiniMap, viewPortHeightOnMiniMap);
+    this._canvasContext.lineWidth = 1;
+    this._canvasContext.stroke();
+
+};
+
+/**
+ * @method _drawActionMenu
+ * @private
+ * @param {app.model.ListModel} selectedEntityModelList
+ */
+app.view.WorldView.prototype._drawActionMenu = function _drawActionMenu(selectedEntityModelList) {
+
+    if (selectedEntityModelList.length === 0){
+        return;
+    }
+
+    var actionMenuSize = 150,
+        index,
+        tileIndexX,
+        tileIndexY,
+        maxTileIndexX = 4,
+        maxTileIndexY = 4,
+        tileWidth = 150/maxTileIndexX,
+        tileHeight = 150/maxTileIndexY,
+        startActionMenuX = this._canvas.width - actionMenuSize,
+        startActionMenuY = this._canvas.height - actionMenuSize,
+        element = selectedEntityModelList.getElement(0),
+        action = element === undefined ? undefined : element._availableActions,
+        actionLength = action === undefined ? 0 : action.length;
+
+    //Rysowanie backgrounda miniMapy
+    this._canvasContext.fillStyle = '#222222';
+    this._canvasContext.fillRect(startActionMenuX, startActionMenuY, actionMenuSize, actionMenuSize);
+
+    this._canvasContext.beginPath();
+    this._canvasContext.strokeStyle = '#FFFFFF';
+
+    //for (var i=0; i<selectedEntityModelList.getElement(0)._availableActions.length; i++){
+    //
+    //
+    //
+    //}
+
+    this._canvasContext.fillStyle = '#FFFFFF';
+
+    for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
+        for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
+            index = tileIndexY+tileIndexX*maxTileIndexY;
+
+            if (actionLength>index){
+                this._canvasContext.fillText(action[index], startActionMenuX+tileIndexX*tileWidth+tileWidth/2, startActionMenuY+tileIndexY*tileHeight+tileHeight/2);
+            }
+
+            this._canvasContext.rect(startActionMenuX+tileIndexX*tileWidth, startActionMenuY+tileIndexY*tileHeight, tileWidth, tileHeight);
+        }
+    }
+
+    this._canvasContext.lineWidth = 1;
+    this._canvasContext.stroke();
+
+};
+
+/**
+ * @method _drawActionMenu
+ * @private
+ * @param {app.model.ListModel} selectedEntityModelList
+ */
+app.view.WorldView.prototype._drawEntitysStatusMenu = function _drawEntitysStatusMenu(selectedEntityModelList) {
+
+    var minimapWidth = this._worldModel.getMiniMapModel().getMiniMapWidth();
+    var actionMenuWidth = 150;
+    var outsideSpace = 10;
+    var hudHeight = 75;
+    var hudTop = this._canvas.height - hudHeight;
+
+    this._canvasContext.fillStyle = '#222222';
+    this._canvasContext.fillRect(minimapWidth + outsideSpace, hudTop, canvas.width - minimapWidth - actionMenuWidth - outsideSpace*2, hudHeight);
+
+    this._canvasContext.fillStyle = '#FFFFFF';
+    this._canvasContext.fillText("EntityModelIndex: " + app.model.EntityModelIndex.ENTITY_MODEL_INDEX, minimapWidth + outsideSpace + 10, hudTop + 20);
+
+
+    //Zaznaczanie
+    var selectedElementLength = this._worldModel.getSelectedEntityListModel().length();
+    if (selectedElementLength === 1) {
+
+        var selectedElement = this._worldModel.getSelectedEntityListModel().getElement(0);
+        //HP
+        this._canvasContext.fillText("HP: " + selectedElement.getCurrentHp() + "/" + selectedElement.getHp(), minimapWidth + outsideSpace + 10, hudTop + 40);
+
+        var buildList = selectedElement.getBuildList();
+        if (buildList !== null) {
+            var buildListIndex;
+            var buildListLength = buildList.length();
+            var buildListElement = null;
+
+            for (buildListIndex = 0; buildListIndex < buildListLength; buildListIndex++) {
+                buildListElement = buildList.getElement(buildListIndex);
+                this._canvasContext.fillText("BUILDING: " + buildListElement.getCurrentBuildTime() + "/" + buildListElement.getBuildTime(), minimapWidth + outsideSpace + 200, hudTop + 20 + 20 * buildListIndex);
+            }
+        }
+
+
+    } else if (selectedElementLength > 1) {
+
+        this._canvasContext.fillText("SELECTED COUNT: " + selectedElementLength, minimapWidth + outsideSpace + 10, hudTop + 40);
+
+    }
+
 };

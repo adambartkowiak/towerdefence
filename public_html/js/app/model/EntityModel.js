@@ -178,6 +178,13 @@ app.model.EntityModel = function EntityModel() {
     this._buildList = new app.model.EntityListModel();
 
     /**
+     * Tablica dostepnych akcji, ktora moze wykonac dane entity
+     * @property {Array} _availableActions
+     * @private
+     */
+    this._availableActions = [];
+
+    /**
      * @property {String} _graphicUrl
      * @private
      */
@@ -668,6 +675,9 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._moveList = this._moveList.clone();
     clone._buildList = this._buildList.clone();
 
+    //klonowanie tablic
+    clone._availableActions = this._availableActions.slice();
+
     return clone;
 };
 
@@ -700,6 +710,8 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     this._graphicUrl = JSON._graphicUrl;
     this._moveList.loadFromJSON(JSON._moveList);
     this._buildList.loadFromJSON(JSON._buildList);
+    //this._availableActions = JSON._availableActions;
+    this._availableActions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];//JSON._availableActions;
 };
 
 /**
@@ -732,7 +744,8 @@ app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
         l:this._targetable,
         m:this._graphicUrl,
         n:this._moveList.getMinifyJSON(),
-        o:this._buildList.getMinifyJSON()
+        o:this._buildList.getMinifyJSON(),
+        p:this._availableActions
     };
 
     return result;
@@ -774,7 +787,8 @@ app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON)
         _targetable: minifyJSON["l"],
         _graphicUrl: minifyJSON["m"],
         _moveList: targetListModel.unMinifyJSON(minifyJSON["n"]),
-        _buildList: entityListModel.unMinifyJSON(minifyJSON["o"])
+        _buildList: entityListModel.unMinifyJSON(minifyJSON["o"]),
+        _availableActions: minifyJSON["p"]
     };
     return result;
 };

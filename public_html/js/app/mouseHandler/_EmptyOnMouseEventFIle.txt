@@ -1,0 +1,56 @@
+
+
+/**
+ * @method onMouseDown
+ * @public
+ * @param {Event} e
+ */
+__namespace__.prototype.onMouseDown = function onMouseDown(e) {
+    console.log("__namespace__.prototype.onMouseDown");
+};
+
+/**
+ * @method onMouseUp
+ * @public
+ * @param {Event} e
+ */
+__namespace__.prototype.onMouseUp = function onMouseUp(e) {
+    console.log("__namespace__.prototype.onMouseUp");
+};
+
+/**
+ * @method onMouseMove
+ * @public
+ * @param {Event} e
+ */
+__namespace__.prototype.onMouseMove = function onMouseMove(e) {
+    console.log("__namespace__.prototype.onMouseMove");
+};
+
+/**
+ * @method onMouseDrag
+ * @public
+ * @param {Event} e
+ */
+__namespace__.prototype.onMouseDrag = function onMouseDrag(e) {
+    console.log("__namespace__.prototype.onMouseDrag");
+};
+
+/**
+ * @method onMouseEnter
+ * @public
+ * @param {Event} e
+ */
+__namespace__.prototype.onMouseEnter = function onMouseEnter(e) {
+    console.log("__namespace__.prototype.onMouseEnter");
+};
+
+/**
+ * @method onMouseLeave
+ * @public
+ * @param {Event} e
+ */
+__namespace__.prototype.onMouseLeave = function onMouseLeave(e) {
+    console.log("__namespace__.prototype.onMouseLeave");
+};
+

@@ -15,6 +15,9 @@ var Utils = Utils || {};
  * @constructor
  */
 app.model.AvailableActionsModel = {
+
+    //TO GENERALNIE POWINIEN BYC JSON - ktory powinien generowac sie automatycznie na podstawie innych JSONow np. budynkow, akcji, jednostek itp.
+
     MOVE: 0,
     CANCEL: 1,
     HOLD: 2,
@@ -30,5 +33,8 @@ app.model.AvailableActionsModel = {
     BUILD_TREE3: 12,
     BUILD_ROCK1: 13,
     BUILD_ROCK2: 14,
-    BUILD_ROCK3: 15
+    BUILD_ROCK3: 15,
+    TRAIN_ARCHER: 16,
+    TRAIN_WARRIOR: 17,
+    TRAIN_WORKER: 18
 };

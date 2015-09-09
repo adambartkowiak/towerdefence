@@ -32,17 +32,17 @@ app.model.WorldModel = function WorldModel() {
 
     /**
      * Informacje na temat minimapy
-     * @property {app.model.MiniMapModel} _miniMapModel
+     * @property {app.model.gui.MiniMapModel} _miniMapModel
      * @private
      */
-    this._miniMapModel = new app.model.MiniMapModel(150, 150, this._mapModel);
+    this._miniMapModel = new app.model.gui.MiniMapModel(100, 200, 200, 200, this);
 
     /**
      * Informacje na temat kamery
      * @property {app.model.CameraModel} _cameraModel
      * @private
      */
-    this._cameraModel = new app.model.CameraModel(0, 0, 760, 500);
+    this._cameraModel = new app.model.CameraModel(0, 0, 400, 400);
 
     /**
      * Licznik stworzonych obiektow w swiecie gry - potrzebny aby kazdy kolejny obiekt mial unikatowa nazwe
@@ -115,7 +115,7 @@ app.model.WorldModel.prototype.getMapModel = function getMapModel() {
 
 /**
  * @method getMiniMapModel
- * @return {app.model.MiniMapModel}
+ * @return {app.model.gui.MiniMapModel}
  */
 app.model.WorldModel.prototype.getMiniMapModel = function getMiniMapModel() {
     return this._miniMapModel;
@@ -164,7 +164,7 @@ app.model.WorldModel.prototype.setMapModel = function setMapModel(mapModel) {
 
 /**
  * @method setMiniMapModel
- * @param {app.model.MiniMapModel} miniMapModel
+ * @param {app.model.gui.MiniMapModel} miniMapModel
  */
 app.model.WorldModel.prototype.setMiniMapModel = function setMiniMapModel(miniMapModel) {
     this._miniMapModel = miniMapModel;

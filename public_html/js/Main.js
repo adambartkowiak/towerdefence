@@ -35,7 +35,7 @@ if (loadFromFile) {
     };
 
 
-    app.loadGameSave("assets/gamesaves/newSaveGame001Minified.json");
+    app.loadGameSave("assets/gamesaves/newSaveGame003Minified.json");
     //app.loadGameSave("assets/gamesaves/newSaveGame001.json");
 }
 
@@ -257,14 +257,13 @@ if (loadFromWebservice) {
 //entityListModel.addElement(base2);
 //worldModel.setEntityListModel(entityListModel);
 
-
-//WIDOKI
-var worldView = new app.view.WorldView(canvas, worldModel);
-
 //EVENTY MYSZKI
 var mouseHandler = new app.mouseHandler.MouseEventHandler(timer, worldModel.getEntityListModel(), worldModel);
 var mouse = new support.Mouse(mouseHandler);
 mouse.initMouse();
+
+//WIDOKI
+var worldView = new app.view.WorldView(canvas, worldModel, mouseHandler);
 
 //CONTROLLERS DATA
 var entityListModel = worldModel.getEntityListModel();

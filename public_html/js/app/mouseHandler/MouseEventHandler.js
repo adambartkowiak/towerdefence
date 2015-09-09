@@ -53,11 +53,32 @@ app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityLis
      */
     this._clickOnMinimap = false;
 
+    /**
+     * @property {boolean} _clickOnActionMenu
+     * @private
+     */
+    this._clickOnActionMenu = false;
+
     this._rightClickOffsetX = 0;
     this._rightClickOffsetY = 0;
+
+    this._mouseEventListenerArray = [];
+
+
 };
 
 Utils.inherits(app.mouseHandler.MouseEventHandler, support.AbstractMouseEventHandler);
+
+/**
+ * @method addMouseEventListener
+ * @param {Object} object
+ */
+
+app.mouseHandler.MouseEventHandler.prototype.addMouseEventListener = function addMouseEventListener(object) {
+
+    this._mouseEventListenerArray.push(object);
+
+};
 
 /**
  * @method onMouseDown
@@ -68,6 +89,15 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
     if (e.target.id !== "map") {
         return;
     }
+
+
+    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+        var view = this._mouseEventListenerArray[index];
+        //if (view.getX(), view.getY(), view.getWidth(), view.getHeight()){
+        this._mouseEventListenerArray[index].onMouseDown(e);
+        //}
+    }
+
 
     var listLength = this._entityListModel.length();
     var elementIndex;
@@ -93,17 +123,18 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
 
     }
 
-    if (e.offsetX < miniMapModel.getMiniMapWidth() && e.offsetY > 500 - miniMapModel.getMiniMapHeight()) {
+    if (e.offsetX < miniMapModel.getMiniMapWidth() && e.offsetY > 800 - miniMapModel.getMiniMapHeight()) {
         this._clickOnMinimap = true;
     } else {
         this._clickOnMinimap = false;
     }
 
+
     if (e.button === 0) {
         //sprawdzam czy klikniecie odbylo sie na miniMapie
         if (this._clickOnMinimap) {
             this._worldModel.getCameraModel().setPositionX((e.offsetX - 0 - this._worldModel.getMiniMapModel().getMapStartXOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleWidth());
-            this._worldModel.getCameraModel().setPositionY((e.offsetY - 500 + miniMapModel.getMiniMapHeight() - this._worldModel.getMiniMapModel().getMapStartYOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleHeight());
+            this._worldModel.getCameraModel().setPositionY((e.offsetY - 800 + miniMapModel.getMiniMapHeight() - this._worldModel.getMiniMapModel().getMapStartYOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleHeight());
         } else {
             this._dragSelectionRect = new support.geom.Rect(e.offsetX + this._worldModel.getCameraModel().getViewPortX(), e.offsetY + this._worldModel.getCameraModel().getViewPortY(), 5, 5);
             this._worldModel.setSelectRect(this._dragSelectionRect);
@@ -156,6 +187,13 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
 
+    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+        var view = this._mouseEventListenerArray[index];
+        //if (view.getX(), view.getY(), view.getWidth(), view.getHeight()){
+        this._mouseEventListenerArray[index].onMouseUp(e);
+        //}
+    }
+
     var listLength = this._entityListModel.length();
     var elementIndex;
     var element;
@@ -204,6 +242,23 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseMove = function onMouseMove(e) {
 
+    var view = null;
+    var mX = e.offsetX;
+    var mY = e.offsetY;
+    var rectCollision = new support.geom.Rect(0, 0, 0, 0);
+    var point = new support.geom.Point2d(mX,mY);
+
+
+    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+
+        view = this._mouseEventListenerArray[index];
+        rectCollision = new support.geom.Rect(view.getX(), view.getY(), view.getWidth(), view.getHeight());
+
+        if (support.geom.collision.Collision.Point2dRect(point, rectCollision)) {
+            view.onMouseMove(e);
+        }
+    }
+
 };
 
 /**
@@ -211,6 +266,10 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseMove = function onMouseMove(
  * @param {Event} e
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(e) {
+
+    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+        this._mouseEventListenerArray[index].onMouseDrag(e);
+    }
 
     var miniMapModel = this._worldModel.getMiniMapModel();
 
@@ -231,7 +290,7 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(
 
     if (this._clickOnMinimap) {
         this._worldModel.getCameraModel().setPositionX((e.offsetX - 0 - this._worldModel.getMiniMapModel().getMapStartXOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleWidth());
-        this._worldModel.getCameraModel().setPositionY((e.offsetY - 500 + miniMapModel.getMiniMapHeight() - this._worldModel.getMiniMapModel().getMapStartYOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleHeight());
+        this._worldModel.getCameraModel().setPositionY((e.offsetY - 800 + miniMapModel.getMiniMapHeight() - this._worldModel.getMiniMapModel().getMapStartYOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleHeight());
     }
 
     if (e.button === 2 && this._worldModel.getSelectedEntityListModel().length() === 0) {
@@ -260,7 +319,6 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(
     //
     //}
 };
-
 
 
 ///**

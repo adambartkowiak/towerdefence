@@ -36,7 +36,8 @@ and open the template in the editor.
 
 </script>
 
-<canvas style="margin:0 auto 0 auto;display:block;background:#111111" id="map" width="760" height="500"></canvas>
+<!-- <canvas style="margin:0 auto 0 auto;display:block;background:#111111" id="map" width="760" height="500"></canvas> -->
+<canvas style="margin:0 auto 0 auto;display:block;background:#111111" id="map" width="800" height="800"></canvas>
 
 <div>HTML5 GAME</div>
 
@@ -61,6 +62,7 @@ and open the template in the editor.
 
 <script type="text/javascript" src="js/support/graphics/Image.js"></script>
 
+<script type="text/javascript" src="js/support/view/AbstractView.js"></script>
 
 
 <!-- Game Files -->
@@ -78,12 +80,12 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
 <script type="text/javascript" src="js/app/model/MapModel.js"></script>
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
-<script type="text/javascript" src="js/app/model/MiniMapModel.js"></script>
+<script type="text/javascript" src="js/app/model/gui/MiniMapModel.js"></script>
 
 <!--VIEW-->
+<script type="text/javascript" src="js/support/view/MinimapView.js"></script>
+<script type="text/javascript" src="js/app/view/gui/StatusMenuView.js"></script>
 <script type="text/javascript" src="js/app/view/WorldView.js"></script>
-<script type="text/javascript" src="js/app/view/HudView.js"></script>
-<script type="text/javascript" src="js/app/view/EntityView.js"></script>
 
 <!--CONTROLLER-->
 <script type="text/javascript" src="js/app/controller/BuildController.js"></script>
@@ -128,6 +130,11 @@ and open the template in the editor.
             - Poprawiono model wykrywania kolizji - rectangle-circle - co skutkuje np. lepszym zaznaczaniem obiektow na mapie<br>
             - dodano wlasciwosci do obiektow np. team, targetable, selectable itp.<br>
         </span>
+
+
+DODAC: minimape, button, text, statusmenu tak aby odtworzyc funkcjonalnosc ktora juz mamy + dodatkowo dodac kontrolery do widokow <br>
+Dodac tez logike przekazywania eventow po struktorze drzewa dla GUI.
+
 
 </body>
 </html>

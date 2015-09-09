@@ -641,6 +641,53 @@ app.model.EntityModel.prototype.getGraphicUrl = function getGraphicUrl() {
     return this._graphicUrl;
 };
 
+/*
+Z Interfejsu IMinimapElement
+ */
+
+/**
+ * @method getPositionXonMap
+ * @return {number} positionXonMap
+ */
+app.model.EntityModel.prototype.getPositionXonMap = function getPositionXonMap() {
+    return this._circle.getX();
+};
+
+/**
+ * @method getPositionYonMap
+ * @return {number} positionYonMap
+ */
+app.model.EntityModel.prototype.getPositionYonMap = function getPositionYonMap() {
+    return this._circle.getY();
+};
+
+/**
+ * @method getRadiusOnMap
+ * @return {number} radiusOnMap
+ */
+app.model.EntityModel.prototype.getRadiusOnMap = function getRadiusOnMap() {
+    return this._circle.getRadius();
+};
+
+/**
+ * @method getColorOnMinimap
+ * @return {string} colorOnMinimap
+ */
+app.model.EntityModel.prototype.getColorOnMinimap = function getColorOnMinimap() {
+    return '#FFFFFF';
+};
+
+/**
+ * @method isVisibleOnMinimap
+ * @return {boolean}
+ */
+app.model.EntityModel.prototype.isVisibleOnMinimap = function isVisibleOnMinimap() {
+    return true;
+};
+
+
+
+
 /**
  * @method clone
  * @return {app.model.EntityModel} clone

@@ -15,8 +15,9 @@ var Utils = Utils || {};
  * @constructor
  * @param {HTMLCanvasElement} canvas
  * @param {app.model.WorldModel} worldModel
+ * @param {app.mouseHandler.MouseEventHandler} mouseEventHandler
  */
-app.view.WorldView = function WorldView(canvas, worldModel) {
+app.view.WorldView = function WorldView(canvas, worldModel, mouseEventHandler) {
 
     /**
      * @property {HTMLCanvasElement} _canvas
@@ -26,19 +27,21 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
 
     /**
      * @property {CanvasRenderingContext2D} _canvasContext
+     * @private
      */
     this._canvasContext = canvas.getContext("2d");
 
     /**
-     * @property {app.objects.WorldModel} _worldModel
+     * @property {app.model.WorldModel} _worldModel
+     * @private
      */
     this._worldModel = worldModel;
 
     /**
-     * @property {Image} _backgroundImage
+     * @property {app.mouseHandler.MouseEventHandler} _mouseEventHandler
+     * @private
      */
-    this._backgroundImage = new Image();
-    this._backgroundImage.src = "assets/images/map1.png";
+    this._mouseEventHandler = mouseEventHandler;
 
 
     this._grassTile = new Image();
@@ -68,9 +71,6 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
 
     this._entityImage["assets/images/bullet4.png"] = new Image();
     this._entityImage["assets/images/bullet4.png"].src = "assets/images/bullet4.png";
-
-    this._entityImage["assets/images/comandCenter0.png"] = new Image();
-    this._entityImage["assets/images/comandCenter0.png"].src = "assets/images/comandCenter0.png";
 
     this._entityImage["assets/images/base1.png"] = new Image();
     this._entityImage["assets/images/base1.png"].src = "assets/images/base1.png";
@@ -102,10 +102,30 @@ app.view.WorldView = function WorldView(canvas, worldModel) {
     this._drawPath = true;
 
     /**
-     * @property {Boolean} _drawPath
+     * @property {support.view.MinimapView} _minimapView
      * @private
      */
-    this._drawHud = true;
+    this._minimapView = new support.view.MinimapView();
+    this._minimapView.setX(this._worldModel.getMiniMapModel().getMiniMapPositionX());
+    this._minimapView.setY(this._worldModel.getMiniMapModel().getMiniMapPositionY());
+    this._minimapView.setWidth(this._worldModel.getMiniMapModel().getMiniMapWidth());
+    this._minimapView.setHeight(this._worldModel.getMiniMapModel().getMiniMapHeight());
+    this._minimapView.setMapWidth(this._worldModel.getMapModel().getMapWidth());
+    this._minimapView.setMapHeight(this._worldModel.getMapModel().getMapHeight());
+
+    this._minimapView.setViewPort(this._worldModel.getCameraModel());
+    this._minimapView.setElements(this._worldModel.getEntityListModel().getElements());
+
+    /**
+     * @property {app.view.gui.StatusMenuView} _statusMenuView
+     * @private
+     */
+    this._statusMenuView = new app.view.gui.StatusMenuView(canvas, worldModel);
+
+    //Widoki maja zawierac wszystkie zmienne do wyrenderowania oraz do eventow myszki
+    //a w modelu minimapy znajduja sie dane, potrzebne do initu widoku
+    this._mouseEventHandler.addMouseEventListener(this._minimapView);
+    //this._mouseEventHandler.addMouseEventListener(this._statusMenuView);
 
 };
 
@@ -129,9 +149,13 @@ app.view.WorldView.prototype.draw = function draw() {
     this._drawSelectedArea(this._worldModel.getCameraModel());
 
 
-    this._drawMiniMap(this._worldModel.getMapModel(), this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
-    this._drawEntitysStatusMenu();
-    this._drawActionMenu(this._worldModel.getSelectedEntityListModel());
+    //Renderowanie minimapy
+    //this._worldModel.getMiniMapModel().setMiniMapPositionX(0);
+    //this._worldModel.getMiniMapModel().setMiniMapPositionY(this._canvas.height - this._worldModel.getMiniMapModel().getMiniMapHeight());
+    this._minimapView.draw(this._canvas);
+
+    //this._statusMenuView.draw();
+    //this._drawActionMenu(this._worldModel.getSelectedEntityListModel());
 
 
     //this._canvasContext.setTransform(1, 0, 0, 1, 0, 0);
@@ -323,66 +347,6 @@ app.view.WorldView.prototype._drawSelectedArea = function _drawSelectedArea(came
 };
 
 /**
- * @method _drawMiniMap
- * @private
- * @param {app.model.MapModel} mapModel
- * @param {app.model.ListModel} entityListModel
- * @param {app.model.CameraModel} cameraModel
- */
-app.view.WorldView.prototype._drawMiniMap = function _drawMiniMap(mapModel, entityListModel, cameraModel) {
-
-    var miniMapWidth = this._worldModel.getMiniMapModel().getMiniMapWidth(),
-        miniMapHeight = this._worldModel.getMiniMapModel().getMiniMapHeight(),
-        miniMapScaleWidth = this._worldModel.getMiniMapModel().getMiniMapScaleWidth(),
-        miniMapScaleHeight = this._worldModel.getMiniMapModel().getMiniMapScaleHeight(),
-        mapXOnMiniMap = this._worldModel.getMiniMapModel().getMapStartXOnMiniMap(),
-        mapYOnMiniMap = this._worldModel.getMiniMapModel().getMapStartYOnMiniMap(),
-        mapWidthOnMiniMap = this._worldModel.getMiniMapModel().getMapWidthOnMiniMap(),
-        mapHeightOnMiniMap = this._worldModel.getMiniMapModel().getMapHeightOnMiniMap(),
-        viewPortWidthOnMiniMap = cameraModel.getViewPortWidth() * miniMapScaleWidth,
-        viewPortHeightOnMiniMap = cameraModel.getViewPortHeight() * miniMapScaleHeight,
-        entity,
-        entityIndex,
-        entityIndexMax = entityListModel.length(),
-        entitySizeOnMiniMap;
-
-    //Rysowanie backgrounda miniMapy
-    this._canvasContext.fillStyle = '#222222';
-    this._canvasContext.fillRect(0, this._canvas.height - miniMapHeight, miniMapWidth, miniMapHeight);
-
-    //Rysowanie mapy na minimapie
-    this._canvasContext.fillStyle = '#444444';
-    this._canvasContext.fillRect(mapXOnMiniMap, this._canvas.height - miniMapHeight + mapYOnMiniMap, Math.round(mapWidthOnMiniMap), Math.round(mapHeightOnMiniMap));
-
-    //Rysowanie obiektow na minimapie
-    for (entityIndex = 0; entityIndex < entityIndexMax; entityIndex++) {
-        entity = entityListModel.getElement(entityIndex);
-
-        var posXonMiniMap = Math.round(mapXOnMiniMap + entity.getX() * miniMapScaleWidth);
-        var posYonMiniMap = Math.round(mapYOnMiniMap + entity.getY() * miniMapScaleHeight);
-
-        entitySizeOnMiniMap = Math.ceil(entity.getRadius() * miniMapScaleWidth);
-
-        if (entity.getTeam() === 1) {
-            this._canvasContext.fillStyle = '#0000FF';
-            this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
-        } else if (entity.getTeam() === 2) {
-            this._canvasContext.fillStyle = '#FF0000';
-            this._canvasContext.fillRect(0 + posXonMiniMap - entitySizeOnMiniMap / 2, this._canvas.height - miniMapHeight + posYonMiniMap - entitySizeOnMiniMap / 2, entitySizeOnMiniMap, entitySizeOnMiniMap);
-        }
-
-    }
-
-    //viewPort na minimapie
-    this._canvasContext.beginPath();
-    this._canvasContext.strokeStyle = '#FFFFFF';
-    this._canvasContext.rect(mapXOnMiniMap + cameraModel.getViewPortX() * miniMapScaleWidth, this._canvas.height - miniMapHeight + mapYOnMiniMap + cameraModel.getViewPortY() * miniMapScaleHeight, viewPortWidthOnMiniMap, viewPortHeightOnMiniMap);
-    this._canvasContext.lineWidth = 1;
-    this._canvasContext.stroke();
-
-};
-
-/**
  * @method _drawActionMenu
  * @private
  * @param {app.model.ListModel} selectedEntityModelList
@@ -414,12 +378,6 @@ app.view.WorldView.prototype._drawActionMenu = function _drawActionMenu(selected
     this._canvasContext.beginPath();
     this._canvasContext.strokeStyle = '#FFFFFF';
 
-    //for (var i=0; i<selectedEntityModelList.getElement(0)._availableActions.length; i++){
-    //
-    //
-    //
-    //}
-
     this._canvasContext.fillStyle = '#FFFFFF';
 
     for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
@@ -436,54 +394,5 @@ app.view.WorldView.prototype._drawActionMenu = function _drawActionMenu(selected
 
     this._canvasContext.lineWidth = 1;
     this._canvasContext.stroke();
-
-};
-
-/**
- * @method _drawActionMenu
- * @private
- * @param {app.model.ListModel} selectedEntityModelList
- */
-app.view.WorldView.prototype._drawEntitysStatusMenu = function _drawEntitysStatusMenu(selectedEntityModelList) {
-
-    var minimapWidth = this._worldModel.getMiniMapModel().getMiniMapWidth();
-    var actionMenuWidth = 150;
-    var outsideSpace = 10;
-    var hudHeight = 75;
-    var hudTop = this._canvas.height - hudHeight;
-
-    this._canvasContext.fillStyle = '#222222';
-    this._canvasContext.fillRect(minimapWidth + outsideSpace, hudTop, canvas.width - minimapWidth - actionMenuWidth - outsideSpace*2, hudHeight);
-
-    this._canvasContext.fillStyle = '#FFFFFF';
-    this._canvasContext.fillText("EntityModelIndex: " + app.model.EntityModelIndex.ENTITY_MODEL_INDEX, minimapWidth + outsideSpace + 10, hudTop + 20);
-
-
-    //Zaznaczanie
-    var selectedElementLength = this._worldModel.getSelectedEntityListModel().length();
-    if (selectedElementLength === 1) {
-
-        var selectedElement = this._worldModel.getSelectedEntityListModel().getElement(0);
-        //HP
-        this._canvasContext.fillText("HP: " + selectedElement.getCurrentHp() + "/" + selectedElement.getHp(), minimapWidth + outsideSpace + 10, hudTop + 40);
-
-        var buildList = selectedElement.getBuildList();
-        if (buildList !== null) {
-            var buildListIndex;
-            var buildListLength = buildList.length();
-            var buildListElement = null;
-
-            for (buildListIndex = 0; buildListIndex < buildListLength; buildListIndex++) {
-                buildListElement = buildList.getElement(buildListIndex);
-                this._canvasContext.fillText("BUILDING: " + buildListElement.getCurrentBuildTime() + "/" + buildListElement.getBuildTime(), minimapWidth + outsideSpace + 200, hudTop + 20 + 20 * buildListIndex);
-            }
-        }
-
-
-    } else if (selectedElementLength > 1) {
-
-        this._canvasContext.fillText("SELECTED COUNT: " + selectedElementLength, minimapWidth + outsideSpace + 10, hudTop + 40);
-
-    }
 
 };

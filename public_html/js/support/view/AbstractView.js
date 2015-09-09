@@ -1,0 +1,156 @@
+/**
+ * Created by adambartkowiak on 07/09/15.
+ */
+
+'use strict';
+
+var support = support || {};
+support.view = support.view || {};
+
+var Utils = Utils || {};
+
+/**
+ * @namespace support.view
+ * @class Rect
+ * @constructor
+ * @param {number} x
+ * @param {number} y
+ * @param {number} width
+ * @param {number} height
+ */
+support.view.AbstractView = function AbstractView(x, y, width, height) {
+
+    /**
+     * @property {number} x
+     * @private
+     */
+    this._x = x;
+
+    /**
+     * @property {number} y
+     * @private
+     */
+    this._y = y;
+
+    /**
+     * @property {number} width
+     * @private
+     */
+    this._width = width;
+
+    /**
+     * @property {number} height
+     * @private
+     */
+    this._height = height;
+
+    /**
+     * @property {string} backgroundColor
+     * @private
+     */
+    this._backgroundColor = '#222222';
+
+    /**
+     * @property {EventListener} eventListener
+     * @private
+     */
+    this._eventListener = null;
+};
+
+Utils.inherits(support.view.AbstractView, Object);
+
+/**
+ * @method getX
+ * @return {number} x
+ */
+support.view.AbstractView.prototype.getX = function getX() {
+    return this._x;
+};
+
+/**
+ * @method getY
+ * @return {number} y
+ */
+support.view.AbstractView.prototype.getY = function getY() {
+    return this._y;
+};
+
+/**
+ * @method getWidth
+ * @return {number} width
+ */
+support.view.AbstractView.prototype.getWidth = function getWidth() {
+    return this._width;
+};
+
+/**
+ * @method getHeight
+ * @return {number} height
+ */
+support.view.AbstractView.prototype.getHeight = function getHeight() {
+    return this._height;
+};
+
+/**
+ * @method getBackgroundColor
+ * @return {string} backgroundColor
+ */
+support.view.AbstractView.prototype.getBackgroundColor = function getBackgroundColor() {
+    return this._backgroundColor;
+};
+
+/**
+ * @method getEventListener
+ * @return {EventListener} _eventListener
+ */
+support.view.AbstractView.prototype.getEventListener = function getEventListener() {
+    return this._eventListener;
+};
+
+/**
+ * @method setX
+ * @param {number} x
+ */
+support.view.AbstractView.prototype.setX = function setX(x) {
+    this._x = x;
+};
+
+/**
+ * @method setY
+ * @param {number} y
+ */
+support.view.AbstractView.prototype.setY = function setY(y) {
+    this._y = y;
+};
+
+/**
+ * @method setWidth
+ * @param {number} width
+ */
+support.view.AbstractView.prototype.setWidth = function setWidth(width) {
+    this._width = width;
+};
+
+/**
+ * @method setHeight
+ * @param {number} height
+ */
+support.view.AbstractView.prototype.setHeight = function setHeight(height) {
+    this._height = height;
+};
+
+/**
+ * @method setBackgroundColor
+ * @param {number} backgroundColor
+ */
+support.view.AbstractView.prototype.setBackgroundColor = function setBackgroundColor(backgroundColor) {
+    this._backgroundColor = backgroundColor;
+};
+
+/**
+ * @method setEventListener
+ * @param {EventListener} value
+ */
+support.view.AbstractView.prototype.setEventListener = function setEventListener(value) {
+    this._eventListener = value;
+};

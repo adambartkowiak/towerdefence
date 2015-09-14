@@ -9,6 +9,7 @@
 //API Url
 $url = 'http://towerdefence-001-site1.smarterasp.net/TowerDefenceService.svc/json/LoadGame/C82D8128-A3B2-42B8-A6D0-EE9413961024';
 
+//guid=0a26a193-6df5-4671-a85d-226fdb61ca16
 //Initiate cURL.
 $ch = curl_init($url);
 

@@ -15,9 +15,8 @@ var paramValue = atr[1];
 
 
 //USTALENIE CZY JSON STANU GRY LADUJE SIE Z PLIKU LOKALNEGO CZY Z WEBSERWISU
-var loadFromFile = true;
+var loadFromFile = false;
 var loadFromWebservice = !loadFromFile;
-
 
 //LADWOANIE MAPY
 var mapIsReady = false;
@@ -28,14 +27,11 @@ if (loadFromFile) {
 
     app.loadGameSave = function loadGameSave(saveGameName) {
         saveGameLoader.loadJson(function (response) {
-            //app.loadGame(response);
-            app.loadGameFromMinifyString(response);
-            mapIsReady = true;
+            mapIsReady =  app.loadGameFromMinifyString(response);
         }, saveGameName);
     };
 
-
-    app.loadGameSave("assets/gamesaves/newSaveGame003Minified.json");
+    app.loadGameSave("assets/gamesaves/newSaveGame004Minified.json");
     //app.loadGameSave("assets/gamesaves/newSaveGame001.json");
 }
 
@@ -45,45 +41,25 @@ if (loadFromWebservice) {
 
     //FUNKCJA DO LADOWANIA XMLA
     function loadXMLDoc(callback, url) {
-        var xmlhttp;
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onload = function () {
 
-            console.log(xmlhttp);
+        var request = new XMLHttpRequest();
+        request.onload = function () {
 
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (request.readyState == 4 && request.status == 200) {
                 //wywolanie funkcji po pobraniu danych
-                callback(xmlhttp);
+                callback(request);
             }
         }
 
-        var stringDataToSend = JSON.stringify({ currentGameGuid: paramValue });
-        xmlhttp.open("GET", url, true);
-        //xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-        xmlhttp.send();
+        request.open("GET", url, true);
+        request.send();
     }
 
-
-    //if (paramName === 'guid') {
-    //    alert(vars[0]);
-        //pobranie JSONA mapy i zaladowanie go zaraz po pobraniu
-        loadXMLDoc(function (response) {
-            app.load(response);
-            mapIsReady = true;
-        }, "http://towerdefence-001-site1.smarterasp.net/TowerDefenceService.svc/json/LoadGame/C82D8128-A3B2-42B8-A6D0-EE9413961024");
-
-        //adres do pytania o sejva
-        //
-
-    //} else {
-    //    alert("NIE MA PADANEGO GUIDA DLA GRY!!!");
-    //}
-
+    //pobranie JSONA mapy i zaladowanie go zaraz po pobraniu
+    loadXMLDoc(function (response) {
+        mapIsReady = app.loadGameFromMinifyString(response.response);
+        console.log(response.response);
+    }, "LoadGame.php?" + paramName + "=" + paramValue);
 }
 
 
@@ -354,12 +330,7 @@ setInterval(function () {
 //RENDEROWANIE
 setInterval(function () {
 
-    //Nie wchodz do trybu renderowania mapy przed zaladowaniem mapy
-    if (!mapIsReady) {
-        return;
-    }
-
-    worldView.draw();
+    worldView.draw(mapIsReady);
 
 }, 16);
 
@@ -374,11 +345,72 @@ app.saveGameToMinifyString = function saveGameToMinifyString() {
 };
 
 app.loadGame = function loadGame(stringJson) {
-    var json = JSON.parse(stringJson);
-    worldModel.laodFromJSON(json);
+    try {
+        var json = JSON.parse(stringJson);
+        worldModel.laodFromJSON(json);
+    }
+    catch (e){
+        return e.message;
+    }
+
+    return true;
 };
 
 app.loadGameFromMinifyString = function loadGameFromMinifyString(stringJson) {
-    var worldModelMinifyJSON = JSON.parse(stringJson);
-    worldModel.loadFromMinifyJSON(worldModelMinifyJSON);
+    try {
+        var worldModelMinifyJSON = JSON.parse(stringJson);
+        worldModel.loadFromMinifyJSON(worldModelMinifyJSON);
+    }
+    catch (e){
+        return e.message;
+    }
+
+    return true;
+};
+
+
+app.saveGameToMinifyStringAndSendToBackend = function saveGameToMinifyStringAndSendToBackend(){
+
+    console.log("Start Saving Game State");
+
+    var saveGame = app.saveGameToMinifyString();
+    var url = "SaveGame.php?" + atr[0] + "=" + atr[1] + "&saveName=jakasNazwa";
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function () {
+
+        console.log(xmlhttp.response);
+
+        //if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //    //wywolanie funkcji po pobraniu danych
+        //    //callback(xmlhttp);
+        //}
+    }
+
+    var stringDataToSend = saveGame;
+    xmlhttp.open("POST", url, true);
+    xmlhttp.send(stringDataToSend);
+};
+
+
+app.saveScoreAndSendToBackend = function saveScoreAndSendToBackend(){
+
+    var score = Math.round( Math.random() * 1000 );
+    var url = "SaveScore?" + atr[0] + "=" + atr[1] + "&score=" + score;
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function () {
+
+        console.log(xmlhttp);
+
+        //if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //    //wywolanie funkcji po pobraniu danych
+        //    //callback(xmlhttp);
+        //}
+    }
+
+    var stringDataToSend = score;
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
 };

@@ -35,7 +35,7 @@ app.model.WorldModel = function WorldModel() {
      * @property {app.model.gui.MiniMapModel} _miniMapModel
      * @private
      */
-    this._miniMapModel = new app.model.gui.MiniMapModel(100, 200, 200, 200, this);
+    this._miniMapModel = new app.model.gui.MiniMapModel(0, 600, 200, 200, this);
 
     /**
      * Informacje na temat kamery

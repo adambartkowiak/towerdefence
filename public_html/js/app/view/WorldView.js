@@ -54,6 +54,12 @@ app.view.WorldView = function WorldView(canvas, worldModel, mouseEventHandler) {
     this._entityImage["assets/images/enemy0.png"] = new Image();
     this._entityImage["assets/images/enemy0.png"].src = "assets/images/enemy0.png";
 
+    this._entityImage["assets/images/enemy1.png"] = new Image();
+    this._entityImage["assets/images/enemy1.png"].src = "assets/images/enemy1.png";
+
+    this._entityImage["assets/images/enemy2.png"] = new Image();
+    this._entityImage["assets/images/enemy2.png"].src = "assets/images/enemy2.png";
+
     this._entityImage["assets/images/enemy3.png"] = new Image();
     this._entityImage["assets/images/enemy3.png"].src = "assets/images/enemy3.png";
 
@@ -77,6 +83,12 @@ app.view.WorldView = function WorldView(canvas, worldModel, mouseEventHandler) {
 
     this._entityImage["assets/images/base2.png"] = new Image();
     this._entityImage["assets/images/base2.png"].src = "assets/images/base2.png";
+
+    this._entityImage["assets/images/base3.png"] = new Image();
+    this._entityImage["assets/images/base3.png"].src = "assets/images/base3.png";
+
+    this._entityImage["assets/images/base4.png"] = new Image();
+    this._entityImage["assets/images/base4.png"].src = "assets/images/base4.png";
 
     /**
      * @property {support.graphics.Image} _image
@@ -133,10 +145,10 @@ Utils.inherits(app.view.WorldView, Object);
 
 /**
  * @method draw
- * @@param {Number} logicFrames
+ * @@param {boolean} gameIsLoaded
  * @public
  */
-app.view.WorldView.prototype.draw = function draw() {
+app.view.WorldView.prototype.draw = function draw(gameIsLoaded) {
 
 
     //this._canvasContext.scale(1,0.5);
@@ -144,18 +156,27 @@ app.view.WorldView.prototype.draw = function draw() {
 
     this._canvasContext.clearRect(0, 0, this._canvas.width, this._canvas.height);
 
-    this._drawMap(this._worldModel.getMapModel(), this._worldModel.getCameraModel());
-    this._drawEntities(this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
-    this._drawSelectedArea(this._worldModel.getCameraModel());
+    if (gameIsLoaded !== true){
+        this._canvasContext.fillStyle = '#FFFFFF';
+        if (gameIsLoaded === false){
+            this._canvasContext.fillText("MAP IS LOADING FROM THE SERVER", 20, this._canvas.height/2);
+        } else {
+            this._canvasContext.fillText("MAP LOADING ERROR: " + gameIsLoaded, 20, this._canvas.height/2);
+        }
+    } else {
+        this._drawMap(this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+        this._drawEntities(this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
+        this._drawSelectedArea(this._worldModel.getCameraModel());
 
 
-    //Renderowanie minimapy
-    //this._worldModel.getMiniMapModel().setMiniMapPositionX(0);
-    //this._worldModel.getMiniMapModel().setMiniMapPositionY(this._canvas.height - this._worldModel.getMiniMapModel().getMiniMapHeight());
-    this._minimapView.draw(this._canvas);
+        //Renderowanie minimapy
+        //this._worldModel.getMiniMapModel().setMiniMapPositionX(0);
+        //this._worldModel.getMiniMapModel().setMiniMapPositionY(this._canvas.height - this._worldModel.getMiniMapModel().getMiniMapHeight());
+        this._minimapView.draw(this._canvas);
 
-    //this._statusMenuView.draw();
-    //this._drawActionMenu(this._worldModel.getSelectedEntityListModel());
+        //this._statusMenuView.draw();
+        //this._drawActionMenu(this._worldModel.getSelectedEntityListModel());
+    }
 
 
     //this._canvasContext.setTransform(1, 0, 0, 1, 0, 0);

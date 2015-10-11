@@ -55,9 +55,13 @@ support.Mouse.prototype.initMouse = function initMouse() {
         return false;
     }, false);
 
+    window.addEventListener("mouseleave", function (e) {
+        that.mouseLeave(e);
+        return false;
+    }, false);
+
     window.addEventListener('contextmenu', function(e) {
         e.preventDefault();
-        //alert('success!');
         return false;
     }, false);
 };
@@ -112,6 +116,18 @@ support.Mouse.prototype.mouseUp = function mouseUp(e) {
     }
 
     window.removeEventListener("mousemove", this._mouseDragHandler, false);
+};
+
+/**
+ * @method mouseLeave
+ * @param {Event} e
+ */
+support.Mouse.prototype.mouseLeave = function mouseLeave(e) {
+
+    //wywolywanie eventu handlera
+    if (Boolean(this._mouseEventHandler) === true) {
+        this._mouseEventHandler.onMouseLeave(e);
+    }
 };
 
 /**

@@ -11,7 +11,7 @@ var Utils = Utils || {};
 
 /**
  * @namespace support.view
- * @class Rect
+ * @class AbstractView
  * @constructor
  * @param {number} x
  * @param {number} y
@@ -19,6 +19,12 @@ var Utils = Utils || {};
  * @param {number} height
  */
 support.view.AbstractView = function AbstractView(x, y, width, height) {
+
+    /**
+     * @property {support.view.AbstractViewGroup} parentView
+     * @private
+     */
+    this._parentViewGroup = null;
 
     /**
      * @property {number} x
@@ -58,6 +64,14 @@ support.view.AbstractView = function AbstractView(x, y, width, height) {
 };
 
 Utils.inherits(support.view.AbstractView, Object);
+
+/**
+ * @method getParentViewGroup
+ * @return {support.view.AbstractViewGroup} parentViewGroup
+ */
+support.view.AbstractView.prototype.getParentViewGroup = function getParentViewGroup() {
+    return this._parentViewGroup;
+};
 
 /**
  * @method getX
@@ -108,6 +122,14 @@ support.view.AbstractView.prototype.getEventListener = function getEventListener
 };
 
 /**
+ * @method setParentViewGroup
+ * @param {support.view.AbstractViewGroup} abstractViewGroup
+ */
+support.view.AbstractView.prototype.setParentViewGroup = function setParentViewGroup(abstractViewGroup) {
+    this._parentViewGroup = abstractViewGroup;
+};
+
+/**
  * @method setX
  * @param {number} x
  */
@@ -153,4 +175,38 @@ support.view.AbstractView.prototype.setBackgroundColor = function setBackgroundC
  */
 support.view.AbstractView.prototype.setEventListener = function setEventListener(value) {
     this._eventListener = value;
+};
+
+/**
+ * Metoda sluzaca do rozpropagowania eventu do widokow dzieci lub do siebie.
+ * Kiedy nie ma wybranego targetu dla Eventu to onMouseEvent sa wywolywane dla kazdego elementu, ktory znajduje sie pod muszka.
+ * Kiedy jest wybrany target event jest dostarczany do Targetu nawet kiedy nie jest juz pod myszka
+ *
+ * @method dispatchMouseEvent
+ * @public
+ * @param {support.MouseEvent} mouseEvent
+ * @return {boolean} true - widok uzywa eventu, false - widok nie uzywa eventu
+ */
+support.view.AbstractView.prototype.dispatchMouseEvent = function dispatchMouseEvent(mouseEvent){
+    return this.onMouseEvent(mouseEvent);
+};
+
+/**
+ * Metoda sluzaca do obslugi Eventu.
+ *
+ * @method onMouseEvent
+ * @public
+ * @param {support.MouseEvent} mouseEvent
+ * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
+ */
+support.view.AbstractView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+    console.log(this.constructor.name);
+    console.log(mouseEvent);
+    
+    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
+        return true;
+    } 
+    
+    return false;
+    
 };

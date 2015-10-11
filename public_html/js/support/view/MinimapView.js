@@ -88,6 +88,12 @@ support.view.MinimapView = function MinimapView() {
      */
     this._elements = [];
 
+    /**
+     * @property {boolean} _downEventStartsOnMinimap
+     * @private
+     */
+    this._downEventStartsOnMinimap = false;
+
 };
 
 Utils.inherits(support.view.MinimapView, support.view.AbstractView);
@@ -360,6 +366,9 @@ support.view.MinimapView.prototype.draw = function draw(canvas) {
 
 };
 
+/*
+PRZEROBIC NA 1 EVENT - onMouseEvent - w srodku switch case.
+ */
 
 /**
  * @method onMouseDown
@@ -368,6 +377,16 @@ support.view.MinimapView.prototype.draw = function draw(canvas) {
  */
 support.view.MinimapView.prototype.onMouseDown = function onMouseDown(e) {
     console.log("support.view.MinimapView.prototype.onMouseDown");
+
+    var x = e.offsetX - this.getX();
+    var y = e.offsetY - this.getY();
+
+    this._viewPort.setPositionX(x / this._getMinimapScaleWidth());
+    this._viewPort.setPositionY((y - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
+
+    this._downEventStartsOnMinimap = true;
+
+    return true;
 };
 
 /**
@@ -377,6 +396,8 @@ support.view.MinimapView.prototype.onMouseDown = function onMouseDown(e) {
  */
 support.view.MinimapView.prototype.onMouseUp = function onMouseUp(e) {
     console.log("support.view.MinimapView.prototype.onMouseUp");
+
+    this._downEventStartsOnMinimap = false;
 };
 
 /**
@@ -386,8 +407,13 @@ support.view.MinimapView.prototype.onMouseUp = function onMouseUp(e) {
  */
 support.view.MinimapView.prototype.onMouseMove = function onMouseMove(e) {
     console.log("support.view.MinimapView.prototype.onMouseMove");
-    var x = this._viewPort.getPositionX();
-    this._viewPort.setPositionX(x+10);
+
+    //var x = e.offsetX - this.getX();
+    //var y = e.offsetY - this.getY();
+    //
+    ////var x = this._viewPort.getPositionX();
+    //this._viewPort.setPositionX(x/this._getMinimapScaleWidth());
+    //this._viewPort.setPositionY(y/this._getMinimapScaleHeight() - this._getMapStartYOnMinimap()/this._getMinimapScaleHeight());
 };
 
 /**
@@ -397,6 +423,12 @@ support.view.MinimapView.prototype.onMouseMove = function onMouseMove(e) {
  */
 support.view.MinimapView.prototype.onMouseDrag = function onMouseDrag(e) {
     console.log("support.view.MinimapView.prototype.onMouseDrag");
+
+    var x = e.offsetX - this.getX();
+    var y = e.offsetY - this.getY();
+
+    this._viewPort.setPositionX(x / this._getMinimapScaleWidth());
+    this._viewPort.setPositionY((y - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
 };
 
 /**
@@ -415,4 +447,23 @@ support.view.MinimapView.prototype.onMouseEnter = function onMouseEnter(e) {
  */
 support.view.MinimapView.prototype.onMouseLeave = function onMouseLeave(e) {
     console.log("support.view.MinimapView.prototype.onMouseLeave");
+};
+
+/**
+ * Metoda sluzaca do obslugi Eventu.
+ *
+ * @method onMouseEvent
+ * @public
+ * @param {support.MouseEvent} mouseEvent
+ * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
+ */
+support.view.MinimapView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+    
+    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN || 
+            mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG){
+        this._viewPort.setPositionX(mouseEvent.getLocalX() / this._getMinimapScaleWidth());
+        this._viewPort.setPositionY((mouseEvent.getLocalY() - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
+    }
+    
+    return support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);;
 };

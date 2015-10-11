@@ -13,36 +13,24 @@ var Utils = Utils || {};
  * @namespace app.view
  * @class WorldView
  * @constructor
- * @param {HTMLCanvasElement} canvas
  * @param {app.model.WorldModel} worldModel
- * @param {app.mouseHandler.MouseEventHandler} mouseEventHandler
+ * @param {number} x
+ * @param {number} y
+ * @param {number} width
+ * @param {number} height
  */
-app.view.WorldView = function WorldView(canvas, worldModel, mouseEventHandler) {
-
-    /**
-     * @property {HTMLCanvasElement} _canvas
-     * @private
+app.view.WorldView = function WorldView(worldModel, x, y, width, height) {
+    
+    /*
+     Call Base/Super Constructor
      */
-    this._canvas = canvas;
-
-    /**
-     * @property {CanvasRenderingContext2D} _canvasContext
-     * @private
-     */
-    this._canvasContext = canvas.getContext("2d");
-
+    support.view.AbstractView.call(this, x, y, width, height);
+    
     /**
      * @property {app.model.WorldModel} _worldModel
      * @private
      */
     this._worldModel = worldModel;
-
-    /**
-     * @property {app.mouseHandler.MouseEventHandler} _mouseEventHandler
-     * @private
-     */
-    this._mouseEventHandler = mouseEventHandler;
-
 
     this._grassTile = new Image();
     this._grassTile.src = "assets/map/grassTile.png";
@@ -113,82 +101,60 @@ app.view.WorldView = function WorldView(canvas, worldModel, mouseEventHandler) {
      */
     this._drawPath = true;
 
-    /**
-     * @property {support.view.MinimapView} _minimapView
-     * @private
-     */
-    this._minimapView = new support.view.MinimapView();
-    this._minimapView.setX(this._worldModel.getMiniMapModel().getMiniMapPositionX());
-    this._minimapView.setY(this._worldModel.getMiniMapModel().getMiniMapPositionY());
-    this._minimapView.setWidth(this._worldModel.getMiniMapModel().getMiniMapWidth());
-    this._minimapView.setHeight(this._worldModel.getMiniMapModel().getMiniMapHeight());
-    this._minimapView.setMapWidth(this._worldModel.getMapModel().getMapWidth());
-    this._minimapView.setMapHeight(this._worldModel.getMapModel().getMapHeight());
-
-    this._minimapView.setViewPort(this._worldModel.getCameraModel());
-    this._minimapView.setElements(this._worldModel.getEntityListModel().getElements());
-
-    /**
-     * @property {app.view.gui.StatusMenuView} _statusMenuView
-     * @private
-     */
-    this._statusMenuView = new app.view.gui.StatusMenuView(canvas, worldModel);
-
-    //Widoki maja zawierac wszystkie zmienne do wyrenderowania oraz do eventow myszki
-    //a w modelu minimapy znajduja sie dane, potrzebne do initu widoku
-    this._mouseEventHandler.addMouseEventListener(this._minimapView);
-    //this._mouseEventHandler.addMouseEventListener(this._statusMenuView);
-
 };
 
-Utils.inherits(app.view.WorldView, Object);
+Utils.inherits(app.view.WorldView, support.view.AbstractView);
 
 /**
  * @method draw
- * @@param {boolean} gameIsLoaded
+ * @param {HTMLCanvasElement} canvas
+ * @param {boolean} gameIsLoaded
  * @public
  */
-app.view.WorldView.prototype.draw = function draw(gameIsLoaded) {
+app.view.WorldView.prototype.draw = function draw(canvas, gameIsLoaded) {
 
+    
+    var canvasContext = canvas.getContext("2d");
 
-    //this._canvasContext.scale(1,0.5);
-    //this._canvasContext.rotate(45*Math.PI/180);
+    //canvasContext.scale(1,0.5);
+    //canvasContext.rotate(45*Math.PI/180);
 
-    this._canvasContext.clearRect(0, 0, this._canvas.width, this._canvas.height);
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (gameIsLoaded !== true){
-        this._canvasContext.fillStyle = '#FFFFFF';
-        if (gameIsLoaded === false){
-            this._canvasContext.fillText("MAP IS LOADING FROM THE SERVER", 20, this._canvas.height/2);
-        } else {
-            this._canvasContext.fillText("MAP LOADING ERROR: " + gameIsLoaded, 20, this._canvas.height/2);
-        }
-    } else {
-        this._drawMap(this._worldModel.getMapModel(), this._worldModel.getCameraModel());
-        this._drawEntities(this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
-        this._drawSelectedArea(this._worldModel.getCameraModel());
+//    if (gameIsLoaded !== true){
+//        canvasContext.fillStyle = '#FFFFFF';
+//        if (gameIsLoaded === false){
+//            canvasContext.fillText("MAP IS LOADING FROM THE SERVER", 20, canvas.height/2);
+//        } else {
+//            canvasContext.fillText("MAP LOADING ERROR: " + gameIsLoaded, 20, canvas.height/2);
+//        }
+//    } else {
+        this._drawMap(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+        this._drawEntities(canvasContext, this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
+        this._drawSelectedArea(canvasContext, this._worldModel.getCameraModel());
 
 
         //Renderowanie minimapy
         //this._worldModel.getMiniMapModel().setMiniMapPositionX(0);
-        //this._worldModel.getMiniMapModel().setMiniMapPositionY(this._canvas.height - this._worldModel.getMiniMapModel().getMiniMapHeight());
-        this._minimapView.draw(this._canvas);
+        //this._worldModel.getMiniMapModel().setMiniMapPositionY(canvas.height - this._worldModel.getMiniMapModel().getMiniMapHeight());
+//        this._minimapView.draw(canvas);
 
         //this._statusMenuView.draw();
         //this._drawActionMenu(this._worldModel.getSelectedEntityListModel());
-    }
+//    }
 
 
-    //this._canvasContext.setTransform(1, 0, 0, 1, 0, 0);
+    //canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 };
 
 /**
  * @method _drawMap
  * @private
+ * @param {CanvasRenderingContext2D} canvasContext
  * @param {app.model.MapModel} mapModel
  * @param {app.model.CameraModel} cameraModel
  */
-app.view.WorldView.prototype._drawMap = function _drawMap(mapModel, cameraModel) {
+app.view.WorldView.prototype._drawMap = function _drawMap(canvasContext, mapModel, cameraModel) {
 
     var tileIndexX,
         tileIndexY,
@@ -199,8 +165,8 @@ app.view.WorldView.prototype._drawMap = function _drawMap(mapModel, cameraModel)
         drawX,
         drawY;
 
-    this._canvasContext.beginPath();
-    this._canvasContext.strokeStyle = '#FFFFFF';
+    canvasContext.beginPath();
+    canvasContext.strokeStyle = '#FFFFFF';
 
     for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
         for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
@@ -208,48 +174,49 @@ app.view.WorldView.prototype._drawMap = function _drawMap(mapModel, cameraModel)
             drawX = tileIndexX * tileWidth;
             drawY = tileIndexY * tileHeight;
 
-            this._canvasContext.drawImage(this._grassTile, drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
+            canvasContext.drawImage(this._grassTile, drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
 
             //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
-            //this._image.drawRotateImage(this._canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
+            //this._image.drawRotateImage(canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
 
-            this._canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
+            canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
         }
     }
 
-    this._canvasContext.lineWidth = 1;
-    this._canvasContext.stroke();
+    canvasContext.lineWidth = 1;
+    canvasContext.stroke();
 };
 
 /**
  * @method _drawEntities
  * @private
+ * @param {CanvasRenderingContext2D} canvasContext
  * @param {app.model.ListModel} entityListModel
  * @param {app.model.CameraModel} cameraModel
  */
-app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListModel, cameraModel) {
+app.view.WorldView.prototype._drawEntities = function _drawEntities(canvasContext, entityListModel, cameraModel) {
     var i,
         max,
         entity,
         hp,
         currentHp;
 
-    this._canvasContext.strokeStyle = '#000000';
-    this._canvasContext.lineWidth = 1;
+    canvasContext.strokeStyle = '#000000';
+    canvasContext.lineWidth = 1;
 
     max = entityListModel.length();
     for (i = 0; i < max; i++) {
         entity = entityListModel.getElement(i);
 
         //IMAGE
-        this._image.drawRotateImage(this._canvasContext, this._entityImage[entity.getGraphicUrl()], entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getAngle());
+        this._image.drawRotateImage(canvasContext, this._entityImage[entity.getGraphicUrl()], entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getAngle());
 
         //SELECTED
         if (entity._selected) {
-            this._canvasContext.beginPath();
-            this._canvasContext.strokeStyle = '#00FF00';
-            this._canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-            this._canvasContext.stroke();
+            canvasContext.beginPath();
+            canvasContext.strokeStyle = '#00FF00';
+            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+            canvasContext.stroke();
         }
 
         //HEALTH BAR
@@ -257,19 +224,19 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
             hp = entity.getHp();
             currentHp = entity.getCurrentHp();
 
-            this._canvasContext.fillStyle = '#474747';
-            this._canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10 + currentHp / 5, entity.getY() - cameraModel.getViewPortY() - 20, (hp - currentHp) / 5, 3);
+            canvasContext.fillStyle = '#474747';
+            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10 + currentHp / 5, entity.getY() - cameraModel.getViewPortY() - 20, (hp - currentHp) / 5, 3);
 
-            this._canvasContext.fillStyle = '#00FF00';
-            this._canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, currentHp / 5, 3);
+            canvasContext.fillStyle = '#00FF00';
+            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, currentHp / 5, 3);
 
             ////drawRect
-            this._canvasContext.beginPath();
-            this._canvasContext.strokeStyle = '#000000';
-            this._canvasContext.rect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, hp / 5, 3);
+            canvasContext.beginPath();
+            canvasContext.strokeStyle = '#000000';
+            canvasContext.rect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, hp / 5, 3);
 
-            this._canvasContext.lineWidth = 1;
-            this._canvasContext.stroke();
+            canvasContext.lineWidth = 1;
+            canvasContext.stroke();
         }
 
         //PATH
@@ -279,15 +246,15 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
 
             if (moveList != null) {
 
-                this._canvasContext.beginPath();
+                canvasContext.beginPath();
 
                 var moveToX = entity.getX(),
                     moveToY = entity.getY();
 
-                this._canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
 
-                this._canvasContext.strokeStyle = '#00FF00';
-                this._canvasContext.fillStyle = '#00FF00';
+                canvasContext.strokeStyle = '#00FF00';
+                canvasContext.fillStyle = '#00FF00';
 
                 for (var j = 0; j < moveList.length(); j++) {
 
@@ -295,14 +262,14 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
                     moveToY = moveList.getElement(j).getY();
 
                     if (moveList.getElement(j).getEntityId() === 0 && moveToX !== -1 && moveToX !== -1) {
-                        this._canvasContext.lineTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                        canvasContext.lineTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
                     }
 
                 }
 
-                this._canvasContext.strokeStyle = '#00FF00';
-                this._canvasContext.lineWidth = 1;
-                this._canvasContext.stroke();
+                canvasContext.strokeStyle = '#00FF00';
+                canvasContext.lineWidth = 1;
+                canvasContext.stroke();
 
             }
 
@@ -310,60 +277,61 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(entityListMo
 
         //DEBUG LINES
         if (this._debug) {
-            this._canvasContext.beginPath();
-            this._canvasContext.strokeStyle = '#333333';
-            this._canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-            this._canvasContext.stroke();
+            canvasContext.beginPath();
+            canvasContext.strokeStyle = '#333333';
+            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+            canvasContext.stroke();
 
-            this._canvasContext.beginPath();
-            this._canvasContext.strokeStyle = '#00bfff';
-            this._canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
-            this._canvasContext.stroke();
+            canvasContext.beginPath();
+            canvasContext.strokeStyle = '#00bfff';
+            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
+            canvasContext.stroke();
 
-            this._canvasContext.beginPath();
-            this._canvasContext.strokeStyle = '#FF0000';
-            this._canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
-            this._canvasContext.stroke();
+            canvasContext.beginPath();
+            canvasContext.strokeStyle = '#FF0000';
+            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
+            canvasContext.stroke();
 
             var moveToX = entity.getX(),
                 moveToY = entity.getY(),
                 moveVectorX = entity.getLastPosition().getX(),
                 moveVectorY = entity.getLastPosition().getY();
 
-            this._canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
-            this._canvasContext.lineTo(moveVectorX - cameraModel.getViewPortX(), moveVectorY - cameraModel.getViewPortY());
+            canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+            canvasContext.lineTo(moveVectorX - cameraModel.getViewPortX(), moveVectorY - cameraModel.getViewPortY());
 
-            this._canvasContext.fillStyle = '#FFFFFF';
-            this._canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
-            this._canvasContext.stroke();
+            canvasContext.fillStyle = '#FFFFFF';
+            canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
+            canvasContext.stroke();
         }
 
     }
 
-    this._canvasContext.fillStyle = '#FFFFFF';
-    this._canvasContext.fillText("ENTITY COUNT: " + max, 0, 20);
+    canvasContext.fillStyle = '#FFFFFF';
+    canvasContext.fillText("ENTITY COUNT: " + max, 0, 20);
 
 };
 
 /**
  * @method _drawSelectedArea
  * @private
+ * @param {CanvasRenderingContext2D} canvasContext
  * @param {app.model.ListModel} entityListModel
  * @param {app.model.CameraModel} cameraModel
  */
-app.view.WorldView.prototype._drawSelectedArea = function _drawSelectedArea(cameraModel) {
+app.view.WorldView.prototype._drawSelectedArea = function _drawSelectedArea(canvasContext, cameraModel) {
     var selectRect = this._worldModel.getSelectRect();
     if (selectRect !== null) {
-        this._canvasContext.fillStyle = '#00FF00';
-        this._canvasContext.globalAlpha = 0.2;
-        this._canvasContext.fillRect(selectRect.getX() - cameraModel.getViewPortX(), selectRect.getY() - cameraModel.getViewPortY(), selectRect.getWidth(), selectRect.getHeight());
-        this._canvasContext.globalAlpha = 1;
+        canvasContext.fillStyle = '#00FF00';
+        canvasContext.globalAlpha = 0.2;
+        canvasContext.fillRect(selectRect.getX() - cameraModel.getViewPortX(), selectRect.getY() - cameraModel.getViewPortY(), selectRect.getWidth(), selectRect.getHeight());
+        canvasContext.globalAlpha = 1;
 
-        this._canvasContext.beginPath();
-        this._canvasContext.strokeStyle = '#00FF00';
-        this._canvasContext.rect(selectRect.getX() - 1 - cameraModel.getViewPortX(), selectRect.getY() - 1 - cameraModel.getViewPortY(), selectRect.getWidth() + 2, selectRect.getHeight() + 2);
-        this._canvasContext.lineWidth = 1;
-        this._canvasContext.stroke();
+        canvasContext.beginPath();
+        canvasContext.strokeStyle = '#00FF00';
+        canvasContext.rect(selectRect.getX() - 1 - cameraModel.getViewPortX(), selectRect.getY() - 1 - cameraModel.getViewPortY(), selectRect.getWidth() + 2, selectRect.getHeight() + 2);
+        canvasContext.lineWidth = 1;
+        canvasContext.stroke();
     }
 };
 
@@ -386,34 +354,46 @@ app.view.WorldView.prototype._drawActionMenu = function _drawActionMenu(selected
         maxTileIndexY = 4,
         tileWidth = 150/maxTileIndexX,
         tileHeight = 150/maxTileIndexY,
-        startActionMenuX = this._canvas.width - actionMenuSize,
-        startActionMenuY = this._canvas.height - actionMenuSize,
+        startActionMenuX = canvas.width - actionMenuSize,
+        startActionMenuY = canvas.height - actionMenuSize,
         element = selectedEntityModelList.getElement(0),
         action = element === undefined ? undefined : element._availableActions,
         actionLength = action === undefined ? 0 : action.length;
 
     //Rysowanie backgrounda miniMapy
-    this._canvasContext.fillStyle = '#222222';
-    this._canvasContext.fillRect(startActionMenuX, startActionMenuY, actionMenuSize, actionMenuSize);
+    canvasContext.fillStyle = '#222222';
+    canvasContext.fillRect(startActionMenuX, startActionMenuY, actionMenuSize, actionMenuSize);
 
-    this._canvasContext.beginPath();
-    this._canvasContext.strokeStyle = '#FFFFFF';
+    canvasContext.beginPath();
+    canvasContext.strokeStyle = '#FFFFFF';
 
-    this._canvasContext.fillStyle = '#FFFFFF';
+    canvasContext.fillStyle = '#FFFFFF';
 
     for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
         for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
             index = tileIndexY+tileIndexX*maxTileIndexY;
 
             if (actionLength>index){
-                this._canvasContext.fillText(action[index], startActionMenuX+tileIndexX*tileWidth+tileWidth/2, startActionMenuY+tileIndexY*tileHeight+tileHeight/2);
+                canvasContext.fillText(action[index], startActionMenuX+tileIndexX*tileWidth+tileWidth/2, startActionMenuY+tileIndexY*tileHeight+tileHeight/2);
             }
 
-            this._canvasContext.rect(startActionMenuX+tileIndexX*tileWidth, startActionMenuY+tileIndexY*tileHeight, tileWidth, tileHeight);
+            canvasContext.rect(startActionMenuX+tileIndexX*tileWidth, startActionMenuY+tileIndexY*tileHeight, tileWidth, tileHeight);
         }
     }
 
-    this._canvasContext.lineWidth = 1;
-    this._canvasContext.stroke();
+    canvasContext.lineWidth = 1;
+    canvasContext.stroke();
 
+};
+
+/**
+ * Metoda sluzaca do obslugi Eventu.
+ *
+ * @method onMouseEvent
+ * @public
+ * @param {support.MouseEvent} mouseEvent
+ * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
+ */
+app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+    return support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
 };

@@ -15,7 +15,7 @@ var paramValue = atr[1];
 
 
 //USTALENIE CZY JSON STANU GRY LADUJE SIE Z PLIKU LOKALNEGO CZY Z WEBSERWISU
-var loadFromFile = false;
+var loadFromFile = true;
 var loadFromWebservice = !loadFromFile;
 
 //LADWOANIE MAPY
@@ -239,7 +239,23 @@ var mouse = new support.Mouse(mouseHandler);
 mouse.initMouse();
 
 //WIDOKI
-var worldView = new app.view.WorldView(canvas, worldModel, mouseHandler);
+var rootView = new support.view.RootView(canvas, mouseHandler);
+var worldView = new app.view.WorldView(worldModel, 0, 0, rootView.getWidth(), rootView.getHeight());
+
+var minimapView = new support.view.MinimapView();
+minimapView.setX(worldModel.getMiniMapModel().getMiniMapPositionX());
+minimapView.setY(worldModel.getMiniMapModel().getMiniMapPositionY());
+minimapView.setWidth(worldModel.getMiniMapModel().getMiniMapWidth());
+minimapView.setHeight(worldModel.getMiniMapModel().getMiniMapHeight());
+minimapView.setMapWidth(worldModel.getMapModel().getMapWidth());
+minimapView.setMapHeight(worldModel.getMapModel().getMapHeight());
+
+minimapView.setViewPort(worldModel.getCameraModel());
+minimapView.setElements(worldModel.getEntityListModel().getElements());
+
+//DODAWANIE WIDOKOW DO ROOT VIEW
+rootView.addView(worldView);
+rootView.addView(minimapView);
 
 //CONTROLLERS DATA
 var entityListModel = worldModel.getEntityListModel();
@@ -330,7 +346,8 @@ setInterval(function () {
 //RENDEROWANIE
 setInterval(function () {
 
-    worldView.draw(mapIsReady);
+//    worldView.draw(mapIsReady);
+    rootView.draw();
 
 }, 16);
 

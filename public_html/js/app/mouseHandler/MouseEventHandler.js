@@ -17,6 +17,8 @@ var Utils = Utils || {};
  */
 app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityList, worldModel) {
 
+    support.AbstractMouseEventHandler.call(this);
+
     /**
      * @property {support.Timer} _timer
      * @private
@@ -47,22 +49,13 @@ app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityLis
      */
     this._isShiftPressed = false;
 
-    /**
-     * @property {boolean} _clickOnMinimap
-     * @private
-     */
-    this._clickOnMinimap = false;
-
-    /**
-     * @property {boolean} _clickOnActionMenu
-     * @private
-     */
-    this._clickOnActionMenu = false;
 
     this._rightClickOffsetX = 0;
     this._rightClickOffsetY = 0;
 
     this._mouseEventListenerArray = [];
+    
+    
 
 
 };
@@ -75,9 +68,9 @@ Utils.inherits(app.mouseHandler.MouseEventHandler, support.AbstractMouseEventHan
  */
 
 app.mouseHandler.MouseEventHandler.prototype.addMouseEventListener = function addMouseEventListener(object) {
-
+    
     this._mouseEventListenerArray.push(object);
-
+    
 };
 
 /**
@@ -85,24 +78,53 @@ app.mouseHandler.MouseEventHandler.prototype.addMouseEventListener = function ad
  * @param {Event} e
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(e) {
-
+    
+    support.AbstractMouseEventHandler.prototype.onMouseDown.call(this, e);
+    
     if (e.target.id !== "map") {
         return;
     }
 
+    var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, support.MouseEventType.MOUSE_DOWN);
+    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    
+//    var view = null;
+//    var mX = mouseEvent.getX();
+//    var mY = mouseEvent.getY();
+//    var rectCollision = new support.geom.Rect(0, 0, 0, 0);
+//    var point = new support.geom.Point2d(mX,mY);
+//    var wasHandled = false;
+//    var currentlyHandled = false;
 
-    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
-        var view = this._mouseEventListenerArray[index];
-        //if (view.getX(), view.getY(), view.getWidth(), view.getHeight()){
-        this._mouseEventListenerArray[index].onMouseDown(e);
-        //}
-    }
+
+//    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+//
+//        view = this._mouseEventListenerArray[index];
+//        rectCollision = new support.geom.Rect(view.getX(), view.getY(), view.getWidth(), view.getHeight());
+//
+//        if (support.geom.collision.Collision.Point2dRect(point, rectCollision)) {
+//            
+//            view.dispatchMouseEvent(mouseEvent);
+//            
+//            
+//            currentlyHandled = view.onMouseDown(e);
+//
+//            if (!wasHandled && currentlyHandled){
+//                wasHandled = true;
+//            }
+//        }
+//    }
+//
+//    if (wasHandled){
+//        return;
+//    }
+
+
 
 
     var listLength = this._entityListModel.length();
     var elementIndex;
     var element;
-    var miniMapModel = this._worldModel.getMiniMapModel();
 
     if (e.shiftKey) {
         this._isShiftPressed = true;
@@ -110,6 +132,9 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
         this._isShiftPressed = false;
     }
 
+    /*
+    kasowanie z mapy
+     */
     if (e.altKey) {
 
         for (elementIndex = listLength - 1; elementIndex >= 0; elementIndex--) {
@@ -123,36 +148,30 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
 
     }
 
-    if (e.offsetX < miniMapModel.getMiniMapWidth() && e.offsetY > 800 - miniMapModel.getMiniMapHeight()) {
-        this._clickOnMinimap = true;
-    } else {
-        this._clickOnMinimap = false;
-    }
 
-
+    /*
+    zaznaczanie obiektow na mapie
+     */
     if (e.button === 0) {
-        //sprawdzam czy klikniecie odbylo sie na miniMapie
-        if (this._clickOnMinimap) {
-            this._worldModel.getCameraModel().setPositionX((e.offsetX - 0 - this._worldModel.getMiniMapModel().getMapStartXOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleWidth());
-            this._worldModel.getCameraModel().setPositionY((e.offsetY - 800 + miniMapModel.getMiniMapHeight() - this._worldModel.getMiniMapModel().getMapStartYOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleHeight());
-        } else {
-            this._dragSelectionRect = new support.geom.Rect(e.offsetX + this._worldModel.getCameraModel().getViewPortX(), e.offsetY + this._worldModel.getCameraModel().getViewPortY(), 5, 5);
-            this._worldModel.setSelectRect(this._dragSelectionRect);
 
-            //DESELECT ALL
-            listLength = this._entityListModel.length();
-            for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
-                element = this._entityListModel.getElement(elementIndex);
-                element._selected = false;
-            }
+        this._dragSelectionRect = new support.geom.Rect(e.offsetX + this._worldModel.getCameraModel().getViewPortX(), e.offsetY + this._worldModel.getCameraModel().getViewPortY(), 5, 5);
+        this._worldModel.setSelectRect(this._dragSelectionRect);
 
-            worldModel.getSelectedEntityListModel().clear();
+        //DESELECT ALL
+        listLength = this._entityListModel.length();
+        for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+            element = this._entityListModel.getElement(elementIndex);
+            element._selected = false;
         }
 
-        console.log(this._clickOnMinimap);
+        worldModel.getSelectedEntityListModel().clear();
+
     }
 
 
+    /*
+    poruszanie obiektow lub poruszanie mapa
+     */
     //right
     if (e.button === 2) {
         if (this._worldModel.getSelectedEntityListModel().length() > 0) {
@@ -187,12 +206,17 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
 
-    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
-        var view = this._mouseEventListenerArray[index];
-        //if (view.getX(), view.getY(), view.getWidth(), view.getHeight()){
-        this._mouseEventListenerArray[index].onMouseUp(e);
-        //}
-    }
+    support.AbstractMouseEventHandler.prototype.onMouseUp.call(this, e);
+
+    var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, support.MouseEventType.MOUSE_UP);
+    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    
+//    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+//        var view = this._mouseEventListenerArray[index];
+//        //if (view.getX(), view.getY(), view.getWidth(), view.getHeight()){
+//        this._mouseEventListenerArray[index].onMouseUp(e);
+//        //}
+//    }
 
     var listLength = this._entityListModel.length();
     var elementIndex;
@@ -241,23 +265,32 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
  * @param {Event} e
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseMove = function onMouseMove(e) {
-
-    var view = null;
-    var mX = e.offsetX;
-    var mY = e.offsetY;
-    var rectCollision = new support.geom.Rect(0, 0, 0, 0);
-    var point = new support.geom.Point2d(mX,mY);
-
-
-    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
-
-        view = this._mouseEventListenerArray[index];
-        rectCollision = new support.geom.Rect(view.getX(), view.getY(), view.getWidth(), view.getHeight());
-
-        if (support.geom.collision.Collision.Point2dRect(point, rectCollision)) {
-            view.onMouseMove(e);
-        }
+    
+    support.AbstractMouseEventHandler.prototype.onMouseMove.call(this, e);
+    
+    if (e.target.id !== "map") {
+        return;
     }
+    
+    var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, support.MouseEventType.MOUSE_MOVE);
+    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    
+//    var view = null;
+//    var mX = e.offsetX;
+//    var mY = e.offsetY;
+//    var rectCollision = new support.geom.Rect(0, 0, 0, 0);
+//    var point = new support.geom.Point2d(mX,mY);
+//
+//
+//    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+//
+//        view = this._mouseEventListenerArray[index];
+//        rectCollision = new support.geom.Rect(view.getX(), view.getY(), view.getWidth(), view.getHeight());
+//
+//        if (support.geom.collision.Collision.Point2dRect(point, rectCollision)) {
+//            view.onMouseMove(e);
+//        }
+//    }
 
 };
 
@@ -267,15 +300,31 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseMove = function onMouseMove(
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(e) {
 
-    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
-        this._mouseEventListenerArray[index].onMouseDrag(e);
-    }
-
-    var miniMapModel = this._worldModel.getMiniMapModel();
-
+    support.AbstractMouseEventHandler.prototype.onMouseDrag.call(this, e);
+    
     if (e.target.id !== "map") {
         return;
     }
+
+    var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, support.MouseEventType.MOUSE_DRAG);
+    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    
+//    var view = null;
+//    var mX = e.offsetX;
+//    var mY = e.offsetY;
+//    var rectCollision = new support.geom.Rect(0, 0, 0, 0);
+//    var point = new support.geom.Point2d(mX,mY);
+//
+//
+//    for (var index = 0; index < this._mouseEventListenerArray.length; index++) {
+//
+//        view = this._mouseEventListenerArray[index];
+//        rectCollision = new support.geom.Rect(view.getX(), view.getY(), view.getWidth(), view.getHeight());
+//
+//        if (support.geom.collision.Collision.Point2dRect(point, rectCollision)) {
+//            view.onMouseDrag(e);
+//        }
+//    }
 
     var listLength = this._entityListModel.length();
     var elementIndex;
@@ -286,11 +335,6 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(
     if (e.button === 0 && this._dragSelectionRect !== null) {
         this._dragSelectionRect.setWidth(e.offsetX + this._worldModel.getCameraModel().getViewPortX() - this._dragSelectionRect.getX());
         this._dragSelectionRect.setHeight(e.offsetY + this._worldModel.getCameraModel().getViewPortY() - this._dragSelectionRect.getY());
-    }
-
-    if (this._clickOnMinimap) {
-        this._worldModel.getCameraModel().setPositionX((e.offsetX - 0 - this._worldModel.getMiniMapModel().getMapStartXOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleWidth());
-        this._worldModel.getCameraModel().setPositionY((e.offsetY - 800 + miniMapModel.getMiniMapHeight() - this._worldModel.getMiniMapModel().getMapStartYOnMiniMap()) / this._worldModel.getMiniMapModel().getMiniMapScaleHeight());
     }
 
     if (e.button === 2 && this._worldModel.getSelectedEntityListModel().length() === 0) {
@@ -391,3 +435,17 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(
 //        }
 //    }
 //};
+
+    
+    
+
+/**
+ * @method onMouseLeave
+ * @param {Event} e
+ */
+app.mouseHandler.MouseEventHandler.prototype.onMouseLeave = function onMouseLeave(e) {
+    support.AbstractMouseEventHandler.prototype.onMouseLeave.call(this, e);
+    
+    var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, support.MouseEventType.MOUSE_LEAVE);
+    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+};

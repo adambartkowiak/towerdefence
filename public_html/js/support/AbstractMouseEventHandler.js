@@ -32,6 +32,22 @@ support.AbstractMouseEventHandler = function AbstractMouseEventHandler() {
      * @private
      */
     this._eventTargetViewPath = [];
+    
+    /**
+     * Sciezka aktualnego eventu
+     * 
+     * @property {Array} eventViewPath
+     * @private
+     */
+    this._eventViewPath = [];
+    
+    /**
+     * Sciezka poprzedniego eventu
+     * 
+     * @property {Array} eventViewLastPath
+     * @private
+     */
+    this._eventViewLastPath = [];
 };
 
 Utils.inherits(support.AbstractMouseEventHandler, Object);
@@ -45,6 +61,8 @@ support.AbstractMouseEventHandler.prototype.onMouseDown = function onMouseDown(e
         throw new Error("Method: onMouseDown in " + this.constructor.name +
             "is abstract and should be override");
     }
+    
+    this.clearEventViewPath();
 };
 
 /**
@@ -56,6 +74,8 @@ support.AbstractMouseEventHandler.prototype.onMouseMove = function onMouseMove(e
         throw new Error("Method: onMouseMove in " + this.constructor.name +
             "is abstract and should be override");
     }
+    
+    this.clearEventViewPath();
 };
 
 /**
@@ -67,6 +87,8 @@ support.AbstractMouseEventHandler.prototype.onMouseDrag = function onMouseDrag(e
         throw new Error("Method: onMouseDrag in " + this.constructor.name +
             "is abstract and should be override");
     }
+    
+    this.clearEventViewPath();
 };
 
 /**
@@ -74,14 +96,12 @@ support.AbstractMouseEventHandler.prototype.onMouseDrag = function onMouseDrag(e
  * @param {Event} e
  */
 support.AbstractMouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
-    
-    this._eventTargetView = null;
-    this._eventTargetViewPath = [];
-    
     if (this.constructor.name === "AbstractMouseEventHandler"){
         throw new Error("Method: onMouseUp in " + this.constructor.name +
             "is abstract and should be override");
     }
+    
+    this.clearEventViewPath();
 };
 
 /**
@@ -89,14 +109,12 @@ support.AbstractMouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
  * @param {Event} e
  */
 support.AbstractMouseEventHandler.prototype.onMouseLeave = function onMouseLeave(e) {
-    
-    this._eventTargetView = null;
-    this._eventTargetViewPath = [];
-    
     if (this.constructor.name === "AbstractMouseEventHandler"){
         throw new Error("Method: onMouseLeave in " + this.constructor.name +
             "is abstract and should be override");
     }
+    
+    this.clearEventViewPath();
 };
 
 /**
@@ -115,6 +133,33 @@ support.AbstractMouseEventHandler.prototype.getEventTargetView = function getEve
  */
 support.AbstractMouseEventHandler.prototype.getEventTargetViewPath = function getEventTargetViewPath(){
     return this._eventTargetViewPath;
+};
+
+/**
+ * @method getEventViewPath
+ * @public
+ * @return {Array} eventViewPath
+ */
+support.AbstractMouseEventHandler.prototype.getEventViewPath = function getEventViewPath(){
+    return this._eventViewPath;
+};
+
+/**
+ * @method getEventViewLastPath
+ * @public
+ * @return {Array} eventViewLastPath
+ */
+support.AbstractMouseEventHandler.prototype.getEventViewLastPath = function getEventViewLastPath(){
+    return this._eventViewLastPath;
+};
+
+/**
+ * @method addEventViewPath
+ * @public
+ * @param {support.view.AbstracyView} abstractView
+ */
+support.AbstractMouseEventHandler.prototype.addEventViewPath = function addEventViewPath(abstractView){
+    this._eventViewPath.push(abstractView);
 };
 
 /**
@@ -140,5 +185,51 @@ support.AbstractMouseEventHandler.prototype.setEventTargetView = function setEve
         //view became parent view
         view = view.getParentViewGroup();
     }
+    
+};
+
+/**
+ * @method clearTargetView
+ * @public
+ */
+support.AbstractMouseEventHandler.prototype.clearTargetView = function clearTargetView(){
+    this._eventTargetView = null;
+    this._eventTargetViewPath = [];
+};
+
+/**
+ * @method clearEventViewPath
+ * @public
+ */
+support.AbstractMouseEventHandler.prototype.clearEventViewPath = function clearEventViewPath(){
+    this._eventViewPath = [];
+};
+
+/**
+ * @method endEventPath
+ * @public
+ * @param {support.MouseEvent} mouseEvent
+ */
+support.AbstractMouseEventHandler.prototype.endEventPath = function endEventPath(mouseEvent){
+    
+//    console.log(this._eventViewLastPath);
+//    console.log(this._eventViewPath);
+    
+    var index = 0,
+        view = null,
+        newMouseEvent = null;
+    
+    for (index = 0; index < this._eventViewLastPath.length; index++) {
+        view = this._eventViewLastPath[index];
+        
+        if (this._eventViewPath.indexOf(view) === -1) {
+            
+            newMouseEvent = new support.MouseEvent(mouseEvent.getMouseEventHandler(), -1, -1, false, support.MouseEventType.MOUSE_LEAVE);
+            
+            view.onMouseEvent(newMouseEvent);
+        }
+    }
+    
+    this._eventViewLastPath = this._eventViewPath.slice();
     
 };

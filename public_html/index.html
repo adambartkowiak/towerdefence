@@ -51,6 +51,7 @@ and open the template in the editor.
 <script type="text/javascript" src="js/support/MouseEventType.js"></script>
 <script type="text/javascript" src="js/support/AbstractMouseEventHandler.js"></script>
 <script type="text/javascript" src="js/support/Loader.js"></script>
+<script type="text/javascript" src="js/support/AbstractMouseEventListener.js"></script>
 
 <script type="text/javascript" src="js/support/geom/Point2d.js"></script>
 <script type="text/javascript" src="js/support/geom/SimpleVector2d.js"></script>
@@ -65,8 +66,12 @@ and open the template in the editor.
 
 <script type="text/javascript" src="js/support/view/AbstractView.js"></script>
 <script type="text/javascript" src="js/support/view/AbstractViewGroup.js"></script>
+<script type="text/javascript" src="js/support/view/AbsoluteLayoutView.js"></script>
+<script type="text/javascript" src="js/support/view/ButtonView.js"></script>
 <script type="text/javascript" src="js/support/view/MinimapView.js"></script>
 <script type="text/javascript" src="js/support/view/RootView.js"></script>
+
+<script type="text/javascript" src="js/support/command/AbstractCommand.js"></script>
 
 
 <!-- Game Files -->
@@ -86,16 +91,23 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 <script type="text/javascript" src="js/app/model/gui/MiniMapModel.js"></script>
 
+<!--VIEW MOUSE EVENT LISTENER -->
+<script type="text/javascript" src="js/app/view/mouseEventListener/CommandMouseEventListener.js"></script>
+
 <!--VIEW-->
-<script type="text/javascript" src="js/app/view/gui/StatusMenuView.js"></script>
 <script type="text/javascript" src="js/app/view/WorldView.js"></script>
+<script type="text/javascript" src="js/app/view/gui/ActionMenuView.js"></script>
 
 <!--CONTROLLER-->
 <script type="text/javascript" src="js/app/controller/BuildController.js"></script>
 <script type="text/javascript" src="js/app/controller/MoveController.js"></script>
+<script type="text/javascript" src="js/app/controller/CommandController.js"></script>
 <script type="text/javascript" src="js/app/controller/WaypointCollisionDetectionController.js"></script>
 <script type="text/javascript" src="js/app/controller/WaypointCollisionReactionController.js"></script>
 <script type="text/javascript" src="js/app/controller/SelectTargetController.js"></script>
+
+<!-- APP COMMANDS -->
+<script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
 
 
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>

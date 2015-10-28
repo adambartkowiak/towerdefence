@@ -88,12 +88,22 @@ support.view.AbstractViewGroup.prototype.dispatchMouseEvent = function dispatchM
         viewRect.setWidth(view.getWidth());
         viewRect.setHeight(view.getHeight());
         
+        //eventPath
+        if(support.geom.collision.Collision.Point2dRect(mousePoint, viewRect)){
+            mouseEvent.addEventViewPath(view);
+            //console.log("-----" + view.constructor.name + "-----");
+        }
+        
         //targetView
         if (mouseEvent.getEventTargetView() !== null){
             if(mouseEvent.getEventTargetViewPath().indexOf(view) !== -1){
                 mouseEvent.setLocalX(localX - view.getX());
                 mouseEvent.setLocalY(localY - view.getY());
+                
+                //dispatch dla ViewGrupy
                 dispatchResult = view.dispatchMouseEvent(mouseEvent);
+                
+                //dla Vidokow onMouseEvent
             }
         }
         //no targte view check
@@ -110,7 +120,11 @@ support.view.AbstractViewGroup.prototype.dispatchMouseEvent = function dispatchM
         
     }
     
-    this.onMouseEvent(mouseEvent);
+    if(this.getParentViewGroup() === null){
+        mouseEvent.getMouseEventHandler().endEventPath(mouseEvent);
+    }
+    
+    return this.onMouseEvent(mouseEvent);
     
 };
 
@@ -138,6 +152,9 @@ support.view.AbstractViewGroup.prototype.onInterceptMouseEvent = function onInte
  * @param {support.MouseEvent} mouseEvent
  * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
  */
-//support.view.AbstractViewGroup.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
-//    
-//};
+support.view.AbstractViewGroup.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+    
+    support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
+    
+    return false;
+};

@@ -44,7 +44,32 @@ app.model.MapModel = function MapModel(mapWidth, mapHeight, tileWidth, tileHeigh
      * @private
      */
     this._tileHeight = tileHeight;
-
+    
+    /**
+     * Tablica z identyfikatorami grafi do wyswietlenia mapy
+     * 
+     * @property {Array} _graphicTiles
+     * @private
+     */
+    this._graphicTilesArray = [];
+    
+    /**
+     * @property {number} _graphicTileWidth
+     * @private
+     */
+    this._graphicTileSize = 40;
+    
+    /**
+     * @property {Array} _logicTiles
+     * @private
+     */
+    this._logicTilesArray = [];
+    
+    /**
+     * @property {number} _logicTileSize
+     * @private
+     */
+    this._logicTileSize = 20;
 };
 
 Utils.inherits(app.model.MapModel, Object);
@@ -83,6 +108,14 @@ app.model.MapModel.prototype.setTileHeight = function setTileHeight(value) {
 };
 
 /**
+ * @method setGraphicTilesArray
+ * @param {Array} value
+ */
+app.model.MapModel.prototype.setGraphicTilesArray = function setGraphicTilesArray(value) {
+    this._graphicTilesArray = value;
+};
+
+/**
  * @method getMapWidth
  * @return {Number}
  */
@@ -112,6 +145,14 @@ app.model.MapModel.prototype.getTileWidth = function getTileWidth() {
  */
 app.model.MapModel.prototype.getTileHeight = function getTileHeight() {
     return this._tileHeight;
+};
+
+/**
+ * @method getGraphicTilesArray
+ * return {Array} graphicTilesArray
+ */
+app.model.MapModel.prototype.getGraphicTilesArray = function getGraphicTilesArray() {
+    return this._graphicTilesArray;
 };
 
 /*

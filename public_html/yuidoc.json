@@ -1,0 +1,17 @@
+{
+    "name": "The SuperTowerDefence API",
+    "description": "The SuperTowerDefence API",
+    "version": "1.2.1",
+    "url": "http://supertowerdefence.pl",
+    "options": {
+        "linkNatives": "true",
+        "attributesEmit": "true",
+        "paths": [
+            "./js/"
+        ],
+        "ignorePaths" : [
+            "./js/libs"
+        ],
+        "outdir": "./yuidoc/"
+    }
+}

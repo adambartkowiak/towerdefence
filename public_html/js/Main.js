@@ -238,10 +238,23 @@ var mouseHandler = new app.mouseHandler.MouseEventHandler(timer, worldModel.getE
 var mouse = new support.Mouse(mouseHandler);
 mouse.initMouse();
 
+//CONTROLLERS DATA
+var entityListModel = worldModel.getEntityListModel();
+var waypointCollisionListModel = worldModel.getWaypointCollisionListModel();
+
+//CONTROLLERS
+var selectTargetController = new app.controller.SelectTargetController(entityListModel);
+var buildController = new app.controller.BuildController(entityListModel);
+var moveController = new app.controller.MoveController(entityListModel);
+var commandController = new app.controller.CommandController();
+var waypointCollisionDetectionController = new app.controller.WaypointCollisionDetectionController(entityListModel, waypointCollisionListModel);
+var waypointCollisionReactionController = new app.controller.WaypointCollisionReactionController(entityListModel, waypointCollisionListModel);
+
 //WIDOKI
 var rootView = new support.view.RootView(canvas, mouseHandler);
-var worldView = new app.view.WorldView(worldModel, 0, 0, rootView.getWidth(), rootView.getHeight());
+var worldView = new app.view.WorldView(worldModel, 0, 0, rootView.getWidth(), rootView.getHeight(), commandController);
 
+//Minimap
 var minimapView = new support.view.MinimapView();
 minimapView.setX(worldModel.getMiniMapModel().getMiniMapPositionX());
 minimapView.setY(worldModel.getMiniMapModel().getMiniMapPositionY());
@@ -253,21 +266,14 @@ minimapView.setMapHeight(worldModel.getMapModel().getMapHeight());
 minimapView.setViewPort(worldModel.getCameraModel());
 minimapView.setElements(worldModel.getEntityListModel().getElements());
 
+//Menu
+var actionMenuView = new app.view.gui.ActionMenuView(rootView.getWidth()-200, rootView.getHeight()-200, 200, 200, commandController);
+actionMenuView.setBackgroundColor("#444444");
+
 //DODAWANIE WIDOKOW DO ROOT VIEW
 rootView.addView(worldView);
 rootView.addView(minimapView);
-
-//CONTROLLERS DATA
-var entityListModel = worldModel.getEntityListModel();
-var waypointCollisionListModel = worldModel.getWaypointCollisionListModel();
-
-//CONTROLLERS
-var selectTargetController = new app.controller.SelectTargetController(entityListModel);
-var buildController = new app.controller.BuildController(entityListModel);
-var moveController = new app.controller.MoveController(entityListModel);
-var waypointCollisionDetectionController = new app.controller.WaypointCollisionDetectionController(entityListModel, waypointCollisionListModel);
-var waypointCollisionReactionController = new app.controller.WaypointCollisionReactionController(entityListModel, waypointCollisionListModel);
-
+rootView.addView(actionMenuView);
 
 //LOGIKA GRY
 var logicFrames = 0;

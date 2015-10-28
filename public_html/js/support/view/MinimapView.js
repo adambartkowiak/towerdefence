@@ -88,12 +88,6 @@ support.view.MinimapView = function MinimapView() {
      */
     this._elements = [];
 
-    /**
-     * @property {boolean} _downEventStartsOnMinimap
-     * @private
-     */
-    this._downEventStartsOnMinimap = false;
-
 };
 
 Utils.inherits(support.view.MinimapView, support.view.AbstractView);
@@ -366,88 +360,6 @@ support.view.MinimapView.prototype.draw = function draw(canvas) {
 
 };
 
-/*
-PRZEROBIC NA 1 EVENT - onMouseEvent - w srodku switch case.
- */
-
-/**
- * @method onMouseDown
- * @public
- * @param {Event} e
- */
-support.view.MinimapView.prototype.onMouseDown = function onMouseDown(e) {
-    console.log("support.view.MinimapView.prototype.onMouseDown");
-
-    var x = e.offsetX - this.getX();
-    var y = e.offsetY - this.getY();
-
-    this._viewPort.setPositionX(x / this._getMinimapScaleWidth());
-    this._viewPort.setPositionY((y - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
-
-    this._downEventStartsOnMinimap = true;
-
-    return true;
-};
-
-/**
- * @method onMouseUp
- * @public
- * @param {Event} e
- */
-support.view.MinimapView.prototype.onMouseUp = function onMouseUp(e) {
-    console.log("support.view.MinimapView.prototype.onMouseUp");
-
-    this._downEventStartsOnMinimap = false;
-};
-
-/**
- * @method onMouseMove
- * @public
- * @param {Event} e
- */
-support.view.MinimapView.prototype.onMouseMove = function onMouseMove(e) {
-    console.log("support.view.MinimapView.prototype.onMouseMove");
-
-    //var x = e.offsetX - this.getX();
-    //var y = e.offsetY - this.getY();
-    //
-    ////var x = this._viewPort.getPositionX();
-    //this._viewPort.setPositionX(x/this._getMinimapScaleWidth());
-    //this._viewPort.setPositionY(y/this._getMinimapScaleHeight() - this._getMapStartYOnMinimap()/this._getMinimapScaleHeight());
-};
-
-/**
- * @method onMouseDrag
- * @public
- * @param {Event} e
- */
-support.view.MinimapView.prototype.onMouseDrag = function onMouseDrag(e) {
-    console.log("support.view.MinimapView.prototype.onMouseDrag");
-
-    var x = e.offsetX - this.getX();
-    var y = e.offsetY - this.getY();
-
-    this._viewPort.setPositionX(x / this._getMinimapScaleWidth());
-    this._viewPort.setPositionY((y - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
-};
-
-/**
- * @method onMouseEnter
- * @public
- * @param {Event} e
- */
-support.view.MinimapView.prototype.onMouseEnter = function onMouseEnter(e) {
-    console.log("support.view.MinimapView.prototype.onMouseEnter");
-};
-
-/**
- * @method onMouseLeave
- * @public
- * @param {Event} e
- */
-support.view.MinimapView.prototype.onMouseLeave = function onMouseLeave(e) {
-    console.log("support.view.MinimapView.prototype.onMouseLeave");
-};
 
 /**
  * Metoda sluzaca do obslugi Eventu.
@@ -459,11 +371,53 @@ support.view.MinimapView.prototype.onMouseLeave = function onMouseLeave(e) {
  */
 support.view.MinimapView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
     
-    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN || 
-            mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG){
-        this._viewPort.setPositionX(mouseEvent.getLocalX() / this._getMinimapScaleWidth());
-        this._viewPort.setPositionY((mouseEvent.getLocalY() - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
+    var result = support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
+    
+    var x, y;
+    
+    if (mouseEvent.getButtonCode() === 0 && (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN || 
+            mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG)){
+        
+        //x
+        x = Math.max(0, mouseEvent.getLocalX());
+        x = Math.min(x, this.getWidth());
+        
+        //y
+        y = Math.max(this._getMapStartYOnMinimap(), mouseEvent.getLocalY());
+        y = Math.min(y, this._getMapStartYOnMinimap() + this._getMapHeightOnMinimap());
+          
+        this._viewPort.setPositionX(x / this._getMinimapScaleWidth());
+        this._viewPort.setPositionY((y - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
+
     }
     
-    return support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);;
+    var listLength = 0;
+    var elementIndex = 0;
+    var element;
+    var destPositionX = 0;
+    var destPositionY = 0;
+    
+    if (mouseEvent.getButtonCode() === 2){
+            listLength = this._elements.length;
+            for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+                element = this._elements[elementIndex];
+
+                destPositionX = mouseEvent.getLocalX()/this._getMinimapScaleWidth();
+                destPositionY = (mouseEvent.getLocalY() - this._getMapStartYOnMinimap())/this._getMinimapScaleHeight();
+                
+                if (element.getSelected() && element.getMoveList()) {
+//                        if (!this._isShiftPressed) {
+                        element.getMoveList().clear();
+//                        }
+                    element.getMoveList().addElement(new app.model.TargetModel(destPositionX, destPositionY, 5, 0, app.model.ActionTypeModel.MOVE));
+                } else if (element.getSelected()) {
+                    element.setMoveList(new app.model.ListModel());
+                    element.getMoveList().addElement(new app.model.TargetModel(destPositionX, destPositionY, 5, 0, app.model.ActionTypeModel.MOVE));
+                }
+
+            }
+    }
+    
+    return result;
 };

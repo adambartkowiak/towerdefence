@@ -18,8 +18,9 @@ var Utils = Utils || {};
  * @param {number} y
  * @param {number} width
  * @param {number} height
+ * @param {app.controller.CommandController} commandController
  */
-app.view.WorldView = function WorldView(worldModel, x, y, width, height) {
+app.view.WorldView = function WorldView(worldModel, x, y, width, height, c) {
     
     /*
      Call Base/Super Constructor
@@ -34,6 +35,8 @@ app.view.WorldView = function WorldView(worldModel, x, y, width, height) {
 
     this._grassTile = new Image();
     this._grassTile.src = "assets/map/grassTile.png";
+
+    this._graphicIDs = [null, this._grassTile];
 
     /**
      * @property {Array} _enemyImage
@@ -82,7 +85,7 @@ app.view.WorldView = function WorldView(worldModel, x, y, width, height) {
      * @property {support.graphics.Image} _image
      */
     this._image = new support.graphics.Image();
-
+    
     /**
      * @property {Boolean} _debug
      * @private
@@ -100,6 +103,8 @@ app.view.WorldView = function WorldView(worldModel, x, y, width, height) {
      * @private
      */
     this._drawPath = true;
+    
+    this._commandController = commandController;
 
 };
 
@@ -112,12 +117,8 @@ Utils.inherits(app.view.WorldView, support.view.AbstractView);
  * @public
  */
 app.view.WorldView.prototype.draw = function draw(canvas, gameIsLoaded) {
-
     
     var canvasContext = canvas.getContext("2d");
-
-    //canvasContext.scale(1,0.5);
-    //canvasContext.rotate(45*Math.PI/180);
 
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -133,18 +134,6 @@ app.view.WorldView.prototype.draw = function draw(canvas, gameIsLoaded) {
         this._drawEntities(canvasContext, this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
         this._drawSelectedArea(canvasContext, this._worldModel.getCameraModel());
 
-
-        //Renderowanie minimapy
-        //this._worldModel.getMiniMapModel().setMiniMapPositionX(0);
-        //this._worldModel.getMiniMapModel().setMiniMapPositionY(canvas.height - this._worldModel.getMiniMapModel().getMiniMapHeight());
-//        this._minimapView.draw(canvas);
-
-        //this._statusMenuView.draw();
-        //this._drawActionMenu(this._worldModel.getSelectedEntityListModel());
-//    }
-
-
-    //canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 };
 
 /**
@@ -163,7 +152,8 @@ app.view.WorldView.prototype._drawMap = function _drawMap(canvasContext, mapMode
         maxTileIndexX = Math.ceil(mapModel.getMapWidth() / tileWidth),
         maxTileIndexY = Math.ceil(mapModel.getMapHeight() / tileHeight),
         drawX,
-        drawY;
+        drawY,
+        tileGraphicId;
 
     canvasContext.beginPath();
     canvasContext.strokeStyle = '#FFFFFF';
@@ -173,13 +163,14 @@ app.view.WorldView.prototype._drawMap = function _drawMap(canvasContext, mapMode
 
             drawX = tileIndexX * tileWidth;
             drawY = tileIndexY * tileHeight;
+            tileGraphicId = mapModel.getGraphicTilesArray()[maxTileIndexY * tileIndexX + tileIndexY];
 
-            canvasContext.drawImage(this._grassTile, drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
+            canvasContext.drawImage(this._graphicIDs[tileGraphicId.gid], drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
 
             //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
             //this._image.drawRotateImage(canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
 
-            canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
+            //canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileWidth, tileHeight);
         }
     }
 
@@ -316,7 +307,6 @@ app.view.WorldView.prototype._drawEntities = function _drawEntities(canvasContex
  * @method _drawSelectedArea
  * @private
  * @param {CanvasRenderingContext2D} canvasContext
- * @param {app.model.ListModel} entityListModel
  * @param {app.model.CameraModel} cameraModel
  */
 app.view.WorldView.prototype._drawSelectedArea = function _drawSelectedArea(canvasContext, cameraModel) {
@@ -336,57 +326,6 @@ app.view.WorldView.prototype._drawSelectedArea = function _drawSelectedArea(canv
 };
 
 /**
- * @method _drawActionMenu
- * @private
- * @param {app.model.ListModel} selectedEntityModelList
- */
-app.view.WorldView.prototype._drawActionMenu = function _drawActionMenu(selectedEntityModelList) {
-
-    if (selectedEntityModelList.length === 0){
-        return;
-    }
-
-    var actionMenuSize = 150,
-        index,
-        tileIndexX,
-        tileIndexY,
-        maxTileIndexX = 4,
-        maxTileIndexY = 4,
-        tileWidth = 150/maxTileIndexX,
-        tileHeight = 150/maxTileIndexY,
-        startActionMenuX = canvas.width - actionMenuSize,
-        startActionMenuY = canvas.height - actionMenuSize,
-        element = selectedEntityModelList.getElement(0),
-        action = element === undefined ? undefined : element._availableActions,
-        actionLength = action === undefined ? 0 : action.length;
-
-    //Rysowanie backgrounda miniMapy
-    canvasContext.fillStyle = '#222222';
-    canvasContext.fillRect(startActionMenuX, startActionMenuY, actionMenuSize, actionMenuSize);
-
-    canvasContext.beginPath();
-    canvasContext.strokeStyle = '#FFFFFF';
-
-    canvasContext.fillStyle = '#FFFFFF';
-
-    for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
-        for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
-            index = tileIndexY+tileIndexX*maxTileIndexY;
-
-            if (actionLength>index){
-                canvasContext.fillText(action[index], startActionMenuX+tileIndexX*tileWidth+tileWidth/2, startActionMenuY+tileIndexY*tileHeight+tileHeight/2);
-            }
-
-            canvasContext.rect(startActionMenuX+tileIndexX*tileWidth, startActionMenuY+tileIndexY*tileHeight, tileWidth, tileHeight);
-        }
-    }
-
-    canvasContext.lineWidth = 1;
-    canvasContext.stroke();
-
-};
-
-/**
  * Metoda sluzaca do obslugi Eventu.
  *
  * @method onMouseEvent
@@ -395,5 +334,134 @@ app.view.WorldView.prototype._drawActionMenu = function _drawActionMenu(selected
  * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
  */
 app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+    
+    var listLength,
+        elementIndex,
+        element,
+        selectedRect,
+        collision = false,
+        point2d = new support.geom.Point2d(mouseEvent.getLocalX(), mouseEvent.getLocalY()),
+        circle = new support.geom.Circle(0, 0, 0);
+    
+    //DOWN
+    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
+        /*
+        zaznaczanie obiektow na mapie
+         */
+        if (mouseEvent.getButtonCode() === 0) {
+            
+            
+            if (this._commandController.getAction() !== null){
+                
+                var pointerOnMapX = mouseEvent.getLocalX() + this._worldModel.getCameraModel().getViewPortX();
+                var pointerOnMapY = mouseEvent.getLocalY() + this._worldModel.getCameraModel().getViewPortY();
+
+                if (this._worldModel.getSelectedEntityListModel().length() > 0) {
+                    listLength = this._worldModel.getEntityListModel().length();
+                    for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+                        element = this._worldModel.getEntityListModel().getElement(elementIndex);
+
+                        if (element.getSelected()) {
+                            this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, app.model.ActionTypeModel.MOVE);
+                        }
+
+                    }
+                } 
+                this._commandController.setAction(null);
+            } else {
+                var selectedRect = new support.geom.Rect(mouseEvent.getLocalX() + this._worldModel.getCameraModel().getViewPortX(), mouseEvent.getLocalY() + this._worldModel.getCameraModel().getViewPortY(), 1, 1);
+                this._worldModel.setSelectRect(selectedRect);
+
+                //DESELECT ALL
+                listLength = this._worldModel.getEntityListModel().length();
+                for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+                    element = this._worldModel.getEntityListModel().getElement(elementIndex);
+                    element.setSelected(false);
+                }
+
+                this._worldModel.getSelectedEntityListModel().clear();
+            }
+            
+            
+
+
+
+        }
+        
+        /*
+        poruszanie obiektow lub poruszanie mapa
+         */
+        //right
+        if (mouseEvent.getButtonCode() === 2) {
+            
+            var pointerOnMapX = mouseEvent.getLocalX() + this._worldModel.getCameraModel().getViewPortX();
+            var pointerOnMapY = mouseEvent.getLocalY() + this._worldModel.getCameraModel().getViewPortY();
+            
+            if (this._worldModel.getSelectedEntityListModel().length() > 0) {
+                listLength = this._worldModel.getEntityListModel().length();
+                for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+                    element = this._worldModel.getEntityListModel().getElement(elementIndex);
+
+                    if (element.getSelected()) {
+                        this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, app.model.ActionTypeModel.MOVE);
+                    }
+
+                }
+            } 
+//            else {
+//                this._rightClickOffsetX = e.offsetX + this._worldModel.getCameraModel().getPositionX();
+//                this._rightClickOffsetY = e.offsetY + this._worldModel.getCameraModel().getPositionY();
+//            }
+
+        }
+    } 
+    
+    //MOVE
+    else if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_MOVE){
+        
+    }
+    
+    //DRAG
+    else if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG){
+        
+        if (/*e.button === 0 && */this._worldModel.getSelectRect() !== null) {
+            this._worldModel.getSelectRect().setWidth(mouseEvent.getLocalX() + this._worldModel.getCameraModel().getViewPortX() - this._worldModel.getSelectRect().getX());
+            this._worldModel.getSelectRect().setHeight(mouseEvent.getLocalY() + this._worldModel.getCameraModel().getViewPortY() - this._worldModel.getSelectRect().getY());
+        }
+        
+    }
+    
+    //UP
+    else if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_UP){
+        
+        if (mouseEvent.getButtonCode() === 0 && this._worldModel.getSelectRect() !== null) {
+
+            listLength = this._worldModel.getEntityListModel().length();
+            for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+                element = this._worldModel.getEntityListModel().getElement(elementIndex);
+
+                circle.setX(element.getX());
+                circle.setY(element.getY());
+                circle.setRadius(element.getRadius());
+
+                collision = support.geom.collision.Collision.CircleRect(circle, this._worldModel.getSelectRect());
+
+                if (collision) {
+                    if (element.getSelectable()) {
+                        element.setSelected(true);
+                        this._worldModel.getSelectedEntityListModel().addElement(element);
+                    }
+                }
+
+            }
+
+        }
+
+        this._worldModel.setSelectRect(null);
+    }
+    
     return support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
 };

@@ -15,9 +15,10 @@ var Utils = Utils || {};
  * @param {support.AbstractMouseEventHandler} mouseEventHandler
  * @param {number} x
  * @param {number} y
+ * @param {number} buttonCode
  * @param {MouseEventType} mouseEventType
  */
-support.MouseEvent = function MouseEvent(mouseEventHandler, x, y, mouseEventType) {
+support.MouseEvent = function MouseEvent(mouseEventHandler, x, y, buttonCode, mouseEventType) {
 
     /**
      * @property {support.AbstractMouseEventHandler} x
@@ -53,6 +54,12 @@ support.MouseEvent = function MouseEvent(mouseEventHandler, x, y, mouseEventType
      * @property {support.MouseEventType} mouseEventType
      * @private
      */
+    this._buttonCode = buttonCode;
+    
+    /**
+     * @property {support.MouseEventType} mouseEventType
+     * @private
+     */
     this._mouseEventType = mouseEventType;
     
     /**
@@ -68,6 +75,12 @@ support.MouseEvent = function MouseEvent(mouseEventHandler, x, y, mouseEventType
      * @private
      */
     this._eventTargetViewPath = [];
+    
+    /**
+     * @property {support.view.AbstractView} currentlyVisitedView
+     * @private
+     */
+    this._currentlyVisitedView = null;
     
 };
 
@@ -119,6 +132,15 @@ support.MouseEvent.prototype.getLocalY = function getLocalY(){
 };
 
 /**
+ * @method getButtonCode
+ * @public
+ * @return buttonCode
+ */
+support.MouseEvent.prototype.getButtonCode = function getButtonCode(){
+    return this._buttonCode;
+};
+
+/**
  * @method getMouseEventType
  * @public
  * @return {support.MouseEventType} mouseEventType
@@ -143,6 +165,42 @@ support.MouseEvent.prototype.getEventTargetView = function getEventTargetView(){
  */
 support.MouseEvent.prototype.getEventTargetViewPath = function getEventTargetViewPath(){
     return this.getMouseEventHandler().getEventTargetViewPath();
+};
+
+/**
+ * @method getEventViewPath
+ * @public
+ * @return {Array} eventTargetViewPath
+ */
+support.MouseEvent.prototype.getEventViewPath = function getEventViewPath(){
+    return this.getMouseEventHandler().getEventViewPath();
+};
+
+/**
+ * @method getEventViewLastPath
+ * @public
+ * @return {Array} eventTargetViewPath
+ */
+support.MouseEvent.prototype.getEventViewLastPath = function getEventViewLastPath(){
+    return this.getMouseEventHandler().getEventViewLastPath();
+};
+
+/**
+ * @method getCurrentlyVisitedView
+ * @public
+ * @return {support.AbstractMouseEventListener} currentMouseEventListener
+ */
+support.MouseEvent.prototype.getCurrentlyVisitedView = function getCurrentlyVisitedView(){
+    return this._currentlyVisitedView;
+};
+
+/**
+ * @method addEventViewPath
+ * @public
+ * @param {support.view.AbstractView} abstractView
+ */
+support.MouseEvent.prototype.addEventViewPath = function addEventViewPath(abstractView){
+    return this.getMouseEventHandler().addEventViewPath(abstractView);
 };
 
 /**
@@ -179,4 +237,36 @@ support.MouseEvent.prototype.setMouseEventType = function setMouseEventType(mous
  */
 support.MouseEvent.prototype.setEventTargetView = function setEventTargetView(eventTargetView){
     return this.getMouseEventHandler().setEventTargetView(eventTargetView);
+};
+
+/**
+ * @method setCurrentlyVisitedView
+ * @public
+ * @param {support.view.AbstractView} abstractView
+ */
+support.MouseEvent.prototype.setCurrentlyVisitedView = function setCurrentlyVisitedView(abstractView){
+    this._currentlyVisitedView = abstractView;
+};
+
+/**
+ * @method isMousePointerInsideTargetView
+ * @public
+ */
+support.MouseEvent.prototype.isMousePointerInsideTargetView = function isMousePointerInsideTargetView(){
+    
+    var targetView = this.getEventTargetView(),
+        mousePoint = null,
+        targetViewRect = null,
+        result = false;
+    
+        if (targetView !== null){
+            mousePoint = new support.geom.Point2d(this.getLocalX(), this.getLocalY());
+            targetViewRect = new support.geom.Rect(0, 0, targetView.getWidth(), targetView.getHeight());
+
+            if(support.geom.collision.Collision.Point2dRect(mousePoint, targetViewRect)){
+                result = true;
+            }
+        }
+    
+    return result;
 };

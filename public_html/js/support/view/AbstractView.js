@@ -57,10 +57,10 @@ support.view.AbstractView = function AbstractView(x, y, width, height) {
     this._backgroundColor = '#222222';
 
     /**
-     * @property {EventListener} eventListener
+     * @property {support.AbstractMouseEventListener} mouseEventListener
      * @private
      */
-    this._eventListener = null;
+    this._mouseEventListener = null;
 };
 
 Utils.inherits(support.view.AbstractView, Object);
@@ -115,10 +115,10 @@ support.view.AbstractView.prototype.getBackgroundColor = function getBackgroundC
 
 /**
  * @method getEventListener
- * @return {EventListener} _eventListener
+ * @return {support.AbstractMouseEventListener} _mouseEventListener
  */
-support.view.AbstractView.prototype.getEventListener = function getEventListener() {
-    return this._eventListener;
+support.view.AbstractView.prototype.getMouseEventListener = function getMouseEventListener() {
+    return this._mouseEventListener;
 };
 
 /**
@@ -170,11 +170,11 @@ support.view.AbstractView.prototype.setBackgroundColor = function setBackgroundC
 };
 
 /**
- * @method setEventListener
- * @param {EventListener} value
+ * @method setMouseEventListener
+ * @param {support.AbstractMouseEventListener} mouseEventListener
  */
-support.view.AbstractView.prototype.setEventListener = function setEventListener(value) {
-    this._eventListener = value;
+support.view.AbstractView.prototype.setMouseEventListener = function setMouseEventListener(mouseEventListener) {
+    this._mouseEventListener = mouseEventListener;
 };
 
 /**
@@ -188,6 +188,18 @@ support.view.AbstractView.prototype.setEventListener = function setEventListener
  * @return {boolean} true - widok uzywa eventu, false - widok nie uzywa eventu
  */
 support.view.AbstractView.prototype.dispatchMouseEvent = function dispatchMouseEvent(mouseEvent){
+    
+    var newMouseEvent = null;
+    
+    //w ostatnim evencie nie bylo tego widoku - to znaczy ze myszka wjechala na ten widok
+    if (mouseEvent.getEventTargetView() === null && mouseEvent.getEventViewLastPath().indexOf(this) === -1){
+        newMouseEvent = new support.MouseEvent(mouseEvent.getMouseEventHandler(), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButtonCode(), support.MouseEventType.MOUSE_ENTER);
+        newMouseEvent.setLocalX( mouseEvent.getLocalX() );
+        newMouseEvent.setLocalY( mouseEvent.getLocalY() );
+        
+        this.onMouseEvent(newMouseEvent);
+    }
+    
     return this.onMouseEvent(mouseEvent);
 };
 
@@ -200,13 +212,21 @@ support.view.AbstractView.prototype.dispatchMouseEvent = function dispatchMouseE
  * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
  */
 support.view.AbstractView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
-    console.log(this.constructor.name);
-    console.log(mouseEvent);
+//    console.log("-----" + this.constructor.name + "-----");
+//    console.log(mouseEvent);
+    
+    var result = false;
+    
+    mouseEvent.setCurrentlyVisitedView(this);
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
-        return true;
+        result = true;
     } 
     
-    return false;
+    if (this._mouseEventListener !== null){
+        this._mouseEventListener.onMouseEvent(mouseEvent);   
+    }
+    
+    return result;
     
 };

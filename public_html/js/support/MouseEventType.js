@@ -19,6 +19,6 @@ support.MouseEventType = {
     MOUSE_UP : 2,
     MOUSE_LEAVE : 3,
     MOUSE_ENTER : 4,
-    MOUSE_DRAG : 5, //Mouse_DWON + MOUSE_UP
+    MOUSE_DRAG : 5, //Mouse_DWON + MOUSE_MOVE
     EVENT_CANCEL: 6
 };

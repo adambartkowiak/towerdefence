@@ -15,42 +15,15 @@ var Utils = Utils || {};
  * @param {support.Timer} timer
  * @param {app.model.EntityListModel} entityList
  */
-app.mouseHandler.MouseEventHandler = function MouseEventHandler(timer, entityList, worldModel) {
+app.mouseHandler.MouseEventHandler = function MouseEventHandler() {
 
     support.AbstractMouseEventHandler.call(this);
-
-    /**
-     * @property {support.Timer} _timer
-     * @private
-     */
-    this._timer = timer;
-
-    /**
-     * @property {app.model.EntityListModel} _entityListModel
-     * @private
-     */
-    this._entityListModel = entityList;
-
-    /**
-     * @property {app.model.WorldModel} _worldModel
-     * @private
-     */
-    this._worldModel = worldModel;
 
     /**
      * @property {boolean} _isShiftPressed
      * @private
      */
-    this._isShiftPressed = false;
-
-
-    this._rightClickOffsetX = 0;
-    this._rightClickOffsetY = 0;
-
     this._mouseEventListenerArray = [];
-    
-    
-
 
 };
 

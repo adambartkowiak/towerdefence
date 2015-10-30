@@ -33,7 +33,7 @@ body {
     overflow: scroll;
 }
 
-#mapCanvas {
+#map {
     background-image: url("../assets/editor/gbr01.png");
     background-size: 100% 100%;
     //margin: 0px 0px 200px 0px;

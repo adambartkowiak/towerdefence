@@ -234,7 +234,7 @@ if (loadFromWebservice) {
 //worldModel.setEntityListModel(entityListModel);
 
 //EVENTY MYSZKI
-var mouseHandler = new app.mouseHandler.MouseEventHandler(timer, worldModel.getEntityListModel(), worldModel);
+var mouseHandler = new app.mouseHandler.MouseEventHandler();
 var mouse = new support.Mouse(mouseHandler);
 mouse.initMouse();
 

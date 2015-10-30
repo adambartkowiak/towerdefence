@@ -212,8 +212,8 @@ support.view.AbstractView.prototype.dispatchMouseEvent = function dispatchMouseE
  * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
  */
 support.view.AbstractView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
-//    console.log("-----" + this.constructor.name + "-----");
-//    console.log(mouseEvent);
+    //console.log("-----" + this.constructor.name + "-----");
+    //console.log(mouseEvent);
     
     var result = false;
     
@@ -224,7 +224,7 @@ support.view.AbstractView.prototype.onMouseEvent = function onMouseEvent(mouseEv
     } 
     
     if (this._mouseEventListener !== null){
-        this._mouseEventListener.onMouseEvent(mouseEvent);   
+        result = this._mouseEventListener.onMouseEvent(mouseEvent);
     }
     
     return result;

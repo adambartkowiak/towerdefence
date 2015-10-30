@@ -23,14 +23,76 @@
 <!-- Utils -->
 <script type="text/javascript" src="js/utils/Utils.js"></script>
 
+<!-- Support -->
+<script type="text/javascript" src="js/support/Timer.js"></script>
+<script type="text/javascript" src="js/support/Mouse.js"></script>
+<script type="text/javascript" src="js/support/MouseEvent.js"></script>
+<script type="text/javascript" src="js/support/MouseEventType.js"></script>
+<script type="text/javascript" src="js/support/AbstractMouseEventHandler.js"></script>
+<script type="text/javascript" src="js/support/Loader.js"></script>
+<script type="text/javascript" src="js/support/AbstractMouseEventListener.js"></script>
+
+<script type="text/javascript" src="js/support/geom/Point2d.js"></script>
+<script type="text/javascript" src="js/support/geom/SimpleVector2d.js"></script>
+<script type="text/javascript" src="js/support/geom/Vector2d.js"></script>
+<script type="text/javascript" src="js/support/geom/Circle.js"></script>
+<script type="text/javascript" src="js/support/geom/Rect.js"></script>
+<script type="text/javascript" src="js/support/geom/shape/FreeShape.js"></script>
+
+<script type="text/javascript" src="js/support/geom/collisions/Collision.js"></script>
+
+<script type="text/javascript" src="js/support/graphics/Image.js"></script>
+
+<script type="text/javascript" src="js/support/view/AbstractView.js"></script>
+<script type="text/javascript" src="js/support/view/AbstractViewGroup.js"></script>
+<script type="text/javascript" src="js/support/view/AbsoluteLayoutView.js"></script>
+<script type="text/javascript" src="js/support/view/ButtonView.js"></script>
+<script type="text/javascript" src="js/support/view/MinimapView.js"></script>
+<script type="text/javascript" src="js/support/view/RootView.js"></script>
+
+<script type="text/javascript" src="js/support/command/AbstractCommand.js"></script>
+
+<!-- Mouse Event Handler -->
+<script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
+
+<!-- App files -->
+<script type="text/javascript" src="js/app/model/MapModel.js"></script>
+
 <!-- Editor classes -->
-<script type="text/javascript" src="js/editor/assets/AssetsController.js"></script>
+<script type="text/javascript" src="js/editor/assets/AssetListController.js"></script>
+<script type="text/javascript" src="js/editor/assets/AssetListModel.js"></script>
+<script type="text/javascript" src="js/editor/controller/MapController.js"></script>
+<script type="text/javascript" src="js/editor/view/MapView.js"></script>
 
 <!-- Script -->
 <script type="text/javascript">
+    var assetListController;
+    var assetListModel;
+    var mapModel = new app.model.MapModel(4000, 4000, 40, 40);
+    var mapView = null;
+    var canvas = null;
+    var mapController = null;
+
+    var mouseHandler = new app.mouseHandler.MouseEventHandler();
+    var mouse = new support.Mouse(mouseHandler);
+    var rootView = null;
 
     window.onload = function(){
-        var assetsController = editor.assets.AssetsController();
+        assetListModel =  new editor.assets.AssetListModel();
+        assetListController = new editor.assets.AssetListController(assetListModel);
+        mapController = new editor.controller.MapController(mapModel, assetListModel);
+        canvas = document.getElementById("map");
+        mouse.initMouse();
+        mapView = new editor.view.MapView(mapModel, 4000, 4000);
+        mapView.setMouseEventListener(mapController);
+
+        rootView = new support.view.RootView(canvas, mouseHandler);
+        rootView.addView(mapView);
+
+        setInterval(function () {
+            mapView.draw(canvas);
+        }, 100);
+
     }
 
 </script>
@@ -73,7 +135,7 @@
 <div id="contentArea">
     <div id="mapArea">
         <div id="mapPreview">
-            <canvas id="mapCanvas" width="16000px" height="16000px"></canvas>
+            <canvas id="map" width="4000px" height="4000px"></canvas>
         </div>
     </div>
     <div id="assetsArea">
@@ -91,7 +153,7 @@
             }
 
             print("
-                <div class=\"row assetElement\" assetName=\"assets/editor/{$tabElement}\">
+                <div class=\"row assetElement\" data-assetname=\"assets/editor/{$tabElement}\">
                     <div>
                         <div class=\"thumbnail\" style=\"width: 150px\">
                             <img src=\"assets/editor/{$tabElement}\" alt=\"...\">

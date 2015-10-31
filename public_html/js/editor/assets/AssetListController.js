@@ -44,6 +44,9 @@ editor.assets.AssetListController.prototype._init = function _init(){
         assetsElement[index].addEventListener("click", function(){
             console.log(this.dataset["assetname"]);
             that._assetListModel.setSelectedAssetUrl(this.dataset["assetname"]);
+            that._assetListModel.setSelectedAssetLayer(this.dataset["layer"]);
+            that._assetListModel.setSelectedAssetDrawX(this.dataset["drawx"]);
+            that._assetListModel.setSelectedAssetDrawY(this.dataset["drawy"]);
         });
 
     }

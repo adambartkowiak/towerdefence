@@ -37,10 +37,12 @@ editor.controller.MapController.prototype.onMouseEvent = function onMouseEvent(m
         y = 0,
         tileX,
         tileY,
-        tileIndex;
+        tileIndex,
+        layer;
 
-    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_UP ||
-        mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG){
+    if ((mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_UP ||
+        mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG) &&
+        mouseEvent.isMousePointerInsideTargetView()){
 
 
         graphicTileArray = this._mapModel.getGraphicTilesArray();
@@ -53,15 +55,40 @@ editor.controller.MapController.prototype.onMouseEvent = function onMouseEvent(m
 
         tileIndex = tileY + tileX * this._mapModel.getMapHeight()/this._mapModel.getTileHeight();
 
-        //console.log(graphicTileArray[tileIndex]);
-        //console.log(graphicTileArray[tileIndex].gid);
+        if (mouseEvent.getButtonCode() === 0){
+            if (this._assetListModel.getSelectedAssetUrl() != null){
 
-        if (this._assetListModel.getSelectedAssetUrl() != null){
-            console.log(tileIndex);
-            graphicTileArray[tileIndex].gid = this._assetListModel.getSelectedAssetUrl();
+                //console.log(mouseEvent);
+
+                layer = this._assetListModel.getSelectedAssetLayer()
+
+                if (!graphicTileArray[tileIndex][layer]){
+                    graphicTileArray[tileIndex][layer] = {};
+                }
+
+                graphicTileArray[tileIndex][layer].gid = this._assetListModel.getSelectedAssetUrl();
+                graphicTileArray[tileIndex][layer].x = this._assetListModel.getSelectedAssetDrawX();
+                graphicTileArray[tileIndex][layer].y = this._assetListModel.getSelectedAssetDrawY();
+            }
+        } else if (mouseEvent.getButtonCode() === 2) {
+
+            graphicTileArray[tileIndex][0].gid = "";
+            graphicTileArray[tileIndex][0].x = 0;
+            graphicTileArray[tileIndex][0].y = 0;
+
+            if (graphicTileArray[tileIndex][1]){
+                graphicTileArray[tileIndex][1].gid = "";
+                graphicTileArray[tileIndex][1].x = 0;
+                graphicTileArray[tileIndex][1].y = 0;
+            }
+
         }
 
-        //console.log(graphicTileArray[tileIndex].gid);
+    }
 
+    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
+        return true;
+    } else {
+        return false;
     }
 };

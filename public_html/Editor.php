@@ -68,7 +68,7 @@
 <script type="text/javascript">
     var assetListController;
     var assetListModel;
-    var mapModel = new app.model.MapModel(4000, 4000, 40, 40);
+    var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
     var mapView = null;
     var canvas = null;
     var mapController = null;
@@ -83,7 +83,7 @@
         mapController = new editor.controller.MapController(mapModel, assetListModel);
         canvas = document.getElementById("map");
         mouse.initMouse();
-        mapView = new editor.view.MapView(mapModel, 4000, 4000);
+        mapView = new editor.view.MapView(mapModel, assetListModel, 2000, 2000);
         mapView.setMouseEventListener(mapController);
 
         rootView = new support.view.RootView(canvas, mouseHandler);
@@ -135,7 +135,7 @@
 <div id="contentArea">
     <div id="mapArea">
         <div id="mapPreview">
-            <canvas id="map" width="4000px" height="4000px"></canvas>
+            <canvas id="map" width="2000px" height="2000px"></canvas>
         </div>
     </div>
     <div id="assetsArea">
@@ -148,23 +148,39 @@
 
             $tabElement = $arrayFiles[$index];
 
-            if($tabElement === "." || $tabElement === ".."){
-                continue;
-            }
 
-            print("
-                <div class=\"row assetElement\" data-assetname=\"assets/editor/{$tabElement}\">
-                    <div>
-                        <div class=\"thumbnail\" style=\"width: 150px\">
-                            <img src=\"assets/editor/{$tabElement}\" alt=\"...\">
-                            <h5>{$tabElement}</h5>
+            if(endswith($tabElement, ".json")){
+
+                //wczytuje z pliku w formacie json dane odnosnie grafiki i wpisuje je do NODEa HTMLowego
+                $str = file_get_contents("assets/editor/{$tabElement}");
+                $json = json_decode($str, true);
+
+                $layer = $json['layer'];
+                $drawx = $json['x'];
+                $drawy = $json['y'];
+
+                $tabElement = substr($tabElement, 0, strlen($tabElement)-strlen(".json"));
+
+                print("
+                    <div class=\"row assetElement\" data-assetname=\"assets/editor/{$tabElement}.png\" data-layer=\"{$layer}\" data-drawx=\"{$drawx}\" data-drawy=\"{$drawy}\">
+                        <div>
+                            <div class=\"thumbnail\" style=\"width: 150px\">
+                                <img src=\"assets/editor/{$tabElement}.png\">
+                                <h5>{$tabElement}.png</h5>
+                            </div>
                         </div>
-                    </div>
-                </div>");
+                    </div>");
+
+            }
 
         }
 
-
+        function endswith($string, $test) {
+            $strlen = strlen($string);
+            $testlen = strlen($test);
+            if ($testlen > $strlen) return false;
+            return substr_compare($string, $test, $strlen - $testlen, $testlen) === 0;
+        }
 
         ?>
 

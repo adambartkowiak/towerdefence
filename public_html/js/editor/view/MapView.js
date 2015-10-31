@@ -11,23 +11,36 @@ Utils.namespace(["editor", "view"]);
  * @class MapView
  * @constructor
  * @param {app.model.MapModel} mapModel
+ * @param {editor.assets.AssetListModel} assetListModel
  * @param {number} width
  * @param {number} height
  */
-editor.view.MapView = function MapView(mapModel, width, height) {
+editor.view.MapView = function MapView(mapModel, assetListModel, width, height) {
 
     /*
      Call Base/Super Constructor
      */
     support.view.AbstractView.call(this, 0, 0, width, height);
 
+    /**
+     * @property {app.model.mapModel} mapModel
+     * @private
+     */
     this._mapModel = mapModel;
 
+    /**
+     * @property {editor.assets.AssetListModel} selectedAssetUrl
+     * @private
+     */
+    this._assetListModel = assetListModel;
+
+    this._previewX = 0;
+    this._previewY = 0;
 
     //init mapModel
     var tileCount = (mapModel.getMapWidth()/mapModel.getTileWidth()) * (mapModel.getMapHeight()/mapModel.getTileHeight());
     for (var i = 0; i< tileCount; i++){
-        this._mapModel.getGraphicTilesArray().push({gid: "assets/editor/gbc01.png"});
+        this._mapModel.getGraphicTilesArray().push([{gid: "assets/editor/gcc02.png", x:0, y:0}]);
     }
 
 
@@ -70,46 +83,54 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
         drawX,
         drawY,
         tileGraphicId,
-        graphic;
+        tileGraphicX,
+        tileGraphicY,
+        tileImage,
+        layer,
+        maxLayer = 2;
 
     canvasContext.beginPath();
     canvasContext.strokeStyle = 'rgba(255,255,255,0.3)';
 
-    for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
-        for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
+    for (layer = 0; layer < maxLayer; layer++){
+        for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
+            for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
 
-            drawX = tileIndexX * tileWidth;
-            drawY = tileIndexY * tileHeight;
-            tileGraphicId = mapModel.getGraphicTilesArray()[maxTileIndexY * tileIndexX + tileIndexY];
+                drawX = tileIndexX * tileWidth;
+                drawY = tileIndexY * tileHeight;
+                tileGraphicId = mapModel.getGraphicTilesArray()[maxTileIndexY * tileIndexX + tileIndexY];
 
-            canvasContext.drawImage(this._tileImage[tileGraphicId.gid], drawX, drawY);
+                if (tileGraphicId[layer]) {
+                    tileGraphicX = tileGraphicId[layer].x;
+                    tileGraphicY = tileGraphicId[layer].y;
+                    tileImage = this._tileImage[tileGraphicId[layer].gid];
 
-            //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
-            //this._image.drawRotateImage(canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
+                    if (tileImage) {
+                        canvasContext.drawImage(tileImage, drawX - tileGraphicX, drawY - tileGraphicY);
+                    }
 
-            //canvasContext.rect(drawX, drawY, tileWidth, tileHeight);
+                    //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
+                    //this._image.drawRotateImage(canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
+
+                    //canvasContext.rect(drawX, drawY, tileWidth, tileHeight);
+                }
+            }
         }
     }
 
+    if (this._assetListModel.getSelectedAssetUrl()){
 
-    for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
-        for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
+        drawX = this._previewX - this._previewX%tileWidth;
+        drawY = this._previewY - this._previewY%tileHeight;
 
-            drawX = tileIndexX * tileWidth;
-            drawY = tileIndexY * tileHeight;
-            tileGraphicId = mapModel.getGraphicTilesArray()[maxTileIndexY * tileIndexX + tileIndexY];
+        tileGraphicX = this._assetListModel.getSelectedAssetDrawX();
+        tileGraphicY = this._assetListModel.getSelectedAssetDrawY();
 
+        tileImage = this._tileImage[this._assetListModel.getSelectedAssetUrl()];
 
-            if (tileGraphicId.gid === "assets/editor/wbl04.png"){
-                canvasContext.drawImage(this._tileImage[tileGraphicId.gid], drawX, drawY);
-            }
-
-
-            //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
-            //this._image.drawRotateImage(canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
-
-            canvasContext.rect(drawX, drawY, tileWidth, tileHeight);
-        }
+        canvasContext.globalAlpha = 0.5;
+        canvasContext.drawImage(tileImage, drawX - tileGraphicX, drawY - tileGraphicY);
+        canvasContext.globalAlpha = 1;
     }
 
     canvasContext.lineWidth = 1;
@@ -117,18 +138,25 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
 };
 
 
-///**
-// * Metoda sluzaca do obslugi Eventu.
-// *
-// * @method onMouseEvent
-// * @public
-// * @param {support.MouseEvent} mouseEvent
-// * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
-// */
-//editor.view.MapView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
-//
-//    var result = support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
-//
-//    return result;
-//
-//};
+/**
+ * Metoda sluzaca do obslugi Eventu.
+ *
+ * @method onMouseEvent
+ * @public
+ * @param {support.MouseEvent} mouseEvent
+ * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
+ */
+editor.view.MapView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+
+    var result = support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
+
+    if (this._assetListModel.getSelectedAssetUrl()){
+
+        this._previewX = mouseEvent.getLocalX();
+        this._previewY = mouseEvent.getLocalY();
+
+    }
+
+    return result;
+
+};

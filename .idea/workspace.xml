@@ -2,54 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gbc01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gbl01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gbl02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gbr01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gbr02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gcc01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gcc02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gcl01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gcr01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gtc01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gtl01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gtl02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gtr01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/gtr02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/tgcc01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/tgcc02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/tgcc03.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/tgcc04.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/tgcc05.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/tgcc06.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbc01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbc02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbl01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbl02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbl03.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbl04.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbr01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbr02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbr03.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wbr04.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wcl01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wcl02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wcr01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wcr02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtc01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtc02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtl01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtl02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtl03.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtr01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtr02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/wtr03.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListModel.js" afterPath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Mail.php" afterPath="$PROJECT_DIR$/public_html/Mail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/MapController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/MapController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" afterPath="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HTML5GAME.iws" />
@@ -720,7 +672,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446220118313</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Wstepna wersja Edytora Mapy">
+      <created>1446249628358</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1446249628359</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">

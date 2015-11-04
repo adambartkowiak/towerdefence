@@ -227,10 +227,10 @@ app.model.WorldModel.prototype.save = function save() {
  */
 
 /**
- * @method laodFromJSON
+ * @method loadFromJSON
  * @param {Object} unMinifyJSON
  */
-app.model.WorldModel.prototype.laodFromJSON = function laodFromJSON(worldModelJSON) {
+app.model.WorldModel.prototype.loadFromJSON = function loadFromJSON(worldModelJSON) {
 
     this._entityModelList.loadFromJSON(worldModelJSON._entityModelList);
     this._entityModelIndex = worldModelJSON._entityModelIndex;
@@ -245,7 +245,7 @@ app.model.WorldModel.prototype.laodFromJSON = function laodFromJSON(worldModelJS
 app.model.WorldModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(worldModelMinifyJSON) {
 
     var worldModelJSON = this.unMinifyJSON(worldModelMinifyJSON);
-    this.laodFromJSON(worldModelJSON);
+    this.loadFromJSON(worldModelJSON);
 };
 
 /**

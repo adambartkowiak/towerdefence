@@ -37,12 +37,17 @@ editor.view.MapView = function MapView(mapModel, assetListModel, width, height) 
     this._previewX = 0;
     this._previewY = 0;
 
-    //init mapModel
-    var tileCount = (mapModel.getMapWidth()/mapModel.getTileWidth()) * (mapModel.getMapHeight()/mapModel.getTileHeight());
+    //init getGraphicTilesArray
+    var tileCount = (mapModel.getMapGraphicModel().getMapWidth()/mapModel.getMapGraphicModel().getTileWidth()) * (mapModel.getMapGraphicModel().getMapHeight()/mapModel.getMapGraphicModel().getTileHeight());
     for (var i = 0; i< tileCount; i++){
-        this._mapModel.getGraphicTilesArray().push([{gid: "assets/editor/gcc02.png", x:0, y:0}]);
+        this._mapModel.getMapGraphicModel().getTileArray().push([{gid: "assets/editor/gcc02.png", x:0, y:0}]);
     }
 
+    //init logicTIlesArray
+    //var tileCount = (mapModel.getMapWidth()/mapModel.getTileWidth()) * (mapModel.getMapHeight()/mapModel.getTileHeight());
+    //for (var i = 0; i< tileCount; i++){
+    //    this._mapModel.getLogicTilesArray().push([{gid: "assets/editor/gcc02.png", x:0, y:0}]);
+    //}
 
     //loading Tiles
     this._tileImage = [];
@@ -76,10 +81,10 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
 
     var tileIndexX,
         tileIndexY,
-        tileWidth = this._mapModel.getTileWidth(),
-        tileHeight = this._mapModel.getTileHeight(),
-        maxTileIndexX = Math.ceil(this._mapModel.getMapWidth() / tileWidth),
-        maxTileIndexY = Math.ceil(this._mapModel.getMapHeight() / tileHeight),
+        tileGraphicWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
+        tileGraphicHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
+        maxTileGraphicIndexX = Math.ceil(this._mapModel.getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(this._mapModel.getMapHeight() / tileGraphicHeight),
         drawX,
         drawY,
         tileGraphicId,
@@ -93,12 +98,12 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
     canvasContext.strokeStyle = 'rgba(255,255,255,0.3)';
 
     for (layer = 0; layer < maxLayer; layer++){
-        for (tileIndexX = 0; tileIndexX < maxTileIndexX; tileIndexX++) {
-            for (tileIndexY = 0; tileIndexY < maxTileIndexY; tileIndexY++) {
+        for (tileIndexX = 0; tileIndexX < maxTileGraphicIndexX; tileIndexX++) {
+            for (tileIndexY = 0; tileIndexY < maxTileGraphicIndexY; tileIndexY++) {
 
-                drawX = tileIndexX * tileWidth;
-                drawY = tileIndexY * tileHeight;
-                tileGraphicId = mapModel.getGraphicTilesArray()[maxTileIndexY * tileIndexX + tileIndexY];
+                drawX = tileIndexX * tileGraphicWidth;
+                drawY = tileIndexY * tileGraphicHeight;
+                tileGraphicId = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
 
                 if (tileGraphicId[layer]) {
                     tileGraphicX = tileGraphicId[layer].x;
@@ -112,7 +117,7 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
                     //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P
                     //this._image.drawRotateImage(canvasContext, this._grassTile, drawX - cameraPosX, drawY - cameraPosY, 0);
 
-                    //canvasContext.rect(drawX, drawY, tileWidth, tileHeight);
+                    canvasContext.rect(drawX, drawY, tileGraphicWidth, tileGraphicHeight);
                 }
             }
         }
@@ -120,8 +125,8 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
 
     if (this._assetListModel.getSelectedAssetUrl()){
 
-        drawX = this._previewX - this._previewX%tileWidth;
-        drawY = this._previewY - this._previewY%tileHeight;
+        drawX = this._previewX - this._previewX%tileGraphicWidth;
+        drawY = this._previewY - this._previewY%tileGraphicHeight;
 
         tileGraphicX = this._assetListModel.getSelectedAssetDrawX();
         tileGraphicY = this._assetListModel.getSelectedAssetDrawY();

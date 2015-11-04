@@ -370,7 +370,7 @@ app.saveGameToMinifyString = function saveGameToMinifyString() {
 app.loadGame = function loadGame(stringJson) {
     try {
         var json = JSON.parse(stringJson);
-        worldModel.laodFromJSON(json);
+        worldModel.loadFromJSON(json);
     }
     catch (e){
         return e.message;

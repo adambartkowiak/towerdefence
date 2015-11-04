@@ -27,7 +27,7 @@ body {
 }
 
 #mapPreview {
-    margin: 0px 180px 0px 0px;
+    margin: 0px 300px 0px 0px;
     height: calc(100% - 50px);
     background-color: #eeeeee;
     overflow: scroll;

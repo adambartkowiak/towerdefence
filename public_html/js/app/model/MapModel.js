@@ -34,46 +34,19 @@ app.model.MapModel = function MapModel(mapWidth, mapHeight, tileWidth, tileHeigh
     this._mapHeight = mapHeight;
 
     /**
-     * @property {number} _tileWidth
+     * @property {app.model.map.MapGraphicLayerModel} _mapGraphicModel
      * @private
      */
-    this._tileWidth = tileWidth;
+    this._mapGraphicLayerModel = new app.model.map.MapGraphicLayerModel(mapWidth, mapHeight, tileWidth, tileHeight);
 
     /**
-     * @property {number} _tileHeight
+     * @property {app.model.map.MapCollisionLayerModel} _mapCollisionModel
      * @private
      */
-    this._tileHeight = tileHeight;
-    
-    /**
-     * Tablica z identyfikatorami grafi do wyswietlenia mapy
-     * 
-     * @property {Array} _graphicTiles
-     * @private
-     */
-    this._graphicTilesArray = [];
-    
-    /**
-     * @property {number} _graphicTileWidth
-     * @private
-     */
-    this._graphicTileSize = 40;
-    
-    /**
-     * @property {Array} _logicTiles
-     * @private
-     */
-    this._logicTilesArray = [];
-    
-    /**
-     * @property {number} _logicTileSize
-     * @private
-     */
-    this._logicTileSize = 20;
+    this._mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(mapWidth, mapHeight, tileWidth, tileHeight);
 };
 
 Utils.inherits(app.model.MapModel, Object);
-
 
 /**
  * @method setMapWidth
@@ -89,30 +62,6 @@ app.model.MapModel.prototype.setMapWidth = function setMapWidth(value) {
  */
 app.model.MapModel.prototype.setMapHeight = function setMapHeight(value) {
     this._mapHeight = value;
-};
-
-/**
- * @method setTileWidth
- * @param {Number} value
- */
-app.model.MapModel.prototype.setTileWidth = function setTileWidth(value) {
-    this._tileWidth = value;
-};
-
-/**
- * @method setTileHeight
- * @param {Number} value
- */
-app.model.MapModel.prototype.setTileHeight = function setTileHeight(value) {
-    this._tileHeight = value;
-};
-
-/**
- * @method setGraphicTilesArray
- * @param {Array} value
- */
-app.model.MapModel.prototype.setGraphicTilesArray = function setGraphicTilesArray(value) {
-    this._graphicTilesArray = value;
 };
 
 /**
@@ -132,71 +81,94 @@ app.model.MapModel.prototype.getMapHeight = function getMapHeight() {
 };
 
 /**
- * @method getTileWidth
- * @return {Number}
+ * @method getMapGraphicModel
+ * return {app.model.map.MapGraphicModel} mapGraphicModel
  */
-app.model.MapModel.prototype.getTileWidth = function getTileWidth() {
-    return this._tileWidth;
+app.model.MapModel.prototype.getMapGraphicModel = function getMapGraphicModel() {
+    return this._mapGraphicLayerModel;
 };
 
 /**
- * @method getTileHeight
- * @return {Number}
+ * @method getMapCollisionModel
+ * return {app.model.map.MapCollisionModel} mapCollisionModel
  */
-app.model.MapModel.prototype.getTileHeight = function getTileHeight() {
-    return this._tileHeight;
+app.model.MapModel.prototype.getMapCollisionModel = function getMapCollisionModel() {
+    return this._mapCollisionLayerModel;
 };
 
 /**
- * @method getGraphicTilesArray
- * return {Array} graphicTilesArray
+ * @method setMapGraphicModel
+ * return {app.model.map.MapGraphicModel} mapGraphicModel
  */
-app.model.MapModel.prototype.getGraphicTilesArray = function getGraphicTilesArray() {
-    return this._graphicTilesArray;
+app.model.MapModel.prototype.setMapGraphicModel = function setMapGraphicModel(mapGraphicModel) {
+    this._mapGraphicLayerModel = mapGraphicModel;
+};
+
+/**
+ * @method setMapCollisionModel
+ * return {app.model.map.MapCollisionModel} mapCollisionModel
+ */
+app.model.MapModel.prototype.setMapCollisionModel = function setMapCollisionModel(mapCollisionModel) {
+    this._mapCollisionLayerModel = mapCollisionModel;
 };
 
 /*
  Ładowanie JSONa NORMALNEGO, Minifikacja, Odminifikowanie, Ładowanie JSONa ZMINIFIKOWANEGO,
  */
 
-///**
-// * @method loadFromJSON
-// * @property {Object} unMinifyJSON
-// */
-//app.model.MapModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
-//    this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
-//    this._actionType = JSON._actionType;
-//    this._entityId = JSON._entityId;
-//};
-//
-///**
-// * @method getMinifyJSON
-// * @returns {Object} minifyJSON
-// */
-//app.model.MapModel.prototype.getMinifyJSON = function getMinifyJSON() {
-//    var result = {
-//        1: this._circle.getMinifyJSON(),
-//        2: this._actionType,
-//        3: this._entityId
-//    }
-//
-//    return result;
-//};
-//
-///**
-// * @method unMinifyJSON
-// * @property {Object} minifyJSON
-// * @return {Object} unMinifyJSON
-// */
-//app.model.MapModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
-//
-//    var circle = new support.geom.Circle(0, 0, 0);
-//
-//    var result = {
-//        _circle: circle.unMinifyJSON(minifyJSON["1"]),
-//        _actionType: minifyJSON["2"],
-//        _entityId: minifyJSON["3"]
-//    };
-//
-//    return result;
-//};
+/**
+ * @method loadFromJSON
+ * @param {Object} unMinifyJSON
+ */
+app.model.MapModel.prototype.loadFromJSON = function loadFromJSON(unMinifyJSON) {
+
+    this._mapWidth = unMinifyJSON._mapWidth;
+    this._mapHeight = unMinifyJSON._mapHeight;
+    this._mapGraphicLayerModel.loadFromJSON(unMinifyJSON._mapGraphicLayerModel);
+    this._mapCollisionLayerModel.loadFromJSON(unMinifyJSON._mapCollisionLayerModel);
+};
+
+/**
+ * @method loadFromMinifyJSON
+ * @param {Object} minifyJSON
+ */
+app.model.MapModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(minifyJSON) {
+
+    var unMinifyJSON = this.unMinifyJSON(minifyJSON);
+    this.loadFromJSON(unMinifyJSON);
+};
+
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+app.model.MapModel.prototype.getMinifyJSON = function getMinifyJSON() {
+    var result = {
+        1: this._mapWidth,
+        2: this._mapHeight,
+        3: this._mapGraphicLayerModel.getMinifyJSON(),
+        4: this._mapCollisionLayerModel.getMinifyJSON()
+    };
+
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+app.model.MapModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var mapGraphicLayerModel = new app.model.map.MapGraphicLayerModel(0,0,0,0),
+        mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(0,0,0,0);
+
+    var result = {
+        _mapWidth: minifyJSON["1"],
+        _mapHeight: minifyJSON["2"],
+        _mapGraphicLayerModel: mapGraphicLayerModel.unMinifyJSON(minifyJSON["3"]),
+        _mapCollisionLayerModel: mapCollisionLayerModel.unMinifyJSON(minifyJSON["4"])
+    };
+
+    return result;
+};

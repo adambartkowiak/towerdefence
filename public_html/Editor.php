@@ -56,6 +56,9 @@
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
 
 <!-- App files -->
+<script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
+<script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
+<script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/MapModel.js"></script>
 
 <!-- Editor classes -->
@@ -113,20 +116,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
+                <li><a href="#">Graphic</a></li>
+                <li><a href="#">Collision</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -164,7 +155,7 @@
                 print("
                     <div class=\"row assetElement\" data-assetname=\"assets/editor/{$tabElement}.png\" data-layer=\"{$layer}\" data-drawx=\"{$drawx}\" data-drawy=\"{$drawy}\">
                         <div>
-                            <div class=\"thumbnail\" style=\"width: 150px\">
+                            <div class=\"thumbnail\" style=\"width: 280px\">
                                 <img src=\"assets/editor/{$tabElement}.png\">
                                 <h5>{$tabElement}.png</h5>
                             </div>

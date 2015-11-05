@@ -3,8 +3,7 @@
  */
 
 'use strict';
-
-Utils.namespace(["editor", "view"]);
+Utils.namespace("editor.view");
 
 /**
  * @namespace editor.view

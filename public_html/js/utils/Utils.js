@@ -8,7 +8,7 @@ var Utils = Utils || {};
  * @param {Object} constructor
  * @param {Object} baseConstructor
  */
-Utils.inherits = function inherits(constructor, baseConstructor){
+Utils.inherits = function inherits(constructor, baseConstructor) {
     constructor.prototype = Object.create(baseConstructor.prototype);
     constructor.prototype.constructor = constructor;
 };
@@ -16,22 +16,18 @@ Utils.inherits = function inherits(constructor, baseConstructor){
 /**
  * @class Utils
  * @method namespace
- * @param {Array} nsArray
+ * @param {String} nsString
  * @return {Object} namespace
  */
-Utils.namespace = function namespace(nsArray){
+Utils.namespace = function namespace(nsString) {
     var i,
-        currentNs = undefined;
+        nsArray = nsString.split("."),
+        namespace = window;
 
-    for (i=0; i<nsArray.length; i++){
-
-        if (i == 0){
-            currentNs = window[nsArray[0]] = window[nsArray[0]] || {};
-        } else {
-            currentNs = currentNs[nsArray[i]] = currentNs[nsArray[i]] || {};
-        }
-
+    for (i = 0; i < nsArray.length; i++) {
+        namespace = namespace[nsArray[i]] = namespace[nsArray[i]] || {};
     }
 
-    return currentNs;
+    return namespace;
 };
+

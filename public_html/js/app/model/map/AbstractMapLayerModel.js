@@ -3,7 +3,7 @@
  */
 
 'use strict';
-Utils.namespace(["app", "model", "map"]);
+var ns = Utils.namespace("app.model.map"); 
 
 /**
  * @namespace app.model.map
@@ -15,7 +15,7 @@ Utils.namespace(["app", "model", "map"]);
  * @param {Number} tileHeight
  *
  */
-app.model.map.AbstractMapLayerModel = function AbstractMapLayerModel(mapWidth, mapHeight, tileWidth, tileHeight) {
+ns.AbstractMapLayerModel = function AbstractMapLayerModel(mapWidth, mapHeight, tileWidth, tileHeight) {
 
     /**
      * @property {number} _mapWidth
@@ -48,13 +48,13 @@ app.model.map.AbstractMapLayerModel = function AbstractMapLayerModel(mapWidth, m
     this._tileArray = [];
 };
 
-Utils.inherits(app.model.map.AbstractMapLayerModel, Object);
+Utils.inherits(ns.AbstractMapLayerModel, Object);
 
 /**
  * @method getMapWidth
  * @return {Number}
  */
-app.model.map.AbstractMapLayerModel.prototype.getMapWidth = function getMapWidth() {
+ns.AbstractMapLayerModel.prototype.getMapWidth = function getMapWidth() {
     return this._mapWidth;
 };
 
@@ -62,7 +62,7 @@ app.model.map.AbstractMapLayerModel.prototype.getMapWidth = function getMapWidth
  * @method setMapWidth
  * @param {Number} value
  */
-app.model.map.AbstractMapLayerModel.prototype.setMapWidth = function setMapWidth(value) {
+ns.AbstractMapLayerModel.prototype.setMapWidth = function setMapWidth(value) {
     this._mapWidth = value;
 };
 
@@ -70,7 +70,7 @@ app.model.map.AbstractMapLayerModel.prototype.setMapWidth = function setMapWidth
  * @method getMapHeight
  * @return {Number}
  */
-app.model.map.AbstractMapLayerModel.prototype.getMapHeight = function getMapHeight() {
+ns.AbstractMapLayerModel.prototype.getMapHeight = function getMapHeight() {
     return this._mapHeight;
 };
 
@@ -78,7 +78,7 @@ app.model.map.AbstractMapLayerModel.prototype.getMapHeight = function getMapHeig
  * @method setMapHeight
  * @param {Number} value
  */
-app.model.map.AbstractMapLayerModel.prototype.setMapHeight = function setMapHeight(value) {
+ns.AbstractMapLayerModel.prototype.setMapHeight = function setMapHeight(value) {
     this._mapHeight = value;
 };
 
@@ -86,7 +86,7 @@ app.model.map.AbstractMapLayerModel.prototype.setMapHeight = function setMapHeig
  * @method getTileWidth
  * @return {Number}
  */
-app.model.map.AbstractMapLayerModel.prototype.getTileWidth = function getTileWidth() {
+ns.AbstractMapLayerModel.prototype.getTileWidth = function getTileWidth() {
     return this._tileWidth;
 };
 
@@ -94,7 +94,7 @@ app.model.map.AbstractMapLayerModel.prototype.getTileWidth = function getTileWid
  * @method setTileWidth
  * @param {Number} value
  */
-app.model.map.AbstractMapLayerModel.prototype.setTileWidth = function setTileWidth(value) {
+ns.AbstractMapLayerModel.prototype.setTileWidth = function setTileWidth(value) {
     this._tileWidth = value;
 };
 
@@ -102,7 +102,7 @@ app.model.map.AbstractMapLayerModel.prototype.setTileWidth = function setTileWid
  * @method getTileHeight
  * @return {Number}
  */
-app.model.map.AbstractMapLayerModel.prototype.getTileHeight = function getTileHeight() {
+ns.AbstractMapLayerModel.prototype.getTileHeight = function getTileHeight() {
     return this._tileHeight;
 };
 
@@ -110,7 +110,7 @@ app.model.map.AbstractMapLayerModel.prototype.getTileHeight = function getTileHe
  * @method setTileHeight
  * @param {Number} value
  */
-app.model.map.AbstractMapLayerModel.prototype.setTileHeight = function setTileHeight(value) {
+ns.AbstractMapLayerModel.prototype.setTileHeight = function setTileHeight(value) {
     this._tileHeight = value;
 };
 
@@ -118,7 +118,7 @@ app.model.map.AbstractMapLayerModel.prototype.setTileHeight = function setTileHe
  * @method getTileArray
  * @return {Array}
  */
-app.model.map.AbstractMapLayerModel.prototype.getTileArray = function getTileArray() {
+ns.AbstractMapLayerModel.prototype.getTileArray = function getTileArray() {
     return this._tileArray;
 };
 
@@ -126,7 +126,7 @@ app.model.map.AbstractMapLayerModel.prototype.getTileArray = function getTileArr
  * @method setTileArray
  * @param {Array} tileArray
  */
-app.model.map.AbstractMapLayerModel.prototype.setTileArray = function setTileArray(tileArray) {
+ns.AbstractMapLayerModel.prototype.setTileArray = function setTileArray(tileArray) {
     this._tileArray = tileArray;
 };
 
@@ -138,7 +138,7 @@ app.model.map.AbstractMapLayerModel.prototype.setTileArray = function setTileArr
  * @method loadFromJSON
  * @param {Object} unMinifyJSON
  */
-app.model.map.AbstractMapLayerModel.prototype.loadFromJSON = function loadFromJSON(unMinifyJSON) {
+ns.AbstractMapLayerModel.prototype.loadFromJSON = function loadFromJSON(unMinifyJSON) {
 
     this._mapWidth = unMinifyJSON._mapWidth;
     this._mapHeight = unMinifyJSON._mapHeight;
@@ -151,7 +151,7 @@ app.model.map.AbstractMapLayerModel.prototype.loadFromJSON = function loadFromJS
  * @method loadFromMinifyJSON
  * @param {Object} minifyJSON
  */
-app.model.map.AbstractMapLayerModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(minifyJSON) {
+ns.AbstractMapLayerModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(minifyJSON) {
 
     var unMinifyJSON = this.unMinifyJSON(minifyJSON);
     this.loadFromJSON(unMinifyJSON);
@@ -161,7 +161,7 @@ app.model.map.AbstractMapLayerModel.prototype.loadFromMinifyJSON = function load
  * @method getMinifyJSON
  * @returns {Object} minifyJSON
  */
-app.model.map.AbstractMapLayerModel.prototype.getMinifyJSON = function getMinifyJSON() {
+ns.AbstractMapLayerModel.prototype.getMinifyJSON = function getMinifyJSON() {
     var result = {
         1: this._mapWidth,
         2: this._mapHeight,
@@ -178,7 +178,7 @@ app.model.map.AbstractMapLayerModel.prototype.getMinifyJSON = function getMinify
  * @property {Object} minifyJSON
  * @return {Object} unMinifyJSON
  */
-app.model.map.AbstractMapLayerModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+ns.AbstractMapLayerModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
     var result = {
         _mapWidth: minifyJSON["1"],

@@ -3,7 +3,7 @@
  */
 
 'use strict';
-Utils.namespace(["app", "model", "map"]);
+var ns = Utils.namespace("app.model.map");
 
 /**
  * @namespace app.model.map

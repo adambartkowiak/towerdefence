@@ -96,7 +96,50 @@
             mapView.draw(canvas);
         }, 100);
 
+
+        function handleFileSelect(evt) {
+            var files = evt.target.files; // FileList object
+            var objectURL = null;
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                objectURL = window.URL.createObjectURL(f);
+            }
+
+            uploadMapFile(objectURL);
+        }
+
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
     }
+
+    downloadMapFile = function downloadMapFile(){
+
+        var URL = "data:application/octet-stream,";
+        URL += encodeURI(JSON.stringify(mapModel.getMinifyJSON()));
+
+        window.open(URL);
+
+    };
+
+    uploadMapFile = function uploadMapFile(url){
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function () {
+
+            mapModel.loadFromMinifyJSON(JSON.parse(xmlhttp.response));
+
+        };
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+
+
+    };
+
+
 
 </script>
 
@@ -119,6 +162,14 @@
                 <li><a href="#">Graphic</a></li>
                 <li><a href="#">Collision</a></li>
             </ul>
+
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <span class="btn btn-primary btn-file"><span class="fileupload-new">UPLOAD MAP</span>
+                <input type="file" id="files" name="files[]"/>
+            </div>
+
+            <button id="downloadMapButton" class="btn btn-default" type="submit" onclick="downloadMapFile()">SAVE MAP</button>
+
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

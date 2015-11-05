@@ -3,8 +3,7 @@
  */
 
 'use strict';
-
-Utils.namespace(["editor", "controller"]);
+Utils.namespace("editor.controller");
 
 /**
  * @namespace editor.controller

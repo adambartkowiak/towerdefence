@@ -3,8 +3,7 @@
  */
 
 'use strict';
-
-Utils.namespace(["editor", "assets"]);
+Utils.namespace("editor.assets");
 
 /**
  * @namespace editor.assets

@@ -65,97 +65,14 @@ editor.controller.MapController.prototype.onMouseEvent = function onMouseEvent(m
                     graphicTileArray[tileIndex][layer] = {};
                 }
 
-                graphicTileArray[tileIndex][layer].gid = this._assetListModel.getSelectedAssetUrl();
-                graphicTileArray[tileIndex][layer].x = this._assetListModel.getSelectedAssetDrawX();
-                graphicTileArray[tileIndex][layer].y = this._assetListModel.getSelectedAssetDrawY();
+                if ( this._assetListModel.getSelectedAssetUrl() === "assets/editor/gcc01.png"){
+                    this._setTileGraphicCode(graphicTileArray, tileX, tileY, "c", 100, 100);
+                }
 
-                //blending... taki zahardkodowany
-                //if (this._assetListModel.getSelectedAssetUrl() === "assets/editor/gcc01.png"){
-                //    //up
-                //    if (tileY>0){
-                //        tileIndex = this._tileIndex(tileX, tileY-1);
-                //        if (graphicTileArray[tileIndex][layer].gid !== "assets/editor/gcc01.png"){
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gtc01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //    }
-                //
-                //    if (tileY>1){
-                //        tileIndex = this._tileIndex(tileX, tileY-2);
-                //        if (graphicTileArray[tileIndex][layer].gid === "assets/editor/gcc01.png"){
-                //
-                //            tileIndex = this._tileIndex(tileX, tileY-1);
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gcc01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //    }
-                //
-                //    //down
-                //    //if (tileY>0){
-                //        tileIndex = this._tileIndex(tileX, tileY+1);
-                //        if (graphicTileArray[tileIndex][layer].gid !== "assets/editor/gcc01.png"){
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gbc01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //    //}
-                //
-                //    //if (tileY>1){
-                //        tileIndex = this._tileIndex(tileX, tileY+2);
-                //        if (graphicTileArray[tileIndex][layer].gid === "assets/editor/gcc01.png"){
-                //
-                //            tileIndex = this._tileIndex(tileX, tileY+1);
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gcc01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //   // }
-                //
-                //    //left
-                //    if (tileX>0){
-                //        tileIndex = this._tileIndex(tileX-1, tileY);
-                //        if (graphicTileArray[tileIndex][layer].gid !== "assets/editor/gcc01.png"){
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gcl01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //    }
-                //
-                //    if (tileX>1){
-                //        tileIndex = this._tileIndex(tileX-2, tileY);
-                //        if (graphicTileArray[tileIndex][layer].gid === "assets/editor/gcc01.png"){
-                //
-                //            tileIndex = this._tileIndex(tileX-1, tileY);
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gcc01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //    }
-                //
-                //    //right
-                //    //if (tileX>0){
-                //        tileIndex = this._tileIndex(tileX+1, tileY);
-                //        if (graphicTileArray[tileIndex][layer].gid !== "assets/editor/gcc01.png"){
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gcr01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //    //}
-                //
-                //    //if (tileX>1){
-                //        tileIndex = this._tileIndex(tileX+2, tileY);
-                //        if (graphicTileArray[tileIndex][layer].gid === "assets/editor/gcc01.png"){
-                //
-                //            tileIndex = this._tileIndex(tileX+1, tileY);
-                //            graphicTileArray[tileIndex][layer].gid = "assets/editor/gcc01.png";
-                //            graphicTileArray[tileIndex][layer].x = 0;
-                //            graphicTileArray[tileIndex][layer].y = 0;
-                //        }
-                //    //}
-                //
-                //}
+                if ( this._assetListModel.getSelectedAssetUrl() === "assets/editor/gcc02.png"){
+                    this._setTileGraphicCode(graphicTileArray, tileX, tileY, "grass", 100, 100);
+                }
+
             }
         } else if (mouseEvent.getButtonCode() === 2) {
 
@@ -185,3 +102,48 @@ editor.controller.MapController.prototype._tileIndex = function _tileIndex(x, y)
     return y + x * this._mapModel.getMapHeight()/this._mapModel.getMapGraphicModel().getTileHeight();
 };
 
+editor.controller.MapController.prototype._setTileGraphicCode = function _setTileGraphicCode(graphicTileArray, x, y, code, maxX, maxY) {
+
+    var tileIndex = this._tileIndex(x, y);
+    graphicTileArray[tileIndex][0][0] = code;
+    graphicTileArray[tileIndex][0][1] = code;
+    graphicTileArray[tileIndex][0][2] = code;
+    graphicTileArray[tileIndex][0][3] = code;
+
+    //left
+    tileIndex = this._tileIndex(x-1, y);
+    graphicTileArray[tileIndex][0][1] = code;
+    graphicTileArray[tileIndex][0][3] = code;
+
+    //right
+    tileIndex = this._tileIndex(x+1, y);
+    graphicTileArray[tileIndex][0][0] = code;
+    graphicTileArray[tileIndex][0][2] = code;
+
+    //top
+    tileIndex = this._tileIndex(x, y-1);
+    graphicTileArray[tileIndex][0][2] = code;
+    graphicTileArray[tileIndex][0][3] = code;
+
+    //bottom
+    tileIndex = this._tileIndex(x, y+1);
+    graphicTileArray[tileIndex][0][0] = code;
+    graphicTileArray[tileIndex][0][1] = code;
+
+    //top left
+    tileIndex = this._tileIndex(x-1, y-1);
+    graphicTileArray[tileIndex][0][3] = code;
+
+    //top right
+    tileIndex = this._tileIndex(x+1, y-1);
+    graphicTileArray[tileIndex][0][2] = code;
+
+    //bottom left
+    tileIndex = this._tileIndex(x-1, y+1);
+    graphicTileArray[tileIndex][0][1] = code;
+
+    //bottom right
+    tileIndex = this._tileIndex(x+1, y+1);
+    graphicTileArray[tileIndex][0][0] = code;
+
+};

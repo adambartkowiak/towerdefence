@@ -15,8 +15,19 @@
     <!-- BOOSTRAP - Latest compiled and minified JavaScript -->
     <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 
+
+    <!-- FANCYtrEE -->
+<!--    <script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <link href="lib/fancytree-master/src/skin-lion/ui.fancytree.css" rel="stylesheet" type="text/css">
+
+    <script src="lib/fancytree-master/src/jquery.fancytree.js" type="text/javascript"></script>
+
+    <!-- MY FILES -->
     <link rel="stylesheet" type="text/css" href="css/editor.css"/>
-    <title></title>
+
+    <title>STD: GameEditor</title>
 </head>
 <body>
 
@@ -71,7 +82,7 @@
 <script type="text/javascript">
     var assetListController;
     var assetListModel;
-    var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
+    var mapModel = new app.model.MapModel(800, 800, 40, 40);
     var mapView = null;
     var canvas = null;
     var mapController = null;
@@ -86,7 +97,7 @@
         mapController = new editor.controller.MapController(mapModel, assetListModel);
         canvas = document.getElementById("map");
         mouse.initMouse();
-        mapView = new editor.view.MapView(mapModel, assetListModel, 2000, 2000);
+        mapView = new editor.view.MapView(mapModel, assetListModel, 800, 800);
         mapView.setMouseEventListener(mapController);
 
         rootView = new support.view.RootView(canvas, mouseHandler);
@@ -94,7 +105,7 @@
 
         setInterval(function () {
             mapView.draw(canvas);
-        }, 100);
+        }, 50);
 
 
         function handleFileSelect(evt) {
@@ -106,6 +117,8 @@
             for (var i = 0, f; f = files[i]; i++) {
                 objectURL = window.URL.createObjectURL(f);
             }
+
+            console.log(objectURL);
 
             uploadMapFile(objectURL);
         }
@@ -138,6 +151,11 @@
 
 
     };
+
+    $(function(){
+        // using default options
+        $("#tree").fancytree();
+    });
 
 
 
@@ -175,9 +193,70 @@
 </nav>
 
 <div id="contentArea">
+    <div id="editorMenu">
+        <canvas id="miniMapCanvas" width="280px" height="280px">CANVAS NOt SUPPORTED</canvas>
+
+        <div id="tree">
+            <ul id="treeData" style="display: none;">
+                <li id="id1" class="folder">terrain
+                    <ul>
+                        <li id="id1.1" class="folder">terrain 1
+                            <ul>
+                                <li id="id1.1.1">terrain </li>
+                                <li id="id1.1.2">terrain 1.2</li>
+                            </ul>
+                        </li>
+
+                        <li id="id1.2" class="folder">terrain 2
+                            <ul>
+                                <li id="id1.2.1">terrain 2.1</li>
+                                <li id="id1.2.2">terrain 2.2</li>
+                            </ul>
+                        </li>
+
+                        <li id="id1.3" class="folder">terrain 3
+                            <ul>
+                                <li id="id1.3.1">terrain 3.1</li>
+                                <li id="id1.3.2">terrain 3.2</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                <li id="id2" class="folder">units
+                <li id="id3" class="folder">system
+<!--                <li id="id3" class="folder">Folder with some children-->
+<!--                    <ul>-->
+<!--                        <li id="id3.1">Sub-item 3.1-->
+<!--                            <ul>-->
+<!--                                <li id="id3.1.1">Sub-item 3.1.1-->
+<!--                                <li id="id3.1.2">Sub-item 3.1.2-->
+<!--                            </ul>-->
+<!--                        <li id="id3.2">Sub-item 3.2-->
+<!--                            <ul>-->
+<!--                                <li id="id3.2.1">Sub-item 3.2.1-->
+<!--                                <li id="id3.2.2">Sub-item 3.2.2-->
+<!--                            </ul>-->
+<!--                    </ul>-->
+<!--                <li id="id4" class="expanded">Document with some children (expanded on init)-->
+<!--                    <ul>-->
+<!--                        <li id="id4.1"  class="active focused">Sub-item 4.1 (active and focus on init)-->
+<!--                            <ul>-->
+<!--                                <li id="id4.1.1">Sub-item 4.1.1-->
+<!--                                <li id="id4.1.2">Sub-item 4.1.2-->
+<!--                            </ul>-->
+<!--                        <li id="id4.2">Sub-item 4.2-->
+<!--                            <ul>-->
+<!--                                <li id="id4.2.1">Sub-item 4.2.1-->
+<!--                                <li id="id4.2.2">Sub-item 4.2.2-->
+<!--                            </ul>-->
+<!--                    </ul>-->
+            </ul>
+        </div>
+    </div>
     <div id="mapArea">
         <div id="mapPreview">
-            <canvas id="map" width="2000px" height="2000px"></canvas>
+            <canvas id="map" width="800px" height="800px"></canvas>
         </div>
     </div>
     <div id="assetsArea">

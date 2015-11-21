@@ -4,7 +4,6 @@
 'use strict';
 
 var support = support || {};
-
 var Utils = Utils || {};
 
 /**
@@ -25,10 +24,13 @@ support.Mouse = function Mouse(mouseEventHandler) {
     };
 
     /**
-     * @property {support.AbstractMouseEventHandler} _mouseEventHandler
+     * @property {Array} _mouseEventHandlerArray
      * @private
      */
-    this._mouseEventHandler = mouseEventHandler;
+    this._mouseEventHandlerArray = [];
+    if (mouseEventHandler !== undefined){
+        this._mouseEventHandlerArray.push(mouseEventHandler);
+    }
 
 };
 
@@ -60,10 +62,20 @@ support.Mouse.prototype.initMouse = function initMouse() {
         return false;
     }, false);
 
-    window.addEventListener('contextmenu', function(e) {
+    window.addEventListener('contextmenu', function (e) {
         e.preventDefault();
         return false;
     }, false);
+};
+
+/**
+ * @method addMouseEventHandler
+ * @param {support.AbstractMouseEventHandler} mouseEventHandler
+ */
+support.Mouse.prototype.addMouseEventHandler = function addMouseEventHandler(mouseEventHandler) {
+
+    this._mouseEventHandlerArray.push(mouseEventHandler);
+
 };
 
 /**
@@ -72,9 +84,11 @@ support.Mouse.prototype.initMouse = function initMouse() {
  */
 support.Mouse.prototype.mouseDown = function mouseDown(e) {
 
-    //wywolywanie eventu handlera
-    if (Boolean(this._mouseEventHandler) === true) {
-        this._mouseEventHandler.onMouseDown(e);
+    var i;
+
+    //wywolanie funkcji na wszystkich podpietych handlerach
+    for (i = 0; i < this._mouseEventHandlerArray.length; i++) {
+        this._mouseEventHandlerArray[i].onMouseDown(e);
     }
 
     window.addEventListener("mousemove", this._mouseDragHandler, false);
@@ -86,9 +100,11 @@ support.Mouse.prototype.mouseDown = function mouseDown(e) {
  */
 support.Mouse.prototype.mouseMove = function mouseMove(e) {
 
-    //wywolywanie eventu handlera
-    if (Boolean(this._mouseEventHandler) === true) {
-        this._mouseEventHandler.onMouseMove(e);
+    var i;
+
+    //wywolanie funkcji na wszystkich podpietych handlerach
+    for (i = 0; i < this._mouseEventHandlerArray.length; i++) {
+        this._mouseEventHandlerArray[i].onMouseMove(e);
     }
 };
 
@@ -98,9 +114,11 @@ support.Mouse.prototype.mouseMove = function mouseMove(e) {
  */
 support.Mouse.prototype.mouseDrag = function mouseDrag(e) {
 
-    //wywolywanie eventu handlera
-    if (Boolean(this._mouseEventHandler) === true) {
-        this._mouseEventHandler.onMouseDrag(e);
+    var i;
+
+    //wywolanie funkcji na wszystkich podpietych handlerach
+    for (i = 0; i < this._mouseEventHandlerArray.length; i++) {
+        this._mouseEventHandlerArray[i].onMouseDrag(e);
     }
 };
 
@@ -110,9 +128,11 @@ support.Mouse.prototype.mouseDrag = function mouseDrag(e) {
  */
 support.Mouse.prototype.mouseUp = function mouseUp(e) {
 
-    //wywolywanie eventu handlera
-    if (Boolean(this._mouseEventHandler) === true) {
-        this._mouseEventHandler.onMouseUp(e);
+    var i;
+
+    //wywolanie funkcji na wszystkich podpietych handlerach
+    for (i = 0; i < this._mouseEventHandlerArray.length; i++) {
+        this._mouseEventHandlerArray[i].onMouseUp(e);
     }
 
     window.removeEventListener("mousemove", this._mouseDragHandler, false);
@@ -124,9 +144,11 @@ support.Mouse.prototype.mouseUp = function mouseUp(e) {
  */
 support.Mouse.prototype.mouseLeave = function mouseLeave(e) {
 
-    //wywolywanie eventu handlera
-    if (Boolean(this._mouseEventHandler) === true) {
-        this._mouseEventHandler.onMouseLeave(e);
+    var i;
+
+    //wywolanie funkcji na wszystkich podpietych handlerach
+    for (i = 0; i < this._mouseEventHandlerArray.length; i++) {
+        this._mouseEventHandlerArray[i].onMouseLeave(e);
     }
 };
 
@@ -135,6 +157,6 @@ support.Mouse.prototype.mouseLeave = function mouseLeave(e) {
  * @param {support.AbstractMouseEventHandler} abstractMouseEventHandler
  */
 support.Mouse.prototype.setMouseEventHandler = function setMouseEventHandler(abstractMouseEventHandler) {
-    this._mouseEventHandler = abstractMouseEventHandler;
+    console.log("Method support.Mouse.prototype.setMouseEventHandler is Depreceted");
 };
 

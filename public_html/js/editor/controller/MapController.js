@@ -10,11 +10,14 @@ Utils.namespace("editor.controller");
  * @class MapController
  * @constructor
  * @param {app.model.MapModel} mapModel
+ * @param {app.model.CameraModel} cameraModel
  * @param {editor.assets.AssetListModel} assetListModel
  */
-editor.controller.MapController = function MapController(mapModel, assetListModel) {
+editor.controller.MapController = function MapController(mapModel, cameraModel, assetListModel) {
 
     this._mapModel = mapModel;
+
+    this._cameraModel = cameraModel;
 
     this._assetListModel = assetListModel;
 
@@ -46,8 +49,8 @@ editor.controller.MapController.prototype.onMouseEvent = function onMouseEvent(m
 
         graphicTileArray = this._mapModel.getMapGraphicModel().getTileArray();
 
-        x = mouseEvent.getLocalX();
-        y = mouseEvent.getLocalY();
+        x = mouseEvent.getLocalX() + this._cameraModel.getViewPortX();
+        y = mouseEvent.getLocalY() + this._cameraModel.getViewPortY();
 
         tileX = parseInt(x/this._mapModel.getMapGraphicModel().getTileWidth());
         tileY = parseInt(y/this._mapModel.getMapGraphicModel().getTileHeight());
@@ -111,9 +114,11 @@ editor.controller.MapController.prototype._setTileGraphicCode = function _setTil
     graphicTileArray[tileIndex][0][3] = code;
 
     //left
-    tileIndex = this._tileIndex(x-1, y);
-    graphicTileArray[tileIndex][0][1] = code;
-    graphicTileArray[tileIndex][0][3] = code;
+    if (x>0){
+        tileIndex = this._tileIndex(x-1, y);
+        graphicTileArray[tileIndex][0][1] = code;
+        graphicTileArray[tileIndex][0][3] = code;
+    }
 
     //right
     tileIndex = this._tileIndex(x+1, y);
@@ -121,9 +126,11 @@ editor.controller.MapController.prototype._setTileGraphicCode = function _setTil
     graphicTileArray[tileIndex][0][2] = code;
 
     //top
-    tileIndex = this._tileIndex(x, y-1);
-    graphicTileArray[tileIndex][0][2] = code;
-    graphicTileArray[tileIndex][0][3] = code;
+    if (y>0){
+        tileIndex = this._tileIndex(x, y-1);
+        graphicTileArray[tileIndex][0][2] = code;
+        graphicTileArray[tileIndex][0][3] = code;
+    }
 
     //bottom
     tileIndex = this._tileIndex(x, y+1);
@@ -131,16 +138,22 @@ editor.controller.MapController.prototype._setTileGraphicCode = function _setTil
     graphicTileArray[tileIndex][0][1] = code;
 
     //top left
-    tileIndex = this._tileIndex(x-1, y-1);
-    graphicTileArray[tileIndex][0][3] = code;
+    if (x>0 && y>0) {
+        tileIndex = this._tileIndex(x - 1, y - 1);
+        graphicTileArray[tileIndex][0][3] = code;
+    }
 
     //top right
-    tileIndex = this._tileIndex(x+1, y-1);
-    graphicTileArray[tileIndex][0][2] = code;
+    if (y>0) {
+        tileIndex = this._tileIndex(x + 1, y - 1);
+        graphicTileArray[tileIndex][0][2] = code;
+    }
 
     //bottom left
-    tileIndex = this._tileIndex(x-1, y+1);
-    graphicTileArray[tileIndex][0][1] = code;
+    if (x>0) {
+        tileIndex = this._tileIndex(x - 1, y + 1);
+        graphicTileArray[tileIndex][0][1] = code;
+    }
 
     //bottom right
     tileIndex = this._tileIndex(x+1, y+1);

@@ -71,6 +71,7 @@
 <script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/MapModel.js"></script>
+<script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 
 <!-- Editor classes -->
 <script type="text/javascript" src="js/editor/assets/AssetListController.js"></script>
@@ -82,29 +83,63 @@
 <script type="text/javascript">
     var assetListController;
     var assetListModel;
-    var mapModel = new app.model.MapModel(800, 800, 40, 40);
+    var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
     var mapView = null;
-    var canvas = null;
+    var miniMapView = null;
+    var mapCanvas = null;
+    var miniMapCanvas = null;
     var mapController = null;
 
-    var mouseHandler = new app.mouseHandler.MouseEventHandler();
-    var mouse = new support.Mouse(mouseHandler);
-    var rootView = null;
+    var mapMouseHandler = new app.mouseHandler.MouseEventHandler("map");
+    var miniMapMouseHandler = new app.mouseHandler.MouseEventHandler("miniMapCanvas");
+
+    var mouse = new support.Mouse();
+    mouse.addMouseEventHandler(mapMouseHandler);
+    mouse.addMouseEventHandler(miniMapMouseHandler);
+
+    var mapRootView = null;
+    var miniMapRootView = null;
 
     window.onload = function(){
+
+        var cameraModel = new app.model.CameraModel(20,20,780,480);
+
         assetListModel =  new editor.assets.AssetListModel();
         assetListController = new editor.assets.AssetListController(assetListModel);
-        mapController = new editor.controller.MapController(mapModel, assetListModel);
-        canvas = document.getElementById("map");
+        mapController = new editor.controller.MapController(mapModel, cameraModel, assetListModel);
+        mapCanvas = document.getElementById("map");
+        miniMapCanvas = document.getElementById("miniMapCanvas");
         mouse.initMouse();
-        mapView = new editor.view.MapView(mapModel, assetListModel, 800, 800);
+
+
+
+        mapView = new editor.view.MapView(mapModel, cameraModel, assetListModel, 780, 480);
         mapView.setMouseEventListener(mapController);
 
-        rootView = new support.view.RootView(canvas, mouseHandler);
-        rootView.addView(mapView);
+        miniMapView = new support.view.MinimapView();
+        miniMapView.setX(20);
+        miniMapView.setY(20);
+        miniMapView.setWidth(miniMapCanvas.width - 40);
+        miniMapView.setHeight(miniMapCanvas.height - 40);
+        miniMapView.setMapWidth(mapModel.getMapWidth());
+        miniMapView.setMapHeight(mapModel.getMapHeight());
+
+
+        miniMapView.setViewPort(cameraModel);
+
+//        minimapView.setElements(worldModel.getEntityListModel().getElements());
+
+        mapRootView = new support.view.RootView(mapCanvas, mapMouseHandler);
+        mapRootView.addView(mapView);
+
+
+        miniMapRootView = new support.view.RootView(miniMapCanvas, miniMapMouseHandler);
+        miniMapRootView.addView(miniMapView);
+
 
         setInterval(function () {
-            mapView.draw(canvas);
+            mapRootView.draw();
+            miniMapRootView.draw();
         }, 50);
 
 
@@ -176,13 +211,13 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Graphic</a></li>
-                <li><a href="#">Collision</a></li>
-            </ul>
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li><a href="#">Graphic</a></li>-->
+<!--                <li><a href="#">Collision</a></li>-->
+<!--            </ul>-->
 
             <div class="fileupload fileupload-new" data-provides="fileupload">
-                <span class="btn btn-primary btn-file"><span class="fileupload-new">UPLOAD MAP</span>
+<!--                <span class="btn btn-primary btn-file"><span class="fileupload-new">UPLOAD MAP</span>-->
                 <input type="file" id="files" name="files[]"/>
             </div>
 
@@ -194,7 +229,7 @@
 
 <div id="contentArea">
     <div id="editorMenu">
-        <canvas id="miniMapCanvas" width="280px" height="280px">CANVAS NOt SUPPORTED</canvas>
+        <canvas id="miniMapCanvas" width="180px" height="180px">CANVAS NOt SUPPORTED</canvas>
 
         <div id="tree">
             <ul id="treeData" style="display: none;">
@@ -256,7 +291,7 @@
     </div>
     <div id="mapArea">
         <div id="mapPreview">
-            <canvas id="map" width="800px" height="800px"></canvas>
+            <canvas id="map" width="800px" height="500px"></canvas>
         </div>
     </div>
     <div id="assetsArea">
@@ -285,7 +320,7 @@
                 print("
                     <div class=\"row assetElement\" data-assetname=\"assets/editor/{$tabElement}.png\" data-layer=\"{$layer}\" data-drawx=\"{$drawx}\" data-drawy=\"{$drawy}\">
                         <div>
-                            <div class=\"thumbnail\" style=\"width: 280px\">
+                            <div class=\"thumbnail\" style=\"width: 180px\">
                                 <img src=\"assets/editor/{$tabElement}.png\">
                                 <h5>{$tabElement}.png</h5>
                             </div>

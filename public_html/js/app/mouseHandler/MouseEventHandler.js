@@ -12,12 +12,17 @@ var Utils = Utils || {};
  * @namespace app.mouseHandler
  * @class MouseEventHandler
  * @constructor
- * @param {support.Timer} timer
- * @param {app.model.EntityListModel} entityList
+ * @param {string} DOMelementId
  */
-app.mouseHandler.MouseEventHandler = function MouseEventHandler() {
+app.mouseHandler.MouseEventHandler = function MouseEventHandler(DOMelementId) {
 
     support.AbstractMouseEventHandler.call(this);
+
+    /**
+     * @property {string} _DOMelementId
+     * @private
+     */
+    this._DOMelementId = DOMelementId;
 
     /**
      * @property {boolean} _isShiftPressed
@@ -46,39 +51,15 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDown = function onMouseDown(
     
     support.AbstractMouseEventHandler.prototype.onMouseDown.call(this, e);
     
-    if (e.target.id !== "map") {
+    if (e.target.id !== this._DOMelementId) {
         return;
     }
 
     var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, e.button, support.MouseEventType.MOUSE_DOWN);
-    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
 
-//    var listLength = this._entityListModel.length();
-//    var elementIndex;
-//    var element;
-//
-//    if (e.shiftKey) {
-//        this._isShiftPressed = true;
-//    } else {
-//        this._isShiftPressed = false;
-//    }
-//
-//    /*
-//    kasowanie z mapy
-//     */
-//    if (e.altKey) {
-//
-//        for (elementIndex = listLength - 1; elementIndex >= 0; elementIndex--) {
-//            element = this._entityListModel.getElement(elementIndex);
-//
-//            if (element.getSelected()) {
-//                this._entityListModel.removeElement(elementIndex);
-//            }
-//
-//        }
-//
-//    }
-
+    if (this._mouseEventListenerArray.length > 0){
+        this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    }
 
 };
 
@@ -91,7 +72,10 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
     support.AbstractMouseEventHandler.prototype.onMouseUp.call(this, e);
     
     var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, e.button, support.MouseEventType.MOUSE_UP);
-    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+
+    if (this._mouseEventListenerArray.length > 0){
+        this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    }
     
     this.clearTargetView();
 
@@ -102,15 +86,20 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseUp = function onMouseUp(e) {
  * @param {Event} e
  */
 app.mouseHandler.MouseEventHandler.prototype.onMouseMove = function onMouseMove(e) {
-    
+
     support.AbstractMouseEventHandler.prototype.onMouseMove.call(this, e);
 
-    if (e.target.id !== "map") {
+    if (e.target.id !== this._DOMelementId) {
         return;
     }
+
+    console.log("app.mouseHandler.MouseEventHandler.prototype.onMouseMove");
     
     var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, e.button, support.MouseEventType.MOUSE_MOVE);
-    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+
+    if (this._mouseEventListenerArray.length > 0){
+        this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    }
 
 };
 
@@ -122,12 +111,15 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseDrag = function onMouseDrag(
 
     support.AbstractMouseEventHandler.prototype.onMouseDrag.call(this, e);
 
-    if (e.target.id !== "map") {
+    if (e.target.id !== this._DOMelementId) {
         return;
     }
     
     var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, e.button, support.MouseEventType.MOUSE_DRAG);
-    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+
+    if (this._mouseEventListenerArray.length > 0){
+        this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    }
 
 };
 
@@ -141,7 +133,10 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseLeave = function onMouseLeav
     support.AbstractMouseEventHandler.prototype.onMouseLeave.call(this, e);
 
     var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, e.button, support.MouseEventType.MOUSE_LEAVE);
-    this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+
+    if (this._mouseEventListenerArray.length > 0){
+        this._mouseEventListenerArray[0].dispatchMouseEvent(mouseEvent);
+    }
     
     this.clearTargetView();
 };

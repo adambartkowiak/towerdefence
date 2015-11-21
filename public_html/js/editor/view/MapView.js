@@ -14,7 +14,7 @@ Utils.namespace("editor.view");
  * @param {number} width
  * @param {number} height
  */
-editor.view.MapView = function MapView(mapModel, assetListModel, width, height) {
+editor.view.MapView = function MapView(mapModel, cameraModel, assetListModel, width, height) {
 
     /*
      Call Base/Super Constructor
@@ -22,10 +22,16 @@ editor.view.MapView = function MapView(mapModel, assetListModel, width, height) 
     support.view.AbstractView.call(this, 0, 0, width, height);
 
     /**
-     * @property {app.model.mapModel} mapModel
+     * @property {app.model.MapModel} mapModel
      * @private
      */
     this._mapModel = mapModel;
+
+    /**
+     * @property {app.model.CameraModel} cameraModel
+     * @private
+     */
+    this._cameraModel = cameraModel;
 
     /**
      * @property {editor.assets.AssetListModel} selectedAssetUrl
@@ -194,7 +200,12 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
 
 
                     if (tileImage) {
-                        canvasContext.drawImage(tileImage, drawX, drawY);
+
+                        if (drawX - this._cameraModel.getViewPortX() > -20 && drawY - this._cameraModel.getViewPortY() > -20 &&
+                            drawX - this._cameraModel.getViewPortX() < this.getWidth() && drawY - this._cameraModel.getViewPortY() < this.getHeight()){
+                            canvasContext.drawImage(tileImage, drawX - this._cameraModel.getViewPortX(), drawY - this._cameraModel.getViewPortY());
+                        }
+
                     }
 
                     //Moze bedzie potrzebne do zooma - w sumie sobie tu tak lezy ! heheh :) Powinno byc wywalone i revertem z gita brane ale nie chce mi sie :P

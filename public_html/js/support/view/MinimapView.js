@@ -42,6 +42,12 @@ support.view.MinimapView = function MinimapView() {
     this._mapColor = "#444444";
 
     /**
+     * @property {Image} _mapColor
+     * @private
+     */
+    this._mapImage = null;
+
+    /**
      * @property {object} _viewPort
      * @private
      */
@@ -121,6 +127,15 @@ support.view.MinimapView.prototype.setMapColor = function setMapColor(value) {
 };
 
 /**
+ * @method setMapImage
+ * @public
+ * @param {Image} value
+ */
+support.view.MinimapView.prototype.setMapImage = function setMapImage(value) {
+    this._mapImage = value;
+};
+
+/**
  * @method setViewPort
  * @public
  * @param {number} value
@@ -172,6 +187,15 @@ support.view.MinimapView.prototype.getMapHeight = function getMapHeight() {
  */
 support.view.MinimapView.prototype.getMapColor = function getMapColor() {
     return this._mapColor;
+};
+
+/**
+ * @method getMapImage
+ * @public
+ * @return {Image} mapColor
+ */
+support.view.MinimapView.prototype.getMapImage = function getMapImage() {
+    return this._mapImage;
 };
 
 
@@ -328,6 +352,11 @@ support.view.MinimapView.prototype.draw = function draw(canvas) {
     //Rysowanie mapy na minimapie
     canvasContext.fillStyle = this.getMapColor();
     canvasContext.fillRect(miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap, Math.round(mapWidthOnMinimap), Math.round(mapHeightOnMinimap));
+
+    //Rysowanie backgroundu Widoku
+    if (this.getMapImage()){
+        canvasContext.drawImage(this.getMapImage(), miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap);
+    }
 
     //Rysowanie obiektow na minimapie
     for (elementIndex = 0; elementIndex < elementIndexMax; elementIndex++) {

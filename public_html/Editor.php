@@ -102,7 +102,7 @@
 
     window.onload = function(){
 
-        var cameraModel = new app.model.CameraModel(20,20,780,480);
+        var cameraModel = new app.model.CameraModel(20,20,1180,780);
 
         assetListModel =  new editor.assets.AssetListModel();
         assetListController = new editor.assets.AssetListController(assetListModel);
@@ -113,14 +113,14 @@
 
 
 
-        mapView = new editor.view.MapView(mapModel, cameraModel, assetListModel, 780, 480);
+        mapView = new editor.view.MapView(mapModel, cameraModel, assetListModel, 1180, 780);
         mapView.setMouseEventListener(mapController);
 
         miniMapView = new support.view.MinimapView();
-        miniMapView.setX(20);
-        miniMapView.setY(20);
-        miniMapView.setWidth(miniMapCanvas.width - 40);
-        miniMapView.setHeight(miniMapCanvas.height - 40);
+        miniMapView.setX(10);
+        miniMapView.setY(10);
+        miniMapView.setWidth(miniMapCanvas.width - 20);
+        miniMapView.setHeight(miniMapCanvas.height - 20);
         miniMapView.setMapWidth(mapModel.getMapWidth());
         miniMapView.setMapHeight(mapModel.getMapHeight());
 
@@ -136,10 +136,14 @@
         miniMapRootView = new support.view.RootView(miniMapCanvas, miniMapMouseHandler);
         miniMapRootView.addView(miniMapView);
 
-
         setInterval(function () {
+
+            var backgroundImage = mapView.getImageData(160, 160);
+            miniMapView.setMapImage(backgroundImage);
+
             mapRootView.draw();
             miniMapRootView.draw();
+
         }, 50);
 
 
@@ -291,7 +295,7 @@
     </div>
     <div id="mapArea">
         <div id="mapPreview">
-            <canvas id="map" width="800px" height="500px"></canvas>
+            <canvas id="map" width="1200px" height="800px"></canvas>
         </div>
     </div>
     <div id="assetsArea">

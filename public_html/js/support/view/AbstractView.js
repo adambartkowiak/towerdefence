@@ -57,6 +57,12 @@ support.view.AbstractView = function AbstractView(x, y, width, height) {
     this._backgroundColor = '#222222';
 
     /**
+     * @property {Image} backgroundImage
+     * @private
+     */
+    this._backgroundImage = null;
+
+    /**
      * @property {support.AbstractMouseEventListener} mouseEventListener
      * @private
      */
@@ -114,6 +120,14 @@ support.view.AbstractView.prototype.getBackgroundColor = function getBackgroundC
 };
 
 /**
+ * @method getBackgroundImage
+ * @return {Image} backgroundImage
+ */
+support.view.AbstractView.prototype.getBackgroundImage = function getBackgroundImage() {
+    return this._backgroundImage;
+};
+
+/**
  * @method getEventListener
  * @return {support.AbstractMouseEventListener} _mouseEventListener
  */
@@ -167,6 +181,14 @@ support.view.AbstractView.prototype.setHeight = function setHeight(height) {
  */
 support.view.AbstractView.prototype.setBackgroundColor = function setBackgroundColor(backgroundColor) {
     this._backgroundColor = backgroundColor;
+};
+
+/**
+ * @method setBackgroundImage
+ * @param {Image} backgroundImage
+ */
+support.view.AbstractView.prototype.setBackgroundImage = function setBackgroundImage(backgroundImage) {
+    this._backgroundImage = backgroundImage;
 };
 
 /**

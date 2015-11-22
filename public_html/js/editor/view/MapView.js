@@ -43,15 +43,15 @@ editor.view.MapView = function MapView(mapModel, cameraModel, assetListModel, wi
     this._previewY = 0;
 
     //init getGraphicTilesArray
-    var tileCount = (mapModel.getMapGraphicModel().getMapWidth()/mapModel.getMapGraphicModel().getTileWidth()) * (mapModel.getMapGraphicModel().getMapHeight()/mapModel.getMapGraphicModel().getTileHeight());
-    for (var i = 0; i< tileCount; i++){
+    var tileCount = (mapModel.getMapGraphicModel().getMapWidth() / mapModel.getMapGraphicModel().getTileWidth()) * (mapModel.getMapGraphicModel().getMapHeight() / mapModel.getMapGraphicModel().getTileHeight());
+    for (var i = 0; i < tileCount; i++) {
         this._mapModel.getMapGraphicModel().getTileArray().push([["grass", "grass", "grass", "grass"]]);
 
     }
 
     //init getCollisionTileArray
-    var tileCount = (mapModel.getMapCollisionModel().getMapWidth()/mapModel.getMapCollisionModel().getTileWidth()) * (mapModel.getMapCollisionModel().getMapHeight()/mapModel.getMapCollisionModel().getTileHeight());
-    for (var i = 0; i< tileCount; i++){
+    var tileCount = (mapModel.getMapCollisionModel().getMapWidth() / mapModel.getMapCollisionModel().getTileWidth()) * (mapModel.getMapCollisionModel().getMapHeight() / mapModel.getMapCollisionModel().getTileHeight());
+    for (var i = 0; i < tileCount; i++) {
         this._mapModel.getMapCollisionModel().getTileArray().push([{allowGroundUnits: "true"}]);
     }
 
@@ -67,7 +67,7 @@ editor.view.MapView = function MapView(mapModel, cameraModel, assetListModel, wi
     var assetsElementLength = assetsElement.length;
     var index;
     var assetName;
-    for (index = 0; index < assetsElementLength; index++){
+    for (index = 0; index < assetsElementLength; index++) {
 
         assetName = assetsElement[index].dataset["assetname"];
 
@@ -117,7 +117,7 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
         maxLayer = 2;
 
     //MAP IMAGES
-    for (layer = 0; layer < maxLayer; layer++){
+    for (layer = 0; layer < maxLayer; layer++) {
         for (tileIndexX = 0; tileIndexX < maxTileGraphicIndexX; tileIndexX++) {
             for (tileIndexY = 0; tileIndexY < maxTileGraphicIndexY; tileIndexY++) {
 
@@ -132,77 +132,12 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
 
                     tileImage = null;
 
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "grass", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gcc02.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "c", "c", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gcc01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "c", "grass", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gbc01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "grass", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gbl01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "c", "grass", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gbl02.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "grass", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gbr01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "c", "c", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gbr02.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "grass", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gcl01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "c", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gcr01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "c", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gtc01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "grass", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gtl01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "c", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gtl02.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "c", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gtr01.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "c", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gtr02.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "grass", "c"]) ){
-                        tileImage = this._tileImage["assets/editor/gcc1.png"];
-                    }
-
-                    if ( this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "c", "grass"]) ){
-                        tileImage = this._tileImage["assets/editor/gcc2.png"];
-                    }
-
-
-
+                    tileImage = this.selectGraphicTime(tileGraphicsData);
 
                     if (tileImage) {
 
                         if (drawX - this._cameraModel.getViewPortX() > -20 && drawY - this._cameraModel.getViewPortY() > -20 &&
-                            drawX - this._cameraModel.getViewPortX() < this.getWidth() && drawY - this._cameraModel.getViewPortY() < this.getHeight()){
+                            drawX - this._cameraModel.getViewPortX() < this.getWidth() && drawY - this._cameraModel.getViewPortY() < this.getHeight()) {
                             canvasContext.drawImage(tileImage, drawX - this._cameraModel.getViewPortX(), drawY - this._cameraModel.getViewPortY());
                         }
 
@@ -241,9 +176,6 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
     canvasContext.stroke();
 
 
-
-
-
     canvasContext.beginPath();
     canvasContext.strokeStyle = 'rgba(255,255,255,0.2)';
 
@@ -267,11 +199,10 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
     canvasContext.stroke();
 
 
+    if (this._assetListModel.getSelectedAssetUrl()) {
 
-    if (this._assetListModel.getSelectedAssetUrl()){
-
-        drawX = this._previewX - this._previewX%tileGraphicWidth;
-        drawY = this._previewY - this._previewY%tileGraphicHeight;
+        drawX = this._previewX - this._previewX % tileGraphicWidth;
+        drawY = this._previewY - this._previewY % tileGraphicHeight;
 
         tileGraphicX = this._assetListModel.getSelectedAssetDrawX();
         tileGraphicY = this._assetListModel.getSelectedAssetDrawY();
@@ -300,11 +231,11 @@ editor.view.MapView.prototype.draw = function draw(canvas) {
  * @param {support.MouseEvent} mouseEvent
  * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
  */
-editor.view.MapView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+editor.view.MapView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
 
     var result = support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
 
-    if (this._assetListModel.getSelectedAssetUrl()){
+    if (this._assetListModel.getSelectedAssetUrl()) {
 
         this._previewX = mouseEvent.getLocalX();
         this._previewY = mouseEvent.getLocalY();
@@ -316,10 +247,142 @@ editor.view.MapView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
 };
 
 
-editor.view.MapView.prototype.checkGraphicTileData = function checkGraphicTileData(table1, table2){
+editor.view.MapView.prototype.checkGraphicTileData = function checkGraphicTileData(table1, table2) {
 
-    if (table1[0] === table2[0] && table1[1] === table2[1] && table1[2] === table2[2] && table1[3] === table2[3]){
+    if (table1[0] === table2[0] && table1[1] === table2[1] && table1[2] === table2[2] && table1[3] === table2[3]) {
         return true;
     }
     return false;
+};
+
+
+editor.view.MapView.prototype.getImageData = function getImageData(width, height) {
+
+    var canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    var tileIndexX,
+        tileIndexY,
+        tileGraphicWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
+        tileGraphicHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
+        maxTileGraphicIndexX = Math.ceil(this._mapModel.getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(this._mapModel.getMapHeight() / tileGraphicHeight),
+
+        miniMapTileGraphicWidth = tileGraphicWidth * width / this._mapModel.getMapWidth(),
+        miniMapTileGraphicHeight = tileGraphicHeight * height / this._mapModel.getMapHeight(),
+
+        drawX,
+        drawY,
+        tileGraphicId,
+
+        tileGraphicsData,
+        tileImage,
+        layer,
+        maxLayer = 2;
+
+    //MAP IMAGES
+    for (layer = 0; layer < maxLayer; layer++) {
+        for (tileIndexX = 0; tileIndexX < maxTileGraphicIndexX; tileIndexX++) {
+            for (tileIndexY = 0; tileIndexY < maxTileGraphicIndexY; tileIndexY++) {
+
+                drawX = tileIndexX * miniMapTileGraphicWidth;
+                drawY = tileIndexY * miniMapTileGraphicHeight;
+                tileGraphicId = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+
+                if (tileGraphicId[layer]) {
+                    tileGraphicsData = tileGraphicId[layer];
+                    tileImage = this.selectGraphicTime(tileGraphicsData);
+
+                    if (tileImage) {
+                        ctx.drawImage(tileImage, drawX, drawY, miniMapTileGraphicWidth, miniMapTileGraphicHeight);
+                    }
+                }
+            }
+        }
+    }
+
+    //return ctx.getImageData(0, 0, width, height);
+
+    var img = new Image();
+    img.src = canvas.toDataURL();
+    return img;
+
+
+
+};
+
+
+editor.view.MapView.prototype.selectGraphicTime = function selectGraphicTime(tileGraphicsData) {
+
+    var tileImage = null;
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "grass", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gcc02.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "c", "c", "c"])) {
+        tileImage = this._tileImage["assets/editor/gcc01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "c", "grass", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gbc01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "grass", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gbl01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "c", "grass", "c"])) {
+        tileImage = this._tileImage["assets/editor/gbl02.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "grass", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gbr01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "c", "c", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gbr02.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "grass", "c"])) {
+        tileImage = this._tileImage["assets/editor/gcl01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "c", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gcr01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "c", "c"])) {
+        tileImage = this._tileImage["assets/editor/gtc01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "grass", "c"])) {
+        tileImage = this._tileImage["assets/editor/gtl01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "c", "c"])) {
+        tileImage = this._tileImage["assets/editor/gtl02.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "grass", "c", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gtr01.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "c", "c"])) {
+        tileImage = this._tileImage["assets/editor/gtr02.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["c", "grass", "grass", "c"])) {
+        tileImage = this._tileImage["assets/editor/gcc1.png"];
+    }
+
+    if (this.checkGraphicTileData(tileGraphicsData, ["grass", "c", "c", "grass"])) {
+        tileImage = this._tileImage["assets/editor/gcc2.png"];
+    }
+
+    return tileImage;
 };

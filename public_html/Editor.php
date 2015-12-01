@@ -42,6 +42,7 @@
 <script type="text/javascript" src="js/support/AbstractMouseEventHandler.js"></script>
 <script type="text/javascript" src="js/support/Loader.js"></script>
 <script type="text/javascript" src="js/support/AbstractMouseEventListener.js"></script>
+<script type="text/javascript" src="js/support/data/ImageListData.js"></script>
 
 <script type="text/javascript" src="js/support/geom/Point2d.js"></script>
 <script type="text/javascript" src="js/support/geom/SimpleVector2d.js"></script>
@@ -74,6 +75,8 @@
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 
 <!-- Editor classes -->
+<script type="text/javascript" src="js/editor/model/MapTileModel.js"></script>
+<script type="text/javascript" src="js/editor/model/MapTileListModel.js"></script>
 <script type="text/javascript" src="js/editor/assets/AssetListController.js"></script>
 <script type="text/javascript" src="js/editor/assets/AssetListModel.js"></script>
 <script type="text/javascript" src="js/editor/controller/MapController.js"></script>
@@ -83,7 +86,8 @@
 <script type="text/javascript">
     var assetListController;
     var assetListModel;
-    var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
+    var graphicListModel;
+    var mapModel = new app.model.MapModel(4000, 4000, 40, 40);
     var mapView = null;
     var miniMapView = null;
     var mapCanvas = null;
@@ -102,10 +106,11 @@
 
     window.onload = function(){
 
-        var cameraModel = new app.model.CameraModel(20,20,1180,780);
+        var cameraModel = new app.model.CameraModel(1180/2,780/2,1180,780);
 
         assetListModel =  new editor.assets.AssetListModel();
         assetListController = new editor.assets.AssetListController(assetListModel);
+
         mapController = new editor.controller.MapController(mapModel, cameraModel, assetListModel);
         mapCanvas = document.getElementById("map");
         miniMapCanvas = document.getElementById("miniMapCanvas");
@@ -137,14 +142,16 @@
         miniMapRootView.addView(miniMapView);
 
         setInterval(function () {
+            mapRootView.draw();
+            miniMapRootView.draw();
+        }, 50);
 
+        //MinimapRennderings
+        setInterval(function () {
             var backgroundImage = mapView.getImageData(160, 160);
             miniMapView.setMapImage(backgroundImage);
 
-            mapRootView.draw();
-            miniMapRootView.draw();
-
-        }, 50);
+        }, 1000);
 
 
         function handleFileSelect(evt) {
@@ -241,8 +248,9 @@
                     <ul>
                         <li id="id1.1" class="folder">terrain 1
                             <ul>
-                                <li id="id1.1.1">terrain </li>
-                                <li id="id1.1.2">terrain 1.2</li>
+                                <li id="id1.1.1">brushGrass</li>
+                                <li id="id1.1.1">brushCobblestones</li>
+                                <li id="id1.1.2">none</li>
                             </ul>
                         </li>
 
@@ -302,7 +310,7 @@
 
         <?php
 
-        $arrayFiles = scandir("assets/editor");
+        $arrayFiles = scandir("assets/editor/graphic");
 
         for ($index = 0; $index < count($arrayFiles); $index++){
 
@@ -312,24 +320,56 @@
             if(endswith($tabElement, ".json")){
 
                 //wczytuje z pliku w formacie json dane odnosnie grafiki i wpisuje je do NODEa HTMLowego
-                $str = file_get_contents("assets/editor/{$tabElement}");
+                $str = file_get_contents("assets/editor/graphic/{$tabElement}");
                 $json = json_decode($str, true);
 
-                $layer = $json['layer'];
-                $drawx = $json['x'];
-                $drawy = $json['y'];
+                $graphicLayer = $json['graphicLayer'];
+                $graphicOffsetX = $json['graphicOffsetX'];
+                $graphicOffsetY = $json['graphicOffsetY'];
+                $graphicWidthInTile = $json['graphicWidthInTile'];
+                $graphicHeightInTile = $json['graphicHeightInTile'];
+                $graphicPatternX = $json['graphicPatternX'];
+                $graphicPatternY = $json['graphicPatternY'];
+                $graphicPatternWidth = $json['graphicPatternWidth'];
+                $graphicPatternHeight = $json['graphicPatternHeight'];
+                $graphicPatternArray = $json['graphicPatternArray'];
+                $graphicPatternArrayJsonEncoded =  json_encode($graphicPatternArray);
+                $graphicPatternArrayJsonEncoded =  htmlspecialchars($graphicPatternArrayJsonEncoded, ENT_QUOTES, 'UTF-8');
+
+
 
                 $tabElement = substr($tabElement, 0, strlen($tabElement)-strlen(".json"));
 
+//                {
+//                    "graphicOffsetX": 0,
+//                    "graphicOffsetY": 0,
+//                    "graphicWidth": 40,
+//                    "graphicHeight": 40,
+//
+//                    "graphicPatternX": 0,
+//                    "graphicPatternY": 0,
+//                    "graphicPatternWidth": 1,
+//                    "graphicPatternHeight": 1,
+//                    "graphicPatternArray": [
+//                                    [["cobblestones", "cobblestones", "grass", "grass"]]
+//                                ]
+//                }
+
                 print("
-                    <div class=\"row assetElement\" data-assetname=\"assets/editor/{$tabElement}.png\" data-layer=\"{$layer}\" data-drawx=\"{$drawx}\" data-drawy=\"{$drawy}\">
-                        <div>
-                            <div class=\"thumbnail\" style=\"width: 180px\">
-                                <img src=\"assets/editor/{$tabElement}.png\">
-                                <h5>{$tabElement}.png</h5>
-                            </div>
-                        </div>
-                    </div>");
+                    <graphicData class=\"assetElement\"
+                        data-assetname=\"assets/editor/graphic/{$tabElement}.png\"
+                        data-graphicLayer=\"{$graphicLayer}\"
+                        data-graphicOffsetX=\"{$graphicOffsetX}\"
+                        data-graphicOffsetY=\"{$graphicOffsetY}\"
+                        data-graphicsWidyhInTile=\"{$graphicWidthInTile}\"
+                        data-graphicsHeightInTile=\"{$graphicHeightInTile}\"
+                        data-graphicsPatternX=\"{$graphicPatternX}\"
+                        data-graphicsPatternY=\"{$graphicPatternY}\"
+                        data-graphicPatternWidth=\"{$graphicPatternWidth}\"
+                        data-graphicPatternHeight=\"{$graphicPatternHeight}\"
+                        data-graphicPatternArray=\"{$graphicPatternArrayJsonEncoded}\"
+                        >
+                    </graphicData>");
 
             }
 

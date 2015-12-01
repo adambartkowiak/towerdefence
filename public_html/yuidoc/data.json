@@ -1,0 +1,5661 @@
+{
+    "project": {
+        "name": "The SuperTowerDefence API",
+        "description": "The SuperTowerDefence API",
+        "version": "1.2.1",
+        "url": "http://supertowerdefence.pl"
+    },
+    "files": {
+        "js/app/managers/BulletManager.js": {
+            "name": "js/app/managers/BulletManager.js",
+            "modules": {},
+            "classes": {
+                "app.managers.BulletManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.managers": 1
+            }
+        },
+        "js/app/managers/EnemyManager.js": {
+            "name": "js/app/managers/EnemyManager.js",
+            "modules": {},
+            "classes": {
+                "app.managers.EnemyManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.managers": 1
+            }
+        },
+        "js/app/managers/TowerManager.js": {
+            "name": "js/app/managers/TowerManager.js",
+            "modules": {},
+            "classes": {
+                "app.managers.TowerManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.managers": 1
+            }
+        },
+        "js/app/mouseHandler/MouseEventHandler.js": {
+            "name": "js/app/mouseHandler/MouseEventHandler.js",
+            "modules": {},
+            "classes": {
+                "app.mouseHandler.MouseEventHandler": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.mouseHandler": 1
+            }
+        },
+        "js/app/objects/Bullet.js": {
+            "name": "js/app/objects/Bullet.js",
+            "modules": {},
+            "classes": {
+                "app.objects.Bullet": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/BulletList.js": {
+            "name": "js/app/objects/BulletList.js",
+            "modules": {},
+            "classes": {
+                "app.objects.BulletList": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/Checkpoint.js": {
+            "name": "js/app/objects/Checkpoint.js",
+            "modules": {},
+            "classes": {
+                "app.objects.Checkpoint": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/CheckpointList.js": {
+            "name": "js/app/objects/CheckpointList.js",
+            "modules": {},
+            "classes": {
+                "app.objects.CheckpointList": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/Enemy.js": {
+            "name": "js/app/objects/Enemy.js",
+            "modules": {},
+            "classes": {
+                "app.objects.Enemy": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/EnemyList.js": {
+            "name": "js/app/objects/EnemyList.js",
+            "modules": {},
+            "classes": {
+                "app.objects.EnemyList": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/HudModel.js": {
+            "name": "js/app/objects/HudModel.js",
+            "modules": {},
+            "classes": {
+                "app.objects.HudModel": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/HudView.js": {
+            "name": "js/app/objects/HudView.js",
+            "modules": {},
+            "classes": {
+                "app.objects.HudView": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/Map.js": {
+            "name": "js/app/objects/Map.js",
+            "modules": {},
+            "classes": {
+                "app.objects.Map": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/MapField.js": {
+            "name": "js/app/objects/MapField.js",
+            "modules": {},
+            "classes": {
+                "app.objects.MapField": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/Target.js": {
+            "name": "js/app/objects/Target.js",
+            "modules": {},
+            "classes": {
+                "app.objects.Target": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/Tower.js": {
+            "name": "js/app/objects/Tower.js",
+            "modules": {},
+            "classes": {
+                "app.objects.Tower": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/TowerList.js": {
+            "name": "js/app/objects/TowerList.js",
+            "modules": {},
+            "classes": {
+                "app.objects.TowerList": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/WorldModel.js": {
+            "name": "js/app/objects/WorldModel.js",
+            "modules": {},
+            "classes": {
+                "app.objects.WorldModel": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/app/objects/WorldView.js": {
+            "name": "js/app/objects/WorldView.js",
+            "modules": {},
+            "classes": {
+                "app.objects.WorldView": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "app.objects": 1
+            }
+        },
+        "js/libs/jquery/jquery.js": {
+            "name": "js/libs/jquery/jquery.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/support/geom/shape/FreeShape.js": {
+            "name": "js/support/geom/shape/FreeShape.js",
+            "modules": {},
+            "classes": {
+                "support.geom.shape.FreeShape": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support.geom.shape": 1
+            }
+        },
+        "js/support/geom/Circle.js": {
+            "name": "js/support/geom/Circle.js",
+            "modules": {},
+            "classes": {
+                "support.geom.Circle": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support.geom": 1
+            }
+        },
+        "js/support/geom/Point2d.js": {
+            "name": "js/support/geom/Point2d.js",
+            "modules": {},
+            "classes": {
+                "support.geom.Point2d": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support.geom": 1
+            }
+        },
+        "js/support/geom/Rect.js": {
+            "name": "js/support/geom/Rect.js",
+            "modules": {},
+            "classes": {
+                "support.geom.Rect": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support.geom": 1
+            }
+        },
+        "js/support/geom/SimpleVector2d.js": {
+            "name": "js/support/geom/SimpleVector2d.js",
+            "modules": {},
+            "classes": {
+                "support.geom.SimpleVector2d": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support.geom": 1
+            }
+        },
+        "js/support/geom/Vector2d.js": {
+            "name": "js/support/geom/Vector2d.js",
+            "modules": {},
+            "classes": {
+                "support.geom.Vector2d": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support.geom": 1
+            }
+        },
+        "js/support/graphics/Image.js": {
+            "name": "js/support/graphics/Image.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {
+                "graphics.Image": 1
+            }
+        },
+        "js/support/AbstractMouseEventHandler.js": {
+            "name": "js/support/AbstractMouseEventHandler.js",
+            "modules": {},
+            "classes": {
+                "support.AbstractMouseEventHandler": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support": 1
+            }
+        },
+        "js/support/Loader.js": {
+            "name": "js/support/Loader.js",
+            "modules": {},
+            "classes": {
+                "support.Loader": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support": 1
+            }
+        },
+        "js/support/Mouse.js": {
+            "name": "js/support/Mouse.js",
+            "modules": {},
+            "classes": {
+                "support.Mouse": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support": 1
+            }
+        },
+        "js/support/MouseEventHandlerManager.js": {
+            "name": "js/support/MouseEventHandlerManager.js",
+            "modules": {},
+            "classes": {
+                "support.MouseEventHandlerManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support": 1
+            }
+        },
+        "js/support/Timer.js": {
+            "name": "js/support/Timer.js",
+            "modules": {},
+            "classes": {
+                "support.Timer": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "support": 1
+            }
+        },
+        "js/utils/Utils.js": {
+            "name": "js/utils/Utils.js",
+            "modules": {},
+            "classes": {
+                "support.Utils": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "app.managers.BulletManager": {
+            "name": "app.managers.BulletManager",
+            "shortname": "app.managers.BulletManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.managers",
+            "file": "js/app/managers/BulletManager.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "bulletList",
+                    "description": "",
+                    "type": "app.objects.BulletList"
+                },
+                {
+                    "name": "enemyList",
+                    "description": "",
+                    "type": "app.objects.EnemyList"
+                },
+                {
+                    "name": "hudModel",
+                    "description": "",
+                    "type": "app.objects.HudModel"
+                }
+            ]
+        },
+        "app.managers.EnemyManager": {
+            "name": "app.managers.EnemyManager",
+            "shortname": "app.managers.EnemyManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.managers",
+            "file": "js/app/managers/EnemyManager.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "enemyList",
+                    "description": "",
+                    "type": "app.objects.EnemyList"
+                },
+                {
+                    "name": "checkpointList",
+                    "description": "",
+                    "type": "app.objects.CheckpointList"
+                }
+            ]
+        },
+        "app.managers.TowerManager": {
+            "name": "app.managers.TowerManager",
+            "shortname": "app.managers.TowerManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.managers",
+            "file": "js/app/managers/TowerManager.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "towerList",
+                    "description": "",
+                    "type": "app.objects.TowerList"
+                },
+                {
+                    "name": "enemyList",
+                    "description": "",
+                    "type": "app.objects.EnemyList"
+                },
+                {
+                    "name": "bulletList",
+                    "description": "",
+                    "type": "app.objects.BulletList"
+                }
+            ]
+        },
+        "app.mouseHandler.MouseEventHandler": {
+            "name": "app.mouseHandler.MouseEventHandler",
+            "shortname": "app.mouseHandler.MouseEventHandler",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.mouseHandler",
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "timer",
+                    "description": "",
+                    "type": "support.Timer"
+                },
+                {
+                    "name": "worldModel",
+                    "description": "",
+                    "type": "app.objects.WorldModel"
+                },
+                {
+                    "name": "hudModel",
+                    "description": "",
+                    "type": "app.objects.HudModel"
+                }
+            ]
+        },
+        "app.objects.Bullet": {
+            "name": "app.objects.Bullet",
+            "shortname": "app.objects.Bullet",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/Bullet.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "target",
+                    "description": "",
+                    "type": "app.objects.Target"
+                },
+                {
+                    "name": "speed",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "damage",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ]
+        },
+        "app.objects.BulletList": {
+            "name": "app.objects.BulletList",
+            "shortname": "app.objects.BulletList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/BulletList.js",
+            "line": 12,
+            "is_constructor": 1
+        },
+        "app.objects.Checkpoint": {
+            "name": "app.objects.Checkpoint",
+            "shortname": "app.objects.Checkpoint",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/Checkpoint.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "moveX",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "moveY",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "app.objects.CheckpointList": {
+            "name": "app.objects.CheckpointList",
+            "shortname": "app.objects.CheckpointList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 12,
+            "is_constructor": 1
+        },
+        "app.objects.Enemy": {
+            "name": "app.objects.Enemy",
+            "shortname": "app.objects.Enemy",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/Enemy.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "hp",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "speed",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ]
+        },
+        "app.objects.EnemyList": {
+            "name": "app.objects.EnemyList",
+            "shortname": "app.objects.EnemyList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/EnemyList.js",
+            "line": 12,
+            "is_constructor": 1
+        },
+        "app.objects.HudModel": {
+            "name": "app.objects.HudModel",
+            "shortname": "app.objects.HudModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/HudModel.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "score",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "cash",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "app.objects.HudView": {
+            "name": "app.objects.HudView",
+            "shortname": "app.objects.HudView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/HudView.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "canvas",
+                    "description": "",
+                    "type": "HTMLCanvasElement"
+                },
+                {
+                    "name": "hudModel",
+                    "description": "",
+                    "type": "app.map.HudModel"
+                }
+            ]
+        },
+        "app.objects.Map": {
+            "name": "app.objects.Map",
+            "shortname": "app.objects.Map",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/Map.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "fieldWidth",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "fieldHeight",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ]
+        },
+        "app.objects.MapField": {
+            "name": "app.objects.MapField",
+            "shortname": "app.objects.MapField",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/MapField.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "allowBuild",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ]
+        },
+        "app.objects.Target": {
+            "name": "app.objects.Target",
+            "shortname": "app.objects.Target",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/Target.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "enemyGuid",
+                    "description": "",
+                    "type": "String"
+                }
+            ]
+        },
+        "app.objects.Tower": {
+            "name": "app.objects.Tower",
+            "shortname": "app.objects.Tower",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/Tower.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "range",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "rate",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "bullet",
+                    "description": "",
+                    "type": "app.objects.Bullet"
+                },
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ]
+        },
+        "app.objects.TowerList": {
+            "name": "app.objects.TowerList",
+            "shortname": "app.objects.TowerList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/TowerList.js",
+            "line": 12,
+            "is_constructor": 1
+        },
+        "app.objects.WorldModel": {
+            "name": "app.objects.WorldModel",
+            "shortname": "app.objects.WorldModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/WorldModel.js",
+            "line": 12,
+            "is_constructor": 1
+        },
+        "app.objects.WorldView": {
+            "name": "app.objects.WorldView",
+            "shortname": "app.objects.WorldView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "app.objects",
+            "file": "js/app/objects/WorldView.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "canvas",
+                    "description": "",
+                    "type": "HTMLCanvasElement"
+                },
+                {
+                    "name": "worldModel",
+                    "description": "",
+                    "type": "app.objects.WorldModel"
+                }
+            ]
+        },
+        "support.geom.shape.FreeShape": {
+            "name": "support.geom.shape.FreeShape",
+            "shortname": "support.geom.shape.FreeShape",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support.geom.shape",
+            "file": "js/support/geom/shape/FreeShape.js",
+            "line": 12,
+            "is_constructor": 1
+        },
+        "support.geom.Circle": {
+            "name": "support.geom.Circle",
+            "shortname": "support.geom.Circle",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support.geom",
+            "file": "js/support/geom/Circle.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "support.geom.Point2d": {
+            "name": "support.geom.Point2d",
+            "shortname": "support.geom.Point2d",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support.geom",
+            "file": "js/support/geom/Point2d.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "support.geom.Rect": {
+            "name": "support.geom.Rect",
+            "shortname": "support.geom.Rect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support.geom",
+            "file": "js/support/geom/Rect.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "support.geom.SimpleVector2d": {
+            "name": "support.geom.SimpleVector2d",
+            "shortname": "support.geom.SimpleVector2d",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support.geom",
+            "file": "js/support/geom/SimpleVector2d.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "support.geom.Vector2d": {
+            "name": "support.geom.Vector2d",
+            "shortname": "support.geom.Vector2d",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support.geom",
+            "file": "js/support/geom/Vector2d.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "x2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y2",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "support.AbstractMouseEventHandler": {
+            "name": "support.AbstractMouseEventHandler",
+            "shortname": "support.AbstractMouseEventHandler",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support",
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 10,
+            "is_constructor": 1
+        },
+        "support.Loader": {
+            "name": "support.Loader",
+            "shortname": "support.Loader",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support",
+            "file": "js/support/Loader.js",
+            "line": 10,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "mouseEventHandler",
+                    "description": "",
+                    "type": "support.AbstractMouseEventHandler"
+                }
+            ]
+        },
+        "support.Mouse": {
+            "name": "support.Mouse",
+            "shortname": "support.Mouse",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support",
+            "file": "js/support/Mouse.js",
+            "line": 10,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "mouseEventHandler",
+                    "description": "",
+                    "type": "support.AbstractMouseEventHandler"
+                }
+            ]
+        },
+        "support.MouseEventHandlerManager": {
+            "name": "support.MouseEventHandlerManager",
+            "shortname": "support.MouseEventHandlerManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support",
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 10,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "mouse",
+                    "description": "",
+                    "type": "support.Mouse"
+                }
+            ]
+        },
+        "support.Timer": {
+            "name": "support.Timer",
+            "shortname": "support.Timer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support",
+            "file": "js/support/Timer.js",
+            "line": 10,
+            "is_constructor": 1
+        },
+        "support.Utils": {
+            "name": "support.Utils",
+            "shortname": "Utils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "support",
+            "file": "js/utils/Utils.js",
+            "line": 5,
+            "itemtype": "method",
+            "params": [
+                {
+                    "name": "constructor",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "baseConstructor",
+                    "description": "",
+                    "type": "Object"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "js/app/managers/BulletManager.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 15.04.2015.",
+            "class": "app.managers.BulletManager"
+        },
+        {
+            "file": "js/app/managers/BulletManager.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "_bulletList",
+            "type": "app.objects.BulletList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.BulletManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/BulletManager.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "_enemyList",
+            "type": "app.objects.EnemyList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.BulletManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/BulletManager.js",
+            "line": 36,
+            "itemtype": "property",
+            "name": "_hudModel",
+            "type": "app.objects.HudModel",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.BulletManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/BulletManager.js",
+            "line": 45,
+            "itemtype": "method",
+            "name": "moveBullets",
+            "params": [
+                {
+                    "name": "timeDelta",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.managers.BulletManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/BulletManager.js",
+            "line": 94,
+            "itemtype": "method",
+            "name": "checkTargetsToHit",
+            "class": "app.managers.BulletManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/BulletManager.js",
+            "line": 163,
+            "itemtype": "method",
+            "name": "checkTargetsToHit",
+            "params": [
+                {
+                    "name": "cx",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "cy",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "vx1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "vy1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "vx2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "vy2",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.managers.BulletManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/EnemyManager.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 23.04.2015.",
+            "class": "app.managers.EnemyManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/EnemyManager.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "_enemyList",
+            "type": "app.objects.EnemyList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.EnemyManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/EnemyManager.js",
+            "line": 28,
+            "itemtype": "property",
+            "name": "_checkpointList",
+            "type": "app.objects.CheckpointList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.EnemyManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/EnemyManager.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "moveEnemy",
+            "params": [
+                {
+                    "name": "timeDelta",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.managers.EnemyManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/EnemyManager.js",
+            "line": 96,
+            "itemtype": "method",
+            "name": "removeDeadEnemy",
+            "class": "app.managers.EnemyManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/TowerManager.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 15.04.2015.",
+            "class": "app.managers.TowerManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/TowerManager.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "_towerList",
+            "type": "app.objects.TowerList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.TowerManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/TowerManager.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "_enemyList",
+            "type": "app.objects.EnemyList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.TowerManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/TowerManager.js",
+            "line": 35,
+            "itemtype": "property",
+            "name": "_bulletList",
+            "type": "app.objects.BulletList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.managers.TowerManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/TowerManager.js",
+            "line": 45,
+            "itemtype": "method",
+            "name": "tryShotToEnemy",
+            "class": "app.managers.TowerManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/managers/TowerManager.js",
+            "line": 103,
+            "itemtype": "method",
+            "name": "cooldownTimer",
+            "params": [
+                {
+                    "name": "timeDelta",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.managers.TowerManager",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 20.04.15.",
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.managers"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 21,
+            "itemtype": "property",
+            "name": "_timer",
+            "type": "support.Timer",
+            "access": "private",
+            "tagname": "",
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_worldModel",
+            "type": "app.objects.WorldModel",
+            "access": "private",
+            "tagname": "",
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "_hudModel",
+            "type": "app.objects.HudModel",
+            "access": "private",
+            "tagname": "",
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 42,
+            "itemtype": "method",
+            "name": "onMouseUp",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 113,
+            "itemtype": "method",
+            "name": "onMouseDown",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 121,
+            "itemtype": "method",
+            "name": "onMouseMove",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/mouseHandler/MouseEventHandler.js",
+            "line": 129,
+            "itemtype": "method",
+            "name": "onMouseDrag",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "app.mouseHandler.MouseEventHandler",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.Bullet",
+            "namespace": "app.mouseHandler"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_target",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "_speed",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 39,
+            "itemtype": "property",
+            "name": "_damage",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "_graphicUrl",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 51,
+            "itemtype": "property",
+            "name": "_moveVector",
+            "type": "support.geom.SimpleVector2d",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 57,
+            "itemtype": "property",
+            "name": "_angle",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 66,
+            "itemtype": "method",
+            "name": "getTarget",
+            "return": {
+                "description": "target",
+                "type": "app.objects.Target"
+            },
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 74,
+            "description": "Ta funkcja to geter angle",
+            "itemtype": "method",
+            "name": "getAngle",
+            "return": {
+                "description": "angle",
+                "type": "Number"
+            },
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 83,
+            "itemtype": "method",
+            "name": "setAngle",
+            "params": [
+                {
+                    "name": "angle",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 91,
+            "itemtype": "method",
+            "name": "getSpeed",
+            "return": {
+                "description": "speed",
+                "type": "Number"
+            },
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 99,
+            "itemtype": "method",
+            "name": "setSpeed",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 107,
+            "itemtype": "method",
+            "name": "getDamage",
+            "return": {
+                "description": "damage",
+                "type": "Number"
+            },
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 115,
+            "itemtype": "method",
+            "name": "setDamage",
+            "params": [
+                {
+                    "name": "damage",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 123,
+            "itemtype": "method",
+            "name": "getGraphicUrl",
+            "return": {
+                "description": "graphicUrl",
+                "type": "String"
+            },
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Bullet.js",
+            "line": 131,
+            "itemtype": "method",
+            "name": "setGraphicUrl",
+            "params": [
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.Bullet",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2013.",
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "_bulletList",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 30,
+            "itemtype": "method",
+            "name": "addBullet",
+            "params": [
+                {
+                    "name": "newBullet",
+                    "description": "",
+                    "type": "app.objects.Bullet"
+                }
+            ],
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "clear",
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 45,
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 53,
+            "itemtype": "method",
+            "name": "getBulletList",
+            "return": {
+                "description": "_x",
+                "type": "Array"
+            },
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 61,
+            "itemtype": "method",
+            "name": "getBullet",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "bulet",
+                "type": "app.objects.Bullet"
+            },
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 70,
+            "itemtype": "method",
+            "name": "length",
+            "return": {
+                "description": "length",
+                "type": "Number"
+            },
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 78,
+            "itemtype": "method",
+            "name": "saveBulletListToJsonText",
+            "return": {
+                "description": "result",
+                "type": "String"
+            },
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 86,
+            "itemtype": "method",
+            "name": "loadBulletListFromJson",
+            "params": [
+                {
+                    "name": "json",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/BulletList.js",
+            "line": 107,
+            "itemtype": "method",
+            "name": "loadBulletListFromJsonText",
+            "params": [
+                {
+                    "name": "jsonText",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.BulletList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Checkpoint.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.Checkpoint",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Checkpoint.js",
+            "line": 26,
+            "itemtype": "property",
+            "name": "_moveVector",
+            "type": "support.geom.SimpleVector2d",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Checkpoint",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Checkpoint.js",
+            "line": 35,
+            "itemtype": "method",
+            "name": "getMoveVector",
+            "return": {
+                "description": "moveVector",
+                "type": "support.geom.SimpleVector2d"
+            },
+            "class": "app.objects.Checkpoint",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 20,
+            "itemtype": "property",
+            "name": "_damage",
+            "type": "app.objects.Checkpoint",
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 30,
+            "itemtype": "method",
+            "name": "addCheckpoint",
+            "params": [
+                {
+                    "name": "newCheckpoint",
+                    "description": "",
+                    "type": "app.objects.Checkpoint"
+                }
+            ],
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "getCheckpoint",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "bulet",
+                "type": "app.objects.Checkpoint"
+            },
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 47,
+            "itemtype": "method",
+            "name": "getCheckpointList",
+            "return": {
+                "description": "checkpointList",
+                "type": "Array"
+            },
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 55,
+            "itemtype": "method",
+            "name": "length",
+            "return": {
+                "description": "length",
+                "type": "Number"
+            },
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 63,
+            "itemtype": "method",
+            "name": "clear",
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 71,
+            "itemtype": "method",
+            "name": "stringify",
+            "return": {
+                "description": "result",
+                "type": "String"
+            },
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 79,
+            "itemtype": "method",
+            "name": "loadCheckpointListFromJson",
+            "params": [
+                {
+                    "name": "json",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/CheckpointList.js",
+            "line": 96,
+            "itemtype": "method",
+            "name": "loadEnemyListFromJsonText",
+            "params": [
+                {
+                    "name": "jsonText",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.CheckpointList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_hp",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "_currentHp",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 39,
+            "itemtype": "property",
+            "name": "_speed",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "_graphicUrl",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 51,
+            "itemtype": "property",
+            "name": "_moveVector",
+            "type": "support.geom.SimpleVector2d",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 57,
+            "itemtype": "property",
+            "name": "_angle",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 63,
+            "itemtype": "property",
+            "name": "_guid",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 72,
+            "itemtype": "method",
+            "name": "getHp",
+            "return": {
+                "description": "hp",
+                "type": "Number"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 80,
+            "itemtype": "method",
+            "name": "setHp",
+            "params": [
+                {
+                    "name": "hp",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 88,
+            "itemtype": "method",
+            "name": "getCurrentHp",
+            "return": {
+                "description": "currentHp",
+                "type": "Number"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 96,
+            "itemtype": "method",
+            "name": "setCurrentHp",
+            "params": [
+                {
+                    "name": "currentHp",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 104,
+            "itemtype": "method",
+            "name": "getMoveVector",
+            "return": {
+                "description": "moveVector",
+                "type": "support.geom.SimpleVector2d"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 112,
+            "itemtype": "method",
+            "name": "getAngle",
+            "return": {
+                "description": "angle",
+                "type": "Number"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 120,
+            "itemtype": "method",
+            "name": "setAngle",
+            "params": [
+                {
+                    "name": "angle",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 128,
+            "itemtype": "method",
+            "name": "getSpeed",
+            "return": {
+                "description": "speed",
+                "type": "Number"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 136,
+            "itemtype": "method",
+            "name": "setSpeed",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 144,
+            "itemtype": "method",
+            "name": "getGuid",
+            "return": {
+                "description": "guid",
+                "type": "String"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 152,
+            "itemtype": "method",
+            "name": "setGuid",
+            "params": [
+                {
+                    "name": "guid",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 160,
+            "itemtype": "method",
+            "name": "getMoveVector",
+            "return": {
+                "description": "guid",
+                "type": "support.geom.SimpleVector2d"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 168,
+            "itemtype": "method",
+            "name": "setMoveVector",
+            "params": [
+                {
+                    "name": "moveVector",
+                    "description": "",
+                    "type": "support.geom.SimpleVector2d"
+                }
+            ],
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 176,
+            "itemtype": "method",
+            "name": "getGraphicUrl",
+            "return": {
+                "description": "graphicUrl",
+                "type": "String"
+            },
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Enemy.js",
+            "line": 184,
+            "itemtype": "method",
+            "name": "setGraphicUrl",
+            "params": [
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.Enemy",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2013.",
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "_enemyList",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 29,
+            "itemtype": "method",
+            "name": "addEnemy",
+            "params": [
+                {
+                    "name": "newEnemy",
+                    "description": "",
+                    "type": "app.objects.Bullet"
+                }
+            ],
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 37,
+            "itemtype": "method",
+            "name": "clear",
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 44,
+            "itemtype": "method",
+            "name": "getEnemyList",
+            "return": {
+                "description": "",
+                "type": "app.objects.EnemyList"
+            },
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 52,
+            "itemtype": "method",
+            "name": "getEnemy",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "enemy",
+                "type": "app.objects.Enemy"
+            },
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 61,
+            "itemtype": "method",
+            "name": "getEnemyByGuid",
+            "params": [
+                {
+                    "name": "guid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "enemy",
+                "type": "app.objects.Enemy"
+            },
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 75,
+            "itemtype": "method",
+            "name": "length",
+            "return": {
+                "description": "length",
+                "type": "Number"
+            },
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 83,
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 91,
+            "itemtype": "method",
+            "name": "stringify",
+            "return": {
+                "description": "result",
+                "type": "String"
+            },
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 99,
+            "itemtype": "method",
+            "name": "loadEnemyListFromJson",
+            "params": [
+                {
+                    "name": "json",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/EnemyList.js",
+            "line": 121,
+            "itemtype": "method",
+            "name": "loadEnemyListFromJsonText",
+            "params": [
+                {
+                    "name": "jsonText",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.EnemyList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "_score",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "_score",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 35,
+            "itemtype": "property",
+            "name": "_menuGraphicUrl",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 41,
+            "itemtype": "property",
+            "name": "_towerMenuByGuid",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 47,
+            "itemtype": "property",
+            "name": "_towerXMenu",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 53,
+            "itemtype": "property",
+            "name": "_towerMenu",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 59,
+            "itemtype": "property",
+            "name": "_menuCircle",
+            "type": "support.geom.Circle",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 65,
+            "itemtype": "property",
+            "name": "_menuOkButtonRect",
+            "type": "support.geom.Rect",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 71,
+            "itemtype": "property",
+            "name": "_menuCancelButtonRect",
+            "type": "support.geom.Rect",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 81,
+            "itemtype": "method",
+            "name": "getScore",
+            "return": {
+                "description": "score",
+                "type": "Number"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 89,
+            "itemtype": "method",
+            "name": "setScore",
+            "params": [
+                {
+                    "name": "score",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 97,
+            "itemtype": "method",
+            "name": "getCash",
+            "return": {
+                "description": "cash",
+                "type": "Number"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 105,
+            "itemtype": "method",
+            "name": "setCash",
+            "params": [
+                {
+                    "name": "cash",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 113,
+            "itemtype": "method",
+            "name": "getMenuGraphicUrl",
+            "return": {
+                "description": "cash",
+                "type": "String"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 121,
+            "itemtype": "method",
+            "name": "setMenuGraphicUrl",
+            "params": [
+                {
+                    "name": "menuGraphicUrl",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 129,
+            "itemtype": "method",
+            "name": "getTowerXMenu",
+            "return": {
+                "description": "towerXMenu",
+                "type": "Number"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 137,
+            "itemtype": "method",
+            "name": "getTowerYMenu",
+            "return": {
+                "description": "towerYMenu",
+                "type": "Number"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 145,
+            "itemtype": "method",
+            "name": "getTowerGuidForCurrentMenu",
+            "return": {
+                "description": "towerMenuByGuid",
+                "type": "Number"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 153,
+            "itemtype": "method",
+            "name": "createMenuForTowerGuid",
+            "params": [
+                {
+                    "name": "towerGuid",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "towerXMenu",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "towerYMenu",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 165,
+            "itemtype": "method",
+            "name": "disableMenuForTower",
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 172,
+            "itemtype": "method",
+            "name": "getMenuCircle",
+            "return": {
+                "description": "menuCircle",
+                "type": "support.geom.Circle"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 180,
+            "itemtype": "method",
+            "name": "setMenuCircle",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 192,
+            "itemtype": "method",
+            "name": "getMenuOkButtonRect",
+            "return": {
+                "description": "menuOkButtonRect",
+                "type": "support.geom.Rect"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 200,
+            "itemtype": "method",
+            "name": "getMenuCancelButtonRect",
+            "return": {
+                "description": "menuOkButtonRect",
+                "type": "support.geom.Rect"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 208,
+            "itemtype": "method",
+            "name": "setMenuOkButtonRect",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 222,
+            "itemtype": "method",
+            "name": "setMenuCancelButtonRect",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 236,
+            "itemtype": "method",
+            "name": "saveHudModelToJsonText",
+            "return": {
+                "description": "result",
+                "type": "String"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 244,
+            "itemtype": "method",
+            "name": "saveScoreToJsonText",
+            "return": {
+                "description": "result",
+                "type": "String"
+            },
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 255,
+            "itemtype": "method",
+            "name": "loadHudModelFromJson",
+            "params": [
+                {
+                    "name": "json",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudModel.js",
+            "line": 269,
+            "itemtype": "method",
+            "name": "loadTowerListFromJsonText",
+            "params": [
+                {
+                    "name": "jsonText",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.HudModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 21,
+            "itemtype": "property",
+            "name": "_canvas",
+            "type": "HTMLCanvasElement",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_canvasContext",
+            "type": "CanvasRenderingContext2D",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "_hudModel",
+            "type": "app.objects.HudModel",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 40,
+            "itemtype": "property",
+            "name": "_menuGraphicBackgroundImage",
+            "type": "Image",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 47,
+            "itemtype": "property",
+            "name": "_towerMenuCircle",
+            "type": "Image",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 54,
+            "itemtype": "property",
+            "name": "_towerMenuUpButton",
+            "type": "Image",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 61,
+            "itemtype": "property",
+            "name": "_towerMenuCancelButton",
+            "type": "Image",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 68,
+            "itemtype": "property",
+            "name": "_image",
+            "type": "support.graphics.Image",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 77,
+            "itemtype": "method",
+            "name": "draw",
+            "access": "public",
+            "tagname": "",
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/HudView.js",
+            "line": 92,
+            "itemtype": "method",
+            "name": "_drawTowerMenu",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "towerXMenu",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "towerYMenu",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.HudView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 18.04.2015.",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "_width",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 30,
+            "itemtype": "property",
+            "name": "_height",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 36,
+            "itemtype": "property",
+            "name": "_fieldWidth",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 42,
+            "itemtype": "property",
+            "name": "_graphicUrl",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 48,
+            "itemtype": "property",
+            "name": "_fieldHeight",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 54,
+            "itemtype": "property",
+            "name": "_fields",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 60,
+            "itemtype": "property",
+            "name": "_selectedField",
+            "type": "app.objects.MapField",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 72,
+            "itemtype": "method",
+            "name": "init",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 88,
+            "itemtype": "method",
+            "name": "getWidth",
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 96,
+            "itemtype": "method",
+            "name": "getHeight",
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 104,
+            "itemtype": "method",
+            "name": "getFieldWidth",
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 112,
+            "itemtype": "method",
+            "name": "getFieldHeight",
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 120,
+            "itemtype": "method",
+            "name": "getField",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "app.objects.MapField"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 130,
+            "itemtype": "method",
+            "name": "getFieldByPixels",
+            "params": [
+                {
+                    "name": "xPx",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "yPx",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "app.objects.MapField"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 144,
+            "itemtype": "method",
+            "name": "getSelectedField",
+            "return": {
+                "description": "",
+                "type": "app.objects.MapField"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 152,
+            "itemtype": "method",
+            "name": "setSelectedField",
+            "params": [
+                {
+                    "name": "mapField",
+                    "description": "",
+                    "type": "app.objects.MapField"
+                }
+            ],
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 160,
+            "itemtype": "method",
+            "name": "getGraphicUrl",
+            "return": {
+                "description": "mapUrl",
+                "type": "String"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 168,
+            "itemtype": "method",
+            "name": "setGraphicUrl",
+            "params": [
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 176,
+            "itemtype": "method",
+            "name": "clear",
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 183,
+            "itemtype": "method",
+            "name": "saveMapModelToJsonText",
+            "return": {
+                "description": "result",
+                "type": "String"
+            },
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 191,
+            "itemtype": "method",
+            "name": "loadMapModelFromJson",
+            "params": [
+                {
+                    "name": "json",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Map.js",
+            "line": 222,
+            "itemtype": "method",
+            "name": "loadMapModelFromJsonText",
+            "params": [
+                {
+                    "name": "jsonText",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.Map",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/MapField.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 18.04.2015.",
+            "class": "app.objects.MapField",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/MapField.js",
+            "line": 21,
+            "itemtype": "property",
+            "name": "_allowBuild",
+            "type": "Boolean",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.MapField",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/MapField.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_empty",
+            "type": "Boolean",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.MapField",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/MapField.js",
+            "line": 37,
+            "itemtype": "method",
+            "name": "getAllowBuild",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "app.objects.MapField",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/MapField.js",
+            "line": 45,
+            "itemtype": "method",
+            "name": "getEmpty",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "app.objects.MapField",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/MapField.js",
+            "line": 53,
+            "itemtype": "method",
+            "name": "setEmpty",
+            "return": {
+                "description": "empty",
+                "type": "Boolean"
+            },
+            "class": "app.objects.MapField",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Target.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 16.04.2015.",
+            "class": "app.objects.Target",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Target.js",
+            "line": 25,
+            "itemtype": "property",
+            "name": "_range",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Target",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Target.js",
+            "line": 35,
+            "itemtype": "method",
+            "name": "getEnemy",
+            "return": {
+                "description": "enemy",
+                "type": "app.objects.Target"
+            },
+            "class": "app.objects.Target",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 28,
+            "itemtype": "property",
+            "name": "_range",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 34,
+            "itemtype": "property",
+            "name": "_rate",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 40,
+            "itemtype": "property",
+            "name": "_bullet",
+            "type": "app.objects.Bullet",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 46,
+            "itemtype": "property",
+            "name": "_graphicUrl",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 52,
+            "itemtype": "property",
+            "name": "_cooldown",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 58,
+            "itemtype": "property",
+            "name": "_angle",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 64,
+            "itemtype": "property",
+            "name": "_guid",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 74,
+            "itemtype": "method",
+            "name": "getRange",
+            "return": {
+                "description": "range",
+                "type": "Number"
+            },
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 82,
+            "itemtype": "method",
+            "name": "setRange",
+            "params": [
+                {
+                    "name": "range",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 90,
+            "itemtype": "method",
+            "name": "getRate",
+            "return": {
+                "description": "rate",
+                "type": "Number"
+            },
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 98,
+            "itemtype": "method",
+            "name": "setRate",
+            "params": [
+                {
+                    "name": "rate",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 106,
+            "itemtype": "method",
+            "name": "getBullet",
+            "return": {
+                "description": "bullet",
+                "type": "app.objects.Bullet"
+            },
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 114,
+            "itemtype": "method",
+            "name": "setBullet",
+            "params": [
+                {
+                    "name": "bullet",
+                    "description": "",
+                    "type": "app.objects.Bullet"
+                }
+            ],
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 122,
+            "itemtype": "method",
+            "name": "getGraphicUrl",
+            "return": {
+                "description": "graphicUrl",
+                "type": "String"
+            },
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 130,
+            "itemtype": "method",
+            "name": "setGraphicUrl",
+            "params": [
+                {
+                    "name": "graphicUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 138,
+            "itemtype": "method",
+            "name": "getCooldown",
+            "return": {
+                "description": "target",
+                "type": "app.objects.Target"
+            },
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 146,
+            "itemtype": "method",
+            "name": "setCooldown",
+            "params": [
+                {
+                    "name": "cooldown",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 154,
+            "itemtype": "method",
+            "name": "getAngle",
+            "return": {
+                "description": "angle",
+                "type": "Number"
+            },
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 162,
+            "itemtype": "method",
+            "name": "setAngle",
+            "params": [
+                {
+                    "name": "angle",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 170,
+            "itemtype": "method",
+            "name": "getGuid",
+            "return": {
+                "description": "guid",
+                "type": "Number"
+            },
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/Tower.js",
+            "line": 178,
+            "itemtype": "method",
+            "name": "setGuid",
+            "params": [
+                {
+                    "name": "guid",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "app.objects.Tower",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2013.",
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "_towerList",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 30,
+            "itemtype": "method",
+            "name": "addTower",
+            "params": [
+                {
+                    "name": "newTower",
+                    "description": "",
+                    "type": "app.objects.Tower"
+                }
+            ],
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "deleteTower",
+            "params": [
+                {
+                    "name": "tower",
+                    "description": "",
+                    "type": "app.objects.Tower"
+                }
+            ],
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 49,
+            "itemtype": "method",
+            "name": "clear",
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 56,
+            "itemtype": "method",
+            "name": "getTowerList",
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 64,
+            "itemtype": "method",
+            "name": "getTower",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "tower",
+                "type": "app.objects.Tower"
+            },
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 73,
+            "itemtype": "method",
+            "name": "getTowerByGuid",
+            "params": [
+                {
+                    "name": "guid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "tower",
+                "type": "app.objects.Tower"
+            },
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 87,
+            "itemtype": "method",
+            "name": "getTowerByPosition",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "tower",
+                "type": "app.objects.Tower"
+            },
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 108,
+            "itemtype": "method",
+            "name": "length",
+            "return": {
+                "description": "length",
+                "type": "Number"
+            },
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 116,
+            "itemtype": "method",
+            "name": "saveTowerListToJsonText",
+            "return": {
+                "description": "result",
+                "type": "String"
+            },
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 124,
+            "itemtype": "method",
+            "name": "loadTowerListFromJson",
+            "params": [
+                {
+                    "name": "json",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/TowerList.js",
+            "line": 145,
+            "itemtype": "method",
+            "name": "loadTowerListFromJsonText",
+            "params": [
+                {
+                    "name": "jsonText",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "app.objects.TowerList",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.15.",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "BASICSIZE",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 25,
+            "itemtype": "property",
+            "name": "BASICSIZE",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 32,
+            "itemtype": "property",
+            "name": "_bulletList",
+            "type": "app.objects.BulletList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 38,
+            "itemtype": "property",
+            "name": "_towerList",
+            "type": "app.objects.TowerList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 44,
+            "itemtype": "property",
+            "name": "_enemyList",
+            "type": "app.objects.EnemyList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 50,
+            "itemtype": "property",
+            "name": "_checkpointList",
+            "type": "app.objects.CheckpointList",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 56,
+            "itemtype": "property",
+            "name": "_map",
+            "type": "app.objects.Map",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 67,
+            "itemtype": "method",
+            "name": "getBulletList",
+            "access": "public",
+            "tagname": "",
+            "return": {
+                "description": "",
+                "type": "app.objects.BulletList"
+            },
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 76,
+            "itemtype": "method",
+            "name": "getTowerList",
+            "return": {
+                "description": "",
+                "type": "app.objects.TowerList"
+            },
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 84,
+            "itemtype": "method",
+            "name": "getEnemyList",
+            "return": {
+                "description": "",
+                "type": "app.objects.EnemyList"
+            },
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 92,
+            "itemtype": "method",
+            "name": "getCheckpointList",
+            "return": {
+                "description": "",
+                "type": "app.objects.CheckpointList"
+            },
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 100,
+            "itemtype": "method",
+            "name": "getMap",
+            "return": {
+                "description": "",
+                "type": "app.objects.Map"
+            },
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 108,
+            "itemtype": "method",
+            "name": "setTowerList",
+            "params": [
+                {
+                    "name": "towerList",
+                    "description": "",
+                    "type": "app.objects.TowerList"
+                }
+            ],
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 116,
+            "itemtype": "method",
+            "name": "setEnemyList",
+            "params": [
+                {
+                    "name": "enemyList",
+                    "description": "",
+                    "type": "app.objects.EnemyList"
+                }
+            ],
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 124,
+            "itemtype": "method",
+            "name": "setBulletList",
+            "params": [
+                {
+                    "name": "bulletList",
+                    "description": "",
+                    "type": "app.objects.BulletList"
+                }
+            ],
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 132,
+            "itemtype": "method",
+            "name": "setCheckpointList",
+            "params": [
+                {
+                    "name": "checkpointList",
+                    "description": "",
+                    "type": "app.objects.CheckpointList"
+                }
+            ],
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 140,
+            "itemtype": "method",
+            "name": "setMap",
+            "params": [
+                {
+                    "name": "map",
+                    "description": "",
+                    "type": "app.objects.Map"
+                }
+            ],
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldModel.js",
+            "line": 149,
+            "itemtype": "method",
+            "name": "onMapLoadingEnd",
+            "class": "app.objects.WorldModel",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 11.04.2015.",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 21,
+            "itemtype": "property",
+            "name": "_canvas",
+            "type": "HTMLCanvasElement",
+            "access": "private",
+            "tagname": "",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_canvasContext",
+            "type": "CanvasRenderingContext2D",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 32,
+            "itemtype": "property",
+            "name": "_worldModel",
+            "type": "app.objects.WorldModel",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 37,
+            "itemtype": "property",
+            "name": "_backgroundImage",
+            "type": "Image",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 42,
+            "itemtype": "property",
+            "name": "_enemyImage",
+            "type": "Array",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 58,
+            "itemtype": "property",
+            "name": "_towerHolderImage",
+            "type": "Image",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 64,
+            "itemtype": "property",
+            "name": "_towerImage",
+            "type": "Array",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 78,
+            "itemtype": "property",
+            "name": "_bulletImage",
+            "type": "Array",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 91,
+            "itemtype": "property",
+            "name": "_image",
+            "type": "support.graphics.Image",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 100,
+            "itemtype": "method",
+            "name": "draw",
+            "access": "public",
+            "tagname": "",
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 134,
+            "itemtype": "method",
+            "name": "_drawEnemies",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "enemyList",
+                    "description": "",
+                    "type": "app.objects.EnemyList"
+                }
+            ],
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 177,
+            "itemtype": "method",
+            "name": "_drawTowers",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "towerList",
+                    "description": "",
+                    "type": "app.objects.TowerList"
+                }
+            ],
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 200,
+            "itemtype": "method",
+            "name": "_drawBullets",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "bulletList",
+                    "description": "",
+                    "type": "app.objects.BulletList"
+                }
+            ],
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 223,
+            "itemtype": "method",
+            "name": "_drawCheckpoints",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "checkpointList",
+                    "description": "",
+                    "type": "app.objects.CheckpointList"
+                }
+            ],
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/app/objects/WorldView.js",
+            "line": 240,
+            "itemtype": "method",
+            "name": "_drawMap",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "map",
+                    "description": "",
+                    "type": "app.objects.Map"
+                }
+            ],
+            "class": "app.objects.WorldView",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1157,
+            "description": "Create key-value caches of limited size",
+            "return": {
+                "description": "Returns the Object data after storing it on itself with\n\tproperty name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)\n\tdeleting the oldest entry",
+                "type": "Function(string, Object)"
+            },
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1177,
+            "description": "Mark a function for special use by Sizzle",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "The function to mark",
+                    "type": "Function"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1186,
+            "description": "Support testing using an element",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "Passed the created div and expects a boolean result",
+                    "type": "Function"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1207,
+            "description": "Adds the same handler for all of the specified attrs",
+            "params": [
+                {
+                    "name": "attrs",
+                    "description": "Pipe-separated list of attributes",
+                    "type": "String"
+                },
+                {
+                    "name": "handler",
+                    "description": "The method that will be applied",
+                    "type": "Function"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1221,
+            "description": "Checks document order of two siblings",
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "return": {
+                "description": "Returns less than 0 if a precedes b, greater than 0 if a follows b",
+                "type": "Number"
+            },
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1250,
+            "description": "Returns a function to use in pseudos for input types",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1261,
+            "description": "Returns a function to use in pseudos for buttons",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1272,
+            "description": "Returns a function to use in pseudos for positionals",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1294,
+            "description": "Detect xml",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "An element or a document",
+                    "type": "Element|Object"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1308,
+            "description": "Sets document-related variables once based on the current document",
+            "params": [
+                {
+                    "name": "doc",
+                    "description": "An element or document object to use to set the document",
+                    "type": "Element|Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Returns the current document",
+                "type": "Object"
+            },
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1718,
+            "description": "Document sorting and removing duplicates",
+            "params": [
+                {
+                    "name": "results",
+                    "description": "",
+                    "type": "ArrayLike"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/libs/jquery/jquery.js",
+            "line": 1747,
+            "description": "Utility function for retrieving the text value of an array of DOM nodes",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Array|Element"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/support/geom/shape/FreeShape.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 12.12.2013.",
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "app.objects"
+        },
+        {
+            "file": "js/support/geom/shape/FreeShape.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "_shapePoints",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "support.geom.shape"
+        },
+        {
+            "file": "js/support/geom/shape/FreeShape.js",
+            "line": 30,
+            "itemtype": "method",
+            "name": "addPoint",
+            "params": [
+                {
+                    "name": "newPoint",
+                    "description": "",
+                    "type": "support.geom.Point2d"
+                }
+            ],
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "support.geom.shape"
+        },
+        {
+            "file": "js/support/geom/shape/FreeShape.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "clear",
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "support.geom.shape"
+        },
+        {
+            "file": "js/support/geom/shape/FreeShape.js",
+            "line": 45,
+            "itemtype": "method",
+            "name": "getShapePoints",
+            "return": {
+                "description": "shapePoints",
+                "type": "Array"
+            },
+            "class": "support.geom.shape.FreeShape",
+            "namespace": "support.geom.shape"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 4.7.2015.",
+            "class": "support.geom.Circle",
+            "namespace": "support.geom.shape"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 21,
+            "itemtype": "property",
+            "name": "x",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 27,
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "radius",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 43,
+            "itemtype": "method",
+            "name": "getX",
+            "return": {
+                "description": "x",
+                "type": "Number"
+            },
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 51,
+            "itemtype": "method",
+            "name": "getY",
+            "return": {
+                "description": "y",
+                "type": "Number"
+            },
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 59,
+            "itemtype": "method",
+            "name": "getRadius",
+            "return": {
+                "description": "radius",
+                "type": "Number"
+            },
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 67,
+            "itemtype": "method",
+            "name": "setX",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 75,
+            "itemtype": "method",
+            "name": "setY",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 83,
+            "itemtype": "method",
+            "name": "setRadius",
+            "params": [
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Circle.js",
+            "line": 91,
+            "itemtype": "method",
+            "name": "isPointInside",
+            "params": [
+                {
+                    "name": "pointToCheck",
+                    "description": "",
+                    "type": "support.geom.Point2d"
+                }
+            ],
+            "return": {
+                "description": "inside",
+                "type": "Boolean"
+            },
+            "class": "support.geom.Circle",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Point2d.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 12.12.2013.",
+            "class": "support.geom.Point2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Point2d.js",
+            "line": 20,
+            "itemtype": "property",
+            "name": "_x",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Point2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Point2d.js",
+            "line": 26,
+            "itemtype": "property",
+            "name": "_y",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Point2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Point2d.js",
+            "line": 36,
+            "itemtype": "method",
+            "name": "getX",
+            "return": {
+                "description": "_x",
+                "type": "Number"
+            },
+            "class": "support.geom.Point2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Point2d.js",
+            "line": 44,
+            "itemtype": "method",
+            "name": "getY",
+            "return": {
+                "description": "_x",
+                "type": "Number"
+            },
+            "class": "support.geom.Point2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Point2d.js",
+            "line": 52,
+            "itemtype": "method",
+            "name": "setX",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Point2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Point2d.js",
+            "line": 60,
+            "itemtype": "method",
+            "name": "setY",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Point2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 4.7.2015.",
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "x",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 28,
+            "itemtype": "property",
+            "name": "y",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 34,
+            "itemtype": "property",
+            "name": "width",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 40,
+            "itemtype": "property",
+            "name": "height",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 50,
+            "itemtype": "method",
+            "name": "getX",
+            "return": {
+                "description": "x",
+                "type": "Number"
+            },
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 58,
+            "itemtype": "method",
+            "name": "getY",
+            "return": {
+                "description": "y",
+                "type": "Number"
+            },
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 66,
+            "itemtype": "method",
+            "name": "getWidth",
+            "return": {
+                "description": "width",
+                "type": "Number"
+            },
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 74,
+            "itemtype": "method",
+            "name": "getHeight",
+            "return": {
+                "description": "y",
+                "type": "Number"
+            },
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 82,
+            "itemtype": "method",
+            "name": "setX",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 90,
+            "itemtype": "method",
+            "name": "setY",
+            "params": [
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 98,
+            "itemtype": "method",
+            "name": "setWidth",
+            "params": [
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 106,
+            "itemtype": "method",
+            "name": "setHeight",
+            "params": [
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Rect.js",
+            "line": 114,
+            "itemtype": "method",
+            "name": "isPointInside",
+            "params": [
+                {
+                    "name": "pointToCheck",
+                    "description": "",
+                    "type": "support.geom.Point2d"
+                }
+            ],
+            "return": {
+                "description": "inside",
+                "type": "Boolean"
+            },
+            "class": "support.geom.Rect",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/SimpleVector2d.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 12.12.2013.",
+            "class": "support.geom.SimpleVector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/SimpleVector2d.js",
+            "line": 25,
+            "description": "Zwraca dlugosc wektora",
+            "itemtype": "method",
+            "name": "getVectorLength",
+            "return": {
+                "description": "length",
+                "type": "Number"
+            },
+            "class": "support.geom.SimpleVector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/SimpleVector2d.js",
+            "line": 35,
+            "description": "Zwraca znormalizowany wektor",
+            "itemtype": "method",
+            "name": "getNormalizedVector",
+            "return": {
+                "description": "",
+                "type": "support.geom.SimpleVector2d"
+            },
+            "class": "support.geom.SimpleVector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Vector2d.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 12.12.2013.",
+            "class": "support.geom.Vector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Vector2d.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "_startPoint",
+            "type": "support.geom.Point2d",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Vector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Vector2d.js",
+            "line": 28,
+            "itemtype": "property",
+            "name": "_endPoint",
+            "type": "support.geom.Point2d",
+            "access": "private",
+            "tagname": "",
+            "class": "support.geom.Vector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Vector2d.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "getStartPoint",
+            "return": {
+                "description": "startSpoint",
+                "type": "support.geom.Point2d"
+            },
+            "class": "support.geom.Vector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Vector2d.js",
+            "line": 46,
+            "itemtype": "method",
+            "name": "getEndPoint",
+            "return": {
+                "description": "endPoint",
+                "type": "support.geom.Point2d"
+            },
+            "class": "support.geom.Vector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Vector2d.js",
+            "line": 54,
+            "description": "Zwraca dlugosc wektora",
+            "itemtype": "method",
+            "name": "getVectorLength",
+            "return": {
+                "description": "length",
+                "type": "Number"
+            },
+            "class": "support.geom.Vector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/geom/Vector2d.js",
+            "line": 67,
+            "description": "Zwraca znormalizowany wektor",
+            "itemtype": "method",
+            "name": "getNormalizedVector",
+            "return": {
+                "description": "normalizedVector",
+                "type": "support.geom.Point2d"
+            },
+            "class": "support.geom.Vector2d",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/graphics/Image.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 12.12.2013.",
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support.geom"
+        },
+        {
+            "file": "js/support/graphics/Image.js",
+            "line": 11,
+            "is_constructor": 1,
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "graphics.Image"
+        },
+        {
+            "file": "js/support/graphics/Image.js",
+            "line": 22,
+            "itemtype": "method",
+            "name": "drawRotateImage",
+            "params": [
+                {
+                    "name": "canvasContext",
+                    "description": "",
+                    "type": "CanvasRenderingContext2D"
+                },
+                {
+                    "name": "image",
+                    "description": "",
+                    "type": "Image"
+                },
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "angle",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "graphics.Image"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 14.12.2013.",
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "graphics.Image"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 19,
+            "type": "{support.MouseEventHandlerManager} _mouseEventHandlerManager",
+            "access": "private",
+            "tagname": "",
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 28,
+            "itemtype": "method",
+            "name": "onMouseDown",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 37,
+            "itemtype": "method",
+            "name": "onMouseMove",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 46,
+            "itemtype": "method",
+            "name": "onMouseDrag",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 55,
+            "itemtype": "method",
+            "name": "onMouseUp",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 64,
+            "itemtype": "method",
+            "name": "getMouseEventHandlerManager",
+            "return": {
+                "description": "mouseEventHandlerManager",
+                "type": "support.MouseEventHandlerManager"
+            },
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/AbstractMouseEventHandler.js",
+            "line": 72,
+            "itemtype": "method",
+            "name": "setMouseEventHandlerManager",
+            "params": [
+                {
+                    "name": "mouseEventHandlerManager",
+                    "description": "",
+                    "type": "support.MouseEventHandlerManager"
+                }
+            ],
+            "class": "support.AbstractMouseEventHandler",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Loader.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 29.05.2015.",
+            "class": "support.Loader",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Loader.js",
+            "line": 21,
+            "itemtype": "method",
+            "name": "loadJson",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Callback"
+                },
+                {
+                    "name": "path",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "support.Loader",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 12.12.2013.",
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 20,
+            "itemtype": "property",
+            "name": "_mouseDownEventReferenc",
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_mouseEventHandler",
+            "type": "support.AbstractMouseEventHandler",
+            "access": "private",
+            "tagname": "",
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 37,
+            "itemtype": "method",
+            "name": "initMouse",
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 57,
+            "itemtype": "method",
+            "name": "mouseDown",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 71,
+            "itemtype": "method",
+            "name": "mouseMove",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 83,
+            "itemtype": "method",
+            "name": "mouseDrag",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 95,
+            "itemtype": "method",
+            "name": "mouseUp",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Mouse.js",
+            "line": 109,
+            "itemtype": "method",
+            "name": "setMouseEventHandler",
+            "params": [
+                {
+                    "name": "abstractMouseEventHandler",
+                    "description": "",
+                    "type": "support.AbstractMouseEventHandler"
+                }
+            ],
+            "class": "support.Mouse",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 19/12/13.",
+            "class": "support.MouseEventHandlerManager",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 18,
+            "itemtype": "property",
+            "name": "_mouse",
+            "type": "support.Mouse",
+            "access": "private",
+            "tagname": "",
+            "class": "support.MouseEventHandlerManager",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "_eventHandlerArray",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "support.MouseEventHandlerManager",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 30,
+            "itemtype": "property",
+            "name": "_eventHandlerArrayIndex",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.MouseEventHandlerManager",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 39,
+            "itemtype": "method",
+            "name": "setActive",
+            "params": [
+                {
+                    "name": "mouseEventHandler",
+                    "description": "",
+                    "type": "support.AbstractMouseEventHandler"
+                }
+            ],
+            "class": "support.MouseEventHandlerManager",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 48,
+            "itemtype": "method",
+            "name": "setActive",
+            "params": [
+                {
+                    "name": "mouseEventHandler",
+                    "description": "",
+                    "type": "support.AbstractMouseEventHandler"
+                }
+            ],
+            "class": "support.MouseEventHandlerManager",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/MouseEventHandlerManager.js",
+            "line": 58,
+            "itemtype": "method",
+            "name": "setActiveNext",
+            "class": "support.MouseEventHandlerManager",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 1,
+            "description": "Created by adambartkowiak on 23.04.2015.",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 17,
+            "itemtype": "property",
+            "name": "_time",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "_lastTime",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "_delta",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 35,
+            "itemtype": "property",
+            "name": "isRunning",
+            "type": "Boolean",
+            "access": "private",
+            "tagname": "",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 41,
+            "itemtype": "property",
+            "name": "multip",
+            "type": "Number",
+            "access": "private",
+            "tagname": "",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 47,
+            "itemtype": "property",
+            "name": "interval",
+            "type": "Interval",
+            "access": "private",
+            "tagname": "",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 57,
+            "itemtype": "method",
+            "name": "calcDelta",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 74,
+            "itemtype": "method",
+            "name": "calcDelta",
+            "return": {
+                "description": "delta",
+                "type": "Number"
+            },
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 82,
+            "itemtype": "method",
+            "name": "start",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 89,
+            "itemtype": "method",
+            "name": "stop",
+            "class": "support.Timer",
+            "namespace": "support"
+        },
+        {
+            "file": "js/support/Timer.js",
+            "line": 96,
+            "itemtype": "method",
+            "name": "changeMultiplier",
+            "params": [
+                {
+                    "name": "newValue",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "support.Timer",
+            "namespace": "support"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js/libs/jquery/jquery.js:1157"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js/libs/jquery/jquery.js:1221"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js/libs/jquery/jquery.js:1308"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 15.04.2015.",
+            "line": " js/app/managers/BulletManager.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 23.04.2015.",
+            "line": " js/app/managers/EnemyManager.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 15.04.2015.",
+            "line": " js/app/managers/TowerManager.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 20.04.15.",
+            "line": " js/app/mouseHandler/MouseEventHandler.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/Bullet.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2013.",
+            "line": " js/app/objects/BulletList.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/Checkpoint.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/CheckpointList.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/Enemy.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2013.",
+            "line": " js/app/objects/EnemyList.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/HudModel.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/HudView.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 18.04.2015.",
+            "line": " js/app/objects/Map.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 18.04.2015.",
+            "line": " js/app/objects/MapField.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 16.04.2015.",
+            "line": " js/app/objects/Target.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/Tower.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2013.",
+            "line": " js/app/objects/TowerList.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.15.",
+            "line": " js/app/objects/WorldModel.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 11.04.2015.",
+            "line": " js/app/objects/WorldView.js:1"
+        },
+        {
+            "message": "Missing item type\nCreate key-value caches of limited size",
+            "line": " js/libs/jquery/jquery.js:1157"
+        },
+        {
+            "message": "Missing item type\nMark a function for special use by Sizzle",
+            "line": " js/libs/jquery/jquery.js:1177"
+        },
+        {
+            "message": "Missing item type\nSupport testing using an element",
+            "line": " js/libs/jquery/jquery.js:1186"
+        },
+        {
+            "message": "Missing item type\nAdds the same handler for all of the specified attrs",
+            "line": " js/libs/jquery/jquery.js:1207"
+        },
+        {
+            "message": "Missing item type\nChecks document order of two siblings",
+            "line": " js/libs/jquery/jquery.js:1221"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for input types",
+            "line": " js/libs/jquery/jquery.js:1250"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for buttons",
+            "line": " js/libs/jquery/jquery.js:1261"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for positionals",
+            "line": " js/libs/jquery/jquery.js:1272"
+        },
+        {
+            "message": "Missing item type\nDetect xml",
+            "line": " js/libs/jquery/jquery.js:1294"
+        },
+        {
+            "message": "Missing item type\nSets document-related variables once based on the current document",
+            "line": " js/libs/jquery/jquery.js:1308"
+        },
+        {
+            "message": "Missing item type\nDocument sorting and removing duplicates",
+            "line": " js/libs/jquery/jquery.js:1718"
+        },
+        {
+            "message": "Missing item type\nUtility function for retrieving the text value of an array of DOM nodes",
+            "line": " js/libs/jquery/jquery.js:1747"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 12.12.2013.",
+            "line": " js/support/geom/shape/FreeShape.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 4.7.2015.",
+            "line": " js/support/geom/Circle.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/support/geom/Circle.js:27"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 12.12.2013.",
+            "line": " js/support/geom/Point2d.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 4.7.2015.",
+            "line": " js/support/geom/Rect.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 12.12.2013.",
+            "line": " js/support/geom/SimpleVector2d.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 12.12.2013.",
+            "line": " js/support/geom/Vector2d.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 12.12.2013.",
+            "line": " js/support/graphics/Image.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/support/graphics/Image.js:11"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 14.12.2013.",
+            "line": " js/support/AbstractMouseEventHandler.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/support/AbstractMouseEventHandler.js:19"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 29.05.2015.",
+            "line": " js/support/Loader.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 12.12.2013.",
+            "line": " js/support/Mouse.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 19/12/13.",
+            "line": " js/support/MouseEventHandlerManager.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by adambartkowiak on 23.04.2015.",
+            "line": " js/support/Timer.js:1"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "graphicOffsetX": 40,
+  "graphicOffsetY": 26,
+  "graphicWidth": 40,
+  "graphicHeight": 40,
+
+  "graphicPatternX": -1,
+  "graphicPatternY": -1,
+  "graphicPatternWidth": 3,
+  "graphicPatternHeight": 3,
+  "graphicPatternArray": [
+    [["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""]],
+    [["", "", "", ""], ["", "", "", ""], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"]],
+    [["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"]],
+    [["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"]]
+  ]
+}

@@ -30,7 +30,7 @@ body {
 }
 
 #editorMenu {
-    position: absolute;
+    position: fixed;
     width: 200px;
     top: 60px;
     z-index: 10;
@@ -44,7 +44,7 @@ body {
 }
 
 #mapPreview {
-    margin: 0px 200px 0px 200px;
+    margin: 0px 0px 0px 200px;
     height: calc(100% - 50px);
     background-color: #eeeeee;
     overflow: scroll;
@@ -56,7 +56,5 @@ body {
 
 #assetsArea {
     position: absolute;
-    right: 25px;
-    top: 60px;
 
 }

@@ -41,11 +41,27 @@ editor.assets.AssetListController.prototype._init = function _init(){
     var that = this;
     for (index = 0; index < assetsElementLength; index++){
 
+        //{
+        //    "graphicOffsetX": 0,
+        //    "graphicOffsetY": 0,
+        //    "graphicWidth": 40,
+        //    "graphicHeight": 40,
+        //
+        //    "graphicPatternX": 0,
+        //    "graphicPatternY": 0,
+        //    "graphicPatternWidth": 1,
+        //    "graphicPatternHeight": 1,
+        //    "graphicPatternArray": [
+        //    [["cobblestones", "cobblestones", "grass", "grass"]]
+        //]
+        //}
+
         assetsElement[index].addEventListener("click", function(){
             console.log(this.dataset["assetname"]);
             that._assetListModel.setSelectedAssetUrl(this.dataset["assetname"]);
             that._assetListModel.setSelectedAssetLayer(this.dataset["layer"]);
             that._assetListModel.setSelectedAssetDrawX(this.dataset["drawx"]);
+            that._assetListModel.setSelectedAssetDrawY(this.dataset["drawy"]);
             that._assetListModel.setSelectedAssetDrawY(this.dataset["drawy"]);
         });
 

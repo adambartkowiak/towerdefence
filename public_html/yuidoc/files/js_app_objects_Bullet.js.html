@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>js/app/objects/Bullet.js - The SuperTowerDefence API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The SuperTowerDefence API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.2.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/app.managers.BulletManager.html">app.managers.BulletManager</a></li>
+                                <li><a href="../classes/app.managers.EnemyManager.html">app.managers.EnemyManager</a></li>
+                                <li><a href="../classes/app.managers.TowerManager.html">app.managers.TowerManager</a></li>
+                                <li><a href="../classes/app.mouseHandler.MouseEventHandler.html">app.mouseHandler.MouseEventHandler</a></li>
+                                <li><a href="../classes/app.objects.Bullet.html">app.objects.Bullet</a></li>
+                                <li><a href="../classes/app.objects.BulletList.html">app.objects.BulletList</a></li>
+                                <li><a href="../classes/app.objects.Checkpoint.html">app.objects.Checkpoint</a></li>
+                                <li><a href="../classes/app.objects.CheckpointList.html">app.objects.CheckpointList</a></li>
+                                <li><a href="../classes/app.objects.Enemy.html">app.objects.Enemy</a></li>
+                                <li><a href="../classes/app.objects.EnemyList.html">app.objects.EnemyList</a></li>
+                                <li><a href="../classes/app.objects.HudModel.html">app.objects.HudModel</a></li>
+                                <li><a href="../classes/app.objects.HudView.html">app.objects.HudView</a></li>
+                                <li><a href="../classes/app.objects.Map.html">app.objects.Map</a></li>
+                                <li><a href="../classes/app.objects.MapField.html">app.objects.MapField</a></li>
+                                <li><a href="../classes/app.objects.Target.html">app.objects.Target</a></li>
+                                <li><a href="../classes/app.objects.Tower.html">app.objects.Tower</a></li>
+                                <li><a href="../classes/app.objects.TowerList.html">app.objects.TowerList</a></li>
+                                <li><a href="../classes/app.objects.WorldModel.html">app.objects.WorldModel</a></li>
+                                <li><a href="../classes/app.objects.WorldView.html">app.objects.WorldView</a></li>
+                                <li><a href="../classes/support.AbstractMouseEventHandler.html">support.AbstractMouseEventHandler</a></li>
+                                <li><a href="../classes/support.geom.Circle.html">support.geom.Circle</a></li>
+                                <li><a href="../classes/support.geom.Point2d.html">support.geom.Point2d</a></li>
+                                <li><a href="../classes/support.geom.Rect.html">support.geom.Rect</a></li>
+                                <li><a href="../classes/support.geom.shape.FreeShape.html">support.geom.shape.FreeShape</a></li>
+                                <li><a href="../classes/support.geom.SimpleVector2d.html">support.geom.SimpleVector2d</a></li>
+                                <li><a href="../classes/support.geom.Vector2d.html">support.geom.Vector2d</a></li>
+                                <li><a href="../classes/support.Loader.html">support.Loader</a></li>
+                                <li><a href="../classes/support.Mouse.html">support.Mouse</a></li>
+                                <li><a href="../classes/support.MouseEventHandlerManager.html">support.MouseEventHandlerManager</a></li>
+                                <li><a href="../classes/support.Timer.html">support.Timer</a></li>
+                                <li><a href="../classes/support.Utils.html">support.Utils</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: js/app/objects/Bullet.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/** * Created by adambartkowiak on 11.04.2015. */&#x27;use strict&#x27;;var app = app || {};app.objects = app.objects || {};var Utils = Utils || {};/** * @namespace app.objects * @class Bullet * @constructor * @param {Number} x * @param {Number} y * @param {app.objects.Target} target * @param {Number} speed * @param {Number} damage * @param {String} graphicUrl */app.objects.Bullet = function Bullet(x, y, target, speed, damage, graphicUrl) {    support.geom.Point2d.call(this, x, y);    /**     * @property {Number} _target     * @private     */    this._target = target;    /**     * @property {Number} _speed     * @private     */    this._speed = speed;    /**     * @property {Number} _damage     * @private     */    this._damage = damage;    /**     * @property {String} _graphicUrl     * @private     */    this._graphicUrl = graphicUrl;    /**     * @property {support.geom.SimpleVector2d} _moveVector     * @private     */    this._moveVector = new support.geom.SimpleVector2d(0, 0);    /**     * @property {Number} _angle     * @private     */    this._angle = null;};Utils.inherits(app.objects.Bullet, support.geom.Point2d);/** * @method getTarget * @return {app.objects.Target} target */app.objects.Bullet.prototype.getTarget = function getTarget() {    return this._target;};/** * Ta funkcja to geter angle * @method getAngle * @return {Number} angle */app.objects.Bullet.prototype.getAngle = function getAngle() {    return this._angle;};/** * @method setAngle * @param {Number} angle */app.objects.Bullet.prototype.setAngle = function setAngle(angle) {    this._angle = angle;};/** * @method getSpeed * @return {Number} speed */app.objects.Bullet.prototype.getSpeed = function getSpeed() {    return this._speed;};/** * @method setSpeed * @param {Number} speed */app.objects.Bullet.prototype.setSpeed = function setSpeed(speed) {    this._speed = speed;};/** * @method getDamage * @return {Number} damage */app.objects.Bullet.prototype.getDamage = function getDamage() {    return this._damage;};/** * @method setDamage * @param {Number} damage */app.objects.Bullet.prototype.setDamage = function setDamage(damage) {    this._damage = damage;};/** * @method getGraphicUrl * @return {String} graphicUrl */app.objects.Bullet.prototype.getGraphicUrl = function getGraphicUrl() {    return this._graphicUrl;};/** * @method setGraphicUrl * @param {String} graphicUrl */app.objects.Bullet.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {    this._graphicUrl = graphicUrl;};
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

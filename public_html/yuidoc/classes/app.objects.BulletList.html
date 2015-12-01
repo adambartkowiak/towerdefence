@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app.objects.BulletList - The SuperTowerDefence API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The SuperTowerDefence API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.2.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/app.managers.BulletManager.html">app.managers.BulletManager</a></li>
+                                <li><a href="../classes/app.managers.EnemyManager.html">app.managers.EnemyManager</a></li>
+                                <li><a href="../classes/app.managers.TowerManager.html">app.managers.TowerManager</a></li>
+                                <li><a href="../classes/app.mouseHandler.MouseEventHandler.html">app.mouseHandler.MouseEventHandler</a></li>
+                                <li><a href="../classes/app.objects.Bullet.html">app.objects.Bullet</a></li>
+                                <li><a href="../classes/app.objects.BulletList.html">app.objects.BulletList</a></li>
+                                <li><a href="../classes/app.objects.Checkpoint.html">app.objects.Checkpoint</a></li>
+                                <li><a href="../classes/app.objects.CheckpointList.html">app.objects.CheckpointList</a></li>
+                                <li><a href="../classes/app.objects.Enemy.html">app.objects.Enemy</a></li>
+                                <li><a href="../classes/app.objects.EnemyList.html">app.objects.EnemyList</a></li>
+                                <li><a href="../classes/app.objects.HudModel.html">app.objects.HudModel</a></li>
+                                <li><a href="../classes/app.objects.HudView.html">app.objects.HudView</a></li>
+                                <li><a href="../classes/app.objects.Map.html">app.objects.Map</a></li>
+                                <li><a href="../classes/app.objects.MapField.html">app.objects.MapField</a></li>
+                                <li><a href="../classes/app.objects.Target.html">app.objects.Target</a></li>
+                                <li><a href="../classes/app.objects.Tower.html">app.objects.Tower</a></li>
+                                <li><a href="../classes/app.objects.TowerList.html">app.objects.TowerList</a></li>
+                                <li><a href="../classes/app.objects.WorldModel.html">app.objects.WorldModel</a></li>
+                                <li><a href="../classes/app.objects.WorldView.html">app.objects.WorldView</a></li>
+                                <li><a href="../classes/support.AbstractMouseEventHandler.html">support.AbstractMouseEventHandler</a></li>
+                                <li><a href="../classes/support.geom.Circle.html">support.geom.Circle</a></li>
+                                <li><a href="../classes/support.geom.Point2d.html">support.geom.Point2d</a></li>
+                                <li><a href="../classes/support.geom.Rect.html">support.geom.Rect</a></li>
+                                <li><a href="../classes/support.geom.shape.FreeShape.html">support.geom.shape.FreeShape</a></li>
+                                <li><a href="../classes/support.geom.SimpleVector2d.html">support.geom.SimpleVector2d</a></li>
+                                <li><a href="../classes/support.geom.Vector2d.html">support.geom.Vector2d</a></li>
+                                <li><a href="../classes/support.Loader.html">support.Loader</a></li>
+                                <li><a href="../classes/support.Mouse.html">support.Mouse</a></li>
+                                <li><a href="../classes/support.MouseEventHandlerManager.html">support.MouseEventHandlerManager</a></li>
+                                <li><a href="../classes/support.Timer.html">support.Timer</a></li>
+                                <li><a href="../classes/support.Utils.html">support.Utils</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>app.objects.BulletList Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/js_app_objects_BulletList.js.html#l12"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:12</code></a>
+        </div>
+
+
+</div>
+
+
+<div class="box intro">
+    
+</div>
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_app.objects.BulletList" class="method item">
+    <h3 class="name"><code>app.objects.BulletList</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l12"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:12</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_addBullet">addBullet</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_clear">clear</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getBullet">getBullet</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getBulletList">getBulletList</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_length">length</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_loadBulletListFromJson">loadBulletListFromJson</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_loadBulletListFromJsonText">loadBulletListFromJsonText</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_remove">remove</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_saveBulletListToJsonText">saveBulletListToJsonText</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                            <li class="index-item property private">
+                                <a href="#property__bulletList">_bulletList</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_addBullet" class="method item">
+    <h3 class="name"><code>addBullet</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>newBullet</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l30"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:30</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">newBullet</code>
+                        <span class="type"><a href="../classes/app.objects.Bullet.html" class="crosslink">app.objects.Bullet</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_clear" class="method item">
+    <h3 class="name"><code>clear</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l38"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:38</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+<div id="method_getBullet" class="method item">
+    <h3 class="name"><code>getBullet</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>index</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/app.objects.Bullet.html" class="crosslink">app.objects.Bullet</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l61"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:61</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">index</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/app.objects.Bullet.html" class="crosslink">app.objects.Bullet</a></span>:
+                    <p>bulet</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getBulletList" class="method item">
+    <h3 class="name"><code>getBulletList</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l53"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:53</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>_x</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_length" class="method item">
+    <h3 class="name"><code>length</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l70"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:70</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>:
+                    <p>length</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_loadBulletListFromJson" class="method item">
+    <h3 class="name"><code>loadBulletListFromJson</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>json</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l86"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:86</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">json</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_loadBulletListFromJsonText" class="method item">
+    <h3 class="name"><code>loadBulletListFromJsonText</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>jsonText</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l107"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:107</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">jsonText</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_remove" class="method item">
+    <h3 class="name"><code>remove</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>index</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l45"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:45</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">index</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_saveBulletListToJsonText" class="method item">
+    <h3 class="name"><code>saveBulletListToJsonText</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_app_objects_BulletList.js.html#l78"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:78</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    <p>result</p>
+
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                    <div id="property__bulletList" class="property item private">
+                        <h3 class="name"><code>_bulletList</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                    
+                    
+                            <span class="flag private">private</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/js_app_objects_BulletList.js.html#l19"><code>js&#x2F;app&#x2F;objects&#x2F;BulletList.js:19</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            
+                        </div>
+                    
+                    
+                    
+                    </div>
+            </div>
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

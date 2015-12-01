@@ -58,7 +58,7 @@ editor.controller.MapController.prototype.onMouseEvent = function onMouseEvent(m
         tileIndex = this._tileIndex(tileX, tileY);
 
         if (mouseEvent.getButtonCode() === 0){
-            if (this._assetListModel.getSelectedAssetUrl() != null){
+            //if (this._assetListModel.getSelectedAssetUrl() != null){
 
                 //console.log(mouseEvent);
 
@@ -68,15 +68,20 @@ editor.controller.MapController.prototype.onMouseEvent = function onMouseEvent(m
                     graphicTileArray[tileIndex][layer] = {};
                 }
 
-                if ( this._assetListModel.getSelectedAssetUrl() === "assets/editor/gcc01.png"){
-                    this._setTileGraphicCode(graphicTileArray, tileX, tileY, "c", 100, 100);
-                }
+                //if ( this._assetListModel.getSelectedAssetUrl() === "assets/editor/gcc01.png"){
+                //    this._setGroundTileGraphicCode(graphicTileArray, tileX, tileY, "cobblestones");
+                //}
 
-                if ( this._assetListModel.getSelectedAssetUrl() === "assets/editor/gcc02.png"){
-                    this._setTileGraphicCode(graphicTileArray, tileX, tileY, "grass", 100, 100);
-                }
+                //if ( this._assetListModel.getSelectedAssetUrl() === "assets/editor/gcc02.png"){
+                //    this._setGroundTileGraphicCode(graphicTileArray, tileX, tileY, "grass");
+                //}
+                //
+                //if ( this._assetListModel.getSelectedAssetUrl() === "assets/editor/tgcc01.png"){
+                    this._setHighGroundTileGraphicCode(graphicTileArray, tileX, tileY, "highground_cobblestones");
+                //}
 
-            }
+
+            //}
         } else if (mouseEvent.getButtonCode() === 2) {
 
             graphicTileArray[tileIndex][0].gid = "";
@@ -100,12 +105,11 @@ editor.controller.MapController.prototype.onMouseEvent = function onMouseEvent(m
     }
 };
 
-
 editor.controller.MapController.prototype._tileIndex = function _tileIndex(x, y) {
     return y + x * this._mapModel.getMapHeight()/this._mapModel.getMapGraphicModel().getTileHeight();
 };
 
-editor.controller.MapController.prototype._setTileGraphicCode = function _setTileGraphicCode(graphicTileArray, x, y, code, maxX, maxY) {
+editor.controller.MapController.prototype._setGroundTileGraphicCode = function _setGroundTileGraphicCode(graphicTileArray, x, y, code) {
 
     var tileIndex = this._tileIndex(x, y);
     graphicTileArray[tileIndex][0][0] = code;
@@ -158,5 +162,37 @@ editor.controller.MapController.prototype._setTileGraphicCode = function _setTil
     //bottom right
     tileIndex = this._tileIndex(x+1, y+1);
     graphicTileArray[tileIndex][0][0] = code;
+
+};
+
+
+editor.controller.MapController.prototype._setHighGroundTileGraphicCode = function _setHighGroundTileGraphicCode(graphicTileArray, x, y, code) {
+
+    var xIndex = Math.round(x/2)*2;
+
+    var tileIndex1 = this._tileIndex(xIndex, y);
+    var tileIndex2 = this._tileIndex(xIndex+1, y);
+    var tileIndex3 = this._tileIndex(xIndex, y+1);
+    var tileIndex4 = this._tileIndex(xIndex+1, y+1);
+
+    graphicTileArray[tileIndex1][1][0] = code;
+    graphicTileArray[tileIndex1][1][1] = code;
+    graphicTileArray[tileIndex1][1][2] = code;
+    graphicTileArray[tileIndex1][1][3] = code;
+
+    graphicTileArray[tileIndex2][1][0] = code;
+    graphicTileArray[tileIndex2][1][1] = code;
+    graphicTileArray[tileIndex2][1][2] = code;
+    graphicTileArray[tileIndex2][1][3] = code;
+
+    graphicTileArray[tileIndex3][1][0] = code;
+    graphicTileArray[tileIndex3][1][1] = code;
+    graphicTileArray[tileIndex3][1][2] = code;
+    graphicTileArray[tileIndex3][1][3] = code;
+
+    graphicTileArray[tileIndex4][1][0] = code;
+    graphicTileArray[tileIndex4][1][1] = code;
+    graphicTileArray[tileIndex4][1][2] = code;
+    graphicTileArray[tileIndex4][1][3] = code;
 
 };

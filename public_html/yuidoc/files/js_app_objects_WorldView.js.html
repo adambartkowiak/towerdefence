@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>js/app/objects/WorldView.js - The SuperTowerDefence API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The SuperTowerDefence API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.2.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/app.managers.BulletManager.html">app.managers.BulletManager</a></li>
+                                <li><a href="../classes/app.managers.EnemyManager.html">app.managers.EnemyManager</a></li>
+                                <li><a href="../classes/app.managers.TowerManager.html">app.managers.TowerManager</a></li>
+                                <li><a href="../classes/app.mouseHandler.MouseEventHandler.html">app.mouseHandler.MouseEventHandler</a></li>
+                                <li><a href="../classes/app.objects.Bullet.html">app.objects.Bullet</a></li>
+                                <li><a href="../classes/app.objects.BulletList.html">app.objects.BulletList</a></li>
+                                <li><a href="../classes/app.objects.Checkpoint.html">app.objects.Checkpoint</a></li>
+                                <li><a href="../classes/app.objects.CheckpointList.html">app.objects.CheckpointList</a></li>
+                                <li><a href="../classes/app.objects.Enemy.html">app.objects.Enemy</a></li>
+                                <li><a href="../classes/app.objects.EnemyList.html">app.objects.EnemyList</a></li>
+                                <li><a href="../classes/app.objects.HudModel.html">app.objects.HudModel</a></li>
+                                <li><a href="../classes/app.objects.HudView.html">app.objects.HudView</a></li>
+                                <li><a href="../classes/app.objects.Map.html">app.objects.Map</a></li>
+                                <li><a href="../classes/app.objects.MapField.html">app.objects.MapField</a></li>
+                                <li><a href="../classes/app.objects.Target.html">app.objects.Target</a></li>
+                                <li><a href="../classes/app.objects.Tower.html">app.objects.Tower</a></li>
+                                <li><a href="../classes/app.objects.TowerList.html">app.objects.TowerList</a></li>
+                                <li><a href="../classes/app.objects.WorldModel.html">app.objects.WorldModel</a></li>
+                                <li><a href="../classes/app.objects.WorldView.html">app.objects.WorldView</a></li>
+                                <li><a href="../classes/support.AbstractMouseEventHandler.html">support.AbstractMouseEventHandler</a></li>
+                                <li><a href="../classes/support.geom.Circle.html">support.geom.Circle</a></li>
+                                <li><a href="../classes/support.geom.Point2d.html">support.geom.Point2d</a></li>
+                                <li><a href="../classes/support.geom.Rect.html">support.geom.Rect</a></li>
+                                <li><a href="../classes/support.geom.shape.FreeShape.html">support.geom.shape.FreeShape</a></li>
+                                <li><a href="../classes/support.geom.SimpleVector2d.html">support.geom.SimpleVector2d</a></li>
+                                <li><a href="../classes/support.geom.Vector2d.html">support.geom.Vector2d</a></li>
+                                <li><a href="../classes/support.Loader.html">support.Loader</a></li>
+                                <li><a href="../classes/support.Mouse.html">support.Mouse</a></li>
+                                <li><a href="../classes/support.MouseEventHandlerManager.html">support.MouseEventHandlerManager</a></li>
+                                <li><a href="../classes/support.Timer.html">support.Timer</a></li>
+                                <li><a href="../classes/support.Utils.html">support.Utils</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: js/app/objects/WorldView.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * Created by adambartkowiak on 11.04.2015.
+ */
+
+&#x27;use strict&#x27;;
+
+var app = app || {};
+app.objects = app.objects || {};
+
+var Utils = Utils || {};
+
+/**
+ * @namespace app.objects
+ * @class WorldView
+ * @constructor
+ * @param {HTMLCanvasElement} canvas
+ * @param {app.objects.WorldModel} worldModel
+ */
+app.objects.WorldView = function WorldView(canvas, worldModel) {
+
+    /**
+     * @property {HTMLCanvasElement} _canvas
+     * @private
+     */
+    this._canvas = canvas;
+
+    /**
+     * @property {CanvasRenderingContext2D} _canvasContext
+     */
+    this._canvasContext = canvas.getContext(&quot;2d&quot;);
+
+    /**
+     * @property {app.objects.WorldModel} _worldModel
+     */
+    this._worldModel = worldModel;
+
+    /**
+     * @property {Image} _backgroundImage
+     */
+    this._backgroundImage = new Image();
+
+    /**
+     * @property {Array} _enemyImage
+     */
+    this._enemyImage = [];
+    this._enemyImage[&quot;assets/images/enemy0.png&quot;] = new Image();
+    this._enemyImage[&quot;assets/images/enemy0.png&quot;].src = &quot;assets/images/enemy0.png&quot;;
+
+    this._enemyImage[&quot;assets/images/enemy1.png&quot;] = new Image();
+    this._enemyImage[&quot;assets/images/enemy1.png&quot;].src = &quot;assets/images/enemy1.png&quot;;
+
+    this._enemyImage[&quot;assets/images/enemy2.png&quot;] = new Image();
+    this._enemyImage[&quot;assets/images/enemy2.png&quot;].src = &quot;assets/images/enemy2.png&quot;;
+
+    this._enemyImage[&quot;assets/images/enemy3.png&quot;] = new Image();
+    this._enemyImage[&quot;assets/images/enemy3.png&quot;].src = &quot;assets/images/enemy3.png&quot;;
+
+    /**
+     * @property {Image} _towerHolderImage
+     */
+    this._towerHolderImage = new Image();
+    this._towerHolderImage.src = &quot;assets/images/holder0.png&quot;;
+
+    /**
+     * @property {Array} _towerImage
+     */
+    this._towerImage = [];
+    this._towerImage[&quot;assets/images/tower0.png&quot;] = new Image();
+    this._towerImage[&quot;assets/images/tower0.png&quot;].src = &quot;assets/images/tower0.png&quot;;
+
+    this._towerImage[&quot;assets/images/tower1.png&quot;] = new Image();
+    this._towerImage[&quot;assets/images/tower1.png&quot;].src = &quot;assets/images/tower1.png&quot;;
+
+    this._towerImage[&quot;assets/images/tower2.png&quot;] = new Image();
+    this._towerImage[&quot;assets/images/tower2.png&quot;].src = &quot;assets/images/tower2.png&quot;;
+
+
+    /**
+     * @property {Array} _bulletImage
+     */
+    this._bulletImage = [];
+    this._bulletImage[&quot;assets/images/bullet0.png&quot;] = new Image();
+    this._bulletImage[&quot;assets/images/bullet0.png&quot;].src = &quot;assets/images/bullet0.png&quot;;
+
+    this._bulletImage[&quot;assets/images/bullet1.png&quot;] = new Image();
+    this._bulletImage[&quot;assets/images/bullet1.png&quot;].src = &quot;assets/images/bullet1.png&quot;;
+
+    this._bulletImage[&quot;assets/images/bullet2.png&quot;] = new Image();
+    this._bulletImage[&quot;assets/images/bullet2.png&quot;].src = &quot;assets/images/bullet2.png&quot;;
+
+    /**
+     * @property {support.graphics.Image} _image
+     */
+    this._image = new support.graphics.Image();
+
+};
+
+Utils.inherits(app.objects.WorldView, Object);
+
+/**
+ * @method draw
+ * @@param {Number} logicFrames
+ * @public
+ */
+app.objects.WorldView.prototype.draw = function draw(logicFrames) {
+    var enemies = this._worldModel.getEnemyList(),
+        towers = this._worldModel.getTowerList(),
+        bullets = this._worldModel.getBulletList(),
+        checkpoints = this._worldModel.getCheckpointList(),
+        map = this._worldModel.getMap();
+
+    this._backgroundImage.src = map.getGraphicUrl();
+    this._canvasContext.clearRect(0, 0, this._canvas.width, this._canvas.height);
+
+    this._canvasContext.fillStyle = &#x27;#999999&#x27;;
+    this._drawMap(map);
+
+    this._canvasContext.fillStyle = &#x27;#FF0000&#x27;;
+    this._drawCheckpoints(checkpoints);
+
+    this._canvasContext.fillStyle = &#x27;#000000&#x27;;
+    this._drawEnemies(enemies);
+    this._drawTowers(towers);
+    this._drawBullets(bullets);
+
+    this._canvasContext.fillText(logicFrames, 10, 10);
+
+    this._canvasContext.fillText(&quot;towers: &quot; + towers.length(), 500, 10);
+    this._canvasContext.fillText(&quot;enemies: &quot; + enemies.length(), 500, 30);
+    this._canvasContext.fillText(&quot;bullets: &quot; + bullets.length(), 500, 50);
+    this._canvasContext.fillText(&quot;checkpoints: &quot; + checkpoints.length(), 500, 70);
+};
+
+/**
+ * @method _drawEnemies
+ * @private
+ * @param {app.objects.EnemyList} enemyList
+ */
+app.objects.WorldView.prototype._drawEnemies = function _drawEnemies(enemyList) {
+    var i,
+        max,
+        enemy,
+        hp,
+        currentHp;
+
+    max = enemyList.length();
+
+    this._canvasContext.beginPath();
+    for (i = 0; i &lt; max; i++) {
+
+        enemy = enemyList.getEnemy(i);
+        hp = enemy.getHp();
+        currentHp = enemy.getCurrentHp();
+
+        //hp bar
+        //fillRect
+        this._canvasContext.fillStyle = &#x27;#00FF00&#x27;;
+        this._canvasContext.fillRect(enemy.getX() - hp / 6, enemy.getY() - 20, currentHp / 3, 4);
+
+        //drawRect
+        this._canvasContext.fillStyle = &#x27;#000000&#x27;;
+        this._canvasContext.rect(enemy.getX() - hp / 6, enemy.getY() - 20, hp / 3, 4);
+
+        //enemy
+        this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
+
+        this._image.drawRotateImage(this._canvasContext, this._enemyImage[enemy.getGraphicUrl()], enemy.getX() / this._worldModel.SIZEPROPORTION, enemy.getY() / this._worldModel.SIZEPROPORTION, enemy.getAngle());
+
+        this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+    }
+
+    this._canvasContext.lineWidth = 1;
+    this._canvasContext.stroke();
+
+};
+
+/**
+ * @method _drawTowers
+ * @private
+ * @param {app.objects.TowerList} towerList
+ */
+app.objects.WorldView.prototype._drawTowers = function _drawTowers(towerList) {
+    var i,
+        max,
+        tower;
+
+    max = towerList.length();
+    for (i = 0; i &lt; max; i++) {
+        tower = towerList.getTower(i);
+
+        this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
+
+        this._image.drawRotateImage(this._canvasContext, this._towerHolderImage, tower.getX() / this._worldModel.SIZEPROPORTION, tower.getY() / this._worldModel.SIZEPROPORTION, 0);
+        this._image.drawRotateImage(this._canvasContext, this._towerImage[tower.getGraphicUrl()], tower.getX() / this._worldModel.SIZEPROPORTION, tower.getY() / this._worldModel.SIZEPROPORTION, tower.getAngle());
+
+        this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+    }
+};
+
+/**
+ * @method _drawBullets
+ * @private
+ * @param {app.objects.BulletList} bulletList
+ */
+app.objects.WorldView.prototype._drawBullets = function _drawBullets(bulletList) {
+    var i,
+        max,
+        bullet;
+
+    max = bulletList.length();
+    for (i = 0; i &lt; max; i++) {
+        bullet = bulletList.getBullet(i);
+
+        //bullet
+        this._canvasContext.scale(this._worldModel.SIZEPROPORTION, this._worldModel.SIZEPROPORTION);
+
+        this._image.drawRotateImage(this._canvasContext, this._bulletImage[bullet.getGraphicUrl()], bullet.getX() / this._worldModel.SIZEPROPORTION, bullet.getY() / this._worldModel.SIZEPROPORTION, bullet.getAngle());
+
+        this._canvasContext.scale(1 / this._worldModel.SIZEPROPORTION, 1 / this._worldModel.SIZEPROPORTION);
+    }
+};
+
+/**
+ * @method _drawCheckpoints
+ * @private
+ * @param {app.objects.CheckpointList} checkpointList
+ */
+app.objects.WorldView.prototype._drawCheckpoints = function _drawCheckpoints(checkpointList) {
+    var i,
+        max,
+        checkpoint;
+
+    max = checkpointList.length();
+    for (i = 0; i &lt; max; i++) {
+        checkpoint = checkpointList.getCheckpoint(i);
+        //this._canvasContext.fillText(&quot;CHECKPOINT&quot;, checkpoint.getX(), checkpoint.getY());
+    }
+};
+
+/**
+ * @method _drawMap
+ * @private
+ * @param {app.objects.Map} map
+ */
+app.objects.WorldView.prototype._drawMap = function _drawMap(map) {
+    var x, y, maxX = map.getWidth(), maxY = map.getHeight();
+    var mapField;
+
+
+    this._canvasContext.drawImage(this._backgroundImage, 0, 0, 700, 500);
+
+    this._canvasContext.beginPath();
+    this._canvasContext.textAlign = &quot;center&quot;;
+    this._canvasContext.textBaseline = &quot;middle&quot;;
+
+    for (x = 0; x &lt; maxX; x++) {
+        for (y = 0; y &lt; maxY; y++) {
+
+            mapField = map.getField(x, y);
+
+            this._canvasContext.rect(x * map.getFieldWidth(), y * map.getFieldHeight(), map.getFieldWidth(), map.getFieldHeight());
+
+            if (mapField.getAllowBuild()) {
+                this._canvasContext.fillStyle = &#x27;#99FF99&#x27;;
+                this._canvasContext.fillText(&quot;Y&quot;, x * map.getFieldWidth() + map.getFieldWidth() * 0.5, y * map.getFieldHeight() + map.getFieldHeight() * 0.5);
+            } else {
+                this._canvasContext.fillStyle = &#x27;#FF9999&#x27;;
+                this._canvasContext.fillText(&quot;N&quot;, x * map.getFieldWidth() + map.getFieldWidth() * 0.5, y * map.getFieldHeight() + map.getFieldHeight() * 0.5);
+            }
+
+            if (mapField === map.getSelectedField()) {
+                this._canvasContext.fillStyle = &#x27;#FFFFFF&#x27;;
+                this._canvasContext.fillText(&quot;SELECT&quot;, x * map.getFieldWidth() + map.getFieldWidth() * 0.5, y * map.getFieldHeight() + map.getFieldHeight() * 0.5);
+            }
+
+        }
+    }
+    this._canvasContext.lineWidth = 0.5;
+    this._canvasContext.stroke();
+
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

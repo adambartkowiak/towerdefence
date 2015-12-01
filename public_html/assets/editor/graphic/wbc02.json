@@ -1,0 +1,12 @@
+{
+  "graphicLayer": 1,
+  "graphicOffsetX": 0,
+  "graphicOffsetY": 0,
+  "graphicWidthInTile": 1,
+  "graphicHeightInTile": 1,
+  "graphicPatternX": -1,
+  "graphicPatternY": -1,
+  "graphicPatternWidth": 3,
+  "graphicPatternHeight": 3,
+  "graphicPatternarray": [[1,1,1],[1,1,1],[0,0,0]]
+}

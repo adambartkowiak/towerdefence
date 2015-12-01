@@ -1,12 +1,677 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
+    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="Pierwsza wersja renderowania highgrounda na podstawie configow z JSONa.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/Mail.php.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbc01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcl01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcr01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtc01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/images/cut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/images/door.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/images/page_white_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/images/page_white_copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/images/page_white_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/images/page_white_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/images/page_white_paste.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/nav_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/accept.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/arrow_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/bug.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/cancel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/customDoc1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/customDoc2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/customFolder1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/doc_with_children.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/emoticon_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/emoticon_unhappy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/exclamation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/eye.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/flag_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/folder_bug.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/folder_docs.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/folder_images.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/folder_page.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/help.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/new.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/note.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/page_white_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/page_white_star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-lion/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-lion/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-themeroller/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-themeroller/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-vista/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-vista/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win7/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win7/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-n/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-n/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-xxl/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-xxl/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/icons-rtl.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/vline-rtl.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/vline.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/iconInfo_32x32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/icons_layout.ods" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/teaser.pdn" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/teaser1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/teaser2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/buttonbg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/icon_color_arrow.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/menuhoverbg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_black_matte.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_black_tie.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_blitzer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_cupertino.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_dark_hive.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_dot_luv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_eggplant.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_excite_bike.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_flick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_hot_sneaks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_humanity.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_le_frog.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_mint_choco.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_overcast.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_pepper_grinder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_smoothness.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_south_street.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_start_menu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_sunny.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_swanky_purse.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_trontastic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_ui_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_ui_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/images/theme_90_windoze.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/images/cut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/images/door.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/images/page_white_copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/images/page_white_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/images/page_white_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/images/page_white_paste.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/icons-lion.psp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-themeroller/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-themeroller/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-vista/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-vista/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win7/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win7/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-n/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-n/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-xxl/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-xxl/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-xp/icons-rtl.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-xp/icons.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-xp/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-xp/vline-rtl.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-xp/vline.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/css/external-small.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/css/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/img/spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbc01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc1.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc2.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcl01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcr01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtc01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc03.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc04.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc05.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc06.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl03.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl04.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr03.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr04.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl03.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr03.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushCobblestones.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushGrass.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushHighGround.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/model/MapTileListModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/support/data/ImageListData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/.editorconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/.project" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/contextmenu.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/css/jquery.contextMenu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/js/jquery.contextMenu-1.6.5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/contextmenu/js/jquery.fancytree.contextMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/hotkeys/hotkeys.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/hotkeys/js/jquery.fancytree.hotkeys.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/3rd-party/extensions/hotkeys/js/jquery.hotkeys.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/Gruntfile.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/conf.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/publish.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/static/styles/jsdoc-default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/static/styles/node-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/container.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/details.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/example.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/examples.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/exceptions.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/fires.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/layout.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/mainpage.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/members.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/method.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/method_sig.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/methods.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/params.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/properties.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/returns.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/jsdoc3-moogle/tmpl/tutorial.tmpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/make_doc.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bin/release-sample.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-empty.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-parse-error.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-pws-error.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-pws-ok.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-sub.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-sub2.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-decide.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-dom.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-fs.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-instruments.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-local.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-plain.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-products.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree-taxonomy.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/ajax-tree.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/fancytree-server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/nav.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-3rd-contextmenu-abs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-3rd-ui-contextmenu.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-accordion.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-api.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-configurator.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-default.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-events.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-awesome-3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-awesome.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-bootstrap.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-childcounter.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-clones.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-columnview.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-dnd.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-edit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-filter.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-menu-deprecated.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-menu.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-persist.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-table.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-themeroller.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-ext-wide.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-iframe-1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-iframe.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-json.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-keyboard.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-load-errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-load-errors2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-load-xml.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-multi-dnd.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-multi-ext.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-multiline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-rtl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-scroll.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-select.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-source.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-theming.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-tooltip.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample-xxl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/sample.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/skin-custom/custom.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/top.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/demo/welcome.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/jquery.fancytree-all.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/jquery.fancytree-all.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/jquery.fancytree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/jquery.fancytree.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-awesome/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-awesome/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-awesome/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-bootstrap-n/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-bootstrap-n/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-bootstrap-n/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-bootstrap/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-bootstrap/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-bootstrap/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-common.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-custom-1/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-lion/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-lion/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-lion/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-themeroller/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-themeroller/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-vista/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-vista/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-vista/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win7/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win7/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win7/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-n/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-n/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-n/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-xxl/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-xxl/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8-xxl/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-win8/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/skin-xp/ui.fancytree.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.childcounter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.clones.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.columnview.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.dnd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.edit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.filter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.glyph.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.gridnav.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.menu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.persist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.table.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.themeroller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/dist/src/jquery.fancytree.wide.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/jsdoc.conf.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/jsdoctest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/spec/SpecFocus.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/doc/tutorials/howto-events.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/fancytree.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/jquery.themeswitcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/jquery.themeswitcher.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/Super-Theme-Switcher/sample.htm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/jquery.contextMenu-custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/contextmenu-abs/jquery.contextMenu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/intro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery-ui-contextmenu/MIT-LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery-ui-contextmenu/jquery.ui-contextmenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery-ui-contextmenu/jquery.ui-contextmenu.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery-ui.custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.configurator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.cookie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.jsconsole.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.planize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.popup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.skinswitcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/jquery.tmpl.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/outro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/prettify.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/prettify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/qunit-composite.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/qunit-composite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/qunit.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/lib/qunit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.childcounter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.clones.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.columnview.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.dnd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.edit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.filter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.glyph.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.gridnav.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.menu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.persist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.table.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.themeroller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jquery.fancytree.wide.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/jsdoc-globals.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-awesome/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-awesome/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-bootstrap-n/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-bootstrap-n/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-bootstrap/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-bootstrap/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-common.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-themeroller/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-vista/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-vista/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-vista/vista_colors.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win7/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win7/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-n/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-n/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-xxl/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8-xxl/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-win8/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-xp/ui.fancytree.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-xp/ui.fancytree.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/ajax10k_nodes.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/dnd-sortable/test-dnd-sortable-1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/dnd-sortable/test-dnd-sortable-2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/dnd-sortable/test-dnd-sortable-3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/dnd-sortable/test-dnd-sortable-4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/dnd-sortable/test-dnd-sortable-5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/dnd-sortable/test-dnd-sortable-5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/doctypes/doctype-html4-loose.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/doctypes/doctype-html4-strict.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/doctypes/doctype-html5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/doctypes/doctype-none.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/doctypes/doctype-xml-strict.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/doctypes/doctype-xml-transitional.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/doctypes/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/test-css.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/test-ext-dnd.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/test-ext-keyboard.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/test-ext-table.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/test-extensions.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/test-fastrender-10k-nodes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/ajax-empty.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/ajax-sub2.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/ajax-tree-plain.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/ajax-tree.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-bench.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-bench.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-core-build.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-core.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-core.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-ext-misc.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-ext-misc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-ext-table.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-ext-table.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-jQuery-20.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-jQuery-latest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-jQuery-legacy.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-jQuery110-ui110.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-jQuery18-ui18.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-jQuery19-ui19.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-jQuery1x-mig-ui1x.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-leaks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-leaks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-regression.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-regression.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-suite.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/test/unit/test-tools.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/css/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/js/api-filter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/js/api-list.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/js/api-search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/js/apidocs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/js/yui-prettify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/vendor/prettify/CHANGES.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/vendor/prettify/COPYING" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/vendor/prettify/README.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/vendor/prettify/prettify-min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/assets/vendor/prettify/prettify-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.managers.BulletManager.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.managers.EnemyManager.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.managers.TowerManager.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.mouseHandler.MouseEventHandler.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.Bullet.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.BulletList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.Checkpoint.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.CheckpointList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.Enemy.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.EnemyList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.HudModel.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.HudView.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.Map.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.MapField.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.Target.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.Tower.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.TowerList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.WorldModel.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/app.objects.WorldView.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.AbstractMouseEventHandler.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.Loader.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.Mouse.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.MouseEventHandlerManager.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.Timer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.Utils.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.geom.Circle.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.geom.Point2d.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.geom.Rect.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.geom.SimpleVector2d.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.geom.Vector2d.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/classes/support.geom.shape.FreeShape.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/data.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_managers_BulletManager.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_managers_EnemyManager.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_managers_TowerManager.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_mouseHandler_MouseEventHandler.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_Bullet.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_BulletList.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_Checkpoint.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_CheckpointList.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_Enemy.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_EnemyList.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_HudModel.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_HudView.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_Map.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_MapField.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_Target.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_Tower.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_TowerList.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_WorldModel.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_app_objects_WorldView.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_libs_jquery_jquery.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_AbstractMouseEventHandler.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_Loader.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_Mouse.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_MouseEventHandlerManager.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_Timer.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_geom_Circle.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_geom_Point2d.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_geom_Rect.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_geom_SimpleVector2d.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_geom_Vector2d.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_geom_shape_FreeShape.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_support_graphics_Image.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/files/js_utils_Utils.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/yuidoc/modules/index.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbc01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbc01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbl01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbl01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbl02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbl02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbr01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbr01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbr02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gbr02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc1.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc2.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcc2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcl01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcl01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcr01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gcr01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtc01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtc01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtl01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtl01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtl02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtl02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtr01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtr01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtr02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/gtr02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/cobblestones.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/grass.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/grassBright.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/grassDark.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/highCobblestones.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc03.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc04.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc05.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc05.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc06.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/tgcc06.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbc01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbc01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbc02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbc02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl03.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl04.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbl04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr03.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr04.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wbr04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcl01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcl01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcl02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcl02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcr01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcr01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcr02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wcr02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtc01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtc01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtc02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtc02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtl01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtl01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtl02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtl02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtl03.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtl03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtr01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtr01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtr02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtr02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtr03.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/wtr03.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/editor.css" afterPath="$PROJECT_DIR$/public_html/css/editor.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/MapController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/MapController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" afterPath="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/AbstractView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/AbstractView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/utils/Utils.js" afterPath="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,56 +701,109 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MapView.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapView.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/MapView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="303" column="13" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Editor.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/Editor.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.8267326">
-              <caret line="104" column="64" selection-start-line="104" selection-start-column="64" selection-end-line="104" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.5801105">
+              <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
               <folding>
-                <marker date="1448190857000" expanded="true" signature="12642:12979" placeholder="..." />
-                <marker date="1448190857000" expanded="true" signature="12672:12952" placeholder="..." />
-                <marker date="1448190857000" expanded="true" signature="12735:12747" placeholder="..." />
-                <marker date="1448190857000" expanded="true" signature="12749:12921" placeholder="..." />
+                <element signature="e#15524#22238#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RootView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/view/RootView.js">
+      <file leaf-file-name="gbc01.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/graphic/gbc01.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/view/AbstractView.js">
+      <file leaf-file-name="Editor.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/Editor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.296297">
-              <caret line="119" column="2" selection-start-line="119" selection-start-column="2" selection-end-line="119" selection-end-column="2" />
+            <state vertical-scroll-proportion="-14.666667">
+              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <folding>
+                <marker date="1448830835000" expanded="true" signature="14272:14597" placeholder="..." />
+                <marker date="1448830835000" expanded="true" signature="14272:15140" placeholder="..." />
+                <marker date="1448830835000" expanded="true" signature="15105:15140" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CameraModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/CameraModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MinimapView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/support/view/MinimapView.js">
+      <file leaf-file-name="EntityListModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-28.0">
+              <caret line="54" column="21" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="21" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ListModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.481482">
+              <caret line="73" column="54" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapTileModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-66.888885">
+              <caret line="129" column="56" selection-start-line="129" selection-start-column="56" selection-end-line="129" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapTileListModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/MapTileListModel.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="357" column="118" selection-start-line="357" selection-start-column="118" selection-end-line="357" selection-end-column="118" />
+              <caret line="37" column="3" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/MapController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.11111">
+              <caret line="79" column="111" selection-start-line="79" selection-start-column="111" selection-end-line="79" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -107,9 +825,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/index.html" />
-        <option value="$PROJECT_DIR$/public_html/js/support/view/AbstractViewGroup.js" />
-        <option value="$PROJECT_DIR$/public_html/editor.html" />
         <option value="$PROJECT_DIR$/public_html/js/editor/assets/AssetsModel.js" />
         <option value="$PROJECT_DIR$/public_html/js/support/MouseEventType.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" />
@@ -127,7 +842,6 @@
         <option value="$PROJECT_DIR$/public_html/assets/editor/wtr01.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/wtr02.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/wtr03.json" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/abc01.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/gbl01.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/tgcc04.json" />
@@ -142,8 +856,6 @@
         <option value="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/model/map/MapCollisionLayerModel.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/assets/AssetListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/model/map/AbstractMapLayerModel.js" />
         <option value="$PROJECT_DIR$/public_html/downloadMap.php" />
         <option value="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" />
@@ -151,13 +863,19 @@
         <option value="$PROJECT_DIR$/public_html/js/support/AbstractMouseEventHandler.js" />
         <option value="$PROJECT_DIR$/public_html/js/support/Mouse.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/controller/MapController.js" />
-        <option value="$PROJECT_DIR$/public_html/css/editor.css" />
         <option value="$PROJECT_DIR$/public_html/js/support/view/RootView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" />
         <option value="$PROJECT_DIR$/public_html/js/support/view/AbstractView.js" />
         <option value="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" />
+        <option value="$PROJECT_DIR$/public_html/js/support/data/ImageListData.js" />
+        <option value="$PROJECT_DIR$/public_html/css/editor.css" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/assets/AssetListModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
         <option value="$PROJECT_DIR$/public_html/Editor.php" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/model/MapTileListModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/MapController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" />
       </list>
     </option>
   </component>
@@ -171,8 +889,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="height" value="965" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -233,7 +952,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -281,24 +999,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -321,7 +1021,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -343,7 +1043,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
+              <option name="myItemId" value="editor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -373,7 +1073,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -424,78 +1124,8 @@
               <option name="myItemId" value="editor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mouseHandler" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -517,8 +1147,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -528,7 +1177,6 @@
     <property name="options.searchVisible" value="true" />
     <property name="last_opened_file_path" value="/usr/bin/git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="true" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -805,27 +1453,33 @@
       <option name="project" value="LOCAL" />
       <updated>1448126552010</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Renderowanie na minimapie wygladu mapy wlasciwej - potrzebny bedzie refaktoring po osiagnieciu funkcjonalnosci.. &#10;&#10;Teraz tak pisze bo sprawdzam mozliwosci.">
+      <created>1448191737081</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1448191737081</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="965" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11665005" sideWeight="0.5095238" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13058035" sideWeight="0.5095238" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760596" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21535394" sideWeight="0.4904762" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -841,7 +1495,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Poprawa wygladu strony glownej" />
     <MESSAGE value="Dodanie kolizji na wektorach 2d.&#10;&#10;@TODO: Dodac kolizje Wektor-Okrag" />
     <MESSAGE value="Podpiecie Google Analyticsow" />
     <MESSAGE value="Duzo poprawek zwiazanych z refaktoringiem kodu - ale jeszcze wiecej zostalo.. :)" />
@@ -866,7 +1519,8 @@
     <MESSAGE value="ZAPIS I ODCZYT MAPY - na plikach" />
     <MESSAGE value="Dodanie wygladzania krawedzi do Edytora." />
     <MESSAGE value="Dodanie 1 wersji MiniMapy do Edytora - potrzebny bedzie refaktoring.." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie 1 wersji MiniMapy do Edytora - potrzebny bedzie refaktoring.." />
+    <MESSAGE value="Renderowanie na minimapie wygladu mapy wlasciwej - potrzebny bedzie refaktoring po osiagnieciu funkcjonalnosci.. &#10;&#10;Teraz tak pisze bo sprawdzam mozliwosci." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renderowanie na minimapie wygladu mapy wlasciwej - potrzebny bedzie refaktoring po osiagnieciu funkcjonalnosci.. &#10;&#10;Teraz tak pisze bo sprawdzam mozliwosci." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -875,41 +1529,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/tgcc06.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07629428">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/gtl01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wbl01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.826087">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wbl02.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.826087">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wbl03.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.826087">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/command/SetMoveCommandOnCommandController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -945,50 +1564,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wtl01.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wtl02.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05706522">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wtl02.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wcr01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05706522">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/wcr01.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="38" selection-start-line="162" selection-start-column="38" selection-end-line="162" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TargetModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1003,27 +1579,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48353097">
-          <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/assets/AssetListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07378129">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/downloadMap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,14 +1590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/MapModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="7" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1051,57 +1602,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5697674">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/grass.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/grassDark.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/grassBright.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/cobblestones.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/highCobblestones.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1111,7 +1614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3329208">
           <caret line="0" column="16470" selection-start-line="0" selection-start-column="16466" selection-end-line="0" selection-end-column="16470" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,7 +1621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,14 +1672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/CameraModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.111111">
@@ -1195,32 +1688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/MapController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/css/editor.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.7826085">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/support/view/RootView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1231,7 +1698,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/support/view/AbstractView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.296297">
+        <state vertical-scroll-proportion="0.0">
           <caret line="119" column="2" selection-start-line="119" selection-start-column="2" selection-end-line="119" selection-end-column="2" />
           <folding />
         </state>
@@ -1245,23 +1712,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/MapView.js">
+    <entry file="file://$PROJECT_DIR$/public_html/css/editor.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.7">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/support/command/AbstractCommand.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="303" column="13" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
+          <caret line="34" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/support/data/ImageListData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="34" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/MapModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/assets/AssetListModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="2" selection-start-line="112" selection-start-column="2" selection-end-line="112" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/CameraModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/Editor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8267326">
-          <caret line="104" column="64" selection-start-line="104" selection-start-column="64" selection-end-line="104" selection-end-column="64" />
+        <state vertical-scroll-proportion="-14.666667">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
-            <marker date="1448190857000" expanded="true" signature="12642:12979" placeholder="..." />
-            <marker date="1448190857000" expanded="true" signature="12672:12952" placeholder="..." />
-            <marker date="1448190857000" expanded="true" signature="12735:12747" placeholder="..." />
-            <marker date="1448190857000" expanded="true" signature="12749:12921" placeholder="..." />
+            <marker date="1448830835000" expanded="true" signature="14272:14597" placeholder="..." />
+            <marker date="1448830835000" expanded="true" signature="14272:15140" placeholder="..." />
+            <marker date="1448830835000" expanded="true" signature="15105:15140" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.0">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ListModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.481482">
+          <caret line="73" column="54" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/MapTileListModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="3" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/graphic/gbc01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/MapController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.11111">
+          <caret line="79" column="111" selection-start-line="79" selection-start-column="111" selection-end-line="79" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-66.888885">
+          <caret line="129" column="56" selection-start-line="129" selection-start-column="56" selection-end-line="129" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/MapView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5801105">
+          <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
+          <folding>
+            <element signature="e#15524#22238#0" expanded="false" />
           </folding>
         </state>
       </provider>

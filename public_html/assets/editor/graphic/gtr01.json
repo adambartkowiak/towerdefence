@@ -1,0 +1,14 @@
+{
+	"graphicOffsetX": 0,
+	"graphicOffsetY": 0,
+	"graphicWidth": 40,
+	"graphicHeight": 40,
+
+	"graphicPatternX": 0,
+	"graphicPatternY": 0,
+	"graphicPatternWidth": 1,
+	"graphicPatternHeight": 1,
+	"graphicPatternArray": [
+		[["grass", "grass", "cobblestones", "grass"]]
+	]
+}

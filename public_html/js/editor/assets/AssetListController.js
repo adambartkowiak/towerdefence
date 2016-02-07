@@ -62,7 +62,6 @@ editor.assets.AssetListController.prototype._init = function _init(){
             that._assetListModel.setSelectedAssetLayer(this.dataset["layer"]);
             that._assetListModel.setSelectedAssetDrawX(this.dataset["drawx"]);
             that._assetListModel.setSelectedAssetDrawY(this.dataset["drawy"]);
-            that._assetListModel.setSelectedAssetDrawY(this.dataset["drawy"]);
         });
 
     }

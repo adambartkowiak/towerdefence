@@ -3,11 +3,7 @@
  */
 
 'use strict';
-
-var app = app || {};
-app.model = app.model || {};
-
-var Utils = Utils || {};
+Utils.namespace("app.model");
 
 /**
  * @namespace app.model
@@ -125,7 +121,7 @@ app.model.MapModel.prototype.loadFromJSON = function loadFromJSON(unMinifyJSON) 
     this._mapWidth = unMinifyJSON._mapWidth;
     this._mapHeight = unMinifyJSON._mapHeight;
     this._mapGraphicLayerModel.loadFromJSON(unMinifyJSON._mapGraphicLayerModel);
-    this._mapCollisionLayerModel.loadFromJSON(unMinifyJSON._mapCollisionLayerModel);
+    //this._mapCollisionLayerModel.loadFromJSON(unMinifyJSON._mapCollisionLayerModel);
 };
 
 /**
@@ -160,14 +156,14 @@ app.model.MapModel.prototype.getMinifyJSON = function getMinifyJSON() {
  */
 app.model.MapModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
-    var mapGraphicLayerModel = new app.model.map.MapGraphicLayerModel(0,0,0,0),
-        mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(0,0,0,0);
+    var mapGraphicLayerModel = new app.model.map.MapGraphicLayerModel(2000,2000,40,40),
+        mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(2000,2000,40,40);
 
     var result = {
         _mapWidth: minifyJSON["1"],
         _mapHeight: minifyJSON["2"],
-        _mapGraphicLayerModel: mapGraphicLayerModel.unMinifyJSON(minifyJSON["3"]),
-        _mapCollisionLayerModel: mapCollisionLayerModel.unMinifyJSON(minifyJSON["4"])
+        _mapGraphicLayerModel: mapGraphicLayerModel.unMinifyJSON(minifyJSON["3"])
+        //_mapCollisionLayerModel: mapCollisionLayerModel.unMinifyJSON(minifyJSON["4"])
     };
 
     return result;

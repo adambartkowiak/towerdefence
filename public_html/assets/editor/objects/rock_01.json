@@ -1,0 +1,13 @@
+{
+  "graphicPath": "assets/graphics/images/rock_01.png",
+  "graphicOffsetX": 0,
+  "graphicOffsetY": 25,
+  "radius": 20,
+  "groundSpeed": 0,
+  "team": 0,
+  "mass": -1,
+  "hp": 100,
+  "currentHp": 100,
+  "selectable": true,
+  "targetable": true
+}

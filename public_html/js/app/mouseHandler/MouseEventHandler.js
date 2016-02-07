@@ -93,7 +93,7 @@ app.mouseHandler.MouseEventHandler.prototype.onMouseMove = function onMouseMove(
         return;
     }
 
-    console.log("app.mouseHandler.MouseEventHandler.prototype.onMouseMove");
+    //console.log("app.mouseHandler.MouseEventHandler.prototype.onMouseMove");
     
     var mouseEvent = new support.MouseEvent(this, e.offsetX, e.offsetY, e.button, support.MouseEventType.MOUSE_MOVE);
 

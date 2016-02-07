@@ -85,7 +85,7 @@ support.view.MinimapView = function MinimapView() {
 
 
     /*
-     zeby t bylo optymalne to musi byc jakis interface do elmentow tablice.. aby pobierac z niej szybko dane :)
+     zeby t0 bylo optymalne to musi byc jakis interface do elmentow tablice.. aby pobierac z niej szybko dane :)
 
      */
     /**
@@ -404,7 +404,7 @@ support.view.MinimapView.prototype.onMouseEvent = function onMouseEvent(mouseEve
     
     var x, y;
     
-    if (mouseEvent.getButtonCode() === 0 && (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN || 
+    if (/*mouseEvent.getButtonCode() === 0 &&*/ (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN ||
             mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG)){
         
         //x
@@ -417,6 +417,8 @@ support.view.MinimapView.prototype.onMouseEvent = function onMouseEvent(mouseEve
           
         this._viewPort.setPositionX(x / this._getMinimapScaleWidth());
         this._viewPort.setPositionY((y - this._getMapStartYOnMinimap()) / this._getMinimapScaleHeight());
+
+        //console.log("support.view.MinimapView.prototype.onMouseEvent");
 
     }
     

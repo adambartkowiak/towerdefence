@@ -3,9 +3,7 @@
  */
 
 'use strict';
-
-var app = app || {};
-app.model = app.model || {};
+var ns = Utils.namespace("app.model");
 
 var Utils = Utils || {};
 
@@ -57,7 +55,6 @@ app.model.EntityModel = function EntityModel() {
      * @private
      */
     this._moveCollisionDetectionRadius = 0;
-
 
     /**
      * Poprzednia pozycja jednostki
@@ -191,6 +188,14 @@ app.model.EntityModel = function EntityModel() {
     this._graphicUrl = null;
 
 
+    /**
+     * Offset grafiki wzgledem polozenia obiektu
+     * @property {support.geom.Point2d} _graphicOffset
+     * @private
+     */
+    this._graphicOffset = new support.geom.Point2d(0, 0);
+
+
 };
 
 Utils.inherits(app.model.EntityModel, Object);
@@ -245,7 +250,7 @@ app.model.EntityModel.prototype.setX = function setX(value) {
     this._lastPosition.setX(this._circle.getX());
     this._circle.setX(value);
 
-    if (isNaN(value)){
+    if (isNaN(value)) {
         console.log("app.model.EntityModel.prototype.setX: " + NaN);
     }
 };
@@ -258,7 +263,7 @@ app.model.EntityModel.prototype.setY = function setY(value) {
     this._lastPosition.setY(this._circle.getY());
     this._circle.setY(value);
 
-    if (isNaN(value)){
+    if (isNaN(value)) {
         console.log("app.model.EntityModel.prototype.setY: " + NaN);
     }
 };
@@ -415,6 +420,22 @@ app.model.EntityModel.prototype.setBuildList = function setBuildList(value) {
  */
 app.model.EntityModel.prototype.setGraphicUrl = function setGraphicUrl(graphicUrl) {
     this._graphicUrl = graphicUrl;
+};
+
+/**
+ * @method setGraphicOffsetX
+ * @param {Number} x
+ */
+app.model.EntityModel.prototype.setGraphicOffsetX = function setGraphicOffsetX(x) {
+    this._graphicOffset.setX(x);
+};
+
+/**
+ * @method setGraphicOffsetY
+ * @param {Number} y
+ */
+app.model.EntityModel.prototype.setGraphicOffsetY = function setGraphicOffsetY(y) {
+    this._graphicOffset.setY(y);
 };
 
 
@@ -641,8 +662,17 @@ app.model.EntityModel.prototype.getGraphicUrl = function getGraphicUrl() {
     return this._graphicUrl;
 };
 
+/**
+ * @method getGraphicOffset
+ * @return {support.geom.Point2d} graphicOffset
+ */
+app.model.EntityModel.prototype.getGraphicOffset = function getGraphicOffset() {
+    return this._graphicOffset;
+};
+
+
 /*
-Z Interfejsu IMinimapElement
+ Z Interfejsu IMinimapElement
  */
 
 /**
@@ -686,8 +716,6 @@ app.model.EntityModel.prototype.isVisibleOnMinimap = function isVisibleOnMinimap
 };
 
 
-
-
 /**
  * @method clone
  * @return {app.model.EntityModel} clone
@@ -717,6 +745,7 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._selectable = this._selectable;
     clone._targetable = this._targetable;
     clone._graphicUrl = this._graphicUrl;
+    clone._graphicOffset = new support.geom.Point2d(this._graphicOffset.getX(), this._graphicOffset.getY());;
 
     //klonowanie obiektow
     clone._moveList = this._moveList.clone();
@@ -755,10 +784,13 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     this._selectable = JSON._selectable;
     this._targetable = JSON._targetable;
     this._graphicUrl = JSON._graphicUrl;
+    this._graphicOffset = new support.geom.Point2d(JSON._graphicOffset._x, JSON._graphicOffset._y);
+
+
     this._moveList.loadFromJSON(JSON._moveList);
     this._buildList.loadFromJSON(JSON._buildList);
     //this._availableActions = JSON._availableActions;
-    this._availableActions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];//JSON._availableActions;
+    this._availableActions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];//JSON._availableActions;
 };
 
 /**
@@ -768,31 +800,32 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
 app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
 
     var result = {
-        1:this._id,
-        2:this._team,
-        3:this._circle.getMinifyJSON(),
-        4:this._mass,
-        5:this._moveCollisionDetectionRadius,
-        6:this._collisionRadius,
-        7:this._lastPosition.getMinifyJSON(),
-        8:this._angle,
-        9:this._groundSpeed,
-        a:this._hp,
-        b:this._currentHp,
-        c:this._attackRange,
-        d:this._attackDamage,
-        e:this._attackRate,
-        f:this._attackCooldown,
-        g:this._constantBuild,
-        h:this._buildTime,
-        i:this._currentBuildTime,
-        j:this._selected,
-        k:this._selectable,
-        l:this._targetable,
-        m:this._graphicUrl,
-        n:this._moveList.getMinifyJSON(),
-        o:this._buildList.getMinifyJSON(),
-        p:this._availableActions
+        1: this._id,
+        2: this._team,
+        3: this._circle.getMinifyJSON(),
+        4: this._mass,
+        5: this._moveCollisionDetectionRadius,
+        6: this._collisionRadius,
+        7: this._lastPosition.getMinifyJSON(),
+        8: this._angle,
+        9: this._groundSpeed,
+        a: this._hp,
+        b: this._currentHp,
+        c: this._attackRange,
+        d: this._attackDamage,
+        e: this._attackRate,
+        f: this._attackCooldown,
+        g: this._constantBuild,
+        h: this._buildTime,
+        i: this._currentBuildTime,
+        j: this._selected,
+        k: this._selectable,
+        l: this._targetable,
+        m: this._graphicUrl,
+        n: this._moveList.getMinifyJSON(),
+        o: this._buildList.getMinifyJSON(),
+        p: this._availableActions,
+        r: this._graphicOffset.getMinifyJSON()
     };
 
     return result;
@@ -805,8 +838,8 @@ app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
  */
 app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
-    var circle = new support.geom.Circle(0,0,0);
-    var point2d = new support.geom.Point2d(0,0);
+    var circle = new support.geom.Circle(0, 0, 0);
+    var point2d = new support.geom.Point2d(0, 0);
     var targetListModel = new app.model.TargetListModel();
     var entityListModel = new app.model.EntityListModel();
 
@@ -835,7 +868,8 @@ app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON)
         _graphicUrl: minifyJSON["m"],
         _moveList: targetListModel.unMinifyJSON(minifyJSON["n"]),
         _buildList: entityListModel.unMinifyJSON(minifyJSON["o"]),
-        _availableActions: minifyJSON["p"]
+        _availableActions: minifyJSON["p"],
+        _graphicOffset: point2d.unMinifyJSON(minifyJSON["r"])
     };
     return result;
 };

@@ -149,10 +149,44 @@ editor.model.MapTileModel.prototype.getGraphicPatternArray = function getGraphic
     return this._graphicPatternArray;
 };
 
+/**
+ * @method setGraphicPatternY
+ * @public
+ * @param {number} graphicPatternY
+ */
+editor.model.MapTileModel.prototype.setGraphicPatternY = function setGraphicPatternY(graphicPatternY){
+    this._graphicPatternY = graphicPatternY;
+};
+
+/**
+ * @method getGraphicPatternY
+ * @public
+ * @return {number} _graphicPatternY
+ */
+editor.model.MapTileModel.prototype.getGraphicPatternY = function getGraphicPatternY(){
+    return this._graphicPatternY;
+};
+
+/**
+ * @method setGraphicPatternX
+ * @public
+ * @param {number} graphicPatternX
+ */
+editor.model.MapTileModel.prototype.setGraphicPatternX = function setGraphicPatternX(graphicPatternX){
+    this._graphicPatternX = graphicPatternX;
+};
+
+/**
+ * @method getGraphicPatternX
+ * @public
+ * @return {number} _graphicPatternX
+ */
+editor.model.MapTileModel.prototype.getGraphicPatternX = function getGraphicPatternX(){
+    return this._graphicPatternX;
+};
+
 //@TODO:
 //mapTileModel.setGraphicWidth(assetsElement[index].dataset["graphicwidth"]);
-//mapTileModel.setGraphicHeight(assetsElement[index].dataset["graphicheight"]);
-//mapTileModel.setGraphicPatternX(assetsElement[index].dataset["graphicpatternx"]);
-//mapTileModel.setGraphicPatternY(assetsElement[index].dataset["graphicpatterny"]);
+//mapTileModel.setGraphicHeight(assetsElement[index].dataset["graphicheight"]);4
 //mapTileModel.setGraphicPatternWidth(assetsElement[index].dataset["graphicpatternwidth"]);
 //mapTileModel.setGraphicPatternHeight(assetsElement[index].dataset["graphicpatternheight"]);

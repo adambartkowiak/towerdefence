@@ -2,6 +2,10 @@
  * Created by adambartkowiak on 1/11/15.
  */
 
+/*
+Klasa zawiera nazwe grafiki per tile oraz wielkosci grafik.
+ */
+
 'use strict';
 var ns = Utils.namespace("app.model.map");
 

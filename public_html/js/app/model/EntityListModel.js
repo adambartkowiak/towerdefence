@@ -6,9 +6,7 @@
  */
 
 'use strict';
-
-var app = app || {};
-app.model = app.model || {};
+var ns = Utils.namespace("app.model");
 
 var Utils = Utils || {};
 

@@ -3,7 +3,7 @@
  */
 
 'use strict';
-var ns = Utils.namespace("app.model.map"); 
+var ns = Utils.namespace("app.model.map");
 
 /**
  * @namespace app.model.map
@@ -185,7 +185,7 @@ ns.AbstractMapLayerModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJS
         _mapHeight: minifyJSON["2"],
         _tileWidth: minifyJSON["3"],
         _tileHeight: minifyJSON["4"],
-        _tileArray: minifyJSON["5"],
+        _tileArray: minifyJSON["5"]
     };
 
     return result;

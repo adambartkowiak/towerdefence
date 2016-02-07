@@ -82,7 +82,7 @@ support.view.AbstractViewGroup.prototype.dispatchMouseEvent = function dispatchM
         
     for (index = length-1; index >= 0; index--){
         view = this._views[index];
-        
+
         viewRect.setX(view.getX());
         viewRect.setY(view.getY());
         viewRect.setWidth(view.getWidth());

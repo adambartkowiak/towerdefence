@@ -36,6 +36,18 @@ editor.assets.AssetListModel = function AssetListModel() {
      */
     this._selectedAssetDrawY = 0;
 
+    /**
+     * @property {number} graphicPatternX
+     * @private
+     */
+    this._graphicPatternX = 0;
+
+    /**
+     * @property {number} graphicPatternY
+     * @private
+     */
+    this._graphicPatternY = 0;
+
 };
 
 Utils.inherits(editor.assets.AssetListModel, Object);
@@ -110,4 +122,40 @@ editor.assets.AssetListModel.prototype.setSelectedAssetDrawY = function setSelec
  */
 editor.assets.AssetListModel.prototype.getSelectedAssetDrawY = function getSelectedAssetDrawY(){
     return this._selectedAssetDrawY;
+};
+
+/**
+ * @method setGraphicPatternX
+ * @public
+ * @param {number} x
+ */
+editor.assets.AssetListModel.prototype.setGraphicPatternX = function setGraphicPatternX(x){
+    this._graphicPatternX = x;
+};
+
+/**
+ * @method getGraphicPatternX
+ * @public
+ * @return {number} graphicPatternX
+ */
+editor.assets.AssetListModel.prototype.getGraphicPatternX = function getGraphicPatternX(){
+    return this._graphicPatternX;
+};
+
+/**
+ * @method setGraphicPatternY
+ * @public
+ * @param {number} y
+ */
+editor.assets.AssetListModel.prototype.setGraphicPatternY = function setGraphicPatternY(y){
+    this._graphicPatternY = y;
+};
+
+/**
+ * @method getGraphicPatternY
+ * @public
+ * @return {number} graphicPatternY
+ */
+editor.assets.AssetListModel.prototype.getGraphicPatternY = function getGraphicPatternY(){
+    return this._graphicPatternY;
 };

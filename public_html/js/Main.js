@@ -6,6 +6,8 @@ var timer = new support.Timer();
 var canvas = document.getElementById("map");
 var worldModel = new app.model.WorldModel();
 
+var graphicsBuffor = new support.data.ImageDataList();
+
 //ODCZYTWANIE PARAMETROW Z LINKA - POBRANIE GUIDA
 var query = window.location.search.substring(1);
 var vars = query.split("&");
@@ -28,11 +30,144 @@ if (loadFromFile) {
     app.loadGameSave = function loadGameSave(saveGameName) {
         saveGameLoader.loadJson(function (response) {
             mapIsReady =  app.loadGameFromMinifyString(response);
+
+            //LOAD MAP ASSETS!!! DO NAPRAWY !!!!
+            //@NAPRAWIC TO !!!
+            var graphicLength = worldModel.getMapModel().getMapGraphicModel().getTileArray().length;
+            var graphicPath = null;
+            for (var i = 0; i < graphicLength; i++) {
+
+                graphicPath = worldModel.getMapModel().getMapGraphicModel().getTileArray()[i][0];
+
+                if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined){
+                    console.log(graphicPath);
+                    graphicsBuffor.load(graphicPath);
+                }
+
+                graphicPath = worldModel.getMapModel().getMapGraphicModel().getTileArray()[i][1];
+
+                if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined){
+                    console.log(graphicPath);
+                    graphicsBuffor.load(graphicPath);
+                }
+
+            }
+
+            graphicPath = "assets/graphics/images/enemy0.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/enemy1.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/enemy2.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/enemy3.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/tower0.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/bullet0.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/bullet1.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/bullet2.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/bullet3.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/bullet4.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/base1.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/base2.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/base3.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/base4.png";
+            graphicsBuffor.load(graphicPath);
+
+
+            //-------objects
+            graphicPath = "assets/graphics/images/base_03.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/base_04.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/bush_01.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/pine-none04.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/rock_01.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/rock_02.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/tree_01.png";
+            graphicsBuffor.load(graphicPath);
+
+            //-------neutral
+            graphicPath = "assets/graphics/images/building1_neutral.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/building2_neutral.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/unit1_neutral.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/unit2_neutral.png";
+            graphicsBuffor.load(graphicPath);
+
+
+            //-------team1
+            graphicPath = "assets/graphics/images/building1_team1.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/building2_team1.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/unit1_team1.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/unit2_team1.png";
+            graphicsBuffor.load(graphicPath);
+
+
+            //-------tem2
+            graphicPath = "assets/graphics/images/building1_team2.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/building2_team2.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/unit1_team2.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/unit2_team2.png";
+            graphicsBuffor.load(graphicPath);
+
         }, saveGameName);
     };
 
-    app.loadGameSave("assets/gamesaves/newSaveGame004Minified.json");
-    //app.loadGameSave("assets/gamesaves/newSaveGame001.json");
+    //app.loadGameSave("assets/gamesaves/newSaveGame004Minified.json");
+    //app.loadGameSave("assets/gamesaves/newSaveGame005Minified.json");
+    //app.loadGameSave("assets/gamesaves/newSaveGame006Minified.json");
+    app.loadGameSave("assets/gamesaves/newSaveGame007Minified.json");
+    //app.loadGameSave("assets/gamesaves/newSaveGame008Minified.json");
+
 }
 
 
@@ -346,16 +481,15 @@ setInterval(function () {
 
     logicFrames++;
 
+    window.requestAnimationFrame(mainDraw);
 
 }, 16);
 
 //RENDEROWANIE
-setInterval(function () {
-
-//    worldView.draw(mapIsReady);
+function mainDraw() {
     rootView.draw();
+};
 
-}, 16);
 
 app.saveGame = function saveGame() {
     var save = worldModel.save();

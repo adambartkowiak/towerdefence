@@ -39,30 +39,35 @@ editor.controller.EditorMapController = function EditorMapController(editorMapMo
         assetName = assetsElement[index].dataset["assetname"];
 
         //{
-        //    "graphicOffsetX": 0,
-        //    "graphicOffsetY": 0,
-        //    "graphicWidth": 40,
-        //    "graphicHeight": 40,
-        //
-        //    "graphicPatternX": 0,
-        //    "graphicPatternY": 0,
-        //    "graphicPatternWidth": 1,
-        //    "graphicPatternHeight": 1,
+        //    "graphicPatternX": -1,
+        //    "graphicPatternY": -1,
         //    "graphicPatternArray": [
-        //    [["cobblestones", "cobblestones", "grass", "grass"]]
-        //]
+        //    [["_NONE_", "_NONE_", "_NONE_", "water"], ["_NONE_", "_NONE_", "water", "water"], ["_NONE_", "_NONE_", "water", "_NONE_"]],
+        //    [["_NONE_", "water", "_NONE_", "water"], ["water", "water", "water", "water"], ["water", "_NONE_", "water", "_NONE_"]],
+        //    [["_NONE_", "water", "_NONE_", "_NONE_"], ["water", "water", "_NONE_", "_NONE_"], ["water", "_NONE_", "_NONE_", "_NONE_"]]
+        //],
+        //    "collisionArray": ["0xFFFF"]
         //}
+
         var mapTileModel = new editor.model.MapTileModel();
         mapTileModel.setGraphicSource(assetsElement[index].dataset["assetname"]);
-        mapTileModel.setGraphicOffsetX(parseInt(assetsElement[index].dataset["graphicoffsetx"]));
-        mapTileModel.setGraphicOffsetY(parseInt(assetsElement[index].dataset["graphicoffsety"]));
-        //mapTileModel.setGraphicWidth(assetsElement[index].dataset["graphicwidth"]);
-        //mapTileModel.setGraphicHeight(assetsElement[index].dataset["graphicheight"]);
         mapTileModel.setGraphicPatternX(parseInt(assetsElement[index].dataset["graphicpatternx"]));
         mapTileModel.setGraphicPatternY(parseInt(assetsElement[index].dataset["graphicpatterny"]));
-        //mapTileModel.setGraphicPatternWidth(assetsElement[index].dataset["graphicpatternwidth"]);
-        //mapTileModel.setGraphicPatternHeight(assetsElement[index].dataset["graphicpatternheight"]);
+        mapTileModel.setGraphicWidthInTile(parseInt(assetsElement[index].dataset["graphicwidthintile"]));
+        mapTileModel.setGraphicHeightInTile(parseInt(assetsElement[index].dataset["graphicheightintile"]));
         mapTileModel.setGraphicPatternArray(JSON.parse(assetsElement[index].dataset["graphicpatternarray"]));
+
+        var collisionJson = JSON.parse(assetsElement[index].dataset["collisionarray"]);
+
+        if (collisionJson !== null) {
+            for (var j = 0; j < collisionJson.length; j++) {
+                for (var k = 0; k < collisionJson[j].length; k++) {
+                    collisionJson[j][k] = parseInt(collisionJson[j][k]);
+                }
+            }
+        }
+
+        mapTileModel.setCollisionArray(collisionJson);
 
         this._mapTileListModel.addElement(mapTileModel);
     }
@@ -189,7 +194,7 @@ editor.controller.EditorMapController.prototype.onMouseEvent = function onMouseE
                 this._setTileGraphicCode(graphicTileArray, 0, tileX, tileY, 2, 1, "water", 3, 3, false, "cobblestones", 2, 3, true);
             }
 
-            else if (this._entityListModel.getElementById(this._activeBrushhName) != null){
+            else if (this._entityListModel.getElementById(this._activeBrushhName) != null) {
 
                 var unit = this._entityListModel.getElementById(this._activeBrushhName).clone();
                 unit.setX(x);
@@ -208,7 +213,7 @@ editor.controller.EditorMapController.prototype.onMouseEvent = function onMouseE
             //3
             //
             //this.updateMapModel(tileX, tileY, );
-            var updateSpace = 5;
+            var updateSpace = 7;
             this.updateMapModel(tileX - updateSpace, tileY - updateSpace, tileX + updateSpace, tileY + updateSpace);
 
             //}
@@ -558,14 +563,14 @@ editor.controller.EditorMapController.prototype.updateMapModel = function update
     //MAP IMAGES
     //Optymalizacja PETLI TUTAJ POWINNA BYC !!!
 
-    var starIndexX = 0; //parseInt(Math.max(0, this._cameraModel.getViewPortX() / tileGraphicWidth));
+    var startIndexX = 0; //parseInt(Math.max(0, this._cameraModel.getViewPortX() / tileGraphicWidth));
     var startIndexY = 0; //parseInt(Math.max(0, this._cameraModel.getViewPortY() / tileGraphicHeight));
     var endIndexX = parseInt(areaWidth / tileGraphicWidth + 2);
     var endIndexY = parseInt(areaHeight / tileGraphicHeight + 2);
 
-    if (tileIndexStartX !== undefined && tileIndexStartY !== undefined && tileIndexEndX !== undefined && tileIndexEndX !== undefined){
+    if (tileIndexStartX !== undefined && tileIndexStartY !== undefined && tileIndexEndX !== undefined && tileIndexEndX !== undefined) {
 
-        starIndexX = Math.max(tileIndexStartX, 0);
+        startIndexX = Math.max(tileIndexStartX, 0);
         startIndexY = Math.max(tileIndexStartY, 0);
         endIndexX = Math.min(parseInt(areaWidth / tileGraphicWidth + 2), tileIndexEndX);
         endIndexY = Math.min(parseInt(areaHeight / tileGraphicHeight + 2), tileIndexEndY);
@@ -574,7 +579,7 @@ editor.controller.EditorMapController.prototype.updateMapModel = function update
 
 
     for (layer = 0; layer < maxLayer; layer++) {
-        for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
+        for (tileIndexX = startIndexX; tileIndexX < endIndexX; tileIndexX++) {
             for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
 
                 tileGraphic = this._editorMapModel.getEditorMapTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
@@ -587,7 +592,7 @@ editor.controller.EditorMapController.prototype.updateMapModel = function update
     }
 
     for (layer = 0; layer < maxLayer; layer++) {
-        for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
+        for (tileIndexX = startIndexX; tileIndexX < endIndexX; tileIndexX++) {
             for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
 
                 drawX = tileIndexX * tileGraphicWidth;
@@ -599,19 +604,43 @@ editor.controller.EditorMapController.prototype.updateMapModel = function update
                     tileGraphicY = 0;
                     tileGraphicsData = tileGraphic[layer];
 
-                    if (!tileGraphicsData["set"]){
+                    var mapGraphicTileModelArray = this._mapModel.getMapGraphicModel().getTileArray();
+                    var mapCollisionTileModelArray = this._mapModel.getMapCollisionModel().getTileArray();
+
+                    if (tileGraphicsData["set"] === false) {
                         tileImage = this.getTileModelByGraphicPatternArray(layer, tileIndexX, tileIndexY);
 
                         if (tileImage !== null) {
-
-                            var mapGraphicTileModelArray = this._mapModel.getMapGraphicModel().getTileArray();
 
                             if (mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] === undefined) {
                                 mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] = [];
                             }
 
-                            mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer] = tileImage.getGraphicSource();
+                            var graphicTile = {
+                                src: tileImage.getGraphicSource(),
+                                width: tileImage.getGraphicWidthInTile() || 1,
+                                height: tileImage.getGraphicHeightInTile() || 1
+                            }
 
+
+                            mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer] = graphicTile;
+
+                            var collisionJson = tileImage.getCollisionArray();
+                            if (collisionJson !== null) {
+                                for (var j = 0; j < collisionJson.length; j++) {
+                                    for (var k = 0; k < collisionJson[j].length; k++) {
+                                        mapCollisionTileModelArray[maxTileGraphicIndexY * (tileIndexX + k) + tileIndexY + j][layer] = tileImage.getCollisionArray()[j][k];
+                                    }
+                                }
+                            }
+
+
+                        } else {
+                            if (mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] === undefined) {
+                                mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] = [];
+                            }
+
+                            mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer] = null;
                         }
                     } else {
                         mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer] = null;
@@ -635,6 +664,8 @@ editor.controller.EditorMapController.prototype.updateMapModel = function update
     //for (var i = 0; i< tileCount; i++){
     //    this._mapModel.getLogicTilesArray().push([{gid: "assets/editor/gcc02.png", x:0, y:0}]);
     //}
+
+    this._mapModel.getMapGraphicModel().initRootTileArray();
 };
 
 editor.controller.EditorMapController.prototype.getTileModelByGraphicPatternArray = function getTileModelByGraphicPatternArray(layer, indexX, indexY) {

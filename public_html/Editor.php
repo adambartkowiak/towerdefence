@@ -99,7 +99,8 @@
     var graphicsBuffor = new support.data.ImageDataList();
 
     var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
-    //    var mapModel = new app.model.MapModel(30000, 30000, 40, 40);
+//    var mapModel = new app.model.MapModel(10000, 10000, 40, 40);
+//    var mapModel = new app.model.MapModel(30000, 30000, 40, 40);
 
     var editorMapModel = new editor.model.EditorMapModel(mapModel);
 
@@ -126,7 +127,6 @@
 
     //Init Modelu Swiata dla Edytora
 
-
     //Init Modelu Mapy Edytora
     /*
      Generowani tilesow Edytora typ terenu - wszystko jest tutaj opisane w sposob latwy edytowaly dla edytora
@@ -140,10 +140,17 @@
         }, {"set": false, "data": ["", "", "", ""]}]);
     }
 
+    /*
+     Generowanie mapy kolizji - mapa kolizji ma ten sam format dla edytora i dla gry
+    */
+    for (var i = 0; i < tileCount; i++) {
+        editorMapModel.getMapModel().getMapCollisionModel().getTileArray().push([0x0000,0]);
+    }
+
+
     window.onload = function () {
 
         var cameraModel = new app.model.CameraModel(1180 / 2, 780 / 2, 1180, 780);
-
 
         //Ladowanie Grafik
         var assetName;
@@ -155,8 +162,6 @@
 
             graphicsBuffor.load(assetName);
         }
-
-
 
         //Ladowanie Grafik
         assetsElement = document.getElementsByClassName("entityElement");
@@ -184,7 +189,7 @@
         mouse.initMouse();
 
 
-        mapView = new editor.view.WorldView(worldModel, 0, 0, 1180, 780);
+        mapView = new editor.view.WorldView(worldModel, editorMapModel, 0, 0, 1180, 780);
         mapView.setMouseEventListener(editorMapController);
 
         miniMapView = new support.view.MinimapView();
@@ -244,8 +249,9 @@
 
         document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
-
     };
+
+
 
     var downloadMapFile = function downloadMapFile() {
 
@@ -255,6 +261,8 @@
         window.open(URL);
 
     };
+
+
 
     function b64toBlob(b64Data, contentType, sliceSize) {
         contentType = contentType || '';
@@ -278,8 +286,9 @@
 
         var blob = new Blob(byteArrays, {type: contentType});
         return blob;
-    }
-    ;
+    };
+
+
 
     uploadMapFile = function uploadMapFile(url) {
 
@@ -293,8 +302,29 @@
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
 
+    };
+
+
+    /*
+    1. uploadMapFileToServer
+    2. downloadMapFileFromServer
+     */
+    var editorExportMap = function editorExportMap(){
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", "backend/editorExportMap.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.send(JSON.stringify(worldModel.getMinifyJSON() ));
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                window.open('backend/downloadFile.php');
+            }
+        };
 
     };
+
+
 
     $(function () {
         // using default options
@@ -330,17 +360,15 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <!--            <ul class="nav navbar-nav">-->
-            <!--                <li><a href="#">Graphic</a></li>-->
-            <!--                <li><a href="#">Collision</a></li>-->
-            <!--            </ul>-->
 
-            <div class="fileupload fileupload-new" data-provides="fileupload">
-                <!--                <span class="btn btn-primary btn-file"><span class="fileupload-new">UPLOAD MAP</span>-->
+            <div class="fileupload fileupload-new myuploadbutton" data-provides="fileupload">
+                <span class="btn btn-primary btn-file"><span class="fileupload-new">UPLOAD MAP</span>
                 <input type="file" id="files" name="files[]"/>
             </div>
 
             <button id="downloadMapButton" class="btn btn-default" type="submit" onclick="downloadMapFile()">SAVE MAP
+            </button>
+            <button id="exportMapButton" class="btn btn-default" type="submit" onclick="editorExportMap()">EXPORT MAP
             </button>
 
         </div><!-- /.navbar-collapse -->
@@ -559,18 +587,18 @@
                     $json = json_decode($str, true);
 
                     $graphicLayer = $json['graphicLayer'];
-                    $graphicOffsetX = $json['graphicOffsetX'];
-                    $graphicOffsetY = $json['graphicOffsetY'];
                     $graphicWidthInTile = $json['graphicWidthInTile'];
                     $graphicHeightInTile = $json['graphicHeightInTile'];
                     $graphicPatternX = $json['graphicPatternX'];
                     $graphicPatternY = $json['graphicPatternY'];
-                    $graphicPatternWidth = $json['graphicPatternWidth'];
-                    $graphicPatternHeight = $json['graphicPatternHeight'];
+
                     $graphicPatternArray = $json['graphicPatternArray'];
                     $graphicPatternArrayJsonEncoded = json_encode($graphicPatternArray);
                     $graphicPatternArrayJsonEncoded = htmlspecialchars($graphicPatternArrayJsonEncoded, ENT_QUOTES, 'UTF-8');
 
+                    $collisionArray = $json['collisionArray'];
+                    $collisionArrayEncoded = json_encode($collisionArray);
+                    $collisionArrayEncoded = htmlspecialchars($collisionArrayEncoded, ENT_QUOTES, 'UTF-8');
 
                     $tabElement = substr($tabElement, 0, strlen($tabElement) - strlen(".json"));
 
@@ -593,15 +621,12 @@
                     <graphicData class=\"mapTileElement\"
                         data-assetname=\"assets/graphics/images/{$tabElement}.png\"
                         data-graphicLayer=\"{$graphicLayer}\"
-                        data-graphicOffsetX=\"{$graphicOffsetX}\"
-                        data-graphicOffsetY=\"{$graphicOffsetY}\"
-                        data-graphicsWidyhInTile=\"{$graphicWidthInTile}\"
-                        data-graphicsHeightInTile=\"{$graphicHeightInTile}\"
                         data-graphicPatternX=\"{$graphicPatternX}\"
                         data-graphicPatternY=\"{$graphicPatternY}\"
-                        data-graphicPatternWidth=\"{$graphicPatternWidth}\"
-                        data-graphicPatternHeight=\"{$graphicPatternHeight}\"
+                        data-graphicWidthInTile=\"{$graphicWidthInTile}\"
+                        data-graphicHeightInTile=\"{$graphicHeightInTile}\"
                         data-graphicPatternArray=\"{$graphicPatternArrayJsonEncoded}\"
+                        data-collisionArray=\"{$collisionArrayEncoded}\"
                         >
                     </graphicData>");
 

@@ -39,7 +39,7 @@ app.model.MapModel = function MapModel(mapWidth, mapHeight, tileWidth, tileHeigh
      * @property {app.model.map.MapCollisionLayerModel} _mapCollisionModel
      * @private
      */
-    this._mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(mapWidth, mapHeight, tileWidth/4, tileHeight/4);
+    this._mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(mapWidth, mapHeight, tileWidth, tileHeight);
 };
 
 Utils.inherits(app.model.MapModel, Object);

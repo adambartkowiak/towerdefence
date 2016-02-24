@@ -2,170 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/base3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/base4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/base_03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/base_04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bush_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/rock_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/rock_02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tree_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/base_03.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/base_04.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/bush_01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/pine-none04.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_02.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_01.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding1_neutral.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding2_neutral.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit1_neutral.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit2_neutral.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame005Minified.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame006Minified.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame007Minified.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame008Minified.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicTileArrayModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/model/EditorMapModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/view/WorldView.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/base_03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/base_04.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbc01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbc01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbl02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gbr02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcc2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcl01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcl01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcr01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gcr01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtc01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtc01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtl02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/gtr02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc03.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc04.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc04.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc05.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc05.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc06.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/tgcc06.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbc02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl03.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl04.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbl04.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr03.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr04.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wbr04.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcl02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wcr02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtc02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl03.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtl03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr01.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr02.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr03.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/graphic/wtr03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/map/grassTile.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/editor/assets/AssetListModel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/MapController.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/base1.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/base1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/base2.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/base2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/bullet0.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet0.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/bullet1.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/bullet2.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/bullet3.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/bullet4.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet4.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/enemy0.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy0.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/enemy1.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/enemy2.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/enemy3.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/holder0.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/holder0.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/tower0.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tower0.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/tower1.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tower1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/images/tower2.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tower2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/js/support/data/ImageListData.js" afterPath="$PROJECT_DIR$/public_html/js/support/data/ImageDataList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/mapsave.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/backend/downloadFile.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/backend/editorExportMap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/backend/editorSaveMap.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/LoadGame.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/Mail.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/Mail.php.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/SaveGame.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/SaveScore.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/custom1.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/custom2.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/gamesave1.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/gamesave2.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame001.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame001Minified.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame002.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame002Minified.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame003Minified.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/images/base3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/images/base4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/downloadMap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/editor.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/index.html" afterPath="$PROJECT_DIR$/public_html/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame004Minified.json" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame004Minified.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/editor.css" afterPath="$PROJECT_DIR$/public_html/css/editor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/editor.html" afterPath="$PROJECT_DIR$/public_html/editor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.html" afterPath="$PROJECT_DIR$/public_html/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/Main.js" afterPath="$PROJECT_DIR$/public_html/js/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/ActionTypeModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/ActionTypeModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/AvailableActionsModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/AvailableActionsModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/CameraModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/CameraModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityTargetCollisionModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityTargetCollisionModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/ListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/ListModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/TargetListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TargetListModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/TargetModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TargetModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/map/AbstractMapLayerModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/map/AbstractMapLayerModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js" afterPath="$PROJECT_DIR$/public_html/js/app/mouseHandler/MouseEventHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js" afterPath="$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/AbstractViewGroup.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/AbstractViewGroup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/view/WorldView.js" afterPath="$PROJECT_DIR$/public_html/js/editor/view/WorldView.js" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -195,28 +65,120 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Editor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/Editor.php">
+      <file leaf-file-name="editor.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/editor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8">
-              <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
+            <state vertical-scroll-proportion="-17.869566">
+              <caret line="582" column="53" selection-start-line="576" selection-start-column="12" selection-end-line="582" selection-end-column="53" />
               <folding>
-                <element signature="n#endswith#0;n#!!top" expanded="false" />
-                <element signature="n#createMenuFromJsonFiles#0;n#!!top" expanded="false" />
-                <marker date="1454783891000" expanded="true" signature="15040:15075" placeholder="..." />
-                <marker date="1454783891000" expanded="true" signature="15133:15167" placeholder="..." />
-                <marker date="1454783891000" expanded="true" signature="19705:20427" placeholder="..." />
-                <marker date="1454783891000" expanded="true" signature="22854:23721" placeholder="..." />
+                <marker date="1456097740000" expanded="true" signature="20512:21234" placeholder="..." />
+                <marker date="1456097740000" expanded="true" signature="23634:24286" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
+      <file leaf-file-name="mapsave.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/mapsave.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.222221">
-              <caret line="734" column="25" selection-start-line="734" selection-start-column="25" selection-end-line="734" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="533281" selection-start-line="0" selection-start-column="533281" selection-end-line="0" selection-end-column="533281" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.037037">
+              <caret line="437" column="27" selection-start-line="437" selection-start-column="22" selection-end-line="437" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-42.608696">
+              <caret line="70" column="191" selection-start-line="70" selection-start-column="191" selection-end-line="70" selection-end-column="191" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#canvas#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1456345547000" expanded="true" signature="2200:2266" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="7317:7358" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="7556:7581" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="7556:8820" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="7583:7599" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="7643:7658" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="7736:7748" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="7933:7947" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8027:8042" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8171:8185" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8244:8258" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8315:8329" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8383:8397" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8448:8463" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8529:8544" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8602:8617" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8675:8689" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8758:8772" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8869:8880" placeholder="..." />
+                <marker date="1456345547000" expanded="true" signature="8881:9217" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoveController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/MoveController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorldModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/MapModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="140" column="42" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapGraphicLayerModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractWorldView.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.83071345">
+              <caret line="388" column="6" selection-start-line="388" selection-start-column="6" selection-end-line="388" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -226,89 +188,15 @@
         <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+              <caret line="682" column="18" selection-start-line="682" selection-start-column="18" selection-end-line="682" selection-end-column="18" />
               <folding>
-                <element signature="e#9187#9334#0" expanded="false" />
-                <element signature="e#9496#12279#0" expanded="false" />
-                <element signature="e#12469#15492#0" expanded="false" />
-                <element signature="e#15624#15744#0" expanded="false" />
-                <element signature="e#15903#17109#0" expanded="false" />
-                <element signature="e#17374#19934#0" expanded="false" />
-                <element signature="e#20171#25052#0" expanded="false" />
-                <element signature="e#25205#28723#0" expanded="false" />
+                <element signature="e#9416#9563#0" expanded="false" />
+                <element signature="e#9725#12508#0" expanded="false" />
+                <element signature="e#12698#15721#0" expanded="false" />
+                <element signature="e#15853#15973#0" expanded="false" />
+                <element signature="e#16132#17338#0" expanded="false" />
+                <element signature="e#17603#20163#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unit2_team2.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/unit2_team2.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.652174">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unit1_team2.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/unit1_team2.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.652174">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractWorldView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="301" column="43" selection-start-line="301" selection-start-column="43" selection-end-line="301" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#49#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/MoveController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6296296">
-              <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bulding2_team2.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding2_team2.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.304348">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.057435896">
-              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="newSaveGame008Minified.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame008Minified.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="4905" selection-start-line="0" selection-start-column="4905" selection-end-line="0" selection-end-column="4905" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -329,57 +217,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/model/MapModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/ActionTypeModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/AvailableActionsModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/CameraModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityTargetCollisionModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/ListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/TargetListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/TargetModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/model/EditorMapModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/support/data/ImageDataList.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/map/AbstractMapLayerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/index.html" />
-        <option value="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/view/MapView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/assets/AssetListController.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
-        <option value="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame004Minified.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbl01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbl02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbl03.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbl04.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr03.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr04.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcl01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcl02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcr01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcr02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtc01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtc02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtl01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtl02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtl03.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtr01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtr02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtr03.json" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_0a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_01a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_02a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_03a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_04a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_05a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_06a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_07a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_08a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_09a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_10a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_11a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_12a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_13a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_14a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_15a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_16a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_17a.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_18a.json" />
         <option value="$PROJECT_DIR$/public_html/js/editor/view/WorldView.js" />
         <option value="$PROJECT_DIR$/public_html/css/editor.css" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit2_team2.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit1_team2.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit1_team1.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit2_team1.json" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
-        <option value="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame005Minified.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/base_03.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/base_04.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/bush_01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/pine-none04.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock_01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock_02.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/tree_01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding2_neutral.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding1_neutral.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit2_neutral.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit1_neutral.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding1_team1.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding2_team1.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding1_team2.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding2_team2.json" />
-        <option value="$PROJECT_DIR$/public_html/Editor.php" />
-        <option value="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame006Minified.json" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
-        <option value="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame007Minified.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame008Minified.json" />
-        <option value="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" />
+        <option value="$PROJECT_DIR$/public_html/backend/editorExportMap.php" />
+        <option value="$PROJECT_DIR$/public_html/backend/downloadFile.php" />
+        <option value="$PROJECT_DIR$/public_html/editor.php" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" />
+        <option value="$PROJECT_DIR$/public_html/index.html" />
         <option value="$PROJECT_DIR$/public_html/js/Main.js" />
+        <option value="$PROJECT_DIR$/public_html/index.php" />
+        <option value="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
       </list>
     </option>
   </component>
@@ -393,8 +281,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="x" value="75" />
+    <option name="y" value="23" />
+    <option name="width" value="1596" />
+    <option name="height" value="951" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -455,6 +345,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -474,9 +365,154 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML5GAME" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamesaves" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -493,15 +529,14 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="ToolWindowFind.ShowToolbar" value="false" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public_html/assets" />
       <recent name="$PROJECT_DIR$/public_html/assets/graphics/images" />
       <recent name="$PROJECT_DIR$/public_html" />
       <recent name="$PROJECT_DIR$/public_html/js/support/view" />
       <recent name="$PROJECT_DIR$/public_html/js/app/mouseHandler" />
-      <recent name="$PROJECT_DIR$/public_html/js/app/model/gui" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public_html/assets/gamesaves" />
@@ -511,8 +546,8 @@
       <recent name="$PROJECT_DIR$/public_html/assets/editor/objects" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
-    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://localhost:63342/HTML5GAME/public_html/index.html">
+  <component name="RunManager" selected="JavaScript Debug.index.php">
+    <configuration default="false" name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://localhost:63342/HTML5GAME/public_html/index.php">
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -548,11 +583,11 @@
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
     </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
       </list>
     </recent_temporary>
   </component>
@@ -777,14 +812,20 @@
       <option name="project" value="LOCAL" />
       <updated>1448954513417</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Rozgrywka:&#10; - Dodanie warst wyswietlania,&#10; - Dodanie optymalizacji renderowania - renderuje sie tylko teren, ktory jest widoczny na ekranie (v1)&#10; - Dodanie wielu typow jednostek - neutralnych, team0 i team1&#10; &#10; Edytor:&#10; - Zaczytywanie jednostek z configa,&#10; - Zaczytywanie drzewka edytora z configa,&#10; - Dodanie configow jednostek, budynkow i obiektow&#10; &#10;">
+      <created>1454879329263</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1454879329263</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="75" y="23" width="1596" height="951" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23630953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28634086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24107143" sideWeight="0.5190476" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -813,7 +854,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Podpiecie Google Analyticsow" />
     <MESSAGE value="Duzo poprawek zwiazanych z refaktoringiem kodu - ale jeszcze wiecej zostalo.. :)" />
     <MESSAGE value="kolejne poprawki zwiazane z REFAKTORINGIEM + udalo sie zrobic zaznaczanie przeciwnikow." />
     <MESSAGE value="Dodanie baz i podstawowego gameplayu.&#10;Poprawienie wykrywania kolizji rectangle-circle.&#10;Dodanie kontrolera do wybierania celu.&#10;Dodanie podzialu na druzyny." />
@@ -838,11 +878,12 @@
     <MESSAGE value="Dodanie 1 wersji MiniMapy do Edytora - potrzebny bedzie refaktoring.." />
     <MESSAGE value="Renderowanie na minimapie wygladu mapy wlasciwej - potrzebny bedzie refaktoring po osiagnieciu funkcjonalnosci.. &#10;&#10;Teraz tak pisze bo sprawdzam mozliwosci." />
     <MESSAGE value="Pierwsza wersja renderowania highgrounda na podstawie configow z JSONa.&#10;&#10;Do dodania jeszcze brushe wybierane z lewego menu.&#10;&#10;Brakuje troche grafik - wiec albo je dorobie - albo dodam logike do brusha dla rysowania highgrounda." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pierwsza wersja renderowania highgrounda na podstawie configow z JSONa.&#10;&#10;Do dodania jeszcze brushe wybierane z lewego menu.&#10;&#10;Brakuje troche grafik - wiec albo je dorobie - albo dodam logike do brusha dla rysowania highgrounda." />
+    <MESSAGE value="Rozgrywka:&#10; - Dodanie warst wyswietlania,&#10; - Dodanie optymalizacji renderowania - renderuje sie tylko teren, ktory jest widoczny na ekranie (v1)&#10; - Dodanie wielu typow jednostek - neutralnych, team0 i team1&#10; &#10; Edytor:&#10; - Zaczytywanie jednostek z configa,&#10; - Zaczytywanie drzewka edytora z configa,&#10; - Dodanie configow jednostek, budynkow i obiektow&#10; &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rozgrywka:&#10; - Dodanie warst wyswietlania,&#10; - Dodanie optymalizacji renderowania - renderuje sie tylko teren, ktory jest widoczny na ekranie (v1)&#10; - Dodanie wielu typow jednostek - neutralnych, team0 i team1&#10; &#10; Edytor:&#10; - Zaczytywanie jednostek z configa,&#10; - Zaczytywanie drzewka edytora z configa,&#10; - Dodanie configow jednostek, budynkow i obiektow&#10; &#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -867,79 +908,255 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/bullet0.png">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/gbc01.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/bullet1.png">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/gbl01.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/bullet2.png">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/gbl02.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/bullet3.png">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/gbr01.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/bullet4.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/enemy0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame001Minified.json">
+    <entry file="file://$PROJECT_DIR$/public_html/js/support/Timer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.78125">
+          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/wcl01.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89908254">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-1.2173913">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_0a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.826087">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_01a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2173913">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_02a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2173913">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_03a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_04a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_05a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_06a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_07a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_08a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_09a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_10a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4347825">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_17a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.304348">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_16a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_15a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_14a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_13a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_12a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_11a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07988588">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_18a.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/WorldView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8328358">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame007Minified.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="6593" selection-start-line="0" selection-start-column="6593" selection-end-line="0" selection-end-column="6593" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/css/editor.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32790223">
-          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding />
+        <state vertical-scroll-proportion="-14.652174">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/unit1_team1.json">
+    <entry file="file://$PROJECT_DIR$/public_html/backend/SaveScore.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.652174">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/unit2_team1.json">
+    <entry file="file://$PROJECT_DIR$/public_html/backend/SaveGame.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.652174">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        <state vertical-scroll-proportion="-3.0434783">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/backend/LoadGame.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/backend/editorSaveMap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/backend/editorExportMap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.304348">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/backend/downloadMap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2173913">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="13" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/backend/downloadFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.304348">
+          <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/EditorMapModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/AbstractMapLayerModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -947,203 +1164,15 @@
     <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="270" column="44" selection-start-line="270" selection-start-column="44" selection-end-line="271" selection-end-column="41" />
+          <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame005Minified.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="152.17392">
-          <caret line="0" column="48671" selection-start-line="0" selection-start-column="48671" selection-end-line="0" selection-end-column="48671" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/EntityCollisionReactionController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/mapsave.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/EntityCollisionDetectionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/CommandController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionDetectionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame004Minified.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="235" selection-start-line="0" selection-start-column="231" selection-end-line="0" selection-end-column="235" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/rock_02.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/rock_01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/pine-none04.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/bush_01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/base_04.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/base_03.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.652174">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/tree_01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit2_neutral.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.652174">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit1_neutral.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.652174">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding1_team1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding2_team1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding1_team2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2608695">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding1_neutral.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09979633">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding2_neutral.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09979633">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame006Minified.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57026476">
-          <caret line="0" column="8073" selection-start-line="0" selection-start-column="8073" selection-end-line="0" selection-end-column="8073" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame007Minified.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="2321" selection-start-line="0" selection-start-column="2321" selection-end-line="0" selection-end-column="2321" />
+          <caret line="0" column="533281" selection-start-line="0" selection-start-column="533281" selection-end-line="0" selection-end-column="533281" />
           <folding />
         </state>
       </provider>
@@ -1151,97 +1180,99 @@
     <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <caret line="682" column="18" selection-start-line="682" selection-start-column="18" selection-end-line="682" selection-end-column="18" />
           <folding>
-            <element signature="e#9187#9334#0" expanded="false" />
-            <element signature="e#9496#12279#0" expanded="false" />
-            <element signature="e#12469#15492#0" expanded="false" />
-            <element signature="e#15624#15744#0" expanded="false" />
-            <element signature="e#15903#17109#0" expanded="false" />
-            <element signature="e#17374#19934#0" expanded="false" />
-            <element signature="e#20171#25052#0" expanded="false" />
-            <element signature="e#25205#28723#0" expanded="false" />
+            <element signature="e#9416#9563#0" expanded="false" />
+            <element signature="e#9725#12508#0" expanded="false" />
+            <element signature="e#12698#15721#0" expanded="false" />
+            <element signature="e#15853#15973#0" expanded="false" />
+            <element signature="e#16132#17338#0" expanded="false" />
+            <element signature="e#17603#20163#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/unit2_team2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.652174">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/unit1_team2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.652174">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding2_team2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.304348">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame008Minified.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="4905" selection-start-line="0" selection-start-column="4905" selection-end-line="0" selection-end-column="4905" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/Editor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8">
-          <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
-          <folding>
-            <element signature="n#endswith#0;n#!!top" expanded="false" />
-            <element signature="n#createMenuFromJsonFiles#0;n#!!top" expanded="false" />
-            <marker date="1454783891000" expanded="true" signature="15040:15075" placeholder="..." />
-            <marker date="1454783891000" expanded="true" signature="15133:15167" placeholder="..." />
-            <marker date="1454783891000" expanded="true" signature="19705:20427" placeholder="..." />
-            <marker date="1454783891000" expanded="true" signature="22854:23721" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="301" column="43" selection-start-line="301" selection-start-column="43" selection-end-line="301" selection-end-column="43" />
+          <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/MapModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="140" column="42" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/editor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.869566">
+          <caret line="582" column="53" selection-start-line="576" selection-start-column="12" selection-end-line="582" selection-end-column="53" />
           <folding>
-            <element signature="e#0#49#0" expanded="false" />
+            <marker date="1456097740000" expanded="true" signature="20512:21234" placeholder="..." />
+            <marker date="1456097740000" expanded="true" signature="23634:24286" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.222221">
-          <caret line="734" column="25" selection-start-line="734" selection-start-column="25" selection-end-line="734" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/MoveController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6296296">
-          <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.057435896">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        <state vertical-scroll-proportion="-6.037037">
+          <caret line="437" column="27" selection-start-line="437" selection-start-column="22" selection-end-line="437" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-42.608696">
+          <caret line="70" column="191" selection-start-line="70" selection-start-column="191" selection-end-line="70" selection-end-column="191" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1456345547000" expanded="true" signature="2200:2266" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="7317:7358" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="7556:7581" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="7556:8820" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="7583:7599" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="7643:7658" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="7736:7748" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="7933:7947" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8027:8042" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8171:8185" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8244:8258" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8315:8329" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8383:8397" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8448:8463" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8529:8544" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8602:8617" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8675:8689" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8758:8772" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8869:8880" placeholder="..." />
+            <marker date="1456345547000" expanded="true" signature="8881:9217" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/MoveController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83071345">
+          <caret line="388" column="6" selection-start-line="388" selection-start-column="6" selection-end-line="388" selection-end-column="6" />
           <folding />
         </state>
       </provider>

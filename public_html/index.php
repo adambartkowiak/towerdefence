@@ -36,8 +36,45 @@ and open the template in the editor.
 
 </script>
 
-<!-- <canvas style="margin:0 auto 0 auto;display:block;background:#111111" id="map" width="760" height="500"></canvas> -->
-<canvas style="margin:0 auto 0 auto;display:block;background:#111111" id="map" width="800" height="800"></canvas>
+
+<div style="margin:0 auto 0 auto;display:block;background:#111111;width:800px;height:800px;" id="gamediv">
+    <canvas id="map" style="position: absolute;" width="800" height="800"></canvas>
+
+    <!-- Game Menu-->
+    <div id="gameMenu" style="position: absolute;width:800px; height:800px;background-color: rgba(0, 0, 0, 0.5);">
+        <span style="text-align: center;">Select Map:</span>
+        <?php
+
+
+        $arrayFiles = scandir("assets/gamesaves");
+        for ($index = 0; $index < count($arrayFiles); $index++) {
+
+            $tabElement = $arrayFiles[$index];
+            $fileName = basename($tabElement, ".json");
+            //$action = app.loadGameSave(\"assets/gamesaves/".$fileName."\");
+            $action = "app.loadGameSave('assets/gamesaves/".$tabElement."'); document.getElementById('gameMenu').style.display = 'none'";
+
+            if (filter_files($fileName)){
+                echo "<span style=\"display: block; text-align: center; font-size: 30px; color: wheat;\" onclick=\"".$action."\">".$fileName."</span>";
+            }
+
+        }
+
+        function filter_files($file) {
+            return ($file != '.' && $file != '..' && $file != '.DS_Store' && $file != 'Thumbs.db');
+        }
+        ?>
+    </div>
+
+
+
+    <div id="menuOpenButton" style="position: absolute;width:50px; height:50px;background-color: rgba(100, 100, 100, 0.7);" onclick="document.getElementById('gameMenu').style.display = 'block'">
+
+    </div>
+
+
+</div>
+
 
 <div>HTML5 GAME</div>
 

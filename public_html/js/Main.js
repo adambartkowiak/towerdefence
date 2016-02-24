@@ -38,6 +38,9 @@ if (loadFromFile) {
             for (var i = 0; i < graphicLength; i++) {
 
                 graphicPath = worldModel.getMapModel().getMapGraphicModel().getTileArray()[i][0];
+                if (graphicPath){
+                    graphicPath = graphicPath.src;
+                }
 
                 if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined){
                     console.log(graphicPath);
@@ -45,6 +48,9 @@ if (loadFromFile) {
                 }
 
                 graphicPath = worldModel.getMapModel().getMapGraphicModel().getTileArray()[i][1];
+                if (graphicPath){
+                    graphicPath = graphicPath.src;
+                }
 
                 if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined){
                     console.log(graphicPath);
@@ -165,8 +171,9 @@ if (loadFromFile) {
     //app.loadGameSave("assets/gamesaves/newSaveGame004Minified.json");
     //app.loadGameSave("assets/gamesaves/newSaveGame005Minified.json");
     //app.loadGameSave("assets/gamesaves/newSaveGame006Minified.json");
-    app.loadGameSave("assets/gamesaves/newSaveGame007Minified.json");
+    //app.loadGameSave("assets/gamesaves/newSaveGame007Minified.json");
     //app.loadGameSave("assets/gamesaves/newSaveGame008Minified.json");
+    //app.loadGameSave("assets/gamesaves/mapsave.json");
 
 }
 
@@ -413,7 +420,8 @@ rootView.addView(actionMenuView);
 //LOGIKA GRY
 var logicFrames = 0;
 var totalTimeDelta = 0;
-setInterval(function () {
+
+var logicFunction = function () {
 
     //Nie wchodz do petli przed zaladowaniem mapy
     if (!mapIsReady) {
@@ -481,13 +489,19 @@ setInterval(function () {
 
     logicFrames++;
 
-    window.requestAnimationFrame(mainDraw);
+    //window.requestAnimationFrame(mainDraw);
 
-}, 16);
+};
+
+setTimeout(mainDraw, 100);
+//setInterval(logicFunction, 16);
 
 //RENDEROWANIE
 function mainDraw() {
+    logicFunction();
     rootView.draw();
+
+    window.requestAnimationFrame(mainDraw);
 };
 
 
@@ -517,6 +531,8 @@ app.loadGameFromMinifyString = function loadGameFromMinifyString(stringJson) {
     try {
         var worldModelMinifyJSON = JSON.parse(stringJson);
         worldModel.loadFromMinifyJSON(worldModelMinifyJSON);
+
+        worldModel.getMapModel().getMapGraphicModel().initRootTileArray();
     }
     catch (e){
         return e.message;

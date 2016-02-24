@@ -110,54 +110,97 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
     var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
     var endIndexY = parseInt(Math.min(cameraModel.getViewPortY() / tileGraphicHeight + this.getHeight() / tileGraphicHeight + 2, maxTileGraphicIndexY));
 
-    //console.log(starIndexX, startIndexY, endIndexX, endIndexY);
-    //console.log((endIndexX - starIndexX) * (endIndexY - startIndexY));
+    var currentRenderTime = new Date().getTime();
 
     for (layer = 0; layer < maxLayer; layer++) {
         for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
             for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
 
-                drawX = tileIndexX * tileGraphicWidth;
-                drawY = tileIndexY * tileGraphicHeight;
-                tileGraphic = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+                tileGraphic = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+                //tileGraphic = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+
 
                 if (tileGraphic && tileGraphic[layer]) {
-                    tileGraphicsData = tileGraphic[layer];
 
-                    tileImage = graphicsBuffor.get(tileGraphicsData);
+                    tileGraphicsData = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * (tileIndexX + tileGraphic[layer].x) + (tileIndexY + tileGraphic[layer].y)][layer];
 
-                    if (tileImage !== null) {
-                        canvasContext.drawImage(tileImage, drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY());
+                    drawX = (tileIndexX + tileGraphic[layer].x) * tileGraphicWidth;
+                    drawY = (tileIndexY + tileGraphic[layer].y) * tileGraphicHeight;
+
+                    if (tileGraphicsData.src !== null && tileGraphicsData.renderTime < currentRenderTime) {
+
+                        tileGraphicsData.renderTime = currentRenderTime;
+                        tileImage = graphicsBuffor.get(tileGraphicsData.src);
+
+                        if (tileImage !== null) {
+                            canvasContext.drawImage(tileImage, drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY());
+
+                            if (tileGraphic[layer].x !== 0 || tileGraphic[layer].y !== 0) {
+                                canvasContext.fillStyle = 'rgba(255,255,0,0.5)';
+                                drawX = tileIndexX * tileGraphicWidth;
+                                drawY = tileIndexY * tileGraphicHeight;
+                                canvasContext.fillRect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), 40, 40);
+                            }
+
+                        }
+
+                        if (layer === 1) {
+                            canvasContext.fillStyle = 'rgba(255,255,255,1)';
+                            var stringLength = tileGraphicsData.src.length;
+                            var pathLength = "assets/graphics/images/".length;
+                            var formatLength = 4;
+                            canvasContext.fillText(tileGraphicsData.src.substring(pathLength, stringLength - formatLength), drawX - cameraModel.getViewPortX() + 5, drawY - cameraModel.getViewPortY() + 15);
+
+                            canvasContext.fillText(maxTileGraphicIndexY * tileIndexX + tileIndexY, drawX - cameraModel.getViewPortX() + 5, drawY - cameraModel.getViewPortY() + 30);
+                        }
+
                     }
 
-                    canvasContext.rect(drawX, drawY, tileGraphicWidth, tileGraphicHeight);
                 }
+
             }
         }
     }
 
 
-    //canvasContext.beginPath();
-    //canvasContext.strokeStyle = 'rgba(0,255,0,0.1)';
-    //
     //COLLISION MESH
-    //for (layer = 0; layer < maxLayer; layer++){
-    //    for (tileIndexX = 0; tileIndexX < maxTileCollisionIndexX; tileIndexX++) {
-    //        for (tileIndexY = 0; tileIndexY < maxTileCollisionIndexY; tileIndexY++) {
-    //
-    //            drawX = tileIndexX * tileCollisionWidth;
-    //            drawY = tileIndexY * tileCollisionHeight;
-    //            tileCollisionId = mapModel.getMapCollisionModel().getTileArray()[maxTileCollisionIndexY * tileIndexX + tileIndexY];
-    //
-    //            if (tileCollisionId[layer]) {
-    //                canvasContext.rect(drawX, drawY, tileCollisionWidth, tileCollisionHeight);
-    //            }
-    //        }
-    //    }
-    //}
-    //
-    //canvasContext.lineWidth = 1;
-    //canvasContext.stroke();
+    if (true) {
+        canvasContext.beginPath();
+        canvasContext.strokeStyle = 'rgba(50,50,50,0.4)';
+        canvasContext.fillStyle = 'rgba(255,0,0,0.4)';
+
+        for (layer = 0; layer < maxLayer; layer++) {
+            for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
+                for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
+
+                    drawX = tileIndexX * tileGraphicWidth;
+                    drawY = tileIndexY * tileGraphicHeight;
+                    tileGraphic = mapModel.getMapCollisionModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+
+                    if (tileGraphic && tileGraphic[layer] !== undefined) {
+
+                        for (var collIndex = 0; collIndex < 16; collIndex++) {
+
+                            //Renderowanie bitowej maski kolizji
+                            if ((tileGraphic[layer] >> collIndex) & 1 === 1) {
+                                canvasContext.fillRect(drawX - cameraModel.getViewPortX() + Math.floor(collIndex % 4) * 10, drawY - cameraModel.getViewPortY() + Math.floor(collIndex / 4) * 10, 10, 10);
+                            }
+                        }
+
+                        if (layer === 0) {
+                            for (var i = 0; i < 16; i++) {
+                                canvasContext.rect(drawX - cameraModel.getViewPortX() + Math.floor(i % 4) * 10, drawY - cameraModel.getViewPortY() + Math.floor(i / 4) * 10, 10, 10);
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        canvasContext.lineWidth = 1;
+        canvasContext.stroke();
+    }
 
 
     //GRAPHIC MESH
@@ -176,33 +219,7 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
 
                     tileGraphic = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
 
-                    if (tileGraphic && tileGraphic[layer] /*&& layer === 1*/) {
-                        //canvasContext.fillText(tileGraphic[layer]["data"][0].substring(0, 3), drawX - this._cameraModel.getViewPortX() + 5, drawY - this._cameraModel.getViewPortY() + 15);
-                        //canvasContext.fillText(tileGraphic[layer]["data"][1].substring(0, 3), drawX - this._cameraModel.getViewPortX() + 25, drawY - this._cameraModel.getViewPortY() + 15);
-                        //canvasContext.fillText(tileGraphic[layer]["data"][2].substring(0, 3), drawX - this._cameraModel.getViewPortX() + 5, drawY - this._cameraModel.getViewPortY() + 35);
-                        //canvasContext.fillText(tileGraphic[layer]["data"][3].substring(0, 3), drawX - this._cameraModel.getViewPortX() + 25, drawY - this._cameraModel.getViewPortY() + 35);
-
-                        //var assetTypeString = "highground_cobblestones";
-                        ////var assetTypeString = "water";
-                        //
-                        //if (tileGraphic[layer]["data"][0] === assetTypeString){
-                        //    canvasContext.fillRect(drawX - this._cameraModel.getViewPortX(), drawY - this._cameraModel.getViewPortY(), 20, 20);
-                        //}
-                        //if (tileGraphic[layer]["data"][1] === assetTypeString){
-                        //    canvasContext.fillRect(drawX - this._cameraModel.getViewPortX() + 20, drawY - this._cameraModel.getViewPortY(), 20, 20);
-                        //}
-                        //if (tileGraphic[layer]["data"][2] === assetTypeString){
-                        //    canvasContext.fillRect(drawX - this._cameraModel.getViewPortX(), drawY - this._cameraModel.getViewPortY() + 20, 20, 20);
-                        //}
-                        //if (tileGraphic[layer]["data"][3] === assetTypeString){
-                        //    canvasContext.fillRect(drawX - this._cameraModel.getViewPortX() + 20, drawY - this._cameraModel.getViewPortY() + 20, 20, 20);
-                        //}
-
-                    }
-
                     canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileGraphicWidth, tileGraphicHeight);
-
-
                 }
             }
         }
@@ -369,6 +386,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
     }
 
     canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("ENTITY COUNT: " + max, 0, 20);
+    //canvasContext.fillText("FPS: " + Math.round(1000/timer.getDelta()), 5, 20);
+    canvasContext.fillText("ENTITY COUNT: " + max, 5, 40);
 
 };

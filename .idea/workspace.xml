@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/mapsave.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/backend/downloadFile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/backend/editorExportMap.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/backend/editorSaveMap.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/LoadGame.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/Mail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/Mail.php.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/SaveGame.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/SaveScore.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/custom1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/custom2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/gamesave1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/gamesave2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame001.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame001Minified.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame002.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame002Minified.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame003Minified.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/images/base3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/images/base4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/downloadMap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/editor.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/index.html" afterPath="$PROJECT_DIR$/public_html/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/editor.css" afterPath="$PROJECT_DIR$/public_html/css/editor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/Main.js" afterPath="$PROJECT_DIR$/public_html/js/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js" afterPath="$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/view/WorldView.js" afterPath="$PROJECT_DIR$/public_html/js/editor/view/WorldView.js" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -177,8 +144,8 @@
       <file leaf-file-name="AbstractWorldView.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83071345">
-              <caret line="388" column="6" selection-start-line="388" selection-start-column="6" selection-end-line="388" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.5259976">
+              <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -818,7 +785,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454879329263</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Rozgrywka:&#10; - Dadanie menu wczytywania map,&#10; - Modyfikacja pliku wczytywania gry,&#10; - Poprawka w wyswietlaniu tilesow.&#10; &#10; Edytor:&#10;  - Mozliwosc exportowania mapy dla Gry,">
+      <created>1456346345450</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1456346345450</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -827,6 +800,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28634086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24107143" sideWeight="0.5190476" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760596" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -834,7 +808,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24053451" sideWeight="0.48095238" order="0" side_tool="false" content_ui="tabs" />
@@ -854,7 +827,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Duzo poprawek zwiazanych z refaktoringiem kodu - ale jeszcze wiecej zostalo.. :)" />
     <MESSAGE value="kolejne poprawki zwiazane z REFAKTORINGIEM + udalo sie zrobic zaznaczanie przeciwnikow." />
     <MESSAGE value="Dodanie baz i podstawowego gameplayu.&#10;Poprawienie wykrywania kolizji rectangle-circle.&#10;Dodanie kontrolera do wybierania celu.&#10;Dodanie podzialu na druzyny." />
     <MESSAGE value="Dodanie podstawowego wykrywania kolizji podczas poruszania sie przeciwnikow." />
@@ -879,7 +851,8 @@
     <MESSAGE value="Renderowanie na minimapie wygladu mapy wlasciwej - potrzebny bedzie refaktoring po osiagnieciu funkcjonalnosci.. &#10;&#10;Teraz tak pisze bo sprawdzam mozliwosci." />
     <MESSAGE value="Pierwsza wersja renderowania highgrounda na podstawie configow z JSONa.&#10;&#10;Do dodania jeszcze brushe wybierane z lewego menu.&#10;&#10;Brakuje troche grafik - wiec albo je dorobie - albo dodam logike do brusha dla rysowania highgrounda." />
     <MESSAGE value="Rozgrywka:&#10; - Dodanie warst wyswietlania,&#10; - Dodanie optymalizacji renderowania - renderuje sie tylko teren, ktory jest widoczny na ekranie (v1)&#10; - Dodanie wielu typow jednostek - neutralnych, team0 i team1&#10; &#10; Edytor:&#10; - Zaczytywanie jednostek z configa,&#10; - Zaczytywanie drzewka edytora z configa,&#10; - Dodanie configow jednostek, budynkow i obiektow&#10; &#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rozgrywka:&#10; - Dodanie warst wyswietlania,&#10; - Dodanie optymalizacji renderowania - renderuje sie tylko teren, ktory jest widoczny na ekranie (v1)&#10; - Dodanie wielu typow jednostek - neutralnych, team0 i team1&#10; &#10; Edytor:&#10; - Zaczytywanie jednostek z configa,&#10; - Zaczytywanie drzewka edytora z configa,&#10; - Dodanie configow jednostek, budynkow i obiektow&#10; &#10;" />
+    <MESSAGE value="Rozgrywka:&#10; - Dadanie menu wczytywania map,&#10; - Modyfikacja pliku wczytywania gry,&#10; - Poprawka w wyswietlaniu tilesow.&#10; &#10; Edytor:&#10;  - Mozliwosc exportowania mapy dla Gry," />
+    <option name="LAST_COMMIT_MESSAGE" value="Rozgrywka:&#10; - Dadanie menu wczytywania map,&#10; - Modyfikacja pliku wczytywania gry,&#10; - Poprawka w wyswietlaniu tilesow.&#10; &#10; Edytor:&#10;  - Mozliwosc exportowania mapy dla Gry," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1271,8 +1244,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83071345">
-          <caret line="388" column="6" selection-start-line="388" selection-start-column="6" selection-end-line="388" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.5259976">
+          <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
           <folding />
         </state>
       </provider>

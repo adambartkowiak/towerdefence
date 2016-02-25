@@ -76,10 +76,12 @@
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TargetListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TargetModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
 <script type="text/javascript" src="js/app/model/gui/MiniMapModel.js"></script>
 <script type="text/javascript" src="js/app/model/WorldModel.js"></script>
+<script type="text/javascript" src="js/app/model/ActionTypeModel.js"></script>
 <script type="text/javascript" src="js/app/view/AbstractWorldView.js"></script>
 
 <!-- Editor classes -->

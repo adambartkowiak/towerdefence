@@ -200,6 +200,89 @@ editor.controller.EditorMapController.prototype.onMouseEvent = function onMouseE
                 unit.setX(x);
                 unit.setY(y);
 
+                if (this._activeBrushhName === "unit1_team1") {
+
+                    ////unit1 build list
+                    var unit1BuildList = new app.model.ListModel();
+
+                    var unit1Bullet = new app.model.EntityModel();
+                    unit1Bullet.setRadius(10);
+                    unit1Bullet.setAttackDamage(10);
+                    unit1Bullet.setGroundSpeed(1000);
+                    unit1Bullet.setHp(1);
+                    unit1Bullet.setCurrentHp(1);
+                    unit1Bullet.setBuildTime(300);
+                    unit1Bullet.setGraphicUrl("assets/graphics/images/bullet0.png");
+                    unit1Bullet.setSelectable(false);
+                    unit1Bullet.setAttackRange(300);
+
+                    var unit1BulletMoveList = new app.model.ListModel();
+                    unit1BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 5, 0, app.model.ActionTypeModel.ATTACK));
+                    unit1Bullet.setMoveList(unit1BulletMoveList);
+
+
+                    unit1BuildList.addElement(unit1Bullet);
+                    unit.setBuildList(unit1BuildList);
+                } else if (this._activeBrushhName === "bulding1_team1"){
+
+
+                    //unit1
+                    var unit1 = new app.model.EntityModel();
+                    unit1.setTeam(1);
+                    unit1.setX(60);
+                    unit1.setY(200);
+                    unit1.setRadius(20);
+                    unit1.setGroundSpeed(120);
+                    unit1.setHp(100);
+                    unit1.setCurrentHp(100);
+                    unit1.setBuildTime(200);
+                    unit1.setSelectable(true);
+                    unit1.setTargetable(true);
+                    unit1.setGraphicUrl("assets/graphics/images/enemy0.png");
+
+                    //unit1 move list
+                    var unit1MoveList = new app.model.ListModel();
+                    unit1MoveList.addElement(new app.model.TargetModel(1500, 700, 5, 0, app.model.ActionTypeModel.MOVE_AND_AIM));
+                    unit1.setMoveList(unit1MoveList);
+
+                    //unit1 build list
+                    var unit1BuildList = new app.model.ListModel();
+
+                    var unit1Bullet = new app.model.EntityModel();
+                    unit1Bullet.setRadius(10);
+                    unit1Bullet.setAttackDamage(10);
+                    unit1Bullet.setGroundSpeed(800);
+                    unit1Bullet.setHp(1);
+                    unit1Bullet.setCurrentHp(1);
+                    unit1Bullet.setBuildTime(200);
+                    unit1Bullet.setGraphicUrl("assets/graphics/images/bullet0.png");
+                    unit1Bullet.setSelectable(false);
+                    unit1Bullet.setAttackRange(300);
+
+                    var unit1BulletMoveList = new app.model.ListModel();
+                    unit1BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 5, 0, app.model.ActionTypeModel.ATTACK));
+                    unit1Bullet.setMoveList(unit1BulletMoveList);
+
+
+                    unit1BuildList.addElement(unit1Bullet);
+                    unit1.setBuildList(unit1BuildList);
+
+                    //base1 build list
+                    var base1buildList = new app.model.ListModel();
+
+                    base1buildList.addElement(unit1);
+                    base1buildList.addElement(unit1);
+                    base1buildList.addElement(unit1);
+                    base1buildList.addElement(unit1);
+                    base1buildList.addElement(unit1);
+                    base1buildList.addElement(unit1);
+                    base1buildList.addElement(unit1);
+                    base1buildList.addElement(unit1);
+
+                    unit.setBuildList(base1buildList);
+
+                }
+
                 this._worldModel.getEntityListModel().addElement(unit);
             }
 

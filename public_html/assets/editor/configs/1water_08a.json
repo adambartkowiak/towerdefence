@@ -1,0 +1,15 @@
+{
+  "graphicPatternX": -1,
+  "graphicPatternY": -1,
+  "graphicWidthInTile": 2,
+  "graphicHeightInTile": 4,
+  "graphicPatternArray": [
+    [["_NONE_", "_NONE_", "_NONE_", "cobblestones"], ["_NONE_", "_NONE_", "cobblestones", "cobblestones"], ["_NONE_", "_NONE_", "cobblestones", "cobblestones"], ["_NONE_", "_NONE_", "cobblestones", "_NONE_"]],
+    [["_NONE_", "cobblestones", "_NONE_", "cobblestones"], ["cobblestones", "cobblestones", "cobblestones", "cobblestones"], ["cobblestones", "cobblestones", "cobblestones", "cobblestones"], ["cobblestones", "_NONE_", "cobblestones", "_NONE_"]],
+    [["_NONE_", "cobblestones", "_NONE_", "cobblestones"], ["cobblestones", "cobblestones", "cobblestones", "cobblestones"], ["cobblestones", "cobblestones", "cobblestones", "cobblestones"], ["cobblestones", "_NONE_", "cobblestones", "_NONE_"]],
+    [["_NONE_", "cobblestones", "_NONE_", "cobblestones"], ["cobblestones", "cobblestones", "cobblestones", "cobblestones"], ["water", "water", "water", "water"], ["water", "_NONE_", "water", "_NONE_"]],
+    [["_NONE_", "water", "_NONE_", "water"], ["water", "water", "water", "water"], ["water", "water", "water", "water"], ["water", "_NONE_", "water", "_NONE_"]],
+    [["_NONE_", "water", "_NONE_", "_NONE_"], ["water", "water", "_NONE_", "_NONE_"], ["water", "water", "_NONE_", "_NONE_"], ["water", "_NONE_", "_NONE_", "_NONE_"]]
+  ],
+  "collisionArray": [["0x0000", "0x0000"], ["0xFEC0", "0xFFC0"], ["0xFFFF", "0xFFFF"], ["0xFFFF", "0xFFFF"]]
+}

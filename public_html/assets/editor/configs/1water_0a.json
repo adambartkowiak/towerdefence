@@ -1,0 +1,12 @@
+{
+  "graphicPatternX": -1,
+  "graphicPatternY": -1,
+  "graphicWidthInTile": 1,
+  "graphicHeightInTile": 1,
+  "graphicPatternArray": [
+    [["_NONE_", "_NONE_", "_NONE_", "water"], ["_NONE_", "_NONE_", "water", "water"], ["_NONE_", "_NONE_", "water", "_NONE_"]],
+    [["_NONE_", "water", "_NONE_", "water"], ["water", "water", "water", "water"], ["water", "_NONE_", "water", "_NONE_"]],
+    [["_NONE_", "water", "_NONE_", "_NONE_"], ["water", "water", "_NONE_", "_NONE_"], ["water", "_NONE_", "_NONE_", "_NONE_"]]
+  ],
+  "collisionArray": [["0xFFFF"]]
+}

@@ -1,0 +1,13 @@
+{
+  "graphicPath": "assets/graphics/images/building1_team1.png",
+  "graphicOffsetX": 0,
+  "graphicOffsetY": 40,
+  "radius": 95,
+  "groundSpeed": 0,
+  "team": 1,
+  "mass": -1,
+  "hp": 1000,
+  "currentHp": 1000,
+  "selectable": true,
+  "targetable": true
+}

@@ -1,0 +1,12 @@
+{
+  "graphicPath": "assets/graphics/images/unit2_team1.png",
+  "graphicOffsetX": 0,
+  "graphicOffsetY": 0,
+  "radius": 20,
+  "groundSpeed": 80,
+  "team": 1,
+  "hp": 300,
+  "currentHp": 300,
+  "selectable": true,
+  "targetable": true
+}

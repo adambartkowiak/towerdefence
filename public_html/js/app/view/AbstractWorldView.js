@@ -164,7 +164,7 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
 
 
     //COLLISION MESH
-    if (true) {
+    if (false) {
         canvasContext.beginPath();
         canvasContext.strokeStyle = 'rgba(50,50,50,0.4)';
         canvasContext.fillStyle = 'rgba(255,0,0,0.4)';
@@ -204,7 +204,7 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
 
 
     //GRAPHIC MESH
-    if (true) {
+    if (false) {
 
         canvasContext.beginPath();
         canvasContext.strokeStyle = 'rgba(255,255,255,0.1)';
@@ -288,15 +288,21 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
         this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
 
         //SELECTED
-        if (entity._selected) {
+        if (entity._selected && entity.getTeam() === 1) {
             canvasContext.beginPath();
             canvasContext.strokeStyle = '#00FF00';
             canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
             canvasContext.stroke();
         }
+        else if (entity._selected) {
+            canvasContext.beginPath();
+            canvasContext.strokeStyle = '#FFFF90';
+            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+            canvasContext.stroke();
+        }
 
         //HEALTH BAR
-        if (false && entity.getHp() > 1) {
+        if (true && entity.getHp() > 1) {
             hp = entity.getHp();
             currentHp = entity.getCurrentHp();
 

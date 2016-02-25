@@ -1,0 +1,13 @@
+{
+  "graphicPatternX": -1,
+  "graphicPatternY": 0,
+  "graphicWidthInTile": 2,
+  "graphicHeightInTile": 2,
+  "graphicPatternArray": [
+    [["", "", "", ""], ["", "", "", ""], ["", "", "", ""]],
+    [["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["", "", "", ""]],
+    [["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["", "", "", ""]],
+    [["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["highground_cobblestones", "highground_cobblestones", "highground_cobblestones", "highground_cobblestones"], ["_NONE_", "_NONE_", "_NONE_", "_NONE_"]]
+  ],
+  "collisionArray": [["0x7300", "0x0000"], ["0x0008", "0x6311"]]
+}

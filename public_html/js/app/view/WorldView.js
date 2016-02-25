@@ -146,7 +146,7 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
 
                     element = this._worldModel.getEntityListModel().getElement(elementIndex);
 
-                    if (element.getSelected()) {
+                    if (element.getSelected() && element.getTeam() === 1) {
                         this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, app.model.ActionTypeModel.MOVE);
                     }
 

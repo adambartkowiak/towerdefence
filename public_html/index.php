@@ -37,11 +37,11 @@ and open the template in the editor.
 </script>
 
 
-<div style="margin:0 auto 0 auto;display:block;background:#111111;width:800px;height:800px;" id="gamediv">
-    <canvas id="map" style="position: absolute;" width="800" height="800"></canvas>
+<div style="margin:0 auto 0 auto;display:block;background:#111111;width:1200px;height:800px;" id="gamediv">
+    <canvas id="map" style="position: absolute;" width="1200" height="800"></canvas>
 
     <!-- Game Menu-->
-    <div id="gameMenu" style="position: absolute;width:800px; height:800px;background-color: rgba(0, 0, 0, 0.5);">
+    <div id="gameMenu" style="position: absolute;width:1200px; height:800px;background-color: rgba(0, 0, 0, 0.5);">
         <span style="text-align: center;">Select Map:</span>
         <?php
 

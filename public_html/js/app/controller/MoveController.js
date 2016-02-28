@@ -55,31 +55,48 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
     var collisionVector;
     var collisionVector2;
 
+    //console.log("app.controller.MoveController.prototype.update");
 
     /*
-    Wyznaczenie przesuniec
+     ROZPYCHANIE OBIEKTÓW JEZELI NA SIEBIE NACHODZA
      */
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
         element = this._list.getElement(elementIndex);
-
-        availableStep = element.getMoveList() && element.getMoveList().length() > 0;
-
-        //PRZEPYCHANIE PRZECIWNIKOW KTORZY SIE NIE PORUSZAJA
-        var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getCollisionRadius());
-        var c2 = new support.geom.Circle(0, 0, 0);
+        //availableStep = element.getMoveList() && element.getMoveList().length() > 0;
 
 
-        //ROZPYCHANIE OBIEKTOW JEZELI NACHODZA NA SIEBIE - w sumie to moze byc inny kontrolet
+
+        //jezeli element nie zmienił pozycji to nie sprawdza on czy wypycha inny obiekt -
+        //bo skoro nie zmienil pozycji to nie moze tego robic
+
+        //Ale moze pojawic sie nowy obiket - ktory poruszy ten obiekt.. a pojawienie sie obiektu to poiwnna byc zmiana pozycji! :)
+
+        //TO BY MOZNA ZROBIC UZYPIANIE OBIEKTOW ALE PO CZASIE!
+
+        if (element.isSleeping()) {
+            continue;
+        } else {
+            element.setX(element.getX());
+            element.setY(element.getY());
+        }
+
+        //jezeli element jest nieskonczenie ciezki - to nie sprawdzamy dla niego kolizji
+        //wtedy inne elementy sprawdzaja czy go nie dotykaja i jak tak to odbijaja/odpychaja sie od niego
+        //Z tego wynika ze obiekty nieskonczenie ciezkie nie koliduja ze soba
+        if (element.getMass() === -1) {
+            continue;
+        }
+
         if (this._conditionOne) {
             var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getCollisionRadius());
             var c2 = new support.geom.Circle(0, 0, 0);
 
-
-            //Pociski nie omijaja celow tylko leca przez nie !
-            if (element.getMoveList() === null || element.getMoveList().length() === 0 || element.getMoveList().length() > 0 && element.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK) {
+            //Pociski nie rozpychaja innych obiektów!
+            if (element.getMoveList() && element.getMoveList().length() > 0 && element.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK || element.getMoveList() && element.getMoveList().length() === 0) {
 
                 potentialCollisionLength = this._list.length();
+
                 for (potentialCollisionIndex = 0; potentialCollisionIndex < potentialCollisionLength; potentialCollisionIndex++) {
                     potentialCollisionElement = this._list.getElement(potentialCollisionIndex);
 
@@ -88,19 +105,9 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         continue;
                     }
 
-                    //nie przesuwamy obiektu o nieskonczonej masie
-                    if (potentialCollisionElement.getMass() === -1){
+                    if(potentialCollisionElement.getMoveList() && potentialCollisionElement.getMoveList().length() > 0 && potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK){
                         continue;
                     }
-
-
-                    //omijanie pociskow tez nie ma sensu
-                    if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() > 0 &&
-                        potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK) {
-
-                        continue;
-                    }
-
 
                     c2.setX(potentialCollisionElement.getX());
                     c2.setY(potentialCollisionElement.getY());
@@ -118,31 +125,47 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         var vY = potentialCollisionElement.getY();
 
 
-                        if (element.getMoveList() === null || element.getMoveList().length() === 0) {
+                        //if (element.getMoveList() === null || element.getMoveList().length() === 0) {
+                        //
+                        //    if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() > 0 &&
+                        //        potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK) {
+                        //
+                        //        console.log("Nie zmiania pozycji");
+                        //
+                        //        continue;
+                        //    } else {
+                        //        console.log("Rozpychanie");
+                        //    }
+                        //
+                        //}
 
-                            if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() > 0 &&
-                                potentialCollisionElement.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK) {
-                                continue;
-                            }
-
+                        //console.log(element.getId() + " " + potentialCollisionElement.getId());
+                        if (Math.abs(lengthVector) < 0.5){
+                            //console.log("continute - lengthVector < 0.5");
+                            continue;
+                        } else {
+                            //console.log("continute - lengthVector > 0.5");
                         }
 
-                        potentialCollisionElement.setX(vX + collisionVector.getNormalizedVector().getX() * lengthVector/2);
-                        potentialCollisionElement.setY(vY + collisionVector.getNormalizedVector().getY() * lengthVector/2);
+                        if (potentialCollisionElement.getMass() !== -1){
+                            potentialCollisionElement.setX(vX + collisionVector.getNormalizedVector().getX() * lengthVector / 2);
+                            potentialCollisionElement.setY(vY + collisionVector.getNormalizedVector().getY() * lengthVector / 2);
+                        }
+
+                        element.setX(element.getX() - collisionVector.getNormalizedVector().getX() * lengthVector / 2);
+                        element.setY(element.getY() - collisionVector.getNormalizedVector().getY() * lengthVector / 2);
+
 
                     }
+
                 }
             }
         }
+
     }
 
 
-
-
-
-
-    //OMIJANIE PRZECIWNIKOW NA HOLDZIE oraz w RUCHU
-
+    //PORUSZANIE OBIEKTOW + OMIJANIE PRZECIWNIKOW
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
         element = this._list.getElement(elementIndex);
@@ -260,8 +283,6 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         wag = Math.pow(wag, 4);
 
 
-
-
                         //Cosinus kata miedzy ektorem do celu, a kate przeciecia
                         var xA = normalizedMoveVector.getX();
                         var yA = normalizedMoveVector.getY();
@@ -296,14 +317,14 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
                         //console.log(wag);
 
-                        normalDirection.setX(xA*(1 - wag));
-                        normalDirection.setY(yA*(1 - wag));
+                        normalDirection.setX(xA * (1 - wag));
+                        normalDirection.setY(yA * (1 - wag));
 
                         specialDirection.setX(xB * wag);
                         specialDirection.setY(yB * wag);
 
-                        newMoveVector.setX(xA*(1 - wag) + xB * wag);
-                        newMoveVector.setY(yA*(1 - wag) + yB * wag);
+                        newMoveVector.setX(xA * (1 - wag) + xB * wag);
+                        newMoveVector.setY(yA * (1 - wag) + yB * wag);
 
                         //newMoveVector.setX(xA + xB);
                         //newMoveVector.setY(yA + yB);
@@ -312,8 +333,14 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         var cosA2 = xA * newMoveVector.getNormalizedVector().getX() + yA * newMoveVector.getNormalizedVector().getY();
 
 
-                        if (cosA2 > 1) {cosA2 = 1};
-                        if (cosA2 < -1) {cosA2 = -1};
+                        if (cosA2 > 1) {
+                            cosA2 = 1
+                        }
+                        ;
+                        if (cosA2 < -1) {
+                            cosA2 = -1
+                        }
+                        ;
 
 
                         //liczenie Kata w stopniach odchylenia
@@ -329,7 +356,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
 
                         //im mniejsze odchylenie tym mniej sie liczy bo mnozymy przez kat odchylenia
-                        if (!normalDirectionWasCounted){
+                        if (!normalDirectionWasCounted) {
                             //xC = xC * acos2/180;
                             //yC = yC * acos2/180;
                         } else {
@@ -350,7 +377,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
             }
 
 
-            if (totalMoveVector.getX() !== 0 || totalMoveVector.getY() !== 0){
+            if (totalMoveVector.getX() !== 0 || totalMoveVector.getY() !== 0) {
 
 
                 normalizedMoveVector.setX(totalMoveVector.getNormalizedVector().getX());
@@ -361,8 +388,6 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
             }
 
         }
-
-
 
 
         //obrot postaci

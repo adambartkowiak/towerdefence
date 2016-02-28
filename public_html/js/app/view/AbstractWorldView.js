@@ -48,6 +48,16 @@ app.view.AbstractWorldView = function AbstractWorldView(worldModel, x, y, width,
      */
     this._cameraModel = worldModel.getCameraModel();
 
+    /**
+     *
+     */
+    this._timeDeltaMemory = [];
+
+    /**
+     *
+     */
+    this._count = 0;
+
 };
 
 Utils.inherits(app.view.AbstractWorldView, support.view.AbstractView);
@@ -64,9 +74,12 @@ app.view.AbstractWorldView.prototype.draw = function draw(canvas) {
 
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
-    this._drawMap(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
-    this._drawEntities(canvasContext, this._worldModel.getEntityListModel(), this._worldModel.getCameraModel());
+    this._updateEnitityOnMapModel(canvasContext, this._worldModel.getEntityListModel(), this._worldModel.getMapModel(), this._worldModel.getCameraModel());
 
+    this._drawMap(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+    this._drawEntities(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+
+    this._count++;
 };
 
 
@@ -234,15 +247,39 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
  * @method _drawEntities
  * @private
  * @param {CanvasRenderingContext2D} canvasContext
- * @param {app.model.ListModel} entityListModel
+ * @param {app.model.MapModel} mapModel
  * @param {app.model.CameraModel} cameraModel
  */
-app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canvasContext, entityListModel, cameraModel) {
+app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canvasContext, mapModel, cameraModel) {
     var i,
         max,
         entity,
         hp,
         currentHp;
+
+    var tileIndexX,
+        tileIndexY,
+        tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth(),
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight(),
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapHeight() / tileGraphicHeight),
+
+        tileCollisionWidth = mapModel.getMapCollisionModel().getTileWidth(),
+        tileCollisionHeight = mapModel.getMapCollisionModel().getTileHeight(),
+        maxTileCollisionIndexX = Math.ceil(mapModel.getMapWidth() / tileCollisionWidth),
+        maxTileCollisionIndexY = Math.ceil(mapModel.getMapHeight() / tileCollisionHeight),
+
+        drawX,
+        drawY,
+        tileGraphic,
+
+        tileCollisionId,
+        titleGraphicArray = mapModel.getMapGraphicModel().getTileArray(),
+
+        tileGraphicsData,
+        tileImage,
+        layer = 0,
+        maxLayer = 2;
 
 
     /*
@@ -270,129 +307,392 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
     );
 
 
-    //-------------------
+    if (true) {
 
-    canvasContext.strokeStyle = '#000000';
-    canvasContext.lineWidth = 1;
+        canvasContext.strokeStyle = '#000000';
+        canvasContext.lineWidth = 1;
+
+        //RENDEROWANIE INTITY NA PODSTAWIE TILESOW MAPY
+        var starIndexX = parseInt(Math.max(0, cameraModel.getViewPortX() / tileGraphicWidth));
+        var startIndexY = parseInt(Math.max(0, cameraModel.getViewPortY() / tileGraphicHeight));
+        var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
+        var endIndexY = parseInt(Math.min(cameraModel.getViewPortY() / tileGraphicHeight + this.getHeight() / tileGraphicHeight + 2, maxTileGraphicIndexY));
+
+        for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
+            for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
+
+                tileGraphic = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+
+                if (tileGraphic && tileGraphic[100]) {
+
+                    for (var i = 0; i < tileGraphic[100].length; i++) {
+                        entity = tileGraphic[100][i];
+
+                        //IMAGE
+                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
+
+                        //SELECTED
+                        if (entity._selected && entity.getTeam() === 1) {
+                            canvasContext.beginPath();
+                            canvasContext.strokeStyle = '#00FF00';
+                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                            canvasContext.stroke();
+                        }
+                        else if (entity._selected) {
+                            canvasContext.beginPath();
+                            canvasContext.strokeStyle = '#FFFF90';
+                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                            canvasContext.stroke();
+                        }
+
+                        //SLEEPING
+                        if (true) {
+                            if (entity.isSleeping()) {
+                                canvasContext.beginPath();
+                                canvasContext.strokeStyle = '#AAAAAA';
+                                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                                canvasContext.stroke();
+                            }
+                            else {
+                                canvasContext.beginPath();
+                                canvasContext.strokeStyle = '#FFFFFF';
+                                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                                canvasContext.stroke();
+                            }
+                        }
 
 
-    /*
-     renderowanie juz posortowanych obiektów
-     */
+                        //HEALTH BAR
+                        if (false && entity.getHp() > 1) {
+                            hp = entity.getHp();
+                            currentHp = entity.getCurrentHp();
 
-    max = entityListModel.length();
-    for (i = 0; i < max; i++) {
-        entity = entityListModel.getElement(i);
+                            canvasContext.fillStyle = '#474747';
+                            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10 + currentHp / 5, entity.getY() - cameraModel.getViewPortY() - 20, (hp - currentHp) / 5, 3);
 
-        //IMAGE
-        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
+                            canvasContext.fillStyle = '#00FF00';
+                            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, currentHp / 5, 3);
 
-        //SELECTED
-        if (entity._selected && entity.getTeam() === 1) {
-            canvasContext.beginPath();
-            canvasContext.strokeStyle = '#00FF00';
-            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-            canvasContext.stroke();
-        }
-        else if (entity._selected) {
-            canvasContext.beginPath();
-            canvasContext.strokeStyle = '#FFFF90';
-            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-            canvasContext.stroke();
-        }
+                            ////drawRect
+                            canvasContext.beginPath();
+                            canvasContext.strokeStyle = '#000000';
+                            canvasContext.rect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, hp / 5, 3);
 
-        //HEALTH BAR
-        if (true && entity.getHp() > 1) {
-            hp = entity.getHp();
-            currentHp = entity.getCurrentHp();
+                            canvasContext.lineWidth = 1;
+                            canvasContext.stroke();
+                        }
 
-            canvasContext.fillStyle = '#474747';
-            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10 + currentHp / 5, entity.getY() - cameraModel.getViewPortY() - 20, (hp - currentHp) / 5, 3);
+                        //PATH
+                        if (true && entity.getSelected()) {
 
-            canvasContext.fillStyle = '#00FF00';
-            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, currentHp / 5, 3);
+                            var moveList = entity.getMoveList();
 
-            ////drawRect
-            canvasContext.beginPath();
-            canvasContext.strokeStyle = '#000000';
-            canvasContext.rect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, hp / 5, 3);
+                            if (moveList != null) {
 
-            canvasContext.lineWidth = 1;
-            canvasContext.stroke();
-        }
+                                canvasContext.beginPath();
 
-        //PATH
-        if (true && entity.getSelected()) {
+                                var moveToX = entity.getX(),
+                                    moveToY = entity.getY();
 
-            var moveList = entity.getMoveList();
+                                canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
 
-            if (moveList != null) {
+                                canvasContext.strokeStyle = '#00FF00';
+                                canvasContext.fillStyle = '#00FF00';
 
-                canvasContext.beginPath();
+                                for (var j = 0; j < moveList.length(); j++) {
 
-                var moveToX = entity.getX(),
-                    moveToY = entity.getY();
+                                    moveToX = moveList.getElement(j).getX();
+                                    moveToY = moveList.getElement(j).getY();
 
-                canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                                    if (moveList.getElement(j).getEntityId() === 0 && moveToX !== -1 && moveToX !== -1) {
+                                        canvasContext.lineTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                                    }
 
-                canvasContext.strokeStyle = '#00FF00';
-                canvasContext.fillStyle = '#00FF00';
+                                }
 
-                for (var j = 0; j < moveList.length(); j++) {
+                                canvasContext.strokeStyle = '#00FF00';
+                                canvasContext.lineWidth = 1;
+                                canvasContext.stroke();
 
-                    moveToX = moveList.getElement(j).getX();
-                    moveToY = moveList.getElement(j).getY();
+                            }
 
-                    if (moveList.getElement(j).getEntityId() === 0 && moveToX !== -1 && moveToX !== -1) {
-                        canvasContext.lineTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                        }
+
+                        //DEBUG LINES
+                        if (false) {
+                            canvasContext.beginPath();
+                            canvasContext.strokeStyle = '#FF0000';
+                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                            canvasContext.stroke();
+                        }
+
+                        if (false) {
+                            canvasContext.beginPath();
+                            canvasContext.strokeStyle = '#00bfff';
+                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
+                            canvasContext.stroke();
+
+                            canvasContext.beginPath();
+                            canvasContext.strokeStyle = '#FF0000';
+                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
+                            canvasContext.stroke();
+
+                            var moveToX = entity.getX(),
+                                moveToY = entity.getY(),
+                                moveVectorX = entity.getLastPosition().getX(),
+                                moveVectorY = entity.getLastPosition().getY();
+
+                            canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                            canvasContext.lineTo(moveVectorX - cameraModel.getViewPortX(), moveVectorY - cameraModel.getViewPortY());
+
+                            canvasContext.fillStyle = '#FFFFFF';
+                            canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
+                            canvasContext.stroke();
+                        }
+
                     }
+                }
+            }
+        }
+    }
+
+    //STARA METODA RENDERUJACA
+    else {
+
+        canvasContext.strokeStyle = '#000000';
+        canvasContext.lineWidth = 1;
+
+
+        /*
+         renderowanie juz posortowanych obiektów
+         */
+
+        max = entityListModel.length();
+        for (i = 0; i < max; i++) {
+            entity = entityListModel.getElement(i);
+
+            //IMAGE
+            this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
+
+            //SELECTED
+            if (entity._selected && entity.getTeam() === 1) {
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#00FF00';
+                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.stroke();
+            }
+            else if (entity._selected) {
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#FFFF90';
+                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.stroke();
+            }
+
+            //SLEEPING
+            if (false) {
+                if (entity.isSleeping()) {
+                    canvasContext.beginPath();
+                    canvasContext.strokeStyle = '#AAAAAA';
+                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                    canvasContext.stroke();
+                }
+                else {
+                    canvasContext.beginPath();
+                    canvasContext.strokeStyle = '#FFFFFF';
+                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                    canvasContext.stroke();
+                }
+            }
+
+
+            //HEALTH BAR
+            if (false && entity.getHp() > 1) {
+                hp = entity.getHp();
+                currentHp = entity.getCurrentHp();
+
+                canvasContext.fillStyle = '#474747';
+                canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10 + currentHp / 5, entity.getY() - cameraModel.getViewPortY() - 20, (hp - currentHp) / 5, 3);
+
+                canvasContext.fillStyle = '#00FF00';
+                canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, currentHp / 5, 3);
+
+                ////drawRect
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#000000';
+                canvasContext.rect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, hp / 5, 3);
+
+                canvasContext.lineWidth = 1;
+                canvasContext.stroke();
+            }
+
+            //PATH
+            if (true && entity.getSelected()) {
+
+                var moveList = entity.getMoveList();
+
+                if (moveList != null) {
+
+                    canvasContext.beginPath();
+
+                    var moveToX = entity.getX(),
+                        moveToY = entity.getY();
+
+                    canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+
+                    canvasContext.strokeStyle = '#00FF00';
+                    canvasContext.fillStyle = '#00FF00';
+
+                    for (var j = 0; j < moveList.length(); j++) {
+
+                        moveToX = moveList.getElement(j).getX();
+                        moveToY = moveList.getElement(j).getY();
+
+                        if (moveList.getElement(j).getEntityId() === 0 && moveToX !== -1 && moveToX !== -1) {
+                            canvasContext.lineTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                        }
+
+                    }
+
+                    canvasContext.strokeStyle = '#00FF00';
+                    canvasContext.lineWidth = 1;
+                    canvasContext.stroke();
 
                 }
 
-                canvasContext.strokeStyle = '#00FF00';
-                canvasContext.lineWidth = 1;
+            }
+
+            //DEBUG LINES
+            if (false) {
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#FF0000';
+                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.stroke();
+            }
+
+            if (false) {
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#00bfff';
+                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
 
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#FF0000';
+                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
+                canvasContext.stroke();
+
+                var moveToX = entity.getX(),
+                    moveToY = entity.getY(),
+                    moveVectorX = entity.getLastPosition().getX(),
+                    moveVectorY = entity.getLastPosition().getY();
+
+                canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                canvasContext.lineTo(moveVectorX - cameraModel.getViewPortX(), moveVectorY - cameraModel.getViewPortY());
+
+                canvasContext.fillStyle = '#FFFFFF';
+                canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
+                canvasContext.stroke();
             }
 
         }
+    }
 
-        //DEBUG LINES
-        if (false) {
-            canvasContext.beginPath();
-            canvasContext.strokeStyle = '#FF0000';
-            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-            canvasContext.stroke();
-        }
 
-        if (false) {
-            canvasContext.beginPath();
-            canvasContext.strokeStyle = '#00bfff';
-            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
-            canvasContext.stroke();
+    canvasContext.fillStyle = '#FFFFFF';
+    if (timer) {
+        canvasContext.fillText("FPS: " + Math.round(1000 / timer.getDelta()), 5, 120);
+        canvasContext.fillText("DELTA: " + Math.round(timer.getDelta()), 5, 140);
+        this._timeDeltaMemory.splice(0, 0, timer.getDelta());
+        this._timeDeltaMemory = this._timeDeltaMemory.splice(0, 100);
+    }
+    canvasContext.fillText("ENTITY COUNT: " + max, 5, 160);
 
-            canvasContext.beginPath();
-            canvasContext.strokeStyle = '#FF0000';
-            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
-            canvasContext.stroke();
 
-            var moveToX = entity.getX(),
-                moveToY = entity.getY(),
-                moveVectorX = entity.getLastPosition().getX(),
-                moveVectorY = entity.getLastPosition().getY();
+    canvasContext.fillStyle = '#333333';
+    canvasContext.fillRect(0, 0, 100, 100);
 
-            canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
-            canvasContext.lineTo(moveVectorX - cameraModel.getViewPortX(), moveVectorY - cameraModel.getViewPortY());
+    canvasContext.strokeStyle = '#FF0000';
 
-            canvasContext.fillStyle = '#FFFFFF';
-            canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
-            canvasContext.stroke();
-        }
+
+    var avarageDelat = 0;
+    var avarageFps = 0;
+    for (var deltaItem = 0; deltaItem < this._timeDeltaMemory.length; deltaItem++) {
+        canvasContext.beginPath();
+        canvasContext.moveTo(deltaItem, 100);
+        canvasContext.lineTo(deltaItem, 100-(this._timeDeltaMemory[deltaItem])/2);
+        canvasContext.stroke();
+
+        avarageFps = avarageDelat += this._timeDeltaMemory[deltaItem];
 
     }
 
+    avarageDelat = Math.round(avarageDelat/this._timeDeltaMemory.length);
+    avarageFps = Math.round(1000/(avarageFps/this._timeDeltaMemory.length));
+
     canvasContext.fillStyle = '#FFFFFF';
-    //canvasContext.fillText("FPS: " + Math.round(1000/timer.getDelta()), 5, 20);
-    canvasContext.fillText("ENTITY COUNT: " + max, 5, 40);
+    canvasContext.fillText("avarageDelta: " + avarageDelat, 5, 200);
+
+    canvasContext.fillStyle = '#FFFFFF';
+    canvasContext.fillText("avarageFps: " + avarageFps, 5, 220);
+
+};
+
+/**
+ * @method _updateEnittyOnMapModel
+ * @private
+ * @param {CanvasRenderingContext2D} canvasContext
+ * @param {app.model.ListModel} entityListModel
+ * @param {app.model.MapModel} mapModel
+ * @param {app.model.CameraModel} cameraModel
+ */
+app.view.AbstractWorldView.prototype._updateEnitityOnMapModel = function _updateEnitityOnMapModel(canvasContext, entityListModel, mapModel, cameraModel){
+
+    var layer = 0,
+        tileIndexX,
+        tileIndexY,
+        tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth(),
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight(),
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight),
+        tile,
+        max,
+        entity,
+        targetTileX,
+        targetTileY;
+
+    //Entity layer = 100
+    for (tileIndexY = 0; tileIndexY < maxTileGraphicIndexY; tileIndexY++) {
+        for (tileIndexX = 0; tileIndexX < maxTileGraphicIndexX; tileIndexX++) {
+
+            tile = mapModel.getMapGraphicModel()._tileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer];
+
+            var rootTile = [];
+
+            if (mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] === undefined) {
+                mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] = [];
+            }
+
+            mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][100] = rootTile;
+
+        }
+    }
+
+    max = entityListModel.length();
+    for (var i = 0; i < max; i++) {
+        entity = entityListModel.getElement(i);
+
+        targetTileX = Math.round(entity.getX()/tileGraphicWidth);
+        targetTileY = Math.round(entity.getY()/tileGraphicHeight);
+
+        //tile X Y
+        targetTileX = Math.max(targetTileX, 0);
+        targetTileY = Math.max(targetTileY, 0);
+
+        //tile X Y
+        targetTileX = Math.min(targetTileX, maxTileGraphicIndexX-1);
+        targetTileY = Math.min(targetTileY, maxTileGraphicIndexY-1);
+
+        //Dokladanie entity do tabeli
+        mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * targetTileX + targetTileY][100].push(entity);
+    }
 
 };

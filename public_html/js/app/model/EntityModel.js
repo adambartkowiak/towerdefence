@@ -195,6 +195,16 @@ app.model.EntityModel = function EntityModel() {
      */
     this._graphicOffset = new support.geom.Point2d(0, 0);
 
+    /**
+     * @property {Boolean} _isSleepingX
+     * @private
+     */
+    this._isSleepingX = false;
+    /**
+     * @property {Boolean} _isSleepingY
+     * @private
+     */
+    this._isSleepingY = false;
 
 };
 
@@ -231,6 +241,7 @@ app.model.EntityModel.prototype.setTeam = function setTeam(value) {
 app.model.EntityModel.prototype.setStartValueX = function setStartValueX(value) {
     this._circle.setX(value);
     this._lastPosition.setX(value);
+    this._isSleepingX = false;
 };
 
 /**
@@ -240,6 +251,7 @@ app.model.EntityModel.prototype.setStartValueX = function setStartValueX(value) 
 app.model.EntityModel.prototype.setStartValueY = function setStartValueY(value) {
     this._circle.setY(value);
     this._lastPosition.setY(value);
+    this._isSleepingY = false;
 };
 
 /**
@@ -249,6 +261,12 @@ app.model.EntityModel.prototype.setStartValueY = function setStartValueY(value) 
 app.model.EntityModel.prototype.setX = function setX(value) {
     this._lastPosition.setX(this._circle.getX());
     this._circle.setX(value);
+
+    if (this._lastPosition.getX() === this._circle.getX()){
+        this._isSleepingX = true;
+    } else {
+        this._isSleepingX = false;
+    }
 
     if (isNaN(value)) {
         console.log("app.model.EntityModel.prototype.setX: " + NaN);
@@ -262,6 +280,12 @@ app.model.EntityModel.prototype.setX = function setX(value) {
 app.model.EntityModel.prototype.setY = function setY(value) {
     this._lastPosition.setY(this._circle.getY());
     this._circle.setY(value);
+
+    if (this._lastPosition.getY() === this._circle.getY()){
+        this._isSleepingY = true;
+    } else {
+        this._isSleepingY = false;
+    }
 
     if (isNaN(value)) {
         console.log("app.model.EntityModel.prototype.setY: " + NaN);
@@ -713,6 +737,14 @@ app.model.EntityModel.prototype.getColorOnMinimap = function getColorOnMinimap()
  */
 app.model.EntityModel.prototype.isVisibleOnMinimap = function isVisibleOnMinimap() {
     return true;
+};
+
+/**
+ * @method isSleeping
+ * @return {boolean}
+ */
+app.model.EntityModel.prototype.isSleeping = function isSleeping() {
+    return this._isSleepingX && this._isSleepingY;
 };
 
 

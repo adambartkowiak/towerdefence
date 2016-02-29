@@ -7,6 +7,8 @@
 var app = app || {};
 app.view = app.view || {};
 
+var timer = timer || null;
+
 /**
  * @namespace app.view
  * @class AbstractWorldView
@@ -58,6 +60,9 @@ app.view.AbstractWorldView = function AbstractWorldView(worldModel, x, y, width,
      */
     this._count = 0;
 
+
+    this._optymalizationOne = true;
+
 };
 
 Utils.inherits(app.view.AbstractWorldView, support.view.AbstractView);
@@ -74,6 +79,7 @@ app.view.AbstractWorldView.prototype.draw = function draw(canvas) {
 
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
+    //To mozna zaoptymalizowac - aby podczas poruszania obiekty przypisywaly sie do tilesow, a nie w czasie petli renderowania
     this._updateEnitityOnMapModel(canvasContext, this._worldModel.getEntityListModel(), this._worldModel.getMapModel(), this._worldModel.getCameraModel());
 
     this._drawMap(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
@@ -307,7 +313,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
     );
 
 
-    if (true) {
+    if (this._optymalizationOne) {
 
         canvasContext.strokeStyle = '#000000';
         canvasContext.lineWidth = 1;
@@ -489,7 +495,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             }
 
             //SLEEPING
-            if (false) {
+            if (true) {
                 if (entity.isSleeping()) {
                     canvasContext.beginPath();
                     canvasContext.strokeStyle = '#AAAAAA';
@@ -604,7 +610,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
         this._timeDeltaMemory.splice(0, 0, timer.getDelta());
         this._timeDeltaMemory = this._timeDeltaMemory.splice(0, 100);
     }
-    canvasContext.fillText("ENTITY COUNT: " + max, 5, 160);
+    canvasContext.fillText("ENTITY COUNT: " + entityListModel.length(), 5, 160);
 
 
     canvasContext.fillStyle = '#333333';

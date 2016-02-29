@@ -455,7 +455,7 @@ var logicFunction = function () {
      poruszanie jednostkami
      poruszanie pociskami
      */
-    moveController.update(timer.getDelta());
+    moveController.update(timer.getDelta(), worldModel.getMapModel());
 
 
     //WYKRYWANIE KOLIZJI

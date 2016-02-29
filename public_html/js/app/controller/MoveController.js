@@ -25,7 +25,12 @@ app.controller.MoveController = function MoveController(entityListModel) {
     this._list = entityListModel;
 
 
+    this._collisionTree = null;
+
     this._conditionOne = true;
+
+    this._optymalizationOne = true;
+    this._optymalizationTwo = true;
 
 };
 
@@ -34,8 +39,9 @@ Utils.inherits(app.controller.MoveController, Object);
 /**
  * @method update
  * @param {Number} timeDelta
+ * @param {app.model.MapModel} mapModel
  */
-app.controller.MoveController.prototype.update = function update(timeDelta) {
+app.controller.MoveController.prototype.update = function update(timeDelta, mapModel) {
 
     var listLength = this._list.length();
     var elementIndex;
@@ -48,6 +54,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
     var nextStepY;
     var normalizedMoveVector;
 
+    var potentialCollisionList;
     var potentialCollisionElement;
     var potentialCollisionIndex;
     var potentialCollisionLength;
@@ -55,7 +62,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
     var collisionVector;
     var collisionVector2;
 
-    //console.log("app.controller.MoveController.prototype.update");
+    this.prepareObjectsGroups(mapModel);
 
     /*
      ROZPYCHANIE OBIEKTÓW JEZELI NA SIEBIE NACHODZA
@@ -66,7 +73,6 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
         //availableStep = element.getMoveList() && element.getMoveList().length() > 0;
 
 
-
         //jezeli element nie zmienił pozycji to nie sprawdza on czy wypycha inny obiekt -
         //bo skoro nie zmienil pozycji to nie moze tego robic
 
@@ -74,7 +80,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
 
         //TO BY MOZNA ZROBIC UZYPIANIE OBIEKTOW ALE PO CZASIE!
 
-        if (element.isSleeping()) {
+        if (this._optymalizationTwo && element.isSleeping()) {
             continue;
         } else {
             element.setX(element.getX());
@@ -95,17 +101,28 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
             //Pociski nie rozpychaja innych obiektów!
             if (element.getMoveList() && element.getMoveList().length() > 0 && element.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK || element.getMoveList() && element.getMoveList().length() === 0) {
 
-                potentialCollisionLength = this._list.length();
+                if (this._optymalizationOne){
+                    potentialCollisionList = this.getCollisionArrayByEntityElement(element, mapModel);
+                    potentialCollisionLength = potentialCollisionList.length;
+                } else {
+                    potentialCollisionList = this._list;
+                    potentialCollisionLength = potentialCollisionList.length();
+                }
 
                 for (potentialCollisionIndex = 0; potentialCollisionIndex < potentialCollisionLength; potentialCollisionIndex++) {
-                    potentialCollisionElement = this._list.getElement(potentialCollisionIndex);
+
+                    if (this._optymalizationOne){
+                        potentialCollisionElement = potentialCollisionList[potentialCollisionIndex];
+                    } else {
+                        potentialCollisionElement = potentialCollisionList.getElement(potentialCollisionIndex);
+                    }
 
                     //samego ze soba nie sprawdzam kolizji bo to bez sensu :)
                     if (element === potentialCollisionElement) {
                         continue;
                     }
 
-                    if(potentialCollisionElement.getMoveList() && potentialCollisionElement.getMoveList().length() > 0 && potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK){
+                    if (potentialCollisionElement.getMoveList() && potentialCollisionElement.getMoveList().length() > 0 && potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK) {
                         continue;
                     }
 
@@ -125,35 +142,21 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
                         var vY = potentialCollisionElement.getY();
 
 
-                        //if (element.getMoveList() === null || element.getMoveList().length() === 0) {
-                        //
-                        //    if (potentialCollisionElement.getMoveList() !== null && potentialCollisionElement.getMoveList().length() > 0 &&
-                        //        potentialCollisionElement.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK) {
-                        //
-                        //        console.log("Nie zmiania pozycji");
-                        //
-                        //        continue;
-                        //    } else {
-                        //        console.log("Rozpychanie");
-                        //    }
-                        //
-                        //}
-
                         //console.log(element.getId() + " " + potentialCollisionElement.getId());
-                        if (Math.abs(lengthVector) < 0.5){
+                        if (Math.abs(lengthVector) < 0.5) {
                             //console.log("continute - lengthVector < 0.5");
                             continue;
                         } else {
                             //console.log("continute - lengthVector > 0.5");
                         }
 
-                        if (potentialCollisionElement.getMass() !== -1){
-                            potentialCollisionElement.setX(vX + collisionVector.getNormalizedVector().getX() * lengthVector / 2);
-                            potentialCollisionElement.setY(vY + collisionVector.getNormalizedVector().getY() * lengthVector / 2);
+                        if (potentialCollisionElement.getMass() !== -1) {
+                            potentialCollisionElement.setX(vX + collisionVector.getNormalizedVector().getX() * lengthVector / 4);
+                            potentialCollisionElement.setY(vY + collisionVector.getNormalizedVector().getY() * lengthVector / 4);
                         }
 
-                        element.setX(element.getX() - collisionVector.getNormalizedVector().getX() * lengthVector / 2);
-                        element.setY(element.getY() - collisionVector.getNormalizedVector().getY() * lengthVector / 2);
+                        element.setX(element.getX() - collisionVector.getNormalizedVector().getX() * lengthVector / 4);
+                        element.setY(element.getY() - collisionVector.getNormalizedVector().getY() * lengthVector / 4);
 
 
                     }
@@ -399,5 +402,84 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
         element.setY(element.getY() + normalizedMoveVector.getY() * timeDelta / 1000 * element.getGroundSpeed());
 
     }
+
+};
+
+
+/**
+ * @method prepareObjectsGroups
+ * @param {app.model.MapModel} mapModel
+ */
+app.controller.MoveController.prototype.prepareObjectsGroups = function prepareObjectsGroups(mapModel) {
+
+    var listLength = this._list.length(),
+        elementIndex,
+        element,
+        elementX = 0,
+        elementY = 0,
+        elementRadius = 0,
+        tileIndexX = 0,
+        tileIndexY = 0,
+        startTileIndexX = 0,
+        startTileIndexY = 0,
+        endTileIndexX = 0,
+        endTileIndexY = 0,
+        tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth(),
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight(),
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight);
+
+
+    this._collisionTree = [];
+
+    for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+        element = this._list.getElement(elementIndex);
+
+        elementX = element.getX();
+        elementY = element.getY();
+        elementRadius = element.getRadius();
+
+        //startIndex
+        startTileIndexX = Math.round((elementX - elementRadius) / tileGraphicWidth);
+        startTileIndexY = Math.round((elementY - elementRadius) / tileGraphicHeight);
+
+        //endIndex
+        endTileIndexX = Math.round((elementX + elementRadius) / tileGraphicWidth);
+        endTileIndexY = Math.round((elementY + elementRadius) / tileGraphicHeight);
+
+
+        for (tileIndexX = startTileIndexX; tileIndexX <= endTileIndexX; tileIndexX++){
+            for (tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++){
+
+                if (this._collisionTree[maxTileGraphicIndexY * tileIndexX + tileIndexY] === undefined) {
+                    this._collisionTree[maxTileGraphicIndexY * tileIndexX + tileIndexY] = [];
+                }
+
+                this._collisionTree[maxTileGraphicIndexY * tileIndexX + tileIndexY].push(element);
+
+            }
+        }
+
+
+    }
+
+};
+
+
+/**
+ * @method getCollisionArrayByEntityElement
+ * @param {app.model.MapModel} mapModel
+ */
+app.controller.MoveController.prototype.getCollisionArrayByEntityElement = function getCollisionArrayByEntityElement(element, mapModel) {
+
+    var tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth(),
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight(),
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight),
+        tileIndexX = Math.round(element.getX() / tileGraphicWidth),
+        tileIndexY = Math.round(element.getY() / tileGraphicHeight);
+
+    return this._collisionTree[maxTileGraphicIndexY * tileIndexX + tileIndexY];
 
 };

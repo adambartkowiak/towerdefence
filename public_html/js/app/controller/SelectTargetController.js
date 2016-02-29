@@ -34,6 +34,8 @@ Utils.inherits(app.controller.SelectTargetController, Object);
  */
 app.controller.SelectTargetController.prototype.update = function update(timeDelta) {
 
+    return;
+
     var listLength = this._list.length();
     var elementIndex;
     var element;

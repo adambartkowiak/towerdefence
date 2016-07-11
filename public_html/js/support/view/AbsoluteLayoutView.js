@@ -36,11 +36,6 @@ Utils.inherits(support.view.AbsoluteLayoutView, support.view.AbstractViewGroup);
  */
 support.view.AbsoluteLayoutView.prototype.draw = function draw(canvas){
 
-    var canvasContext = canvas.getContext("2d");
-    
-    //Rysowanie backgrounda widoku
-    canvasContext.fillStyle = this.getBackgroundColor();
-    canvasContext.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
-
     support.view.AbstractViewGroup.prototype.draw.call(this, canvas);
+
 };

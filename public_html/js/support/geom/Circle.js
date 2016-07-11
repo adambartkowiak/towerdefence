@@ -117,7 +117,7 @@ support.geom.Circle.prototype.getMinifyJSON = function getMinifyJSON(){
         1:this._x,
         2:this._y,
         3:this._radius
-    }
+    };
     return result;
 };
 

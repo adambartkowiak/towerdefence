@@ -47,6 +47,9 @@ support.view.AbstractViewGroup.prototype.addView = function addView(abstractView
  * @param {HTMLCanvasElement} canvas
  */
 support.view.AbstractViewGroup.prototype.draw = function draw(canvas){
+
+    support.view.AbstractView.prototype.draw.call(this, canvas);
+
     var index,
         length = this._views.length,
         view;

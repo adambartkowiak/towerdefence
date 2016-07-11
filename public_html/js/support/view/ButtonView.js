@@ -37,6 +37,12 @@ support.view.ButtonView = function ButtonView(x, y, width, height) {
      */
     this._text = "";
 
+    /**
+     * @property {Image} _image
+     * @private
+     */
+    this._image = null;
+
 };
 
 Utils.inherits(support.view.ButtonView, support.view.AbstractView);
@@ -48,31 +54,38 @@ Utils.inherits(support.view.ButtonView, support.view.AbstractView);
  */
 support.view.ButtonView.prototype.draw = function draw(canvas){
 
-    var parentX = 0, 
-        parentY = 0;
-    
-    if (this.getParentViewGroup() !== null){
-        parentX = this.getParentViewGroup().getX();
-        parentY = this.getParentViewGroup().getY();
-    }
+    support.view.AbstractView.prototype.draw.call(this, canvas);
 
     var canvasContext = canvas.getContext("2d");
-    
+
+    if (this._image){
+        canvasContext.drawImage(this._image, this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
+    }
+
+    canvasContext.textAlign="center";
+
     if (this._active){
         //Rysowanie backgrounda widoku
+        //canvasContext.globalAlpha = 0.2;
         canvasContext.fillStyle = this.getBackgroundColor();
-        canvasContext.fillRect(parentX + this.getX(), parentY + this.getY(), this.getWidth(), this.getHeight());
-        
+        canvasContext.fillRect(this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
+
+        //canvasContext.globalAlpha = 1;
         canvasContext.fillStyle = '#FFFFFF';
-        canvasContext.fillText(this._text, parentX + this.getX(), parentY + this.getY());
+        canvasContext.fillText(this._text, this.getRelativeX() + this.getWidth()/2, this.getRelativeY() + this.getHeight()-4);
     } else {
         //Rysowanie backgrounda widoku
+        //canvasContext.globalAlpha = 0.2;
         canvasContext.fillStyle = this.getBackgroundColor();
-        canvasContext.fillRect(parentX + this.getX(), parentY + this.getY(), this.getWidth(), this.getHeight());
-        
+        canvasContext.fillRect(this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
+
+        //canvasContext.globalAlpha = 1;
         canvasContext.fillStyle = '#FFFFFF';
-        canvasContext.fillText(this._text, parentX + this.getX(), parentY + this.getY());
+        canvasContext.fillText(this._text, this.getRelativeX() + this.getWidth()/2, this.getRelativeY() + this.getHeight()-4);
     }
+
+
+    canvasContext.textAlign="start";
     
 };
 
@@ -105,11 +118,11 @@ support.view.ButtonView.prototype.onMouseEvent = function onMouseEvent(mouseEven
     var result = support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
-        this._backgroundColor = "#0000FF";
+        this._backgroundColor = "rgba(255, 255, 255, 0.3)";
 //        console.log("support.MouseEventType.MOUSE_DOWN");
     }
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_ENTER){
-        this._backgroundColor = "#00FF00";
+        this._backgroundColor = "rgba(255, 255, 255, 0.1)";
 //        console.log("support.MouseEventType.MOUSE_ENTER");
     }
     
@@ -126,12 +139,12 @@ support.view.ButtonView.prototype.onMouseEvent = function onMouseEvent(mouseEven
     }
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_UP){
-        this._backgroundColor = "#FFFF00";
-//        console.log("support.MouseEventType.MOUSE_UP");
+        this._backgroundColor = "rgba(255, 255, 255, 0.0)";
+        //console.log("support.MouseEventType.MOUSE_UP");
     }
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_LEAVE){
-        this._backgroundColor = "#FF0000";
+        this._backgroundColor = "rgba(255, 255, 255, 0.0)";
 //        console.log("support.MouseEventType.MOUSE_LEAVE");
     }
     

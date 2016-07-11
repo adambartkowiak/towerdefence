@@ -74,7 +74,7 @@ support.geom.Point2d.prototype.getMinifyJSON = function getMinifyJSON(){
     var result = {
         1:this._x,
         2:this._y
-    }
+    };
     return result;
 };
 

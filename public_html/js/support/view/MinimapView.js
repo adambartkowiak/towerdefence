@@ -326,6 +326,8 @@ support.view.MinimapView.prototype._getViewPortHeight = function _getViewPortHei
  */
 support.view.MinimapView.prototype.draw = function draw(canvas) {
 
+    support.view.AbstractView.prototype.draw.call(this, canvas);
+
     var canvasContext = canvas.getContext("2d");
 
     var miniMapPositionX = this.getX(),
@@ -345,13 +347,9 @@ support.view.MinimapView.prototype.draw = function draw(canvas) {
         elementIndexMax = this._elements.length,
         elementSizeOnMinimap;
 
-    //Rysowanie backgrounda miniMapy
-    canvasContext.fillStyle = this.getBackgroundColor();
-    canvasContext.fillRect(miniMapPositionX, miniMapPositionY, miniMapWidth, miniMapHeight);
-
     //Rysowanie mapy na minimapie
-    canvasContext.fillStyle = this.getMapColor();
-    canvasContext.fillRect(miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap, Math.round(mapWidthOnMinimap), Math.round(mapHeightOnMinimap));
+    //canvasContext.fillStyle = this.getMapColor();
+    //canvasContext.fillRect(miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap, Math.round(mapWidthOnMinimap), Math.round(mapHeightOnMinimap));
 
     //Rysowanie backgroundu Widoku
     if (this.getMapImage()){
@@ -441,10 +439,10 @@ support.view.MinimapView.prototype.onMouseEvent = function onMouseEvent(mouseEve
 //                        if (!this._isShiftPressed) {
                         element.getMoveList().clear();
 //                        }
-                    element.getMoveList().addElement(new app.model.TargetModel(destPositionX, destPositionY, 5, 0, app.model.ActionTypeModel.MOVE));
+                    element.getMoveList().addElement(new app.model.TaskModel(destPositionX, destPositionY, 5, 0, app.enum.TaskEnum.MOVE));
                 } else if (element.getSelected()) {
                     element.setMoveList(new app.model.ListModel());
-                    element.getMoveList().addElement(new app.model.TargetModel(destPositionX, destPositionY, 5, 0, app.model.ActionTypeModel.MOVE));
+                    element.getMoveList().addElement(new app.model.TaskModel(destPositionX, destPositionY, 5, 0, app.enum.TaskEnum.MOVE));
                 }
 
             }

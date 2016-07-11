@@ -1,13 +1,16 @@
 {
-  "graphicPath": "assets/graphics/images/base_03.png",
-  "graphicOffsetX": -18,
-  "graphicOffsetY": 80,
-  "radius": 95,
-  "groundSpeed": 0,
-  "team": 0,
-  "mass": -1,
-  "hp": 100,
-  "currentHp": 100,
-  "selectable": true,
-  "targetable": true
+  "_graphicUrl": "assets/graphics/images/base_03.png",
+  "_graphicOffset": {
+    "_x": -18,
+    "_y": 80
+  },
+  "_radius": 95,
+  "_collisionRadius": 90,
+  "_groundSpeed": 0,
+  "_team": 0,
+  "_mass": -1,
+  "_hp": 100,
+  "_currentHp": 100,
+  "_selectable": true,
+  "_targetable": true
 }

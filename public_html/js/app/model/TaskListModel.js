@@ -12,16 +12,16 @@ var Utils = Utils || {};
 
 /**
  * @namespace app.model
- * @class TargetListModel
+ * @class TaskListModel
  * @constructor
  */
-app.model.TargetListModel = function TargetListModel() {
+app.model.TaskListModel = function TaskListModel() {
 
     app.model.ListModel.call(this);
 
 };
 
-Utils.inherits(app.model.TargetListModel, app.model.ListModel);
+Utils.inherits(app.model.TaskListModel, app.model.ListModel);
 
 
 /**
@@ -29,7 +29,7 @@ Utils.inherits(app.model.TargetListModel, app.model.ListModel);
  * @param {Number} id
  * @return {Object} object
  */
-app.model.TargetListModel.prototype.getElementById = function getElementById(id) {
+app.model.TaskListModel.prototype.getElementById = function getElementById(id) {
 
     var index;
     var length = this.length();
@@ -47,11 +47,11 @@ app.model.TargetListModel.prototype.getElementById = function getElementById(id)
  * @method removeElementById
  * @param {Number} id
  */
-app.model.TargetListModel.prototype.removeElementById = function removeElementById(id) {
+app.model.TaskListModel.prototype.removeElementById = function removeElementById(id) {
 
     var index;
     var length = this.length();
-    var foundIndex = -1
+    var foundIndex = -1;
 
     for (index = 0; index < length; index++) {
         if (this._elements[index].getId() === id) {
@@ -68,8 +68,8 @@ app.model.TargetListModel.prototype.removeElementById = function removeElementBy
 
 /**
  * @method createListElement
- * @returns {app.model.TargetModel}
+ * @returns {app.model.TaskModel}
  */
-app.model.TargetListModel.prototype.createListElement = function createListElement() {
-    return new app.model.TargetModel(0,0,0,0,app.model.ActionTypeModel.MOVE);
+app.model.TaskListModel.prototype.createListElement = function createListElement() {
+    return new app.model.TaskModel(0,0,0,0,app.enum.TaskEnum.MOVE);
 };

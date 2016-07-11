@@ -11,7 +11,6 @@ var Utils = Utils || {};
  * @namespace support
  * @class Loader
  * @constructor
- * @param {support.AbstractMouseEventHandler} mouseEventHandler
  */
 support.Loader = function Loader() {
 };

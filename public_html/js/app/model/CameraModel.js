@@ -185,7 +185,7 @@ app.model.CameraModel.prototype.getMinifyJSON = function getMinifyJSON() {
         3: this._viewPortWidth,
         4: this._viewPortHeight,
         5: this._scale
-    }
+    };
 
     return result;
 };

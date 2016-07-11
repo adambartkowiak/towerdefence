@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- JQUERY -->
+    <script src="../lib/jquery/jquery-2.1.4.min.js"></script>
+
+    <!-- BOOSTRAP - Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+
+    <!-- BOOSTRAP - Optional theme -->
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css"/>
+
+    <!-- BOOSTRAP - Latest compiled and minified JavaScript -->
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+
+    <!-- MY FILES -->
+    <link rel="stylesheet" type="text/css" href="../css/editor.css"/>
+    <script src="../js/utils/Utils.js"></script>
+</head>
+<body>
+
+<div class="my-medium-window">
+    <div class="panel panel-primary my-panel-with-shadow">
+        <div class="panel-heading">
+            <h3 class="panel-title">Select Attribute</h3>
+            <button type="button" class="close my-close-button" id="select-attribute-close-button">&times;</button>
+        </div>
+        <div class="panel-body">
+            <ul class="nav nav-tabs">
+                <li id="select-attribute-predefined-value-button" class="active"><a href="#">Predefined Value</a></li>
+                <li id="select-attribute-custom-value-button"><a href="#">Custom Value</a></li>
+                <li id="select-attribute-variable-button"><a href="#">Variable</a></li>
+                <li id="select-attribute-function-button"><a href="#">Function</a></li>
+            </ul>
+            <div class="panel-body">
+                <div id="select-attribute-predefinedvalue-div">
+                    <a href="#" class="list-group-item">GRAPHIC_URL</a>
+                    <a href="#" class="list-group-item">HP</a>
+                    <a href="#" class="list-group-item">ID</a>
+                    <a href="#" class="list-group-item">TEAM</a>
+                </div>
+                <div id="select-attribute-customvalue-div" class="hidden">
+                    <form action="">
+                        <label>Type Attribute Value:</label>
+                        <input id="select-attribute-value-text-input" class="form-control" type="text" name="value">
+                    </form>
+                </div>
+                <div id="select-attribute-variable-div" class="hidden">
+                    <hd>Not implemented jet!</hd>
+                </div>
+                <div id="select-attribute-function-div" class="hidden">
+                    <a href="#" class="list-group-item">Unit Create</a>
+                    <a href="#" class="list-group-item">Unit Die</a>
+                    <a href="#" class="list-group-item">Unit Enter Region</a>
+                    <a href="#" class="list-group-item">Unit Leaves Region</a>
+                    <a href="#" class="list-group-item">Change Time</a>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-success pull-right" id="select-attribute-accept-button">Accept
+                </button>
+                <button type="button" class="btn btn-link pull-right" id="select-attribute-cancel-button">cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var predefinedValueButton = document.getElementById("select-attribute-predefined-value-button");
+    predefinedValueButton.addEventListener("click", function () {
+
+        $(predefinedValueButton).addClass("active");
+        $(customValueButton).removeClass("active");
+        $(variableButton).removeClass("active");
+        $(functionButton).removeClass("active");
+
+        $(predefinedValueDiv).removeClass("hidden");
+        $(customValueDiv).addClass("hidden");
+        $(variableDiv).addClass("hidden");
+        $(functionDiv).addClass("hidden");
+    });
+
+
+    var customValueButton = document.getElementById("select-attribute-custom-value-button");
+    customValueButton.addEventListener("click", function () {
+
+        $(predefinedValueButton).removeClass("active");
+        $(customValueButton).addClass("active");
+        $(variableButton).removeClass("active");
+        $(functionButton).removeClass("active");
+
+        $(predefinedValueDiv).addClass("hidden");
+        $(customValueDiv).removeClass("hidden");
+        $(variableDiv).addClass("hidden");
+        $(functionDiv).addClass("hidden");
+    });
+
+
+    var variableButton = document.getElementById("select-attribute-variable-button");
+    variableButton.addEventListener("click", function () {
+
+        $(predefinedValueButton).removeClass("active");
+        $(customValueButton).removeClass("active");
+        $(variableButton).addClass("active");
+        $(functionButton).removeClass("active");
+
+        $(predefinedValueDiv).addClass("hidden");
+        $(customValueDiv).addClass("hidden");
+        $(variableDiv).removeClass("hidden");
+        $(functionDiv).addClass("hidden");
+    });
+
+
+    var functionButton = document.getElementById("select-attribute-function-button");
+    functionButton.addEventListener("click", function () {
+
+        $(predefinedValueButton).removeClass("active");
+        $(customValueButton).removeClass("active");
+        $(variableButton).removeClass("active");
+        $(functionButton).addClass("active");
+
+        $(predefinedValueDiv).addClass("hidden");
+        $(customValueDiv).addClass("hidden");
+        $(variableDiv).addClass("hidden");
+        $(functionDiv).removeClass("hidden");
+    });
+
+    var predefinedValueDiv = document.getElementById("select-attribute-predefinedvalue-div");
+    var customValueDiv = document.getElementById("select-attribute-customvalue-div");
+    var variableDiv = document.getElementById("select-attribute-variable-div");
+    var functionDiv = document.getElementById("select-attribute-function-div");
+
+</script>
+
+</body>
+</html>

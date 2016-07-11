@@ -36,10 +36,17 @@ Utils.inherits(app.view.mouseEventListener.CommandMouseEventListener, support.Ab
  * @param {support.MouseEvent} mouseEvent
  */
 app.view.mouseEventListener.CommandMouseEventListener.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
-    
+
+    var result = false;
+
     if( mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_UP && mouseEvent.isMousePointerInsideTargetView()){
         this._command.execute(mouseEvent);
     }
-    
+
+    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
+        result = true;
+    }
+
+    return result;
 };
 

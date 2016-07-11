@@ -1,12 +1,71 @@
 {
-  "graphicPath": "assets/graphics/images/unit1_team1.png",
-  "graphicOffsetX": 0,
-  "graphicOffsetY": 0,
-  "radius": 20,
-  "groundSpeed": 120,
-  "team": 1,
-  "hp": 150,
-  "currentHp": 300,
-  "selectable": true,
-  "targetable": true
+  "_graphicUrl": "assets/graphics/images/unit1_team1.png",
+  "_graphicOffset": {
+    "_x": 0,
+    "_y": 0
+  },
+  "_radius": 18,
+  "_collisionRadius": 13,
+  "_groundSpeed": 140,
+  "_team": 1,
+  "_hp": 150,
+  "_currentHp": 150,
+  "_selectable": true,
+  "_targetable": true,
+  "_availableActions": [1, 2, 3, 4, 5],
+  "_buildList": {
+    "_elements": [
+      {
+        "_team": 1,
+        "_circle": {
+          "_x": 0,
+          "_y": 0,
+          "_radius": 10
+        },
+        "_mass": 0,
+        "_moveCollisionDetectionRadius": 0,
+        "_collisionRadius": 5,
+        "_lastPosition": {
+          "_x": 0,
+          "_y": 0
+        },
+        "_angle": 0,
+        "_groundSpeed": 1000,
+        "_hp": 1,
+        "_currentHp": 1,
+        "_attackRange": 300,
+        "_attackDamage": 10,
+        "_attackRate": 0,
+        "_attackCooldown": 0,
+        "_constantBuild": false,
+        "_buildTime": 300,
+        "_currentBuildTime": 0,
+        "_selected": false,
+        "_selectable": false,
+        "_targetable": false,
+        "_graphicUrl": "assets/graphics/images/bullet0.png",
+        "_moveList": {
+          "_elements": [
+            {
+              "_circle": {
+                "_x": -1,
+                "_y": -1,
+                "_radius": 5
+              },
+              "_actionType": 1,
+              "_entityId": 0
+            }
+          ]
+        },
+        "_buildList": {
+          "_elements": []
+        },
+        "_availableActions": [],
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 0
+        }
+      }
+    ]
+  }
 }

@@ -161,11 +161,24 @@ app.model.EntityModel = function EntityModel() {
     this._targetable = false;
 
     /**
-     * Aktualna lista ruchow do wykonania
-     * @property {app.model.TargetListModel} _moveList
+     *
+     * @property {Boolean} _holdPosition
      * @private
      */
-    this._moveList = new app.model.TargetListModel();
+    this._holdPosition = false;
+
+    /**
+     * @property {app.model.TaskModel} task
+     * @private
+     */
+    this._task = new app.model.TaskModel(0, 0, 0, 0, app.enum.TaskEnum.NONE);
+
+    /**
+     * Aktualna lista ruchow do wykonania
+     * @property {app.model.TaskListModel} _moveList
+     * @private
+     */
+    this._moveList = new app.model.TaskListModel();
 
     /**
      * Aktualna lista jednostek do wybudowania
@@ -187,7 +200,6 @@ app.model.EntityModel = function EntityModel() {
      */
     this._graphicUrl = null;
 
-
     /**
      * Offset grafiki wzgledem polozenia obiektu
      * @property {support.geom.Point2d} _graphicOffset
@@ -200,11 +212,72 @@ app.model.EntityModel = function EntityModel() {
      * @private
      */
     this._isSleepingX = false;
+
     /**
      * @property {Boolean} _isSleepingY
      * @private
      */
     this._isSleepingY = false;
+
+    /**
+     * @property {Number} _maxAmountOfWood
+     * @private
+     */
+    this._maxAmountOfWood = 0;
+
+    /**
+     * @property {Number} _currentAmountOfWood
+     * @private
+     */
+    this._currentAmountOfWood = 0;
+
+    /**
+     * @property {Number} _maxAmountOfGold
+     * @private
+     */
+    this._maxAmountOfGold = 0;
+
+    /**
+     * @property {Number} _currentAmountOfGold
+     * @private
+     */
+    this._currentAmountOfGold = 0;
+
+    /**
+     * @property {Boolean} _woodStorage
+     * @private
+     */
+    this._woodStorage = false;
+
+    /**
+     * @property {Boolean} _goldStorage
+     * @private
+     */
+    this._goldStorage = false;
+
+    /**
+     * @property {Number} _tempX
+     * @private
+     */
+    this._tempX = null;
+
+    /**
+     * @property {Number} _tempY
+     * @private
+     */
+    this._tempY = null;
+
+    /**
+     * @property {Boolean} _rotateGraphicOnMove
+     * @privatedar
+     */
+    this._rotateGraphicOnMove = true;
+
+    /**
+     * @property {app.listener.EntityListener} entityListener
+     * @private
+     */
+    this._entityListener = null;
 
 };
 
@@ -257,15 +330,22 @@ app.model.EntityModel.prototype.setStartValueY = function setStartValueY(value) 
 /**
  * @method setX
  * @param {Number} value
+ * @param {Boolean} callListener
  */
-app.model.EntityModel.prototype.setX = function setX(value) {
+app.model.EntityModel.prototype.setX = function setX(value, callListener) {
     this._lastPosition.setX(this._circle.getX());
     this._circle.setX(value);
+    this._tempX = value;
 
-    if (this._lastPosition.getX() === this._circle.getX()){
+    if (this._lastPosition.getX() === this._circle.getX()) {
         this._isSleepingX = true;
     } else {
         this._isSleepingX = false;
+        this.setHoldPosition(false);
+
+        if (callListener && !!this._entityListener){
+            this._entityListener.onXChange(this);
+        }
     }
 
     if (isNaN(value)) {
@@ -276,15 +356,22 @@ app.model.EntityModel.prototype.setX = function setX(value) {
 /**
  * @method setY
  * @param {Number} value
+ * @param {Boolean} callListener
  */
-app.model.EntityModel.prototype.setY = function setY(value) {
+app.model.EntityModel.prototype.setY = function setY(value, callListener) {
     this._lastPosition.setY(this._circle.getY());
     this._circle.setY(value);
+    this._tempY = value;
 
-    if (this._lastPosition.getY() === this._circle.getY()){
+    if (this._lastPosition.getY() === this._circle.getY()) {
         this._isSleepingY = true;
     } else {
         this._isSleepingY = false;
+        this.setHoldPosition(false);
+
+        if (callListener && !!this._entityListener){
+            this._entityListener.onYChange(this);
+        }
     }
 
     if (isNaN(value)) {
@@ -423,8 +510,19 @@ app.model.EntityModel.prototype.setTargetable = function setTargetable(value) {
 };
 
 /**
+ * @method setHoldPosition
+ * @param {Boolean} value
+ */
+app.model.EntityModel.prototype.setHoldPosition = function setHoldPosition(value) {
+    this._holdPosition = value;
+
+    this._isSleepingX = false;
+    this._isSleepingY = false;
+};
+
+/**
  * @method setMoveList
- * @param {app.model.TargetListModel} value
+ * @param {app.model.TaskListModel} value
  */
 app.model.EntityModel.prototype.setMoveList = function setMoveList(value) {
     this._moveList = value;
@@ -461,6 +559,97 @@ app.model.EntityModel.prototype.setGraphicOffsetX = function setGraphicOffsetX(x
 app.model.EntityModel.prototype.setGraphicOffsetY = function setGraphicOffsetY(y) {
     this._graphicOffset.setY(y);
 };
+
+/**
+ * @method setMaxAmountOfWood
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setMaxAmountOfWood = function setMaxAmountOfWood(value) {
+    this._maxAmountOfWood = value;
+};
+
+/**
+ * @method setCurrentAmountOfWood
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setCurrentAmountOfWood = function setCurrentAmountOfWood(value) {
+    this._currentAmountOfWood = value;
+};
+
+/**
+ * @method setMaxAmountOfGold
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setMaxAmountOfGold = function setMaxAmountOfGold(value) {
+    this._maxAmountOfGold = value;
+};
+
+/**
+ * @method setCurrentAmountOfGold
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setCurrentAmountOfGold = function setCurrentAmountOfGold(value) {
+    this._currentAmountOfGold = value;
+};
+
+/**
+ * @method setWoodStorage
+ * @param {Boolean} value
+ */
+app.model.EntityModel.prototype.setWoodStorage = function setWoodStorage(value) {
+    this._woodStorage = value;
+};
+
+/**
+ * @method setGoldStorage
+ * @param {Boolean} value
+ */
+app.model.EntityModel.prototype.setGoldStorage = function setGoldStorage(value) {
+    this._goldStorage = value;
+};
+
+/**
+ * @method setTask
+ * @param {app.model.TaskModel} value
+ */
+app.model.EntityModel.prototype.setTask = function setTask(value) {
+    this._task = value;
+};
+
+/**
+ * @method setEntityListener
+ * @param {app.listener.EntityListener} entityListener
+ */
+app.model.EntityModel.prototype.setEntityListener = function setEntityListener(entityListener) {
+    this._entityListener = entityListener;
+    //this._entityListener = null;
+};
+
+/**
+ * @method setTemporaryX
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setTemporaryX = function setTemporaryX(value) {
+    this._tempX = value;
+};
+
+/**
+ * @method setTemporaryY
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setTemporaryY = function setTemporaryY(value) {
+    this._tempY = value;
+};
+
+/**
+ * @method setRotateGraphicOnMove
+ * @param {Boolean} value
+ */
+app.model.EntityModel.prototype.setRotateGraphicOnMove = function setRotateGraphicOnMove(value) {
+    this._rotateGraphicOnMove = value;
+};
+
+
 
 
 /*
@@ -663,8 +852,16 @@ app.model.EntityModel.prototype.getTargetable = function getTargetable() {
 };
 
 /**
+ * @method getHoldPosition
+ * @return {Boolean} holdPosition
+ */
+app.model.EntityModel.prototype.getHoldPosition = function getHoldPosition() {
+    return this._holdPosition;
+};
+
+/**
  * @method getMoveList
- * @return {app.model.TargetListModel} moveList
+ * @return {app.model.TaskListModel} moveList
  */
 app.model.EntityModel.prototype.getMoveList = function getMoveList() {
     return this._moveList;
@@ -692,6 +889,94 @@ app.model.EntityModel.prototype.getGraphicUrl = function getGraphicUrl() {
  */
 app.model.EntityModel.prototype.getGraphicOffset = function getGraphicOffset() {
     return this._graphicOffset;
+};
+
+/**
+ * @method isSleeping
+ * @return {boolean}
+ */
+app.model.EntityModel.prototype.isSleeping = function isSleeping() {
+    return this._isSleepingX && this._isSleepingY;
+};
+
+/**
+ * @method getMaxAmountOfWood
+ * @return {Number} maxAmountOfWood
+ */
+app.model.EntityModel.prototype.getMaxAmountOfWood = function getMaxAmountOfWood() {
+    return this._maxAmountOfWood;
+};
+
+/**
+ * @method getCurrentAmountOfWood
+ * @return {Number} currentAmountOfWood
+ */
+app.model.EntityModel.prototype.getCurrentAmountOfWood = function getCurrentAmountOfWood() {
+    return this._currentAmountOfWood;
+};
+
+/**
+ * @method getMaxAmountOfGold
+ * @return {Number} maxAmountOfGold
+ */
+app.model.EntityModel.prototype.getMaxAmountOfGold = function getMaxAmountOfGold() {
+    return this._maxAmountOfGold;
+};
+
+/**
+ * @method getCurrentAmountOfGold
+ * @return {Number} currentAmountOfGold
+ */
+app.model.EntityModel.prototype.getCurrentAmountOfGold = function getCurrentAmountOfGold() {
+    return this._currentAmountOfGold;
+};
+
+/**
+ * @method getWoodStorage
+ * @return {Boolean} woodStorage
+ */
+app.model.EntityModel.prototype.getWoodStorage = function getWoodStorage() {
+    return this._woodStorage;
+};
+
+/**
+ * @method getGoldStorage
+ * @return {Boolean} goldStorage
+ */
+app.model.EntityModel.prototype.getGoldStorage = function getGoldStorage() {
+    return this._goldStorage;
+};
+
+/**
+ * @method getTask
+ * @return {app.model.TaskModel} value
+ */
+app.model.EntityModel.prototype.getTask = function getTask() {
+    return this._task;
+};
+
+/**
+ * @method getTemporaryX
+ * @return {Number} tempX
+ */
+app.model.EntityModel.prototype.getTemporaryX = function getTemporaryX() {
+    return this._tempX;
+};
+
+/**
+ * @method getTemporaryY
+ * @return {Number} tempY
+ */
+app.model.EntityModel.prototype.getTemporaryY = function getTemporaryY() {
+    return this._tempY;
+};
+
+/**
+ * @method getRotateGraphicOnMove
+ * @return {Boolean} rotateGraphicOnMove
+ */
+app.model.EntityModel.prototype.getRotateGraphicOnMove = function getRotateGraphicOnMove() {
+    return this._rotateGraphicOnMove;
 };
 
 
@@ -739,14 +1024,6 @@ app.model.EntityModel.prototype.isVisibleOnMinimap = function isVisibleOnMinimap
     return true;
 };
 
-/**
- * @method isSleeping
- * @return {boolean}
- */
-app.model.EntityModel.prototype.isSleeping = function isSleeping() {
-    return this._isSleepingX && this._isSleepingY;
-};
-
 
 /**
  * @method clone
@@ -758,6 +1035,8 @@ app.model.EntityModel.prototype.clone = function clone() {
 
     clone._team = this._team;
     clone._circle = new support.geom.Circle(this._circle.getX(), this._circle.getY(), this._circle.getRadius());
+    clone._tempX = this._tempX;
+    clone._tempY = this._tempY;
     clone._mass = this._mass;
     clone._moveCollisionDetectionRadius = this._moveCollisionDetectionRadius;
     clone._collisionRadius = this._collisionRadius;
@@ -777,7 +1056,15 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._selectable = this._selectable;
     clone._targetable = this._targetable;
     clone._graphicUrl = this._graphicUrl;
-    clone._graphicOffset = new support.geom.Point2d(this._graphicOffset.getX(), this._graphicOffset.getY());;
+    clone._graphicOffset = new support.geom.Point2d(this._graphicOffset.getX(), this._graphicOffset.getY());
+    clone._maxAmountOfWood = this._maxAmountOfWood;
+    clone._currentAmountOfWood = this._currentAmountOfWood;
+    clone._maxAmountOfGold = this._maxAmountOfGold;
+    clone._currentAmountOfGold = this._currentAmountOfGold;
+    clone._woodStorage = this._woodStorage;
+    clone._goldStorage = this._goldStorage;
+    clone._task = new app.model.TaskModel(this._task.getX(), this._task.getY(), this._task.getRadius(), this._task.getEntityId(), this._task.getTaskEnum());
+    clone._rotateGraphicOnMove = this._rotateGraphicOnMove;
 
     //klonowanie obiektow
     clone._moveList = this._moveList.clone();
@@ -794,35 +1081,149 @@ app.model.EntityModel.prototype.clone = function clone() {
  * @property {Object} unMinifyJSON
  */
 app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
-    this._id = JSON._id;
-    this._team = JSON._team;
-    this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
-    this._mass = JSON._mass;
-    this._moveCollisionDetectionRadius = JSON._moveCollisionDetectionRadius;
-    this._collisionRadius = JSON._collisionRadius;
-    this._lastPosition = new support.geom.Point2d(JSON._lastPosition._x, JSON._lastPosition._y);
-    this._angle = JSON._angle;
-    this._groundSpeed = JSON._groundSpeed;
-    this._hp = JSON._hp;
-    this._currentHp = JSON._currentHp;
-    this._attackRange = JSON._attackRange;
-    this._attackDamage = JSON._attackDamage;
-    this._attackRate = JSON._attackRate;
-    this._attackCooldown = JSON._attackCooldown;
-    this._constantBuild = JSON._constantBuild;
-    this._buildTime = JSON._buildTime;
-    this._currentBuildTime = JSON._currentBuildTime;
-    this._selected = JSON._selected;
-    this._selectable = JSON._selectable;
-    this._targetable = JSON._targetable;
-    this._graphicUrl = JSON._graphicUrl;
-    this._graphicOffset = new support.geom.Point2d(JSON._graphicOffset._x, JSON._graphicOffset._y);
 
+    if (JSON._id !== undefined) {
+        this._id = JSON._id;
+    }
 
-    this._moveList.loadFromJSON(JSON._moveList);
-    this._buildList.loadFromJSON(JSON._buildList);
-    //this._availableActions = JSON._availableActions;
-    this._availableActions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];//JSON._availableActions;
+    if (JSON._team !== undefined) {
+        this._team = JSON._team;
+    }
+
+    if (JSON._circle !== undefined && JSON._circle._x !== undefined && JSON._circle._y !== undefined && JSON._circle._radius !== undefined) {
+        this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
+    } else if (JSON._radius !== undefined) {
+        this._circle = new support.geom.Circle(0, 0, JSON._radius);
+    }
+
+    this._tempX = this.getX();
+    this._tempY = this.getY();
+
+    if (JSON._mass !== undefined) {
+        this._mass = JSON._mass;
+    }
+
+    if (JSON._moveCollisionDetectionRadius !== undefined) {
+        this._moveCollisionDetectionRadius = JSON._moveCollisionDetectionRadius;
+    }
+
+    if (JSON._collisionRadius !== undefined) {
+        this._collisionRadius = JSON._collisionRadius;
+    }
+
+    if (JSON._lastPosition !== undefined && JSON._lastPosition._x !== undefined && JSON._lastPosition._y !== undefined) {
+        this._lastPosition = new support.geom.Point2d(JSON._lastPosition._x, JSON._lastPosition._y);
+    }
+
+    if (JSON._angle !== undefined) {
+        this._angle = JSON._angle;
+    }
+
+    if (JSON._groundSpeed !== undefined) {
+        this._groundSpeed = JSON._groundSpeed;
+    }
+
+    if (JSON._hp !== undefined) {
+        this._hp = JSON._hp;
+    }
+
+    if (JSON._currentHp !== undefined) {
+        this._currentHp = JSON._currentHp;
+    }
+
+    if (JSON._attackRange !== undefined) {
+        this._attackRange = JSON._attackRange;
+    }
+
+    if (JSON._attackDamage !== undefined) {
+        this._attackDamage = JSON._attackDamage;
+    }
+
+    if (JSON._attackRate !== undefined) {
+        this._attackRate = JSON._attackRate;
+    }
+
+    if (JSON._attackCooldown !== undefined) {
+        this._attackCooldown = JSON._attackCooldown;
+    }
+
+    if (JSON._constantBuild !== undefined) {
+        this._constantBuild = JSON._constantBuild;
+    }
+
+    if (JSON._buildTime !== undefined) {
+        this._buildTime = JSON._buildTime;
+    }
+
+    if (JSON._currentBuildTime !== undefined) {
+        this._currentBuildTime = JSON._currentBuildTime;
+    }
+
+    if (JSON._selected !== undefined) {
+        this._selected = JSON._selected;
+    }
+
+    if (JSON._selectable !== undefined) {
+        this._selectable = JSON._selectable;
+    }
+
+    if (JSON._targetable !== undefined) {
+        this._targetable = JSON._targetable;
+    }
+
+    if (JSON._graphicUrl !== undefined) {
+        this._graphicUrl = JSON._graphicUrl;
+    }
+
+    if (JSON._graphicOffset !== undefined && JSON._graphicOffset._x !== undefined && JSON._graphicOffset._y !== undefined) {
+        this._graphicOffset = new support.geom.Point2d(JSON._graphicOffset._x, JSON._graphicOffset._y);
+    }
+
+    if (JSON._moveList !== undefined) {
+        this._moveList.loadFromJSON(JSON._moveList);
+    }
+
+    if (JSON._buildList !== undefined) {
+        this._buildList.loadFromJSON(JSON._buildList);
+    }
+
+    if (JSON._maxAmountOfWood !== undefined) {
+        this._maxAmountOfWood = JSON._maxAmountOfWood;
+    }
+
+    if (JSON._currentAmountOfWood !== undefined) {
+        this._currentAmountOfWood = JSON._currentAmountOfWood;
+    }
+
+    if (JSON._maxAmountOfGold !== undefined) {
+        this._maxAmountOfGold = JSON._maxAmountOfGold;
+    }
+
+    if (JSON._currentAmountOfGold !== undefined) {
+        this._currentAmountOfGold = JSON._currentAmountOfGold;
+    }
+
+    if (JSON._woodStorage !== undefined) {
+        this._woodStorage = JSON._woodStorage;
+    }
+
+    if (JSON._goldStorage !== undefined) {
+        this._goldStorage = JSON._goldStorage;
+    }
+
+    if (JSON._task !== undefined) {
+        this._task = new app.model.TaskModel(0, 0, 0, 0, app.enum.TaskEnum.NONE);
+    }
+
+    if (JSON._rotateGraphicOnMove !== undefined){
+        this._rotateGraphicOnMove = JSON._rotateGraphicOnMove;
+    }
+
+    //if (JSON._availableActions !== undefined) {
+    //    this._availableActions = JSON._availableActions;
+    //}
+
+    this._availableActions = [1, 2, 3, 4];
 };
 
 /**
@@ -857,7 +1258,16 @@ app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
         n: this._moveList.getMinifyJSON(),
         o: this._buildList.getMinifyJSON(),
         p: this._availableActions,
-        r: this._graphicOffset.getMinifyJSON()
+        r: this._graphicOffset.getMinifyJSON(),
+        s: this._maxAmountOfWood,
+        t: this._currentAmountOfWood,
+        u: this._maxAmountOfGold,
+        w: this._currentAmountOfGold,
+        x: this._woodStorage,
+        y: this._goldStorage,
+        z: this._task.getMinifyJSON(),
+        11: this._rotateGraphicOnMove
+
     };
 
     return result;
@@ -872,8 +1282,9 @@ app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON)
 
     var circle = new support.geom.Circle(0, 0, 0);
     var point2d = new support.geom.Point2d(0, 0);
-    var targetListModel = new app.model.TargetListModel();
+    var taskListModel = new app.model.TaskListModel();
     var entityListModel = new app.model.EntityListModel();
+    var taskModel = new app.model.TaskModel(0, 0, 0, 0, app.enum.TaskEnum.NONE);
 
     var result = {
         _id: minifyJSON["1"],
@@ -898,10 +1309,18 @@ app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON)
         _selectable: minifyJSON["k"],
         _targetable: minifyJSON["l"],
         _graphicUrl: minifyJSON["m"],
-        _moveList: targetListModel.unMinifyJSON(minifyJSON["n"]),
+        _moveList: taskListModel.unMinifyJSON(minifyJSON["n"]),
         _buildList: entityListModel.unMinifyJSON(minifyJSON["o"]),
         _availableActions: minifyJSON["p"],
-        _graphicOffset: point2d.unMinifyJSON(minifyJSON["r"])
+        _graphicOffset: point2d.unMinifyJSON(minifyJSON["r"]),
+        _maxAmountOfWood: minifyJSON["s"],
+        _currentAmountOfWood: minifyJSON["t"],
+        _maxAmountOfGold: minifyJSON["u"],
+        _currentAmountOfGold: minifyJSON["w"],
+        _woodStorage: minifyJSON["x"],
+        _goldStorage: minifyJSON["y"],
+        //_task: taskModel.unMinifyJSON(minifyJSON["z"])
+        _rotateGraphicOnMove: minifyJSON["11"]
     };
     return result;
 };

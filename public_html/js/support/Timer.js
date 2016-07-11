@@ -50,12 +50,26 @@ support.Timer = function Timer() {
      */
     this._interval = null;
 
+    /**
+     * @property {TimerListener} timerListener
+     * @private
+     */
+    this._timerListener = null;
+
 };
 
 Utils.inherits(support.Timer, Object);
 
 /**
- * @method calcDelta
+ * @method setTimerListener
+ * @param {TimerListener} timerListener
+ */
+support.Timer.prototype.setTimerListener = function setTimerListener(timerListener) {
+    this._timerListener = timerListener;
+};
+
+/**
+ * @method updateDelta
  */
 support.Timer.prototype.updateDelta = function updateDelta() {
     this._time = new Date();
@@ -67,12 +81,16 @@ support.Timer.prototype.updateDelta = function updateDelta() {
         this._delta = 0;
     }
 
+    if (this._timerListener !== null) {
+        this._timerListener.onTimeDelta(this._delta);
+    }
+
     this._lastTime = this._time;
 
 };
 
 /**
- * @method calcDelta
+ * @method getDelta
  * @return {Number} delta
  */
 support.Timer.prototype.getDelta = function getDelta() {

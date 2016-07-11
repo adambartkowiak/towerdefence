@@ -1,13 +1,18 @@
 {
-  "graphicPath": "assets/graphics/images/pine-none04.png",
-  "graphicOffsetX": 30,
-  "graphicOffsetY": 90,
-  "radius": 15,
-  "groundSpeed": 0,
-  "team": 0,
-  "mass": -1,
-  "hp": 100,
-  "currentHp": 100,
-  "selectable": true,
-  "targetable": true
+  "_graphicUrl": "assets/graphics/images/pine-none04.png",
+  "_graphicOffset": {
+    "_x": 30,
+    "_y": 90
+  },
+  "_radius": 15,
+  "_collisionRadius": 10,
+  "_groundSpeed": 0,
+  "_team": 0,
+  "_mass": -1,
+  "_hp": 100,
+  "_currentHp": 100,
+  "_selectable": true,
+  "_targetable": true,
+  "_maxAmountOfWood" : 1000,
+  "_currentAmountOfWood" : 1000
 }

@@ -1,12 +1,15 @@
 {
-  "graphicPath": "assets/graphics/images/unit2_neutral.png",
-  "graphicOffsetX": 0,
-  "graphicOffsetY": 0,
-  "radius": 20,
-  "groundSpeed": 80,
-  "team": 0,
-  "hp": 300,
-  "currentHp": 300,
-  "selectable": true,
-  "targetable": true
+  "_graphicUrl": "assets/graphics/images/unit2_neutral.png",
+  "_graphicOffset": {
+    "_x": 0,
+    "_y": 0
+  },
+  "_radius": 20,
+  "_collisionRadius": 15,
+  "_groundSpeed": 80,
+  "_team": 0,
+  "_hp": 300,
+  "_currentHp": 300,
+  "_selectable": true,
+  "_targetable": true
 }

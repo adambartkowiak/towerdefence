@@ -35,9 +35,9 @@ Utils.inherits(app.command.SetMoveCommandOnCommandController, support.command.Ab
 app.command.SetMoveCommandOnCommandController.prototype.execute = function execute(mouseEvent) {
     
     support.command.AbstractCommand.prototype.execute.call(this);
+
+    console.log("app.command.SetMoveCommandOnCommandController.prototype.execute");
     
-//    console.log("app.command.SetMoveCommandOnCommandController.prototype.execute");
-    
-    this._commandController.setAction(app.model.ActionTypeModel.MOVE);
+    this._commandController.setAction(app.enum.TaskEnum.MOVE);
     
 };

@@ -1,13 +1,16 @@
 {
-  "graphicPath": "assets/graphics/images/bush_01.png",
-  "graphicOffsetX": 0,
-  "graphicOffsetY": 50,
-  "radius": 20,
-  "groundSpeed": 0,
-  "team": 0,
-  "mass": -1,
-  "hp": 100,
-  "currentHp": 100,
-  "selectable": true,
-  "targetable": true
+  "_graphicUrl": "assets/graphics/images/bush_01.png",
+  "_graphicOffset": {
+    "_x": 0,
+    "_y": 50
+  },
+  "_radius": 20,
+  "_collisionRadius": 15,
+  "_groundSpeed": 0,
+  "_team": 0,
+  "_mass": -1,
+  "_hp": 100,
+  "_currentHp": 100,
+  "_selectable": true,
+  "_targetable": true
 }

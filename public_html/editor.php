@@ -17,12 +17,13 @@
 
 
     <!-- FANCYtrEE -->
-    <!--    <script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<!--    <script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
     <link href="lib/fancytree-master/src/skin-lion/ui.fancytree.css" rel="stylesheet" type="text/css">
 
     <script src="lib/fancytree-master/src/jquery.fancytree.js" type="text/javascript"></script>
+    <script src="lib/fancytree-master/src/jquery.fancytree.edit.js" type="text/javascript"></script>
 
     <!-- MY FILES -->
     <link rel="stylesheet" type="text/css" href="css/editor.css"/>
@@ -64,52 +65,170 @@
 
 <script type="text/javascript" src="js/support/command/AbstractCommand.js"></script>
 
+<!-- Game Files -->
+
+<!--CONFIGS-->
+<script type="text/javascript" src="js/app/GuiConfig.js"></script>
+<script type="text/javascript" src="js/app/FeatureToggle.js"></script>
+
+<!--HELPER-->
+<script type="text/javascript" src="js/helper/Helper.js"></script>
+
+<!--ENUM-->
+<script type="text/javascript" src="js/app/enum/TaskEnum.js"></script>
+<script type="text/javascript" src="js/app/enum/GameEventEnum.js"></script>
+<script type="text/javascript" src="js/app/enum/FunctionEnum.js"></script>
+<script type="text/javascript" src="js/app/enum/EntityPropertyEnum.js"></script>
+
+<!--LISTENER-->
+<script type="text/javascript" src="js/app/listener/GlobalEventListener.js"></script>
+
+<!--MODEL-->
+<script type="text/javascript" src="js/app/model/AvailableActionsModel.js"></script>
+<script type="text/javascript" src="js/app/model/WorldModel.js"></script>
+<script type="text/javascript" src="js/app/model/TaskForEntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/TaskModel.js"></script>
+<script type="text/javascript" src="js/app/model/GameEventModel.js"></script>
+<script type="text/javascript" src="js/app/model/TriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
+<script type="text/javascript" src="js/app/model/EntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/ListModel.js"></script>
+<script type="text/javascript" src="js/app/model/GameEventListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TriggerListModel.js"></script>
+<script type="text/javascript" src="js/app/model/ValueListModel.js"></script>
+<script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
+<script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
+<script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
+<script type="text/javascript" src="js/app/model/MapModel.js"></script>
+
+<script type="text/javascript" src="js/app/model/function/AbstractValue.js"></script>
+<script type="text/javascript" src="js/app/model/function/AbstractFunction.js"></script>
+<script type="text/javascript" src="js/app/model/function/Attribute.js"></script>
+<script type="text/javascript" src="js/app/model/function/ConditionEqual.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetEventEntity.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetEntityProperty.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetUnitCount.js"></script>
+
+<script type="text/javascript" src="js/app/model/CameraModel.js"></script>
+<script type="text/javascript" src="js/app/model/ActionMenuModel.js"></script>
+<script type="text/javascript" src="js/app/model/gui/MiniMapModel.js"></script>
+
+<!--VIEW MOUSE EVENT LISTENER -->
+<script type="text/javascript" src="js/app/view/mouseEventListener/CommandMouseEventListener.js"></script>
+
+<!--VIEW-->
+<script type="text/javascript" src="js/app/view/AbstractWorldView.js"></script>
+<script type="text/javascript" src="js/app/view/WorldView.js"></script>
+<script type="text/javascript" src="js/app/view/gui/ActionMenuView.js"></script>
+<script type="text/javascript" src="js/app/view/gui/EntityStatusView.js"></script>
+
+<!--CONTROLLER-->
+<script type="text/javascript" src="js/app/controller/CollisionDetectionController.js"></script>
+<script type="text/javascript" src="js/app/controller/BuildController.js"></script>
+<script type="text/javascript" src="js/app/controller/CollisionRepulsionController.js"></script>
+<script type="text/javascript" src="js/app/controller/MoveController.js"></script>
+<script type="text/javascript" src="js/app/controller/CommandController.js"></script>
+<script type="text/javascript" src="js/app/controller/WaypointCollisionDetectionController.js"></script>
+<script type="text/javascript" src="js/app/controller/WaypointCollisionReactionController.js"></script>
+<script type="text/javascript" src="js/app/controller/SelectTargetController.js"></script>
+
+<!-- APP COMMANDS -->
+<script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetPatrolCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetGatherCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetBuildBaseCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
+<script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
+<script type="text/javascript" src="js/app/command/HoldCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TrainWorkerCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TrainWarriorCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ShowConsoleLogCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TurnOffTriggerCommand.js"></script>
+
+<!-- FACTORY -->
+<script type="text/javascript" src="js/app/factory/FunctionFactory.js"></script>
+
 <!-- Mouse Event Handler -->
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
 
-<!-- App files -->
-<script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
-<script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
-<script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
-<script type="text/javascript" src="js/app/model/MapModel.js"></script>
-<script type="text/javascript" src="js/app/model/CameraModel.js"></script>
-<script type="text/javascript" src="js/app/model/ListModel.js"></script>
-<script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
-<script type="text/javascript" src="js/app/model/TargetListModel.js"></script>
-<script type="text/javascript" src="js/app/model/TargetModel.js"></script>
-<script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
-<script type="text/javascript" src="js/app/model/EntityModel.js"></script>
-<script type="text/javascript" src="js/app/model/gui/MiniMapModel.js"></script>
-<script type="text/javascript" src="js/app/model/WorldModel.js"></script>
-<script type="text/javascript" src="js/app/model/ActionTypeModel.js"></script>
-<script type="text/javascript" src="js/app/view/AbstractWorldView.js"></script>
+<!-- EDITOR FILES -->
+
+<!--CONFIGS-->
+<script type="text/javascript" src="js/editor/FeatureToggle.js"></script>
+
+<!-- Editor Enums -->
+<script type="text/javascript" src="js/editor/enum/SelectAttributeEnum.js"></script>
 
 <!-- Editor classes -->
 <script type="text/javascript" src="js/editor/model/MapTileModel.js"></script>
 <script type="text/javascript" src="js/editor/model/MapTileListModel.js"></script>
 <script type="text/javascript" src="js/editor/model/EditorMapModel.js"></script>
+<script type="text/javascript" src="js/editor/model/SelectAttributeModel.js"></script>
+
+<!-- Editor controllers -->
 <script type="text/javascript" src="js/editor/controller/EditorMapController.js"></script>
+<script type="text/javascript" src="js/editor/controller/NewMapModuleController.js"></script>
+<script type="text/javascript" src="js/editor/controller/TriggerModuleController.js"></script>
+<script type="text/javascript" src="js/editor/controller/AddGameEventController.js"></script>
+<script type="text/javascript" src="js/editor/controller/EditGameEventController.js"></script>
+<script type="text/javascript" src="js/editor/controller/EditAttributeController.js"></script>
+
+<!-- VIEWS -->
 <script type="text/javascript" src="js/editor/view/WorldView.js"></script>
+<script type="text/javascript" src="js/editor/view/NewMapModuleView.js"></script>
+<script type="text/javascript" src="js/editor/view/TriggerModuleView.js"></script>
+<script type="text/javascript" src="js/editor/view/SelectGameEventView.js"></script>
+<script type="text/javascript" src="js/editor/view/SelectAttributeView.js"></script>
+
+<!-- HTML VIEWS -->
+<template id="HTMLNewMapModule">
+    <?php include 'html/newMapModuleDivOnly.html';?>
+</template>
+
+<template id="HTMLTriggerModule">
+    <?php include 'html/triggerModuleDivOnly.html';?>
+</template>
+
+<template id="HTMLSelectGameEvent">
+    <?php include 'html/selectGameEventDivOnly.html';?>
+</template>
+
+<template id="HTMLSelectAttribute">
+    <?php include 'html/selectAttributeDivOnly.html';?>
+</template>
+
 
 <!-- Script -->
 <script type="text/javascript">
 
+    var editor = editor || {};
+    var FEATURE_TOGGLE = editor.FeatureToggle;
+
+    var cameraViewPortWidth = 1180,
+        cameraViewPortHeight = 780,
+        cameraStartX = cameraViewPortWidth / 2,
+        cameraStartY = cameraViewPortHeight / 2;
+
+    var cameraModel = new app.model.CameraModel(cameraStartX, cameraStartY, cameraViewPortWidth, cameraViewPortHeight);
     var worldModel = new app.model.WorldModel();
     var entityListModel = worldModel.getEntityListModel();
 
     var graphicListModel;
     var graphicsBuffor = new support.data.ImageDataList();
 
-    var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
-//    var mapModel = new app.model.MapModel(10000, 10000, 40, 40);
-//    var mapModel = new app.model.MapModel(30000, 30000, 40, 40);
+    //    var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
+    var mapModel = new app.model.MapModel(4000, 4000, 40, 40);
+    //        var mapModel = new app.model.MapModel(10000, 10000, 40, 40);
+    //        var mapModel = new app.model.MapModel(30000, 30000, 40, 40);
 
     var editorMapModel = new editor.model.EditorMapModel(mapModel);
 
     worldModel.setMapModel(mapModel);
 
 
-    var mapView = null;
+    var editorWorldView = null;
     var miniMapView = null;
     var mapCanvas = null;
     var miniMapCanvas = null;
@@ -144,15 +263,23 @@
 
     /*
      Generowanie mapy kolizji - mapa kolizji ma ten sam format dla edytora i dla gry
-    */
+     */
     for (var i = 0; i < tileCount; i++) {
-        editorMapModel.getMapModel().getMapCollisionModel().getTileArray().push([0x0000,0]);
+        editorMapModel.getMapModel().getMapCollisionModel().getTileArray().push([0x0000, 0]);
     }
+
+
+    //Controllers and Views
+    var newMapModuleController;
+    var triggerModuleController;
+
+    var triggerModuleView;
+    var newMapModuleView;
+
 
 
     window.onload = function () {
 
-        var cameraModel = new app.model.CameraModel(1180 / 2, 780 / 2, 1180, 780);
 
         //Ladowanie Grafik
         var assetName;
@@ -170,10 +297,13 @@
         assetsElementLength = assetsElement.length;
         for (var index = 0; index < assetsElementLength; index++) {
 
-            assetName = assetsElement[index].dataset["assetname"];
+            assetName = assetsElement[index].dataset["json"];
+            assetName = JSON.parse(assetName)._graphicUrl;
+
 
             graphicsBuffor.load(assetName);
         }
+
 
 
         worldModel.setCameraModel(cameraModel);
@@ -191,8 +321,8 @@
         mouse.initMouse();
 
 
-        mapView = new editor.view.WorldView(worldModel, editorMapModel, 0, 0, 1180, 780);
-        mapView.setMouseEventListener(editorMapController);
+        editorWorldView = new editor.view.WorldView(worldModel, editorMapModel, 0, 0, cameraViewPortWidth, cameraViewPortHeight);
+        editorWorldView.setMouseEventListener(editorMapController);
 
         miniMapView = new support.view.MinimapView();
         miniMapView.setX(10);
@@ -206,7 +336,7 @@
         miniMapView.setViewPort(cameraModel);
 
         mapRootView = new support.view.RootView(mapCanvas, mapMouseHandler);
-        mapRootView.addView(mapView);
+        mapRootView.addView(editorWorldView);
 
 
         miniMapRootView = new support.view.RootView(miniMapCanvas, miniMapMouseHandler);
@@ -215,11 +345,21 @@
 
         var miniMapBackgroundImage = null;
 
+        //Controllers and Views
+        newMapModuleController = new editor.controller.NewMapModuleController(worldModel, editorWorldView, miniMapView);
+        triggerModuleController = new editor.controller.TriggerModuleController(worldModel);
+
+        triggerModuleView = new editor.view.TriggerModuleView(triggerModuleController);
+        newMapModuleView = new editor.view.NewMapModuleView(newMapModuleController);
+
+
+        triggerModuleController.setView(triggerModuleView);
+
         function mainDraw() {
 
             backgroundStep();
-            mapRootView.draw();
-            miniMapRootView.draw();
+//            mapRootView.draw();
+//            miniMapRootView.draw();
 
             window.requestAnimationFrame(mainDraw);
 
@@ -227,8 +367,8 @@
 
         //MinimapRennderings
         function backgroundStep() {
-            miniMapBackgroundImage = mapView.getImageData(miniMapBackgroundImage, 160, 160);
-            miniMapView.setMapImage(miniMapBackgroundImage);
+//            miniMapBackgroundImage = editorWorldView.getImageData(miniMapBackgroundImage, 160, 160);
+//            miniMapView.setMapImage(miniMapBackgroundImage);
         }
 
         window.requestAnimationFrame(mainDraw);
@@ -254,7 +394,6 @@
     };
 
 
-
     var downloadMapFile = function downloadMapFile() {
 
         var URL = "data:application/octet-stream,";
@@ -263,33 +402,6 @@
         window.open(URL);
 
     };
-
-
-
-    function b64toBlob(b64Data, contentType, sliceSize) {
-        contentType = contentType || '';
-        sliceSize = sliceSize || 512;
-
-        var byteCharacters = atob(b64Data);
-        var byteArrays = [];
-
-        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-            var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-            var byteNumbers = new Array(slice.length);
-            for (var i = 0; i < slice.length; i++) {
-                byteNumbers[i] = slice.charCodeAt(i);
-            }
-
-            var byteArray = new Uint8Array(byteNumbers);
-
-            byteArrays.push(byteArray);
-        }
-
-        var blob = new Blob(byteArrays, {type: contentType});
-        return blob;
-    };
-
 
 
     uploadMapFile = function uploadMapFile(url) {
@@ -306,19 +418,18 @@
 
     };
 
-
     /*
-    1. uploadMapFileToServer
-    2. downloadMapFileFromServer
+     1. uploadMapFileToServer
+     2. downloadMapFileFromServer
      */
-    var editorExportMap = function editorExportMap(){
+    var editorExportMap = function editorExportMap() {
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("POST", "backend/editorExportMap.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/json");
-        xmlhttp.send(JSON.stringify(worldModel.getMinifyJSON() ));
+        xmlhttp.send(JSON.stringify(worldModel.getMinifyJSON()));
 
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 window.open('backend/downloadFile.php');
             }
@@ -326,7 +437,9 @@
 
     };
 
-
+    var hideModuleWindow = function hideModuleWindow(){
+        document.getElementById("module-window").style.display = "none";
+    };
 
     $(function () {
         // using default options
@@ -345,6 +458,7 @@
 
 
 </script>
+
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -368,10 +482,17 @@
                 <input type="file" id="files" name="files[]"/>
             </div>
 
-            <button id="downloadMapButton" class="btn btn-default" type="submit" onclick="downloadMapFile()">SAVE MAP
-            </button>
-            <button id="exportMapButton" class="btn btn-default" type="submit" onclick="editorExportMap()">EXPORT MAP
-            </button>
+            <button id="exportMapButton" class="btn btn-default" type="submit" onclick="editorExportMap()">EXPORT MAP TO GAME</button>
+
+            <button id="newMapButton" class="btn btn-default" type="submit" onclick="newMapModuleView.show()">NEW MAP</button>
+
+            <button id="terrainModuleButton" class="btn btn-default" type="submit" onclick="">TERRAIN MODULE</button>
+
+            <button id="entityModuleButton" class="btn btn-default" type="submit" onclick="">ENTITY MODULE</button>
+
+            <button id="dataModuleButton" class="btn btn-default" type="submit" onclick="">DATA MODULE</button>
+
+            <button id="triggersModuleButton" class="btn btn-default" type="submit" onclick="triggerModuleView.show()">TRIGGER MODULE</button>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -397,31 +518,15 @@
                                 <li id="highground_cobblestonesBig">highground_cobblestonesBig</li>
                             </ul>
                         </li>
-
-                        <li id="id1.2" class="folder">terrain 2
-                            <ul>
-                                <li id="id1.2.1">terrain 2.1</li>
-                                <li id="id1.2.2">terrain 2.2</li>
-                            </ul>
-                        </li>
-
-                        <li id="id1.3" class="folder">terrain 3
-                            <ul>
-                                <li id="id1.3.1">terrain 3.1</li>
-                                <li id="id1.3.2">terrain 3.2</li>
-                            </ul>
-                        </li>
                     </ul>
-
 
                 <li id="id4" class="folder expanded">objects
                     <ul>
-<?php
+                        <?php
                         createMenuFromJsonFiles("assets/editor/objects");
-?>
+                        ?>
                     </ul>
                 </li>
-
 
                 <li id="id2" class="folder expanded">units
                     <ul>
@@ -448,7 +553,6 @@
                         </li>
                     </ul>
                 </li>
-                <li id="id3" class="folder">system</li>
 
             </ul>
         </div>
@@ -487,7 +591,8 @@
         }
 
 
-        function createMenuFromJsonFiles($path){
+        function createMenuFromJsonFiles($path)
+        {
             $arrayFiles = scandir($path);
             for ($index = 0; $index < count($arrayFiles); $index++) {
 
@@ -501,11 +606,11 @@
         }
 
 
-
         /*
          * Create HTML with object (from JSON) that can be read in Javascript as model
          */
-        function readEntityElementsFromJsonAndCreateHTMLwithIt($path){
+        function readEntityElementsFromJsonAndCreateHTMLwithIt($path)
+        {
 
             $arrayFiles = scandir($path);
             for ($index = 0; $index < count($arrayFiles); $index++) {
@@ -546,6 +651,8 @@
 //                      "targetable": true
 //                }
 
+                    $escapedJson = htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+
                     print("
                     <graphicData class=\"entityElement\"
                         data-entityid=\"{$tabElement}\"
@@ -560,6 +667,7 @@
                         data-currenthp=\"{$currentHp}\"
                         data-selectable=\"{$selectable}\"
                         data-targetable=\"{$targetable}\"
+                        data-json=\"{$escapedJson}\"
                         >
                     </graphicData>");
 
@@ -571,7 +679,8 @@
         /*
          * Create HTML with tile configs (from JSON) that can be read in Javascript as model
          */
-        function readTileConfigsFromJsonAndCreateHTMLwithIt(){
+        function readTileConfigsFromJsonAndCreateHTMLwithIt()
+        {
 
             /*
              * Load Files from "assets/editor/graphic"
@@ -643,5 +752,21 @@
 
     </div>
 </div>
+
+<!--<div class="my-large-window" id="module-window">-->
+<!--    <div class="panel panel-primary my-panel-with-shadow my-100p-height">-->
+<!--        <div class="panel-heading">-->
+<!--            <h3 class="panel-title">Trigger Module</h3>-->
+<!--            <button type="button" class="close my-close-button" id="moduleViewClose" onclick="hideModuleWindow()">&times;</button>-->
+<!--        </div>-->
+<!--        <div class="module-window-content" id="module-window-content">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div id="module-div" class="hidden">
+
+</div>
+
 </body>
 </html>

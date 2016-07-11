@@ -13,7 +13,7 @@ var Utils = Utils || {};
  * @namespace app.controller
  * @class BuildController
  * @constructor
- * @param {app.model.EntityListModel} listModel
+ * @param {app.model.EntityListModel} entityListModel
  *
  */
 app.controller.BuildController = function BuildController(entityListModel) {
@@ -39,6 +39,7 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
     var element;
     var availableToBuild;
     var toBuild;
+    var removeAfterBuild = true;
 
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
@@ -57,11 +58,10 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
             toBuild._currentBuildTime += timeDelta;
             if (toBuild._currentBuildTime >= toBuild._buildTime) {
 
-                if (toBuild.getMoveList() === null || toBuild.getMoveList().length() === 0){
-                    continue;
-                }
+                removeAfterBuild = true;
 
-                if (toBuild.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK &&
+                if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0 &&
+                    toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.TaskEnum.ATTACK &&
                     (toBuild.getMoveList().getElement(0).getEntityId() === 0 || this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId()) === null )) {
                     continue;
                 }
@@ -70,13 +70,17 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
                 toBuild._currentBuildTime = 0;
 
                 //Wykasowanie elemntu budowanego z kolejki
-                if (toBuild.getMoveList().getElement(0).getActionType() !== app.model.ActionTypeModel.ATTACK) {
+                if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0 && toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.TaskEnum.ATTACK) {
+                    removeAfterBuild = false;
+                }
+
+                if (removeAfterBuild) {
                     element.getBuildList().removeElement(0);
                 }
 
                 var newEntity = toBuild.clone();
-                newEntity.setX(element.getX());
-                newEntity.setY(element.getY());
+                newEntity.setX(element.getX() + Math.random() - 0.5);
+                newEntity.setY(element.getY() + Math.random() - 0.5);
 
 
                 /*

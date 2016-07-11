@@ -1,13 +1,16 @@
 {
-  "graphicPath": "assets/graphics/images/building2_team1.png",
-  "graphicOffsetX": 0,
-  "graphicOffsetY": 20,
-  "radius": 110,
-  "groundSpeed": 0,
-  "team": 1,
-  "mass": -1,
-  "hp": 1000,
-  "currentHp": 1000,
-  "selectable": true,
-  "targetable": true
+  "_graphicUrl": "assets/graphics/images/building2_team1.png",
+  "_graphicOffset": {
+    "_x": 0,
+    "_y": 20
+  },
+  "_radius": 110,
+  "_collisionRadius": 105,
+  "_groundSpeed": 0,
+  "_team": 1,
+  "_mass": -1,
+  "_hp": 1000,
+  "_currentHp": 1000,
+  "_selectable": true,
+  "_targetable": true
 }

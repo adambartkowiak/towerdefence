@@ -9,7 +9,7 @@ Utils.namespace("editor.controller");
  * @namespace editor.controller
  * @class EditorMapController
  * @constructor
- * @param {editor.model.EditorMapModel} mapModel
+ * @param {editor.model.EditorMapModel} editorMapModel
  * @param {app.model.WorldModel} worldModel
  */
 editor.controller.EditorMapController = function EditorMapController(editorMapModel, worldModel) {
@@ -93,21 +93,27 @@ editor.controller.EditorMapController = function EditorMapController(editorMapMo
         //    "selectable": true,
         //    "targetable": true
         //}
+        //var entityModel = new app.model.EntityModel();
+        //
+        //entityModel.setId(assetsElement[index].dataset["entityid"]);
+        //entityModel.setTeam(parseInt(assetsElement[index].dataset["team"]));
+        //entityModel.setMass(parseInt(assetsElement[index].dataset["mass"] === "" ? 0 : assetsElement[index].dataset["mass"]));
+        //entityModel.setGroundSpeed(parseInt(assetsElement[index].dataset["groundspeed"]));
+        //entityModel.setRadius(parseInt(assetsElement[index].dataset["radius"]));
+        //entityModel.setHp(parseInt(assetsElement[index].dataset["hp"]));
+        //entityModel.setCurrentHp(parseInt(assetsElement[index].dataset["currenthp"]));
+        //entityModel.setSelectable(assetsElement[index].dataset["selectable"]);
+        //entityModel.setTargetable(assetsElement[index].dataset["targetable"]);
+        //entityModel.setGraphicUrl(assetsElement[index].dataset["assetname"]);
+        //entityModel.setGraphicOffsetX(parseInt(assetsElement[index].dataset["graphicoffsetx"]));
+        //entityModel.setGraphicOffsetY(parseInt(assetsElement[index].dataset["graphicoffsety"]));
+
+
+
+        //Prosty sposob wczytywania entities!!!
         var entityModel = new app.model.EntityModel();
-
+        entityModel.loadFromJSON(JSON.parse(assetsElement[index].dataset["json"]));
         entityModel.setId(assetsElement[index].dataset["entityid"]);
-        entityModel.setTeam(parseInt(assetsElement[index].dataset["team"]));
-        entityModel.setMass(parseInt(assetsElement[index].dataset["mass"] === "" ? 0 : assetsElement[index].dataset["mass"]));
-        entityModel.setGroundSpeed(parseInt(assetsElement[index].dataset["groundspeed"]));
-        entityModel.setRadius(parseInt(assetsElement[index].dataset["radius"]));
-        entityModel.setHp(parseInt(assetsElement[index].dataset["hp"]));
-        entityModel.setCurrentHp(parseInt(assetsElement[index].dataset["currenthp"]));
-        entityModel.setSelectable(assetsElement[index].dataset["selectable"]);
-        entityModel.setTargetable(assetsElement[index].dataset["targetable"]);
-        entityModel.setGraphicUrl(assetsElement[index].dataset["assetname"]);
-        entityModel.setGraphicOffsetX(parseInt(assetsElement[index].dataset["graphicoffsetx"]));
-        entityModel.setGraphicOffsetY(parseInt(assetsElement[index].dataset["graphicoffsety"]));
-
 
         this._entityListModel.addElement(entityModel);
     }
@@ -199,89 +205,6 @@ editor.controller.EditorMapController.prototype.onMouseEvent = function onMouseE
                 var unit = this._entityListModel.getElementById(this._activeBrushhName).clone();
                 unit.setX(x);
                 unit.setY(y);
-
-                if (this._activeBrushhName === "unit1_team1") {
-
-                    ////unit1 build list
-                    var unit1BuildList = new app.model.ListModel();
-
-                    var unit1Bullet = new app.model.EntityModel();
-                    unit1Bullet.setRadius(10);
-                    unit1Bullet.setAttackDamage(10);
-                    unit1Bullet.setGroundSpeed(1000);
-                    unit1Bullet.setHp(1);
-                    unit1Bullet.setCurrentHp(1);
-                    unit1Bullet.setBuildTime(300);
-                    unit1Bullet.setGraphicUrl("assets/graphics/images/bullet0.png");
-                    unit1Bullet.setSelectable(false);
-                    unit1Bullet.setAttackRange(300);
-
-                    var unit1BulletMoveList = new app.model.ListModel();
-                    unit1BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 5, 0, app.model.ActionTypeModel.ATTACK));
-                    unit1Bullet.setMoveList(unit1BulletMoveList);
-
-
-                    unit1BuildList.addElement(unit1Bullet);
-                    unit.setBuildList(unit1BuildList);
-                } else if (this._activeBrushhName === "bulding1_team1"){
-
-
-                    //unit1
-                    var unit1 = new app.model.EntityModel();
-                    unit1.setTeam(1);
-                    unit1.setX(60);
-                    unit1.setY(200);
-                    unit1.setRadius(20);
-                    unit1.setGroundSpeed(120);
-                    unit1.setHp(100);
-                    unit1.setCurrentHp(100);
-                    unit1.setBuildTime(200);
-                    unit1.setSelectable(true);
-                    unit1.setTargetable(true);
-                    unit1.setGraphicUrl("assets/graphics/images/enemy0.png");
-
-                    //unit1 move list
-                    var unit1MoveList = new app.model.ListModel();
-                    unit1MoveList.addElement(new app.model.TargetModel(1500, 700, 5, 0, app.model.ActionTypeModel.MOVE_AND_AIM));
-                    unit1.setMoveList(unit1MoveList);
-
-                    //unit1 build list
-                    var unit1BuildList = new app.model.ListModel();
-
-                    var unit1Bullet = new app.model.EntityModel();
-                    unit1Bullet.setRadius(10);
-                    unit1Bullet.setAttackDamage(10);
-                    unit1Bullet.setGroundSpeed(800);
-                    unit1Bullet.setHp(1);
-                    unit1Bullet.setCurrentHp(1);
-                    unit1Bullet.setBuildTime(200);
-                    unit1Bullet.setGraphicUrl("assets/graphics/images/bullet0.png");
-                    unit1Bullet.setSelectable(false);
-                    unit1Bullet.setAttackRange(300);
-
-                    var unit1BulletMoveList = new app.model.ListModel();
-                    unit1BulletMoveList.addElement(new app.model.TargetModel(-1, -1, 5, 0, app.model.ActionTypeModel.ATTACK));
-                    unit1Bullet.setMoveList(unit1BulletMoveList);
-
-
-                    unit1BuildList.addElement(unit1Bullet);
-                    unit1.setBuildList(unit1BuildList);
-
-                    //base1 build list
-                    var base1buildList = new app.model.ListModel();
-
-                    base1buildList.addElement(unit1);
-                    base1buildList.addElement(unit1);
-                    base1buildList.addElement(unit1);
-                    base1buildList.addElement(unit1);
-                    base1buildList.addElement(unit1);
-                    base1buildList.addElement(unit1);
-                    base1buildList.addElement(unit1);
-                    base1buildList.addElement(unit1);
-
-                    unit.setBuildList(base1buildList);
-
-                }
 
                 this._worldModel.getEntityListModel().addElement(unit);
             }
@@ -703,7 +626,7 @@ editor.controller.EditorMapController.prototype.updateMapModel = function update
                                 src: tileImage.getGraphicSource(),
                                 width: tileImage.getGraphicWidthInTile() || 1,
                                 height: tileImage.getGraphicHeightInTile() || 1
-                            }
+                            };
 
 
                             mapGraphicTileModelArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer] = graphicTile;

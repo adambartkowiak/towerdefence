@@ -14,9 +14,10 @@ var Utils = Utils || {};
  * @class SelectTargetController
  * @constructor
  * @param {app.model.EntityListModel} listModel
+ * @param {app.controller.CollisionDetectionController} collisionDetectionController
  *
  */
-app.controller.SelectTargetController = function SelectTargetController(entityListModel) {
+app.controller.SelectTargetController = function SelectTargetController(entityListModel, collisionDetectionController) {
 
     /**
      * @property {app.model.EntityListModel} _list
@@ -24,6 +25,11 @@ app.controller.SelectTargetController = function SelectTargetController(entityLi
      */
     this._list = entityListModel;
 
+    /**
+     * @property {app.controller.CollisionDetectionController} collisionDetectionController
+     * @private
+     */
+    this._collisionDetectionController = collisionDetectionController;
 };
 
 Utils.inherits(app.controller.SelectTargetController, Object);
@@ -34,8 +40,7 @@ Utils.inherits(app.controller.SelectTargetController, Object);
  */
 app.controller.SelectTargetController.prototype.update = function update(timeDelta) {
 
-    return;
-
+    // return;
     var listLength = this._list.length();
     var elementIndex;
     var element;
@@ -45,11 +50,16 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
     var availableToBuild;
     var toBuild;
     var foundTarget = false;
-    var distanceVector = new support.geom.Vector2d(0,0,0,0);
+    var distanceVector = new support.geom.Vector2d(0, 0, 0, 0);
     var shotDistance = 0;
     var currentShotDistance = 0;
     var c1 = new support.geom.Circle(0, 0, 0);
     var p1 = new support.geom.Point2d(0, 0);
+
+    var potentialCollisionList;
+    var potentialCollisionElement;
+    var potentialCollisionIndex;
+    var potentialCollisionLength;
 
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
@@ -68,41 +78,43 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
 
             if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0) {
 
-                if (toBuild.getMoveList().getElement(0).getActionType() === app.model.ActionTypeModel.ATTACK){
+                if (toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.TaskEnum.ATTACK) {
 
                     //AttackRangeCircle
                     c1.setX(element.getX());
                     c1.setY(element.getY());
                     c1.setRadius(toBuild.getAttackRange());
 
+                    potentialCollisionList = this._collisionDetectionController.getPotentialCollisionArrayForCircle(element.getX(), element.getY(), 100, 0);
+
                     foundTarget = false;
-                    targetListLength = this._list.length();
+                    targetListLength = potentialCollisionList.length;
 
                     shotDistance = Infinity;
                     currentShotDistance = Infinity;
 
-                    for (targetIndex = 0; targetIndex < targetListLength; targetIndex++){
-                        potentialTarget = this._list.getElement(targetIndex);
+                    for (targetIndex = 0; targetIndex < targetListLength; targetIndex++) {
+                        potentialTarget = potentialCollisionList[targetIndex];
 
                         p1.setX(potentialTarget.getX());
                         p1.setY(potentialTarget.getY());
 
-                        if(potentialTarget.getId() !== element.getId() &&
+                        if (potentialTarget.getId() !== element.getId() &&
                             potentialTarget.getTargetable() &&
                             potentialTarget.getTeam() !== element.getTeam() &&
                             potentialTarget.getTeam() !== 0 &&
-                            support.geom.collision.Collision.Point2dCircle(p1, c1)){
+                            support.geom.collision.Collision.Point2dCircle(p1, c1)) {
 
                             /*
-                            Wybieranie celu, ktory jest najblizej
+                             Wybieranie celu, ktory jest najblizej
                              */
-                            distanceVector.getStartPoint().setX(p1.getX())
-                            distanceVector.getStartPoint().setY(p1.getY())
-                            distanceVector.getEndPoint().setX(c1.getX())
-                            distanceVector.getEndPoint().setY(c1.getY())
+                            distanceVector.getStartPoint().setX(p1.getX());
+                            distanceVector.getStartPoint().setY(p1.getY());
+                            distanceVector.getEndPoint().setX(c1.getX());
+                            distanceVector.getEndPoint().setY(c1.getY());
                             currentShotDistance = distanceVector.getVectorLength();
 
-                            if (shotDistance > currentShotDistance){
+                            if (shotDistance > currentShotDistance) {
                                 toBuild.getMoveList().getElement(0).setEntityId(potentialTarget.getId());
                                 foundTarget = true;
                                 shotDistance = currentShotDistance;
@@ -111,7 +123,7 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
                         }
                     }
 
-                    if (!foundTarget){
+                    if (!foundTarget) {
                         toBuild.getMoveList().getElement(0).setEntityId(0);
 
                     }
@@ -121,7 +133,7 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
             }
 
         }
-
     }
+
 
 };

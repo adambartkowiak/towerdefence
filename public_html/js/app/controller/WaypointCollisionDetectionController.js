@@ -65,33 +65,66 @@ app.controller.WaypointCollisionDetectionController.prototype.update = function 
 
 
         //RODZAJ TYPU WYKRYWANIA KOLIZJI MIEDZY OBIEKTAMI
+
+
+        /*
+         KOLIZJA PROSTA: OKRAG - PUNKT
+         */
+        //punkt
+        var collisionType2_p1 = new support.geom.Point2d(element.getMoveList().getElement(0).getX(), element.getMoveList().getElement(0).getY());
+
+        //okrag
+        var collisionType2_c1 = new support.geom.Circle(element.getX(), element.getY(), element.getRadius());
+
+        //kolizja: punkt-okrag
+        var collisionType2 = support.geom.collision.Collision.Point2dCircle(collisionType2_p1, collisionType2_c1);
+
+
+        /*
+         KOLIZJA PROSTA: OKRAG - OKRAG
+         */
+
+        var targetEntity = null;
+
+        if ( element.getMoveList().getElement(0).getEntityId() > 0){
+            targetEntity = this._list.getElementById(element.getMoveList().getElement(0).getEntityId());
+        }
+
+
+        var collisionType3 = false;
+
+        if (targetEntity !== null){
+            //okrag
+            var collisionType3_c1 = new support.geom.Circle(targetEntity.getX(), targetEntity.getY(), targetEntity.getRadius());
+
+            //okrag
+            var collisionType3_c2 = new support.geom.Circle(element.getX(), element.getY(), element.getRadius());
+
+            //kolizja: okrag-okrag
+            collisionType3 = support.geom.collision.Collision.CircleCircle(collisionType3_c1, collisionType3_c2);
+        }
+
+
+
         /*
         KOLIZJA ZLOZONA
          */
 
-
         //okrag
         var targetCurrentPosition = element.getMoveList().getElement(0);
-        var c1 = new support.geom.Circle(targetCurrentPosition.getX(), targetCurrentPosition.getY(), targetCurrentPosition.getRadius());
+        var collitionType1_c1 = new support.geom.Circle(targetCurrentPosition.getX(), targetCurrentPosition.getY(), targetCurrentPosition.getRadius());
 
         //odcinek reprezentujacy ostatni ruch elementu
-        var v1 = new support.geom.Vector2d(element.getX(), element.getY(), element.getLastPosition().getX(), element.getLastPosition().getY());
+        var collitionType1_v1 = new support.geom.Vector2d(element.getX(), element.getY(), element.getLastPosition().getX(), element.getLastPosition().getY());
 
         //kolizja: okrag-odcinek
-        var collision = support.geom.collision.Collision.CircleVector2d(c1, v1);
+        var collisionType1 = false;
 
-        /*
-        KOLIZJA PROSTA
-         */
-        //punkt
-        //var p1 = new support.geom.Point2d(element.getMoveList().getElement(0).getX(), element.getMoveList().getElement(0).getY());
-        //
-        ////okrag
-        //var c1 = new support.geom.Circle(element.getX(), element.getY(), element.getRadius());
-        //
-        ////kolizja: punkt-okrag
-        //var collision = support.geom.collision.Collision.Point2dCircle(p1, c1);
+        if (!collisionType2){
+            collisionType1 = support.geom.collision.Collision.CircleVector2d(collitionType1_c1, collitionType1_v1);
+        }
 
+        var collision = collisionType1 || collisionType2 || collisionType3;
 
         /*@TODO: powinno tutaj zostac zgloszona kolizja - i inny modul powinien ja obsluzy
          na zasadzie raport collision Obiekt o ID takiem z Obiektem o ID takim...
@@ -105,7 +138,7 @@ app.controller.WaypointCollisionDetectionController.prototype.update = function 
             //console.log("COLLISION: true");
 
             //chodzenie po X Y
-            this._collisionList.addElement(new app.model.EntityTargetCollisionModel(element, element.getMoveList().getElement(0)));
+            this._collisionList.addElement(new app.model.TaskForEntityModel(element, element.getMoveList().getElement(0)));
 
             //chodzenie do obiektu
 
@@ -121,65 +154,3 @@ app.controller.WaypointCollisionDetectionController.prototype.update = function 
     }
 
 };
-
-
-//
-//
-//
-//
-///**
-// * @method checkTargetsToHit
-// */
-//app.managers.BulletManager.prototype.checkTargetsToHit = function checkTargetsToHit() {
-//
-//    var length = this._bulletList.length();
-//    var bulletIndex;
-//    var bullet;
-//    var target, enemyGuid, enemy, currentHp;
-//    //var targetBulletVector;
-//
-//    var arrayToRemove = []
-//    var bulletToRemoveIndex = 0;
-//
-//    for (bulletIndex = 0; bulletIndex < length; bulletIndex++) {
-//        bullet = this._bulletList.getBullet(bulletIndex);
-//
-//        target = bullet.getTarget();
-//        enemyGuid = target.getEnemyGuid();
-//        enemy = this._enemyList.getEnemyByGuid(enemyGuid);
-//
-//        if (enemy !== null) {
-//            target.setX(enemy.getX());
-//            target.setY(enemy.getY());
-//        }
-//
-//        //okrag reprezentujacy przeciwnika
-//        var c1 = new support.geom.Circle(target.getX(), target.getY(), 5);
-//        //odcinek reprezentujacy ostatni ruch wektora
-//        var v2 = new support.geom.Vector2d(bullet.getX(), bullet.getY(), bullet.getLastPosition().getX(), bullet.getLastPosition().getY());
-//        //wynik detekcji kolizji
-//        var collision = support.geom.collision.Collision.CircleVector2d(c1, v2);
-//
-//        //remove bullet after hit target
-//        if (collision) {
-//            arrayToRemove.push(bulletIndex);
-//            if (enemy !== null) {
-//                currentHp = enemy.getCurrentHp();
-//                currentHp -= bullet.getDamage();
-//                this._hudModel.setScore(this._hudModel.getScore() + 1);
-//                if (currentHp <= 0) {
-//                    currentHp = 0;
-//                    this._hudModel.setScore(this._hudModel.getScore() + 999);
-//                    this._hudModel.setCash(this._hudModel.getCash() + 100);
-//                }
-//                enemy.setCurrentHp(currentHp);
-//            }
-//        }
-//    }
-//
-//    length = arrayToRemove.length;
-//    for (bulletIndex = length - 1; bulletIndex >= 0; bulletIndex--) {
-//        bulletToRemoveIndex = arrayToRemove[bulletIndex];
-//        this._bulletList.remove(bulletToRemoveIndex);
-//    }
-//};

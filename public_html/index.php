@@ -115,22 +115,51 @@ and open the template in the editor.
 
 <!-- Game Files -->
 
+<!--CONFIGS-->
+<script type="text/javascript" src="js/app/GuiConfig.js"></script>
+<script type="text/javascript" src="js/app/FeatureToggle.js"></script>
+
+<!--HELPER-->
+<script type="text/javascript" src="js/helper/Helper.js"></script>
+
+<!--ENUM-->
+<script type="text/javascript" src="js/app/enum/TaskEnum.js"></script>
+<script type="text/javascript" src="js/app/enum/GameEventEnum.js"></script>
+<script type="text/javascript" src="js/app/enum/FunctionEnum.js"></script>
+<script type="text/javascript" src="js/app/enum/EntityPropertyEnum.js"></script>
+
+<!--LISTENER-->
+<script type="text/javascript" src="js/app/listener/GlobalEventListener.js"></script>
+
 <!--MODEL-->
 <script type="text/javascript" src="js/app/model/AvailableActionsModel.js"></script>
 <script type="text/javascript" src="js/app/model/WorldModel.js"></script>
-<script type="text/javascript" src="js/app/model/ActionTypeModel.js"></script>
-<script type="text/javascript" src="js/app/model/EntityTargetCollisionModel.js"></script>
-<script type="text/javascript" src="js/app/model/TargetModel.js"></script>
+<script type="text/javascript" src="js/app/model/TaskForEntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/TaskModel.js"></script>
+<script type="text/javascript" src="js/app/model/GameEventModel.js"></script>
+<script type="text/javascript" src="js/app/model/TriggerModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
-<script type="text/javascript" src="js/app/model/TargetListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TriggerListModel.js"></script>
+<script type="text/javascript" src="js/app/model/ValueListModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/MapModel.js"></script>
+
+<script type="text/javascript" src="js/app/model/function/AbstractValue.js"></script>
+<script type="text/javascript" src="js/app/model/function/AbstractFunction.js"></script>
+<script type="text/javascript" src="js/app/model/function/Attribute.js"></script>
+<script type="text/javascript" src="js/app/model/function/ConditionEqual.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetEventEntity.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetEntityProperty.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetUnitCount.js"></script>
+
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
+<script type="text/javascript" src="js/app/model/ActionMenuModel.js"></script>
 <script type="text/javascript" src="js/app/model/gui/MiniMapModel.js"></script>
 
 <!--VIEW MOUSE EVENT LISTENER -->
@@ -140,9 +169,12 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/view/AbstractWorldView.js"></script>
 <script type="text/javascript" src="js/app/view/WorldView.js"></script>
 <script type="text/javascript" src="js/app/view/gui/ActionMenuView.js"></script>
+<script type="text/javascript" src="js/app/view/gui/EntityStatusView.js"></script>
 
 <!--CONTROLLER-->
+<script type="text/javascript" src="js/app/controller/CollisionDetectionController.js"></script>
 <script type="text/javascript" src="js/app/controller/BuildController.js"></script>
+<script type="text/javascript" src="js/app/controller/CollisionRepulsionController.js"></script>
 <script type="text/javascript" src="js/app/controller/MoveController.js"></script>
 <script type="text/javascript" src="js/app/controller/CommandController.js"></script>
 <script type="text/javascript" src="js/app/controller/WaypointCollisionDetectionController.js"></script>
@@ -151,10 +183,25 @@ and open the template in the editor.
 
 <!-- APP COMMANDS -->
 <script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetPatrolCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetGatherCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetBuildBaseCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
+<script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
+<script type="text/javascript" src="js/app/command/HoldCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TrainWorkerCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TrainWarriorCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ShowConsoleLogCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TurnOffTriggerCommand.js"></script>
 
+<!-- FACTORY -->
+<script type="text/javascript" src="js/app/factory/FunctionFactory.js"></script>
 
+<!-- Mouse Event Handler -->
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
 
+
+<!-- Main JS File -->
 <script type="text/javascript" src="js/Main.js"></script>
 
 

@@ -38,7 +38,9 @@ support.graphics.Image.prototype.drawRotateImage = function drawRotateImage(canv
 
     // rotate around that point, converting our
     // angle from degrees to radians
-    canvasContext.rotate(angle * this.TO_RADIANS);
+    if (angle !== 0){
+        canvasContext.rotate(angle * this.TO_RADIANS);
+    }
 
     // draw it up and to the left by half the width
     // and height of the image

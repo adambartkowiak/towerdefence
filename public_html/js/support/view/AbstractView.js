@@ -54,7 +54,7 @@ support.view.AbstractView = function AbstractView(x, y, width, height) {
      * @property {string} backgroundColor
      * @private
      */
-    this._backgroundColor = '#222222';
+    this._backgroundColor = null;
 
     /**
      * @property {Image} backgroundImage
@@ -93,6 +93,30 @@ support.view.AbstractView.prototype.getX = function getX() {
  */
 support.view.AbstractView.prototype.getY = function getY() {
     return this._y;
+};
+
+/**
+ * @method getRelativeX
+ * @return {number} x
+ */
+support.view.AbstractView.prototype.getRelativeX = function getRelativeX() {
+    if (this.getParentViewGroup() !== null){
+        return this.getParentViewGroup().getRelativeX() + this.getX();
+    } else {
+        return this.getX();
+    }
+};
+
+/**
+ * @method getRelativeY
+ * @return {number} y
+ */
+support.view.AbstractView.prototype.getRelativeY = function getRelativeY() {
+    if (this.getParentViewGroup() !== null){
+        return this.getParentViewGroup().getRelativeY() + this.getY();
+    } else {
+        return this.getY();
+    }
 };
 
 /**
@@ -200,6 +224,27 @@ support.view.AbstractView.prototype.setMouseEventListener = function setMouseEve
 };
 
 /**
+ * @method draw
+ * @public
+ * @param {HTMLCanvasElement} canvas
+ */
+support.view.AbstractView.prototype.draw = function draw(canvas){
+
+    var canvasContext = canvas.getContext("2d");
+
+    //Rysowanie backgrounda widoku
+    if (this.getBackgroundColor() !== null){
+        canvasContext.fillStyle = this.getBackgroundColor();
+        canvasContext.fillRect(this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
+    }
+
+    if (this.getBackgroundImage() !== null){
+        canvasContext.drawImage(this.getBackgroundImage(), this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
+    }
+
+};
+
+/**
  * Metoda sluzaca do rozpropagowania eventu do widokow dzieci lub do siebie.
  * Kiedy nie ma wybranego targetu dla Eventu to onMouseEvent sa wywolywane dla kazdego elementu, ktory znajduje sie pod muszka.
  * Kiedy jest wybrany target event jest dostarczany do Targetu nawet kiedy nie jest juz pod myszka
@@ -248,6 +293,8 @@ support.view.AbstractView.prototype.onMouseEvent = function onMouseEvent(mouseEv
     if (this._mouseEventListener !== null){
         result = this._mouseEventListener.onMouseEvent(mouseEvent);
     }
+
+
     
     return result;
     

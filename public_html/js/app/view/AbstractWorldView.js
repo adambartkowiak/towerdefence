@@ -9,6 +9,8 @@ app.view = app.view || {};
 
 var timer = timer || null;
 
+var FOG_RESOLUTION_MULTIPLIER = 1;
+
 /**
  * @namespace app.view
  * @class AbstractWorldView
@@ -60,8 +62,12 @@ app.view.AbstractWorldView = function AbstractWorldView(worldModel, x, y, width,
      */
     this._count = 0;
 
-
-    this._optymalizationOne = true;
+    /**
+     *
+     * @type {number}
+     * @private
+     */
+    this._FOWBuffoer = [];
 
 };
 
@@ -79,11 +85,18 @@ app.view.AbstractWorldView.prototype.draw = function draw(canvas) {
 
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
-    //To mozna zaoptymalizowac - aby podczas poruszania obiekty przypisywaly sie do tilesow, a nie w czasie petli renderowania
-    this._updateEnitityOnMapModel(canvasContext, this._worldModel.getEntityListModel(), this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+    this._updateEnitityOnMapArray(this._worldModel.getEntityListModel(), this._worldModel.getMapModel());
+
+    if (FEATURE_TOGGLE.FOG_OF_WAR){
+        this._prepareFogOfWar(this._worldModel.getEntityListModel(), this._worldModel.getMapModel());
+    }
 
     this._drawMap(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
     this._drawEntities(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+
+    if (FEATURE_TOGGLE.FOG_OF_WAR) {
+        this._drawFogOfWar(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+    }
 
     this._count++;
 };
@@ -123,7 +136,6 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
         maxLayer = 2;
 
     //MAP IMAGES
-    //Optymalizacja PETLI TUTAJ POWINNA BYC !!!
     var starIndexX = parseInt(Math.max(0, cameraModel.getViewPortX() / tileGraphicWidth));
     var startIndexY = parseInt(Math.max(0, cameraModel.getViewPortY() / tileGraphicHeight));
     var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
@@ -137,7 +149,6 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
 
                 tileGraphic = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
                 //tileGraphic = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
-
 
                 if (tileGraphic && tileGraphic[layer]) {
 
@@ -221,7 +232,6 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
         canvasContext.stroke();
     }
 
-
     //GRAPHIC MESH
     if (false) {
 
@@ -239,6 +249,7 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
                     tileGraphic = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
 
                     canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileGraphicWidth, tileGraphicHeight);
+                    canvasContext.fillText(maxTileGraphicIndexY * tileIndexX + tileIndexY, drawX - cameraModel.getViewPortX() + 5, drawY - cameraModel.getViewPortY() + 20);
                 }
             }
         }
@@ -285,200 +296,80 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
         tileGraphicsData,
         tileImage,
         layer = 0,
-        maxLayer = 2;
+        maxLayer = 2,
+
+        curentOnScreen = 0;
 
 
-    /*
-     sorotowanie obiektów do narysowania przed narysowaniem aby uzyskac efekt glebii
-     */
-    entityListModel.getElements().sort(
-        function (a, b) {
+    canvasContext.strokeStyle = '#000000';
+    canvasContext.lineWidth = 1;
 
-            if (a.getY() > b.getY()) {
-                return 1;
-            }
+    //RENDEROWANIE INTITY NA PODSTAWIE TILESOW MAPY
+    var starIndexX = parseInt(Math.max(0, cameraModel.getViewPortX() / tileGraphicWidth));
+    var startIndexY = parseInt(Math.max(0, cameraModel.getViewPortY() / tileGraphicHeight));
+    var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
+    var endIndexY = parseInt(Math.min(cameraModel.getViewPortY() / tileGraphicHeight + this.getHeight() / tileGraphicHeight + 2, maxTileGraphicIndexY));
 
-            else if (a.getY() < b.getY()) {
-                return -1;
-            }
+    var rowArray = [];
 
-            else if (a.getY() === b.getY()) {
-                if (a.getId() > b.getId()) {
-                    return 1;
-                } else {
-                    return -1;
-                }
+    for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
+
+        rowArray = [];
+
+        for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
+
+            tileGraphic = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+
+            if (tileGraphic && tileGraphic[100]) {
+
+                rowArray = rowArray.concat(tileGraphic[100]);
+
             }
         }
-    );
 
+        rowArray.sort(
+            function (a, b) {
 
-    if (this._optymalizationOne) {
+                if (a.getY() > b.getY()) {
+                    return 1;
+                }
 
-        canvasContext.strokeStyle = '#000000';
-        canvasContext.lineWidth = 1;
+                else if (a.getY() < b.getY()) {
+                    return -1;
+                }
 
-        //RENDEROWANIE INTITY NA PODSTAWIE TILESOW MAPY
-        var starIndexX = parseInt(Math.max(0, cameraModel.getViewPortX() / tileGraphicWidth));
-        var startIndexY = parseInt(Math.max(0, cameraModel.getViewPortY() / tileGraphicHeight));
-        var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
-        var endIndexY = parseInt(Math.min(cameraModel.getViewPortY() / tileGraphicHeight + this.getHeight() / tileGraphicHeight + 2, maxTileGraphicIndexY));
-
-        for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
-            for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
-
-                tileGraphic = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
-
-                if (tileGraphic && tileGraphic[100]) {
-
-                    for (var i = 0; i < tileGraphic[100].length; i++) {
-                        entity = tileGraphic[100][i];
-
-                        //IMAGE
-                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
-
-                        //SELECTED
-                        if (entity._selected && entity.getTeam() === 1) {
-                            canvasContext.beginPath();
-                            canvasContext.strokeStyle = '#00FF00';
-                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-                            canvasContext.stroke();
-                        }
-                        else if (entity._selected) {
-                            canvasContext.beginPath();
-                            canvasContext.strokeStyle = '#FFFF90';
-                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-                            canvasContext.stroke();
-                        }
-
-                        //SLEEPING
-                        if (true) {
-                            if (entity.isSleeping()) {
-                                canvasContext.beginPath();
-                                canvasContext.strokeStyle = '#AAAAAA';
-                                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
-                                canvasContext.stroke();
-                            }
-                            else {
-                                canvasContext.beginPath();
-                                canvasContext.strokeStyle = '#FFFFFF';
-                                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
-                                canvasContext.stroke();
-                            }
-                        }
-
-
-                        //HEALTH BAR
-                        if (false && entity.getHp() > 1) {
-                            hp = entity.getHp();
-                            currentHp = entity.getCurrentHp();
-
-                            canvasContext.fillStyle = '#474747';
-                            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10 + currentHp / 5, entity.getY() - cameraModel.getViewPortY() - 20, (hp - currentHp) / 5, 3);
-
-                            canvasContext.fillStyle = '#00FF00';
-                            canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, currentHp / 5, 3);
-
-                            ////drawRect
-                            canvasContext.beginPath();
-                            canvasContext.strokeStyle = '#000000';
-                            canvasContext.rect(entity.getX() - cameraModel.getViewPortX() - hp / 10, entity.getY() - cameraModel.getViewPortY() - 20, hp / 5, 3);
-
-                            canvasContext.lineWidth = 1;
-                            canvasContext.stroke();
-                        }
-
-                        //PATH
-                        if (true && entity.getSelected()) {
-
-                            var moveList = entity.getMoveList();
-
-                            if (moveList != null) {
-
-                                canvasContext.beginPath();
-
-                                var moveToX = entity.getX(),
-                                    moveToY = entity.getY();
-
-                                canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
-
-                                canvasContext.strokeStyle = '#00FF00';
-                                canvasContext.fillStyle = '#00FF00';
-
-                                for (var j = 0; j < moveList.length(); j++) {
-
-                                    moveToX = moveList.getElement(j).getX();
-                                    moveToY = moveList.getElement(j).getY();
-
-                                    if (moveList.getElement(j).getEntityId() === 0 && moveToX !== -1 && moveToX !== -1) {
-                                        canvasContext.lineTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
-                                    }
-
-                                }
-
-                                canvasContext.strokeStyle = '#00FF00';
-                                canvasContext.lineWidth = 1;
-                                canvasContext.stroke();
-
-                            }
-
-                        }
-
-                        //DEBUG LINES
-                        if (false) {
-                            canvasContext.beginPath();
-                            canvasContext.strokeStyle = '#FF0000';
-                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-                            canvasContext.stroke();
-                        }
-
-                        if (false) {
-                            canvasContext.beginPath();
-                            canvasContext.strokeStyle = '#00bfff';
-                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
-                            canvasContext.stroke();
-
-                            canvasContext.beginPath();
-                            canvasContext.strokeStyle = '#FF0000';
-                            canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
-                            canvasContext.stroke();
-
-                            var moveToX = entity.getX(),
-                                moveToY = entity.getY(),
-                                moveVectorX = entity.getLastPosition().getX(),
-                                moveVectorY = entity.getLastPosition().getY();
-
-                            canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
-                            canvasContext.lineTo(moveVectorX - cameraModel.getViewPortX(), moveVectorY - cameraModel.getViewPortY());
-
-                            canvasContext.fillStyle = '#FFFFFF';
-                            canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
-                            canvasContext.stroke();
-                        }
-
+                else if (a.getY() === b.getY()) {
+                    if (a.getId() > b.getId()) {
+                        return 1;
+                    } else {
+                        return -1;
                     }
                 }
             }
-        }
-    }
-
-    //STARA METODA RENDERUJACA
-    else {
-
-        canvasContext.strokeStyle = '#000000';
-        canvasContext.lineWidth = 1;
+        );
 
 
-        /*
-         renderowanie juz posortowanych obiektów
-         */
+        //counting current on screen entities
+        curentOnScreen += rowArray.length;
 
-        max = entityListModel.length();
-        for (i = 0; i < max; i++) {
-            entity = entityListModel.getElement(i);
+        for (var i = 0; i < rowArray.length; i++) {
+            entity = rowArray[i];
+
+            var fogOfWarValueForEntity = mapModel.getMapGraphicModel()._fogOfWarTileArray[maxTileGraphicIndexY * Math.floor(entity.getX()/40) + Math.floor(entity.getY()/40)];
+
+            if (fogOfWarValueForEntity && fogOfWarValueForEntity.v===1 && entity.getTeam() > 1){
+                continue;
+            }
 
             //IMAGE
-            this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
+            //canvasContext.globalAlpha = 0.5;
+            if (entity.getRotateGraphicOnMove()){
+                this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
+            } else {
+                this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), 0);
+            }
+
+            //canvasContext.globalAlpha = 1;
 
             //SELECTED
             if (entity._selected && entity.getTeam() === 1) {
@@ -495,7 +386,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             }
 
             //SLEEPING
-            if (true) {
+            if (false) {
                 if (entity.isSleeping()) {
                     canvasContext.beginPath();
                     canvasContext.strokeStyle = '#AAAAAA';
@@ -510,6 +401,11 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                 }
             }
 
+            //DRAW ID
+            if (false) {
+                canvasContext.fillStyle = '#FFFFFF';
+                canvasContext.fillText("ID: " + entity.getId(), entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY());
+            }
 
             //HEALTH BAR
             if (false && entity.getHp() > 1) {
@@ -567,14 +463,23 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
 
             }
 
-            //DEBUG LINES
+            //DEBUG LINES - object
             if (false) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = '#FF0000';
                 canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
+
+                //object base
+                canvasContext.moveTo(entity.getX() - entity.getRadius() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY());
+                canvasContext.lineTo(entity.getX() + entity.getRadius() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY());
+
+                // canvasContext.fillStyle = '#FFFFFF';
+                // canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
+                canvasContext.stroke();
             }
 
+            //MOVE DESTINATION
             if (false) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = '#00bfff';
@@ -600,8 +505,9 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             }
 
         }
-    }
 
+
+    }
 
     canvasContext.fillStyle = '#FFFFFF';
     if (timer) {
@@ -611,6 +517,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
         this._timeDeltaMemory = this._timeDeltaMemory.splice(0, 100);
     }
     canvasContext.fillText("ENTITY COUNT: " + entityListModel.length(), 5, 160);
+    canvasContext.fillText("ENTITY ON SCREEN: " + curentOnScreen, 5, 180);
 
 
     canvasContext.fillStyle = '#333333';
@@ -624,81 +531,323 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
     for (var deltaItem = 0; deltaItem < this._timeDeltaMemory.length; deltaItem++) {
         canvasContext.beginPath();
         canvasContext.moveTo(deltaItem, 100);
-        canvasContext.lineTo(deltaItem, 100-(this._timeDeltaMemory[deltaItem])/2);
+        canvasContext.lineTo(deltaItem, 100 - (this._timeDeltaMemory[deltaItem]) / 2);
         canvasContext.stroke();
 
         avarageFps = avarageDelat += this._timeDeltaMemory[deltaItem];
 
     }
 
-    avarageDelat = Math.round(avarageDelat/this._timeDeltaMemory.length);
-    avarageFps = Math.round(1000/(avarageFps/this._timeDeltaMemory.length));
+    avarageDelat = Math.round(avarageDelat / this._timeDeltaMemory.length);
+    avarageFps = Math.round(1000 / (avarageFps / this._timeDeltaMemory.length));
 
     canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("avarageDelta: " + avarageDelat, 5, 200);
+    canvasContext.fillText("avarageDelta: " + avarageDelat, 5, 220);
 
     canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("avarageFps: " + avarageFps, 5, 220);
+    canvasContext.fillText("avarageFps: " + avarageFps, 5, 240);
 
 };
 
 /**
- * @method _updateEnittyOnMapModel
+ * @method _drawFogOfWar
  * @private
  * @param {CanvasRenderingContext2D} canvasContext
- * @param {app.model.ListModel} entityListModel
  * @param {app.model.MapModel} mapModel
  * @param {app.model.CameraModel} cameraModel
  */
-app.view.AbstractWorldView.prototype._updateEnitityOnMapModel = function _updateEnitityOnMapModel(canvasContext, entityListModel, mapModel, cameraModel){
+app.view.AbstractWorldView.prototype._drawFogOfWar = function _drawFogOfWar(canvasContext, mapModel, cameraModel) {
 
-    var layer = 0,
+    var tileIndexX,
+        tileIndexY,
+        tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth() / FOG_RESOLUTION_MULTIPLIER,
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight() / FOG_RESOLUTION_MULTIPLIER,
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapHeight() / tileGraphicHeight),
+
+        drawX,
+        drawY,
+        addFOWEffect;
+
+    //MAP IMAGES
+    var starIndexX = parseInt(Math.max(0, cameraModel.getViewPortX() / tileGraphicWidth));
+    var startIndexY = parseInt(Math.max(0, cameraModel.getViewPortY() / tileGraphicHeight));
+    var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
+    var endIndexY = parseInt(Math.min(cameraModel.getViewPortY() / tileGraphicHeight + this.getHeight() / tileGraphicHeight + 2, maxTileGraphicIndexY));
+
+    for (tileIndexY = startIndexY; tileIndexY < endIndexY; tileIndexY++) {
+        for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
+
+            addFOWEffect = mapModel.getMapGraphicModel()._fogOfWarTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+
+            drawX = tileIndexX * tileGraphicWidth;
+            drawY = tileIndexY * tileGraphicHeight;
+
+            if (addFOWEffect.v > 0) {
+                canvasContext.fillStyle = 'rgba(0,0,0,' + 0.4 * addFOWEffect.v + ')';
+                canvasContext.fillRect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileGraphicWidth, tileGraphicHeight);
+
+            }
+        }
+    }
+};
+
+/**
+ * @method _initEnitityOnMapArray
+ * @private
+ * @param {app.model.ListModel} entityListModel
+ * @param {app.model.MapModel} mapModel
+ */
+app.view.AbstractWorldView.prototype._initEnitityOnMapArray = function _initEnitityOnMapArray(entityListModel, mapModel) {
+
+    var layer = 100,
         tileIndexX,
         tileIndexY,
         tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth(),
         tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight(),
         maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
-        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight),
-        tile,
-        max,
-        entity,
-        targetTileX,
-        targetTileY;
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight);
 
-    //Entity layer = 100
+    //Init tablicy
     for (tileIndexY = 0; tileIndexY < maxTileGraphicIndexY; tileIndexY++) {
         for (tileIndexX = 0; tileIndexX < maxTileGraphicIndexX; tileIndexX++) {
-
-            tile = mapModel.getMapGraphicModel()._tileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer];
-
-            var rootTile = [];
 
             if (mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] === undefined) {
                 mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] = [];
             }
 
-            mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][100] = rootTile;
+            mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer] = [];
 
         }
     }
+};
+
+/**
+ * @method _updateEnitityOnMapArray
+ * @private
+ * @param {app.model.ListModel} entityListModel
+ * @param {app.model.MapModel} mapModel
+ */
+app.view.AbstractWorldView.prototype._updateEnitityOnMapArray = function _updateEnitityOnMapArray(entityListModel, mapModel) {
+
+    var layer = 100,
+        tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth(),
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight(),
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight),
+        max,
+        entity,
+        targetTileX,
+        targetTileY,
+        calculatedPossiotionX,
+        calculatedPossiotionY;
+
+    this._initEnitityOnMapArray(entityListModel, mapModel);
 
     max = entityListModel.length();
+
+
     for (var i = 0; i < max; i++) {
         entity = entityListModel.getElement(i);
+        //PUSH
+        calculatedPossiotionX = entity.getX();
+        calculatedPossiotionY = entity.getY();
 
-        targetTileX = Math.round(entity.getX()/tileGraphicWidth);
-        targetTileY = Math.round(entity.getY()/tileGraphicHeight);
+        targetTileX = Math.floor(calculatedPossiotionX / tileGraphicWidth);
+        targetTileY = Math.floor(calculatedPossiotionY / tileGraphicHeight);
 
         //tile X Y
         targetTileX = Math.max(targetTileX, 0);
         targetTileY = Math.max(targetTileY, 0);
 
         //tile X Y
-        targetTileX = Math.min(targetTileX, maxTileGraphicIndexX-1);
-        targetTileY = Math.min(targetTileY, maxTileGraphicIndexY-1);
+        targetTileX = Math.min(targetTileX, maxTileGraphicIndexX - 1);
+        targetTileY = Math.min(targetTileY, maxTileGraphicIndexY - 1);
+
 
         //Dokladanie entity do tabeli
-        mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * targetTileX + targetTileY][100].push(entity);
+        mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * targetTileX + targetTileY][layer].push(entity);
     }
 
+};
+
+/**
+ * @method _initFogOfWarTileArray
+ * @private
+ * @param {app.model.ListModel} entityListModel
+ * @param {app.model.MapModel} mapModel
+ */
+app.view.AbstractWorldView.prototype._initFogOfWarTileArray = function _initFogOfWarTileArray(entityListModel, mapModel) {
+
+    var tileIndexX,
+        tileIndexY,
+        tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth() / FOG_RESOLUTION_MULTIPLIER,
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight() / FOG_RESOLUTION_MULTIPLIER,
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight);
+
+    //Init tablicy
+    for (tileIndexY = 0; tileIndexY < maxTileGraphicIndexY; tileIndexY++) {
+        for (tileIndexX = 0; tileIndexX < maxTileGraphicIndexX; tileIndexX++) {
+            mapModel.getMapGraphicModel()._fogOfWarTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] = {"v": 1, "r": 0};
+        }
+    }
+};
+
+/**
+ * @method _prepareFogOfWar
+ * @private
+ * @param {app.model.ListModel} entityListModel
+ * @param {app.model.MapModel} mapModel
+ */
+app.view.AbstractWorldView.prototype._prepareFogOfWar = function _prepareFogOfWar(entityListModel, mapModel) {
+
+    var tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth() / FOG_RESOLUTION_MULTIPLIER,
+        tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight() / FOG_RESOLUTION_MULTIPLIER,
+        maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight),
+        max,
+        entity,
+        targetTileX,
+        targetTileY,
+        c1 = new support.geom.Circle(0, 0, 0),
+        c2 = new support.geom.Circle(0, 0, 0);
+
+    this._initFogOfWarTileArray(entityListModel, mapModel);
+
+    max = entityListModel.length();
+
+    for (var i = 0; i < max; i++) {
+        entity = entityListModel.getElement(i);
+
+        if (entity.getTeam() !== 1) {
+            continue;
+        }
+
+        targetTileX = Math.floor(entity.getX() / tileGraphicWidth);
+        targetTileY = Math.floor(entity.getY() / tileGraphicHeight);
+
+        var entityViewRange = Math.floor(400 / tileGraphicWidth);
+        var minViewRange = Math.floor(-entityViewRange);
+        var maxViewRange = Math.floor(entityViewRange);
+
+        //EntityViewRange
+        // c1.setX(targetTileX);
+        // c1.setY(targetTileY);
+        // c1.setRadius(entityViewRange);
+
+        c1.setX(entity.getX());
+        c1.setY(entity.getY());
+        c1.setRadius(400);
+
+        c2.setRadius(1);
+
+        for (var j = minViewRange; j <= maxViewRange; j++) {
+           for (var k = minViewRange; k <= maxViewRange; k++) {
+
+               var currentTargetTileX = targetTileX + j;
+               var currentTargetTileY = targetTileY + k;
+
+               //If Rect is in range show it (now fog of war)
+               //CircleCircle collision form optimalization perpouse
+               // c2.setX(currentTargetTileX);
+               // c2.setY(currentTargetTileY);
+
+               c2.setX(currentTargetTileX*40);
+               c2.setY(currentTargetTileY*40);
+
+               var collision = support.geom.collision.Collision.CircleCircleFastWithDistanceSquer(c1, c2);
+
+               if (collision.result) {
+                   // console.log(collision.result);
+                   this._prepareFogOfWarSetResult(mapModel, currentTargetTileX, currentTargetTileY, maxTileGraphicIndexX, maxTileGraphicIndexY, collision);
+               }
+
+           }
+        }
+
+        // var FOWArrayForViewRange = this._getFOWArrayForViewRange(entityViewRange);
+        //
+        // this._putToFOWGlobalArray(FOWArrayForViewRange, mapModel, minViewRange, maxViewRange, targetTileX, targetTileY, maxTileGraphicIndexX, maxTileGraphicIndexY);
+
+    }
+
+};
+
+app.view.AbstractWorldView.prototype._prepareFogOfWarSetResult = function _prepareFogOfWarSetResult(mapModel, currentTargetTileX, currentTargetTileY, maxTileGraphicIndexX, maxTileGraphicIndexY, collision) {
+    //tile X Y
+    currentTargetTileX = Math.max(currentTargetTileX, 0);
+    currentTargetTileY = Math.max(currentTargetTileY, 0);
+
+    //tile X Y
+    currentTargetTileX = Math.min(currentTargetTileX, maxTileGraphicIndexX - 1);
+    currentTargetTileY = Math.min(currentTargetTileY, maxTileGraphicIndexY - 1);
+
+    var fogOfWarCurrentValue = mapModel.getMapGraphicModel()._fogOfWarTileArray[maxTileGraphicIndexY * currentTargetTileX + currentTargetTileY].v;
+    //var proportion = Math.sqrt(collision.sd) / Math.sqrt(collision.radiusPow);
+    var proportion = collision.sd / collision.radiusPow; //bardziej ostre zakonczenie ale duzo bardziej wydaje
+    var start = 0.8;
+    var end = 1;
+    var fowValue = 0;
+
+    if (proportion < start) {
+        fowValue = 0;
+    } else {
+        fowValue = (proportion-start) * (1 / (1-start));
+    }
+
+    // console.log(fowValue);
+
+    //Dokladanie entity do tabeli
+    mapModel.getMapGraphicModel()._fogOfWarTileArray[maxTileGraphicIndexY * currentTargetTileX + currentTargetTileY].v = Math.min(fogOfWarCurrentValue, fowValue);
+};
+
+app.view.AbstractWorldView.prototype._getFOWArrayForViewRange = function _getFOWArrayForViewRange(viewRange){
+
+    var viewRangeString = viewRange.toString();
+
+    if (this._FOWBuffoer[viewRangeString] === undefined){
+        this._FOWBuffoer[viewRangeString] = this._createFOWArrayForRange(viewRange);
+    }
+
+    return this._FOWBuffoer[viewRangeString];
+
+};
+
+
+
+app.view.AbstractWorldView.prototype._putToFOWGlobalArray = function _putToFOWGlobalArray(FOWArrayForViewRange, mapModel, minViewRange, maxViewRange, targetTileX, targetTileY, maxTileGraphicIndexX, maxTileGraphicIndexY){
+
+    for (var j = minViewRange; j <= maxViewRange; j++) {
+        for (var k = minViewRange; k <= maxViewRange; k++) {
+
+            var currentTargetTileX = targetTileX + j;
+            var currentTargetTileY = targetTileY + k;
+            var tileValueToSet = FOWArrayForViewRange[8 * (k+maxViewRange) + j+maxViewRange];
+
+            this._prepareFogOfWarSetResultNew(tileValueToSet, mapModel, currentTargetTileX, currentTargetTileY, maxTileGraphicIndexX, maxTileGraphicIndexY);
+        }
+    }
+
+};
+
+app.view.AbstractWorldView.prototype._createFOWArrayForRange = function _createFOWArrayForRange(viewRange){
+
+    return [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+};
+
+app.view.AbstractWorldView.prototype._prepareFogOfWarSetResultNew = function _prepareFogOfWarSetResultNew(tileValueToSet, mapModel, currentTargetTileX, currentTargetTileY, maxTileGraphicIndexX, maxTileGraphicIndexY) {
+    //tile X Y
+    currentTargetTileX = Math.max(currentTargetTileX, 0);
+    currentTargetTileY = Math.max(currentTargetTileY, 0);
+
+    //tile X Y
+    currentTargetTileX = Math.min(currentTargetTileX, maxTileGraphicIndexX - 1);
+    currentTargetTileY = Math.min(currentTargetTileY, maxTileGraphicIndexY - 1);
+
+    var fogOfWarCurrentValue = mapModel.getMapGraphicModel()._fogOfWarTileArray[maxTileGraphicIndexY * currentTargetTileX + currentTargetTileY].v;
+
+    //Dokladanie entity do tabeli
+    mapModel.getMapGraphicModel()._fogOfWarTileArray[maxTileGraphicIndexY * currentTargetTileX + currentTargetTileY].v = Math.min(fogOfWarCurrentValue, tileValueToSet);
 };

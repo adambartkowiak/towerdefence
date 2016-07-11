@@ -31,10 +31,21 @@ Utils.namespace = function namespace(nsString) {
     return namespace;
 };
 
+Utils.guid = function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+};
+
 
 //Array Equalse
 // Warn if overriding existing method
-if(Array.prototype.equals)
+if (Array.prototype.equals)
     console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");
 // attach the .equals method to Array's prototype to call it on any array
 Array.prototype.equals = function (array) {
@@ -46,7 +57,7 @@ Array.prototype.equals = function (array) {
     if (this.length != array.length)
         return false;
 
-    for (var i = 0, l=this.length; i < l; i++) {
+    for (var i = 0, l = this.length; i < l; i++) {
         // Check if we have nested arrays
         if (this[i] instanceof Array && array[i] instanceof Array) {
             // recurse into the nested arrays
@@ -59,4 +70,30 @@ Array.prototype.equals = function (array) {
         }
     }
     return true;
-}
+};
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+Utils.getPropertyNameByValue = function getPropertyNameByValue(object, value) {
+    for (var name in object) {
+        if (object[name] == value) {
+            return name;
+        }
+    }
+    return false;
+};
+
+Utils.cancelBubble = function cancelBubble(event) {
+    var evt = event ? event : window.event;
+
+    if (evt.stopPropagation) {
+        evt.stopPropagation();
+    }
+
+    if (evt.cancelBubble !== null) {
+        evt.cancelBubble = true;
+    }
+};

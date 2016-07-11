@@ -1,14 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="Rozgrywaka:&#10; - dodanie uzypiania obiektow kiedy nie zmieniaja pozycji&#10; - optymalizacja renderowania - renderuje tylko te entity, ktore sa na ekranie">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/gamesaves/mapsave (8).json" />
+    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="Prace nad edytorem modul Triggerow.&#10;Commit kontrolny - nie dziala w 100%.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/test/testJson.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/newMapModule.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/newMapModuleDivOnly.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/selectAttribute.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/selectAttributeDivOnly.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/selectGameEvent.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/selectGameEventDivOnly.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/triggerModule.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/triggerModuleDivOnly.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/html/triggerModuleListElementDivOnly.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/GuiConfig.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/ActionMenuUpdateMenuCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/CancelCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/HoldCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetBuildBaseCommandOnCommandController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetGatherCommandOnCommandController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetPatrolCommandOnCommandController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/ShowConsoleLogCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/TrainWarriorCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/TrainWorkerCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/TurnOffTriggerCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CollisionDetectionController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CollisionRepulsionController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/enum/EntityPropertyEnum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/enum/GameEventEnum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/enum/TaskEnum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/FunctionFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/listener/GlobalEventListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/ActionMenuModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/GameEventListModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/GameEventModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/TriggerListModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/ValueListModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/AbstractFunction.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/AbstractValue.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/Attribute.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqual.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualOrGreater.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetEntityProperty.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetEventEntity.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetUnitCount.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/view/gui/EntityStatusView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/FeatureToggle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/AddGameEventController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditAttributeController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditGameEventController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/NewMapModuleController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/enum/SelectAttributeEnum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/model/SelectAttributeModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/view/NewMapModuleView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/view/SelectAttributeView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/view/SelectConditionView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/view/SelectGameEventView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/editor/view/TriggerModuleView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/helper/Helper.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/app/controller/EntityCollisionDetectionController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/app/controller/EntityCollisionReactionController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/app/controller/RemoveEntityController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/js/app/model/ActionTypeModel.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityTargetCollisionModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TaskForEntityModel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/js/app/model/TargetListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TaskListModel.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/js/app/model/TargetModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TaskModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gcc02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/gcc02.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/base_03.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/base_03.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/base_04.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/base_04.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/bush_01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/bush_01.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/pine-none04.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/pine-none04.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_01.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_02.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_02.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_01.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding1_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding1_neutral.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding2_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding2_neutral.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit1_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit1_neutral.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit2_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit2_neutral.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding1_team1.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding1_team1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding2_team1.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding2_team1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit1_team1.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit1_team1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit2_team1.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit2_team1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding1_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding1_team2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding2_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding2_team2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit1_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit1_team2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit2_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit2_team2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/editor.css" afterPath="$PROJECT_DIR$/public_html/css/editor.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/editor.php" afterPath="$PROJECT_DIR$/public_html/editor.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" afterPath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.php" afterPath="$PROJECT_DIR$/public_html/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/Main.js" afterPath="$PROJECT_DIR$/public_html/js/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/SetMoveCommandOnCommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetMoveCommandOnCommandController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/BuildController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/BuildController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionDetectionController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionDetectionController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/CameraModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/CameraModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/ListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/ListModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/gui/MiniMapModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/gui/MiniMapModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/mouseEventListener/CommandMouseEventListener.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/mouseEventListener/CommandMouseEventListener.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/Loader.js" afterPath="$PROJECT_DIR$/public_html/js/support/Loader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/Timer.js" afterPath="$PROJECT_DIR$/public_html/js/support/Timer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/Circle.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/Circle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/Point2d.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/Point2d.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/collisions/Collision.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/collisions/Collision.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/graphics/Image.js" afterPath="$PROJECT_DIR$/public_html/js/support/graphics/Image.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/AbsoluteLayoutView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/AbsoluteLayoutView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/AbstractView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/AbstractView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/AbstractViewGroup.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/AbstractViewGroup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/ButtonView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/ButtonView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/utils/Utils.js" afterPath="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/ui.fancytree.css" afterPath="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/ui.fancytree.css" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,76 +161,106 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MapGraphicTileArrayModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicTileArrayModel.js">
+      <file leaf-file-name="FunctionFactory.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/FunctionFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="644">
+              <caret line="46" column="54" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapGraphicLayerModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js">
+      <file leaf-file-name="FunctionEnum.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
+            <state relative-caret-position="196">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GetEntityProperty.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/GetEntityProperty.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditAttributeController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditAttributeController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TriggerModuleView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/TriggerModuleView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="400" column="7" selection-start-line="400" selection-start-column="7" selection-end-line="400" selection-end-column="7" />
+              <folding>
+                <element signature="e#8253#8455#0" expanded="false" />
+                <element signature="e#11697#12142#0" expanded="false" />
+                <element signature="e#12294#13366#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.259259">
-              <caret line="457" column="70" selection-start-line="457" selection-start-column="70" selection-end-line="457" selection-end-column="70" />
+            <state relative-caret-position="424">
+              <caret line="402" column="6" selection-start-line="402" selection-start-column="6" selection-end-line="402" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractWorldView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
+      <file leaf-file-name="TriggerModuleController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.111111">
-              <caret line="612" column="70" selection-start-line="612" selection-start-column="70" selection-end-line="612" selection-end-column="70" />
+            <state relative-caret-position="560">
+              <caret line="100" column="18" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/MoveController.js">
+      <file leaf-file-name="SelectAttributeView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/SelectAttributeView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-              <folding>
-                <element signature="e#7747#16237#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectTargetController.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2791762">
-              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+            <state relative-caret-position="359">
+              <caret line="93" column="147" selection-start-line="93" selection-start-column="147" selection-end-line="93" selection-end-column="147" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityListModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
+      <file leaf-file-name="WorldModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.666666">
-              <caret line="36" column="31" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="31" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="266">
+              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="185" column="100" selection-start-line="185" selection-start-column="100" selection-end-line="185" selection-end-column="100" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,6 +271,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Html5" />
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -128,64 +282,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbl03.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbl04.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr02.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr03.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wbr04.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcl01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcl02.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcr01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wcr02.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtc01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtc02.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtl01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtl02.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtl03.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtr01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtr02.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/wtr03.json" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_0a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_01a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_02a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_03a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_04a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_05a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_06a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_07a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_08a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_09a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_10a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_11a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_12a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_13a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_14a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_15a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_16a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_17a.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/configs/1water_18a.json" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/view/WorldView.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/view/SelectConditionView.js" />
+        <option value="$PROJECT_DIR$/public_html/html/test.html" />
+        <option value="$PROJECT_DIR$/public_html/html/createMap.html" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/view/CreateMapModuleView.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/NewMapModuleController.js" />
+        <option value="$PROJECT_DIR$/public_html/html/triggerConfiguration.html" />
+        <option value="$PROJECT_DIR$/public_html/html/tirggerConfigurationDivOnly.php" />
+        <option value="$PROJECT_DIR$/public_html/html/createMapDivOnly.html" />
+        <option value="$PROJECT_DIR$/public_html/html/tirggerConfigurationDivOnly.html" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/view/NewMapModuleView.js" />
+        <option value="$PROJECT_DIR$/public_html/html/tirggerModuleDivOnly.html" />
+        <option value="$PROJECT_DIR$/public_html/html/triggerModuleListElementDivOnly.html" />
+        <option value="$PROJECT_DIR$/public_html/html/selectGameEventDivOnly.html" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/AbstractSelectGameEventController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditEventInTriggerController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/AddEventToTriggerController.js" />
+        <option value="$PROJECT_DIR$/public_html/html/selectGameEvent.html" />
+        <option value="$PROJECT_DIR$/public_html/html/selectAttribute.html" />
+        <option value="$PROJECT_DIR$/public_html/lib/fancytree-master/src/skin-lion/ui.fancytree.css" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/GameEventModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/AbstractProcedure.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/Attribute.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqual.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualOrGreater.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/GetUnitCount.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/GameEventListModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/AddGameEventController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/ListModel.js" />
         <option value="$PROJECT_DIR$/public_html/css/editor.css" />
-        <option value="$PROJECT_DIR$/public_html/backend/editorExportMap.php" />
-        <option value="$PROJECT_DIR$/public_html/backend/downloadFile.php" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/ValueListModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/model/SelectAttributeModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/enum/SelectAttributeEnum.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/AbstractValue.js" />
+        <option value="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/AbstractFunction.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditGameEventController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/view/TriggerModuleView.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/view/SelectGameEventView.js" />
+        <option value="$PROJECT_DIR$/public_html/html/selectAttributeDivOnly.html" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/view/SelectAttributeView.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/GetEventEntity.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/listener/GlobalEventListener.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/factory/FunctionFactory.js" />
         <option value="$PROJECT_DIR$/public_html/editor.php" />
-        <option value="$PROJECT_DIR$/public_html/index.html" />
         <option value="$PROJECT_DIR$/public_html/index.php" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/Main.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/controller/MoveController.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/GetEntityProperty.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditAttributeController.js" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
     <servers />
@@ -194,7 +349,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="971" />
+    <option name="height" value="966" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -241,7 +396,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -256,198 +411,371 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
+        <subPane />
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Changed Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTML5GAME" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gamesaves" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="utils">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="editor">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="editor">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="editor">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="gui">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="function">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="listener">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="factory">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="enum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -462,24 +790,24 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="ToolWindowFind.ShowToolbar" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public_html/js/app/model/function" />
+      <recent name="$PROJECT_DIR$/public_html/js/app/enum" />
       <recent name="$PROJECT_DIR$/public_html/assets" />
       <recent name="$PROJECT_DIR$/public_html/assets/graphics/images" />
       <recent name="$PROJECT_DIR$/public_html" />
-      <recent name="$PROJECT_DIR$/public_html/js/support/view" />
-      <recent name="$PROJECT_DIR$/public_html/js/app/mouseHandler" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public_html/assets/gamesaves" />
-      <recent name="$PROJECT_DIR$/public_html/assets/editor/units/team2" />
-      <recent name="$PROJECT_DIR$/public_html/assets/editor/units/team1" />
-      <recent name="$PROJECT_DIR$/public_html/assets/editor/units/neutral" />
-      <recent name="$PROJECT_DIR$/public_html/assets/editor/objects" />
+      <recent name="$PROJECT_DIR$/public_html/js/editor/enum" />
+      <recent name="$PROJECT_DIR$/public_html/js/editor/model" />
+      <recent name="$PROJECT_DIR$/public_html/js/app/model" />
+      <recent name="$PROJECT_DIR$/public_html/js/editor/controller" />
+      <recent name="$PROJECT_DIR$/public_html/html" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.php">
@@ -504,6 +832,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -515,6 +844,7 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -527,7 +857,9 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -536,256 +868,325 @@
       <changelist id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="" />
       <created>1429356811887</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1429356811887</updated>
+      <workItem from="1463130314156" duration="4765000" />
+      <workItem from="1463210135647" duration="616000" />
+      <workItem from="1463211496709" duration="297000" />
+      <workItem from="1463215649496" duration="60397000" />
+      <workItem from="1464028980482" duration="14442000" />
+      <workItem from="1464137668216" duration="337000" />
+      <workItem from="1464160603811" duration="2621000" />
+      <workItem from="1464275889056" duration="25194000" />
+      <workItem from="1464517171476" duration="104799000" />
+      <workItem from="1466537738355" duration="155088000" />
     </task>
     <task id="LOCAL-00001" summary="Komentarze w czesci klas dla YuiDoc'a">
       <created>1437327357132</created>
       <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1437327357132</updated>
     </task>
     <task id="LOCAL-00002" summary="PhpStrom testowy commit">
       <created>1437327836855</created>
       <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1437327836855</updated>
     </task>
     <task id="LOCAL-00003" summary="Poprawki jsdoc'ka dla YUIDoc'a">
       <created>1437339695556</created>
       <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1437339695556</updated>
     </task>
     <task id="LOCAL-00004" summary="Dodanie TODO do index html">
       <created>1437414483215</created>
       <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1437414483215</updated>
     </task>
     <task id="LOCAL-00005" summary="Dodanie TODO do index html">
       <created>1437414491480</created>
       <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1437414491480</updated>
     </task>
     <task id="LOCAL-00006" summary="Poprawa wygladu strony glownej">
       <created>1437672778379</created>
       <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1437672778379</updated>
     </task>
     <task id="LOCAL-00007" summary="Dodanie kolizji na wektorach 2d.&#10;&#10;@TODO: Dodac kolizje Wektor-Okrag">
       <created>1437927788903</created>
       <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1437927788903</updated>
     </task>
     <task id="LOCAL-00008" summary="Podpiecie Google Analyticsow">
       <created>1438104255832</created>
       <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1438104255832</updated>
     </task>
     <task id="LOCAL-00009" summary="Duzo poprawek zwiazanych z refaktoringiem kodu - ale jeszcze wiecej zostalo.. :)">
       <created>1438638285801</created>
       <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1438638285801</updated>
     </task>
     <task id="LOCAL-00010" summary="kolejne poprawki zwiazane z REFAKTORINGIEM + udalo sie zrobic zaznaczanie przeciwnikow.">
       <created>1438725536637</created>
       <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1438725536637</updated>
     </task>
     <task id="LOCAL-00011" summary="Dodanie baz i podstawowego gameplayu.&#10;Poprawienie wykrywania kolizji rectangle-circle.&#10;Dodanie kontrolera do wybierania celu.&#10;Dodanie podzialu na druzyny.">
       <created>1439153426462</created>
       <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
       <updated>1439153426462</updated>
     </task>
     <task id="LOCAL-00012" summary="Dodanie podstawowego wykrywania kolizji podczas poruszania sie przeciwnikow.">
       <created>1439329588994</created>
       <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1439329588994</updated>
     </task>
     <task id="LOCAL-00013" summary="Usprawione reagowanie na kolizje podczas chodzenia wielu przeciwnikow po mapie itp.">
       <created>1439417421996</created>
       <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
       <updated>1439417421996</updated>
     </task>
     <task id="LOCAL-00014" summary="Poczyszczenie projektu - prace nad omijaniem przeciwnikow">
       <created>1439664030357</created>
       <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1439664030357</updated>
     </task>
     <task id="LOCAL-00015" summary="Zaprogramowany zapis o odczyt gry - funkcja app.save i app.load&#10;&#10;Lepsze sprawdzanie kolizji obiekt-cel">
       <created>1439732673738</created>
       <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
       <updated>1439732673738</updated>
     </task>
     <task id="LOCAL-00016" summary="DOdanie wczytywania gry z pliku i z webserwisu oraz podmienione JOSNy mapy">
       <created>1439745443006</created>
       <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1439745443006</updated>
     </task>
     <task id="LOCAL-00017" summary=" - Zapisywanie i odczytywanie gry do formatu zminifikowanego&#10; - Wgranie nowych plikow z save'ami&#10; - Ogolne podmiany w projekcie">
       <created>1439935394967</created>
       <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1439935394967</updated>
     </task>
     <task id="LOCAL-00018" summary="Poprawka literowki">
       <created>1439935509404</created>
       <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1439935509404</updated>
     </task>
     <task id="LOCAL-00019" summary="Pierwsza wersja minimapy wraz mozliwosci poruszania kamery po minimapie.&#10;&#10;Dodane klasy:&#10; - CameraModel&#10; - MiniMapModel">
       <created>1440963294935</created>
       <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
       <updated>1440963294935</updated>
     </task>
     <task id="LOCAL-00020" summary="Wczytywanie i zapisywanie Mapy&#10;Modyfikacja plikow gry (saveow)">
       <created>1441051230686</created>
       <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
       <updated>1441051230686</updated>
     </task>
     <task id="LOCAL-00021" summary="Poczyszczenie Projektu">
       <created>1441051855480</created>
       <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
       <updated>1441051855480</updated>
     </task>
     <task id="LOCAL-00022" summary="Praca nad ActionMenu i menu statusu postaci/grupy postaci">
       <created>1441316827094</created>
       <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
       <updated>1441316827094</updated>
     </task>
     <task id="LOCAL-00023" summary="Prace nad wydzieleniem GUI oraz wydzieleniem przechwytywania eventow do Widokow + obslugi ich w kontrolerach">
       <created>1441834560696</created>
       <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
       <updated>1441834560696</updated>
     </task>
     <task id="LOCAL-00024" summary="Dodanie niezbednych plikow, funkcji i skryptow do:&#10; - Wczytywania stanu gry z backendu,&#10; - Przesyalnia stanu gry do backendu (zapis gry),&#10; - Przesylania punktow do backendu (zapis punktow)">
       <created>1442264622332</created>
       <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
       <updated>1442264622332</updated>
     </task>
     <task id="LOCAL-00025" summary="Dodanie Menu Akcji do Huba gry.&#10;&#10;Poczatkowe prace nad Edytorem Map.">
       <created>1446016062405</created>
       <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
       <updated>1446016062405</updated>
     </task>
     <task id="LOCAL-00026" summary="Wstepna wersja Edytora Mapy">
       <created>1446220107961</created>
       <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
       <updated>1446220107961</updated>
     </task>
     <task id="LOCAL-00027" summary="Wstepna wersja Edytora Mapy">
       <created>1446220118313</created>
       <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
       <updated>1446220118313</updated>
     </task>
     <task id="LOCAL-00028" summary="Wstepna wersja Edytora Mapy">
       <created>1446249628358</created>
       <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
       <updated>1446249628359</updated>
     </task>
     <task id="LOCAL-00029" summary="Wstepna wersja Edytora Mapy">
       <created>1446249637702</created>
       <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
       <updated>1446249637702</updated>
     </task>
     <task id="LOCAL-00030" summary="Dodanie zapisywania i wczytywania mapy - ale tylko od strony kodu bez interfaceu graficznego.">
       <created>1446675655802</created>
       <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
       <updated>1446675655802</updated>
     </task>
     <task id="LOCAL-00031" summary="ZAPIS I ODCZYT MAPY - na plikach">
       <created>1446767558957</created>
       <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
       <updated>1446767558957</updated>
     </task>
     <task id="LOCAL-00032" summary="Dodanie wygladzania krawedzi do Edytora.">
       <created>1447886218030</created>
       <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
       <updated>1447886218030</updated>
     </task>
     <task id="LOCAL-00033" summary="Dodanie 1 wersji MiniMapy do Edytora - potrzebny bedzie refaktoring..">
       <created>1448126552010</created>
       <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
       <updated>1448126552010</updated>
     </task>
     <task id="LOCAL-00034" summary="Renderowanie na minimapie wygladu mapy wlasciwej - potrzebny bedzie refaktoring po osiagnieciu funkcjonalnosci.. &#10;&#10;Teraz tak pisze bo sprawdzam mozliwosci.">
       <created>1448191737081</created>
       <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
       <updated>1448191737081</updated>
     </task>
     <task id="LOCAL-00035" summary="Pierwsza wersja renderowania highgrounda na podstawie configow z JSONa.&#10;&#10;Do dodania jeszcze brushe wybierane z lewego menu.&#10;&#10;Brakuje troche grafik - wiec albo je dorobie - albo dodam logike do brusha dla rysowania highgrounda.">
       <created>1448954513417</created>
       <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
       <updated>1448954513417</updated>
     </task>
     <task id="LOCAL-00036" summary="Rozgrywka:&#10; - Dodanie warst wyswietlania,&#10; - Dodanie optymalizacji renderowania - renderuje sie tylko teren, ktory jest widoczny na ekranie (v1)&#10; - Dodanie wielu typow jednostek - neutralnych, team0 i team1&#10; &#10; Edytor:&#10; - Zaczytywanie jednostek z configa,&#10; - Zaczytywanie drzewka edytora z configa,&#10; - Dodanie configow jednostek, budynkow i obiektow&#10; &#10;">
       <created>1454879329263</created>
       <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
       <updated>1454879329263</updated>
     </task>
     <task id="LOCAL-00037" summary="Rozgrywka:&#10; - Dadanie menu wczytywania map,&#10; - Modyfikacja pliku wczytywania gry,&#10; - Poprawka w wyswietlaniu tilesow.&#10; &#10; Edytor:&#10;  - Mozliwosc exportowania mapy dla Gry,">
       <created>1456346345450</created>
       <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
       <updated>1456346345450</updated>
     </task>
     <task id="LOCAL-00038" summary="Rozgrywaka:&#10; - dodanie uzypiania obiektow kiedy nie zmieniaja pozycji&#10; - optymalizacja renderowania - renderuje tylko te entity, ktore sa na ekranie">
       <created>1456690934588</created>
       <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
       <updated>1456690934588</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Rozgrywaka:&#10; - optymalizacja kolizji na zasadzie siatki stref algorytm ala Spatial hashing&#10; - wylaczenie namierzania celow dla sprawdzenia kolizji&#10; &#10; Edytor:&#10; - drobna poprawka aby dzialal">
+      <created>1456782457348</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1456782457348</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="368556000" />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="971" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1680" height="966" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1672619" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19940476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24107143" sideWeight="0.5190476" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24080268" sideWeight="0.48095238" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760596" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1658031" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24053451" sideWeight="0.48095238" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -802,8 +1203,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Dodanie baz i podstawowego gameplayu.&#10;Poprawienie wykrywania kolizji rectangle-circle.&#10;Dodanie kontrolera do wybierania celu.&#10;Dodanie podzialu na druzyny." />
-    <MESSAGE value="Dodanie podstawowego wykrywania kolizji podczas poruszania sie przeciwnikow." />
     <MESSAGE value="Usprawione reagowanie na kolizje podczas chodzenia wielu przeciwnikow po mapie itp." />
     <MESSAGE value="Poczyszczenie projektu - prace nad omijaniem przeciwnikow" />
     <MESSAGE value="Zaprogramowany zapis o odczyt gry - funkcja app.save i app.load&#10;&#10;Lepsze sprawdzanie kolizji obiekt-cel" />
@@ -827,423 +1226,444 @@
     <MESSAGE value="Rozgrywka:&#10; - Dodanie warst wyswietlania,&#10; - Dodanie optymalizacji renderowania - renderuje sie tylko teren, ktory jest widoczny na ekranie (v1)&#10; - Dodanie wielu typow jednostek - neutralnych, team0 i team1&#10; &#10; Edytor:&#10; - Zaczytywanie jednostek z configa,&#10; - Zaczytywanie drzewka edytora z configa,&#10; - Dodanie configow jednostek, budynkow i obiektow&#10; &#10;" />
     <MESSAGE value="Rozgrywka:&#10; - Dadanie menu wczytywania map,&#10; - Modyfikacja pliku wczytywania gry,&#10; - Poprawka w wyswietlaniu tilesow.&#10; &#10; Edytor:&#10;  - Mozliwosc exportowania mapy dla Gry," />
     <MESSAGE value="Rozgrywaka:&#10; - dodanie uzypiania obiektow kiedy nie zmieniaja pozycji&#10; - optymalizacja renderowania - renderuje tylko te entity, ktore sa na ekranie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rozgrywaka:&#10; - dodanie uzypiania obiektow kiedy nie zmieniaja pozycji&#10; - optymalizacja renderowania - renderuje tylko te entity, ktore sa na ekranie" />
+    <MESSAGE value="Rozgrywaka:&#10; - optymalizacja kolizji na zasadzie siatki stref algorytm ala Spatial hashing&#10; - wylaczenie namierzania celow dla sprawdzenia kolizji&#10; &#10; Edytor:&#10; - drobna poprawka aby dzialal" />
+    <MESSAGE value="Prace nad edytorem modul Triggerow.&#10;Commit kontrolny - nie dziala w 100%." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prace nad edytorem modul Triggerow.&#10;Commit kontrolny - nie dziala w 100%." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_02a.json">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TaskListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2173913">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="4" selection-end-column="27" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_03a.json">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/GameEventListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_04a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_05a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_06a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_07a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_08a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_09a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_10a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4347825">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_17a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.304348">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_16a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_15a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_14a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_13a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_12a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_11a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07988588">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_18a.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/WorldView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/newSaveGame007Minified.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="6593" selection-start-line="0" selection-start-column="6593" selection-end-line="0" selection-end-column="6593" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/css/editor.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.652174">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+        <state relative-caret-position="496">
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/backend/SaveScore.php">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/AddGameEventController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/backend/SaveGame.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0434783">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/backend/LoadGame.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/backend/editorSaveMap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/backend/editorExportMap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.304348">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/backend/downloadMap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2173913">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/backend/downloadFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.304348">
-          <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/EditorMapModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/AbstractMapLayerModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TriggerListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/gamesaves/mapsave.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="533281" selection-start-line="0" selection-start-column="533281" selection-end-line="0" selection-end-column="533281" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="682" column="18" selection-start-line="682" selection-start-column="18" selection-end-line="682" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/MapModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="42" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/editor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.98">
-          <caret line="457" column="34" selection-start-line="457" selection-start-column="29" selection-end-line="457" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.38">
-          <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+        <state relative-caret-position="-335">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#3;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#5;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#6;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#7;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#8;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#9;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#10;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#11;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#12;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#13;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1456435819000" expanded="true" signature="2203:2269" placeholder="..." />
-            <marker date="1456435819000" expanded="true" signature="7559:7584" placeholder="..." />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionDetectionController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/MapTileListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="-126">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/MapTileModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="-910">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/EntityCollisionReactionController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/helper/Helper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModelIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="-1231">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/support/view/MinimapView.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/model/SelectAttributeModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53243846">
-          <caret line="347" column="36" selection-start-line="347" selection-start-column="36" selection-end-line="348" selection-end-column="56" />
+        <state relative-caret-position="588">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/EntityCollisionDetectionController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/AbstractProcedure.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/CommandController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1588367">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicTileArrayModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualOrGreater.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/map/MapGraphicLayerModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/AbstractValue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.444445">
-          <caret line="241" column="21" selection-start-line="241" selection-start-column="17" selection-end-line="241" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/RemoveEntityController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <marker date="1468062796000" expanded="true" signature="140:200" placeholder="/** @namespace app.model.function ...*/" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.666666">
-          <caret line="36" column="31" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="31" />
+        <state relative-caret-position="-1021">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ValueListModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-110">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/WorldView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.259259">
-          <caret line="457" column="70" selection-start-line="457" selection-start-column="70" selection-end-line="457" selection-end-column="70" />
+        <state relative-caret-position="-826">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditGameEventController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.111111">
-          <caret line="612" column="70" selection-start-line="612" selection-start-column="70" selection-end-line="612" selection-end-column="70" />
+        <state relative-caret-position="589">
+          <caret line="55" column="2" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/MoveController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/SelectConditionView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7747#16237#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/SelectGameEventView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2791762">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+        <state relative-caret-position="491">
+          <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/html/selectGameEventDivOnly.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/html/newMapModuleDivOnly.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/html/selectAttributeDivOnly.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/enum/TaskEnum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/enum/GameEventEnum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/enum/EntityPropertyEnum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="67" column="75" selection-start-line="67" selection-start-column="75" selection-end-line="67" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/CameraModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2072">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/MapModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-322">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/AvailableActionsModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ActionMenuModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-224">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ListModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1568">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="31" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModelIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/enum/SelectAttributeEnum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/Attribute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="60" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/GetUnitCount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/GetEventEntity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqual.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/AbstractFunction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2220#2743#0" expanded="false" />
+            <element signature="e#2958#3373#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/listener/GlobalEventListener.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/editor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="150" selection-end-column="80" />
+          <folding>
+            <marker date="1468272237000" expanded="true" signature="26970:27745" placeholder="..." />
+            <marker date="1468272237000" expanded="true" signature="30154:30806" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="185" column="100" selection-start-line="185" selection-start-column="100" selection-end-line="185" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/FunctionFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="46" column="54" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/GetEntityProperty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="100" column="18" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/SelectAttributeView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="93" column="147" selection-start-line="93" selection-start-column="147" selection-end-line="93" selection-end-column="147" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditAttributeController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/TriggerModuleView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="400" column="7" selection-start-line="400" selection-start-column="7" selection-end-line="400" selection-end-column="7" />
+          <folding>
+            <element signature="e#8253#8455#0" expanded="false" />
+            <element signature="e#11697#12142#0" expanded="false" />
+            <element signature="e#12294#13366#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="402" column="6" selection-start-line="402" selection-start-column="6" selection-end-line="402" selection-end-column="6" />
           <folding />
         </state>
       </provider>

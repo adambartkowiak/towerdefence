@@ -31,6 +31,12 @@ app.model.map.MapGraphicLayerModel = function MapGraphicLayerModel(mapWidth, map
      * @private
      */
     this._rootTileArray = [];
+
+    /**
+     * @property {Array} _fowTileArray
+     * @private
+     */
+    this._fogOfWarTileArray = [];
 };
 
 Utils.inherits(app.model.map.MapGraphicLayerModel, app.model.map.AbstractMapLayerModel);

@@ -86,20 +86,22 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
         selectedRect,
         collision = false,
         point2d = new support.geom.Point2d(mouseEvent.getLocalX(), mouseEvent.getLocalY()),
-        circle = new support.geom.Circle(0, 0, 0);
+        circle = new support.geom.Circle(0, 0, 0),
+        targetEntity,
+        pointerOnMapX = mouseEvent.getLocalX() + this._worldModel.getCameraModel().getViewPortX(),
+        pointerOnMapY = mouseEvent.getLocalY() + this._worldModel.getCameraModel().getViewPortY();
 
     //DOWN
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN) {
+
+        targetEntity = this.getClickedElement(pointerOnMapX, pointerOnMapY);
+
         /*
          zaznaczanie obiektow na mapie
          */
         if (mouseEvent.getButtonCode() === 0) {
 
-
             if (this._commandController.getAction() !== null) {
-
-                var pointerOnMapX = mouseEvent.getLocalX() + this._worldModel.getCameraModel().getViewPortX();
-                var pointerOnMapY = mouseEvent.getLocalY() + this._worldModel.getCameraModel().getViewPortY();
 
                 if (this._worldModel.getSelectedEntityListModel().length() > 0) {
                     listLength = this._worldModel.getEntityListModel().length();
@@ -107,8 +109,8 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
 
                         element = this._worldModel.getEntityListModel().getElement(elementIndex);
 
-                        if (element.getSelected()) {
-                            this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, app.model.ActionTypeModel.MOVE);
+                        if (element.getSelected() && element.getTeam() === 1) {
+                            this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, this._commandController.getAction());
                         }
 
                     }
@@ -137,9 +139,6 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
         //right
         if (mouseEvent.getButtonCode() === 2) {
 
-            var pointerOnMapX = mouseEvent.getLocalX() + this._worldModel.getCameraModel().getViewPortX();
-            var pointerOnMapY = mouseEvent.getLocalY() + this._worldModel.getCameraModel().getViewPortY();
-
             if (this._worldModel.getSelectedEntityListModel().length() > 0) {
                 listLength = this._worldModel.getEntityListModel().length();
                 for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
@@ -147,7 +146,7 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
                     element = this._worldModel.getEntityListModel().getElement(elementIndex);
 
                     if (element.getSelected() && element.getTeam() === 1) {
-                        this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, app.model.ActionTypeModel.MOVE);
+                        this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, app.enum.TaskEnum.MOVE);
                     }
 
                 }
@@ -158,6 +157,8 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
 //            }
 
         }
+
+        this._commandController.setAction(null);
     }
 
     //MOVE
@@ -206,4 +207,38 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
     }
 
     return support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
+};
+
+/**
+ * Metoda sluzaca do obslugi Eventu.
+ *
+ * @method onMouseEvent
+ * @public
+ * @param {Number} pointerOnMapX
+ * @param {Number} pointerOnMapY
+ * @return {app.model.EntityModel} clickedEntity
+ */
+app.view.WorldView.prototype.getClickedElement = function getClickedElement(pointerOnMapX, pointerOnMapY){
+
+    var listLength,
+        elementIndex,
+        mousePoint = new support.geom.Point2d(pointerOnMapX, pointerOnMapY),
+        entityToCheck = null,
+        clickedEntity = null,
+        collision = false;
+
+    listLength = this._worldModel.getEntityListModel().length();
+    for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
+
+        entityToCheck = this._worldModel.getEntityListModel().getElement(elementIndex);
+
+        collision = support.geom.collision.Collision.Point2dCircle(mousePoint, entityToCheck.getCircle());
+        if (collision){
+            clickedEntity = entityToCheck;
+            break;
+        }
+    }
+
+
+    return clickedEntity;
 };

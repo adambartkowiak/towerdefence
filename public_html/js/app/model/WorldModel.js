@@ -28,60 +28,22 @@ app.model.WorldModel = function WorldModel() {
      */
     this._mapModel = new app.model.MapModel(2000, 2000, 40, 40);
 
-    var maxTileGraphicIndexX = 2000/40;
-    var maxTileGraphicIndexY = 2000/40;
+    var maxTileGraphicIndexX = 2000 / 40;
+    var maxTileGraphicIndexY = 2000 / 40;
 
-    for (var x=0; x<maxTileGraphicIndexX; x++){
-        for (var y=0; y<maxTileGraphicIndexY; y++){
+    for (var x = 0; x < maxTileGraphicIndexX; x++) {
+        for (var y = 0; y < maxTileGraphicIndexY; y++) {
             this._mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * x + y] = [];
             this._mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * x + y][0] = "assets/editor/graphic/gcc01.png";
         }
     }
 
-
-
-    //this._mapModel.setGraphicTilesArray(
-    //
-    //        [
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},
-    //            {"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1},{"gid":1}
-    //        ]
-    //
-    //    );
-    
     /**
      * Informacje na temat minimapy
      * @property {app.model.gui.MiniMapModel} _miniMapModel
      * @private
      */
-    this._miniMapModel = new app.model.gui.MiniMapModel(0, 600, 200, 200, this);
+    this._miniMapModel = new app.model.gui.MiniMapModel(this);
 
     /**
      * Informacje na temat kamery
@@ -96,6 +58,86 @@ app.model.WorldModel = function WorldModel() {
      * @private
      */
     this._entityModelIndex = 0;
+
+    /**
+     * Głowny listener gry nasluchujacy na wszystkie eventy gry
+     * @property {app.listener.GlobalEventListener} _globalEventListener
+     * @private
+     */
+    this._globalEventListener = new app.listener.GlobalEventListener();
+
+    /**
+     * Lista triggerów (elementów łapiących/ragujących) na eventy rzucane przez system gry.
+     * @property {app.model.TriggerListModel} _triggerModelList
+     * @private
+     */
+    this._triggerListModel = new app.model.TriggerListModel();
+
+    this._triggerListModel.addElement(
+        new app.model.TriggerModel(
+            Utils.guid(),
+            "UNIT_CREATE",
+            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
+            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+                Utils.guid(),
+                new app.model.function.Attribute(Utils.guid(), 0),
+                new app.model.function.Attribute(Utils.guid(), 0))).addElement(
+                new app.model.function.ConditionEqual(
+                    Utils.guid(),
+                    new app.model.function.Attribute(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
+                    new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))).addElement(
+                new app.model.function.ConditionEqual(
+                    Utils.guid(),
+                    new app.model.function.GetUnitCount(Utils.guid(), new app.model.function.Attribute(Utils.guid(), 1)/*team*/),
+                    new app.model.function.Attribute(Utils.guid(), 0))),
+            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "ADD_ENTITY_EVENT"))]));
+
+    this._triggerListModel.addElement(
+        new app.model.TriggerModel(
+            Utils.guid(),
+            "UNIT_DIE",
+            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_DIE)),
+            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+                Utils.guid(),
+                new app.model.function.Attribute(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
+                new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))),
+            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "REMOVE_ENTITY_EVENT"))]));
+
+    this._triggerListModel.addElement(
+        new app.model.TriggerModel(
+            Utils.guid(),
+            "UNIT_DIE",
+            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_DIE)),
+            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+                Utils.guid(),
+                new app.model.function.Attribute(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
+                new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))),
+            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.ID)))]));
+
+    this._triggerListModel.addElement(
+        new app.model.TriggerModel(
+            Utils.guid(),
+            "VICTORY_TRIGGER",
+            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.TIME_DELTA)),
+            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+                Utils.guid(),
+                new app.model.function.GetUnitCount(Utils.guid(), new app.model.function.Attribute(Utils.guid(), 2)/*team*/),
+                new app.model.function.Attribute(Utils.guid(), 0))),
+            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "VICTORY")),
+                new app.command.TurnOffTriggerCommand(Utils.guid(), this._triggerListModel, new app.model.function.Attribute(Utils.guid(), "VICTORY_TRIGGER"))]));
+
+    this._triggerListModel.addElement(
+        new app.model.TriggerModel(
+            Utils.guid(),
+            "DEFEAT_TRIGGER",
+            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.TIME_DELTA)),
+            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+                Utils.guid(),
+                new app.model.function.GetUnitCount(Utils.guid(), new app.model.function.Attribute(Utils.guid(), 1)/*team*/),
+                new app.model.function.Attribute(Utils.guid(), 0))),
+            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "DEFEAT")),
+                new app.command.TurnOffTriggerCommand(Utils.guid(), this._triggerListModel, new app.model.function.Attribute(Utils.guid(), "DEFEAT_TRIGGER"))]));
+
 
     /**
      * @property {app.model.ListModel} _waypointCollisionListModel
@@ -115,6 +157,16 @@ app.model.WorldModel = function WorldModel() {
      */
     this._selectRect = null;
 
+    /**
+     * @property {app.model.ActionMenuModel} _actionMenu
+     * @private
+     */
+    this._actionMenu = new app.model.ActionMenuModel();
+
+
+    //INIT:
+    this._entityModelList.setEntityListListener(this._globalEventListener);
+    this._globalEventListener.setTriggerListModel(this._triggerListModel);
 };
 
 Utils.inherits(app.model.WorldModel, Object);
@@ -125,6 +177,14 @@ Utils.inherits(app.model.WorldModel, Object);
  */
 app.model.WorldModel.prototype.getEntityListModel = function getEntityListModel() {
     return this._entityModelList;
+};
+
+/**
+ * @method getTriggerListModel
+ * @return {app.model.TriggerListModel}
+ */
+app.model.WorldModel.prototype.getTriggerListModel = function getTriggerListModel() {
+    return this._triggerListModel;
 };
 
 /**
@@ -152,6 +212,22 @@ app.model.WorldModel.prototype.getSelectRect = function getSelectRect() {
 };
 
 /**
+ * @method getGlobalEventListener
+ * @return {app.listener.GlobalEventListener} globalEventListener
+ */
+app.model.WorldModel.prototype.getGlobalEventListener = function getGlobalEventListener() {
+    return this._globalEventListener;
+};
+
+/**
+ * @method setGlobalEventListener
+ * @param {app.listener.GlobalEventListener} globalEventListener
+ */
+app.model.WorldModel.prototype.setGlobalEventListener = function setGlobalEventListener(globalEventListener) {
+    this._globalEventListener = globalEventListener;
+};
+
+/**
  * @method getMapModel
  * @return {app.model.MapModel}
  */
@@ -173,6 +249,14 @@ app.model.WorldModel.prototype.getMiniMapModel = function getMiniMapModel() {
  */
 app.model.WorldModel.prototype.getCameraModel = function getCameraModel() {
     return this._cameraModel;
+};
+
+/**
+ * @method getActionMenu
+ * @return {app.model.ActionMenuModel}
+ */
+app.model.WorldModel.prototype.getActionMenu = function getActionMenu() {
+    return this._actionMenu;
 };
 
 
@@ -243,11 +327,14 @@ app.model.WorldModel.prototype.save = function save() {
  */
 app.model.WorldModel.prototype.loadFromJSON = function loadFromJSON(worldModelJSON) {
 
+    //this._mapModel._collisionTreeModel = [];
+    this._cameraModel.loadFromJSON(worldModelJSON._cameraModel);
+    this._mapModel.loadFromJSON(worldModelJSON._mapModel);
+
     this._entityModelList.loadFromJSON(worldModelJSON._entityModelList);
     this._entityModelIndex = worldModelJSON._entityModelIndex;
     app.model.EntityModelIndex.ENTITY_MODEL_INDEX = worldModelJSON._entityModelIndex;
-    this._cameraModel.loadFromJSON(worldModelJSON._cameraModel);
-    this._mapModel.loadFromJSON(worldModelJSON._mapModel);
+
 };
 
 /**
@@ -283,8 +370,8 @@ app.model.WorldModel.prototype.getMinifyJSON = function getMinifyJSON() {
 app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
     var entityListModel = new app.model.EntityListModel(),
-        cameraModel = new app.model.CameraModel(0,0,0,0),
-        mapModel = new app.model.MapModel(2000, 2000, 40, 40);
+        cameraModel = new app.model.CameraModel(0, 0, 0, 0),
+        mapModel = new app.model.MapModel(200, 200, 40, 40);
 
     var result = {
         _entityModelList: entityListModel.unMinifyJSON(minifyJSON["1"]),

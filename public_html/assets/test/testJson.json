@@ -1,0 +1,48 @@
+[
+  {
+    "text": "Jeden",
+    "elements": [
+      {
+        "text": "Sub1_1",
+        "action": "SetSubAction1"
+      },
+      {
+        "text": "Sub1_2",
+        "action": "SetSubAction2"
+      },
+      {
+        "text": "Sub1_3",
+        "elements": [
+          {
+            "text": "Sub2_1",
+            "action": "SetSubAction1"
+          },
+          {
+            "text": "Sub2_2",
+            "action": "SetSubAction2"
+          },
+          {
+            "text": "Sub2_3",
+            "action": "SetSubAction3"
+          },
+          {
+            "text": "Sub1_4",
+            "action": "back"
+          }
+        ]
+      },
+      {
+        "text": "Sub1_4",
+        "action": "back"
+      }
+    ]
+  },
+  {
+    "text": "Daw",
+    "action": "SetAction2"
+  },
+  {
+    "text": "Trzy",
+    "action": "SetAction3"
+  }
+]

@@ -61,7 +61,7 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
                 removeAfterBuild = true;
 
                 if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0 &&
-                    toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.TaskEnum.ATTACK &&
+                    toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.ATTACK &&
                     (toBuild.getMoveList().getElement(0).getEntityId() === 0 || this._list.getElementById(toBuild.getMoveList().getElement(0).getEntityId()) === null )) {
                     continue;
                 }
@@ -70,12 +70,12 @@ app.controller.BuildController.prototype.update = function update(timeDelta) {
                 toBuild._currentBuildTime = 0;
 
                 //Wykasowanie elemntu budowanego z kolejki
-                if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0 && toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.TaskEnum.ATTACK) {
+                if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0 && toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.ATTACK) {
                     removeAfterBuild = false;
                 }
 
                 if (removeAfterBuild) {
-                    element.getBuildList().removeElement(0);
+                    element.getBuildList().removeElementByIndex(0);
                 }
 
                 var newEntity = toBuild.clone();

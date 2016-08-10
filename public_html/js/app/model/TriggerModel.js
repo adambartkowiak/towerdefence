@@ -14,35 +14,53 @@ var Utils = Utils || {};
  * @param {String} id
  * @param {String} name
  * @param {app.model.GameEventListModel} gameEventListModel
- * @param {app.model.ValueListModel} conditionListModel
- * @param {support.command.AbstractCommand[]} commandArray
+ * @param {app.model.FunctionListModel} conditionListModel
+ * @param {app.model.FunctionListModel} commandArray
+ * @param {boolean} active
  */
-app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, conditionListModel, commandArray) {
+app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, conditionListModel, actionListModel, active) {
 
+    /**
+     *
+     * @property {String} _id
+     * @private
+     */
     this._id = id;
 
+    /**
+     *
+     * @property {String} _name
+     * @private
+     */
     this._name = name;
 
-    this._active = true;
+    /**
+     *
+     * @property {boolean} _active
+     * @private
+     */
+    this._active = active !== undefined ? active : true;
 
+    /**
+     *
+     * @property {app.model.GameEventListModel} _gameEventListModel
+     * @private
+     */
     this._gameEventListModel = gameEventListModel;
 
-    //left value: value or function
-    //operator: equals, not equals, grather than, lower than, unit is alive
-    //right value: value or function
-    // this._condition = condition;
+    /**
+     *
+     * @property {app.model.FunctionListModel} _conditionListModel
+     * @private
+     */
     this._conditionListModel = conditionListModel;
 
-    //end game
-    //show message
-    //kill unit
-    //span unit
-    //order unit to
-    //revile area
-    //Turn on.off trigger
-    //TU MA BYC JAKAS KONKRETNA COMMENDA, TAKA SAMA KOMENDA MA BYC W NP ACTION MENU
-    // this._command = command;
-    this._commandArray = commandArray;
+    /**
+     *
+     * @property {app.model.FunctionListModel} _actionListModel
+     * @private
+     */
+    this._actionListModel = actionListModel;
 
 
 };
@@ -107,7 +125,7 @@ app.model.TriggerModel.prototype.setGameEventListModel = function setGameEventLi
 
 /**
  * @method getConditionListModel
- * @return {app.model.ValueListModel} conditionListModel
+ * @return {app.model.FunctionListModel} conditionListModel
  */
 app.model.TriggerModel.prototype.getConditionListModel = function getConditionListModel() {
     return this._conditionListModel;
@@ -115,24 +133,128 @@ app.model.TriggerModel.prototype.getConditionListModel = function getConditionLi
 
 /**
  * @method setConditionListModel
- * @param {app.model.ValueListModel} conditionListModel
+ * @param {app.model.FunctionListModel} conditionListModel
  */
 app.model.TriggerModel.prototype.setConditionListModel = function setConditionListModel(conditionListModel) {
     this._conditionListModel = conditionListModel;
 };
 
 /**
- * @method getCommandArray
- * @return {support.command.AbstractCommand[]} commandArray
+ * @method getActionListModel
+ * @return {app.model.FunctionListModel} actionListModel
  */
-app.model.TriggerModel.prototype.getCommandArray = function getCommandArray() {
-    return this._commandArray;
+app.model.TriggerModel.prototype.getActionListModel = function getActionListModel() {
+    return this._actionListModel;
 };
 
 /**
- * @method setCommandArray
- * @param {support.command.AbstractCommand[]} commandArray
+ * @method setActionListModel
+ * @param {app.model.FunctionListModel} actionListModel
  */
-app.model.TriggerModel.prototype.setCommandArray = function setCommandArray(commandArray) {
-    this._commandArray = commandArray;
+app.model.TriggerModel.prototype.setActionListModel = function setActionListModel(actionListModel) {
+    this._actionListModel = actionListModel;
+};
+
+/**
+ * @method getAttributeById
+ * @param {app.model.function.AbstractValueModel} abstractValueModel
+ */
+app.model.TriggerModel.prototype.getAttributeById = function getAttributeById(id) {
+
+    var result = this.getConditionListModel().getElementById(id);
+
+    if (result === null){
+        result = this.getActionListModel().getElementById(id)
+    }
+
+    return result;
+};
+
+/**
+ * @method getFunctionListModelByAttributeId
+ * @param {app.model.FunctionListModel} functionListModel
+ */
+app.model.TriggerModel.prototype.getFunctionListModelByAttributeId = function getFunctionListModelByAttributeId(id) {
+
+    var result;
+
+    if (this.getConditionListModel().getElementById(id) !== null){
+        result = this.getConditionListModel();
+
+    } else if (this.getActionListModel().getElementById(id) !== null){
+        result = this.getActionListModel();
+    }
+
+    return result;
+};
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @method clone
+ * @return {app.model.TargetModel} clone
+ */
+app.model.TriggerModel.prototype.clone = function clone() {
+    return new app.model.TriggerModel(this.getId(), this.getName(), this.getGameEventListModel(), this.getConditionListModel(), this.getActionListModel(), this.getActive());;
+};
+
+/**
+ * @method loadFromJSON
+ * @property {Object} unMinifyJSON
+ */
+app.model.TriggerModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+    this._id = JSON._id;
+    this._name = JSON._name;
+    this._active = JSON._active;
+    this._gameEventListModel.loadFromJSON(JOSN._gameEventListModel);
+    this._conditionListModel.loadFromJSON(JOSN._conditionListModel);
+    this._actionListModel.loadFromJSON(JOSN._actionListModel);
+};
+
+/**
+ * @method getMinifyJSON
+ * @returns {Object} minifyJSON
+ */
+app.model.TriggerModel.prototype.getMinifyJSON = function getMinifyJSON() {
+    var result = {
+        1:this._id,
+        2:this._name,
+        3:this._active,
+        4:this._gameEventListModel.getMinifyJSON(),
+        5:this._conditionListModel.getMinifyJSON(),
+        6:this._actionListModel.getMinifyJSON()
+    };
+
+    return result;
+};
+
+/**
+ * @method unMinifyJSON
+ * @property {Object} minifyJSON
+ * @return {Object} unMinifyJSON
+ */
+app.model.TriggerModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
+
+    var gameEventListModel = new app.model.GameEventListModel(),
+        conditionListModel = new app.model.FunctionListModel(),
+        actionListModel = new app.model.FunctionListModel();
+
+    var result = {
+        _id: minifyJSON["1"],
+        _name: minifyJSON["2"],
+        _active: minifyJSON["3"],
+        _gameEventListModel: gameEventListModel.unMinifyJSON(minifyJSON["4"]),
+        _conditionListModel: conditionListModel.unMinifyJSON(minifyJSON["5"]),
+        _actionListModel: actionListModel.unMinifyJSON(minifyJSON["6"])
+    };
+
+    return result;
 };

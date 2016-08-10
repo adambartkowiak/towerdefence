@@ -84,7 +84,7 @@ app.controller.CollisionDetectionController.prototype.prepareObjectsGroups = fun
         element,
         elementX = 0,
         elementY = 0,
-        elementRadius = 0,
+        elementCollisionRadius = 0,
         tileIndexX = 0,
         tileIndexY = 0,
         startTileIndexX = 0,
@@ -105,15 +105,15 @@ app.controller.CollisionDetectionController.prototype.prepareObjectsGroups = fun
 
         elementX = element.getX();
         elementY = element.getY();
-        elementRadius = element.getRadius();
+        elementCollisionRadius = element.getCollisionRadius();
 
         //startIndex
-        startTileIndexX = Math.floor((elementX - elementRadius) / tileWidth);
-        startTileIndexY = Math.floor((elementY - elementRadius) / tileHeight);
+        startTileIndexX = Math.floor((elementX - elementCollisionRadius) / tileWidth);
+        startTileIndexY = Math.floor((elementY - elementCollisionRadius) / tileHeight);
 
         //endIndex
-        endTileIndexX = Math.floor((elementX + elementRadius) / tileWidth);
-        endTileIndexY = Math.floor((elementY + elementRadius) / tileHeight);
+        endTileIndexX = Math.floor((elementX + elementCollisionRadius) / tileWidth);
+        endTileIndexY = Math.floor((elementY + elementCollisionRadius) / tileHeight);
 
         for (tileIndexX = startTileIndexX; tileIndexX <= endTileIndexX; tileIndexX++) {
             for (tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++) {
@@ -137,20 +137,20 @@ app.controller.CollisionDetectionController.prototype.prepareObjectsGroups = fun
  * @method getPotentialCollisionArrayForCircle
  * @param {number} x
  * @param {number} y
- * @param {number} radius
+ * @param {number} collisionRadius
  * @param {number} mask
  */
-app.controller.CollisionDetectionController.prototype.getPotentialCollisionArrayForCircle = function getPotentialCollisionArrayForCircle(x, y, radius, mask) {
+app.controller.CollisionDetectionController.prototype.getPotentialCollisionArrayForCircle = function getPotentialCollisionArrayForCircle(x, y, collisionRadius, mask) {
 
     var tileWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
         tileHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
         maxTileIndexX = Math.ceil(this._mapModel.getMapGraphicModel().getMapWidth() / tileWidth),
         maxTileIndexY = Math.ceil(this._mapModel.getMapGraphicModel().getMapHeight() / tileHeight),
 
-        startTileIndexX = Math.floor((x - radius) / tileWidth),
-        startTileIndexY = Math.floor((y - radius) / tileHeight),
-        endTileIndexX = Math.floor((x + radius) / tileWidth),
-        endTileIndexY = Math.floor((y + radius) / tileHeight),
+        startTileIndexX = Math.floor((x - collisionRadius) / tileWidth),
+        startTileIndexY = Math.floor((y - collisionRadius) / tileHeight),
+        endTileIndexX = Math.floor((x + collisionRadius) / tileWidth),
+        endTileIndexY = Math.floor((y + collisionRadius) / tileHeight),
 
         selectedIndex = 0,
         result = [];
@@ -173,18 +173,18 @@ app.controller.CollisionDetectionController.prototype.getPotentialCollisionArray
  * @method getCollisionArrayForCircle
  * @param {number} x
  * @param {number} y
- * @param {number} radius
+ * @param {number} collisionRadius
  * @param {number} mask
  */
-app.controller.CollisionDetectionController.prototype.getCollisionArrayForCircle = function getCollisionArrayForCircle(x, y, radius, mask) {
+app.controller.CollisionDetectionController.prototype.getCollisionArrayForCircle = function getCollisionArrayForCircle(x, y, collisionRadius, mask) {
 
-    var potentialCollisionArray = this.getPotentialCollisionArrayForCircle(x, y, radius, mask),
+    var potentialCollisionArray = this.getPotentialCollisionArrayForCircle(x, y, collisionRadius, mask),
         potentialCollisionArrayLength = potentialCollisionArray.length,
         i = 0,
         entity = null,
         result = [];
 
-    var c1 = new support.geom.Circle(x, y, radius);
+    var c1 = new support.geom.Circle(x, y, collisionRadius);
     var c2 = new support.geom.Circle(0, 0, 0);
 
     for (i = 0; i < potentialCollisionArrayLength; i++) {
@@ -193,7 +193,7 @@ app.controller.CollisionDetectionController.prototype.getCollisionArrayForCircle
 
         c2.setX(entity.getX());
         c2.setY(entity.getY());
-        c2.setRadius(entity.getRadius());
+        c2.setRadius(entity.getCollisionRadius());
 
         var collision = support.geom.collision.Collision.CircleCircle(c1, c2);
 
@@ -206,40 +206,40 @@ app.controller.CollisionDetectionController.prototype.getCollisionArrayForCircle
     return result;
 };
 
-/**
- * @method getPotentialCollisionArrayForRectangle
- * @param {number} x
- * @param {number} y
- * @param {number} width
- * @param {number} height
- * @param {number} mask
- */
-app.controller.CollisionDetectionController.prototype.getPotentialCollisionArrayForRectangle = function getPotentialCollisionArrayForRectangle(x, y, width, height, mask) {
-
-    var tileWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
-        tileHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
-        maxTileIndexX = Math.ceil(this._mapModel.getMapGraphicModel().getMapWidth() / tileWidth),
-        maxTileIndexY = Math.ceil(this._mapModel.getMapGraphicModel().getMapHeight() / tileHeight),
-
-        startTileIndexX = Math.floor((x - radius) / tileWidth),
-        startTileIndexY = Math.floor((y - radius) / tileHeight),
-        endTileIndexX = Math.floor((x + radius) / tileWidth),
-        endTileIndexY = Math.floor((y + radius) / tileHeight),
-
-        selectedIndex = 0,
-        result = [];
-
-    for (var tileIndexX = startTileIndexX; tileIndexX <= endTileIndexX; tileIndexX++) {
-        for (var tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++) {
-
-            selectedIndex = maxTileIndexY * tileIndexX + tileIndexY;
-            result = result.concat(this._collisionTree[selectedIndex]);
-
-        }
-    }
-
-    return result;
-};
+// /**
+//  * @method getPotentialCollisionArrayForRectangle
+//  * @param {number} x
+//  * @param {number} y
+//  * @param {number} width
+//  * @param {number} height
+//  * @param {number} mask
+//  */
+// app.controller.CollisionDetectionController.prototype.getPotentialCollisionArrayForRectangle = function getPotentialCollisionArrayForRectangle(x, y, width, height, mask) {
+//
+//     var tileWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
+//         tileHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
+//         maxTileIndexX = Math.ceil(this._mapModel.getMapGraphicModel().getMapWidth() / tileWidth),
+//         maxTileIndexY = Math.ceil(this._mapModel.getMapGraphicModel().getMapHeight() / tileHeight),
+//
+//         startTileIndexX = Math.floor((x - radius) / tileWidth),
+//         startTileIndexY = Math.floor((y - radius) / tileHeight),
+//         endTileIndexX = Math.floor((x + radius) / tileWidth),
+//         endTileIndexY = Math.floor((y + radius) / tileHeight),
+//
+//         selectedIndex = 0,
+//         result = [];
+//
+//     for (var tileIndexX = startTileIndexX; tileIndexX <= endTileIndexX; tileIndexX++) {
+//         for (var tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++) {
+//
+//             selectedIndex = maxTileIndexY * tileIndexX + tileIndexY;
+//             result = result.concat(this._collisionTree[selectedIndex]);
+//
+//         }
+//     }
+//
+//     return result;
+// };
 
 
 

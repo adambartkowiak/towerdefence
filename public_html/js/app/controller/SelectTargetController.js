@@ -78,7 +78,7 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
 
             if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0) {
 
-                if (toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.TaskEnum.ATTACK) {
+                if (toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.ATTACK) {
 
                     //AttackRangeCircle
                     c1.setX(element.getX());

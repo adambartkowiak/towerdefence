@@ -65,7 +65,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
         availableStep = element.getMoveList() && element.getMoveList().length() > 0;
 
         //NO AVAILABLE STEPS!
-        if (!availableStep || element.getGroundSpeed() === 0) {
+        if (!availableStep || element.getGroundSpeed() === 0 || element.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.GATHER) {
             continue;
         }
 

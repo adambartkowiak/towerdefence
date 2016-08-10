@@ -47,7 +47,20 @@ editor.controller.AddGameEventController.prototype.setView = function setView(vi
  */
 editor.controller.AddGameEventController.prototype.onAccept = function onAccept(gameEventName) {
 
-    this._triggerModel.getGameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum[gameEventName]));
+    var newGameEventGuid = Utils.guid();
 
+    //add to trigger model
+    this._triggerModel.getGameEventListModel().addElement(new app.model.GameEventModel(newGameEventGuid, app.enum.GameEventEnum[gameEventName]));
+
+    //add to tree
+    var tree = $("#triggerDivTree").fancytree("getTree"),
+        node = tree.getNodeByKey("tree-event");
+
+    node.addChildren({
+        title: gameEventName,
+        key: newGameEventGuid
+    });
+
+    node.setExpanded(true);
 };
 

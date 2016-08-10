@@ -84,12 +84,14 @@ editor.controller.TriggerModuleController.prototype.addTrigger = function addTri
             newTriggerId,
             "TRIGGER: " + count,
             new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.NONE)),
-            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
                 Utils.guid(),
-                new app.model.function.Attribute(Utils.guid(), 0),
-                new app.model.function.Attribute(Utils.guid(), 0))),
-            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "VICTORY")),
-                new app.command.TurnOffTriggerCommand(Utils.guid(), this._triggerListModel, new app.model.function.Attribute(Utils.guid(), newTriggerId))]));
+                new app.model.function.AttributeModel(Utils.guid(), 0),
+                new app.model.function.AttributeModel(Utils.guid(), 0))),
+            new app.model.FunctionListModel().addElement(
+                new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "VICTORY"))
+            ).addElement(
+                new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), newTriggerId)))));
 
     this._view.show();
 
@@ -132,15 +134,15 @@ editor.controller.TriggerModuleController.prototype.showAddGameEventView = funct
  */
 editor.controller.TriggerModuleController.prototype.showEditGameEventView = function showEditGameEventView(gameEventId) {
 
-    var that = this;
-
     var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid);
-    var editGameEventController = new editor.controller.EditGameEventController(triggerModel, gameEventId, that._view);
+    var editGameEventController = new editor.controller.EditGameEventController(triggerModel, gameEventId, this._view);
     var selectGameEventView = new editor.view.SelectGameEventView(editGameEventController);
 
     editGameEventController.setView(selectGameEventView);
     selectGameEventView.show();
 
+    //gameEventIdToRepaint
+    //repaint node by ID
 };
 
 /**
@@ -149,15 +151,43 @@ editor.controller.TriggerModuleController.prototype.showEditGameEventView = func
  */
 editor.controller.TriggerModuleController.prototype.addCondition = function addCondition() {
 
-    var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid);
+    var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid),
+        functionFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener),
+        newAttribute = functionFactory.createFunction(app.enum.FunctionEnum.EQUALS);
 
     triggerModel.getConditionListModel().addElement(
-        new app.model.function.ConditionEqual(
-            Utils.guid(),
-            new app.model.function.Attribute(Utils.guid(), 0),
-            new app.model.function.Attribute(Utils.guid(), 0)
-        )
+        newAttribute
     );
+
+    //add to tree
+    var tree = $("#triggerDivTree").fancytree("getTree"),
+        node = tree.getNodeByKey("tree-condition");
+
+    this._view._createTreeNodeForAttribute(node, newAttribute);
+    node.setExpanded(true);
+
+};
+
+/**
+ * @method addAction
+ * @public
+ */
+editor.controller.TriggerModuleController.prototype.addAction = function addAction() {
+
+    var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid),
+        functionFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener),
+        newAttribute = functionFactory.createFunction(app.enum.FunctionEnum.SHOW_CONSOLE_LOG);
+
+    triggerModel.getActionListModel().addElement(
+        newAttribute
+    );
+
+    //add to tree
+    var tree = $("#triggerDivTree").fancytree("getTree"),
+        node = tree.getNodeByKey("tree-action");
+
+    this._view._createTreeNodeForAttribute(node, newAttribute);
+    node.setExpanded(true);
 
 };
 
@@ -169,13 +199,15 @@ editor.controller.TriggerModuleController.prototype.showEditAttributeView = func
 
     console.log("showEditAttributeView: " + attributeId);
 
-    var editingTriggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid);
-    var editAttributeController = new editor.controller.EditAttributeController(worldModel, editingTriggerModel, attributeId);
+    var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid);
+    var editAttributeController = new editor.controller.EditAttributeController(worldModel, triggerModel, attributeId, this._view);
     var selectAtributeView = new editor.view.SelectAttributeView(editAttributeController);
 
     // editGameEventController.setView(selectGameEventView);
     selectAtributeView.show();
 
+    //attributeIdToRepaint
+    //repaint node by ID
 };
 
 /**

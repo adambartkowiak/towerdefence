@@ -107,9 +107,17 @@ app.model.EntityListModel.prototype.removeElementById = function removeElementBy
     }
 
     if (foundIndex >= 0) {
-        this.removeElement(foundIndex);
+        this.removeElementByIndex(foundIndex);
     }
 
+};
+
+/**
+ * @method createMe
+ * @return {app.model.EntityListModel}
+ */
+app.model.EntityListModel.prototype.createMe = function createMe() {
+    return new app.model.EntityListModel();
 };
 
 /**

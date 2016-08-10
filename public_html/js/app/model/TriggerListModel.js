@@ -67,9 +67,17 @@ app.model.TriggerListModel.prototype.removeElementById = function removeElementB
     }
 
     if (foundIndex >= 0) {
-        this.removeElement(foundIndex);
+        this.removeElementByIndex(foundIndex);
     }
 
+};
+
+/**
+ * @method createMe
+ * @return {app.model.TaskListModel} createMe
+ */
+app.model.TriggerListModel.prototype.createMe = function createMe() {
+    return new app.model.TriggerListModel();
 };
 
 /**
@@ -77,5 +85,5 @@ app.model.TriggerListModel.prototype.removeElementById = function removeElementB
  * @returns {app.model.EntityModel}
  */
 app.model.TriggerListModel.prototype.createListElement = function createListElement() {
-    return new app.model.TriggerModel();
+    return new app.model.TriggerModel("", "", new app.model.GameEventListModel(), new app.model.FunctionListModel(), new app.model.FunctionListModel(), true);
 };

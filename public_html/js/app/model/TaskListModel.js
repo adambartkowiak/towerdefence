@@ -61,9 +61,17 @@ app.model.TaskListModel.prototype.removeElementById = function removeElementById
     }
 
     if (foundIndex >= 0) {
-        this.removeElement(foundIndex);
+        this.removeElementByIndex(foundIndex);
     }
 
+};
+
+/**
+ * @method createMe
+ * @return {app.model.TaskListModel} createMe
+ */
+app.model.TaskListModel.prototype.createMe = function createMe() {
+    return new app.model.TaskListModel();
 };
 
 /**
@@ -71,5 +79,5 @@ app.model.TaskListModel.prototype.removeElementById = function removeElementById
  * @returns {app.model.TaskModel}
  */
 app.model.TaskListModel.prototype.createListElement = function createListElement() {
-    return new app.model.TaskModel(0,0,0,0,app.enum.TaskEnum.MOVE);
+    return new app.model.TaskModel(0,0,0,0,app.enum.FunctionEnum.MOVE);
 };

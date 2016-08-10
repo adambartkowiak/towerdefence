@@ -18,39 +18,55 @@ ns.ActionMenuModel = function ActionMenuModel() {
      * @property {Array} _elements
      * @private
      */
-    this._elements = ["Jakis text", "Dwa", "Trzy", "cztery", 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "back"];
-
 
     this._elements = [
         {
             "text": "Move",
             "icon": "assets/graphics/icons/moveicon.png",
-            "action": "SetMoveAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 400
+            }
         },
         {
             "text": "Cancel",
             "icon": "assets/graphics/icons/cancelicon.png",
-            "action": "CancelAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 2
+            }
         },
         {
             "text": "Hold",
             "icon": "assets/graphics/icons/holdicon.png",
-            "action": "HoldAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 103
+            }
         },
         {
             "text": "Patrol",
             "icon": "assets/graphics/icons/patrolicon.png",
-            "action": "SetPatrolAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 402
+            }
         },
         {
             "text": "Attack",
             "icon": "assets/graphics/icons/attackicon.png",
-            "action": "SetAttackAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 401
+            }
         },
         {
             "text": "Gather",
             "icon": "assets/graphics/icons/gathericon.png",
-            "action": "SetGatherAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 403
+            }
         },
         {
             "text": null,
@@ -68,7 +84,10 @@ ns.ActionMenuModel = function ActionMenuModel() {
                 {
                     "text": "B1",
                     "icon": null,
-                    "action": "SetBuildBaseAction"
+                    "action": {
+                        "1": "##GENERATE_GUID##",
+                        "2": 404
+                    }
                 },
                 {
                     "text": "B2",
@@ -195,12 +214,18 @@ ns.ActionMenuModel = function ActionMenuModel() {
         {
             "text": "Worker",
             "icon": null,
-            "action": "TrainWorkerAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 301
+            }
         },
         {
             "text": "Warrior",
             "icon": null,
-            "action": "TrainWarriorAction"
+            "action": {
+                "1": "##GENERATE_GUID##",
+                "2": 302
+            }
         }
     ];
 

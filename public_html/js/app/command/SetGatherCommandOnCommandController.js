@@ -38,6 +38,6 @@ app.command.SetGatherCommandOnCommandController.prototype.execute = function exe
 
     console.log("app.command.SetGatherCommandOnCommandController.prototype.execute");
     
-    this._commandController.setAction(app.enum.TaskEnum.GATHER);
+    this._commandController.setAction(app.enum.FunctionEnum.GO_GATHER);
     
 };

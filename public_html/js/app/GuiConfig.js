@@ -25,3 +25,13 @@ app.GuiConfig.statusmenuheight = 160;
 app.GuiConfig.statusmenux = app.GuiConfig.minimapwidth;
 app.GuiConfig.statusmenuy = app.GuiConfig.height - app.GuiConfig.statusmenuheight;
 
+//hudmenubuttons
+app.GuiConfig.hudmenulabelswidth = 138;
+app.GuiConfig.hudmenulabelsheight = 45;
+app.GuiConfig.hudmenulabelsy = 0;
+app.GuiConfig.hudmenulabelsfreespecex = 10;
+app.GuiConfig.hudmenugoldlabelx = 40;
+app.GuiConfig.hudmenuwoodlabelx = app.GuiConfig.hudmenugoldlabelx + app.GuiConfig.hudmenulabelswidth + app.GuiConfig.hudmenulabelsfreespecex;
+app.GuiConfig.hudmenuarmylabelx = app.GuiConfig.hudmenuwoodlabelx + app.GuiConfig.hudmenulabelswidth + app.GuiConfig.hudmenulabelsfreespecex;
+app.GuiConfig.hudmenutimelabelx = app.GuiConfig.width - 2*app.GuiConfig.hudmenulabelswidth - app.GuiConfig.hudmenugoldlabelx;
+app.GuiConfig.hudmenumenubuttonx = app.GuiConfig.width - 1*app.GuiConfig.hudmenulabelswidth - app.GuiConfig.hudmenugoldlabelx + app.GuiConfig.hudmenulabelsfreespecex;

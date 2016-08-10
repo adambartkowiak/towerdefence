@@ -38,6 +38,6 @@ app.command.SetBuildBaseCommandOnCommandController.prototype.execute = function 
 
     console.log("app.command.SetBuildBaseCommandOnCommandController.prototype.execute");
     
-    this._commandController.setAction(app.enum.TaskEnum.BUILD_BASE);
+    this._commandController.setAction(app.enum.FunctionEnum.BUILD_BASE);
     
 };

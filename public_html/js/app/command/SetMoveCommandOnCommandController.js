@@ -38,6 +38,6 @@ app.command.SetMoveCommandOnCommandController.prototype.execute = function execu
 
     console.log("app.command.SetMoveCommandOnCommandController.prototype.execute");
     
-    this._commandController.setAction(app.enum.TaskEnum.MOVE);
+    this._commandController.setAction(app.enum.FunctionEnum.MOVE);
     
 };

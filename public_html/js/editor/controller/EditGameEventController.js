@@ -64,6 +64,11 @@ editor.controller.EditGameEventController.prototype.onAccept = function onAccept
     var gameEventModel = this._triggerModel.getGameEventListModel().getElementById(this._gameEventId);
     gameEventModel.setGameEventEnum(app.enum.GameEventEnum[gameEventName]);
 
-    this._triggerModuleView.reloadTree();
+    var tree = $("#triggerDivTree").fancytree("getTree"),
+        node = tree.getActiveNode(),
+        parent = node.getParent();
+
+        node.setTitle(gameEventName);
+
 };
 

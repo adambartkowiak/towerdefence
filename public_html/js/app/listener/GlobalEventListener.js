@@ -102,73 +102,73 @@ ns.GlobalEventListener.prototype.onTimeDelta = function onTimeDelta(time) {
 
 ns.GlobalEventListener.prototype.callTriggerForEvent = function callTriggerForEvent(gameEventEnumValue, entity) {
 
-    var triggerIndex,
-        triggerArray = this._triggerModelList.getElements(),
-        triggerCount = triggerArray.length,
-        currentTrigger,
-
-        eventIndex,
-        eventArray,
-        eventCount,
-        currentEvent,
-
-        conditionIndex,
-        conditionArray,
-        conditionCount,
-        currentCondition,
-
-        commandIndex,
-        commandArray,
-        commandCount,
-        currentCommand;
-
-    for (triggerIndex = 0; triggerIndex < triggerCount; triggerIndex++) {
-        currentTrigger = triggerArray[triggerIndex];
-
-        if (currentTrigger.getActive() === false){
-            continue;
-        }
-
-        //events
-        eventArray = currentTrigger.getGameEventArray();
-        eventCount = eventArray.length;
-
-        //conditions
-        conditionArray = currentTrigger.getConditionArray();
-        conditionCount = conditionArray.length;
-
-        //commands
-        commandArray = currentTrigger.getCommandArray();
-        commandCount = commandArray.length;
-
-        for (eventIndex = 0; eventIndex<eventCount; eventIndex++){
-
-            eventArray = currentTrigger.getGameEventArray();
-            currentEvent = eventArray[eventIndex];
-
-            if (currentEvent === gameEventEnumValue) {
-
-                //condition
-                for(conditionIndex = 0; conditionIndex<conditionCount; conditionIndex++){
-
-                    currentCondition = conditionArray[conditionIndex];
-                    //exit if condition === false
-                    if (currentCondition.getValue() === false){
-                        return;
-                    }
-                }
-
-                //command
-                for(commandIndex = 0; commandIndex<commandCount; commandIndex++){
-
-                    currentCommand = commandArray[commandIndex];
-                    currentCommand.execute();
-                }
-
-            }
-        }
-
-
-    }
+    // var triggerIndex,
+    //     triggerArray = this._triggerModelList.getElements(),
+    //     triggerCount = triggerArray.length,
+    //     currentTrigger,
+    //
+    //     gameEventIndex,
+    //     gameEventListModel,
+    //     gameEventCount,
+    //     currentGameEvent,
+    //
+    //     conditionIndex,
+    //     conditionListModel,
+    //     conditionCount,
+    //     currentCondition,
+    //
+    //     actionIndex,
+    //     actionListModel,
+    //     actionCount,
+    //     currentAction;
+    //
+    // for (triggerIndex = 0; triggerIndex < triggerCount; triggerIndex++) {
+    //     currentTrigger = triggerArray[triggerIndex];
+    //
+    //     if (currentTrigger.getActive() === false){
+    //         continue;
+    //     }
+    //
+    //     //gameEvents
+    //     gameEventListModel = currentTrigger.getGameEventListModel();
+    //     gameEventCount = gameEventListModel.length();
+    //
+    //     //conditions
+    //     conditionListModel = currentTrigger.getConditionListModel();
+    //     conditionCount = conditionListModel.length();
+    //
+    //     //actions
+    //     actionListModel = currentTrigger.getActionListModel();
+    //     actionCount = actionListModel.length();
+    //
+    //     for (gameEventIndex = 0; gameEventIndex<gameEventCount; gameEventIndex++){
+    //
+    //         gameEventListModel = currentTrigger.getGameEventListModel();
+    //         currentGameEvent = gameEventListModel.getElement(gameEventIndex);
+    //
+    //         if (currentGameEvent === gameEventEnumValue) {
+    //
+    //             //condition
+    //             for(conditionIndex = 0; conditionIndex<conditionCount; conditionIndex++){
+    //
+    //                 currentCondition = conditionListModel.getElement(conditionIndex);
+    //                 //exit if condition === false
+    //                 if (currentCondition.getValue() === false){
+    //                     return;
+    //                 }
+    //             }
+    //
+    //             //command
+    //             for(actionIndex = 0; actionIndex<actionCount; actionIndex++){
+    //
+    //                 currentAction = actionListModel(actionIndex);
+    //                 currentAction.execute();
+    //             }
+    //
+    //         }
+    //     }
+    //
+    //
+    // }
 
 };

@@ -94,28 +94,36 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
 
             var commandMouseEventListener = null;
             var command = null;
+            var elementAction = elements[i].action;
+            var elementActionType = null;
+
+            if (!!elementAction){
+                //action type is 2 argument
+                elementActionType = elementAction[2];
+            }
+
 
             if (elements[i].elements) {
                 command = new app.command.ActionMenuUpdateMenuCommand(this, this._actionMenuModel, this._actionMenuModel._currentPathArray.concat([i, "elements"]));
-            } else if (elements[i].action === "back") {
+            } else if (elementActionType === app.enum.FunctionEnum.ACTION_MENU_BACK) {
                 var newPathArray = this._actionMenuModel._currentPathArray.slice();
                 newPathArray.splice(-2, 2);
                 command = new app.command.ActionMenuUpdateMenuCommand(this, this._actionMenuModel, newPathArray);
-            } else if (elements[i].action === "SetMoveAction") {
+            } else if (elementActionType === app.enum.FunctionEnum.SET_MOVE_ACTION) {
                 command = new app.command.SetMoveCommandOnCommandController(this._commandController);
-            }  else if (elements[i].action === "SetPatrolAction") {
+            }  else if (elementActionType === app.enum.FunctionEnum.SET_PATROL_ACTION) {
                 command = new app.command.SetPatrolCommandOnCommandController(this._commandController);
-            }  else if (elements[i].action === "SetGatherAction") {
+            }  else if (elementActionType === app.enum.FunctionEnum.SET_GO_GATHER_ACTION) {
                 command = new app.command.SetGatherCommandOnCommandController(this._commandController);
-            } else if (elements[i].action === "CancelAction") {
+            } else if (elementActionType === app.enum.FunctionEnum.CANCEL) {
                 command = new app.command.CancelCommand(this._entityListModel);
-            } else if (elements[i].action === "HoldAction") {
+            } else if (elementActionType === app.enum.FunctionEnum.HOLD) {
                 command = new app.command.HoldCommand(this._entityListModel);
-            } else if (elements[i].action === "SetBuildBaseAction") {
+            } else if (elementActionType === app.enum.FunctionEnum.SET_BUILDING_BASE) {
                 command = new app.command.SetBuildBaseCommandOnCommandController(this._commandController);
-            } else if (elements[i].action === "TrainWorkerAction") {
+            } else if (elementActionType === app.enum.FunctionEnum.TRAIN_WORKER) {
                 command = new app.command.TrainWorkerCommand(this._entityListModel);
-            } else if (elements[i].action === "TrainWarriorAction") {
+            } else if (elementActionType === app.enum.FunctionEnum.TRAIN_WARRIOR) {
                 command = new app.command.TrainWarriorCommand(this._entityListModel);
             }
 

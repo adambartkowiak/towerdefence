@@ -47,7 +47,7 @@ app.command.CancelCommand.prototype.execute = function execute(mouseEvent) {
                 entity.getMoveList().clear();
             }
             entity.setHoldPosition(false);
-            entity.setTask(app.enum.TaskEnum.NONE);
+            entity.setTask(app.enum.FunctionEnum.NONE);
         }
     }
 

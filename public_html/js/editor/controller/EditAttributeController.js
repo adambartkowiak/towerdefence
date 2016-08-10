@@ -12,8 +12,9 @@ Utils.namespace("editor.controller");
  * @param {app.model.WorldModel} _worldModel
  * @param {app.model.TriggerModel} triggerModel
  * @param {string} attributeId
+ * @param {editor.view.TriggerModelView} triggerModuleView
  */
-editor.controller.EditAttributeController = function EditAttributeController(worldModel, triggerModel, attributeId) {
+editor.controller.EditAttributeController = function EditAttributeController(worldModel, triggerModel, attributeId, triggerModuleView) {
 
     /**
      *
@@ -40,6 +41,12 @@ editor.controller.EditAttributeController = function EditAttributeController(wor
      */
     this._attributeId = attributeId;
 
+    /**
+     * @property {editor.view.TriggerModelView} _triggerModuleView
+     * @private
+     */
+    this._triggerModuleView = triggerModuleView;
+
 };
 
 Utils.inherits(editor.controller.EditAttributeController, Object);
@@ -62,34 +69,53 @@ editor.controller.EditAttributeController.prototype.setView = function setView(v
  */
 editor.controller.EditAttributeController.prototype.onAccept = function onAccept(selectAttributeModel) {
 
-    var attribute = this._triggerModel.getConditionListModel().getElementById(this._attributeId),
+    var attribute = this._triggerModel.getAttributeById(this._attributeId),
         parent = attribute.getParent(),
-        index = parent.getElementIndex(attribute),
-        newAttribute;
+        index,
+        newAttribute,
+        newAttributeGuid = Utils.guid(),
+        functionListModel = null;
+
+    if (parent !== null){
+        index = parent.getElementIndex(attribute);
+    } else {
+        functionListModel = this._triggerModel.getFunctionListModelByAttributeId(this._attributeId);
+        functionListModel.getElementIndex(attribute);
+        parent = functionListModel;
+    }
 
     parent.removeElementByIndex(index);
 
 
     if (selectAttributeModel.getAttributeEnumValue() === editor.enum.SelectAttributeEnum.CUSTOM_VALUE) {
 
-        newAttribute = new app.model.function.Attribute(Utils.guid(), selectAttributeModel.getValue());
+        newAttribute = new app.model.function.AttributeModel(newAttributeGuid, selectAttributeModel.getValue());
 
     } else if (selectAttributeModel.getAttributeEnumValue() === editor.enum.SelectAttributeEnum.PREDEFINED_VALUE) {
 
-        // this._view._selectedPredefinedValueName;
-        newAttribute = new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum[selectAttributeModel.getValue()]);
+        newAttribute = new app.model.function.AttributeModel(newAttributeGuid, app.enum.EntityPropertyEnum[selectAttributeModel.getValue()]);
 
     } else if (selectAttributeModel.getAttributeEnumValue() === editor.enum.SelectAttributeEnum.FUNCTION) {
-        var functionFactory = new app.factory.FunctionFactory(this._worldModel.getGlobalEventListener);
+
+        var functionFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener);
         newAttribute = functionFactory.createFunction(app.enum.FunctionEnum[selectAttributeModel.getValue()]);
 
     } else if (selectAttributeModel.getAttributeEnumValue() === editor.enum.SelectAttributeEnum.VARIABLE) {
 
-        newAttribute = new app.model.function.Attribute(Utils.guid(), selectAttributeModel.getValue());
+        newAttribute = new app.model.function.AttributeModel(newAttributeGuid, selectAttributeModel.getValue());
 
     }
 
     parent.insertElement(index, newAttribute);
+
+    //add to tree
+    var tree = $("#triggerDivTree").fancytree("getTree"),
+        activeNode = tree.getActiveNode(),
+        parentNode = activeNode.getParent();
+
+    this._triggerModuleView._createTreeNodeForAttribute(parentNode, newAttribute, index);
+
+    activeNode.remove();
 
 };
 

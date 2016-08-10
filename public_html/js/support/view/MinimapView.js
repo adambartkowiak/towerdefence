@@ -439,10 +439,10 @@ support.view.MinimapView.prototype.onMouseEvent = function onMouseEvent(mouseEve
 //                        if (!this._isShiftPressed) {
                         element.getMoveList().clear();
 //                        }
-                    element.getMoveList().addElement(new app.model.TaskModel(destPositionX, destPositionY, 5, 0, app.enum.TaskEnum.MOVE));
+                    element.getMoveList().addElement(new app.model.TaskModel(destPositionX, destPositionY, 5, 0, app.enum.FunctionEnum.MOVE));
                 } else if (element.getSelected()) {
                     element.setMoveList(new app.model.ListModel());
-                    element.getMoveList().addElement(new app.model.TaskModel(destPositionX, destPositionY, 5, 0, app.enum.TaskEnum.MOVE));
+                    element.getMoveList().addElement(new app.model.TaskModel(destPositionX, destPositionY, 5, 0, app.enum.FunctionEnum.MOVE));
                 }
 
             }

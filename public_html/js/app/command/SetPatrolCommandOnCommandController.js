@@ -38,6 +38,6 @@ app.command.SetPatrolCommandOnCommandController.prototype.execute = function exe
 
     console.log("app.command.SetPatrolCommandOnCommandController.prototype.execute");
     
-    this._commandController.setAction(app.enum.TaskEnum.PATROL);
+    this._commandController.setAction(app.enum.FunctionEnum.PATROL);
     
 };

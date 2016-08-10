@@ -32,7 +32,7 @@ var Utils = Utils || {};
  * @param {Number} y
  * @param {Number} radius
  * @param {Number} entityId
- * @param {app.enum.TaskEnum} taskEnum
+ * @param {app.enum.FunctionEnum} taskEnum
  *
  */
 app.model.TaskModel = function TaskModel(x, y, radius, entityId, taskEnum) {
@@ -51,7 +51,7 @@ app.model.TaskModel = function TaskModel(x, y, radius, entityId, taskEnum) {
     this._entityId = entityId;
 
     /**
-     * @property {app.enum.TaskEnum} _taskEnum
+     * @property {app.enum.FunctionEnum} _taskEnum
      * @private
      */
     this._taskEnum = taskEnum;

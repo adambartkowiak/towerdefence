@@ -82,9 +82,9 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
         targetEntityId = targetEntity.getId();
     }
 
-    if (action === app.enum.TaskEnum.MOVE){
+    if (action === app.enum.FunctionEnum.MOVE){
 
-        entity.setTask(app.enum.TaskEnum.MOVE);
+        entity.setTask(app.enum.FunctionEnum.MOVE);
         if (entity.getSelected() && entity.getMoveList()) {
             entity.getMoveList().clear();
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
@@ -92,7 +92,7 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
             entity.setMoveList(new app.model.ListModel());
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
         }
-    } else if (action === app.enum.TaskEnum.GATHER){
+    } else if (action === app.enum.FunctionEnum.GO_GATHER){
 
         entity.setTask(new app.model.TaskModel(x, y, 5, targetEntityId, action));
         if (entity.getSelected() && entity.getMoveList()) {
@@ -102,21 +102,9 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
             entity.setMoveList(new app.model.ListModel());
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
         }
-    // } else if (action === app.enum.TaskEnum.PATROL){
-    //
-    //     entity.setTask(app.enum.TaskEnum.PATROL);
-    //     if (entity.getSelected() && entity.getMoveList()) {
-    //         entity.getMoveList().clear();
-    //         entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, action));
-    //         entity.getMoveList().addElement(new app.model.TaskModel(entity.getX(), entity.getY(), 5, targetEntityId, action));
-    //     } else if (entity.getSelected()) {
-    //         entity.setMoveList(new app.model.ListModel());
-    //         entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, action));
-    //         entity.getMoveList().addElement(new app.model.TaskModel(entity.getX(), entity.getY(), 5, targetEntityId, action));
-    //     }
-    } else if (action === app.enum.TaskEnum.PATROL){
+    } else if (action === app.enum.FunctionEnum.PATROL){
 
-        entity.setTask(app.enum.TaskEnum.PATROL);
+        entity.setTask(app.enum.FunctionEnum.PATROL);
         if (entity.getSelected() && entity.getMoveList()) {
             entity.getMoveList().clear();
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, action));
@@ -126,15 +114,15 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, action));
             entity.getMoveList().addElement(new app.model.TaskModel(entity.getX(), entity.getY(), 5, targetEntityId, action));
         }
-    } else if (action === app.enum.TaskEnum.BUILD_BASE){
+    } else if (action === app.enum.FunctionEnum.BUILD_BASE){
 
-        entity.setTask(new app.model.TaskModel(x, y, 5, 0, app.enum.TaskEnum.BUILD_BASE));
+        entity.setTask(new app.model.TaskModel(x, y, 5, 0, app.enum.FunctionEnum.BUILD_BASE));
         if (entity.getSelected() && entity.getMoveList()) {
             entity.getMoveList().clear();
-            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, app.enum.TaskEnum.BUILD_BASE));
+            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, app.enum.FunctionEnum.BUILD_BASE));
         } else if (entity.getSelected()) {
             entity.setMoveList(new app.model.ListModel());
-            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, app.enum.TaskEnum.BUILD_BASE));
+            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, 0, app.enum.FunctionEnum.BUILD_BASE));
         }
     }
     

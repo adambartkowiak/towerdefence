@@ -47,7 +47,7 @@ app.command.HoldCommand.prototype.execute = function execute(mouseEvent) {
                 entity.getMoveList().clear();
             }
             entity.setHoldPosition(true);
-            entity.setTask(app.enum.TaskEnum.NONE);
+            entity.setTask(app.enum.FunctionEnum.NONE);
         }
 
 

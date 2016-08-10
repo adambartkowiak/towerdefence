@@ -11,14 +11,14 @@ var Utils = Utils || {};
 
 /**
  * @namespace support.view
- * @class ButtonView
+ * @class LabelView
  * @constructor
  * @param {number} x
  * @param {number} y
  * @param {number} width
  * @param {number} height
  */
-support.view.ButtonView = function ButtonView(x, y, width, height) {
+support.view.LabelView = function LabelView(x, y, width, height) {
 
     /*
      Call Base/Super Constructor
@@ -26,64 +26,45 @@ support.view.ButtonView = function ButtonView(x, y, width, height) {
     support.view.AbstractView.call(this, x, y, width, height);
 
     /**
-     * @property {boolean} _active
-     * @private
-     */
-    this._active = false;
-    
-    /**
      * @property {string} _text
      * @private
      */
     this._text = "";
 
     /**
-     * @property {Image} _image
+     * @property {string[]} _textReference
      * @private
      */
-    this._image = null;
+    this._textReference = null;
 
 };
 
-Utils.inherits(support.view.ButtonView, support.view.AbstractView);
+Utils.inherits(support.view.LabelView, support.view.AbstractView);
 
 /**
  * @method draw
  * @public
  * @param {HTMLCanvasElement} canvas
  */
-support.view.ButtonView.prototype.draw = function draw(canvas){
+support.view.LabelView.prototype.draw = function draw(canvas){
 
     support.view.AbstractView.prototype.draw.call(this, canvas);
 
     var canvasContext = canvas.getContext("2d");
 
-    if (this._image){
-        canvasContext.drawImage(this._image, this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
+    if (this._backgroundColor !== null){
+        canvasContext.fillStyle = this.getBackgroundColor();
+        canvasContext.fillRect(this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
     }
 
     canvasContext.textAlign="center";
 
-    if (this._active){
-        //Rysowanie backgrounda widoku
-        //canvasContext.globalAlpha = 0.2;
-        canvasContext.fillStyle = this.getBackgroundColor();
-        canvasContext.fillRect(this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
-
-        //canvasContext.globalAlpha = 1;
-        canvasContext.fillStyle = '#FFFFFF';
-        canvasContext.fillText(this._text, this.getRelativeX() + this.getWidth()/2, this.getRelativeY() + this.getHeight()-4);
+    canvasContext.fillStyle = '#FFFFFF';
+    if (!!this._textReference && this._textReference[0] !== undefined){
+        canvasContext.fillText(this._textReference[0], this.getRelativeX() + this.getWidth()/2, this.getRelativeY() + this.getHeight()/2-4);
     } else {
-        //Rysowanie backgrounda widoku
-        //canvasContext.globalAlpha = 0.2;
-        canvasContext.fillStyle = this.getBackgroundColor();
-        canvasContext.fillRect(this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
-
-        //canvasContext.globalAlpha = 1;
-        canvasContext.fillStyle = '#FFFFFF';
-        canvasContext.fillText(this._text, this.getRelativeX() + this.getWidth()/2, this.getRelativeY() + this.getHeight()-4);
+        canvasContext.fillText(this._text, this.getRelativeX() + this.getWidth()/2, this.getRelativeY() + this.getHeight()/2-4);
     }
-
 
     canvasContext.textAlign="start";
     
@@ -91,7 +72,7 @@ support.view.ButtonView.prototype.draw = function draw(canvas){
 
 /**
  * @method setText
- * @param {number} text
+ * @param {string} text
  */
 support.view.AbstractView.prototype.setText = function setText(text) {
     this._text = text;
@@ -106,6 +87,22 @@ support.view.AbstractView.prototype.getText = function getText() {
 };
 
 /**
+ * @method setTextReference
+ * @param {string[]} textReference
+ */
+support.view.AbstractView.prototype.setTextReference = function setTextReference(textReference) {
+    this._textReference = textReference;
+};
+
+/**
+ * @method getTextReference
+ * @reutn (string[]) textReference
+ */
+support.view.AbstractView.prototype.getTextReference = function getTextReference() {
+    return this._textReference;
+};
+
+/**
  * Metoda sluzaca do obslugi Eventu.
  *
  * @method onMouseEvent
@@ -113,7 +110,7 @@ support.view.AbstractView.prototype.getText = function getText() {
  * @param {support.MouseEvent} mouseEvent
  * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
  */
-support.view.ButtonView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
+support.view.LabelView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
 
     var result = support.view.AbstractView.prototype.onMouseEvent.call(this, mouseEvent);
     
@@ -127,7 +124,7 @@ support.view.ButtonView.prototype.onMouseEvent = function onMouseEvent(mouseEven
     }
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG){
-
+        
 //        console.log("support.MouseEventType.MOUSE_DRAG");
     }
     

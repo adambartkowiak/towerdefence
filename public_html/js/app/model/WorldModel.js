@@ -22,6 +22,13 @@ app.model.WorldModel = function WorldModel() {
     this._entityModelList = new app.model.EntityListModel();
 
     /**
+     * Wszystkie druzyny znajdujace sie w swiecie gry
+     * @property {app.model.TeamModel[]} _teamArray
+     * @private
+     */
+    this._teamModelArray = [new app.model.TeamModel("NEUTRALNI", "#9E9E9E"), new app.model.TeamModel("DRUZYNA ADAMA", "#1E88E5")];
+
+    /**
      * Informacje na temat mapy.
      * @property {app.model.MapModel} _mapModel
      * @private
@@ -78,65 +85,59 @@ app.model.WorldModel = function WorldModel() {
             Utils.guid(),
             "UNIT_CREATE",
             new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
-            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
                 Utils.guid(),
-                new app.model.function.Attribute(Utils.guid(), 0),
-                new app.model.function.Attribute(Utils.guid(), 0))).addElement(
-                new app.model.function.ConditionEqual(
+                new app.model.function.AttributeModel(Utils.guid(), 0),
+                new app.model.function.AttributeModel(Utils.guid(), 0))).addElement(
+                new app.model.function.ConditionEqualModel(
                     Utils.guid(),
-                    new app.model.function.Attribute(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
-                    new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))).addElement(
-                new app.model.function.ConditionEqual(
+                    new app.model.function.AttributeModel(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
+                    new app.model.function.GetEntityPropertyModel(Utils.guid(), new app.model.function.GetEventEntityModel(Utils.guid(), this._globalEventListener), new app.model.function.AttributeModel(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))).addElement(
+                new app.model.function.ConditionEqualModel(
                     Utils.guid(),
-                    new app.model.function.GetUnitCount(Utils.guid(), new app.model.function.Attribute(Utils.guid(), 1)/*team*/),
-                    new app.model.function.Attribute(Utils.guid(), 0))),
-            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "ADD_ENTITY_EVENT"))]));
+                    new app.model.function.GetUnitCountModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), 1)/*team*/),
+                    new app.model.function.AttributeModel(Utils.guid(), 0))),
+            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "ADD ENTITY EVENT"))),
+            true));
 
     this._triggerListModel.addElement(
         new app.model.TriggerModel(
             Utils.guid(),
             "UNIT_DIE",
             new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_DIE)),
-            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
                 Utils.guid(),
-                new app.model.function.Attribute(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
-                new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))),
-            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "REMOVE_ENTITY_EVENT"))]));
+                new app.model.function.AttributeModel(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
+                new app.model.function.GetEntityPropertyModel(Utils.guid(), new app.model.function.GetEventEntityModel(Utils.guid(), this._globalEventListener), new app.model.function.AttributeModel(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))),
+            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "REMOVE ENTITY EVENT"))),
+            true));
 
+    var vitoryTriggerId = Utils.guid();
     this._triggerListModel.addElement(
         new app.model.TriggerModel(
-            Utils.guid(),
-            "UNIT_DIE",
-            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_DIE)),
-            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
-                Utils.guid(),
-                new app.model.function.Attribute(Utils.guid(), "assets/graphics/images/unit2_team2.png"),
-                new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)))),
-            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.GetEntityProperty(Utils.guid(), new app.model.function.GetEventEntity(Utils.guid(), this._globalEventListener), new app.model.function.Attribute(Utils.guid(), app.enum.EntityPropertyEnum.ID)))]));
-
-    this._triggerListModel.addElement(
-        new app.model.TriggerModel(
-            Utils.guid(),
+            vitoryTriggerId,
             "VICTORY_TRIGGER",
             new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.TIME_DELTA)),
-            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
                 Utils.guid(),
-                new app.model.function.GetUnitCount(Utils.guid(), new app.model.function.Attribute(Utils.guid(), 2)/*team*/),
-                new app.model.function.Attribute(Utils.guid(), 0))),
-            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "VICTORY")),
-                new app.command.TurnOffTriggerCommand(Utils.guid(), this._triggerListModel, new app.model.function.Attribute(Utils.guid(), "VICTORY_TRIGGER"))]));
+                new app.model.function.GetUnitCountModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), 2)/*team*/),
+                new app.model.function.AttributeModel(Utils.guid(), 0))),
+            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "VICTORY"))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), vitoryTriggerId))),
+            true));
 
+
+    var defeatTriggerId = Utils.guid();
     this._triggerListModel.addElement(
         new app.model.TriggerModel(
-            Utils.guid(),
+            defeatTriggerId,
             "DEFEAT_TRIGGER",
             new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.TIME_DELTA)),
-            new app.model.ValueListModel().addElement(new app.model.function.ConditionEqual(
+            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
                 Utils.guid(),
-                new app.model.function.GetUnitCount(Utils.guid(), new app.model.function.Attribute(Utils.guid(), 1)/*team*/),
-                new app.model.function.Attribute(Utils.guid(), 0))),
-            [new app.command.ShowConsoleLogCommand(Utils.guid(), new app.model.function.Attribute(Utils.guid(), "DEFEAT")),
-                new app.command.TurnOffTriggerCommand(Utils.guid(), this._triggerListModel, new app.model.function.Attribute(Utils.guid(), "DEFEAT_TRIGGER"))]));
+                new app.model.function.GetUnitCountModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), 1)/*team*/),
+                new app.model.function.AttributeModel(Utils.guid(), 0))),
+            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "DEFEAT"))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), defeatTriggerId))),
+            true));
 
 
     /**
@@ -177,6 +178,14 @@ Utils.inherits(app.model.WorldModel, Object);
  */
 app.model.WorldModel.prototype.getEntityListModel = function getEntityListModel() {
     return this._entityModelList;
+};
+
+/**
+ * @method getTeamModelArray
+ * @return {app.model.TeamModel[]}
+ */
+app.model.WorldModel.prototype.getTeamModelArray = function getTeamModelArray() {
+    return this._teamModelArray;
 };
 
 /**
@@ -335,6 +344,8 @@ app.model.WorldModel.prototype.loadFromJSON = function loadFromJSON(worldModelJS
     this._entityModelIndex = worldModelJSON._entityModelIndex;
     app.model.EntityModelIndex.ENTITY_MODEL_INDEX = worldModelJSON._entityModelIndex;
 
+    // this._triggerListModel.loadFromJSON(worldModelJSON._triggerListModel);
+
 };
 
 /**
@@ -356,7 +367,8 @@ app.model.WorldModel.prototype.getMinifyJSON = function getMinifyJSON() {
         1: this._entityModelList.getMinifyJSON(),
         2: app.model.EntityModelIndex.ENTITY_MODEL_INDEX,
         3: this._cameraModel.getMinifyJSON(),
-        4: this._mapModel.getMinifyJSON()
+        4: this._mapModel.getMinifyJSON(),
+        5: this._triggerListModel.getMinifyJSON()
     };
 
     return result;
@@ -371,13 +383,15 @@ app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) 
 
     var entityListModel = new app.model.EntityListModel(),
         cameraModel = new app.model.CameraModel(0, 0, 0, 0),
-        mapModel = new app.model.MapModel(200, 200, 40, 40);
+        mapModel = new app.model.MapModel(200, 200, 40, 40),
+        triggerListModel = new app.model.TriggerListModel();
 
     var result = {
         _entityModelList: entityListModel.unMinifyJSON(minifyJSON["1"]),
         _entityModelIndex: minifyJSON["2"],
         _cameraModel: cameraModel.unMinifyJSON(minifyJSON["3"]),
-        _mapModel: mapModel.unMinifyJSON(minifyJSON["4"])
+        _mapModel: mapModel.unMinifyJSON(minifyJSON["4"]),
+        //_triggerListModel: triggerListModel.unMinifyJSON(minifyJSON["5"]),
     };
 
     return result;

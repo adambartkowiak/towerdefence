@@ -6,7 +6,8 @@ var editor = editor || {};
 
 editor.FeatureToggle = {
 
-    "FOG_OF_WAR" : false
+    "FOG_OF_WAR" : false,
+    "SHOW_EVENT_CONSOLE_LOGS" : false
 
 };
 

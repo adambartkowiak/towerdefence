@@ -221,9 +221,69 @@ if (loadFromFile) {
 
             graphicPath = "assets/graphics/images/tree_02.png";
             graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/tree_02cut.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/tree_03.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/tree_03cut.png";
+            graphicsBuffor.load(graphicPath);
             
             graphicPath = "assets/graphics/images/bush_02.png";
             graphicsBuffor.load(graphicPath);
+
+
+            graphicPath = "assets/graphics/images/goldmine_neutral2.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/goldmine_neutral2ruin.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/worker_01.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/worker_01withwood.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/worker_01withgold.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/rock_03.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/goldicon.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/woodicon.png";
+            graphicsBuffor.load(graphicPath);
+
+
+            //-------MENU GRAPHIC
+            graphicPath = "assets/graphics/menu/inGamePopupMenu.png";
+            graphicsBuffor.load(graphicPath);
+
+
+            graphicPath = "assets/graphics/menu/hudmenu_icongold.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/menu/hudmenu_iconwood.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/menu/hudmenu_iconarmy.png";
+            graphicsBuffor.load(graphicPath);
+
+
+            graphicPath = "assets/graphics/menu/hudmenu_buttonbrown.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/menu/hudmenu_buttongreen.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/menu/hudmenu_buttonred.png";
+            graphicsBuffor.load(graphicPath);
+
 
         }, saveGameName);
     };
@@ -273,10 +333,11 @@ var collisionDetectionController = new app.controller.CollisionDetectionControll
 var selectTargetController = new app.controller.SelectTargetController(entityListModel, collisionDetectionController);
 var buildController = new app.controller.BuildController(entityListModel);
 var moveController = new app.controller.MoveController(entityListModel);
+var gatherController = new app.controller.GatherController(entityListModel);
 var collisionRepulsionController = new app.controller.CollisionRepulsionController(entityListModel, collisionDetectionController);
 var commandController = new app.controller.CommandController();
 var waypointCollisionDetectionController = new app.controller.WaypointCollisionDetectionController(entityListModel, waypointCollisionListModel);
-var waypointCollisionReactionController = new app.controller.WaypointCollisionReactionController(entityListModel, waypointCollisionListModel);
+var waypointCollisionReactionController = new app.controller.WaypointCollisionReactionController(worldModel, entityListModel, waypointCollisionListModel);
 
 
 //WIDOKI
@@ -301,22 +362,60 @@ minimapView.setMapHeight(worldModel.getMapModel().getMapHeight());
 minimapView.setViewPort(worldModel.getCameraModel());
 minimapView.setElements(worldModel.getEntityListModel().getElements());
 
-//Menu
+//Action Menu
 var actionMenuView = new app.view.gui.ActionMenuView(app.GuiConfig.actionmenux, app.GuiConfig.actionmenuy, app.GuiConfig.actionmenuwidth, app.GuiConfig.actionmenuheight, commandController, worldModel.getActionMenu(), entityListModel);
 var actionMenuBackgroundImage = new Image();
 actionMenuBackgroundImage.src = "assets/graphics/menu/background_actionMenu.png";
 actionMenuView.setBackgroundImage(actionMenuBackgroundImage);
 
+//Entity Status View
 var entityStatusView = new app.view.gui.EntityStatusView(app.GuiConfig.statusmenux, app.GuiConfig.statusmenuy, app.GuiConfig.statusmenuwidth, app.GuiConfig.statusmenuheight, worldModel.getSelectedEntityListModel());
 var entityStatusBackgroundImage = new Image();
 entityStatusBackgroundImage.src = "assets/graphics/menu/background_statusMenu.png";
 entityStatusView.setBackgroundImage(entityStatusBackgroundImage);
+
+//Hud Label Gold
+var hudLabelGold = new support.view.LabelView(app.GuiConfig.hudmenugoldlabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+var hudLabelGoldBackgroundImage = new Image();
+hudLabelGoldBackgroundImage.src = "assets/graphics/menu/hudmenu_buttonbrown.png";
+hudLabelGold.setBackgroundImage(hudLabelGoldBackgroundImage);
+hudLabelGold.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["gold"]);
+
+//Hud Label Wood
+var hudLabelWood = new support.view.LabelView(app.GuiConfig.hudmenuwoodlabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+hudLabelWood.setBackgroundImage(hudLabelGoldBackgroundImage);
+hudLabelWood.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["wood"]);
+
+//Hud Label Army
+var hudLabelArmy = new support.view.LabelView(app.GuiConfig.hudmenuarmylabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+hudLabelArmy.setBackgroundImage(hudLabelGoldBackgroundImage);
+hudLabelArmy.setText("Army");
+
+//Hud Label Time
+var hudLabelTime = new support.view.LabelView(app.GuiConfig.hudmenutimelabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+var hudLabelTimeBackgroundImage = new Image();
+hudLabelTimeBackgroundImage.src = "assets/graphics/menu/hudmenu_buttongreen.png";
+hudLabelTime.setBackgroundImage(hudLabelTimeBackgroundImage);
+hudLabelTime.setText("TIME");
+
+//Hud Button Menu
+var hudButtonMenu = new support.view.LabelView(app.GuiConfig.hudmenumenubuttonx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+var hudLabelMenuBackgroundImage = new Image();
+hudLabelMenuBackgroundImage.src = "assets/graphics/menu/hudmenu_buttonred.png";
+hudButtonMenu.setBackgroundImage(hudLabelMenuBackgroundImage);
+hudButtonMenu.setText("MENU");
+
 
 //DODAWANIE WIDOKOW DO ROOT VIEW
 rootView.addView(worldView);
 rootView.addView(minimapView);
 rootView.addView(actionMenuView);
 rootView.addView(entityStatusView);
+rootView.addView(hudLabelGold);
+rootView.addView(hudLabelWood);
+rootView.addView(hudLabelArmy);
+rootView.addView(hudLabelTime);
+rootView.addView(hudButtonMenu);
 
 //LOGIKA GRY
 var logicFrames = 0;
@@ -377,6 +476,9 @@ var logicFunction = function () {
     moveController.update(timer.getDelta(), worldModel.getMapModel());
 
 
+    //POSTEPY ZBIERANIA SUROWCOW + ZAKANCZANIE ZBIERANIA SUROWCOW
+    gatherController.update(timer.getDelta());
+
     //WYKRYWANIE KOLIZJI
     /*
      sprawdzanie chodzenia jednostek - czy juz doszla do punktu przeznaczenia
@@ -405,6 +507,12 @@ var logicFunction = function () {
 
     waypointCollisionListModel.clear();
 
+    //Update HUD
+    hudLabelGold.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["gold"]);
+    hudLabelWood.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["wood"]);
+    hudLabelArmy.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["army"]);
+
+    hudLabelTime.setText();
 
     logicFrames++;
 

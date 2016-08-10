@@ -2,10 +2,6 @@
  * Created by adambartkowiak on 31/07/15.
  */
 
-/*
-
- */
-
 'use strict';
 var ns = Utils.namespace("app.model");
 
@@ -13,29 +9,23 @@ var Utils = Utils || {};
 
 /**
  * @namespace app.model
- * @class GameEventListModel
+ * @class EntityStateListModel
  * @constructor
  */
-app.model.GameEventListModel = function GameEventListModel() {
+app.model.EntityStateListModel = function EntityStateListModel() {
 
     app.model.ListModel.call(this);
 
-    /**
-     * @property {app.listener.EntityListListener} entityListListener
-     * @private
-     */
-    this._entityListListener = null;
-
 };
 
-Utils.inherits(app.model.GameEventListModel, app.model.ListModel);
+Utils.inherits(app.model.EntityStateListModel, app.model.ListModel);
 
 /**
  * @method getElementById
- * @param {Number} id
+ * @param {String} id
  * @return {Object} object
  */
-app.model.GameEventListModel.prototype.getElementById = function getElementById(id) {
+app.model.EntityStateListModel.prototype.getElementById = function getElementById(id) {
 
     var index;
     var length = this.length();
@@ -51,9 +41,9 @@ app.model.GameEventListModel.prototype.getElementById = function getElementById(
 
 /**
  * @method removeElementById
- * @param {Number} id
+ * @param {String} id
  */
-app.model.GameEventListModel.prototype.removeElementById = function removeElementById(id) {
+app.model.EntityStateListModel.prototype.removeElementById = function removeElementById(id) {
 
     var index;
     var length = this.length();
@@ -74,16 +64,16 @@ app.model.GameEventListModel.prototype.removeElementById = function removeElemen
 
 /**
  * @method createMe
- * @return {app.model.TaskListModel} createMe
+ * @return {app.model.EntityStateListModel}
  */
-app.model.GameEventListModel.prototype.createMe = function createMe() {
-    return new app.model.GameEventListModel();
+app.model.EntityStateListModel.prototype.createMe = function createMe() {
+    return new app.model.EntityStateListModel();
 };
 
 /**
  * @method createListElement
  * @returns {app.model.EntityModel}
  */
-app.model.GameEventListModel.prototype.createListElement = function createListElement() {
-    return new app.model.GameEventModel("", app.enum.GameEventEnum.NONE);
+app.model.EntityStateListModel.prototype.createListElement = function createListElement() {
+    return new app.model.EntityStateModel();
 };

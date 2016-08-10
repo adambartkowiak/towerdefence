@@ -108,7 +108,7 @@ editor.view.TriggerModuleView.prototype.showTriggerConfiguration = function show
         nameHTMLElement,
         idHTMLElement,
         divForTree,
-        rootUl;
+        treeRootUl;
 
     if (triggerModel === null) {
         return;
@@ -118,67 +118,22 @@ editor.view.TriggerModuleView.prototype.showTriggerConfiguration = function show
 
     triggerConfigurationDiv.innerHTML = "";
 
+    this._createAddButtons();
+
+
+    //Creating Tree Root
     divForTree = document.createElement("div");
-    divForTree.id = "gameEventArrayDivTree";
+    divForTree.id = "triggerDivTree";
 
-    rootUl = document.createElement("ul");
-    divForTree.appendChild(rootUl);
-
-    //name
-    nameHTMLElement = document.createElement("li");
-    nameHTMLElement.textContent = triggerModel.getName();
-    rootUl.appendChild(nameHTMLElement);
-
-    //id
-    idHTMLElement = document.createElement("li");
-    idHTMLElement.textContent = triggerModel.getId() + " (trigger id)";
-    rootUl.appendChild(idHTMLElement);
-
-    //event && condition && action
-    this._createHTMLforEventListModel(rootUl, triggerModel.getGameEventListModel());
-    this._createHTMLforConditionListModel(rootUl, triggerModel.getConditionListModel());
-    this._createHTMLforActionArray(rootUl, triggerModel.getCommandArray());
-
-
-    //buttons addRemove
-    this._createAddEventButton();
-    // this._createAddConditionButton();
-    // this._createAddCommandButton();
+    treeRootUl = document.createElement("ul");
+    divForTree.appendChild(treeRootUl);
 
     triggerConfigurationDiv.appendChild(divForTree);
 
-    // return;
 
+    //Create Fancy Tree
     var that = this;
-    $("#gameEventArrayDivTree").fancytree({
-        // extensions: ["edit"],
-        // edit: {
-        //     // Available options with their default:
-        //     adjustWidthOfs: 4,   // null: don't adjust input size to content
-        //     inputCss: {minWidth: "3em"},
-        //     triggerCancel: ["esc", "tab", "click"],
-        //     triggerStart: ["f2", "dblclick", "shift+click", "mac+enter"],
-        //     // beforeEdit: $.noop,  // Return false to prevent edit mode
-        //     // edit: $.noop,        // Editor was opened (available as data.input)
-        //     // beforeClose: $.noop, // Return false to prevent cancel/save (data.input is available)
-        //     // save: $.noop         // Save data.input.val() or return false to keep editor open
-        //     // close: $.noop,       // Editor was removed
-        //     beforeEdit: function (event, data) {
-        //         // `data.node` is about to be edited.
-        //         // Return false to prevent this.
-        //         console.log(event);
-        //         console.log(data);
-        //
-        //         var result = true;
-        //         var searchingString = "(trigger id)";
-        //         if (data.orgTitle.lastIndexOf(searchingString) !== -1 && data.orgTitle.lastIndexOf(searchingString) === data.orgTitle.length - searchingString.length) {
-        //             alert("You can't edit \"trigger id\" it is set automatycly by the system.");
-        //             result = false
-        //         }
-        //
-        //         return result;
-        //     }
-        // },
+    $("#triggerDivTree").fancytree({
 
         click: function (event, data) {
 
@@ -199,25 +154,46 @@ editor.view.TriggerModuleView.prototype.showTriggerConfiguration = function show
                     that._triggerModuleController.showEditAttributeView(data.node.key);
                 } else if (nodeLevel === 1 && rootNode.title == "Condition") {
                     that._triggerModuleController.showEditConditionView(data.node.key);
+                } else if (nodeLevel >= 1 && rootNode.title == "Action") {
+                    that._triggerModuleController.showEditAttributeView(data.node.key);
                 }
             }
 
             that._lassClickedNode = data.node;
 
-            //jak wszystkoe bedzie mialo ID to latwo bedzie sobie to wyszukac i nie bedzie zalezne od interfejsu graficznego !!!
-            //Dodatkowo id moze byc wazne w innych miejscach,
-
         }
     });
 
+
+    //Add elements to tree
+    var tree = $("#triggerDivTree").fancytree("getTree"),
+        rootNode = tree.getRootNode();
+
+    //Add name
+    rootNode.addChildren({
+        title: triggerModel.getName(),
+        key: "tree-name"
+    });
+
+    //Add id
+    rootNode.addChildren({
+        title: triggerModel.getId() + " (trigger id)",
+        key: "tree-id"
+    });
+
+    this._createTreeNodesForGameEventListModel(rootNode, triggerModel.getGameEventListModel());
+    this._createTreeNodesForConditionListModel(rootNode, triggerModel.getConditionListModel());
+    this._createTreeNodesForActionListModel(rootNode, triggerModel.getActionListModel());
 
 };
 
 /**
  * @method _createFunctionShowTriggerConfiguration
  * @private
+ * @param {editor.view.TriggerModuleView} that
+ * @param {string} id
  */
-editor.view.TriggerModuleView.prototype._createFunctionShowTriggerConfiguration = function _createFunctionShowTriggerConfiguration(that, id, triggerListModel) {
+editor.view.TriggerModuleView.prototype._createFunctionShowTriggerConfiguration = function _createFunctionShowTriggerConfiguration(that, id) {
 
     return function () {
         console.log(arguments, id);
@@ -234,8 +210,10 @@ editor.view.TriggerModuleView.prototype._createFunctionShowTriggerConfiguration 
 /**
  * @method _createFunctionRemoveTrigger
  * @private
+ * @param {editor.view.TriggerModuleView} that
+ * @param {string} id
  */
-editor.view.TriggerModuleView.prototype._createFunctionRemoveTrigger = function _createFunctionRemoveTrigger(that, id, triggerListModel) {
+editor.view.TriggerModuleView.prototype._createFunctionRemoveTrigger = function _createFunctionRemoveTrigger(that, id) {
 
     return function () {
         console.log(arguments, "REMOVE: " + id);
@@ -246,136 +224,139 @@ editor.view.TriggerModuleView.prototype._createFunctionRemoveTrigger = function 
 };
 
 /**
- * @method _createHTMLforEventListModel
+ * @method _createTreeNodesForGameEventListModel
  * @public
- * @param {HTMLElement} rootUl
+ * @param {FancytreeNode} node
  * @param {app.model.GameEventListModel} gameEventArray
  */
-editor.view.TriggerModuleView.prototype._createHTMLforEventListModel = function _createHTMLforEventListModel(rootUl, gameEventListModel) {
+editor.view.TriggerModuleView.prototype._createTreeNodesForGameEventListModel = function _createTreeNodesForGameEventListModel(node, gameEventListModel) {
 
-
-    var rootLi = document.createElement("li");
-    rootLi.textContent = "Event";
-
-    var HTMLUl = document.createElement("ul");
-    var HTMLli = null;
-
-    var gameEventModel;
+    var gameEventModel,
+        gameEventNode = node.addChildren({
+            title: "Event",
+            key: "tree-event",
+            folder: true
+        });
 
     for (var i = 0; i < gameEventListModel.length(); i++) {
 
         gameEventModel = gameEventListModel.getElement(i);
 
-        HTMLli = document.createElement("li");
-        HTMLli.textContent = Utils.getPropertyNameByValue(app.enum.GameEventEnum, gameEventModel.getGameEventEnum());
-        HTMLli.id = gameEventModel.getId();
+        gameEventNode.addChildren({
+            title: Utils.getPropertyNameByValue(app.enum.GameEventEnum, gameEventModel.getGameEventEnum()),
+            key: gameEventModel.getId()
+        });
 
-        HTMLUl.appendChild(HTMLli);
     }
 
-    rootLi.appendChild(HTMLUl);
-    rootUl.appendChild(rootLi);
 };
 
 /**
- * @method _createHTMLforConditionListModel
+ * @method _createTreeNodesForConditionListModel
  * @public
- * @param {HTMLElement} rootUl
+ * @param {FancytreeNode} node
  * @param {app.model.ValueListModel} conditionListModel
  */
-editor.view.TriggerModuleView.prototype._createHTMLforConditionListModel = function _createHTMLforConditionListModel(rootUl, conditionListModel) {
+editor.view.TriggerModuleView.prototype._createTreeNodesForConditionListModel = function _createTreeNodesForConditionListModel(node, conditionListModel) {
 
-
-    var rootLi = document.createElement("li");
-    rootLi.textContent = "Condition";
-
-    var HTMLUl = document.createElement("ul");
+    var conditionNode = node.addChildren({
+        title: "Condition",
+        key: "tree-condition",
+        folder: true
+    });
 
     for (var i = 0; i < conditionListModel.length(); i++) {
-        this._createHTMLforFunction(HTMLUl, conditionListModel.getElement(i));
+        this._createTreeNodesForFunction(conditionNode, conditionListModel.getElement(i));
     }
 
-    rootLi.appendChild(HTMLUl);
-    rootUl.appendChild(rootLi);
 };
 
 /**
- * @method _createHTMLforFunction
+ * @method _createTreeNodesForFunction
  * @public
- * @param {HTMLElement} rootUl
- * @param {app.model.function.AbstractValue} functionModel
+ * @param {FancytreeNode} node
+ * @param {app.model.function.AbstractValueModel} functionModel
+ * @param {number} insertIndex
  */
-editor.view.TriggerModuleView.prototype._createHTMLforFunction = function _createHTMLforFunction(rootUl, functionModel) {
-    var HTMLli = document.createElement("li");
-    HTMLli.textContent = "Function: " + Utils.getPropertyNameByValue(app.enum.FunctionEnum, functionModel.getFunctionEnumValue());
-    HTMLli.id = functionModel.getId();
+editor.view.TriggerModuleView.prototype._createTreeNodesForFunction = function _createTreeNodesForFunction(node, functionModel, insertIndex) {
+
+    var functionNode = node.addChildren({
+        title: "Function: " + Utils.getPropertyNameByValue(app.enum.FunctionEnum, functionModel.getFunctionEnumValue()),
+        key: functionModel.getId()
+    }, insertIndex);
+
 
     if (functionModel.getFunctionAttributes().length > 0) {
-        var HTMLUl = document.createElement("ul");
         for (var i = 0; i < functionModel.getFunctionAttributes().length; i++) {
 
-            if (functionModel.getFunctionAttributes()[i] instanceof app.model.function.Attribute) {
-                var insideLi = document.createElement("li");
-                insideLi.textContent = functionModel.getFunctionAttributes()[i].constructor.name + " (" + functionModel.getFunctionAttributes()[i].getValue() + ")";
-                insideLi.id = functionModel.getFunctionAttributes()[i].getId();
-                HTMLUl.appendChild(insideLi);
-
-            } else if (functionModel.getFunctionAttributes()[i] instanceof app.model.function.AbstractFunction) {
-                this._createHTMLforFunction(HTMLUl, functionModel.getFunctionAttributes()[i]);
-            }
+            this._createTreeNodeForAttribute(functionNode, functionModel.getFunctionAttributes()[i]);
 
         }
-        HTMLli.appendChild(HTMLUl);
     }
 
-    rootUl.appendChild(HTMLli);
 };
 
 /**
- * @method _createHTMLforActionArray
+ * @method _createTreeNodeForAttribute
  * @public
- * @param {HTMLElement} rootUl
- * @param {Array} commandArray
+ * @param {FancytreeNode} node
+ * @param {app.model.function.AbstractValueModel} abstractValue
+ * @param {number} insertIndex
  */
-editor.view.TriggerModuleView.prototype._createHTMLforActionArray = function _createHTMLforActionArray(rootUl, commandArray) {
+editor.view.TriggerModuleView.prototype._createTreeNodeForAttribute = function _createTreeNodeForAttribute(node, abstractValue, insertIndex) {
 
+    if (abstractValue instanceof app.model.function.AttributeModel) {
 
-    var rootLi = document.createElement("li");
-    rootLi.textContent = "Command";
+        node.addChildren({
+            title: abstractValue.constructor.name + " (" + abstractValue.getValue() + ")",
+            key: abstractValue.getId()
+        }, insertIndex);
 
-    var HTMLUl = document.createElement("ul");
-    var HTMLli = null;
+    } else if (abstractValue instanceof app.model.function.AbstractFunctionModel) {
 
-    for (var i = 0; i < commandArray.length; i++) {
-        HTMLli = document.createElement("li");
-        HTMLli.textContent = "Command: " + commandArray[i].constructor.name;
-
-        HTMLUl.appendChild(HTMLli);
+        this._createTreeNodesForFunction(node, abstractValue, insertIndex);
     }
 
-    rootLi.appendChild(HTMLUl);
-
-    rootUl.appendChild(rootLi);
 };
 
 /**
- * @method _createAddEventButton
+ * @method _createTreeNodesForActionListModel
+ * @public
+ * @param {FancytreeNode} node
+ * @param {app.model.ValueListModel} actionListModel
+ */
+editor.view.TriggerModuleView.prototype._createTreeNodesForActionListModel = function _createTreeNodesForActionListModel(node, actionListModel) {
+
+
+    var actionNode = node.addChildren({
+        title: "Action",
+        key: "tree-action",
+        folder: true
+    });
+
+    for (var i = 0; i < actionListModel.length(); i++) {
+        this._createTreeNodesForFunction(actionNode, actionListModel.getElement(i));
+    }
+};
+
+/**
+ * @method _createAddButtons
  * @public
  */
-editor.view.TriggerModuleView.prototype._createAddEventButton = function _createAddEventButton() {
+editor.view.TriggerModuleView.prototype._createAddButtons = function _createAddButtons() {
     var triggerConfigurationDiv = document.getElementById("trigger-configuration"),
         addEventButton = document.createElement("button"),
         addConditionButton = document.createElement("button"),
-        addCommandButton = document.createElement("button"),
+        addActionButton = document.createElement("button"),
         that = this;
 
     addEventButton.textContent = "ADD EVENT";
     addConditionButton.textContent = "ADD CONDITION";
-    addCommandButton.textContent = "ADD COMMAND";
+    addActionButton.textContent = "ADD ACTION";
 
     $(addEventButton).addClass("btn").addClass("btn-default");
     $(addConditionButton).addClass("btn").addClass("btn-default");
-    $(addCommandButton).addClass("btn").addClass("btn-default");
+    $(addActionButton).addClass("btn").addClass("btn-default");
 
     addEventButton.addEventListener("click", function () {
         that._triggerModuleController.showAddGameEventView();
@@ -385,16 +366,20 @@ editor.view.TriggerModuleView.prototype._createAddEventButton = function _create
         that._triggerModuleController.addCondition();
     });
 
+    addActionButton.addEventListener("click", function () {
+        that._triggerModuleController.addAction();
+    });
+
     triggerConfigurationDiv.appendChild(addEventButton);
     triggerConfigurationDiv.appendChild(addConditionButton);
-    triggerConfigurationDiv.appendChild(addCommandButton);
+    triggerConfigurationDiv.appendChild(addActionButton);
 };
 
 /**
  * @method reloadTree
  * @public
  */
-editor.view.TriggerModuleView.prototype.reloadTree = function reloadTree(){
+editor.view.TriggerModuleView.prototype.reloadTree = function reloadTree() {
     console.log("odswiez drzewko eventowe");
 
 

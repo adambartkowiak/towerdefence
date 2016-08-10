@@ -13,8 +13,12 @@ var Utils = Utils || {};
  * @constructor
  */
 app.enum.EntityPropertyEnum = {
-    GRAPHIC_URL: 0,
-    HP: 1,
-    ID: 2,
-    TEAM: 3
+    NONE: 0,
+    ID: 1,
+    GRAPHIC_URL: 2,
+    TEAM: 3,
+    HP: 4,
+    POSITION_X: 5,
+    POSITION_Y: 6,
+    POSITION: 7
 };

@@ -80,37 +80,7 @@ editor.controller.EditorMapController = function EditorMapController(editorMapMo
 
         assetName = assetsElement[index].dataset["assetname"];
 
-        //{
-        //    "graphicPath": "assets/graphics/images/base_03.png",
-        //    "graphicOffsetX": 0,
-        //    "graphicOffsetY": 0,
-        //    "radius": 20,
-        //    "groundSpeed": 0,
-        //    "team": 0,
-        //    "mass": 0,
-        //    "hp": 100,
-        //    "currentHp": 100,
-        //    "selectable": true,
-        //    "targetable": true
-        //}
-        //var entityModel = new app.model.EntityModel();
-        //
-        //entityModel.setId(assetsElement[index].dataset["entityid"]);
-        //entityModel.setTeam(parseInt(assetsElement[index].dataset["team"]));
-        //entityModel.setMass(parseInt(assetsElement[index].dataset["mass"] === "" ? 0 : assetsElement[index].dataset["mass"]));
-        //entityModel.setGroundSpeed(parseInt(assetsElement[index].dataset["groundspeed"]));
-        //entityModel.setRadius(parseInt(assetsElement[index].dataset["radius"]));
-        //entityModel.setHp(parseInt(assetsElement[index].dataset["hp"]));
-        //entityModel.setCurrentHp(parseInt(assetsElement[index].dataset["currenthp"]));
-        //entityModel.setSelectable(assetsElement[index].dataset["selectable"]);
-        //entityModel.setTargetable(assetsElement[index].dataset["targetable"]);
-        //entityModel.setGraphicUrl(assetsElement[index].dataset["assetname"]);
-        //entityModel.setGraphicOffsetX(parseInt(assetsElement[index].dataset["graphicoffsetx"]));
-        //entityModel.setGraphicOffsetY(parseInt(assetsElement[index].dataset["graphicoffsety"]));
-
-
-
-        //Prosty sposob wczytywania entities!!!
+        //Read Entity From JSON
         var entityModel = new app.model.EntityModel();
         entityModel.loadFromJSON(JSON.parse(assetsElement[index].dataset["json"]));
         entityModel.setId(assetsElement[index].dataset["entityid"]);

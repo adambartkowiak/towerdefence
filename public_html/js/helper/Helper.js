@@ -8,12 +8,12 @@ var Helper = Helper || {};
 
 /**
  * @class Helper
- * @method getNearestGoldStorage
+ * @method getNearestGoldStorageId
  * @param {app.model.EntityListModel} listModel
  * @param {Number} x
  * @param {Number} y
  */
-Helper.getNearestGoldStorage = function getNearestGoldStorage(listModel, x, y){
+Helper.getNearestGoldStorageId = function getNearestGoldStorageId(listModel, x, y){
 
     var index,
         length = listModel.length(),
@@ -47,12 +47,12 @@ Helper.getNearestGoldStorage = function getNearestGoldStorage(listModel, x, y){
 
 /**
  * @class Helper
- * @method getNearestWoodStorage
+ * @method getNearestWoodStorageId
  * @param {app.model.EntityListModel} listModel
  * @param {Number} x
  * @param {Number} y
  */
-Helper.getNearestWoodStorage = function getNearestWoodStorage(listModel, x, y){
+Helper.getNearestWoodStorageId = function getNearestWoodStorageId(listModel, x, y){
     var index,
         length = listModel.length();
 
@@ -71,12 +71,13 @@ Helper.getNearestWoodStorage = function getNearestWoodStorage(listModel, x, y){
  * @param {app.model.EntityListModel} listModel
  * @param {Number} x
  * @param {Number} y
+ * @return {app.model.EntityModel}
  */
 Helper.getNearestGoldResources = function getNearestGoldResources(listModel, x, y){
 
     var index,
         length = listModel.length(),
-        selectedId = null,
+        selectedEntity = null,
         currentEntity = null,
         minDistance  = Number.MAX_VALUE,
         vector = new support.geom.Vector2d(0,0,0,0);
@@ -95,13 +96,13 @@ Helper.getNearestGoldResources = function getNearestGoldResources(listModel, x, 
             if (minDistance > vector.getVectorLength() ){
 
                 minDistance = vector.getVectorLength();
-                selectedId = currentEntity.getId();
+                selectedEntity = currentEntity;
             }
 
         }
     }
 
-    return selectedId;
+    return selectedEntity;
 };
 
 /**
@@ -110,18 +111,37 @@ Helper.getNearestGoldResources = function getNearestGoldResources(listModel, x, 
  * @param {app.model.EntityListModel} listModel
  * @param {Number} x
  * @param {Number} y
+ * @return {app.model.EntityModel}
  */
 Helper.getNearestWoodResources = function getNearestWoodResources(listModel, x, y){
     var index,
-        length = listModel.length();
+        length = listModel.length(),
+        selectedEntity = null,
+        currentEntity = null,
+        minDistance  = Number.MAX_VALUE,
+        vector = new support.geom.Vector2d(0,0,0,0);
 
     for (index = 0; index < length; index++) {
         if (listModel.getElement(index).getCurrentAmountOfWood() > 0) {
-            return listModel.getElement(index).getId();
+
+            currentEntity = listModel.getElement(index);
+
+            vector.getStartPoint().setX(x);
+            vector.getStartPoint().setY(y);
+
+            vector.getEndPoint().setX(currentEntity.getX());
+            vector.getEndPoint().setY(currentEntity.getY());
+
+            if (minDistance > vector.getVectorLength() ){
+
+                minDistance = vector.getVectorLength();
+                selectedEntity = currentEntity;
+            }
+
         }
     }
 
-    return null;
+    return selectedEntity;
 };
 
 /**

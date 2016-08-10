@@ -16,7 +16,13 @@ var Utils = Utils || {};
  * @param {app.model.ListModel} listModel
  *
  */
-app.controller.WaypointCollisionReactionController = function WaypointCollisionReactionController(listModel, collisionListModel) {
+app.controller.WaypointCollisionReactionController = function WaypointCollisionReactionController(worldModel, listModel, collisionListModel) {
+
+    /**
+     * @property {app.model.WorldModel} _worldModel
+     * @private
+     */
+    this._worldModel = worldModel;
 
     /**
      * @property {app.model.ListModel} _list
@@ -51,50 +57,90 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
         collision = this._collisionList.getElement(collisionIndex);
         collisionType = collision.getTaskModel().getTaskEnum();
 
-        if (collisionType === app.enum.TaskEnum.MOVE) {
+        if (collisionType === app.enum.FunctionEnum.MOVE) {
 
 
             if (collision.getEntityModel().getMoveList().getElement(0).getEntityId() > 0){
 
             } else {
                 //kasuje cel, z listy punktow do odwiedzenia
-                collision.getEntityModel().getMoveList().removeElement(0);
+                collision.getEntityModel().getMoveList().removeElementByIndex(0);
             }
 
-        } else if (collisionType === app.enum.TaskEnum.PATROL) {
+        } else if (collisionType === app.enum.FunctionEnum.PATROL) {
 
             //nic nie robil bo patroluje dalej :)
             var elements = collision.getEntityModel().getMoveList().getElements();
             elements.push(elements[0]);
             elements.splice(0, 1);
 
-        } else if (collisionType === app.enum.TaskEnum.GATHER) {
+        } else if (collisionType === app.enum.FunctionEnum.GO_GATHER) {
 
-            console.log("collisionType === app.model.ActionTypeModel.GATHER");
+            console.log("collisionType === app.enum.FunctionEnum.GO_GATHER");
+
+            //kasowanie czasu zbierania
+            collision.getEntityModel().setGatherTime(0);
 
             //kasuje cel, z listy punktow do odwiedzenia
             collision.getEntityModel().getMoveList().clear();
 
-            //znajduje najblizszy entitty w ktorym moze oddawac resurcy i idzie do niego z akcja zwracania resourcow
-            collision.getEntityModel().getMoveList().addElement(new app.model.TaskModel(0, 0, 5, Helper.getNearestGoldStorage(this._list, collision.getEntityModel().getX(), collision.getEntityModel().getY()), app.enum.TaskEnum.RETURN_CARGO));
+            //przełącza typ wykonywanego taska z GO_GATHER na GATHER
+            collision.getEntityModel().getMoveList().addElement(new app.model.TaskModel(0, 0, 5, -1, app.enum.FunctionEnum.GATHER));
+
+        } else if (collisionType === app.enum.FunctionEnum.GATHER) {
+
+            console.log("collisionType === app.enum.FunctionEnum.GATHER");
 
 
-        } else if (collisionType === app.enum.TaskEnum.RETURN_CARGO) {
+        } else if (collisionType === app.enum.FunctionEnum.RETURN_CARGO) {
 
-            console.log("collisionType === app.model.ActionTypeModel.RETURN_CARGO");
+            console.log("collisionType === app.enum.FunctionEnum.RETURN_CARGO");
 
-            if (collision.getEntityModel().getTask().getTaskEnum() === app.enum.TaskEnum.GATHER){
+            //add cargo to team resources
+            var entityModel = collision.getEntityModel();
+            var team = this._worldModel.getTeamModelArray()[entityModel.getTeam()];
+            team.addResource(entityModel.getCargoName(), entityModel.getAmountOfCargo());
 
-                collision.getEntityModel().getMoveList().clear();
-                //collision.getEntityModel().getMoveList().addElement(new app.model.TaskModel(0, 0, 5, Helper.getNearestGoldResources(this._list, collision.getEntityModel().getX(), collision.getEntityModel().getY()), app.enum.TaskEnum.GATHER));
-                collision.getEntityModel().getMoveList().addElement(new app.model.TaskModel(0, 0, 5, collision.getEntityModel().getTask().getEntityId(), app.enum.TaskEnum.GATHER));
+            //reset cargo
+            entityModel.setCargoName("");
+            entityModel.setAmountOfCargo(0);
+            entityModel.setCurrentStateId("default");
+
+
+            //return to resources
+            if (entityModel.getTask().getTaskEnum() === app.enum.FunctionEnum.GO_GATHER){
+
+                entityModel.getMoveList().clear();
+
+
+                var resourcesEntity = this._list.getElementById(entityModel.getTask().getEntityId());
+                var newResourceEntity = null;
+
+                //Ustaw taska na inne entity z resourcami
+                if (resourcesEntity !== null){
+                    if (resourcesEntity.getCurrentAmountOfWood() === 0 && resourcesEntity.getMaxAmountOfWood() > 0){
+                        newResourceEntity = Helper.getNearestWoodResources(this._list, resourcesEntity.getX(), resourcesEntity.getY());
+                    } else if (resourcesEntity.getCurrentAmountOfGold() === 0 && resourcesEntity.getMaxAmountOfGold() > 0){
+                        newResourceEntity = Helper.getNearestGoldResources(this._list, resourcesEntity.getX(), resourcesEntity.getY());
+                    }
+
+                    if (newResourceEntity !== null){
+                        entityModel.getTask().setEntityId(newResourceEntity.getId());
+                    }
+
+                }
+
+                entityModel.getMoveList().addElement(new app.model.TaskModel(0, 0, 5, entityModel.getTask().getEntityId(), app.enum.FunctionEnum.GO_GATHER));
+
+
+
             }
 
-        } else if (collisionType === app.enum.TaskEnum.BUILD_BASE) {
+        } else if (collisionType === app.enum.FunctionEnum.BUILD_BASE) {
 
             console.log("collisionType === app.model.ActionTypeModel.BUILD_BASE");
 
-            if (collision.getEntityModel().getTask().getTaskEnum() === app.enum.TaskEnum.BUILD_BASE){
+            if (collision.getEntityModel().getTask().getTaskEnum() === app.enum.FunctionEnum.BUILD_BASE){
                 collision.getEntityModel().getMoveList().clear();
 
                 var entityModel = new app.model.EntityModel();
@@ -108,7 +154,7 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
                 this._list.addElement(entityModel);
             }
 
-        } else if (collisionType === app.enum.TaskEnum.ATTACK) {
+        } else if (collisionType === app.enum.FunctionEnum.ATTACK) {
 
             //Kasuje entity, ktory trafil w cel ( czyli pocisk :) )
             this._list.removeElementById(collision.getEntityModel().getId());

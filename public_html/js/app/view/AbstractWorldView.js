@@ -361,45 +361,49 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                 continue;
             }
 
+            //SELECTED
+            if (entity.getSelected() && entity.getTeam() === 1) {
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#00FF00';
+                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.stroke();
+            }
+            else if (entity.getSelected()) {
+                canvasContext.beginPath();
+                canvasContext.strokeStyle = '#FFFF90';
+                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.stroke();
+            }
+
             //IMAGE
-            //canvasContext.globalAlpha = 0.5;
             if (entity.getRotateGraphicOnMove()){
                 this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
             } else {
-                this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), 0);
-            }
 
-            //canvasContext.globalAlpha = 1;
+                var flipHorizontal = true;
 
-            //SELECTED
-            if (entity._selected && entity.getTeam() === 1) {
-                canvasContext.beginPath();
-                canvasContext.strokeStyle = '#00FF00';
-                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-                canvasContext.stroke();
-            }
-            else if (entity._selected) {
-                canvasContext.beginPath();
-                canvasContext.strokeStyle = '#FFFF90';
-                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
-                canvasContext.stroke();
-            }
-
-            //SLEEPING
-            if (false) {
-                if (entity.isSleeping()) {
-                    canvasContext.beginPath();
-                    canvasContext.strokeStyle = '#AAAAAA';
-                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
-                    canvasContext.stroke();
+                if (entity.getAngle()>-90 && entity.getAngle()<90){
+                    flipHorizontal = false;
                 }
-                else {
-                    canvasContext.beginPath();
-                    canvasContext.strokeStyle = '#FFFFFF';
-                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
-                    canvasContext.stroke();
+
+                if (flipHorizontal){
+                    this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() + entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), 0, flipHorizontal);
+                } else {
+                    this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), 0, flipHorizontal);
                 }
+
             }
+
+            // //CARGO
+            // if (entity.getAmountOfCargo() > 0){
+            //
+            //     if (entity.getCargoName() === "gold"){
+            //         this._image.drawRotateImage(canvasContext, graphicsBuffor.get("assets/graphics/images/goldicon.png"), entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), 0);
+            //     } else if (entity.getCargoName() === "wood"){
+            //         this._image.drawRotateImage(canvasContext, graphicsBuffor.get("assets/graphics/images/woodicon.png"), entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), 0);
+            //     }
+            //
+            // }
 
             //DRAW ID
             if (false) {
@@ -502,6 +506,22 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                 canvasContext.fillStyle = '#FFFFFF';
                 canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
                 canvasContext.stroke();
+            }
+
+            //SLEEPING
+            if (false) {
+                if (entity.isSleeping()) {
+                    canvasContext.beginPath();
+                    canvasContext.strokeStyle = '#666666';
+                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                    canvasContext.stroke();
+                }
+                else {
+                    canvasContext.beginPath();
+                    canvasContext.strokeStyle = '#FFFFFF';
+                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                    canvasContext.stroke();
+                }
             }
 
         }

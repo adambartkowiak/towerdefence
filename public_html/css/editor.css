@@ -144,6 +144,12 @@ body {
     bottom: 0px;
 }
 
+/*SELECT ATTRIBUTE WINDOW*/
+.select-attribute-div-content {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 /*SPAM STYLE IN LIST GROUP*/
 a.my-list-group-item:hover span {
     text-decoration: underline;
@@ -171,9 +177,6 @@ a.my-list-group-item .my-list-item-remove:hover ~ .my-list-item-edit {
     opacity: 0.1;
 }
 
-/*a.list-group-item:focus span {*/
-    /*font-weight: bold;*/
-/*}*/
 
 /*REMOVE BUTTON*/
 .my-list-item-remove {

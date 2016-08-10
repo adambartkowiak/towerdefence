@@ -46,6 +46,16 @@ app.model.ListModel.prototype.onAddElement = function onAddElement(object) {
 };
 
 /**
+ * @method insertElement
+ * @public
+ * @param {number} index
+ * @param {Object} element
+ */
+app.model.ListModel.prototype.insertElement = function insertElement(index, element) {
+    this._elements.splice(index, 0, element);
+};
+
+/**
  * @method getElement
  * @param {Number} index
  * @return {Object} object
@@ -55,10 +65,10 @@ app.model.ListModel.prototype.getElement = function getElement(index) {
 };
 
 /**
- * @method removeElement
+ * @method removeElementByIndex
  * @param {Number} index
  */
-app.model.ListModel.prototype.removeElement = function removeElement(index) {
+app.model.ListModel.prototype.removeElementByIndex = function removeElementByIndex(index) {
     this.onRemoveElement(this._elements[index]);
     this._elements.splice(index, 1);
 };
@@ -95,6 +105,14 @@ app.model.ListModel.prototype.length = function length() {
 };
 
 /**
+ * @method createMe
+ * @return {app.model.ListModel} createMe
+ */
+app.model.ListModel.prototype.createMe = function createMe() {
+    return new app.model.ListModel();
+};
+
+/**
  * @method clone
  * @return {app.model.ListModel} clone
  */
@@ -102,7 +120,7 @@ app.model.ListModel.prototype.clone = function clone() {
 
     var index;
     var length = this.length();
-    var clone = new app.model.ListModel();
+    var clone = this.createMe();
 
     for (index = 0; index < length; index++) {
         clone._elements[index] = this._elements[index].clone();
@@ -136,7 +154,7 @@ app.model.ListModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     for (elementIndex = 0; elementIndex<elementJSONlength; elementIndex++){
 
         elementJSON = _elementsJSON[elementIndex];
-        elementToAdd = this.createListElement();
+        elementToAdd = this.createListElement(elementJSON, false);
         elementToAdd.loadFromJSON(elementJSON);
 
         this.addElement(elementToAdd);
@@ -146,7 +164,7 @@ app.model.ListModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
 
 /**
  * @method getMinifyJSON
- * @returns {Object} minifyJSON
+ * @return {Object} minifyJSON
  */
 app.model.ListModel.prototype.getMinifyJSON = function getMinifyJSON() {
 
@@ -167,7 +185,7 @@ app.model.ListModel.prototype.getMinifyJSON = function getMinifyJSON() {
 
 /**
  * @method unMinifyJSON
- * @property {Object} minifyJSON
+ * @param {Object} minifyJSON
  * @return {Object} unMinifyJSON
  */
 app.model.ListModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
@@ -193,7 +211,7 @@ app.model.ListModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
     for (elementIndex = 0; elementIndex<elementJSONlength; elementIndex++){
 
         elementJSON = _elementsJSON[elementIndex];
-        element = this.createListElement();
+        element = this.createListElement(elementJSON, true);
 
         result["_elements"].push(element.unMinifyJSON(elementJSON));
     }

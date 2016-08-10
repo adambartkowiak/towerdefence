@@ -108,7 +108,7 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
         c1.setRadius(element.getCollisionRadius());
 
         //Pociski nie rozpychaja innych obiektów!
-        if (element.getMoveList() && element.getMoveList().length() > 0 && element.getMoveList().getElement(0).getTaskEnum() !== app.enum.TaskEnum.ATTACK || element.getMoveList() && element.getMoveList().length() === 0) {
+        if (element.getMoveList() && element.getMoveList().length() > 0 && element.getMoveList().getElement(0).getTaskEnum() !== app.enum.FunctionEnum.ATTACK || element.getMoveList() && element.getMoveList().length() === 0) {
 
             potentialCollisionList = this.getCollisionArrayByEntityElement(element);
             potentialCollisionLength = potentialCollisionList.length;
@@ -126,7 +126,7 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
                     continue;
                 }
 
-                if (potentialCollisionElement.getMoveList() && potentialCollisionElement.getMoveList().length() > 0 && potentialCollisionElement.getMoveList().getElement(0).getTaskEnum() === app.enum.TaskEnum.ATTACK) {
+                if (potentialCollisionElement.getMoveList() && potentialCollisionElement.getMoveList().length() > 0 && potentialCollisionElement.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.ATTACK) {
                     //console.log("potentialCollisionLength - end for");
                     continue;
                 }
@@ -207,5 +207,5 @@ app.controller.CollisionRepulsionController.prototype._updateEntitiesPosition = 
  * @param {app.model.MapModel} mapModel
  */
 app.controller.CollisionRepulsionController.prototype.getCollisionArrayByEntityElement = function getCollisionArrayByEntityElement(element) {
-    return this._collisionDetectionController.getPotentialCollisionArrayForCircle(element.getX(), element.getY(), element.getRadius(), 0);
+    return this._collisionDetectionController.getPotentialCollisionArrayForCircle(element.getX(), element.getY(), element.getCollisionRadius(), 0);
 };

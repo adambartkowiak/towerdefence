@@ -91,7 +91,7 @@ app.view.AbstractWorldView.prototype.draw = function draw(canvas) {
         this._prepareFogOfWar(this._worldModel.getEntityListModel(), this._worldModel.getMapModel());
     }
 
-    // this._drawMap(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
+    this._drawMap(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
     this._drawEntities(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
 
     if (FEATURE_TOGGLE.FOG_OF_WAR) {

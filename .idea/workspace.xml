@@ -4,72 +4,10 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="Dodanie wielu stanow entity">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/goldmine_neutral.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetAttackCommandOnCommandController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetMoveAttackCommandOnCommandController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/controller/RemoveEntityController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/controller/_OLD_AttackController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityAttackListModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityAttackModel.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/pine-none04.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding1_team1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/bulding2_team1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit1_team1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/unit2_team1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding1_team2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/bulding2_team2.json" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/base_03.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/base_03.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/base_04.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/base_04.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/bush_01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/bush_01.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/rock_01.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_02.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/rock_02.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/tree_01.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding1_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/bulding1_neutral.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/bulding2_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/bulding2_neutral.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit1_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit1_neutral.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/unit2_neutral.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit2_neutral.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit1_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit1_team2.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit2_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit2_team2.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/js/app/command/SetBuildBaseCommandOnCommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js" />
+    <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="Optymalizacja tworzenie potencjalnych kolizji - dodawanie tylko unikalnych entity.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_03.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_03.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/editor.php" afterPath="$PROJECT_DIR$/public_html/editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" afterPath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.php" afterPath="$PROJECT_DIR$/public_html/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/Main.js" afterPath="$PROJECT_DIR$/public_html/js/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" afterPath="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/CancelCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/CancelCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/HoldCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/HoldCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/AttackController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/AttackController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/CollisionDetectionController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CollisionDetectionController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/CollisionRepulsionController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CollisionRepulsionController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionDetectionController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionDetectionController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" afterPath="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/ActionMenuModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/ActionMenuModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityStateModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityStateModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/MapModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/TaskModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TaskModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/WorldView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/gui/EntityStatusView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/gui/EntityStatusView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/FeatureToggle.js" afterPath="$PROJECT_DIR$/public_html/js/editor/FeatureToggle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/Mouse.js" afterPath="$PROJECT_DIR$/public_html/js/support/Mouse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/Point2d.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/Point2d.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/SimpleVector2d.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/SimpleVector2d.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/geom/collisions/Collision.js" afterPath="$PROJECT_DIR$/public_html/js/support/geom/collisions/Collision.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/AbstractView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/AbstractView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/AbstractViewGroup.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/AbstractViewGroup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/ButtonView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/ButtonView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" afterPath="$PROJECT_DIR$/public_html/js/support/view/MinimapView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/utils/Utils.js" afterPath="$PROJECT_DIR$/public_html/js/utils/Utils.js" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeatureToggle.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FeatureToggle.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/js/app/FeatureToggle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -171,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractWorldView.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AbstractWorldView.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="741" column="46" selection-start-line="741" selection-start-column="46" selection-end-line="741" selection-end-column="46" />
+            <state relative-caret-position="276">
+              <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -830,7 +768,7 @@
       <workItem from="1471134038612" duration="43554000" />
       <workItem from="1471773175572" duration="55264000" />
       <workItem from="1472863641052" duration="437000" />
-      <workItem from="1472994827868" duration="14880000" />
+      <workItem from="1472994827868" duration="15170000" />
     </task>
     <task id="LOCAL-00001" summary="Komentarze w czesci klas dla YuiDoc'a">
       <created>1437327357132</created>
@@ -1119,11 +1057,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470862865153</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Optymalizacja tworzenie potencjalnych kolizji - dodawanie tylko unikalnych entity.">
+      <created>1473505893627</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1473505893627</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="724736000" />
+    <option name="totallyTimeSpent" value="725026000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1136,9 +1081,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="30" width="1640" height="924" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25487804" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25487804" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24107143" sideWeight="0.5190476" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1168,7 +1113,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Poczyszczenie projektu - prace nad omijaniem przeciwnikow" />
     <MESSAGE value="Zaprogramowany zapis o odczyt gry - funkcja app.save i app.load&#10;&#10;Lepsze sprawdzanie kolizji obiekt-cel" />
     <MESSAGE value="DOdanie wczytywania gry z pliku i z webserwisu oraz podmienione JOSNy mapy" />
     <MESSAGE value=" - Zapisywanie i odczytywanie gry do formatu zminifikowanego&#10; - Wgranie nowych plikow z save'ami&#10; - Ogolne podmiany w projekcie" />
@@ -1193,7 +1137,8 @@
     <MESSAGE value="Rozgrywaka:&#10; - optymalizacja kolizji na zasadzie siatki stref algorytm ala Spatial hashing&#10; - wylaczenie namierzania celow dla sprawdzenia kolizji&#10; &#10; Edytor:&#10; - drobna poprawka aby dzialal" />
     <MESSAGE value="Prace nad edytorem modul Triggerow.&#10;Commit kontrolny - nie dziala w 100%." />
     <MESSAGE value="Dodanie wielu stanow entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie wielu stanow entity" />
+    <MESSAGE value="Optymalizacja tworzenie potencjalnych kolizji - dodawanie tylko unikalnych entity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Optymalizacja tworzenie potencjalnych kolizji - dodawanie tylko unikalnych entity." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1557,14 +1502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="741" column="46" selection-start-line="741" selection-start-column="46" selection-end-line="741" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1583,8 +1520,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/FeatureToggle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
           <folding />
         </state>
       </provider>

@@ -59,6 +59,7 @@
 <script type="text/javascript" src="js/support/view/AbstractView.js"></script>
 <script type="text/javascript" src="js/support/view/AbstractViewGroup.js"></script>
 <script type="text/javascript" src="js/support/view/AbsoluteLayoutView.js"></script>
+<script type="text/javascript" src="js/support/view/LabelView.js"></script>
 <script type="text/javascript" src="js/support/view/ButtonView.js"></script>
 <script type="text/javascript" src="js/support/view/MinimapView.js"></script>
 <script type="text/javascript" src="js/support/view/RootView.js"></script>
@@ -75,7 +76,6 @@
 <script type="text/javascript" src="js/helper/Helper.js"></script>
 
 <!--ENUM-->
-<script type="text/javascript" src="js/app/enum/TaskEnum.js"></script>
 <script type="text/javascript" src="js/app/enum/GameEventEnum.js"></script>
 <script type="text/javascript" src="js/app/enum/FunctionEnum.js"></script>
 <script type="text/javascript" src="js/app/enum/EntityPropertyEnum.js"></script>
@@ -91,25 +91,33 @@
 <script type="text/javascript" src="js/app/model/GameEventModel.js"></script>
 <script type="text/javascript" src="js/app/model/TriggerModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
+<script type="text/javascript" src="js/app/model/TeamModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityStateModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityAttackListModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityStateListModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TriggerListModel.js"></script>
-<script type="text/javascript" src="js/app/model/ValueListModel.js"></script>
+<script type="text/javascript" src="js/app/model/FunctionListModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/MapModel.js"></script>
 
-<script type="text/javascript" src="js/app/model/function/AbstractValue.js"></script>
-<script type="text/javascript" src="js/app/model/function/AbstractFunction.js"></script>
-<script type="text/javascript" src="js/app/model/function/Attribute.js"></script>
-<script type="text/javascript" src="js/app/model/function/ConditionEqual.js"></script>
-<script type="text/javascript" src="js/app/model/function/GetEventEntity.js"></script>
-<script type="text/javascript" src="js/app/model/function/GetEntityProperty.js"></script>
-<script type="text/javascript" src="js/app/model/function/GetUnitCount.js"></script>
+<script type="text/javascript" src="js/app/model/function/AbstractValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/AbstractFunctionModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/AttributeModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ConditionEqualModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ConditionEqualOrGreaterModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetEventEntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetEntityPropertyModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetUnitCountModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ShowConsoleLogModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/TurnOffTriggerModel.js"></script>
 
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 <script type="text/javascript" src="js/app/model/ActionMenuModel.js"></script>
@@ -136,9 +144,11 @@
 
 <!-- APP COMMANDS -->
 <script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetAttackCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetMoveAttackCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetPatrolCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetGatherCommandOnCommandController.js"></script>
-<script type="text/javascript" src="js/app/command/SetBuildBaseCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetBuildBuildingCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
 <script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
 <script type="text/javascript" src="js/app/command/HoldCommand.js"></script>
@@ -148,7 +158,7 @@
 <script type="text/javascript" src="js/app/command/TurnOffTriggerCommand.js"></script>
 
 <!-- FACTORY -->
-<script type="text/javascript" src="js/app/factory/FunctionFactory.js"></script>
+<script type="text/javascript" src="js/app/factory/FunctionModelFactory.js"></script>
 
 <!-- Mouse Event Handler -->
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
@@ -298,10 +308,19 @@
         for (var index = 0; index < assetsElementLength; index++) {
 
             assetName = assetsElement[index].dataset["json"];
-            assetName = JSON.parse(assetName)._graphicUrl;
+            var paresdJson = JSON.parse(assetName);
+            assetName = paresdJson._graphicUrl;
 
+            if (assetName === undefined){
+                for (var i = 0; i<paresdJson._entityStateListModel._elements.length; i++){
+                    assetName = paresdJson._entityStateListModel._elements[i]._graphicUrl;
+                    graphicsBuffor.load(assetName);
+                }
 
-            graphicsBuffor.load(assetName);
+            } else {
+                graphicsBuffor.load(assetName);
+            }
+
         }
 
 
@@ -358,8 +377,8 @@
         function mainDraw() {
 
             backgroundStep();
-//            mapRootView.draw();
-//            miniMapRootView.draw();
+            mapRootView.draw();
+            miniMapRootView.draw();
 
             window.requestAnimationFrame(mainDraw);
 

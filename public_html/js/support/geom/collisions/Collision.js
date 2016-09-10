@@ -34,9 +34,9 @@ support.geom.collision.Collision.Point2dPoint2d = function Point2dPoint2d(p1, p2
  */
 support.geom.collision.Collision.Point2dCircle = function Point2dCircle(p1, c1) {
 
-    var vector2d = new support.geom.Vector2d(p1.getX(), p1.getY(), c1.getX(), c1.getY());
+    var squareDistance = Math.pow(p1.getX() - c1.getX(), 2) + Math.pow(p1.getY() - c1.getY(), 2);
 
-    if (vector2d.getVectorLength() <= c1.getRadius()) {
+    if (squareDistance <= Math.pow(c1.getRadius(), 2)) {
         return true;
     }
 
@@ -106,7 +106,7 @@ support.geom.collision.Collision.CircleCircle = function CircleCircle(c1, c2) {
 support.geom.collision.Collision.CircleCircleFastWithDistanceSquer = function CircleCircleFastWithDistanceSquer(c1, c2) {
 
     var squareDistance = Math.pow(c2.getX() - c1.getX(), 2) + Math.pow(c2.getY() - c1.getY(), 2),
-        radiusPow  = Math.pow(c1.getRadius() + c2.getRadius(), 2),
+        radiusPow = Math.pow(c1.getRadius() + c2.getRadius(), 2),
         result = false;
 
     if (squareDistance <= radiusPow) {
@@ -148,8 +148,11 @@ support.geom.collision.Collision.CircleCircleWithDistance = function CircleCircl
  */
 support.geom.collision.Collision.CircleVector2d = function CircleVector2d(c1, v1) {
 
-    //odleglosc punktu od prostej w przedziale
+    if (support.geom.collision.Collision.Point2dCircle(v1.getStartPoint(), c1)){
+        return true;
+    }
 
+    //odleglosc punktu od prostej w przedziale
     //wektor kierunkowy z odcinka v1
     var dX = v1.getEndPoint().getX() - v1.getStartPoint().getX();
     var dY = v1.getEndPoint().getY() - v1.getStartPoint().getY();
@@ -189,62 +192,34 @@ support.geom.collision.Collision.CircleVector2d = function CircleVector2d(c1, v1
  */
 support.geom.collision.Collision.CircleRect = function CircleRect(c1, r1) {
 
-
+    //Center of Circle (Point2d) inside Eect
     var point = new support.geom.Point2d(c1.getX(), c1.getY());
-
-    if (support.geom.collision.Collision.Point2dRect(point, r1)) {
+    if (support.geom.collision.Collision.Point2dRect(point, r1)){
         return true;
     }
 
 
-    //PUNKTY
-    point.setX(r1.getX());
-    point.setY(r1.getY());
-    if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
-        return true;
-    }
-
-    point.setX(r1.getX() + r1.getWidth());
-    point.setY(r1.getY());
-    if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
-        return true;
-    }
-
-    point.setX(r1.getX() + r1.getWidth());
-    point.setY(r1.getY() + r1.getHeight());
-    if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
-        return true;
-    }
-
-    point.setX(r1.getX());
-    point.setY(r1.getY() + r1.getHeight());
-    if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
-        return true;
-    }
-
-
-    //WEKTORY
-    //gorna
+    //CHECK RECT EDGE'S WITH CIRCLE
+    //TOP EDGE
     var v1 = new support.geom.Vector2d(r1.getX(), r1.getY(), r1.getX() + r1.getWidth(), r1.getY());
-    //lewa
-    var v2 = new support.geom.Vector2d(r1.getX(), r1.getY(), r1.getX(), r1.getY() + r1.getHeight());
-    //prawa
-    var v3 = new support.geom.Vector2d(r1.getX() + r1.getWidth(), r1.getY(), r1.getX() + r1.getWidth(), r1.getY() + r1.getHeight());
-    //dolna
-    var v4 = new support.geom.Vector2d(r1.getX(), r1.getY() + r1.getHeight(), r1.getX() + r1.getWidth(), r1.getY() + r1.getHeight());
-
     if (support.geom.collision.Collision.CircleVector2d(c1, v1)) {
         return true;
     }
 
+    //LEFT EDGE
+    var v2 = new support.geom.Vector2d(r1.getX(), r1.getY(), r1.getX(), r1.getY() + r1.getHeight());
     if (support.geom.collision.Collision.CircleVector2d(c1, v2)) {
         return true;
     }
 
+    //RIGHT EDGE
+    var v3 = new support.geom.Vector2d(r1.getX() + r1.getWidth(), r1.getY(), r1.getX() + r1.getWidth(), r1.getY() + r1.getHeight());
     if (support.geom.collision.Collision.CircleVector2d(c1, v3)) {
         return true;
     }
 
+    //BOTTOM EDGE
+    var v4 = new support.geom.Vector2d(r1.getX(), r1.getY() + r1.getHeight(), r1.getX() + r1.getWidth(), r1.getY() + r1.getHeight());
     if (support.geom.collision.Collision.CircleVector2d(c1, v4)) {
         return true;
     }
@@ -311,13 +286,9 @@ support.geom.collision.Collision.Vector2dRect = function Vector2dRect() {
  */
 support.geom.collision.Collision.RectRect = function RectRect(r1, r2) {
 
-    //Dokodzic
-    //if (r1.getX() >= r2.getX() && r1.getX() <= r2.getX() + r2.getWidth() &&
-    //    r1.getY() >= r2.getY() && r1.getY() <= r2.getY + r2.getHeight() )
+    return Math.abs(r1.getX() - r2.getX()) * 2 <= (r1.getWidth() + r2.getWidth()) &&
+        Math.abs(r1.getY() - r2.getY()) * 2 <= (r1.getHeight() + r2.getHeight());
 
-    //Zastanowic sie jak to obliczyc najwydajnej
-
-    return true;
 };
 
 /*
@@ -325,4 +296,36 @@ support.geom.collision.Collision.RectRect = function RectRect(r1, r2) {
  rectangle
 
  */
+
+
+
+
+// //support.geom.collision.Collision.CircleRect - check performance after adding it before checking tio/left/right/bottom edges
+// //TOP-LEFT
+// point.setX(r1.getX());
+// point.setY(r1.getY());
+// if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
+//     return true;
+// }
+//
+// //TOP-RIGHT
+// point.setX(r1.getX() + r1.getWidth());
+// point.setY(r1.getY());
+// if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
+//     return true;
+// }
+//
+// //BOTTOM-LEFT
+// point.setX(r1.getX());
+// point.setY(r1.getY() + r1.getHeight());
+// if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
+//     return true;
+// }
+//
+// //BOTTOM-RIGHT
+// point.setX(r1.getX() + r1.getWidth());
+// point.setY(r1.getY() + r1.getHeight());
+// if (support.geom.collision.Collision.Point2dCircle(point, c1)) {
+//     return true;
+// }
 

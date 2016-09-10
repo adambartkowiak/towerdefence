@@ -17,7 +17,7 @@ support.Mouse = function Mouse(mouseEventHandler) {
     var that = this;
 
     /**
-     * @property _mouseDownEventReferenc
+     * @property _mouseDragHandler
      */
     this._mouseDragHandler = function (e) {
         that.mouseDrag(e);

@@ -82,82 +82,31 @@ ns.ActionMenuModel = function ActionMenuModel() {
             "text": "Build",
             "elements": [
                 {
-                    "text": "B1",
+                    "text": "Castle",
                     "icon": null,
                     "action": {
                         "1": "##GENERATE_GUID##",
-                        "2": 404
+                        "2": 404,
+                        "3": "{\"_team\":0,\"_selectable\":true,\"_targetable\":true,\"_woodStorage\":true,\"_goldStorage\":true,\"_currentStateId\":\"default\",\"_entityStateListModel\":{\"_elements\":[{\"_id\":\"default\",\"_mass\":-1,\"_radius\":43,\"_collisionRadius\":43,\"_groundSpeed\":0,\"_hp\":1000,\"_currentHp\":1000,\"_graphicUrl\":\"assets/graphics/images/castle_01.png\",\"_graphicOffset\":{\"_x\":-6,\"_y\":35}}]}}"
                     }
                 },
                 {
-                    "text": "B2",
+                    "text": "Tower",
                     "icon": null,
-                    "action": "SetSubAction2"
+                    "action": {
+                        "1": "##GENERATE_GUID##",
+                        "2": 404,
+                        "3": "{\"_team\":0,\"_selectable\":true,\"_targetable\":true,\"_currentStateId\":\"default\",\"_entityStateListModel\":{\"_elements\":[{\"_id\":\"default\",\"_mass\":-1,\"_radius\":23,\"_collisionRadius\":23,\"_groundSpeed\":0,\"_hp\":100,\"_currentHp\":100,\"_graphicUrl\":\"assets\/graphics\/images\/tower_01.png\",\"_graphicOffset\":{\"_x\":-4,\"_y\":35}},{\"_id\":\"inconstrucion\",\"_mass\":-1,\"_radius\":23,\"_collisionRadius\":23,\"_groundSpeed\":0,\"_hp\":100,\"_currentHp\":100,\"_graphicUrl\":\"assets\/graphics\/images\/tower_01.png\",\"_graphicOffset\":{\"_x\":-4,\"_y\":35}}]}}"
+                    }
                 },
                 {
-                    "text": "Next",
-                    "elements": [
-                        {
-                            "text": "C1",
-                            "icon": null,
-                            "action": "SetSubAction1"
-                        },
-                        {
-                            "text": "C2",
-                            "icon": null,
-                            "action": "SetSubAction2"
-                        },
-                        {
-                            "text": "C3",
-                            "icon": null,
-                            "action": "SetSubAction3"
-                        },
-                        {
-                            "text": "C4",
-                            "icon": null,
-                            "action": "SetSubAction3"
-                        },
-                        {
-                            "text": null,
-                            "icon": null,
-                            "action": null
-                        },
-                        {
-                            "text": null,
-                            "icon": null,
-                            "action": null
-                        },
-                        {
-                            "text": null,
-                            "icon": null,
-                            "action": null
-                        },
-                        {
-                            "text": null,
-                            "icon": null,
-                            "action": null
-                        },
-                        {
-                            "text": null,
-                            "icon": null,
-                            "action": null
-                        },
-                        {
-                            "text": null,
-                            "icon": null,
-                            "action": null
-                        },
-                        {
-                            "text": null,
-                            "icon": null,
-                            "action": null
-                        },
-                        {
-                            "text": "Back",
-                            "icon": null,
-                            "action": "back"
-                        }
-                    ]
+                    "text": "Tree",
+                    "icon": null,
+                    "action": {
+                        "1": "##GENERATE_GUID##",
+                        "2": 404,
+                        "3": "{\"_team\":0,\"_selectable\":true,\"_targetable\":true,\"_maxAmountOfWood\":100,\"_currentAmountOfWood\":100,\"_currentStateId\":\"default\",\"_entityStateListModel\":{\"_elements\":[{\"_id\":\"default\",\"_mass\":-1,\"_radius\":10,\"_collisionRadius\":10,\"_groundSpeed\":0,\"_hp\":100,\"_currentHp\":100,\"_graphicUrl\":\"assets\/graphics\/images\/tree_02.png\",\"_graphicOffset\":{\"_x\":0,\"_y\":18}},{\"_id\":\"noresources\",\"_mass\":-1,\"_radius\":10,\"_collisionRadius\":0,\"_groundSpeed\":0,\"_graphicUrl\":\"assets\/graphics\/images\/tree_02cut.png\",\"_graphicOffset\":{\"_x\":0,\"_y\":18}}]}}"
+                    }
                 },
                 {
                     "text": null,
@@ -202,7 +151,10 @@ ns.ActionMenuModel = function ActionMenuModel() {
                 {
                     "text": "Back",
                     "icon": null,
-                    "action": "back"
+                    "action": {
+                        "1": "##GENERATE_GUID##",
+                        "2": 1005
+                    }
                 },
             ]
         },

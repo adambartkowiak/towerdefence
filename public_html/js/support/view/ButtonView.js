@@ -119,16 +119,15 @@ support.view.ButtonView.prototype.onMouseEvent = function onMouseEvent(mouseEven
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
         this._backgroundColor = "rgba(255, 255, 255, 0.3)";
-//        console.log("support.MouseEventType.MOUSE_DOWN");
+       // console.log("support.MouseEventType.MOUSE_DOWN");
     }
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_ENTER){
         this._backgroundColor = "rgba(255, 255, 255, 0.1)";
-//        console.log("support.MouseEventType.MOUSE_ENTER");
+       // console.log("support.MouseEventType.MOUSE_ENTER");
     }
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DRAG){
-
-//        console.log("support.MouseEventType.MOUSE_DRAG");
+       // console.log("support.MouseEventType.MOUSE_DRAG");
     }
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_MOVE){
@@ -140,13 +139,14 @@ support.view.ButtonView.prototype.onMouseEvent = function onMouseEvent(mouseEven
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_UP){
         this._backgroundColor = "rgba(255, 255, 255, 0.0)";
-        //console.log("support.MouseEventType.MOUSE_UP");
+        // console.log("support.MouseEventType.MOUSE_UP");
     }
     
     if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_LEAVE){
         this._backgroundColor = "rgba(255, 255, 255, 0.0)";
-//        console.log("support.MouseEventType.MOUSE_LEAVE");
+       // console.log("support.MouseEventType.MOUSE_LEAVE");
     }
     
     return result;
 };
+

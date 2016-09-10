@@ -156,8 +156,8 @@ app.model.MapModel.prototype.getMinifyJSON = function getMinifyJSON() {
  */
 app.model.MapModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
-    var mapGraphicLayerModel = new app.model.map.MapGraphicLayerModel(2000, 2000, 40, 40),
-        mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(2000, 2000, 40, 40);
+    var mapGraphicLayerModel = new app.model.map.MapGraphicLayerModel(2000, 2000, FEATURE_TOGGLE.COLISION_SQUARE_SIZE, FEATURE_TOGGLE.COLISION_SQUARE_SIZE),
+        mapCollisionLayerModel = new app.model.map.MapCollisionLayerModel(2000, 2000, FEATURE_TOGGLE.COLISION_SQUARE_SIZE, FEATURE_TOGGLE.COLISION_SQUARE_SIZE);
 
     var result = {
         _mapWidth: minifyJSON["1"],

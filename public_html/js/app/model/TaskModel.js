@@ -33,9 +33,10 @@ var Utils = Utils || {};
  * @param {Number} radius
  * @param {Number} entityId
  * @param {app.enum.FunctionEnum} taskEnum
+ * @param {app.model.EntityModel} taskEntityModel Some Tasks needs it like Build, Train, etc.
  *
  */
-app.model.TaskModel = function TaskModel(x, y, radius, entityId, taskEnum) {
+app.model.TaskModel = function TaskModel(x, y, radius, entityId, taskEnum, taskEntityModel) {
 
     /**
      * Punkt celu
@@ -55,6 +56,12 @@ app.model.TaskModel = function TaskModel(x, y, radius, entityId, taskEnum) {
      * @private
      */
     this._taskEnum = taskEnum;
+
+    /**
+     * @property {app.model.EntityModel} _taskEntityModel
+     * @private
+     */
+    this._taskEntityModel = taskEntityModel;
 
 };
 
@@ -142,12 +149,31 @@ app.model.TaskModel.prototype.getEntityId = function getEntityId() {
     return this._entityId;
 };
 
+
+/**
+ * @method setTaskEntityModel
+ * @param {app.model.EntityModel} value
+ */
+app.model.TaskModel.prototype.setTaskEntityModel = function setTaskEntityModel(value) {
+    this._taskEntityModel = value;
+};
+
+/**
+ * @method getTaskEntityModel
+ * @return {Number} entityId
+ */
+app.model.TaskModel.prototype.getTaskEntityModel = function getTaskEntityModel() {
+    return this._taskEntityModel;
+};
+
+
+
 /**
  * @method clone
  * @return {app.model.TargetModel} clone
  */
 app.model.TaskModel.prototype.clone = function clone() {
-    return new app.model.TaskModel(this.getX(), this.getY(), this.getRadius(), this.getEntityId(), this.getTaskEnum());
+    return new app.model.TaskModel(this.getX(), this.getY(), this.getRadius(), this.getEntityId(), this.getTaskEnum(), this.getTaskEntityModel());
 };
 
 /**
@@ -155,9 +181,17 @@ app.model.TaskModel.prototype.clone = function clone() {
  * @property {Object} unMinifyJSON
  */
 app.model.TaskModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+
+    var entityModel = new app.model.EntityModel();
+    var taskEntityModel = undefined;
+    if (JSON._taskEntityModel !== undefined){
+        taskEntityModel = entityModel.loadFromJSON(JSON._taskEntityModel)
+    }
+
     this._circle = new support.geom.Circle(JSON._circle._x, JSON._circle._y, JSON._circle._radius);
     this._taskEnum = JSON._taskEnum;
     this._entityId = JSON._entityId;
+    this._taskEntityModel = taskEntityModel;
 };
 
 /**
@@ -165,10 +199,20 @@ app.model.TaskModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
  * @returns {Object} minifyJSON
  */
 app.model.TaskModel.prototype.getMinifyJSON = function getMinifyJSON() {
+
+    var taskModelEntityMinifiedJSON = null;
+
+    if (this._taskEntityModel !== undefined){
+        taskModelEntityMinifiedJSON = this._taskEntityModel.getMinifyJSON()
+    } else {
+        taskModelEntityMinifiedJSON = undefined;
+    }
+
     var result = {
         1:this._circle.getMinifyJSON(),
         2:this._taskEnum,
-        3:this._entityId
+        3:this._entityId,
+        4:taskModelEntityMinifiedJSON
     };
 
     return result;
@@ -182,11 +226,18 @@ app.model.TaskModel.prototype.getMinifyJSON = function getMinifyJSON() {
 app.model.TaskModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
     var circle = new support.geom.Circle(0,0,0);
+    var taskEntityModel = new app.model.EntityModel();
+    var taskModelEntityUnMinifiedJSON = undefined;
+
+    if (minifyJSON["4"] !== undefined){
+        taskModelEntityUnMinifiedJSON = taskEntityModel.unMinifyJSON(minifyJSON["4"])
+    }
 
     var result = {
         _circle: circle.unMinifyJSON(minifyJSON["1"]),
         _taskEnum: minifyJSON["2"],
-        _entityId: minifyJSON["3"]
+        _entityId: minifyJSON["3"],
+        _taskEntityModel: taskModelEntityUnMinifiedJSON
     };
 
     return result;

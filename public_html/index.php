@@ -38,7 +38,7 @@ and open the template in the editor.
 
 
 <div style="margin:0 auto 0 auto;display:block;background:#111111;width:1200px;height:800px;" id="gamediv">
-    <canvas id="map" style="position: absolute;" width="1200" height="800"></canvas>
+    <canvas id="map" style="position: absolute; background-color: #333333;" width="1200" height="800"></canvas>
 
     <!-- Game Menu-->
     <div id="gameMenu" style="position: absolute;width:1200px; height:800px;background-color: rgba(0, 0, 0, 0.5);">
@@ -68,7 +68,7 @@ and open the template in the editor.
 
 
 
-    <div id="menuOpenButton" style="position: absolute;width:50px; height:50px;background-color: rgba(100, 100, 100, 0.7);" onclick="document.getElementById('gameMenu').style.display = 'block'">
+    <div id="menuOpenButton" style="position: absolute;margin-left:1032px;width:140px; height:45px;background-color: rgba(255, 50, 50, 0.5);" onclick="document.getElementById('gameMenu').style.display = 'block'">
 
     </div>
 
@@ -140,9 +140,11 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/model/TriggerModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
 <script type="text/javascript" src="js/app/model/TeamModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityAttackListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateListModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
@@ -188,12 +190,16 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/controller/WaypointCollisionDetectionController.js"></script>
 <script type="text/javascript" src="js/app/controller/WaypointCollisionReactionController.js"></script>
 <script type="text/javascript" src="js/app/controller/SelectTargetController.js"></script>
+<script type="text/javascript" src="js/app/controller/AttackController.js"></script>
+<script type="text/javascript" src="js/app/controller/RemoveEntityController.js"></script>
 
 <!-- APP COMMANDS -->
 <script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetAttackCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetMoveAttackCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetPatrolCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetGatherCommandOnCommandController.js"></script>
-<script type="text/javascript" src="js/app/command/SetBuildBaseCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetBuildBuildingCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
 <script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
 <script type="text/javascript" src="js/app/command/HoldCommand.js"></script>

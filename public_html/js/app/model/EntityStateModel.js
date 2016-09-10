@@ -49,6 +49,21 @@ app.model.EntityStateModel = function EntityStateModel() {
      * @private
      */
     this._moveCollisionDetectionRadius = 0;
+
+    /**
+     * Zasięg widzenia
+     * @property {Number} _viewRadius
+     * @private
+     */
+    this._viewRadius = 0;
+
+    /**
+     * Zasięg namierzania przeciwników
+     * @property {Number} _selectTargetRadius
+     * @private
+     */
+    this._selectTargetRadius = 0;
+
     /**
      * Maksymalna predkosc jednostki
      * @property {Number} _groundSpeed
@@ -64,32 +79,11 @@ app.model.EntityStateModel = function EntityStateModel() {
     this._hp = 0;
 
     /**
-     * Aktualna liczba punktow zycia jednostki
-     * @property {Number} _currentHp
+     * Lista ataków entity
+     * @property {app.model.EntityAttackListModel} _entityAttackListModel
      * @private
      */
-    this._currentHp = 0;
-
-    /**
-     * Zasieg ataku jednostki
-     * @property {Number} _attackRange
-     * @private
-     */
-    this._attackRange = 0;
-
-    /**
-     * Obrazenia ataku
-     * @property {Number} _attackDamage
-     * @private
-     */
-    this._attackDamage = 0;
-
-    /**
-     * Czestotliwosc ataku
-     * @property {Number} _attackRate
-     * @private
-     */
-    this._attackRate = 0;
+    this._entityAttackListModel = new app.model.EntityAttackListModel();
 
     /**
      * @property {String} _graphicUrl
@@ -105,11 +99,23 @@ app.model.EntityStateModel = function EntityStateModel() {
     this._graphicOffset = new support.geom.Point2d(0, 0);
 
     /**
+     * @property {Boolean} _rotateGraphicOnMove
+     * @private
+     */
+    this._rotateGraphicOnMove = true;
+
+    /**
      * Tablica dostepnych akcji, ktora moze wykonac dane entity
      * @property {Array} _availableActions
      * @private
      */
     this._availableActionsMenu = [];
+
+    /**
+     * @property {Boolean} _removeAfterHit
+     * @private
+     * */
+    this._removeAfterHit = false;
 
 };
 
@@ -197,6 +203,38 @@ app.model.EntityStateModel.prototype.setCollisionRadius = function setCollisionR
 };
 
 /**
+ * @method getViewRadius
+ * @return {Number} viewRadius
+ */
+app.model.EntityStateModel.prototype.getViewRadius = function getViewRadius() {
+    return this._viewRadius;
+};
+
+/**
+ * @method setViewRadius
+ * @param {Number} value
+ */
+app.model.EntityStateModel.prototype.setViewRadius = function setViewRadius(value) {
+    this._viewRadius = value;
+};
+
+/**
+ * @method getSelectTargetRadius
+ * @return {Number} collisionRadius
+ */
+app.model.EntityStateModel.prototype.getSelectTargetRadius = function getSelectTargetRadius() {
+    return this._selectTargetRadius;
+};
+
+/**
+ * @method setSelectTargetRadius
+ * @param {Number} value
+ */
+app.model.EntityStateModel.prototype.setSelectTargetRadius = function setSelectTargetRadius(value) {
+    this._selectTargetRadius = value;
+};
+
+/**
  * @method getGroundSpeed
  * @return {Number} groundSpeed
  */
@@ -229,67 +267,19 @@ app.model.EntityStateModel.prototype.setHp = function setHp(value) {
 };
 
 /**
- * @method getCurrentHp
- * @return {Number} currentHp
+ * @method getEntityAttackListModel
+ * @return {app.model.EntityAttackListModel} entityAttackListModel
  */
-app.model.EntityStateModel.prototype.getCurrentHp = function getCurrentHp() {
-    return this._currentHp;
+app.model.EntityStateModel.prototype.getEntityAttackListModel = function getEntityAttackListModel() {
+    return this._entityAttackListModel;
 };
 
 /**
- * @method setCurrentHp
- * @param {Number} value
+ * @method setEntityAttackListModel
+ * @param {app.model.EntityAttackListModel} value
  */
-app.model.EntityStateModel.prototype.setCurrentHp = function setCurrentHp(value) {
-    this._currentHp = value;
-};
-
-/**
- * @method getAttackRange
- * @return {Number} attackRange
- */
-app.model.EntityStateModel.prototype.getAttackRange = function getAttackRange() {
-    return this._attackRange;
-};
-
-/**
- * @method setAttackRange
- * @param {Number} value
- */
-app.model.EntityStateModel.prototype.setAttackRange = function setAttackRange(value) {
-    this._attackRange = value;
-};
-
-/**
- * @method getAttackDamage
- * @return {Number} attackDamage
- */
-app.model.EntityStateModel.prototype.getAttackDamage = function getAttackDamage() {
-    return this._attackDamage;
-};
-
-/**
- * @method setAttackDamage
- * @param {Number} value
- */
-app.model.EntityStateModel.prototype.setAttackDamage = function setAttackDamage(value) {
-    this._attackDamage = value;
-};
-
-/**
- * @method getAttackRate
- * @return {Number} attackRate
- */
-app.model.EntityStateModel.prototype.getAttackRate = function getAttackRate() {
-    return this._attackRate;
-};
-
-/**
- * @method setAttackRate
- * @param {Number} value
- */
-app.model.EntityStateModel.prototype.setAttackRate = function setAttackRate(value) {
-    this._attackRate = value;
+app.model.EntityStateModel.prototype.setEntityAttackListModel = function setEntityAttackListModel(value) {
+    this._entityAttackListModel = value;
 };
 
 /**
@@ -333,6 +323,22 @@ app.model.EntityStateModel.prototype.setGraphicOffsetY = function setGraphicOffs
 };
 
 /**
+ * @method getRotateGraphicOnMove
+ * @return {Boolean} rotateGraphicOnMove
+ */
+app.model.EntityStateModel.prototype.getRotateGraphicOnMove = function getRotateGraphicOnMove() {
+    return this._rotateGraphicOnMove;
+};
+
+/**
+ * @method setRotateGraphicOnMove
+ * @param {Boolean} rotateGraphicOnMove
+ */
+app.model.EntityStateModel.prototype.setRotateGraphicOnMove = function setRotateGraphicOnMove(rotateGraphicOnMove) {
+    this._rotateGraphicOnMove = rotateGraphicOnMove;
+};
+
+/**
  * @method getAvailableActionsMenu
  * @return {String} graphicUrl
  */
@@ -346,6 +352,22 @@ app.model.EntityStateModel.prototype.getAvailableActionsMenu = function getAvail
  */
 app.model.EntityStateModel.prototype.setAvailableActionsMenu = function setAvailableActionsMenu(value) {
     this._availableActionsMenu = value;
+};
+
+/**
+ * @method getRemoveAfterHit
+ * @return {Boolean} removeAfterHit
+ */
+app.model.EntityStateModel.prototype.getRemoveAfterHit = function getRemoveAfterHit() {
+    return this._removeAfterHit;
+};
+
+/**
+ * @method setRemoveAfterHit
+ * @param {Boolean} removeAfterHit
+ */
+app.model.EntityStateModel.prototype.setRemoveAfterHit = function setRemoveAfterHit(removeAfterHit) {
+    this._removeAfterHit = removeAfterHit;
 };
 
 
@@ -367,12 +389,13 @@ app.model.EntityStateModel.prototype.clone = function clone() {
     clone._moveCollisionDetectionRadius = this._moveCollisionDetectionRadius;
     clone._groundSpeed = this._groundSpeed;
     clone._hp = this._hp;
-    clone._currentHp = this._currentHp;
-    clone._attackRange = this._attackRange;
-    clone._attackDamage = this._attackDamage;
-    clone._attackRate = this._attackRate;
+    clone._entityAttackListModel = this._entityAttackListModel.clone();
     clone._graphicUrl = this._graphicUrl;
     clone._graphicOffset = new support.geom.Point2d(this._graphicOffset.getX(), this._graphicOffset.getY());
+    clone._rotateGraphicOnMove = this._rotateGraphicOnMove;
+    clone._viewRadius = this._viewRadius;
+    clone._selectTargetRadius = this._selectTargetRadius;
+    clone._removeAfterHit = this._removeAfterHit;
 
     //klonowanie tablic
     clone._availableActionsMenu = this._availableActionsMenu.slice();
@@ -406,6 +429,14 @@ app.model.EntityStateModel.prototype.loadFromJSON = function loadFromJSON(JSON) 
         this._moveCollisionDetectionRadius = JSON._moveCollisionDetectionRadius;
     }
 
+    if (JSON._viewRadius !== undefined) {
+        this._viewRadius = JSON._viewRadius;
+    }
+
+    if (JSON._selectTargetRadius !== undefined) {
+        this._selectTargetRadius = JSON._selectTargetRadius;
+    }
+
     if (JSON._groundSpeed !== undefined) {
         this._groundSpeed = JSON._groundSpeed;
     }
@@ -414,20 +445,8 @@ app.model.EntityStateModel.prototype.loadFromJSON = function loadFromJSON(JSON) 
         this._hp = JSON._hp;
     }
 
-    if (JSON._currentHp !== undefined) {
-        this._currentHp = JSON._currentHp;
-    }
-
-    if (JSON._attackRange !== undefined) {
-        this._attackRange = JSON._attackRange;
-    }
-
-    if (JSON._attackDamage !== undefined) {
-        this._attackDamage = JSON._attackDamage;
-    }
-
-    if (JSON._attackRate !== undefined) {
-        this._attackRate = JSON._attackRate;
+    if (JSON._entityAttackListModel !== undefined) {
+        this._entityAttackListModel.loadFromJSON(JSON._entityAttackListModel);
     }
 
     if (JSON._graphicUrl !== undefined) {
@@ -436,6 +455,14 @@ app.model.EntityStateModel.prototype.loadFromJSON = function loadFromJSON(JSON) 
 
     if (JSON._graphicOffset !== undefined && JSON._graphicOffset._x !== undefined && JSON._graphicOffset._y !== undefined) {
         this._graphicOffset = new support.geom.Point2d(JSON._graphicOffset._x, JSON._graphicOffset._y);
+    }
+
+    if (JSON._rotateGraphicOnMove !== undefined) {
+        this._rotateGraphicOnMove = JSON._rotateGraphicOnMove;
+    }
+
+    if (JSON._removeAfterHit !== undefined) {
+        this._removeAfterHit = JSON._removeAfterHit;
     }
 
     //if (JSON._availableActions !== undefined) {
@@ -459,13 +486,14 @@ app.model.EntityStateModel.prototype.getMinifyJSON = function getMinifyJSON() {
         5: this._moveCollisionDetectionRadius,
         6: this._groundSpeed,
         7: this._hp,
-        8: this._currentHp,
-        9: this._attackRange,
-        a: this._attackDamage,
-        b: this._attackRate,
-        c: this._graphicUrl,
-        d: this._graphicOffset.getMinifyJSON(),
-        e: this._availableActionsMenu
+        8: this._entityAttackListModel.getMinifyJSON(),
+        9: this._graphicUrl,
+        a: this._graphicOffset.getMinifyJSON(),
+        b: this._rotateGraphicOnMove,
+        c: this._availableActionsMenu,
+        d: this._viewRadius,
+        e: this._selectTargetRadius,
+        f: this._removeAfterHit
 
     };
 
@@ -480,6 +508,7 @@ app.model.EntityStateModel.prototype.getMinifyJSON = function getMinifyJSON() {
 app.model.EntityStateModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
     var point2d = new support.geom.Point2d(0, 0);
+    var entityAttackListModel = new app.model.EntityAttackListModel();
 
     var result = {
         _id: minifyJSON["1"],
@@ -489,13 +518,14 @@ app.model.EntityStateModel.prototype.unMinifyJSON = function unMinifyJSON(minify
         _moveCollisionDetectionRadius: minifyJSON["5"],
         _groundSpeed: minifyJSON["6"],
         _hp: minifyJSON["7"],
-        _currentHp: minifyJSON["8"],
-        _attackRange: minifyJSON["9"],
-        _attackDamage: minifyJSON["a"],
-        _attackRate: minifyJSON["b"],
-        _graphicUrl: minifyJSON["c"],
-        _graphicOffset: point2d.unMinifyJSON(minifyJSON["d"]),
-        _availableActionsMenu: minifyJSON["e"]
+        _entityAttackListModel: entityAttackListModel.unMinifyJSON(minifyJSON["8"]),
+        _graphicUrl: minifyJSON["9"],
+        _graphicOffset: point2d.unMinifyJSON(minifyJSON["a"]),
+        _rotateGraphicOnMove: minifyJSON["b"],
+        _availableActionsMenu: minifyJSON["c"],
+        _viewRadius: minifyJSON["d"],
+        _selectTargetRadius: minifyJSON["e"],
+        _removeAfterHit: minifyJSON["f"]
     };
     return result;
 };

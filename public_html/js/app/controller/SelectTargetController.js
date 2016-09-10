@@ -40,99 +40,95 @@ Utils.inherits(app.controller.SelectTargetController, Object);
  */
 app.controller.SelectTargetController.prototype.update = function update(timeDelta) {
 
-    // return;
-    var listLength = this._list.length();
-    var elementIndex;
-    var element;
-    var targetIndex;
-    var targetListLength;
-    var potentialTarget;
-    var availableToBuild;
-    var toBuild;
-    var foundTarget = false;
-    var distanceVector = new support.geom.Vector2d(0, 0, 0, 0);
-    var shotDistance = 0;
-    var currentShotDistance = 0;
-    var c1 = new support.geom.Circle(0, 0, 0);
-    var p1 = new support.geom.Point2d(0, 0);
+    //Tutaj by bardzo duzego busta by dalo podzielenie entity na teamy juz na poziomie kolizji.
+    //Aby w ogole nie rozpatrywac entity z tego samego teamu...
 
-    var potentialCollisionList;
-    var potentialCollisionElement;
-    var potentialCollisionIndex;
-    var potentialCollisionLength;
+    if (!FEATURE_TOGGLE.SELECT_TARGET){
+        return;
+    }
+
+    var listLength = this._list.length(),
+        elementIndex,
+        element,
+        targetIndex,
+        targetListLength,
+        potentialTarget,
+        potentialTargetList,
+        selectedTarget = 0,
+        foundTarget = false,
+        c1 = new support.geom.Circle(0, 0, 0),
+        c2 = new support.geom.Circle(0, 0, 0),
+        circleCircleCollisionResult = null,
+        shortestDistanceToTarget = 0,
+        currentDistanceToTarget = 0,
+        targetEntity = null;
 
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
         element = this._list.getElement(elementIndex);
 
-        availableToBuild = element.getBuildList() && element.getBuildList().length() > 0;
-
-        //NO AVAILABLE STEPS!
-        if (!availableToBuild) {
+        if (element.getSelectTargetRadius() === 0) {
             continue;
         }
 
-        toBuild = element.getBuildList().getElement(0);
+        targetEntity = element.getTargetEntity();
 
-        if (toBuild !== null) {
+        //Unselect target if has no hp;
+        if (targetEntity !== null && targetEntity.getCurrentHp() <= 0) {
+            element.setTargetEntity(null);
+        }
 
-            if (toBuild.getMoveList() !== null && toBuild.getMoveList().length() > 0) {
 
-                if (toBuild.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.ATTACK) {
+        //search for target
+        if (targetEntity === null) {
 
-                    //AttackRangeCircle
-                    c1.setX(element.getX());
-                    c1.setY(element.getY());
-                    c1.setRadius(toBuild.getAttackRange());
+            //potencjalny target
+            potentialTargetList = this._collisionDetectionController.getPotentialCollisionArrayForCircle(element.getX(), element.getY(), element.getSelectTargetRadius(), 0);
 
-                    potentialCollisionList = this._collisionDetectionController.getPotentialCollisionArrayForCircle(element.getX(), element.getY(), 100, 0);
+            foundTarget = false;
+            targetListLength = potentialTargetList.length;
 
-                    foundTarget = false;
-                    targetListLength = potentialCollisionList.length;
+            shortestDistanceToTarget = Infinity;
+            currentDistanceToTarget = Infinity;
 
-                    shotDistance = Infinity;
-                    currentShotDistance = Infinity;
+            c1.setX(element.getX());
+            c1.setY(element.getY());
+            c1.setRadius(element.getCollisionRadius() + element.getSelectTargetRadius());
 
-                    for (targetIndex = 0; targetIndex < targetListLength; targetIndex++) {
-                        potentialTarget = potentialCollisionList[targetIndex];
+            for (targetIndex = 0; targetIndex < targetListLength; targetIndex++) {
+                potentialTarget = potentialTargetList[targetIndex];
 
-                        p1.setX(potentialTarget.getX());
-                        p1.setY(potentialTarget.getY());
+                if (potentialTarget.getTeam() === element.getTeam() ||
+                    potentialTarget.getTeam() === 0 || !potentialTarget.getTargetable() ||
+                    potentialTarget.getId() === element.getId()) {
+                    continue;
+                }
 
-                        if (potentialTarget.getId() !== element.getId() &&
-                            potentialTarget.getTargetable() &&
-                            potentialTarget.getTeam() !== element.getTeam() &&
-                            potentialTarget.getTeam() !== 0 &&
-                            support.geom.collision.Collision.Point2dCircle(p1, c1)) {
+                c2.setX(potentialTarget.getX());
+                c2.setY(potentialTarget.getY());
+                c2.setRadius(potentialTarget.getCollisionRadius());
 
-                            /*
-                             Wybieranie celu, ktory jest najblizej
-                             */
-                            distanceVector.getStartPoint().setX(p1.getX());
-                            distanceVector.getStartPoint().setY(p1.getY());
-                            distanceVector.getEndPoint().setX(c1.getX());
-                            distanceVector.getEndPoint().setY(c1.getY());
-                            currentShotDistance = distanceVector.getVectorLength();
+                circleCircleCollisionResult = support.geom.collision.Collision.CircleCircleFastWithDistanceSquer(c1, c2);
+                currentDistanceToTarget = circleCircleCollisionResult.sd;
 
-                            if (shotDistance > currentShotDistance) {
-                                toBuild.getMoveList().getElement(0).setEntityId(potentialTarget.getId());
-                                foundTarget = true;
-                                shotDistance = currentShotDistance;
-                            }
-
-                        }
-                    }
-
-                    if (!foundTarget) {
-                        toBuild.getMoveList().getElement(0).setEntityId(0);
-
-                    }
-
+                /*
+                 Wybieranie celu, ktory jest najblizej. Sprawdzane sa kwadraty odleglosci
+                 */
+                if (circleCircleCollisionResult.result && shortestDistanceToTarget > currentDistanceToTarget) {
+                    shortestDistanceToTarget = currentDistanceToTarget;
+                    selectedTarget = potentialTarget;
+                    foundTarget = true;
                 }
 
             }
 
+            if (foundTarget) {
+                element.setTargetEntity(selectedTarget);
+                element.setTargetEntityId(selectedTarget.getId());
+            }
         }
+
+
     }
 
 

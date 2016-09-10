@@ -40,6 +40,8 @@ app.controller.CollisionRepulsionController = function CollisionRepulsionControl
      */
     this._entitiesToUpdate = [];
 
+    this._handleCollisionVector = new support.geom.SimpleVector2d(0, 0);
+
 };
 
 Utils.inherits(app.controller.CollisionRepulsionController, Object);
@@ -70,7 +72,9 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
     var c1 = new support.geom.Circle(0, 0, 0);
     var c2 = new support.geom.Circle(0, 0, 0);
 
-    this.entitiesToUpdate = [];
+    this._entitiesToUpdate = [];
+    // this._entitiesToUpdate.length = 0;
+
     /*
      ROZPYCHANIE OBIEKTÓW JEZELI NA SIEBIE NACHODZA
      */
@@ -112,22 +116,17 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
 
             potentialCollisionList = this.getCollisionArrayByEntityElement(element);
             potentialCollisionLength = potentialCollisionList.length;
-            //console.log("LENGTH: before for " + potentialCollisionList.length);
 
             for (potentialCollisionIndex = 0; potentialCollisionIndex < potentialCollisionLength; potentialCollisionIndex++) {
-                //console.log("LENGTH: in for " + potentialCollisionList.length);
 
                 potentialCollisionElement = potentialCollisionList[potentialCollisionIndex];
 
-
                 //samego ze soba nie sprawdzam kolizji bo to bez sensu :)
                 if (element === potentialCollisionElement) {
-                    //console.log("potentialCollisionLength - end for");
                     continue;
                 }
 
-                if (potentialCollisionElement.getMoveList() && potentialCollisionElement.getMoveList().length() > 0 && potentialCollisionElement.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.ATTACK) {
-                    //console.log("potentialCollisionLength - end for");
+                if (potentialCollisionElement.getMoveList().getElement(0) !== undefined && potentialCollisionElement.getMoveList().getElement(0).getTaskEnum() === app.enum.FunctionEnum.ATTACK) {
                     continue;
                 }
 
@@ -138,38 +137,7 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
                 var collision = support.geom.collision.Collision.CircleCircle(c1, c2);
 
                 if (collision) {
-
-                    //wektor miedzy srodkami
-                    collisionVector = new support.geom.SimpleVector2d(element.getTemporaryX() - potentialCollisionElement.getTemporaryX(), element.getTemporaryY() - potentialCollisionElement.getTemporaryY());
-                    var lengthVector = collisionVector.getVectorLength() - element.getCollisionRadius() - potentialCollisionElement.getCollisionRadius();
-
-                    var vX = potentialCollisionElement.getTemporaryX();
-                    var vY = potentialCollisionElement.getTemporaryY();
-
-
-                    var maxMoveX = collisionVector.getNormalizedVector().getX() * lengthVector * 0.5;
-                    var maxMoveY = collisionVector.getNormalizedVector().getY() * lengthVector * 0.5;
-
-                    if (potentialCollisionElement.getMass() !== -1
-                        && !potentialCollisionElement.getHoldPosition()) {
-
-                        //potentialCollisionElement.setX(vX + maxMoveX);
-                        //potentialCollisionElement.setY(vY + maxMoveY);
-
-                        potentialCollisionElement.setTemporaryX(vX + maxMoveX);
-                        potentialCollisionElement.setTemporaryY(vY + maxMoveY);
-
-                        this._entitiesToUpdate[potentialCollisionElement.getId()] = potentialCollisionElement;
-                    }
-
-                    //element.setX(element.getX() - maxMoveX);
-                    //element.setY(element.getY() - maxMoveY);
-
-                    element.setTemporaryX(element.getTemporaryX() - maxMoveX);
-                    element.setTemporaryY(element.getTemporaryY() - maxMoveY);
-
-                    this._entitiesToUpdate[element.getId()] = element;
-
+                    this._handleReactionOnCollision(this._entitiesToUpdate, element, potentialCollisionElement);
                 }
 
             }
@@ -180,6 +148,49 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
     //update modyfied entities
     this._updateEntitiesPosition(this._entitiesToUpdate);
 
+};
+
+
+/**
+ * @method _handleReactionOnCollision
+ * @param {Array} entitiesToUpdate
+ */
+app.controller.CollisionRepulsionController.prototype._handleReactionOnCollision = function _handleReactionOnCollision(entitiesToUpdate, element, potentialCollisionElement){
+
+    var normalizedCollisionVector,
+        lengthVector,
+        vX,
+        vY,
+        maxMoveX,
+        maxMoveY;
+
+    //wektor miedzy srodkami
+    this._handleCollisionVector.setX(element.getTemporaryX() - potentialCollisionElement.getTemporaryX());
+    this._handleCollisionVector.setY(element.getTemporaryY() - potentialCollisionElement.getTemporaryY());
+
+    lengthVector = this._handleCollisionVector.getVectorLength() - element.getCollisionRadius() - potentialCollisionElement.getCollisionRadius();
+
+    vX = potentialCollisionElement.getTemporaryX();
+    vY = potentialCollisionElement.getTemporaryY();
+
+    normalizedCollisionVector = this._handleCollisionVector.getNormalizedVector();
+
+    maxMoveX = normalizedCollisionVector.getX() * lengthVector * 0.5;
+    maxMoveY = normalizedCollisionVector.getY() * lengthVector * 0.5;
+
+    if (potentialCollisionElement.getMass() !== -1
+        && potentialCollisionElement.getHoldPosition() !== true) {
+
+        potentialCollisionElement.setTemporaryX(vX + maxMoveX);
+        potentialCollisionElement.setTemporaryY(vY + maxMoveY);
+
+        entitiesToUpdate[potentialCollisionElement.getId()] = potentialCollisionElement;
+    }
+
+    element.setTemporaryX(element.getTemporaryX() - maxMoveX);
+    element.setTemporaryY(element.getTemporaryY() - maxMoveY);
+
+    entitiesToUpdate[element.getId()] = element;
 };
 
 /**

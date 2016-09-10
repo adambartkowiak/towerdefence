@@ -92,9 +92,11 @@
 <script type="text/javascript" src="js/app/model/TriggerModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
 <script type="text/javascript" src="js/app/model/TeamModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
+<script type="text/javascript" src="js/app/model/EntityAttackListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateListModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
@@ -142,9 +144,11 @@
 
 <!-- APP COMMANDS -->
 <script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetAttackCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetMoveAttackCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetPatrolCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetGatherCommandOnCommandController.js"></script>
-<script type="text/javascript" src="js/app/command/SetBuildBaseCommandOnCommandController.js"></script>
+<script type="text/javascript" src="js/app/command/SetBuildBuildingCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
 <script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
 <script type="text/javascript" src="js/app/command/HoldCommand.js"></script>

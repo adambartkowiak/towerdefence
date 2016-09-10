@@ -41,6 +41,8 @@ Utils.inherits(app.controller.WaypointCollisionDetectionController, Object);
  */
 app.controller.WaypointCollisionDetectionController.prototype.update = function update() {
 
+    return;
+
     var listLength = this._list.length();
     var elementIndex;
     var element;
@@ -110,14 +112,14 @@ app.controller.WaypointCollisionDetectionController.prototype.update = function 
         KOLIZJA ZLOZONA
          */
 
-        //okrag
+        //Target - Circle
         var targetCurrentPosition = element.getMoveList().getElement(0);
         var collitionType1_c1 = new support.geom.Circle(targetCurrentPosition.getX(), targetCurrentPosition.getY(), targetCurrentPosition.getRadius());
 
-        //odcinek reprezentujacy ostatni ruch elementu
+        //Element - Last Move
         var collitionType1_v1 = new support.geom.Vector2d(element.getX(), element.getY(), element.getLastPosition().getX(), element.getLastPosition().getY());
 
-        //kolizja: okrag-odcinek
+        //Collision: Circle-Vector
         var collisionType1 = false;
 
         if (!collisionType2){

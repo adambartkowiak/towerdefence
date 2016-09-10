@@ -1,0 +1,18 @@
+{
+  "_graphicUrl": "assets/graphics/images/goldmine_neutral.png",
+  "_graphicOffset": {
+    "_x": 0,
+    "_y": 0
+  },
+  "_radius": 60,
+  "_mass": -1,
+  "_collisionRadius": 55,
+  "_groundSpeed": 0,
+  "_team": 0,
+  "_hp": 1000,
+  "_currentHp": 1000,
+  "_selectable": true,
+  "_targetable": true,
+  "_maxAmountOfGold" : 1000,
+  "_currentAmountOfGold" : 1000
+}

@@ -11,6 +11,7 @@ var Utils = Utils || {};
 /**
  * @namespace support.geom
  * @class Point2d
+ * @memberof support.geom
  * @constructor
  * @param {Number} x
  * @param {Number} y

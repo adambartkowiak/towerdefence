@@ -72,7 +72,24 @@ Array.prototype.equals = function (array) {
     return true;
 };
 
-String.prototype.replaceAll = function(search, replacement) {
+Array.prototype.extend = function extend(other_array) {
+    other_array.forEach(function (v) {
+        this.push(v)
+    }, this);
+};
+
+Array.prototype.extendUnique = function extendUnique(otherArray, checkId) {
+    otherArray.forEach(function (x) {
+
+        if (x._checkId !== checkId){
+            x._checkId = checkId;
+            this.push(x);
+        }
+
+    }, this);
+};
+
+String.prototype.replaceAll = function (search, replacement) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
 };

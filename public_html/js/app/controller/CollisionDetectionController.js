@@ -11,6 +11,13 @@
 
 'use strict';
 
+var totalElementsToCheck = 0;
+var uniqueElementsToCheck = 0;
+var totalArrayExtends = 0;
+var getPotentialCollisionArrayForCircle_CALL_NUMBER = 1;
+
+var UNIQUE_EXTEND = true;
+
 var app = app || {};
 app.controller = app.controller || {};
 
@@ -38,10 +45,10 @@ app.controller.CollisionDetectionController = function CollisionDetectionControl
     this._mapModel = null;
 
     /**
-     * @property {Array} _collisionTree
+     * @property {Array} _collisionMap
      * @private
      */
-    this._collisionTree = null;
+    this._collisionMap = [];
 
     /**
      * @property {number} _mapWidth
@@ -93,11 +100,14 @@ app.controller.CollisionDetectionController.prototype.prepareObjectsGroups = fun
         endTileIndexY = 0,
         tileWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
         tileHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
-        maxTileIndexX = Math.ceil(this._mapModel.getMapGraphicModel().getMapWidth() / tileWidth),
         maxTileIndexY = Math.ceil(this._mapModel.getMapGraphicModel().getMapHeight() / tileHeight),
+        rowOffset = 0,
         selectedIndex = 0;
 
-    this._collisionTree = [];
+
+    this._collisionMap = [];
+    // this._collisionMap.length = 0;
+    // this._collisionMap.splice(0, this._collisionMap.length);
 
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
@@ -116,15 +126,18 @@ app.controller.CollisionDetectionController.prototype.prepareObjectsGroups = fun
         endTileIndexY = Math.floor((elementY + elementCollisionRadius) / tileHeight);
 
         for (tileIndexX = startTileIndexX; tileIndexX <= endTileIndexX; tileIndexX++) {
+
+            rowOffset = maxTileIndexY * tileIndexX;
+
             for (tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++) {
 
-                selectedIndex = maxTileIndexY * tileIndexX + tileIndexY;
+                selectedIndex = rowOffset + tileIndexY;
 
-                if (this._collisionTree[selectedIndex] === undefined) {
-                    this._collisionTree[selectedIndex] = [];
+                if (this._collisionMap[selectedIndex] === undefined) {
+                    this._collisionMap[selectedIndex] = [];
                 }
 
-                this._collisionTree[selectedIndex].push(element);
+                this._collisionMap[selectedIndex].push(element);
 
             }
         }
@@ -142,9 +155,10 @@ app.controller.CollisionDetectionController.prototype.prepareObjectsGroups = fun
  */
 app.controller.CollisionDetectionController.prototype.getPotentialCollisionArrayForCircle = function getPotentialCollisionArrayForCircle(x, y, collisionRadius, mask) {
 
+    getPotentialCollisionArrayForCircle_CALL_NUMBER += 1;
+
     var tileWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
         tileHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
-        maxTileIndexX = Math.ceil(this._mapModel.getMapGraphicModel().getMapWidth() / tileWidth),
         maxTileIndexY = Math.ceil(this._mapModel.getMapGraphicModel().getMapHeight() / tileHeight),
 
         startTileIndexX = Math.floor((x - collisionRadius) / tileWidth),
@@ -159,12 +173,32 @@ app.controller.CollisionDetectionController.prototype.getPotentialCollisionArray
         for (var tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++) {
 
             selectedIndex = maxTileIndexY * tileIndexX + tileIndexY;
-            if (this._collisionTree[selectedIndex] !== undefined) {
-                result = result.concat(this._collisionTree[selectedIndex]);
+            if (this._collisionMap[selectedIndex] !== undefined) {
+
+                if (UNIQUE_EXTEND){
+                    result.extendUnique(this._collisionMap[selectedIndex], getPotentialCollisionArrayForCircle_CALL_NUMBER);
+                } else {
+                    result.extend(this._collisionMap[selectedIndex]);
+                }
+
+                // totalElementsToCheck += this._collisionMap[selectedIndex].length;
+                // totalArrayExtends += 1;
             }
 
         }
     }
+
+    // //UNIQUES CHECK
+    // var counts = {};
+    // for (var i = 0; i < result.length; i++) {
+    //     counts[result[i].getId()] = 1 + (counts[result[i].getId()] || 0);
+    //     if (counts[result[i].getId()] === 1) {
+    //         uniqueElementsToCheck++;
+    //     }
+    // }
+
+    // totalElementsToCheck += result.length;
+
 
     return result;
 };
@@ -242,10 +276,7 @@ app.controller.CollisionDetectionController.prototype.getCollisionArrayForCircle
 // };
 
 
-
-
 //OLD METHODS FROM MAP MODEL.. ADD UPDATE REMOVE ENTITIES FROM SPATIAL HASHES
-
 
 
 // /**

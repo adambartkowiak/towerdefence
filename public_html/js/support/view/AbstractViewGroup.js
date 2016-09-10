@@ -62,7 +62,7 @@ support.view.AbstractViewGroup.prototype.draw = function draw(canvas){
 
 /**
  * Metoda sluzaca do rozpropagowania eventu do widokow dzieci lub do siebie.
- * Kiedy nie ma wybranego targetu dla Eventu to onMouseEvent sa wywolywane dla kazdego elementu, ktory znajduje sie pod muszka.
+ * Kiedy nie ma wybranego targetu dla Eventu to onMouseEvent sa wywolywane dla kazdego elementu, ktory znajduje sie pod myszka.
  * Kiedy jest wybrany target event jest dostarczany do Targetu nawet kiedy nie jest juz pod myszka
  *
  * @method dispatchMouseEvent
@@ -94,7 +94,6 @@ support.view.AbstractViewGroup.prototype.dispatchMouseEvent = function dispatchM
         //eventPath
         if(support.geom.collision.Collision.Point2dRect(mousePoint, viewRect)){
             mouseEvent.addEventViewPath(view);
-            //console.log("-----" + view.constructor.name + "-----");
         }
         
         //targetView
@@ -102,11 +101,8 @@ support.view.AbstractViewGroup.prototype.dispatchMouseEvent = function dispatchM
             if(mouseEvent.getEventTargetViewPath().indexOf(view) !== -1){
                 mouseEvent.setLocalX(localX - view.getX());
                 mouseEvent.setLocalY(localY - view.getY());
-                
-                //dispatch dla ViewGrupy
-                dispatchResult = view.dispatchMouseEvent(mouseEvent);
-                
-                //dla Vidokow onMouseEvent
+
+                view.dispatchMouseEvent(mouseEvent);
             }
         }
         //no targte view check

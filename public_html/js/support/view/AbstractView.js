@@ -100,7 +100,7 @@ support.view.AbstractView.prototype.getY = function getY() {
  * @return {number} x
  */
 support.view.AbstractView.prototype.getRelativeX = function getRelativeX() {
-    if (this.getParentViewGroup() !== null){
+    if (this.getParentViewGroup() !== null) {
         return this.getParentViewGroup().getRelativeX() + this.getX();
     } else {
         return this.getX();
@@ -112,7 +112,7 @@ support.view.AbstractView.prototype.getRelativeX = function getRelativeX() {
  * @return {number} y
  */
 support.view.AbstractView.prototype.getRelativeY = function getRelativeY() {
-    if (this.getParentViewGroup() !== null){
+    if (this.getParentViewGroup() !== null) {
         return this.getParentViewGroup().getRelativeY() + this.getY();
     } else {
         return this.getY();
@@ -228,17 +228,17 @@ support.view.AbstractView.prototype.setMouseEventListener = function setMouseEve
  * @public
  * @param {HTMLCanvasElement} canvas
  */
-support.view.AbstractView.prototype.draw = function draw(canvas){
+support.view.AbstractView.prototype.draw = function draw(canvas) {
 
     var canvasContext = canvas.getContext("2d");
 
     //Rysowanie backgrounda widoku
-    if (this.getBackgroundColor() !== null){
+    if (this.getBackgroundColor() !== null) {
         canvasContext.fillStyle = this.getBackgroundColor();
         canvasContext.fillRect(this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
     }
 
-    if (this.getBackgroundImage() !== null){
+    if (this.getBackgroundImage() !== null) {
         canvasContext.drawImage(this.getBackgroundImage(), this.getRelativeX(), this.getRelativeY(), this.getWidth(), this.getHeight());
     }
 
@@ -254,19 +254,19 @@ support.view.AbstractView.prototype.draw = function draw(canvas){
  * @param {support.MouseEvent} mouseEvent
  * @return {boolean} true - widok uzywa eventu, false - widok nie uzywa eventu
  */
-support.view.AbstractView.prototype.dispatchMouseEvent = function dispatchMouseEvent(mouseEvent){
-    
+support.view.AbstractView.prototype.dispatchMouseEvent = function dispatchMouseEvent(mouseEvent) {
+
     var newMouseEvent = null;
-    
+
     //w ostatnim evencie nie bylo tego widoku - to znaczy ze myszka wjechala na ten widok
-    if (mouseEvent.getEventTargetView() === null && mouseEvent.getEventViewLastPath().indexOf(this) === -1){
+    if (mouseEvent.getEventTargetView() === null && mouseEvent.getEventViewLastPath().indexOf(this) === -1) {
         newMouseEvent = new support.MouseEvent(mouseEvent.getMouseEventHandler(), mouseEvent.getX(), mouseEvent.getY(), mouseEvent.getButtonCode(), support.MouseEventType.MOUSE_ENTER);
-        newMouseEvent.setLocalX( mouseEvent.getLocalX() );
-        newMouseEvent.setLocalY( mouseEvent.getLocalY() );
-        
+        newMouseEvent.setLocalX(mouseEvent.getLocalX());
+        newMouseEvent.setLocalY(mouseEvent.getLocalY());
+
         this.onMouseEvent(newMouseEvent);
     }
-    
+
     return this.onMouseEvent(mouseEvent);
 };
 
@@ -278,24 +278,23 @@ support.view.AbstractView.prototype.dispatchMouseEvent = function dispatchMouseE
  * @param {support.MouseEvent} mouseEvent
  * @return {boolean} true - event obsluzony przez widok, false - even przesylany dalej - nie zmienia logiki dispatch
  */
-support.view.AbstractView.prototype.onMouseEvent = function onMouseEvent(mouseEvent){
-    //console.log("-----" + this.constructor.name + "-----");
-    //console.log(mouseEvent);
-    
+support.view.AbstractView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
+    // console.log("-----" + this.constructor.name + "-----");
+    // console.log(mouseEvent);
+
     var result = false;
-    
+
     mouseEvent.setCurrentlyVisitedView(this);
-    
-    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN){
+
+    if (mouseEvent.getMouseEventType() === support.MouseEventType.MOUSE_DOWN) {
         result = true;
-    } 
-    
-    if (this._mouseEventListener !== null){
+    }
+
+    if (this._mouseEventListener !== null) {
         result = this._mouseEventListener.onMouseEvent(mouseEvent);
     }
 
 
-    
     return result;
-    
+
 };

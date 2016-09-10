@@ -33,11 +33,11 @@ app.enum.FunctionEnum = {
     REPAIR: 106,
     RETURN_CARGO: 107,
     GATHER: 108,
-
+    MOVE_ATTACK: 109,
 
     //Entity Action - connected with building
-    START_BUILDING_BASE: 200,
-    BUILD_BASE: 201,
+    START_BUILD_BUILDING: 200,
+    BUILD_BUILDING: 201,
 
     //Entity Action - connected with training/production
     TRAIN_WORKER: 301,
@@ -45,10 +45,10 @@ app.enum.FunctionEnum = {
 
     //Set mouse functions
     SET_MOVE_ACTION: 400,
-    SET_ATTACK_ACTION: 401,
+    SET_MOVE_ATTACK_ACTION: 401,
     SET_PATROL_ACTION: 402,
     SET_GO_GATHER_ACTION: 403,
-    SET_BUILDING_BASE: 404,
+    SET_BUILD_BUILDING: 404,
 
     //Interface
     SHOW_CONSOLE_LOG: 500,

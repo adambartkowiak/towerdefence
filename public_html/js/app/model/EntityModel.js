@@ -41,6 +41,7 @@ app.model.EntityModel = function EntityModel() {
      * @private
      */
     this._currentStateId = "default";
+    this._currentStateModel = null;
 
     /**
      * Lista stanów entity
@@ -58,6 +59,13 @@ app.model.EntityModel = function EntityModel() {
      * @private
      */
     this._lastPosition = new support.geom.Point2d(0, 0);
+
+    /**
+     * Aktualna liczba punktow zycia jednostki
+     * @property {Number} _currentHp
+     * @private
+     */
+    this._currentHp = 0;
 
     /**
      * @property {Number} _angle
@@ -202,12 +210,6 @@ app.model.EntityModel = function EntityModel() {
     this._tempY = null;
 
     /**
-     * @property {Boolean} _rotateGraphicOnMove
-     * @privatedar
-     */
-    this._rotateGraphicOnMove = true;
-
-    /**
      * @property {app.listener.EntityListener} entityListener
      * @private
      */
@@ -230,6 +232,27 @@ app.model.EntityModel = function EntityModel() {
      * @private
      */
     this._amountOfCargo = 0;
+
+    /**
+     * @property {Number} _targetEntityId
+     * @private
+     */
+    this._targetEntityId = 0;
+
+    /**
+     * @property {app.model.EntityModel} _targetEntity
+     * @private
+     */
+    this._targetEntity = null;
+
+    /**
+     * @property {boolean} _toRemove
+     * @private
+     */
+    this._toRemove = false;
+
+    //PERFORMANCE TESTS TEMPORARTY!!!
+    this._checkId = -1;
 
 };
 
@@ -425,6 +448,38 @@ app.model.EntityModel.prototype.setTargetable = function setTargetable(value) {
 };
 
 /**
+ * @method setTargetEntityId
+ * @param {number} value
+ */
+app.model.EntityModel.prototype.setTargetEntityId = function setTargetEntityId(value) {
+    this._targetEntityId = value;
+};
+
+/**
+ * @method getTargetEntityId
+ * @return {number} targetEntityId
+ */
+app.model.EntityModel.prototype.getTargetEntityId = function getTargetEntityId() {
+    return this._targetEntityId;
+};
+
+/**
+ * @method setTargetEntity
+ * @param {app.model.EntityModel} value
+ */
+app.model.EntityModel.prototype.setTargetEntity = function setTargetEntity(value) {
+    this._targetEntity = value;
+};
+
+/**
+ * @method getTargetEntity
+ * @return {app.model.EntityModel} targetEntity
+ */
+app.model.EntityModel.prototype.getTargetEntity = function getTargetEntity() {
+    return this._targetEntity;
+};
+
+/**
  * @method setHoldPosition
  * @param {Boolean} value
  */
@@ -504,6 +559,11 @@ app.model.EntityModel.prototype.setGoldStorage = function setGoldStorage(value) 
  * @param {app.model.TaskModel} value
  */
 app.model.EntityModel.prototype.setTask = function setTask(value) {
+
+    if (!(value instanceof app.model.TaskModel)) {
+        throw "app.model.EntityModel.prototype.setTask. Setter value is not instanceof app.model.TaskModel";
+    }
+
     this._task = value;
 };
 
@@ -533,14 +593,6 @@ app.model.EntityModel.prototype.setTemporaryY = function setTemporaryY(value) {
 };
 
 /**
- * @method setRotateGraphicOnMove
- * @param {Boolean} value
- */
-app.model.EntityModel.prototype.setRotateGraphicOnMove = function setRotateGraphicOnMove(value) {
-    this._rotateGraphicOnMove = value;
-};
-
-/**
  * @method setGatherTime
  * @param {Number} value
  */
@@ -562,6 +614,22 @@ app.model.EntityModel.prototype.setCargoName = function setCargoName(name) {
  */
 app.model.EntityModel.prototype.setAmountOfCargo = function setAmountOfCargo(value) {
     this._amountOfCargo = value;
+};
+
+/**
+ * @method setToRemove
+ * @param {boolean} value
+ */
+app.model.EntityModel.prototype.setToRemove = function setToRemove(value) {
+    this._toRemove = value;
+};
+
+/**
+ * @method getToRemove
+ * @return {boolean} _toRemove
+ */
+app.model.EntityModel.prototype.getToRemove = function getToRemove() {
+    return this._toRemove;
 };
 
 
@@ -601,7 +669,12 @@ app.model.EntityModel.prototype.getCurrentStateId = function getCurrentStateId()
  * @return {String} stateId
  */
 app.model.EntityModel.prototype.setCurrentStateId = function setCurrentStateId(stateId) {
-    this._currentStateId = stateId;
+
+    if (this.getStateById(stateId) !== null) {
+        this._currentStateId = stateId;
+
+        this._currentStateModel = this.getEntityStateListModel().getElementById(this.getCurrentStateId());
+    }
 };
 
 /**
@@ -613,11 +686,21 @@ app.model.EntityModel.prototype.getEntityStateListModel = function getEntityStat
 };
 
 /**
+ * @method getStateById
+ * @return {app.model.EntityStateModel}
+ */
+app.model.EntityModel.prototype.getStateById = function getStateById(stateId) {
+    return this.getEntityStateListModel().getElementById(stateId);
+};
+
+/**
  * @method getCurrentEntityStateModel
  * @return {app.model.EntityStateModel} entityStateListModel
  */
 app.model.EntityModel.prototype.getCurrentEntityStateModel = function getCurrentEntityStateModel() {
-    return this.getEntityStateListModel().getElementById(this.getCurrentStateId());
+
+    return this._currentStateModel;
+    
 };
 
 /**
@@ -626,6 +709,22 @@ app.model.EntityModel.prototype.getCurrentEntityStateModel = function getCurrent
  */
 app.model.EntityModel.prototype.getRadius = function getRadius() {
     return this.getCurrentEntityStateModel().getRadius();
+};
+
+/**
+ * @method getViewRadius
+ * @return {Number} viewRadius
+ */
+app.model.EntityModel.prototype.getViewRadius = function getViewRadius() {
+    return this.getCurrentEntityStateModel().getViewRadius();
+};
+
+/**
+ * @method getSelectTargetRadius
+ * @return {Number} selectTargetRadius
+ */
+app.model.EntityModel.prototype.getSelectTargetRadius = function getSelectTargetRadius() {
+    return this.getCurrentEntityStateModel().getSelectTargetRadius();
 };
 
 /**
@@ -699,7 +798,15 @@ app.model.EntityModel.prototype.getHp = function getHp() {
  * @return {Number} currentHp
  */
 app.model.EntityModel.prototype.getCurrentHp = function getCurrentHp() {
-    return this.getCurrentEntityStateModel().getCurrentHp();
+    return this._currentHp;
+};
+
+/**
+ * @method setCurrentHp
+ * @param {Number} value
+ */
+app.model.EntityModel.prototype.setCurrentHp = function setCurrentHp(value) {
+    this._currentHp = value;
 };
 
 /**
@@ -907,7 +1014,7 @@ app.model.EntityModel.prototype.getTemporaryY = function getTemporaryY() {
  * @return {Boolean} rotateGraphicOnMove
  */
 app.model.EntityModel.prototype.getRotateGraphicOnMove = function getRotateGraphicOnMove() {
-    return this._rotateGraphicOnMove;
+    return this.getCurrentEntityStateModel().getRotateGraphicOnMove();
 };
 
 /**
@@ -933,8 +1040,6 @@ app.model.EntityModel.prototype.getCargoName = function getCargoName() {
 app.model.EntityModel.prototype.getAmountOfCargo = function getAmountOfCargo() {
     return this._amountOfCargo;
 };
-
-
 
 
 /*
@@ -982,10 +1087,6 @@ app.model.EntityModel.prototype.isVisibleOnMinimap = function isVisibleOnMinimap
 };
 
 
-
-
-
-
 /**
  * @method clone
  * @return {app.model.EntityModel} clone
@@ -1000,6 +1101,7 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._tempY = this._tempY;
     clone._currentStateId = this._currentStateId;
     clone._lastPosition = new support.geom.Point2d(this._lastPosition.getX(), this._lastPosition.getY());
+    clone._currentHp = this._currentHp;
     clone._angle = this._angle;
     clone._attackCooldown = this._attackCooldown;
     clone._constantBuild = this._constantBuild;
@@ -1024,6 +1126,9 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._entityStateListModel = this._entityStateListModel.clone();
     clone._moveList = this._moveList.clone();
     clone._buildList = this._buildList.clone();
+
+    //init
+    clone._currentStateModel =  clone.getEntityStateListModel().getElementById(clone.getCurrentStateId());
 
     return clone;
 };
@@ -1061,6 +1166,10 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
 
     if (JSON._lastPosition !== undefined && JSON._lastPosition._x !== undefined && JSON._lastPosition._y !== undefined) {
         this._lastPosition = new support.geom.Point2d(JSON._lastPosition._x, JSON._lastPosition._y);
+    }
+
+    if (JSON._currentHp !== undefined) {
+        this._currentHp = JSON._currentHp;
     }
 
     if (JSON._angle !== undefined) {
@@ -1147,6 +1256,9 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
         this._amountOfCargo = JSON._amountOfCargo;
     }
 
+    //init
+    this._currentStateModel =  this.getEntityStateListModel().getElementById(this.getCurrentStateId());
+
 };
 
 /**
@@ -1162,27 +1274,28 @@ app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
         4: this._currentStateId,
         5: this._entityStateListModel.getMinifyJSON(),
         6: this._lastPosition.getMinifyJSON(),
-        7: this._angle,
-        8: this._attackCooldown,
-        9: this._constantBuild,
-        a: this._buildTime,
-        b: this._currentBuildTime,
-        c: this._selected,
-        d: this._selectable,
-        e: this._targetable,
-        f: this._moveList.getMinifyJSON(),
-        g: this._buildList.getMinifyJSON(),
-        h: this._maxAmountOfWood,
-        i: this._currentAmountOfWood,
-        j: this._maxAmountOfGold,
-        k: this._currentAmountOfGold,
+        7: this._currentHp,
+        8: this._angle,
+        9: this._attackCooldown,
+        a: this._constantBuild,
+        b: this._buildTime,
+        c: this._currentBuildTime,
+        d: this._selected,
+        e: this._selectable,
+        f: this._targetable,
+        g: this._moveList.getMinifyJSON(),
+        h: this._buildList.getMinifyJSON(),
+        i: this._maxAmountOfWood,
+        j: this._currentAmountOfWood,
+        k: this._maxAmountOfGold,
+        l: this._currentAmountOfGold,
         m: this._woodStorage,
         n: this._goldStorage,
-        l: this._task.getMinifyJSON(),
-        o: this._rotateGraphicOnMove,
-        p: this._gatherTime,
-        r: this._cargoName,
-        s: this._amountOfCargo
+        o: this._task.getMinifyJSON(),
+        p: this._rotateGraphicOnMove,
+        r: this._gatherTime,
+        s: this._cargoName,
+        t: this._amountOfCargo
 
     };
 
@@ -1210,27 +1323,28 @@ app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON)
         _currentStateId: minifyJSON["4"],
         _entityStateListModel: entityStateListModel.unMinifyJSON(minifyJSON["5"]),
         _lastPosition: point2d.unMinifyJSON(minifyJSON["6"]),
-        _angle: minifyJSON["7"],
-        _attackCooldown: minifyJSON["8"],
-        _constantBuild: minifyJSON["g"],
-        _buildTime: minifyJSON["a"],
-        _currentBuildTime: minifyJSON["b"],
-        _selected: minifyJSON["c"],
-        _selectable: minifyJSON["d"],
-        _targetable: minifyJSON["e"],
-        _moveList: taskListModel.unMinifyJSON(minifyJSON["f"]),
-        _buildList: entityListModel.unMinifyJSON(minifyJSON["g"]),
-        _maxAmountOfWood: minifyJSON["h"],
-        _currentAmountOfWood: minifyJSON["i"],
-        _maxAmountOfGold: minifyJSON["j"],
-        _currentAmountOfGold: minifyJSON["k"],
+        _currentHp: minifyJSON["7"],
+        _angle: minifyJSON["8"],
+        _attackCooldown: minifyJSON["9"],
+        _constantBuild: minifyJSON["a"],
+        _buildTime: minifyJSON["b"],
+        _currentBuildTime: minifyJSON["c"],
+        _selected: minifyJSON["d"],
+        _selectable: minifyJSON["e"],
+        _targetable: minifyJSON["f"],
+        _moveList: taskListModel.unMinifyJSON(minifyJSON["g"]),
+        _buildList: entityListModel.unMinifyJSON(minifyJSON["h"]),
+        _maxAmountOfWood: minifyJSON["i"],
+        _currentAmountOfWood: minifyJSON["j"],
+        _maxAmountOfGold: minifyJSON["k"],
+        _currentAmountOfGold: minifyJSON["l"],
         _woodStorage: minifyJSON["m"],
         _goldStorage: minifyJSON["n"],
-        //_task: taskModel.unMinifyJSON(minifyJSON["z"])
-        _rotateGraphicOnMove: minifyJSON["o"],
-        _gatherTime: minifyJSON["p"],
-        _cargoName: minifyJSON["r"],
-        _amountOfCargo: minifyJSON["s"]
+        //_task: taskModel.unMinifyJSON(minifyJSON["o"])
+        _rotateGraphicOnMove: minifyJSON["p"],
+        _gatherTime: minifyJSON["r"],
+        _cargoName: minifyJSON["s"],
+        _amountOfCargo: minifyJSON["t"]
     };
     return result;
 };

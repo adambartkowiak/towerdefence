@@ -1,0 +1,15 @@
+{
+  "_graphicUrl": "assets/graphics/images/unit1_neutral.png",
+  "_graphicOffset": {
+    "_x": 0,
+    "_y": 0
+  },
+  "_radius": 15,
+  "_collisionRadius": 10,
+  "_groundSpeed": 140,
+  "_team": 0,
+  "_hp": 150,
+  "_currentHp": 150,
+  "_selectable": true,
+  "_targetable": true
+}

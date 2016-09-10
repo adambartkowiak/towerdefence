@@ -33,10 +33,10 @@ app.model.WorldModel = function WorldModel() {
      * @property {app.model.MapModel} _mapModel
      * @private
      */
-    this._mapModel = new app.model.MapModel(2000, 2000, 40, 40);
+    this._mapModel = new app.model.MapModel(2000, 2000, FEATURE_TOGGLE.COLISION_SQUARE_SIZE, FEATURE_TOGGLE.COLISION_SQUARE_SIZE);
 
-    var maxTileGraphicIndexX = 2000 / 40;
-    var maxTileGraphicIndexY = 2000 / 40;
+    var maxTileGraphicIndexX = 2000 / FEATURE_TOGGLE.COLISION_SQUARE_SIZE;
+    var maxTileGraphicIndexY = 2000 / FEATURE_TOGGLE.COLISION_SQUARE_SIZE;
 
     for (var x = 0; x < maxTileGraphicIndexX; x++) {
         for (var y = 0; y < maxTileGraphicIndexY; y++) {
@@ -383,7 +383,7 @@ app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) 
 
     var entityListModel = new app.model.EntityListModel(),
         cameraModel = new app.model.CameraModel(0, 0, 0, 0),
-        mapModel = new app.model.MapModel(200, 200, 40, 40),
+        mapModel = new app.model.MapModel(200, 200, FEATURE_TOGGLE.COLISION_SQUARE_SIZE, FEATURE_TOGGLE.COLISION_SQUARE_SIZE),
         triggerListModel = new app.model.TriggerListModel();
 
     var result = {

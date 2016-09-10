@@ -1,78 +1,155 @@
 /**
- * Created by adambartkowiak on 31/07/15.
+ * Created by adambartkowiak on 18/08/16.
  */
 
-//Jest odpowiedzialny za strzelanie
+'use strict';
 
+var app = app || {};
+app.controller = app.controller || {};
+
+var Utils = Utils || {};
 
 /**
- * @method tryShotToEnemy
+ * @namespace app.controller
+ * @class AttackController
+ * @constructor
+ * @param {app.model.EntityListModel} listModel
+ * @param {app.controller.CollisionDetectionController} collisionDetectionController
+ *
  */
-app.managers.TowerManager.prototype.tryShotToEnemy = function tryShotToEnemy() {
+app.controller.AttackController = function AttackController(entityListModel, collisionDetectionController) {
 
-    var towerLength = this._towerList.length();
-    var enemyLength = this._enemyList.length();
-    var towerIndex;
-    var enemyIndex;
-    var tower;
-    var enemy;
-    var moveVector;
+    /**
+     * @property {app.model.EntityListModel} _list
+     * @private
+     */
+    this._list = entityListModel;
 
-    for (towerIndex = 0; towerIndex < towerLength; towerIndex++) {
-
-        tower = this._towerList.getTower(towerIndex);
-
-        for (enemyIndex = 0; enemyIndex < enemyLength; enemyIndex++) {
-
-            enemy = this._enemyList.getEnemy(enemyIndex);
-
-            moveVector = new support.geom.SimpleVector2d(enemy.getX() - tower.getX(), enemy.getY() - tower.getY());
-
-            if (moveVector.getVectorLength() < tower.getRange() * worldModel.SIZEPROPORTION) {
-
-                var normalizedVector = moveVector.getNormalizedVector();
-                tower.setAngle(Math.atan2(normalizedVector.getY(), normalizedVector.getX()) * 180 / Math.PI + 90);
-
-                if (tower.getCooldown() === 0) {
-                    var bulletTemplate = tower.getBullet();
-                    var target = new app.objects.Target(0, 0, enemy.getGuid());
-                    var bullet = new app.objects.Bullet(tower.getX(), tower.getY(), target, bulletTemplate.getSpeed(), bulletTemplate.getDamage(), bulletTemplate.getGraphicUrl());
-                    this._bulletList.addBullet(bullet);
-                    tower.setCooldown(tower.getRate());
-                }
-                //jezeli przeciwnik jest w zasiegu - to juz nie sprawdza kolejnych przeciwnikow.
-                //bo albo odda strzal albo nie.
-                break;
-            }
-        }
-    }
-
+    /**
+     * @property {app.controller.CollisionDetectionController} collisionDetectionController
+     * @private
+     */
+    this._collisionDetectionController = collisionDetectionController;
 };
 
-
+Utils.inherits(app.controller.AttackController, Object);
 
 /**
- * @method cooldownTimer
+ * @method update
  * @param {Number} timeDelta
  */
-app.managers.TowerManager.prototype.cooldownTimer = function cooldownTimer(timeDelta) {
+app.controller.AttackController.prototype.update = function update(timeDelta) {
 
-    var length = this._towerList.length();
-    var towerIndex;
-    var tower;
-    var cooldownValue;
+    //Tutaj by bardzo duzego busta by dalo podzielenie entity na teamy juz na poziomie kolizji.
+    //Aby w ogole nie rozpatrywac entity z tego samego teamu...
 
-    for (towerIndex = 0; towerIndex < length; towerIndex++) {
+    var listLength = this._list.length(),
+        elementIndex,
+        element,
+        c1 = new support.geom.Circle(0, 0, 0),
+        c2 = new support.geom.Circle(0, 0, 0),
+        entityAttackModel = null,
+        entityAttackModelIndex = 0,
+        entityAttackListModel = null,
+        entityAttackListModelLength = 0,
+        targetEntity = null,
+        bulletEntity = null,
+        isTargetInAttackRange = false,
+        circleCircleCollisionResult = 0,
+        squareDistanceToTarget = 0,
+        squareMinDistance = 0,
+        squareMaxDistance = 0;
 
-        tower = this._towerList.getTower(towerIndex);
 
-        cooldownValue = tower.getCooldown();
-        cooldownValue -= timeDelta;
+    for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
-        if (cooldownValue < 0) {
-            cooldownValue = 0;
+        element = this._list.getElement(elementIndex);
+        element.setAttackCooldown(element.getAttackCooldown() - timeDelta);
+
+        if (element.getTargetEntity() === null || element.getAttackCooldown() > 0) {
+            continue;
+        } else {
+
+            entityAttackListModel = element.getCurrentEntityStateModel().getEntityAttackListModel();
+            entityAttackListModelLength = entityAttackListModel.length();
+
+            targetEntity = element.getTargetEntity();
+
+            c1.setX(element.getX());
+            c1.setY(element.getY());
+            c1.setRadius(element.getCollisionRadius() + element.getSelectTargetRadius());
+
+            c2.setX(targetEntity.getX());
+            c2.setY(targetEntity.getY());
+            c2.setRadius(targetEntity.getCollisionRadius());
+
+            circleCircleCollisionResult = support.geom.collision.Collision.CircleCircleFastWithDistanceSquer(c1, c2)
+            squareDistanceToTarget = circleCircleCollisionResult.sd;
+
+
+            //check entity attacks
+            for (entityAttackModelIndex = 0; entityAttackModelIndex < entityAttackListModelLength; entityAttackModelIndex++) {
+
+                entityAttackModel = entityAttackListModel.getElement(entityAttackModelIndex);
+
+                //min/max range
+                if (entityAttackModel.getMinRange() > 0) {
+                    squareMinDistance = Math.pow(element.getCollisionRadius() + targetEntity.getCollisionRadius() + entityAttackModel.getMinRange(), 2);
+                } else {
+                    squareMinDistance = 0;
+                }
+
+                squareMaxDistance = Math.pow(element.getCollisionRadius() + targetEntity.getCollisionRadius() + entityAttackModel.getMaxRange(), 2);
+
+
+                //isTargetInAttackRange
+                if (squareDistanceToTarget >= squareMinDistance &&
+                    squareDistanceToTarget <= squareMaxDistance) {
+                    isTargetInAttackRange = true;
+                } else {
+                    isTargetInAttackRange = false;
+                }
+
+                //range
+                if (isTargetInAttackRange) {
+
+                    if (entityAttackModel.getCreateBullet()) {
+                        bulletEntity = entityAttackModel.getBulletEntityModel().clone();
+                        bulletEntity.setStartValueX(element.getX());
+                        bulletEntity.setStartValueY(element.getY());
+                        bulletEntity.setCurrentHp(1);
+                        bulletEntity.getCurrentEntityStateModel().setRotateGraphicOnMove(true);
+
+                        bulletEntity.setTask(new app.model.TaskModel(0, 0, 25, targetEntity.getId(), app.enum.FunctionEnum.ATTACK));
+
+                        bulletEntity.setMoveList(new app.model.ListModel());
+                        bulletEntity.getMoveList().addElement(new app.model.TaskModel(0, 0, 25, targetEntity.getId(), app.enum.FunctionEnum.ATTACK));
+
+                        bulletEntity.setTargetEntity(targetEntity);
+
+                        this._list.addElement(bulletEntity);
+
+                    } else {
+                        targetEntity.setCurrentHp(targetEntity.getCurrentHp() - entityAttackModel.getDamage());
+
+                        if (element.getCurrentEntityStateModel().getRemoveAfterHit()) {
+                            element.setToRemove(true);
+                        }
+
+                    }
+
+                    element.setAttackCooldown(entityAttackModel.getRate());
+
+                    break;
+                }
+
+            }
+
+
         }
 
-        tower.setCooldown(cooldownValue);
+
     }
+
+
 };

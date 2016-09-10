@@ -45,40 +45,40 @@ app.view.gui.EntityStatusView.prototype.draw = function draw(canvas){
 
     support.view.AbsoluteLayoutView.prototype.draw.call(this, canvas);
 
-    var parentX = 0,
-        parentY = 0;
-
-    if (this.getParentViewGroup() !== null){
-        parentX = this.getParentViewGroup().getX();
-        parentY = this.getParentViewGroup().getY();
-    }
-
-    var canvasContext = canvas.getContext("2d");
-
-    canvasContext.fillStyle = "rgba(255, 255, 255, 1)"
-    canvasContext.fillText("app.view.gui.EntityStatusView", parentX + this.getX(), parentY + this.getY());
-
-    canvasContext.fillText("count: " + this._entityListModel.length(), parentX + this.getX(), parentY + this.getY() + 20);
-
-    if (this._entityListModel.length() === 1){
-
-        var entity = this._entityListModel.getElement(0);
-
-        //draw loading bar
-        canvasContext.beginPath();
-        canvasContext.strokeStyle = '#FFFFFF';
-        canvasContext.rect(parentX + this.getX() + 50, parentY + this.getY()+50, 400, 20);
-        canvasContext.stroke();
-
-        if (entity.getBuildList() !== null && entity.getBuildList().length() > 0){
-
-            var buildingEntity = entity.getBuildList().getElement(0);
-
-            canvasContext.fillRect(parentX + this.getX() + 50, parentY + this.getY()+50, buildingEntity.getCurrentBuildTime()/buildingEntity.getBuildTime() *400, 20);
-
-        }
-
-    }
+    // var parentX = 0,
+    //     parentY = 0;
+    //
+    // if (this.getParentViewGroup() !== null){
+    //     parentX = this.getParentViewGroup().getX();
+    //     parentY = this.getParentViewGroup().getY();
+    // }
+    //
+    // var canvasContext = canvas.getContext("2d");
+    //
+    // canvasContext.fillStyle = "rgba(255, 255, 255, 1)"
+    // canvasContext.fillText("app.view.gui.EntityStatusView", parentX + this.getX(), parentY + this.getY());
+    //
+    // canvasContext.fillText("count: " + this._entityListModel.length(), parentX + this.getX(), parentY + this.getY() + 20);
+    //
+    // if (this._entityListModel.length() === 1){
+    //
+    //     var entity = this._entityListModel.getElement(0);
+    //
+    //     //draw loading bar
+    //     canvasContext.beginPath();
+    //     canvasContext.strokeStyle = '#FFFFFF';
+    //     canvasContext.rect(parentX + this.getX() + 50, parentY + this.getY()+50, 400, 20);
+    //     canvasContext.stroke();
+    //
+    //     if (entity.getBuildList() !== null && entity.getBuildList().length() > 0){
+    //
+    //         var buildingEntity = entity.getBuildList().getElement(0);
+    //
+    //         canvasContext.fillRect(parentX + this.getX() + 50, parentY + this.getY()+50, buildingEntity.getCurrentBuildTime()/buildingEntity.getBuildTime() *400, 20);
+    //
+    //     }
+    //
+    // }
 
 };
 

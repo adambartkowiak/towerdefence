@@ -104,14 +104,14 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
             if (this._commandController.getAction() !== null) {
 
                 if (this._worldModel.getSelectedEntityListModel().length() > 0) {
-                    listLength = this._worldModel.getEntityListModel().length();
+                    listLength = this._worldModel.getSelectedEntityListModel().length();
                     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
-                        element = this._worldModel.getEntityListModel().getElement(elementIndex);
+                        element = this._worldModel.getSelectedEntityListModel().getElement(elementIndex);
 
-                        if (element.getSelected() && element.getTeam() === 1) {
+                        //if (element.getSelected() && element.getTeam() === 1) {
                             this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, this._commandController.getAction());
-                        }
+                        //}
 
                     }
                 }
@@ -121,9 +121,9 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
                 this._worldModel.setSelectRect(selectedRect);
 
                 //DESELECT ALL
-                listLength = this._worldModel.getEntityListModel().length();
+                listLength = this._worldModel.getSelectedEntityListModel().length();
                 for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
-                    element = this._worldModel.getEntityListModel().getElement(elementIndex);
+                    element = this._worldModel.getSelectedEntityListModel().getElement(elementIndex);
                     element.setSelected(false);
                 }
 
@@ -140,14 +140,14 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
         if (mouseEvent.getButtonCode() === 2) {
 
             if (this._worldModel.getSelectedEntityListModel().length() > 0) {
-                listLength = this._worldModel.getEntityListModel().length();
+                listLength = this._worldModel.getSelectedEntityListModel().length();
                 for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
-                    element = this._worldModel.getEntityListModel().getElement(elementIndex);
+                    element = this._worldModel.getSelectedEntityListModel().getElement(elementIndex);
 
-                    if (element.getSelected() && element.getTeam() === 1) {
+                    //if (element.getSelected() && element.getTeam() === 1) {
                         this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, app.enum.FunctionEnum.MOVE);
-                    }
+                    //}
 
                 }
             }

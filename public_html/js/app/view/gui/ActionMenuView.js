@@ -74,7 +74,7 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
 
     //go to node
     elements = this._actionMenuModel.getElements();
-    for (i = 0; i<currentElementsPath.length; i++){
+    for (i = 0; i < currentElementsPath.length; i++) {
         elements = elements[currentElementsPath[i]];
     }
 
@@ -85,7 +85,7 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
         if (elements[i] !== undefined) {
             view.setText(elements[i].text);
 
-            if (elements[i].icon){
+            if (elements[i].icon) {
                 view._image = new Image();
                 view._image.src = elements[i].icon;
             } else {
@@ -96,8 +96,10 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
             var command = null;
             var elementAction = elements[i].action;
             var elementActionType = null;
+            var taskEntityModel = null;
 
-            if (!!elementAction){
+
+            if (!!elementAction) {
                 //action type is 2 argument
                 elementActionType = elementAction[2];
             }
@@ -111,23 +113,27 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
                 command = new app.command.ActionMenuUpdateMenuCommand(this, this._actionMenuModel, newPathArray);
             } else if (elementActionType === app.enum.FunctionEnum.SET_MOVE_ACTION) {
                 command = new app.command.SetMoveCommandOnCommandController(this._commandController);
-            }  else if (elementActionType === app.enum.FunctionEnum.SET_PATROL_ACTION) {
+            } else if (elementActionType === app.enum.FunctionEnum.SET_MOVE_ATTACK_ACTION) {
+                command = new app.command.SetMoveAttackCommandOnCommandController(this._commandController);
+            } else if (elementActionType === app.enum.FunctionEnum.SET_PATROL_ACTION) {
                 command = new app.command.SetPatrolCommandOnCommandController(this._commandController);
-            }  else if (elementActionType === app.enum.FunctionEnum.SET_GO_GATHER_ACTION) {
+            } else if (elementActionType === app.enum.FunctionEnum.SET_GO_GATHER_ACTION) {
                 command = new app.command.SetGatherCommandOnCommandController(this._commandController);
             } else if (elementActionType === app.enum.FunctionEnum.CANCEL) {
                 command = new app.command.CancelCommand(this._entityListModel);
             } else if (elementActionType === app.enum.FunctionEnum.HOLD) {
                 command = new app.command.HoldCommand(this._entityListModel);
-            } else if (elementActionType === app.enum.FunctionEnum.SET_BUILDING_BASE) {
-                command = new app.command.SetBuildBaseCommandOnCommandController(this._commandController);
+            } else if (elementActionType === app.enum.FunctionEnum.SET_BUILD_BUILDING) {
+                taskEntityModel = new app.model.EntityModel();
+                taskEntityModel.loadFromJSON(JSON.parse(elementAction[3]));
+                command = new app.command.SetBuildBuildingCommandOnCommandController(this._commandController, taskEntityModel);
             } else if (elementActionType === app.enum.FunctionEnum.TRAIN_WORKER) {
                 command = new app.command.TrainWorkerCommand(this._entityListModel);
             } else if (elementActionType === app.enum.FunctionEnum.TRAIN_WARRIOR) {
                 command = new app.command.TrainWarriorCommand(this._entityListModel);
             }
 
-            if (command !== null){
+            if (command !== null) {
                 commandMouseEventListener = new app.view.mouseEventListener.CommandMouseEventListener(command);
             }
             view.setMouseEventListener(commandMouseEventListener);

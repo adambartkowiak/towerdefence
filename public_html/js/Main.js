@@ -319,7 +319,7 @@ if (loadFromWebservice) {
 
 
 
-//EVENTY MYSZKI
+//MOUSE + MOUSE HANDEL
 var mouseHandler = new app.mouseHandler.MouseEventHandler("map");
 var mouse = new support.Mouse(mouseHandler);
 mouse.initMouse();
@@ -338,9 +338,10 @@ var collisionRepulsionController = new app.controller.CollisionRepulsionControll
 var commandController = new app.controller.CommandController();
 var waypointCollisionDetectionController = new app.controller.WaypointCollisionDetectionController(entityListModel, waypointCollisionListModel);
 var waypointCollisionReactionController = new app.controller.WaypointCollisionReactionController(worldModel, entityListModel, waypointCollisionListModel);
+var attackController = new app.controller.AttackController(entityListModel, collisionDetectionController);
+var removeEntityController = new app.controller.RemoveEntityController(entityListModel);
 
-
-//WIDOKI
+//VIEWS
 var rootView = new support.view.RootView(canvas, mouseHandler);
 var worldView = new app.view.WorldView(worldModel, 0, 0, rootView.getWidth(), rootView.getHeight(), commandController);
 
@@ -406,7 +407,7 @@ hudButtonMenu.setBackgroundImage(hudLabelMenuBackgroundImage);
 hudButtonMenu.setText("MENU");
 
 
-//DODAWANIE WIDOKOW DO ROOT VIEW
+//ADDING VIEWS TO ROOT VIEW
 rootView.addView(worldView);
 rootView.addView(minimapView);
 rootView.addView(actionMenuView);
@@ -420,92 +421,96 @@ rootView.addView(hudButtonMenu);
 //LOGIKA GRY
 var logicFrames = 0;
 var totalTimeDelta = 0;
+var physicStepInMilis = 1000.0/60.0;
+var deltaTimeLeft = 0;
 
-var logicFunction = function () {
+var logicFunction = function (timeDelta) {
 
     //Nie wchodz do petli przed zaladowaniem mapy
     if (!mapIsReady) {
         return;
     }
 
+    var localTimeDelta = timeDelta + deltaTimeLeft;
+    var currentIntervalDelta = localTimeDelta;
 
-    timer.updateDelta();
+    deltaTimeLeft = 0;
 
-    if (timer.getDelta() === 0) {
-        return;
-    }
+    while(localTimeDelta > 0){
 
-    totalTimeDelta += timer.getDelta();
+        if (localTimeDelta >= physicStepInMilis){
+            localTimeDelta -= physicStepInMilis;
+            currentIntervalDelta = physicStepInMilis;
+        } else {
+            deltaTimeLeft = localTimeDelta;
+            break;
+        }
 
-    //Update mapy kolizji
-    //update collision map - for optymalization porpouse
-    collisionDetectionController.prepareObjectsGroups(worldModel.getMapModel());
-    //check collision
+        //Update mapy kolizji
+        //update collision map - for optymalization porpouse
+        collisionDetectionController.prepareObjectsGroups(worldModel.getMapModel());
 
+        //TWORZENIE OBIEKTOW
+        /*
+         buildUnits - entitys ktore sa jednostkami
+         buildBuildings - entytis ktore sa budynkami
+         buildBullets - entytis ktore sa pociskami
+         */
+        selectTargetController.update(currentIntervalDelta);
+        buildController.update(currentIntervalDelta);
+        //createEntityController.update();
+        //shotController.update();
 
-    //react on collision
+        //Atakowanie
+        attackController.update(currentIntervalDelta);
 
-    //raport collision to
-
-
-
-
-    //TWORZENIE OBIEKTOW
-    /*
-     buildUnits - entitys ktore sa jednostkami
-     buildBuildings - entytis ktore sa budynkami
-     buildBullets - entytis ktore sa pociskami
-     */
-    selectTargetController.update(timer.getDelta());
-    buildController.update(timer.getDelta());
-    //createEntityController.update();
-    //shotController.update();
-
-    //ROZPYCHANIE OBIEKTÓW
-    /*
-    rozpychanie obiektów jeżeli na siebie nachodzą
-     */
-    collisionRepulsionController.update(timer.getDelta());
-
-
-    //PORUSZANIE OBIEKTAMI
-    /*
-     poruszanie jednostkami
-     poruszanie pociskami
-     */
-    moveController.update(timer.getDelta(), worldModel.getMapModel());
+        //ROZPYCHANIE OBIEKTÓW
+        /*
+         rozpychanie obiektów jeżeli na siebie nachodzą
+         */
+        collisionRepulsionController.update(currentIntervalDelta);
 
 
-    //POSTEPY ZBIERANIA SUROWCOW + ZAKANCZANIE ZBIERANIA SUROWCOW
-    gatherController.update(timer.getDelta());
-
-    //WYKRYWANIE KOLIZJI
-    /*
-     sprawdzanie chodzenia jednostek - czy juz doszla do punktu przeznaczenia
-     sprawdzenia kolizji miedzy entytis
-     tworzenie listy kolizji ktora zaszla w tym przebiegu petli
-     */
-    waypointCollisionDetectionController.update();
+        //PORUSZANIE OBIEKTAMI
+        /*
+         poruszanie jednostkami
+         poruszanie pociskami
+         */
+        moveController.update(currentIntervalDelta, worldModel.getMapModel());
 
 
-    //REAKCJA NA KOLIZJE
-    /*
-     modul reagowania na kolizje dotarcia do celu
-     Dotarcie do celu jest wejscie na waypoint, ale waypointem tez moze byc dotarcie pocisku
-     do przeciwnika - czyli kolizja trafienia.
-     delegowanie o kolizji do wyspecjalizowanych modulow
-     */
-    waypointCollisionReactionController.update(); //deleguje obsluge kolizji do wyspecyjalizowanych modulow
+        //POSTEPY ZBIERANIA SUROWCOW + ZAKANCZANIE ZBIERANIA SUROWCOW
+        gatherController.update(currentIntervalDelta);
+
+        //WYKRYWANIE KOLIZJI
+        /*
+         sprawdzanie chodzenia jednostek - czy juz doszla do punktu przeznaczenia
+         sprawdzenia kolizji miedzy entytis
+         tworzenie listy kolizji ktora zaszla w tym przebiegu petli
+         */
+        waypointCollisionDetectionController.update();
 
 
-    //SPRZATANIE PO PETLI
-    /*
-     kasowanie entytis, ktore juz nie sa potrzebne - np. jednostki ktore maja 0 hp.
-     */
-    //TODO: Dokodzic!!
+        //REAKCJA NA KOLIZJE
+        /*
+         modul reagowania na kolizje dotarcia do celu
+         Dotarcie do celu jest wejscie na waypoint, ale waypointem tez moze byc dotarcie pocisku
+         do przeciwnika - czyli kolizja trafienia.
+         delegowanie o kolizji do wyspecjalizowanych modulow
+         */
+        waypointCollisionReactionController.update(); //deleguje obsluge kolizji do wyspecyjalizowanych modulow
 
 
-    waypointCollisionListModel.clear();
+        //SPRZATANIE PO PETLI
+        /*
+         kasowanie entytis, ktore juz nie sa potrzebne - np. jednostki ktore maja 0 hp.
+         */
+        removeEntityController.update(currentIntervalDelta);
+
+
+        waypointCollisionListModel.clear();
+
+    };
 
     //Update HUD
     hudLabelGold.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["gold"]);
@@ -525,7 +530,11 @@ setTimeout(mainDraw, 100);
 
 //RENDEROWANIE
 function mainDraw() {
-    logicFunction();
+
+    timer.updateDelta();
+    totalTimeDelta += timer.getDelta();
+
+    logicFunction(timer.getDelta());
     rootView.draw();
 
     window.requestAnimationFrame(mainDraw);

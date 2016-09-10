@@ -346,38 +346,38 @@ support.view.MinimapView.prototype.draw = function draw(canvas) {
         elementIndex,
         elementIndexMax = this._elements.length,
         elementSizeOnMinimap;
-
-    //Rysowanie mapy na minimapie
-    //canvasContext.fillStyle = this.getMapColor();
-    //canvasContext.fillRect(miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap, Math.round(mapWidthOnMinimap), Math.round(mapHeightOnMinimap));
-
-    //Rysowanie backgroundu Widoku
-    if (this.getMapImage()){
-        canvasContext.drawImage(this.getMapImage(), miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap);
-    }
-
-    //Rysowanie obiektow na minimapie
-    for (elementIndex = 0; elementIndex < elementIndexMax; elementIndex++) {
-        element = this._elements[elementIndex];
-
-        var posXonMinimap = Math.round(mapXOnMinimap + element.getPositionXonMap() * miniMapScaleWidth);
-        var posYonMinimap = Math.round(mapYOnMinimap + element.getPositionYonMap() * miniMapScaleHeight);
-
-        elementSizeOnMinimap = Math.ceil(element.getRadiusOnMap() * miniMapScaleWidth);
-
-        //if (element.getTeam() === 1) {
-        //    canvasContext.fillStyle = element.getColorOnMinimap();
-        //    canvasContext.fillRect(miniMapPositionX + posXonMinimap - elementSizeOnMinimap / 2, miniMapPositionY + posYonMinimap - elementSizeOnMinimap / 2, elementSizeOnMinimap, elementSizeOnMinimap);
-        //} else if (element.getTeam() === 2) {
-        //    canvasContext.fillStyle = element.getColorOnMinimap();
-        //    canvasContext.fillRect(miniMapPositionX + posXonMinimap - elementSizeOnMinimap / 2, miniMapPositionY + posYonMinimap - elementSizeOnMinimap / 2, elementSizeOnMinimap, elementSizeOnMinimap);
-        //}
-
-        canvasContext.fillStyle = element.getColorOnMinimap();
-        canvasContext.fillRect(miniMapPositionX + posXonMinimap - elementSizeOnMinimap / 2, miniMapPositionY + posYonMinimap - elementSizeOnMinimap / 2, elementSizeOnMinimap, elementSizeOnMinimap);
-
-    }
-
+    //
+    // //Rysowanie mapy na minimapie
+    // //canvasContext.fillStyle = this.getMapColor();
+    // //canvasContext.fillRect(miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap, Math.round(mapWidthOnMinimap), Math.round(mapHeightOnMinimap));
+    //
+    // //Rysowanie backgroundu Widoku
+    // if (this.getMapImage()){
+    //     canvasContext.drawImage(this.getMapImage(), miniMapPositionX + mapXOnMinimap, miniMapPositionY + mapYOnMinimap);
+    // }
+    //
+    // //Rysowanie obiektow na minimapie
+    // for (elementIndex = 0; elementIndex < elementIndexMax; elementIndex++) {
+    //     element = this._elements[elementIndex];
+    //
+    //     var posXonMinimap = Math.round(mapXOnMinimap + element.getPositionXonMap() * miniMapScaleWidth);
+    //     var posYonMinimap = Math.round(mapYOnMinimap + element.getPositionYonMap() * miniMapScaleHeight);
+    //
+    //     elementSizeOnMinimap = Math.ceil(element.getRadiusOnMap() * miniMapScaleWidth);
+    //
+    //     //if (element.getTeam() === 1) {
+    //     //    canvasContext.fillStyle = element.getColorOnMinimap();
+    //     //    canvasContext.fillRect(miniMapPositionX + posXonMinimap - elementSizeOnMinimap / 2, miniMapPositionY + posYonMinimap - elementSizeOnMinimap / 2, elementSizeOnMinimap, elementSizeOnMinimap);
+    //     //} else if (element.getTeam() === 2) {
+    //     //    canvasContext.fillStyle = element.getColorOnMinimap();
+    //     //    canvasContext.fillRect(miniMapPositionX + posXonMinimap - elementSizeOnMinimap / 2, miniMapPositionY + posYonMinimap - elementSizeOnMinimap / 2, elementSizeOnMinimap, elementSizeOnMinimap);
+    //     //}
+    //
+    //     canvasContext.fillStyle = element.getColorOnMinimap();
+    //     canvasContext.fillRect(miniMapPositionX + posXonMinimap - elementSizeOnMinimap / 2, miniMapPositionY + posYonMinimap - elementSizeOnMinimap / 2, elementSizeOnMinimap, elementSizeOnMinimap);
+    //
+    // }
+    //
     //viewPort na minimapie
     canvasContext.beginPath();
     canvasContext.strokeStyle = this.getViewPortColor();

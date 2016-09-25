@@ -49,6 +49,7 @@ Utils.inherits(app.controller.CollisionRepulsionController, Object);
 /**
  * @method update
  * @param {Number} timeDelta
+ * @param {Number} logicLoopNumber
  */
 app.controller.CollisionRepulsionController.prototype.update = function update(timeDelta) {
 
@@ -146,7 +147,7 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
     }
 
     //update modyfied entities
-    this._updateEntitiesPosition(this._entitiesToUpdate);
+    // this._updateEntitiesPosition(this._entitiesToUpdate);
 
 };
 
@@ -190,27 +191,27 @@ app.controller.CollisionRepulsionController.prototype._handleReactionOnCollision
     element.setTemporaryX(element.getTemporaryX() - maxMoveX);
     element.setTemporaryY(element.getTemporaryY() - maxMoveY);
 
-    entitiesToUpdate[element.getId()] = element;
+    // entitiesToUpdate[element.getId()] = element;
 };
 
-/**
- * @method _updateEntitiesPosition
- * @param {Array} entitiesToUpdate
- */
-app.controller.CollisionRepulsionController.prototype._updateEntitiesPosition = function _updateEntitiesPosition(entitiesToUpdate){
-    var updateTempIndex,
-        updateTempMax = entitiesToUpdate.length,
-        entityToUpdate;
-
-    for (updateTempIndex = 0; updateTempIndex<updateTempMax; updateTempIndex++){
-        entityToUpdate = entitiesToUpdate[updateTempIndex];
-
-        if (!!entityToUpdate){
-            entityToUpdate.setX(entityToUpdate.getTemporaryX());
-            entityToUpdate.setY(entityToUpdate.getTemporaryY());
-        }
-    }
-};
+// /**
+//  * @method _updateEntitiesPosition
+//  * @param {Array} entitiesToUpdate
+//  */
+// app.controller.CollisionRepulsionController.prototype._updateEntitiesPosition = function _updateEntitiesPosition(entitiesToUpdate){
+//     var updateTempIndex,
+//         updateTempMax = entitiesToUpdate.length,
+//         entityToUpdate;
+//
+//     for (updateTempIndex = 0; updateTempIndex<updateTempMax; updateTempIndex++){
+//         entityToUpdate = entitiesToUpdate[updateTempIndex];
+//
+//         if (!!entityToUpdate){
+//             entityToUpdate.setX(entityToUpdate.getTemporaryX(), null, logicLoopNumber);
+//             entityToUpdate.setY(entityToUpdate.getTemporaryY(), null, logicLoopNumber);
+//         }
+//     }
+// };
 
 
 /**

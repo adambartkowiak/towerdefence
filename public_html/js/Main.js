@@ -33,9 +33,9 @@ if (loadFromFile) {
 
     app.loadGameSave = function loadGameSave(saveGameName) {
         saveGameLoader.loadJson(function (response) {
-            mapIsReady =  app.loadGameFromMinifyString(response);
+            mapIsReady = app.loadGameFromMinifyString(response);
 
-            if (!mapIsReady){
+            if (!mapIsReady) {
                 return;
             }
 
@@ -49,21 +49,21 @@ if (loadFromFile) {
             for (var i = 0; i < graphicLength; i++) {
 
                 graphicPath = worldModel.getMapModel().getMapGraphicModel().getTileArray()[i][0];
-                if (graphicPath){
+                if (graphicPath) {
                     graphicPath = graphicPath.src;
                 }
 
-                if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined){
+                if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined) {
                     console.log(graphicPath);
                     graphicsBuffor.load(graphicPath);
                 }
 
                 graphicPath = worldModel.getMapModel().getMapGraphicModel().getTileArray()[i][1];
-                if (graphicPath){
+                if (graphicPath) {
                     graphicPath = graphicPath.src;
                 }
 
-                if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined){
+                if (graphicPath !== null && graphicsBuffor.get(graphicPath) === undefined) {
                     console.log(graphicPath);
                     graphicsBuffor.load(graphicPath);
                 }
@@ -204,8 +204,6 @@ if (loadFromFile) {
             graphicsBuffor.load(graphicPath);
 
 
-
-
             //-------NEW UNITS
             graphicPath = "assets/graphics/images/tower_01.png";
             graphicsBuffor.load(graphicPath);
@@ -230,7 +228,7 @@ if (loadFromFile) {
 
             graphicPath = "assets/graphics/images/tree_03cut.png";
             graphicsBuffor.load(graphicPath);
-            
+
             graphicPath = "assets/graphics/images/bush_02.png";
             graphicsBuffor.load(graphicPath);
 
@@ -318,7 +316,6 @@ if (loadFromWebservice) {
 }
 
 
-
 //MOUSE + MOUSE HANDEL
 var mouseHandler = new app.mouseHandler.MouseEventHandler("map");
 var mouse = new support.Mouse(mouseHandler);
@@ -335,6 +332,7 @@ var buildController = new app.controller.BuildController(entityListModel);
 var moveController = new app.controller.MoveController(entityListModel);
 var gatherController = new app.controller.GatherController(entityListModel);
 var collisionRepulsionController = new app.controller.CollisionRepulsionController(entityListModel, collisionDetectionController);
+var updatePositionController = new app.controller.UpdatePositionController(entityListModel);
 var commandController = new app.controller.CommandController();
 var waypointCollisionDetectionController = new app.controller.WaypointCollisionDetectionController(entityListModel, waypointCollisionListModel);
 var waypointCollisionReactionController = new app.controller.WaypointCollisionReactionController(worldModel, entityListModel, waypointCollisionListModel);
@@ -420,9 +418,10 @@ rootView.addView(hudButtonMenu);
 
 //LOGIKA GRY
 var logicFrames = 0;
-var totalTimeDelta = 0;
-var physicStepInMilis = 1000.0/60.0;
-var deltaTimeLeft = 0;
+var logicLoopNumber = 0;
+
+var physicStepInMilis = 1000.0 / 20.0;
+var physicDeltaAccumulator = 0;
 
 var logicFunction = function (timeDelta) {
 
@@ -431,20 +430,13 @@ var logicFunction = function (timeDelta) {
         return;
     }
 
-    var localTimeDelta = timeDelta + deltaTimeLeft;
-    var currentIntervalDelta = localTimeDelta;
+    physicDeltaAccumulator += timeDelta;
 
-    deltaTimeLeft = 0;
+    while (physicDeltaAccumulator >= physicStepInMilis) {
 
-    while(localTimeDelta > 0){
+        logicLoopNumber++;
 
-        if (localTimeDelta >= physicStepInMilis){
-            localTimeDelta -= physicStepInMilis;
-            currentIntervalDelta = physicStepInMilis;
-        } else {
-            deltaTimeLeft = localTimeDelta;
-            break;
-        }
+        physicDeltaAccumulator -= physicStepInMilis;
 
         //Update mapy kolizji
         //update collision map - for optymalization porpouse
@@ -456,19 +448,19 @@ var logicFunction = function (timeDelta) {
          buildBuildings - entytis ktore sa budynkami
          buildBullets - entytis ktore sa pociskami
          */
-        selectTargetController.update(currentIntervalDelta);
-        buildController.update(currentIntervalDelta);
+        selectTargetController.update(physicStepInMilis);
+        buildController.update(physicStepInMilis);
         //createEntityController.update();
         //shotController.update();
 
         //Atakowanie
-        attackController.update(currentIntervalDelta);
+        attackController.update(physicStepInMilis);
 
         //ROZPYCHANIE OBIEKTÓW
         /*
          rozpychanie obiektów jeżeli na siebie nachodzą
          */
-        collisionRepulsionController.update(currentIntervalDelta);
+        collisionRepulsionController.update(physicStepInMilis);
 
 
         //PORUSZANIE OBIEKTAMI
@@ -476,11 +468,11 @@ var logicFunction = function (timeDelta) {
          poruszanie jednostkami
          poruszanie pociskami
          */
-        moveController.update(currentIntervalDelta, worldModel.getMapModel());
+        moveController.update(physicStepInMilis, worldModel.getMapModel());
 
 
         //POSTEPY ZBIERANIA SUROWCOW + ZAKANCZANIE ZBIERANIA SUROWCOW
-        gatherController.update(currentIntervalDelta);
+        gatherController.update(physicStepInMilis);
 
         //WYKRYWANIE KOLIZJI
         /*
@@ -505,12 +497,15 @@ var logicFunction = function (timeDelta) {
         /*
          kasowanie entytis, ktore juz nie sa potrzebne - np. jednostki ktore maja 0 hp.
          */
-        removeEntityController.update(currentIntervalDelta);
+        removeEntityController.update(physicStepInMilis);
 
 
         waypointCollisionListModel.clear();
 
-    };
+        updatePositionController.update(physicStepInMilis, logicLoopNumber);
+
+    }
+
 
     //Update HUD
     hudLabelGold.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["gold"]);
@@ -525,19 +520,62 @@ var logicFunction = function (timeDelta) {
 
 };
 
-//Start rendering after 100ms
-setTimeout(mainDraw, 100);
 
-//RENDEROWANIE
+//URUCHOMIENIE PETLI LOGIKI
+setTimeout(function () {
+    mainDraw();
+    // logicIntervalForInactiveWindow();
+}, 100);
+
+// var timeInBackground = 0;
+//
+// var logicIntervalForInactiveWindow = setInterval(
+//     function () {
+//
+//         var deltaFromLastUpdate = new Date() - timer.getLastTime();
+//         var updatingInBackgroundTime = 0;
+//
+//         console.log("" + new Date());
+//
+//
+//         if (deltaFromLastUpdate > 500) {
+//
+//             timeInBackground += deltaFromLastUpdate;
+//             updatingInBackgroundTime = new Date();
+//
+//             console.log("timeInBackground: " + timeInBackground);
+//             console.log("deltaFromLastUpdate: " + deltaFromLastUpdate);
+//             console.log("update by logicIntervalForInactiveWindow");
+//
+//             timer.updateDelta();
+//             totalTimeDelta += timer.getDelta();
+//
+//             logicFunction(timer.getDelta());
+//
+//             updatingInBackgroundTime = new Date() - updatingInBackgroundTime;
+//
+//             console.log("updatingInBackgroundTime: " + updatingInBackgroundTime);
+//
+//             console.log("-------------------------------------");
+//         }
+//
+//     }, 500
+// );
+
+
+//Główna pętla gry
 function mainDraw() {
 
-    timer.updateDelta();
-    totalTimeDelta += timer.getDelta();
-
-    logicFunction(timer.getDelta());
-    rootView.draw();
-
     window.requestAnimationFrame(mainDraw);
+
+    timer.updateDelta();
+
+    //Wykonanie logiki
+    logicFunction(timer.getDelta());
+
+    //timeInBackground = 0;
+
+    rootView.draw(physicDeltaAccumulator, physicStepInMilis);
 };
 
 
@@ -555,7 +593,7 @@ app.loadGame = function loadGame(stringJson) {
         var json = JSON.parse(stringJson);
         worldModel.loadFromJSON(json);
     }
-    catch (e){
+    catch (e) {
         return e.message;
     }
 
@@ -569,7 +607,7 @@ app.loadGameFromMinifyString = function loadGameFromMinifyString(stringJson) {
 
         worldModel.getMapModel().getMapGraphicModel().initRootTileArray();
     }
-    catch (e){
+    catch (e) {
         return e.message;
     }
 
@@ -577,7 +615,7 @@ app.loadGameFromMinifyString = function loadGameFromMinifyString(stringJson) {
 };
 
 
-app.saveGameToMinifyStringAndSendToBackend = function saveGameToMinifyStringAndSendToBackend(){
+app.saveGameToMinifyStringAndSendToBackend = function saveGameToMinifyStringAndSendToBackend() {
 
     console.log("Start Saving Game State");
 
@@ -601,9 +639,9 @@ app.saveGameToMinifyStringAndSendToBackend = function saveGameToMinifyStringAndS
 };
 
 
-app.saveScoreAndSendToBackend = function saveScoreAndSendToBackend(){
+app.saveScoreAndSendToBackend = function saveScoreAndSendToBackend() {
 
-    var score = Math.round( Math.random() * 1000 );
+    var score = Math.round(Math.random() * 1000);
     var url = "SaveScore?" + atr[0] + "=" + atr[1] + "&score=" + score;
 
     var xmlhttp = new XMLHttpRequest();

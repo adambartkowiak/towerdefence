@@ -34,6 +34,8 @@ Utils.inherits(app.controller.BuildController, Object);
  */
 app.controller.BuildController.prototype.update = function update(timeDelta) {
 
+    return;
+
     var listLength = this._list.length();
     var elementIndex;
     var element;

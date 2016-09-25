@@ -59,6 +59,9 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
 
         if (collisionType === app.enum.FunctionEnum.MOVE) {
 
+
+            console.log("app.enum.FunctionEnum.MOVE");
+
             if (collision.getEntityModel().getMoveList().getElement(0).getEntityId() > 0) {
 
             } else {

@@ -139,3 +139,10 @@ support.Timer.prototype.changeMultiplier = function changeMultiplier(newValue) {
 
 };
 
+/**
+ * @method getLastTime
+ * @return {Number} _latTime
+ */
+support.Timer.prototype.getLastTime = function getLastTime() {
+    return this._lastTime;
+};

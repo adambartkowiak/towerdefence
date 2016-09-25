@@ -185,6 +185,7 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/controller/BuildController.js"></script>
 <script type="text/javascript" src="js/app/controller/CollisionRepulsionController.js"></script>
 <script type="text/javascript" src="js/app/controller/MoveController.js"></script>
+<script type="text/javascript" src="js/app/controller/UpdatePositionController.js"></script>
 <script type="text/javascript" src="js/app/controller/GatherController.js"></script>
 <script type="text/javascript" src="js/app/controller/CommandController.js"></script>
 <script type="text/javascript" src="js/app/controller/WaypointCollisionDetectionController.js"></script>

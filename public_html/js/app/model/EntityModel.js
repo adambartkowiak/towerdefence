@@ -251,6 +251,12 @@ app.model.EntityModel = function EntityModel() {
      */
     this._toRemove = false;
 
+    /**
+     * @property {number} _lastPositionUpdatedLoopNo
+     * @private
+     */
+    this._lastPositionUpdatedLoopNo = 0;
+
     //PERFORMANCE TESTS TEMPORARTY!!!
     this._checkId = -1;
 
@@ -297,6 +303,7 @@ app.model.EntityModel.prototype.setTeam = function setTeam(value) {
  * @param {Number} value
  */
 app.model.EntityModel.prototype.setStartValueX = function setStartValueX(value) {
+    this._tempX = value;
     this._circle.setX(value);
     this._lastPosition.setX(value);
     this._isSleepingX = false;
@@ -307,6 +314,7 @@ app.model.EntityModel.prototype.setStartValueX = function setStartValueX(value) 
  * @param {Number} value
  */
 app.model.EntityModel.prototype.setStartValueY = function setStartValueY(value) {
+    this._tempY = value;
     this._circle.setY(value);
     this._lastPosition.setY(value);
     this._isSleepingY = false;
@@ -317,8 +325,16 @@ app.model.EntityModel.prototype.setStartValueY = function setStartValueY(value) 
  * @param {Number} value
  * @param {Boolean} callListener
  */
-app.model.EntityModel.prototype.setX = function setX(value, callListener) {
-    this._lastPosition.setX(this._circle.getX());
+app.model.EntityModel.prototype.setX = function setX(value, callListener, logicLoopNo) {
+
+    if (this._lastPositionUpdatedLoopNo < logicLoopNo) {
+
+        this._lastPositionUpdatedLoopNo = logicLoopNo;
+
+        this._lastPosition.setX(this._circle.getX());
+        this._lastPosition.setY(this._circle.getY());
+    }
+
     this._circle.setX(value);
     this._tempX = value;
 
@@ -343,8 +359,18 @@ app.model.EntityModel.prototype.setX = function setX(value, callListener) {
  * @param {Number} value
  * @param {Boolean} callListener
  */
-app.model.EntityModel.prototype.setY = function setY(value, callListener) {
-    this._lastPosition.setY(this._circle.getY());
+app.model.EntityModel.prototype.setY = function setY(value, callListener, logicLoopNo) {
+
+
+    if (this._lastPositionUpdatedLoopNo < logicLoopNo) {
+
+        this._lastPositionUpdatedLoopNo = logicLoopNo;
+
+        this._lastPosition.setX(this._circle.getX());
+        this._lastPosition.setY(this._circle.getY());
+    }
+
+
     this._circle.setY(value);
     this._tempY = value;
 
@@ -700,7 +726,7 @@ app.model.EntityModel.prototype.getStateById = function getStateById(stateId) {
 app.model.EntityModel.prototype.getCurrentEntityStateModel = function getCurrentEntityStateModel() {
 
     return this._currentStateModel;
-    
+
 };
 
 /**
@@ -1128,7 +1154,7 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._buildList = this._buildList.clone();
 
     //init
-    clone._currentStateModel =  clone.getEntityStateListModel().getElementById(clone.getCurrentStateId());
+    clone._currentStateModel = clone.getEntityStateListModel().getElementById(clone.getCurrentStateId());
 
     return clone;
 };
@@ -1257,7 +1283,16 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     }
 
     //init
-    this._currentStateModel =  this.getEntityStateListModel().getElementById(this.getCurrentStateId());
+    this._currentStateModel = this.getEntityStateListModel().getElementById(this.getCurrentStateId());
+
+
+    if (this._lastPosition.getX() === 0) {
+        this.setStartValueX(this.getX());
+    }
+
+    if (this._lastPosition.getY() === 0) {
+        this.setStartValueY(this.getY());
+    }
 
 };
 

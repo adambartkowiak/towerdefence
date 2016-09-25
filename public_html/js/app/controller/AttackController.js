@@ -141,6 +141,8 @@ app.controller.AttackController.prototype.update = function update(timeDelta) {
                     element.setAttackCooldown(entityAttackModel.getRate());
 
                     break;
+                } else {
+                    
                 }
 
             }

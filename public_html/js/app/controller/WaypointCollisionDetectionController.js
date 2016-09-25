@@ -41,7 +41,7 @@ Utils.inherits(app.controller.WaypointCollisionDetectionController, Object);
  */
 app.controller.WaypointCollisionDetectionController.prototype.update = function update() {
 
-    return;
+    // return;
 
     var listLength = this._list.length();
     var elementIndex;

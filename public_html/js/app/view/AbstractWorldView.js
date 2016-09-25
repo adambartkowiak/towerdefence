@@ -69,6 +69,8 @@ app.view.AbstractWorldView = function AbstractWorldView(worldModel, x, y, width,
      */
     this._FOWBuffoer = [];
 
+    this._frameProgress = 0;
+
 };
 
 Utils.inherits(app.view.AbstractWorldView, support.view.AbstractView);
@@ -80,6 +82,20 @@ Utils.inherits(app.view.AbstractWorldView, support.view.AbstractView);
  * @public
  */
 app.view.AbstractWorldView.prototype.draw = function draw(canvas) {
+
+    var parent = this.getParentViewGroup();
+
+    while (parent.getParentViewGroup() !== null) {
+        parent = parent.getParentViewGroup();
+    }
+
+    if (parent !== null) {
+        this._frameProgress = parent._delta / parent._physicStepInMilis;
+        // console.log(this._frameProgress);
+    }
+
+    // console.log(parent._delta);
+    // console.log(parent._physicStepInMilis);
 
     var canvasContext = canvas.getContext("2d");
 
@@ -362,19 +378,25 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                 continue;
             }
 
+            var drawEntityX = (entity.getX() * this._frameProgress + entity.getLastPosition().getX() * (1 - this._frameProgress)) - cameraModel.getViewPortX();
+            var drawEntityY = (entity.getY() * this._frameProgress + entity.getLastPosition().getY() * (1 - this._frameProgress)) - cameraModel.getViewPortY();
+
+            drawEntityX = Math.round(drawEntityX);
+            drawEntityY = Math.round(drawEntityY);
+
             //SELECTED
             if (entity.getSelected() && entity.getTeam() === 1) {
                 canvasContext.beginPath();
                 canvasContext.setLineDash([4]);
                 canvasContext.strokeStyle = '#00FF00';
-                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc((drawEntityX), drawEntityY, entity.getRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
                 canvasContext.setLineDash([0]);
             }
             else if (entity.getSelected()) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = '#FFFF90';
-                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
             }
 
@@ -383,7 +405,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             if (FEATURE_TOGGLE.COLLISION_RADIUS) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = "rgba(255, 0, 0, 1.0)";
-                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getCollisionRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
             }
 
@@ -391,7 +413,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             if (FEATURE_TOGGLE.VIEW_RADIUS) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = "rgba(255, 255, 255, 0.3)";
-                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius() + entity.getViewRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getCollisionRadius() + entity.getViewRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
             }
 
@@ -399,7 +421,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             if (FEATURE_TOGGLE.SELECT_TARGET_RADIUS) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = "rgba(255, 255, 255, 0.3)";
-                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius() + entity.getSelectTargetRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getCollisionRadius() + entity.getSelectTargetRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
             }
 
@@ -407,14 +429,14 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             if (FEATURE_TOGGLE.ATTACK_RANGE) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = "rgba(255, 0, 255, 0.3)";
-                canvasContext.arc((entity.getX() - cameraModel.getViewPortX()), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius() + entity.getAttackRange(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getCollisionRadius() + entity.getAttackRange(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
             }
 
             //IMAGE
             if (FEATURE_TOGGLE.DRAW_ENTITY) {
                 if (entity.getRotateGraphicOnMove()) {
-                    this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), entity.getAngle());
+                    this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), drawEntityX - entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), entity.getAngle());
                 } else {
 
                     var flipHorizontal = true;
@@ -424,9 +446,9 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                     }
 
                     if (flipHorizontal) {
-                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() + entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), 0, flipHorizontal);
+                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), drawEntityX + entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), 0, flipHorizontal);
                     } else {
-                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), entity.getX() - entity.getGraphicOffset().getX() - cameraModel.getViewPortX(), entity.getY() - entity.getGraphicOffset().getY() - cameraModel.getViewPortY(), 0, flipHorizontal);
+                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), drawEntityX - entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), 0, flipHorizontal);
                     }
 
                 }
@@ -440,7 +462,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                     var moveToX = entity.getX(),
                         moveToY = entity.getY();
 
-                    canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                    canvasContext.moveTo(drawEntityX, drawEntityY);
 
                     canvasContext.strokeStyle = "rgba(255, 0, 0, 0.3)";
                     // canvasContext.fillStyle = '#00FF00';
@@ -460,10 +482,10 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             if (FEATURE_TOGGLE.DRAW_ENTITY_ID) {
 
                 canvasContext.fillStyle = "rgba(0, 0, 0, 0.5)";
-                canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - entity.getCurrentHp() / 20 - 2, entity.getY() - cameraModel.getViewPortY() + entity.getRadius() - 4 - 9, 30, 11);
+                canvasContext.fillRect(drawEntityX - entity.getCurrentHp() / 20 - 2, drawEntityY + entity.getRadius() - 4 - 9, 30, 11);
 
                 canvasContext.fillStyle = '#FFFFFF';
-                canvasContext.fillText("ID: " + entity.getId(), entity.getX() - cameraModel.getViewPortX() - entity.getCurrentHp() / 20, entity.getY() - cameraModel.getViewPortY() + entity.getRadius() - 4);
+                canvasContext.fillText("ID: " + entity.getId(), drawEntityX - entity.getCurrentHp() / 20, drawEntityY + entity.getRadius() - 4);
             }
 
             //HEALTH BAR
@@ -472,15 +494,15 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                 currentHp = entity.getCurrentHp();
 
                 canvasContext.fillStyle = '#474747';
-                canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 20 + currentHp / 10, entity.getY() - cameraModel.getViewPortY() + entity.getRadius(), (hp - currentHp) / 10, 3);
+                canvasContext.fillRect(drawEntityX - hp / 20 + currentHp / 10, drawEntityY + entity.getRadius(), (hp - currentHp) / 10, 3);
 
                 canvasContext.fillStyle = '#00FF00';
-                canvasContext.fillRect(entity.getX() - cameraModel.getViewPortX() - hp / 20, entity.getY() - cameraModel.getViewPortY() + entity.getRadius(), currentHp / 10, 3);
+                canvasContext.fillRect(drawEntityX - hp / 20, drawEntityY + entity.getRadius(), currentHp / 10, 3);
 
                 ////drawRect
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = '#000000';
-                canvasContext.rect(entity.getX() - cameraModel.getViewPortX() - hp / 20, entity.getY() - cameraModel.getViewPortY() + entity.getRadius(), hp / 10, 3);
+                canvasContext.rect(drawEntityX - hp / 20, drawEntityY + entity.getRadius(), hp / 10, 3);
 
                 canvasContext.lineWidth = 1;
                 canvasContext.stroke();
@@ -498,7 +520,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                     var moveToX = entity.getX(),
                         moveToY = entity.getY();
 
-                    canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                    canvasContext.moveTo(drawEntityX, drawEntityY);
 
                     canvasContext.setLineDash([10]);
                     canvasContext.strokeStyle = "rgba(0, 255, 0, 0.5)";
@@ -527,12 +549,12 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             if (false) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = '#FF0000';
-                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
 
                 //object base
-                canvasContext.moveTo(entity.getX() - entity.getRadius() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY());
-                canvasContext.lineTo(entity.getX() + entity.getRadius() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY());
+                canvasContext.moveTo(drawEntityX - entity.getRadius(), drawEntityY);
+                canvasContext.lineTo(drawEntityX + entity.getRadius(), drawEntityY);
 
                 // canvasContext.fillStyle = '#FFFFFF';
                 // canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
@@ -543,12 +565,12 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
             if (false) {
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = '#00bfff';
-                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getMoveCollisionDetectionRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
 
                 canvasContext.beginPath();
                 canvasContext.strokeStyle = '#FF0000';
-                canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getCollisionRadius(), 0, 2 * Math.PI, true);
+                canvasContext.arc(drawEntityX, drawEntityY, entity.getCollisionRadius(), 0, 2 * Math.PI, true);
                 canvasContext.stroke();
 
                 var moveToX = entity.getX(),
@@ -556,11 +578,11 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                     moveVectorX = entity.getLastPosition().getX(),
                     moveVectorY = entity.getLastPosition().getY();
 
-                canvasContext.moveTo(moveToX - cameraModel.getViewPortX(), moveToY - cameraModel.getViewPortY());
+                canvasContext.moveTo(drawEntityX, drawEntityY);
                 canvasContext.lineTo(moveVectorX - cameraModel.getViewPortX(), moveVectorY - cameraModel.getViewPortY());
 
                 canvasContext.fillStyle = '#FFFFFF';
-                canvasContext.fillRect(moveToX - 2 - cameraModel.getViewPortX(), moveToY - 2 - cameraModel.getViewPortY(), 4, 4);
+                canvasContext.fillRect(drawEntityX - 2, drawEntityY - 2, 4, 4);
                 canvasContext.stroke();
             }
 
@@ -569,13 +591,13 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                 if (entity.isSleeping()) {
                     canvasContext.beginPath();
                     canvasContext.strokeStyle = '#666666';
-                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                    canvasContext.arc(drawEntityX, drawEntityY, entity.getRadius() - 2, 0, 2 * Math.PI, true);
                     canvasContext.stroke();
                 }
                 else {
                     canvasContext.beginPath();
                     canvasContext.strokeStyle = '#FFFFFF';
-                    canvasContext.arc(entity.getX() - cameraModel.getViewPortX(), entity.getY() - cameraModel.getViewPortY(), entity.getRadius() - 2, 0, 2 * Math.PI, true);
+                    canvasContext.arc(drawEntityX, drawEntityY, entity.getRadius() - 2, 0, 2 * Math.PI, true);
                     canvasContext.stroke();
                 }
             }
@@ -633,7 +655,6 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
 
     canvasContext.fillStyle = '#FFFFFF';
     canvasContext.fillText("totalArrayExtends: " + totalArrayExtends, 5, 320);
-
 
 
 };

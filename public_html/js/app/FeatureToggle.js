@@ -14,7 +14,7 @@ me.ATTACK_RANGE = false;
 me.MARK_SELECTED_TARGET = false;
 
 me.FOG_OF_WAR = false;
-me.SELECT_TARGET = false;
+me.SELECT_TARGET = true;
 me.SHOW_EVENT_CONSOLE_LOGS = false;
 me.DRAW_ENTITY_ID = false;
 me.HEALTH_BAR = false;

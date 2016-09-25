@@ -164,6 +164,11 @@ app.model.WorldModel = function WorldModel() {
      */
     this._actionMenu = new app.model.ActionMenuModel();
 
+    /**
+     * @property {number} _logicLoopNumber
+     * @private
+     */
+    this._logicLoopNumber = 0;
 
     //INIT:
     this._entityModelList.setEntityListListener(this._globalEventListener);

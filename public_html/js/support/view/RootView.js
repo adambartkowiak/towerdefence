@@ -44,6 +44,10 @@ support.view.RootView = function RootView(canvas, mouseEventHandler) {
     //dodanie do listenera ROOT VIEW.
     //do root view powinien byc dodany widok mapy, widokminimapy, statusu i menu..
     this._mouseEventHandler.addMouseEventListener(this);
+
+    this._delta = 0;
+
+    this._physicStepInMilis = 1000/30;
 };
 
 Utils.inherits(support.view.RootView, support.view.AbstractViewGroup);
@@ -52,8 +56,11 @@ Utils.inherits(support.view.RootView, support.view.AbstractViewGroup);
  * @method draw
  * @public
  */
-support.view.RootView.prototype.draw = function draw(){
-    
+support.view.RootView.prototype.draw = function draw(delta, physicStepInMilis){
+
+    this._delta = delta;
+    this._physicStepInMilis = physicStepInMilis;
+
     this._canvasContext.clearRect(0, 0, this._canvas.width, this._canvas.height);
     
     this._canvasContext.fillStyle = '#FFFFFF';

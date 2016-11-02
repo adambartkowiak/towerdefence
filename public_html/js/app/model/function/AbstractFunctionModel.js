@@ -39,22 +39,6 @@ app.model.function.AbstractFunctionModel = function AbstractFunctionModel(id, fu
 Utils.inherits(app.model.function.AbstractFunctionModel, app.model.function.AbstractValueModel);
 
 /**
- * @method getFunctionEnumValue
- * @return {number} functionEnumValue
- */
-app.model.function.AbstractFunctionModel.prototype.getFunctionEnumValue = function getFunctionEnumValue() {
-    return this._functionEnumValue;
-};
-
-/**
- * @method setFunctionEnumValue
- * @param {number} functionEnumValue
- */
-app.model.function.AbstractFunctionModel.prototype.setFunctionEnumValue = function setFunctionEnumValue(functionEnumValue) {
-    this._functionEnumValue = functionEnumValue;
-};
-
-/**
  * @method getFunctionAttributes
  * @return {Array} functionAttributes
  */

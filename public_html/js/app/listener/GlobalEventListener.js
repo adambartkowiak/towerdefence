@@ -15,6 +15,13 @@ var Utils = Utils || {};
 ns.GlobalEventListener = function GlobalEventListener() {
 
     this._triggerModelList = null;
+    this._entityListModel = null;
+    this._teamListModel = null;
+    this._objectiveListModel = null;
+    this._variableListModel = null;
+
+    this._commandFactory = new app.factory.CommandFactory();
+    this._commandFactory.setGlobalEventListener(this);
 
     /*
      informacje o eventach!!
@@ -34,13 +41,35 @@ ns.GlobalEventListener = function GlobalEventListener() {
 
 };
 
-ns.GlobalEventListener.prototype.getCurrentEventEntity = function getCurrentEventEntity(){
+ns.GlobalEventListener.prototype.getCurrentEventEntity = function getCurrentEventEntity() {
     return this._currentEventEntity;
 };
 
 ns.GlobalEventListener.prototype.setTriggerListModel = function setTriggerListModel(triggerModelList) {
     this._triggerModelList = triggerModelList;
+    this._commandFactory.setTriggerListModel(this._triggerModelList);
 };
+
+ns.GlobalEventListener.prototype.setEntityListModel = function setEntityListModel(entityListModel) {
+    this._entityListModel = entityListModel;
+    this._commandFactory.setEntityListModel(this._entityListModel);
+};
+
+ns.GlobalEventListener.prototype.setTeamListModel = function setTeamListModel(teamListModel) {
+    this._teamListModel = teamListModel;
+    this._commandFactory.setTeamListModel(this._teamListModel);
+};
+
+ns.GlobalEventListener.prototype.setObjectiveListModel = function setObjectiveListModel(objectiveListModel) {
+    this._objectiveListModel = objectiveListModel;
+    this._commandFactory.setObjectiveListModel(this._objectiveListModel);
+};
+
+ns.GlobalEventListener.prototype.setVariableListModel = function setVariableListModel(variableListModel) {
+    this._variableListModel = variableListModel;
+    this._commandFactory.setVariableListModel(this._variableListModel);
+};
+
 
 ns.GlobalEventListener.prototype.onEvent = function onEvent(gameEventEnumValue, entity, region) { //eventOptions
 
@@ -100,75 +129,120 @@ ns.GlobalEventListener.prototype.onTimeDelta = function onTimeDelta(time) {
     this.callTriggerForEvent(app.enum.GameEventEnum.TIME_DELTA, time);
 };
 
+ns.GlobalEventListener.prototype.onTeamCreate = function onTeamCreate(team) {
+
+    this._currentEventRegion = null;
+    this._currentEventEntity = null;
+
+    this.callTriggerForEvent(app.enum.GameEventEnum.TEAM_CREATE, team);
+};
+
+ns.GlobalEventListener.prototype.onTeamRemove = function onTeamRemove(team) {
+
+    this._currentEventRegion = null;
+    this._currentEventEntity = null;
+
+    this.callTriggerForEvent(app.enum.GameEventEnum.TEAM_REMOVE, team);
+};
+
+ns.GlobalEventListener.prototype.onChangeResourceValue = function onChangeResourceValue(teamName, resourceName, value) {
+
+    this._currentEventRegion = null;
+    this._currentEventEntity = null;
+
+    // console.log("onChangeResourceValue: " + teamName + ", " + resourceName + ", " + value)
+
+    this.callTriggerForEvent(app.enum.GameEventEnum.CHANGE_TEAM_RESOURCES_VALUE, teamName, resourceName, value);
+};
+
 ns.GlobalEventListener.prototype.callTriggerForEvent = function callTriggerForEvent(gameEventEnumValue, entity) {
 
-    // var triggerIndex,
-    //     triggerArray = this._triggerModelList.getElements(),
-    //     triggerCount = triggerArray.length,
-    //     currentTrigger,
-    //
-    //     gameEventIndex,
-    //     gameEventListModel,
-    //     gameEventCount,
-    //     currentGameEvent,
-    //
-    //     conditionIndex,
-    //     conditionListModel,
-    //     conditionCount,
-    //     currentCondition,
-    //
-    //     actionIndex,
-    //     actionListModel,
-    //     actionCount,
-    //     currentAction;
-    //
-    // for (triggerIndex = 0; triggerIndex < triggerCount; triggerIndex++) {
-    //     currentTrigger = triggerArray[triggerIndex];
-    //
-    //     if (currentTrigger.getActive() === false){
-    //         continue;
-    //     }
-    //
-    //     //gameEvents
-    //     gameEventListModel = currentTrigger.getGameEventListModel();
-    //     gameEventCount = gameEventListModel.length();
-    //
-    //     //conditions
-    //     conditionListModel = currentTrigger.getConditionListModel();
-    //     conditionCount = conditionListModel.length();
-    //
-    //     //actions
-    //     actionListModel = currentTrigger.getActionListModel();
-    //     actionCount = actionListModel.length();
-    //
-    //     for (gameEventIndex = 0; gameEventIndex<gameEventCount; gameEventIndex++){
-    //
-    //         gameEventListModel = currentTrigger.getGameEventListModel();
-    //         currentGameEvent = gameEventListModel.getElement(gameEventIndex);
-    //
-    //         if (currentGameEvent === gameEventEnumValue) {
-    //
-    //             //condition
-    //             for(conditionIndex = 0; conditionIndex<conditionCount; conditionIndex++){
-    //
-    //                 currentCondition = conditionListModel.getElement(conditionIndex);
-    //                 //exit if condition === false
-    //                 if (currentCondition.getValue() === false){
-    //                     return;
-    //                 }
-    //             }
-    //
-    //             //command
-    //             for(actionIndex = 0; actionIndex<actionCount; actionIndex++){
-    //
-    //                 currentAction = actionListModel(actionIndex);
-    //                 currentAction.execute();
-    //             }
-    //
-    //         }
-    //     }
-    //
-    //
-    // }
+    var triggerIndex,
+        triggerArray = this._triggerModelList.getElements(),
+        triggerCount = triggerArray.length,
+        currentTrigger,
+
+        gameEventIndex,
+        gameEventListModel,
+        gameEventCount,
+        currentGameEvent,
+
+        conditionIndex,
+        conditionListModel,
+        conditionCount,
+        currentConditionModel,
+        currentConditionCommand,
+        currentConditionCommandResult,
+
+        actionIndex,
+        actionListModel,
+        actionCount,
+        currentActionModel,
+
+        createdCommand = null;
+
+    for (triggerIndex = 0; triggerIndex < triggerCount; triggerIndex++) {
+        currentTrigger = triggerArray[triggerIndex];
+
+        if (currentTrigger.getActive() === false) {
+            continue;
+        }
+
+        //gameEvents
+        gameEventListModel = currentTrigger.getGameEventListModel();
+        gameEventCount = gameEventListModel.length();
+
+        //conditions
+        conditionListModel = currentTrigger.getConditionListModel();
+        conditionCount = conditionListModel.length();
+
+        //actions
+        actionListModel = currentTrigger.getActionListModel();
+        actionCount = actionListModel.length();
+
+        for (gameEventIndex = 0; gameEventIndex < gameEventCount; gameEventIndex++) {
+
+            currentGameEvent = gameEventListModel.getElement(gameEventIndex);
+
+            // console.log("Trigger Number: " + currentGameEvent.getGameEventEnum());
+
+            if (currentGameEvent.getGameEventEnum() === gameEventEnumValue) {
+
+                //condition
+                for (conditionIndex = 0; conditionIndex < conditionCount; conditionIndex++) {
+
+                    currentConditionModel = conditionListModel.getElement(conditionIndex);
+
+                    currentConditionCommand = this._commandFactory.createCommand(currentConditionModel);
+
+                    currentConditionCommandResult = currentConditionCommand.execute();
+
+                    //exit if condition != true
+                    if (currentConditionCommandResult != true) {
+                        break;
+                    }
+                }
+
+                if (!currentConditionCommandResult){
+                    break;
+                }
+
+                // console.log("Trigger Number: " + currentGameEvent.getGameEventEnum() + ", and conndition PASSED!");
+
+                //command
+                for (actionIndex = 0; actionIndex < actionCount; actionIndex++) {
+
+                    currentActionModel = actionListModel.getElement(actionIndex);
+
+                    //create function and execute it
+                    createdCommand = this._commandFactory.createCommand(currentActionModel);
+                    createdCommand.execute();
+                }
+
+            }
+        }
+
+
+    }
 
 };

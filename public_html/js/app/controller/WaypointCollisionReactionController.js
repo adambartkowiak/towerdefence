@@ -60,7 +60,7 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
         if (collisionType === app.enum.FunctionEnum.MOVE) {
 
 
-            console.log("app.enum.FunctionEnum.MOVE");
+            // console.log("app.enum.FunctionEnum.MOVE");
 
             if (collision.getEntityModel().getMoveList().getElement(0).getEntityId() > 0) {
 
@@ -98,7 +98,7 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
 
         } else if (collisionType === app.enum.FunctionEnum.GO_GATHER) {
 
-            console.log("collisionType === app.enum.FunctionEnum.GO_GATHER");
+            // console.log("collisionType === app.enum.FunctionEnum.GO_GATHER");
 
             //kasowanie czasu zbierania
             collision.getEntityModel().setGatherTime(0);
@@ -111,16 +111,16 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
 
         } else if (collisionType === app.enum.FunctionEnum.GATHER) {
 
-            console.log("collisionType === app.enum.FunctionEnum.GATHER");
+            // console.log("collisionType === app.enum.FunctionEnum.GATHER");
 
 
         } else if (collisionType === app.enum.FunctionEnum.RETURN_CARGO) {
 
-            console.log("collisionType === app.enum.FunctionEnum.RETURN_CARGO");
+            // console.log("collisionType === app.enum.FunctionEnum.RETURN_CARGO");
 
             //add cargo to team resources
             var entityModel = collision.getEntityModel();
-            var team = this._worldModel.getTeamModelArray()[entityModel.getTeam()];
+            var team = this._worldModel.getTeamListModel().getElement(entityModel.getTeam());
             team.addResource(entityModel.getCargoName(), entityModel.getAmountOfCargo());
 
             //reset cargo
@@ -159,13 +159,13 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
 
         } else if (collisionType === app.enum.FunctionEnum.BUILD_BUILDING) {
 
-            console.log("collisionType === app.model.ActionTypeModel.BUILD_BASE");
+            // console.log("collisionType === app.model.ActionTypeModel.BUILD_BASE");
 
             if (collision.getEntityModel().getTask().getTaskEnum() === app.enum.FunctionEnum.BUILD_BUILDING) {
 
                 var entityModelToBuild = collision.getEntityModel().getTask().getTaskEntityModel().clone();
 
-                console.log(entityModelToBuild);
+                // console.log(entityModelToBuild);
 
                 entityModelToBuild.setX(collision.getEntityModel().getX(), null);
                 entityModelToBuild.setY(collision.getEntityModel().getY(), null);
@@ -179,7 +179,11 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
         } else if (collisionType === app.enum.FunctionEnum.ATTACK) {
 
 
-            console.log(collision.getEntityModel());
+            //if (collision.getEntityModel().getTargetEntity() === null) {
+                collision.getEntityModel().setToRemove(true);
+            //}
+
+            // console.log(collision.getEntityModel());
 
             // //Kasuje entity, ktory trafil w cel ( czyli pocisk :) )
             // this._list.removeElementById(collision.getEntityModel().getId());

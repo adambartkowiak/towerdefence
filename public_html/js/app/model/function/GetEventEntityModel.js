@@ -23,11 +23,4 @@ app.model.function.GetEventEntityModel = function GetEventEntityModel(id, globel
 };
 
 Utils.inherits(app.model.function.GetEventEntityModel, app.model.function.AbstractFunctionModel);
-//
-// /**
-//  * @method getValue
-//  */
-// app.model.function.GetEventEntityModel.prototype.getValue = function getValue() {
-//     return this._globelEventListener.getCurrentEventEntity();
-// };
 

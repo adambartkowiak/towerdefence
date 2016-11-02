@@ -156,7 +156,7 @@ app.controller.CollisionRepulsionController.prototype.update = function update(t
  * @method _handleReactionOnCollision
  * @param {Array} entitiesToUpdate
  */
-app.controller.CollisionRepulsionController.prototype._handleReactionOnCollision = function _handleReactionOnCollision(entitiesToUpdate, element, potentialCollisionElement){
+app.controller.CollisionRepulsionController.prototype._handleReactionOnCollision = function _handleReactionOnCollision(entitiesToUpdate, element, potentialCollisionElement) {
 
     var normalizedCollisionVector,
         lengthVector,
@@ -168,51 +168,39 @@ app.controller.CollisionRepulsionController.prototype._handleReactionOnCollision
     //wektor miedzy srodkami
     this._handleCollisionVector.setX(element.getTemporaryX() - potentialCollisionElement.getTemporaryX());
     this._handleCollisionVector.setY(element.getTemporaryY() - potentialCollisionElement.getTemporaryY());
+    // this._handleCollisionVector.setX(element.getX() - potentialCollisionElement.getX());
+    // this._handleCollisionVector.setY(element.getY() - potentialCollisionElement.getY());
 
-    lengthVector = this._handleCollisionVector.getVectorLength() - element.getCollisionRadius() - potentialCollisionElement.getCollisionRadius();
+    lengthVector = element.getCollisionRadius() + potentialCollisionElement.getCollisionRadius() - this._handleCollisionVector.getVectorLength();
+    lengthVector = Math.abs(lengthVector);
 
     vX = potentialCollisionElement.getTemporaryX();
     vY = potentialCollisionElement.getTemporaryY();
+    // vX = potentialCollisionElement.getX();
+    // vY = potentialCollisionElement.getY();
 
     normalizedCollisionVector = this._handleCollisionVector.getNormalizedVector();
 
-    maxMoveX = normalizedCollisionVector.getX() * lengthVector * 0.5;
-    maxMoveY = normalizedCollisionVector.getY() * lengthVector * 0.5;
+    maxMoveX = normalizedCollisionVector.getX() * -lengthVector * 0.7;
+    maxMoveY = normalizedCollisionVector.getY() * -lengthVector * 0.7;
 
     if (potentialCollisionElement.getMass() !== -1
         && potentialCollisionElement.getHoldPosition() !== true) {
 
         potentialCollisionElement.setTemporaryX(vX + maxMoveX);
         potentialCollisionElement.setTemporaryY(vY + maxMoveY);
-
-        entitiesToUpdate[potentialCollisionElement.getId()] = potentialCollisionElement;
+        // potentialCollisionElement.setX(vX + maxMoveX);
+        // potentialCollisionElement.setY(vY + maxMoveY);
+        //
+        // entitiesToUpdate[potentialCollisionElement.getId()] = potentialCollisionElement;
     }
 
     element.setTemporaryX(element.getTemporaryX() - maxMoveX);
     element.setTemporaryY(element.getTemporaryY() - maxMoveY);
+    // element.setTemporaryX(element.getX() - maxMoveX);
+    // element.setTemporaryY(element.getY() - maxMoveY);
 
-    // entitiesToUpdate[element.getId()] = element;
 };
-
-// /**
-//  * @method _updateEntitiesPosition
-//  * @param {Array} entitiesToUpdate
-//  */
-// app.controller.CollisionRepulsionController.prototype._updateEntitiesPosition = function _updateEntitiesPosition(entitiesToUpdate){
-//     var updateTempIndex,
-//         updateTempMax = entitiesToUpdate.length,
-//         entityToUpdate;
-//
-//     for (updateTempIndex = 0; updateTempIndex<updateTempMax; updateTempIndex++){
-//         entityToUpdate = entitiesToUpdate[updateTempIndex];
-//
-//         if (!!entityToUpdate){
-//             entityToUpdate.setX(entityToUpdate.getTemporaryX(), null, logicLoopNumber);
-//             entityToUpdate.setY(entityToUpdate.getTemporaryY(), null, logicLoopNumber);
-//         }
-//     }
-// };
-
 
 /**
  * @method getCollisionArrayByEntityElement

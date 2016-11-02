@@ -95,14 +95,20 @@
 <script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/ObjectiveModel.js"></script>
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityAttackListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateListModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
+<script type="text/javascript" src="js/app/model/VariableModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TeamListModel.js"></script>
+<script type="text/javascript" src="js/app/model/ObjectiveListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TriggerListModel.js"></script>
 <script type="text/javascript" src="js/app/model/FunctionListModel.js"></script>
+<script type="text/javascript" src="js/app/model/VariableListModel.js"></script>
+
 <script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
@@ -118,6 +124,12 @@
 <script type="text/javascript" src="js/app/model/function/GetUnitCountModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/ShowConsoleLogModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/TurnOffTriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetResourcesValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ChangeObjectiveResultModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetVariableValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/IncrementVariableValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/AllObjectivesCompletedModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ShowVictoryPopupModel.js"></script>
 
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 <script type="text/javascript" src="js/app/model/ActionMenuModel.js"></script>
@@ -143,6 +155,7 @@
 <script type="text/javascript" src="js/app/controller/SelectTargetController.js"></script>
 
 <!-- APP COMMANDS -->
+<script type="text/javascript" src="js/app/command/AttributeCommand.js"></script>
 <script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetAttackCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetMoveAttackCommandOnCommandController.js"></script>
@@ -152,13 +165,24 @@
 <script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
 <script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
 <script type="text/javascript" src="js/app/command/HoldCommand.js"></script>
-<script type="text/javascript" src="js/app/command/TrainWorkerCommand.js"></script>
-<script type="text/javascript" src="js/app/command/TrainWarriorCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TrainEntityCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ShowConsoleLogCommand.js"></script>
 <script type="text/javascript" src="js/app/command/TurnOffTriggerCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetUnitCountCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ConditionEqualCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ConditionEqualOrGreaterCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetEventEntityModelCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetEntityPropertyCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetResourcesValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ChangeObjectiveResultCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetVariableValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/IncrementVariableValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ShowVictoryPopupCommand.js"></script>
+<script type="text/javascript" src="js/app/command/AllObjectivesCompletedCommand.js"></script>
 
 <!-- FACTORY -->
 <script type="text/javascript" src="js/app/factory/FunctionModelFactory.js"></script>
+<script type="text/javascript" src="js/app/factory/CommandFactory.js"></script>
 
 <!-- Mouse Event Handler -->
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
@@ -215,6 +239,10 @@
 
     var editor = editor || {};
     var FEATURE_TOGGLE = editor.FeatureToggle;
+
+    var timer = new support.Timer();
+    var logicTimer = new support.Timer();
+    var rendererTimer = new support.Timer();
 
     var cameraViewPortWidth = 1180,
         cameraViewPortHeight = 780,
@@ -377,7 +405,7 @@
         function mainDraw() {
 
             backgroundStep();
-            mapRootView.draw();
+            mapRootView.draw(20, 20);
             miniMapRootView.draw();
 
             window.requestAnimationFrame(mainDraw);

@@ -1,0 +1,27 @@
+{
+  "_team": 2,
+  "_selectable": true,
+  "_targetable": true,
+  "_currentHp": 500,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": 0,
+        "_radius": 20,
+        "_collisionRadius": 20,
+        "_viewRadius": 150,
+        "_selectTargetRadius": 150,
+        "_groundSpeed": 50,
+        "_hp": 500,
+        "_graphicUrl": "assets/graphics/images/enemy_01.png",
+        "_graphicOffset": {
+          "_x": -4,
+          "_y": 27
+        },
+        "_rotateGraphicOnMove": false
+      }
+    ]
+  }
+}

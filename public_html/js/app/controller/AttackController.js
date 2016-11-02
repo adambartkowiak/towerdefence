@@ -141,12 +141,12 @@ app.controller.AttackController.prototype.update = function update(timeDelta) {
                     element.setAttackCooldown(entityAttackModel.getRate());
 
                     break;
-                } else {
-                    
                 }
-
             }
 
+            if (isTargetInAttackRange === false && Math.pow(element.getSelectTargetRadius(), 2) < squareDistanceToTarget) {
+                element.setTargetEntity(null);
+            }
 
         }
 

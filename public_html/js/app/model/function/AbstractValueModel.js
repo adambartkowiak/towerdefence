@@ -49,6 +49,22 @@ app.model.function.AbstractValueModel.prototype.setId = function setId(id) {
 };
 
 /**
+ * @method getFunctionEnumValue
+ * @return {number} functionEnumValue
+ */
+app.model.function.AbstractValueModel.prototype.getFunctionEnumValue = function getFunctionEnumValue() {
+    return this._functionEnumValue;
+};
+
+/**
+ * @method setFunctionEnumValue
+ * @param {number} functionEnumValue
+ */
+app.model.function.AbstractValueModel.prototype.setFunctionEnumValue = function setFunctionEnumValue(functionEnumValue) {
+    this._functionEnumValue = functionEnumValue;
+};
+
+/**
  * @method getValue
  * @return {*} value
  */

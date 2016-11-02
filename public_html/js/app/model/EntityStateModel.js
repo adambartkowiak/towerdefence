@@ -106,7 +106,7 @@ app.model.EntityStateModel = function EntityStateModel() {
 
     /**
      * Tablica dostepnych akcji, ktora moze wykonac dane entity
-     * @property {Array} _availableActions
+     * @property {Array} _availableActionsMenu
      * @private
      */
     this._availableActionsMenu = [];
@@ -340,7 +340,7 @@ app.model.EntityStateModel.prototype.setRotateGraphicOnMove = function setRotate
 
 /**
  * @method getAvailableActionsMenu
- * @return {String} graphicUrl
+ * @return {Array|Object} graphicUrl
  */
 app.model.EntityStateModel.prototype.getAvailableActionsMenu = function getAvailableActionsMenu() {
     return this._availableActionsMenu;
@@ -398,7 +398,10 @@ app.model.EntityStateModel.prototype.clone = function clone() {
     clone._removeAfterHit = this._removeAfterHit;
 
     //klonowanie tablic
-    clone._availableActionsMenu = this._availableActionsMenu.slice();
+    var availableActionsMenu = JSON.stringify(this._availableActionsMenu);
+    clone._availableActionsMenu = JSON.parse(availableActionsMenu);
+
+    // clone._availableActionsMenu = this._availableActionsMenu.slice();
 
     return clone;
 };
@@ -407,69 +410,67 @@ app.model.EntityStateModel.prototype.clone = function clone() {
  * @method loadFromJSON
  * @property {Object} unMinifyJSON
  */
-app.model.EntityStateModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+app.model.EntityStateModel.prototype.loadFromJSON = function loadFromJSON(json) {
 
-    if (JSON._id !== undefined) {
-        this._id = JSON._id;
+    if (json._id !== undefined) {
+        this._id = json._id;
     }
 
-    if (JSON._mass !== undefined) {
-        this._mass = JSON._mass;
+    if (json._mass !== undefined) {
+        this._mass = json._mass;
     }
 
-    if (JSON._radius !== undefined ) {
-        this._radius = JSON._radius;
+    if (json._radius !== undefined ) {
+        this._radius = json._radius;
     }
 
-    if (JSON._collisionRadius !== undefined) {
-        this._collisionRadius = JSON._collisionRadius;
+    if (json._collisionRadius !== undefined) {
+        this._collisionRadius = json._collisionRadius;
     }
 
-    if (JSON._moveCollisionDetectionRadius !== undefined) {
-        this._moveCollisionDetectionRadius = JSON._moveCollisionDetectionRadius;
+    if (json._moveCollisionDetectionRadius !== undefined) {
+        this._moveCollisionDetectionRadius = json._moveCollisionDetectionRadius;
     }
 
-    if (JSON._viewRadius !== undefined) {
-        this._viewRadius = JSON._viewRadius;
+    if (json._viewRadius !== undefined) {
+        this._viewRadius = json._viewRadius;
     }
 
-    if (JSON._selectTargetRadius !== undefined) {
-        this._selectTargetRadius = JSON._selectTargetRadius;
+    if (json._selectTargetRadius !== undefined) {
+        this._selectTargetRadius = json._selectTargetRadius;
     }
 
-    if (JSON._groundSpeed !== undefined) {
-        this._groundSpeed = JSON._groundSpeed;
+    if (json._groundSpeed !== undefined) {
+        this._groundSpeed = json._groundSpeed;
     }
 
-    if (JSON._hp !== undefined) {
-        this._hp = JSON._hp;
+    if (json._hp !== undefined) {
+        this._hp = json._hp;
     }
 
-    if (JSON._entityAttackListModel !== undefined) {
-        this._entityAttackListModel.loadFromJSON(JSON._entityAttackListModel);
+    if (json._entityAttackListModel !== undefined) {
+        this._entityAttackListModel.loadFromJSON(json._entityAttackListModel);
     }
 
-    if (JSON._graphicUrl !== undefined) {
-        this._graphicUrl = JSON._graphicUrl;
+    if (json._graphicUrl !== undefined) {
+        this._graphicUrl = json._graphicUrl;
     }
 
-    if (JSON._graphicOffset !== undefined && JSON._graphicOffset._x !== undefined && JSON._graphicOffset._y !== undefined) {
-        this._graphicOffset = new support.geom.Point2d(JSON._graphicOffset._x, JSON._graphicOffset._y);
+    if (json._graphicOffset !== undefined && json._graphicOffset._x !== undefined && json._graphicOffset._y !== undefined) {
+        this._graphicOffset = new support.geom.Point2d(json._graphicOffset._x, json._graphicOffset._y);
     }
 
-    if (JSON._rotateGraphicOnMove !== undefined) {
-        this._rotateGraphicOnMove = JSON._rotateGraphicOnMove;
+    if (json._rotateGraphicOnMove !== undefined) {
+        this._rotateGraphicOnMove = json._rotateGraphicOnMove;
     }
 
-    if (JSON._removeAfterHit !== undefined) {
-        this._removeAfterHit = JSON._removeAfterHit;
+    if (json._removeAfterHit !== undefined) {
+        this._removeAfterHit = json._removeAfterHit;
     }
 
-    //if (JSON._availableActions !== undefined) {
-    //    this._availableActions = JSON._availableActions;
-    //}
-
-    this._availableActionsMenu = [1, 2, 3, 4];
+    if (json._availableActionsMenu !== undefined) {
+       this._availableActionsMenu = json._availableActionsMenu;
+    }
 };
 
 /**

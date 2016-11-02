@@ -27,9 +27,8 @@ Utils.inherits(support.graphics.Image, Object);
  * @param {Number} y
  * @param {Number} angle
  * @param {Boolean} flipHorizontal
- * @param {Boolean} flipVertical
  */
-support.graphics.Image.prototype.drawRotateImage = function drawRotateImage(canvasContext, image, x, y, angle, flipHorizontal, flipVertical) {
+support.graphics.Image.prototype.drawRotateImage = function drawRotateImage(canvasContext, image, x, y, angle, flipHorizontal) {
 
     // save the current co-ordinate system
     // before we screw with it
@@ -46,10 +45,6 @@ support.graphics.Image.prototype.drawRotateImage = function drawRotateImage(canv
 
     if (flipHorizontal){
         canvasContext.scale(-1, 1);
-    }
-
-    if (flipVertical){
-
     }
 
     // draw it up and to the left by half the width

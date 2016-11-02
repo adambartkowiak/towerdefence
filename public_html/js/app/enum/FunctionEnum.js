@@ -40,8 +40,7 @@ app.enum.FunctionEnum = {
     BUILD_BUILDING: 201,
 
     //Entity Action - connected with training/production
-    TRAIN_WORKER: 301,
-    TRAIN_WARRIOR: 302,
+    TRAIN_UNIT: 301,
 
     //Set mouse functions
     SET_MOVE_ACTION: 400,
@@ -59,6 +58,12 @@ app.enum.FunctionEnum = {
     GET_ENTITY_PROPERTY: 1002,
     GET_EVENT_ENTITY: 1003,
     GET_UNIT_COUNT: 1004,
-    ACTION_MENU_BACK: 1005
+    ACTION_MENU_BACK: 1005,
+    GET_RESOURCES_VALUE: 1006,
+    CHANGE_OBJECTIVE_RESULT: 1007,
+    GET_VARIABLE_VALUE: 1008,
+    INCREMENT_VARIABLE_VALUE: 1009,
+    ALL_OBJECTIVES_COMPLETED: 1010,
+    SHOW_VICTORY_POPUP: 1011
 
 };

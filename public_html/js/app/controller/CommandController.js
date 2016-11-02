@@ -100,11 +100,11 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
 
     var targetEntityId = 0;
 
-    if (targetEntity !== null){
+    if (targetEntity !== null) {
         targetEntityId = targetEntity.getId();
     }
 
-    if (action === app.enum.FunctionEnum.MOVE){
+    if (action === app.enum.FunctionEnum.MOVE) {
 
         entity.setTask(new app.model.TaskModel(x, y, 5, targetEntityId, action, this._currentActionEntityModel));
         if (entity.getSelected() && entity.getMoveList()) {
@@ -114,18 +114,7 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
             entity.setMoveList(new app.model.ListModel());
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
         }
-    } else if (action === app.enum.FunctionEnum.ATTACK){
-
-        entity.setTask(new app.model.TaskModel(x, y, 5, targetEntityId, action, this._currentActionEntityModel));
-        if (entity.getSelected() && entity.getMoveList()) {
-            entity.getMoveList().clear();
-            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
-        } else if (entity.getSelected()) {
-            entity.setMoveList(new app.model.ListModel());
-            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
-        }
-
-    } else if (action === app.enum.FunctionEnum.MOVE_ATTACK){
+    } else if (action === app.enum.FunctionEnum.ATTACK) {
 
         entity.setTask(new app.model.TaskModel(x, y, 5, targetEntityId, action, this._currentActionEntityModel));
         if (entity.getSelected() && entity.getMoveList()) {
@@ -136,7 +125,7 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
         }
 
-    } else if (action === app.enum.FunctionEnum.GO_GATHER){
+    } else if (action === app.enum.FunctionEnum.MOVE_ATTACK) {
 
         entity.setTask(new app.model.TaskModel(x, y, 5, targetEntityId, action, this._currentActionEntityModel));
         if (entity.getSelected() && entity.getMoveList()) {
@@ -147,7 +136,18 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
             entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
         }
 
-    } else if (action === app.enum.FunctionEnum.PATROL){
+    } else if (action === app.enum.FunctionEnum.GO_GATHER) {
+
+        entity.setTask(new app.model.TaskModel(x, y, 5, targetEntityId, action, this._currentActionEntityModel));
+        if (entity.getSelected() && entity.getMoveList()) {
+            entity.getMoveList().clear();
+            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
+        } else if (entity.getSelected()) {
+            entity.setMoveList(new app.model.ListModel());
+            entity.getMoveList().addElement(new app.model.TaskModel(x, y, 5, targetEntityId, action));
+        }
+
+    } else if (action === app.enum.FunctionEnum.PATROL) {
 
         entity.setTask(new app.model.TaskModel(x, y, 5, targetEntityId, action, this._currentActionEntityModel));
         if (entity.getSelected() && entity.getMoveList()) {
@@ -160,7 +160,7 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
             entity.getMoveList().addElement(new app.model.TaskModel(entity.getX(), entity.getY(), 5, targetEntityId, action));
         }
 
-    } else if (action === app.enum.FunctionEnum.BUILD_BUILDING){
+    } else if (action === app.enum.FunctionEnum.BUILD_BUILDING) {
 
         console.log("Building JSON:" + this._currentActionEntityModel);
 
@@ -174,5 +174,5 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
         }
 
     }
-    
+
 };

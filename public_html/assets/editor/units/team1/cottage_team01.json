@@ -1,0 +1,27 @@
+{
+  "_team": 0,
+  "_selectable": true,
+  "_targetable": true,
+  "_woodStorage": true,
+  "_goldStorage": true,
+  "_currentHp": 1000,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": -1,
+        "_radius": 43,
+        "_collisionRadius": 43,
+        "_groundSpeed": 0,
+        "_hp": 1000,
+        "_graphicUrl": "assets/graphics/images/cottage_team01.png",
+        "_graphicOffset": {
+          "_x": -6,
+          "_y": 35
+        },
+        "_rotateGraphicOnMove": false
+      }
+    ]
+  }
+}

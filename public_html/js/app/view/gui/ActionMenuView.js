@@ -46,7 +46,7 @@ app.view.gui.ActionMenuView = function ActionMenuView(x, y, width, height, comma
     for (var i = 0; i < 12; i++) {
         var view = new support.view.ButtonView(5 + 65 * (i % 4), 5 + 65 * (parseInt(i / 4)), 60, 60);
         view.setBackgroundColor("rgba(255, 255, 255, 0.0)");
-        view.setText(i);
+        //view.setText(i);
 
         view._image = null;
 
@@ -83,7 +83,12 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
         view = this._buttonViews[i];
 
         if (elements[i] !== undefined) {
-            view.setText(elements[i].text);
+
+            if (elements[i].text !== null){
+                view.setText(elements[i].text);
+            } else {
+                view.setText("");
+            }
 
             if (elements[i].icon) {
                 view._image = new Image();
@@ -127,10 +132,10 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
                 taskEntityModel = new app.model.EntityModel();
                 taskEntityModel.loadFromJSON(JSON.parse(elementAction[3]));
                 command = new app.command.SetBuildBuildingCommandOnCommandController(this._commandController, taskEntityModel);
-            } else if (elementActionType === app.enum.FunctionEnum.TRAIN_WORKER) {
-                command = new app.command.TrainWorkerCommand(this._entityListModel);
-            } else if (elementActionType === app.enum.FunctionEnum.TRAIN_WARRIOR) {
-                command = new app.command.TrainWarriorCommand(this._entityListModel);
+            } else if (elementActionType === app.enum.FunctionEnum.TRAIN_UNIT) {
+                taskEntityModel = new app.model.EntityModel();
+                taskEntityModel.loadFromJSON(JSON.parse(elementAction[3]));
+                command = new app.command.TrainEntityCommand(this._entityListModel, taskEntityModel);
             }
 
             if (command !== null) {
@@ -139,7 +144,9 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
             view.setMouseEventListener(commandMouseEventListener);
 
         } else {
-            view.setText(i);
+            view.setText("");
+            view.setImage(null);
+            view.setMouseEventListener(null);
         }
 
     }

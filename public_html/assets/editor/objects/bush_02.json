@@ -1,0 +1,28 @@
+{
+  "_team": 0,
+  "_selectable": true,
+  "_targetable": true,
+  "_maxAmountOfWood": 100,
+  "_currentAmountOfWood": 100,
+  "_currentHp": 100,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": -1,
+        "_radius": 20,
+        "_collisionRadius": 20,
+        "_groundSpeed": 0,
+        "_hp": 100,
+        "_currentHp": 100,
+        "_graphicUrl": "assets/graphics/images/bush_02.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 20
+        },
+        "_rotateGraphicOnMove": false
+      }
+    ]
+  }
+}

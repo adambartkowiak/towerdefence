@@ -5,6 +5,9 @@ var FEATURE_TOGGLE = app.FeatureToggle;
 
 //INIT
 var timer = new support.Timer();
+var logicTimer = new support.Timer();
+var rendererTimer = new support.Timer();
+
 var canvas = document.getElementById("map");
 var worldModel = new app.model.WorldModel();
 
@@ -283,6 +286,13 @@ if (loadFromFile) {
             graphicsBuffor.load(graphicPath);
 
 
+            graphicPath = "assets/graphics/images/cottage_team01.png";
+            graphicsBuffor.load(graphicPath);
+
+            graphicPath = "assets/graphics/images/barracks_team01.png";
+            graphicsBuffor.load(graphicPath);
+
+
         }, saveGameName);
     };
 
@@ -375,20 +385,50 @@ entityStatusView.setBackgroundImage(entityStatusBackgroundImage);
 
 //Hud Label Gold
 var hudLabelGold = new support.view.LabelView(app.GuiConfig.hudmenugoldlabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+
 var hudLabelGoldBackgroundImage = new Image();
 hudLabelGoldBackgroundImage.src = "assets/graphics/menu/hudmenu_buttonbrown.png";
+var hudLabelGoldIcon = new Image();
+hudLabelGoldIcon.src = "assets/graphics/menu/hudmenu_icongold.png";
+
 hudLabelGold.setBackgroundImage(hudLabelGoldBackgroundImage);
-hudLabelGold.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["gold"]);
+hudLabelGold.setLabelIcon(hudLabelGoldIcon);
+
+
+var teamResources = worldModel.getTeamListModel().getElement(1);
+var goldValue = 0;
+
+if (!!teamResources){
+    goldValue = worldModel.getTeamListModel().getElement(1).getResourcesArray()["gold"];
+}
+
+hudLabelGold.setText(goldValue);
+hudLabelGold.setTextOffsetX(10);
 
 //Hud Label Wood
 var hudLabelWood = new support.view.LabelView(app.GuiConfig.hudmenuwoodlabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+var hudLabelWoodIcon = new Image();
+hudLabelWoodIcon.src = "assets/graphics/menu/hudmenu_iconwood.png";
+
 hudLabelWood.setBackgroundImage(hudLabelGoldBackgroundImage);
-hudLabelWood.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["wood"]);
+hudLabelWood.setLabelIcon(hudLabelWoodIcon);
+var woodValue = 0;
+
+if (!!teamResources){
+    woodValue = worldModel.getTeamListModel().getElement(1).getResourcesArray()["wood"];
+}
+hudLabelWood.setText(woodValue);
+hudLabelWood.setTextOffsetX(10);
 
 //Hud Label Army
 var hudLabelArmy = new support.view.LabelView(app.GuiConfig.hudmenuarmylabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
+var hudLabelArmyIcon = new Image();
+hudLabelArmyIcon.src = "assets/graphics/menu/hudmenu_iconarmy.png";
+
 hudLabelArmy.setBackgroundImage(hudLabelGoldBackgroundImage);
+hudLabelArmy.setLabelIcon(hudLabelArmyIcon);
 hudLabelArmy.setText("Army");
+hudLabelArmy.setTextOffsetX(10);
 
 //Hud Label Time
 var hudLabelTime = new support.view.LabelView(app.GuiConfig.hudmenutimelabelx, app.GuiConfig.hudmenulabelsy, app.GuiConfig.hudmenulabelswidth, app.GuiConfig.hudmenulabelsheight);
@@ -432,6 +472,12 @@ var logicFunction = function (timeDelta) {
 
     physicDeltaAccumulator += timeDelta;
 
+    if (physicDeltaAccumulator > 5000) {
+        console.log("PAUSE WINDOW - DELTA TO LONG: " + physicDeltaAccumulator + "ms");
+        physicDeltaAccumulator = 0;
+        return;
+    }
+
     while (physicDeltaAccumulator >= physicStepInMilis) {
 
         logicLoopNumber++;
@@ -448,20 +494,18 @@ var logicFunction = function (timeDelta) {
          buildBuildings - entytis ktore sa budynkami
          buildBullets - entytis ktore sa pociskami
          */
-        selectTargetController.update(physicStepInMilis);
         buildController.update(physicStepInMilis);
+
+        selectTargetController.update(physicStepInMilis);
         //createEntityController.update();
         //shotController.update();
 
         //Atakowanie
         attackController.update(physicStepInMilis);
 
-        //ROZPYCHANIE OBIEKTÓW
-        /*
-         rozpychanie obiektów jeżeli na siebie nachodzą
-         */
-        collisionRepulsionController.update(physicStepInMilis);
 
+        //POSTEPY ZBIERANIA SUROWCOW + ZAKANCZANIE ZBIERANIA SUROWCOW
+        gatherController.update(physicStepInMilis);
 
         //PORUSZANIE OBIEKTAMI
         /*
@@ -470,9 +514,12 @@ var logicFunction = function (timeDelta) {
          */
         moveController.update(physicStepInMilis, worldModel.getMapModel());
 
+        //ROZPYCHANIE OBIEKTÓW
+        /*
+         rozpychanie obiektów jeżeli na siebie nachodzą
+         */
+        collisionRepulsionController.update(physicStepInMilis);
 
-        //POSTEPY ZBIERANIA SUROWCOW + ZAKANCZANIE ZBIERANIA SUROWCOW
-        gatherController.update(physicStepInMilis);
 
         //WYKRYWANIE KOLIZJI
         /*
@@ -508,11 +555,31 @@ var logicFunction = function (timeDelta) {
 
 
     //Update HUD
-    hudLabelGold.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["gold"]);
-    hudLabelWood.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["wood"]);
-    hudLabelArmy.setText(worldModel.getTeamModelArray()[1].getResourcesJSON()["army"]);
+    var teamResources = worldModel.getTeamListModel().getElement(1);
 
-    hudLabelTime.setText();
+    if (teamResources !== null){
+        if (teamResources.getResourcesArray()["gold"] === undefined) {
+            teamResources.getResourcesArray()["gold"] = 0;
+        }
+
+        if (teamResources.getResourcesArray()["wood"] === undefined) {
+            teamResources.getResourcesArray()["wood"] = 0;
+        }
+
+        if (teamResources.getResourcesArray()["army"] === undefined) {
+            teamResources.getResourcesArray()["army"] = 0;
+        }
+
+        hudLabelGold.setText(teamResources.getResourcesArray()["gold"]);
+        hudLabelWood.setText(teamResources.getResourcesArray()["wood"]);
+        hudLabelArmy.setText(teamResources.getResourcesArray()["army"]);
+    }
+
+
+    var date = new Date();
+    var minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+    var seconds = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
+    hudLabelTime.setText(date.getHours() + ":" + minutes + ":" + seconds);
 
     logicFrames++;
 
@@ -524,44 +591,7 @@ var logicFunction = function (timeDelta) {
 //URUCHOMIENIE PETLI LOGIKI
 setTimeout(function () {
     mainDraw();
-    // logicIntervalForInactiveWindow();
 }, 100);
-
-// var timeInBackground = 0;
-//
-// var logicIntervalForInactiveWindow = setInterval(
-//     function () {
-//
-//         var deltaFromLastUpdate = new Date() - timer.getLastTime();
-//         var updatingInBackgroundTime = 0;
-//
-//         console.log("" + new Date());
-//
-//
-//         if (deltaFromLastUpdate > 500) {
-//
-//             timeInBackground += deltaFromLastUpdate;
-//             updatingInBackgroundTime = new Date();
-//
-//             console.log("timeInBackground: " + timeInBackground);
-//             console.log("deltaFromLastUpdate: " + deltaFromLastUpdate);
-//             console.log("update by logicIntervalForInactiveWindow");
-//
-//             timer.updateDelta();
-//             totalTimeDelta += timer.getDelta();
-//
-//             logicFunction(timer.getDelta());
-//
-//             updatingInBackgroundTime = new Date() - updatingInBackgroundTime;
-//
-//             console.log("updatingInBackgroundTime: " + updatingInBackgroundTime);
-//
-//             console.log("-------------------------------------");
-//         }
-//
-//     }, 500
-// );
-
 
 //Główna pętla gry
 function mainDraw() {
@@ -571,10 +601,12 @@ function mainDraw() {
     timer.updateDelta();
 
     //Wykonanie logiki
+
+    logicTimer.updateDelta();
     logicFunction(timer.getDelta());
+    logicTimer.updateDelta();
 
-    //timeInBackground = 0;
-
+    rendererTimer.updateDelta();
     rootView.draw(physicDeltaAccumulator, physicStepInMilis);
 };
 

@@ -31,7 +31,7 @@ Utils.inherits(app.command.HoldCommand, support.command.AbstractCommand);
  */
 app.command.HoldCommand.prototype.execute = function execute(mouseEvent) {
 
-    console.log("HoldCommand");
+    // console.log("HoldCommand");
 
     support.command.AbstractCommand.prototype.execute.call(this);
 

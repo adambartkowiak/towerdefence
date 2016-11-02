@@ -106,6 +106,22 @@ support.view.AbstractView.prototype.getText = function getText() {
 };
 
 /**
+ * @method setImage
+ * @param {Image} image
+ */
+support.view.AbstractView.prototype.setImage = function setImage(image) {
+    this._image = image;
+};
+
+/**
+ * @method getImage
+ * @reutn (Image) image
+ */
+support.view.AbstractView.prototype.getImage = function getImage() {
+    return this._image;
+};
+
+/**
  * Metoda sluzaca do obslugi Eventu.
  *
  * @method onMouseEvent

@@ -78,7 +78,7 @@ app.controller.MoveController.prototype.update = function update(timeDelta) {
         //Wektor ruchu
         normalizedMoveVector = moveVector.getNormalizedVector();
 
-        //obrot postaci
+        //obrot jednostki
         element.setAngle(Math.atan2(normalizedMoveVector.getY(), normalizedMoveVector.getX()) * 180 / Math.PI);
 
         //Przemieszczenie entitty o podany wektor

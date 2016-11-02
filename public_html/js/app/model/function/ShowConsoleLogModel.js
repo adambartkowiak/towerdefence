@@ -12,7 +12,7 @@ var Utils = Utils || {};
  * @class ShowConsoleLogModel
  * @constructor
  * @param {string} id
- * @param {string} consolelog
+ * @param {app.model.function.AbstractValueModel} consolelog
  */
 app.model.function.ShowConsoleLogModel = function ShowConsoleLogModel(id, consolelog) {
 

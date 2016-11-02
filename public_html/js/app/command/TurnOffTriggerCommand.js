@@ -13,16 +13,24 @@ var Utils = Utils || {};
  * @namespace app.command
  * @class TurnOffTriggerCommand
  * @constructor
+ * @param {app.command.AttributeCommand} entityIdToTurnOff
  * @param {app.model.TriggerListModel} triggerListModel
- * @param {app.model.function.AbstractValue} triggerId
  */
-app.command.TurnOffTriggerCommand = function TurnOffTriggerCommand(triggerList, triggerId) {
+app.command.TurnOffTriggerCommand = function TurnOffTriggerCommand(entityIdToTurnOff, triggerListModel) {
 
     support.command.AbstractCommand.call(this);
 
-    this._triggerList = triggerList;
+    /**
+     * @property {app.command.AttributeCommand} entityIdToTurnOff
+     * @private
+     */
+    this._entityIdToTurnOff = entityIdToTurnOff;
 
-    this._triggerId = triggerId;
+    /**
+     * @property {app.model.TriggerListModel} triggerListModel
+     * @private
+     */
+    this._triggerListModel = triggerListModel;
 
 };
 
@@ -34,15 +42,14 @@ Utils.inherits(app.command.TurnOffTriggerCommand, support.command.AbstractComman
  */
 app.command.TurnOffTriggerCommand.prototype.execute = function execute(mouseEvent) {
 
-    console.log("TurnOffTriggerCommand: " + this._triggerId.getValue());
+    // console.log("TurnOffTriggerCommand: execute");
 
     support.command.AbstractCommand.prototype.execute.call(this);
 
-    var trigger = this._triggerList.getElementById(this._triggerId.getValue());
+    var trigger = this._triggerListModel.getElementById(this._entityIdToTurnOff.execute(null));
 
-    if (!!trigger){
+    if (!!trigger) {
         trigger.setActive(false);
     }
-    
 
 };

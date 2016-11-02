@@ -29,11 +29,16 @@ app.model.TeamModel = function TeamModel(name, color) {
     this._color = color;
 
     /**
-     * @property {JOSN} _resourcesJSON
+     * @property {Array} _resourcesArray
      * @private
      */
-    this._resourcesJSON = [];
+    this._resourcesArray = [];
 
+    /**
+     * @property {app.listener.TeamListModelListener} _teamListModelListener
+     * @private
+     */
+    this._teamListModelListener = null;
 
 };
 
@@ -72,19 +77,27 @@ app.model.TeamModel.prototype.setColor = function setColor(color) {
 };
 
 /**
- * @method getResourcesJSON
- * @return {JOSN} resources
+ * @method getResourcesArray
+ * @return {Array} resourcesArray
  */
-app.model.TeamModel.prototype.getResourcesJSON = function getResourcesJSON() {
-    return this._resourcesJSON;
+app.model.TeamModel.prototype.getResourcesArray = function getResourcesArray() {
+    return this._resourcesArray;
 };
 
 /**
- * @method setResourcesJSON
- * @param {String} name
+ * @method setResourcesArray
+ * @param {Array} resourcesArray
  */
-app.model.TeamModel.prototype.setResourcesJSON = function setResourcesJSON(resourcesJSON) {
-    this._resourcesJSON = resourcesJSON;
+app.model.TeamModel.prototype.setResourcesArray = function setResourcesArray(resourcesArray) {
+    this._resourcesArray = resourcesArray;
+};
+
+/**
+ * @method setTeamListModelListener
+ * @param {app.listener.TeamModelListListener} entityListener
+ */
+app.model.TeamModel.prototype.setTeamListModelListener = function setTeamListModelListener(teamListModelListener) {
+    this._teamListModelListener = teamListModelListener;
 };
 
 /**
@@ -94,10 +107,14 @@ app.model.TeamModel.prototype.setResourcesJSON = function setResourcesJSON(resou
  */
 app.model.TeamModel.prototype.addResource = function addResource(name, value) {
 
-    if(this._resourcesJSON[name] !== undefined){
-        this._resourcesJSON[name] += value;
+    if(this._resourcesArray[name] !== undefined){
+        this._resourcesArray[name] += value;
     } else {
-        this._resourcesJSON[name] = value;
+        this._resourcesArray[name] = value;
+    }
+
+    if (this._teamListModelListener !== null){
+        this._teamListModelListener.onChangeResourceValue(this._name, name, value);
     }
 
 };
@@ -112,7 +129,7 @@ app.model.TeamModel.prototype.clone = function clone() {
 
     var result =  new app.model.TeamModel(this.getName(), this.getColor());
 
-    result.setResourcesJSON(this.getResourcesJSON());
+    result.setResourcesArray(this.getResourcesArray());
 
     return result;
 };
@@ -124,7 +141,7 @@ app.model.TeamModel.prototype.clone = function clone() {
 app.model.TeamModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     this._name = JSON._name;
     this._color = JSON._color;
-    this._resourcesJSON = JSON._resourcesJSON;
+    this._resourcesArray = JSON._resourcesArray;
 };
 
 /**
@@ -135,7 +152,7 @@ app.model.TeamModel.prototype.getMinifyJSON = function getMinifyJSON() {
     var result = {
         1:this._name,
         2:this._color,
-        3:this._resourcesJSON
+        3:this._resourcesArray
     };
 
     return result;
@@ -151,7 +168,7 @@ app.model.TeamModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
     var result = {
         _name: minifyJSON["1"],
         _color: minifyJSON["2"],
-        _resourcesJSON: minifyJSON["3"]
+        _resourcesArray: minifyJSON["3"]
     };
 
     return result;

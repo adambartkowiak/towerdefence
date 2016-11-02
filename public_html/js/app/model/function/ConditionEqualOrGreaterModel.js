@@ -22,17 +22,3 @@ app.model.function.ConditionEqualOrGreaterModel = function ConditionEqualOrGreat
 };
 
 Utils.inherits(app.model.function.ConditionEqualOrGreaterModel, app.model.function.AbstractFunctionModel);
-//
-// /**
-//  * @method getValue
-//  */
-// app.model.function.ConditionEqualOrGreaterModel.prototype.getValue = function getValue() {
-//
-//     var leftParam = this._functionAttributes[0].getValue(),
-//         rightParam = this._functionAttributes[1].getValue();
-//
-//     if (leftParam >= rightParam) {
-//         return true;
-//     }
-//     return false;
-// };

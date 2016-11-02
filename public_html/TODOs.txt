@@ -1,0 +1,41 @@
+//stworzyc misje 1,
+
+ - tworzenie triggerow w kodzie, /
+ - wywolywanie triggerow z kodu -> triggerController albo cos podobnego -> globalny nasluchiwacz triggerow,
+ - trigger jednostka ginie -> podpiac do niego przegrana!
+ - tirgger jednostka ginie -> podpiac trigger zwyciestwo!
+
+ - trigger ma dzialac perTeam - przegrana tego i tego teamu w zaleznosci od czegos.
+
+ - zrobic akcje do pokazania ekranu zwyciestwo,
+ - zrobic akcje do pokazania ekranu przegrana,
+ - na okienku zwyciestwo przegrana ma byc przycisk, ktory laduje Menu,
+
+ - zrobic trigger na budowanie budynku,
+ - zrobic zeby dalo sie sprawdzic ilosc budynkow,
+ - zrobic tak aby udalo sie sprawdzic ilosc jednostek,
+ - zrobic trigger ze minelo tyle i tyle czasu
+ - zrobic trigger ze wyszkolilo sie tyle i tyle jednostek itp.
+
+ - wczytywanie triggerów z edytora.
+
+
+
+
+
+
+- stworzyc misje 2,
+
+
+
+
+
+
+- stworzyc misje 3,
+
+
+
+
+
+
+- stworzyc misje 4,

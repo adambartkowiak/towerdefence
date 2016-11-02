@@ -37,7 +37,7 @@ Utils.inherits(app.command.ActionMenuUpdateMenuCommand, support.command.Abstract
  */
 app.command.ActionMenuUpdateMenuCommand.prototype.execute = function execute(mouseEvent) {
 
-    console.log("ActionMenuGoInsideCommand");
+    // console.log("ActionMenuGoInsideCommand");
 
     support.command.AbstractCommand.prototype.execute.call(this);
 

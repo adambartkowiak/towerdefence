@@ -21,4 +21,3 @@ app.model.function.TurnOffTriggerModel = function TurnOffTriggerModel(id, trigge
 };
 
 Utils.inherits(app.model.function.TurnOffTriggerModel, app.model.function.AbstractFunctionModel);
-

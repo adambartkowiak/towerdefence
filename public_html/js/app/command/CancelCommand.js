@@ -31,7 +31,7 @@ Utils.inherits(app.command.CancelCommand, support.command.AbstractCommand);
  */
 app.command.CancelCommand.prototype.execute = function execute(mouseEvent) {
 
-    console.log("CancelCommand");
+    // console.log("CancelCommand");
 
     support.command.AbstractCommand.prototype.execute.call(this);
 

@@ -5,7 +5,6 @@
 var app = app || {},
     me = app.FeatureToggle = {};
 
-
 me.COLLISION_RADIUS = false;
 me.VIEW_RADIUS = false;
 me.SELECT_TARGET_RADIUS = false;
@@ -19,6 +18,5 @@ me.SHOW_EVENT_CONSOLE_LOGS = false;
 me.DRAW_ENTITY_ID = false;
 me.HEALTH_BAR = false;
 me.DRAW_ENTITY = true;
-
 
 me.COLISION_SQUARE_SIZE = 60;

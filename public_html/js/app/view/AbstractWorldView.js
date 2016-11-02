@@ -53,9 +53,17 @@ app.view.AbstractWorldView = function AbstractWorldView(worldModel, x, y, width,
     this._cameraModel = worldModel.getCameraModel();
 
     /**
+     * @property {app.model.ObjectiveListModel} objectiveListModel
+     * @private
+     */
+    this._objectiveListModel = worldModel.getObjectiveListModel();
+
+    /**
      *
      */
     this._timeDeltaMemory = [];
+    this._logicTimeDeltaMemory = [];
+    this._rendererTimeDeltaMemory = [];
 
     /**
      *
@@ -70,6 +78,10 @@ app.view.AbstractWorldView = function AbstractWorldView(worldModel, x, y, width,
     this._FOWBuffoer = [];
 
     this._frameProgress = 0;
+
+    this._entitiesOnScreen = 0;
+
+    this._entityOnMapArray = [];
 
 };
 
@@ -91,14 +103,16 @@ app.view.AbstractWorldView.prototype.draw = function draw(canvas) {
 
     if (parent !== null) {
         this._frameProgress = parent._delta / parent._physicStepInMilis;
-        // console.log(this._frameProgress);
     }
 
     // console.log(parent._delta);
     // console.log(parent._physicStepInMilis);
 
     var canvasContext = canvas.getContext("2d");
+    // canvasContext.font = "12px Arial";
+    canvasContext.font = "12px silkscreennormal";
 
+    // canvasContext.imageSmoothingEnabled = false;
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
     this._updateEnitityOnMapArray(this._worldModel.getEntityListModel(), this._worldModel.getMapModel());
@@ -113,6 +127,16 @@ app.view.AbstractWorldView.prototype.draw = function draw(canvas) {
     if (FEATURE_TOGGLE.FOG_OF_WAR) {
         this._drawFogOfWar(canvasContext, this._worldModel.getMapModel(), this._worldModel.getCameraModel());
     }
+
+    this._drawFpsMeter(canvasContext);
+
+    this._objectiveWindow(canvasContext);
+
+    if (this._worldModel._showVictoryPopup){
+        this._showVictoryPopup(canvasContext);
+    }
+
+    canvasContext.font = "12px silkscreennormal";
 
     this._count++;
 };
@@ -151,7 +175,7 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
         layer = 0,
         maxLayer = 2;
 
-    //MAP IMAGES
+    //MAP
     var starIndexX = parseInt(Math.max(0, cameraModel.getViewPortX() / tileGraphicWidth));
     var startIndexY = parseInt(Math.max(0, cameraModel.getViewPortY() / tileGraphicHeight));
     var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
@@ -164,7 +188,6 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
             for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
 
                 tileGraphic = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
-                //tileGraphic = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
 
                 if (tileGraphic && tileGraphic[layer]) {
 
@@ -181,12 +204,12 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
                         if (tileImage !== null) {
                             canvasContext.drawImage(tileImage, drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY());
 
-                            if (tileGraphic[layer].x !== 0 || tileGraphic[layer].y !== 0) {
-                                canvasContext.fillStyle = 'rgba(255,255,0,0.5)';
-                                drawX = tileIndexX * tileGraphicWidth;
-                                drawY = tileIndexY * tileGraphicHeight;
-                                canvasContext.fillRect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), 40, 40);
-                            }
+                            // if (tileGraphic[layer].x !== 0 || tileGraphic[layer].y !== 0) {
+                            //     canvasContext.fillStyle = 'rgba(255,255,0,0.5)';
+                            //     drawX = tileIndexX * tileGraphicWidth;
+                            //     drawY = tileIndexY * tileGraphicHeight;
+                            //     canvasContext.fillRect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), 40, 40);
+                            // }
 
                         }
 
@@ -265,7 +288,7 @@ app.view.AbstractWorldView.prototype._drawMap = function _drawMap(canvasContext,
                     tileGraphic = mapModel.getMapGraphicModel().getTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
 
                     canvasContext.rect(drawX - cameraModel.getViewPortX(), drawY - cameraModel.getViewPortY(), tileGraphicWidth, tileGraphicHeight);
-                    canvasContext.fillText(maxTileGraphicIndexY * tileIndexX + tileIndexY, drawX - cameraModel.getViewPortX() + 5, drawY - cameraModel.getViewPortY() + 20);
+                    //canvasContext.fillText(maxTileGraphicIndexY * tileIndexX + tileIndexY, drawX - cameraModel.getViewPortX() + 5, drawY - cameraModel.getViewPortY() + 20);
                 }
             }
         }
@@ -312,15 +335,15 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
         tileGraphicsData,
         tileImage,
         layer = 0,
-        maxLayer = 2,
+        maxLayer = 2;
 
-        curentOnScreen = 0;
 
+    this._entitiesOnScreen = 0;
 
     canvasContext.strokeStyle = '#000000';
     canvasContext.lineWidth = 1;
 
-    //RENDEROWANIE INTITY NA PODSTAWIE TILESOW MAPY
+    //RENDEROWANIE ENTITY NA PODSTAWIE TILESOW MAPY
     var starIndexX = parseInt(Math.max(0, cameraModel.getViewPortX() / tileGraphicWidth));
     var startIndexY = parseInt(Math.max(0, cameraModel.getViewPortY() / tileGraphicHeight));
     var endIndexX = parseInt(Math.min(cameraModel.getViewPortX() / tileGraphicWidth + this.getWidth() / tileGraphicWidth + 2, maxTileGraphicIndexX));
@@ -334,13 +357,10 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
 
         for (tileIndexX = starIndexX; tileIndexX < endIndexX; tileIndexX++) {
 
-            tileGraphic = mapModel.getMapGraphicModel().getRootTileArray()[maxTileGraphicIndexY * tileIndexX + tileIndexY];
+            tileGraphic = this._entityOnMapArray[maxTileGraphicIndexY * tileIndexX + tileIndexY];
 
-            if (tileGraphic && tileGraphic[100]) {
-
-                // rowArray = rowArray.concat(tileGraphic[100]);
-                rowArray.extend(tileGraphic[100]);
-
+            if (tileGraphic) {
+                rowArray.extend(tileGraphic);
             }
         }
 
@@ -367,7 +387,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
 
 
         //counting current on screen entities
-        curentOnScreen += rowArray.length;
+        this._entitiesOnScreen += rowArray.length;
 
         for (var i = 0; i < rowArray.length; i++) {
             entity = rowArray[i];
@@ -378,8 +398,11 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                 continue;
             }
 
-            var drawEntityX = (entity.getX() * this._frameProgress + entity.getLastPosition().getX() * (1 - this._frameProgress)) - cameraModel.getViewPortX();
-            var drawEntityY = (entity.getY() * this._frameProgress + entity.getLastPosition().getY() * (1 - this._frameProgress)) - cameraModel.getViewPortY();
+            var interpolatedEntityX = entity.getX() * this._frameProgress + entity.getLastPosition().getX() * (1 - this._frameProgress);
+            var interpolatedEntityY = entity.getY() * this._frameProgress + entity.getLastPosition().getY() * (1 - this._frameProgress);
+
+            var drawEntityX = interpolatedEntityX - cameraModel.getViewPortX();
+            var drawEntityY = interpolatedEntityY - cameraModel.getViewPortY();
 
             drawEntityX = Math.round(drawEntityX);
             drawEntityY = Math.round(drawEntityY);
@@ -435,23 +458,25 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
 
             //IMAGE
             if (FEATURE_TOGGLE.DRAW_ENTITY) {
+
+                var graphicUrl = graphicsBuffor.get(entity.getGraphicUrl());
+
                 if (entity.getRotateGraphicOnMove()) {
-                    this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), drawEntityX - entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), entity.getAngle());
+                    this._image.drawRotateImage(canvasContext, graphicUrl, drawEntityX - entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), entity.getAngle());
                 } else {
 
                     var flipHorizontal = true;
-
                     if (entity.getAngle() > -90 && entity.getAngle() < 90) {
                         flipHorizontal = false;
                     }
 
                     if (flipHorizontal) {
-                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), drawEntityX + entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), 0, flipHorizontal);
+                        this._image.drawRotateImage(canvasContext, graphicUrl, drawEntityX + entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), 0, flipHorizontal);
                     } else {
-                        this._image.drawRotateImage(canvasContext, graphicsBuffor.get(entity.getGraphicUrl()), drawEntityX - entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), 0, flipHorizontal);
+                        this._image.drawRotateImage(canvasContext, graphicUrl, drawEntityX - entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), 0, flipHorizontal);
                     }
-
                 }
+
             }
 
             if (FEATURE_TOGGLE.MARK_SELECTED_TARGET) {
@@ -604,58 +629,7 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
 
         }
 
-
     }
-
-    canvasContext.fillStyle = '#FFFFFF';
-    if (timer) {
-        canvasContext.fillText("FPS: " + Math.round(1000 / timer.getDelta()), 5, 120);
-        canvasContext.fillText("DELTA: " + Math.round(timer.getDelta()), 5, 140);
-        this._timeDeltaMemory.splice(0, 0, timer.getDelta());
-        this._timeDeltaMemory = this._timeDeltaMemory.splice(0, 100);
-    }
-    canvasContext.fillText("ENTITY COUNT: " + entityListModel.length(), 5, 160);
-    canvasContext.fillText("ENTITY ON SCREEN: " + curentOnScreen, 5, 180);
-
-
-    canvasContext.fillStyle = '#333333';
-    canvasContext.fillRect(0, 0, 100, 100);
-
-    canvasContext.strokeStyle = '#FF0000';
-
-
-    var avarageDelat = 0;
-    var avarageFps = 0;
-    canvasContext.beginPath();
-
-    for (var deltaItem = 0; deltaItem < this._timeDeltaMemory.length; deltaItem++) {
-        canvasContext.moveTo(deltaItem, 100);
-        canvasContext.lineTo(deltaItem, 100 - (this._timeDeltaMemory[deltaItem]) / 2);
-
-        avarageFps = avarageDelat += this._timeDeltaMemory[deltaItem];
-
-    }
-    canvasContext.stroke();
-
-    avarageDelat = Math.round(avarageDelat / this._timeDeltaMemory.length);
-    avarageFps = Math.round(1000 / (avarageFps / this._timeDeltaMemory.length));
-
-    canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("avarageDelta: " + avarageDelat, 5, 220);
-
-    canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("avarageFps: " + avarageFps, 5, 240);
-
-
-    canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("totalElementsToCheck: " + totalElementsToCheck, 5, 280);
-
-    canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("uniqueElementsToCheck: " + uniqueElementsToCheck, 5, 300);
-
-    canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText("totalArrayExtends: " + totalArrayExtends, 5, 320);
-
 
 };
 
@@ -703,6 +677,169 @@ app.view.AbstractWorldView.prototype._drawFogOfWar = function _drawFogOfWar(canv
 };
 
 /**
+ * @method _drawFpsMeter
+ * @private
+ * @param {CanvasRenderingContext2D} canvasContext
+ */
+app.view.AbstractWorldView.prototype._drawFpsMeter = function _drawFpsMeter(canvasContext) {
+
+    var averageLogicDelta = 0,
+        averageRendererDelta = 0,
+        averageDelta = 0,
+        averageFps = 0,
+        logicDeltaCount = 0,
+        MEMORY_SIZE = 200,
+        fpsMeterHeight = 100;
+
+    //Update Timer
+    rendererTimer.updateDelta();
+
+    canvasContext.fillStyle = '#FFFFFF';
+
+    //Calculate Delta
+    this._timeDeltaMemory.splice(0, 0, timer.getDelta());
+    this._timeDeltaMemory = this._timeDeltaMemory.splice(0, MEMORY_SIZE);
+
+    this._logicTimeDeltaMemory.splice(0, 0, logicTimer.getDelta());
+    this._logicTimeDeltaMemory = this._logicTimeDeltaMemory.splice(0, MEMORY_SIZE);
+
+    this._rendererTimeDeltaMemory.splice(0, 0, rendererTimer.getDelta());
+    this._rendererTimeDeltaMemory = this._rendererTimeDeltaMemory.splice(0, MEMORY_SIZE);
+
+    //average delta
+    for (var deltaItem = 0; deltaItem < this._timeDeltaMemory.length; deltaItem++) {
+        averageFps = averageDelta += this._timeDeltaMemory[deltaItem];
+        averageRendererDelta += this._rendererTimeDeltaMemory[deltaItem];
+
+        if (this._logicTimeDeltaMemory[deltaItem] > 0) {
+            averageLogicDelta += this._logicTimeDeltaMemory[deltaItem];
+            logicDeltaCount++;
+        }
+    }
+
+    //Draw Fps Meter
+    canvasContext.fillStyle = 'rgba(0,0,0,0.7)';
+    canvasContext.fillRect(0, 0, MEMORY_SIZE, 100);
+
+    canvasContext.beginPath();
+    for (var deltaItem = 0; deltaItem < this._timeDeltaMemory.length; deltaItem++) {
+
+        canvasContext.strokeStyle = 'rgba(192,192,192,0.5)';
+        canvasContext.moveTo(deltaItem, fpsMeterHeight);
+        canvasContext.lineTo(deltaItem, fpsMeterHeight - (this._timeDeltaMemory[deltaItem]));
+
+
+    }
+    canvasContext.stroke();
+
+    canvasContext.beginPath();
+    for (var deltaItem = 0; deltaItem < this._timeDeltaMemory.length; deltaItem++) {
+
+        canvasContext.strokeStyle = '#76FF03';
+        canvasContext.moveTo(deltaItem, fpsMeterHeight);
+        canvasContext.lineTo(deltaItem, fpsMeterHeight - (this._rendererTimeDeltaMemory[deltaItem]));
+
+
+    }
+    canvasContext.stroke();
+
+    canvasContext.beginPath();
+    for (var deltaItem = 0; deltaItem < this._timeDeltaMemory.length; deltaItem++) {
+
+        canvasContext.strokeStyle = '#2979FF';
+        canvasContext.moveTo(deltaItem, fpsMeterHeight - (this._rendererTimeDeltaMemory[deltaItem]));
+        canvasContext.lineTo(deltaItem, fpsMeterHeight - (this._rendererTimeDeltaMemory[deltaItem] + this._logicTimeDeltaMemory[deltaItem]));
+    }
+    canvasContext.stroke();
+
+
+    //Statistic Data
+    canvasContext.fillStyle = 'rgba(0,0,0,0.4)';
+    canvasContext.fillRect(0, 105, 180, 180);
+
+    canvasContext.fillStyle = '#FFFFFF';
+    canvasContext.fillText("FPS: " + Math.round(1000 / timer.getDelta()), 5, 120);
+    canvasContext.fillText("LOOP DELTA: " + Math.round(timer.getDelta()), 5, 135);
+    canvasContext.fillText("LOGIC DELTA: " + Math.round(logicTimer.getDelta()), 5, 150);
+    canvasContext.fillText("RENDERER DELTA: " + Math.round(rendererTimer.getDelta()), 5, 165);
+
+    averageFps = Math.round(1000 / (averageFps / this._timeDeltaMemory.length));
+    averageDelta = Math.round(averageDelta / this._timeDeltaMemory.length);
+    averageLogicDelta = Math.round(averageLogicDelta / logicDeltaCount);
+    averageRendererDelta = Math.round(averageRendererDelta / this._timeDeltaMemory.length);
+
+    canvasContext.fillText("AVG FPS: " + averageFps, 5, 190);
+    canvasContext.fillText("AVG DELTA: " + averageDelta, 5, 205);
+    canvasContext.fillText("AVG DELTA LOGIC: " + averageLogicDelta, 5, 220);
+    canvasContext.fillText("AVG DELTA RENDERER: " + averageRendererDelta, 5, 235);
+
+
+    canvasContext.fillText("ENTITY COUNT: " + this._worldModel.getEntityListModel().length(), 5, 260);
+    canvasContext.fillText("ENTITY ON SCREEN: " + this._entitiesOnScreen, 5, 275);
+};
+
+
+/**
+ * @method _objectiveWindow
+ * @private
+ * @param {CanvasRenderingContext2D} canvasContext
+ */
+app.view.AbstractWorldView.prototype._objectiveWindow = function _objectiveWindow(canvasContext) {
+
+    var objective,
+        index,
+        textX = 5,
+        textY = 320,
+        textYStep = 20,
+        objectiveCount = this._objectiveListModel.length();
+
+
+    for (index = 0; index < objectiveCount; index++){
+
+        canvasContext.fillStyle = '#FFFFFF';
+        objective = this._objectiveListModel.getElement(index);
+
+        canvasContext.fillText(objective.getMessage(), textX + 15, textY);
+
+        canvasContext.beginPath();
+        canvasContext.strokeStyle = '#FFFFFF';
+        canvasContext.rect(textX, textY + 2, 11, -11);
+
+        canvasContext.lineWidth = 1;
+        canvasContext.stroke();
+
+        if (objective.getFinished()){
+            if (objective.getResult()){
+                canvasContext.fillStyle = '#00FF00';
+                canvasContext.fillText("o", textX+1, textY);
+            } else {
+                canvasContext.fillStyle = '#FF0000';
+                canvasContext.fillText("X", textX+1, textY);
+            }
+        }
+
+        textY += textYStep;
+    }
+
+};
+/**
+ * @method _showVictoryPopup
+ * @private
+ * @param {CanvasRenderingContext2D} canvasContext
+ */
+app.view.AbstractWorldView.prototype._showVictoryPopup = function _showVictoryPopup(canvasContext) {
+
+    var textX = 300,
+        textY = 320;
+
+        canvasContext.font = "120px silkscreennormal";
+        canvasContext.fillStyle = '#FFFFFF';
+        canvasContext.fillText("VICTORY!", textX, textY);
+
+
+};
+
+/**
  * @method _initEnitityOnMapArray
  * @private
  * @param {app.model.ListModel} entityListModel
@@ -710,27 +847,19 @@ app.view.AbstractWorldView.prototype._drawFogOfWar = function _drawFogOfWar(canv
  */
 app.view.AbstractWorldView.prototype._initEnitityOnMapArray = function _initEnitityOnMapArray(entityListModel, mapModel) {
 
-    var layer = 100,
-        tileIndexX,
-        tileIndexY,
+    var tileIndex,
         tileGraphicWidth = mapModel.getMapGraphicModel().getTileWidth(),
         tileGraphicHeight = mapModel.getMapGraphicModel().getTileHeight(),
         maxTileGraphicIndexX = Math.ceil(mapModel.getMapGraphicModel().getMapWidth() / tileGraphicWidth),
-        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight);
+        maxTileGraphicIndexY = Math.ceil(mapModel.getMapGraphicModel().getMapHeight() / tileGraphicHeight),
+        tileIndexMax = maxTileGraphicIndexX * maxTileGraphicIndexY;
 
-    //Init tablicy
-    for (tileIndexY = 0; tileIndexY < maxTileGraphicIndexY; tileIndexY++) {
-        for (tileIndexX = 0; tileIndexX < maxTileGraphicIndexX; tileIndexX++) {
-
-            if (mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] === undefined) {
-                mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY] = [];
-            }
-
-            mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * tileIndexX + tileIndexY][layer] = [];
-
-        }
+    for (tileIndex = 0; tileIndex < tileIndexMax; tileIndex++) {
+        this._entityOnMapArray[tileIndex] = [];
     }
-};
+
+}
+;
 
 /**
  * @method _updateEnitityOnMapArray
@@ -759,24 +888,27 @@ app.view.AbstractWorldView.prototype._updateEnitityOnMapArray = function _update
 
     for (var i = 0; i < max; i++) {
         entity = entityListModel.getElement(i);
-        //PUSH
+
         calculatedPossiotionX = entity.getX();
         calculatedPossiotionY = entity.getY();
 
         targetTileX = Math.floor(calculatedPossiotionX / tileGraphicWidth);
         targetTileY = Math.floor(calculatedPossiotionY / tileGraphicHeight);
 
-        //tile X Y
-        targetTileX = Math.max(targetTileX, 0);
-        targetTileY = Math.max(targetTileY, 0);
+        //tileX
+        if (targetTileX < 0 || targetTileX > maxTileGraphicIndexX) {
+            targetTileX = Math.max(targetTileX, 0);
+            targetTileX = Math.min(targetTileX, maxTileGraphicIndexX - 1);
+        }
 
-        //tile X Y
-        targetTileX = Math.min(targetTileX, maxTileGraphicIndexX - 1);
-        targetTileY = Math.min(targetTileY, maxTileGraphicIndexY - 1);
-
+        //tile Y
+        if (targetTileY < 0 || targetTileY > maxTileGraphicIndexY) {
+            targetTileY = Math.max(targetTileY, 0);
+            targetTileY = Math.min(targetTileY, maxTileGraphicIndexY - 1);
+        }
 
         //Dokladanie entity do tabeli
-        mapModel.getMapGraphicModel()._rootTileArray[maxTileGraphicIndexY * targetTileX + targetTileY][layer].push(entity);
+        this._entityOnMapArray[maxTileGraphicIndexY * targetTileX + targetTileY].push(entity);
     }
 
 };

@@ -78,7 +78,6 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
             element.setTargetEntity(null);
         }
 
-
         //search for target
         if (targetEntity === null) {
 

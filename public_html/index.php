@@ -9,20 +9,52 @@ and open the template in the editor.
     <title>HTML5 GAME - MAIN PAGE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'silkscreennormal';
+            src: url('assets/fonts/slkscr-webfont.eot');
+            src: url('assets/fonts/slkscr-webfont.eot?#iefix') format('embedded-opentype'),
+            url('assets/fonts/slkscr-webfont.woff') format('woff'),
+            url('assets/fonts/slkscr-webfont.ttf') format('truetype'),
+            url('assets/fonts/slkscr-webfont.svg#silkscreennormal') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 <body style="background-color: dimgray">
 <div id="fb-root"></div>
 
 <!-- facebook login script-->
-<script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=718520094854936";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<!--<script>(function (d, s, id) {-->
+<!--    var js, fjs = d.getElementsByTagName(s)[0];-->
+<!--    if (d.getElementById(id)) return;-->
+<!--    js = d.createElement(s);-->
+<!--    js.id = id;-->
+<!--    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=718520094854936";-->
+<!--    fjs.parentNode.insertBefore(js, fjs);-->
+<!--}(document, 'script', 'facebook-jssdk'));</script>-->
 
+<!-- facebook canvas SDK -->
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '718520094854936',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+
+        // ADD ADDITIONAL FACEBOOK CODE HERE
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- google analytics -->
 <script>
@@ -143,14 +175,20 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/ObjectiveModel.js"></script>
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityAttackListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateListModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
+<script type="text/javascript" src="js/app/model/VariableModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TeamListModel.js"></script>
+<script type="text/javascript" src="js/app/model/ObjectiveListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TriggerListModel.js"></script>
 <script type="text/javascript" src="js/app/model/FunctionListModel.js"></script>
+<script type="text/javascript" src="js/app/model/VariableListModel.js"></script>
+
 <script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
@@ -166,6 +204,12 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/model/function/GetUnitCountModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/ShowConsoleLogModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/TurnOffTriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetResourcesValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ChangeObjectiveResultModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetVariableValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/IncrementVariableValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/AllObjectivesCompletedModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ShowVictoryPopupModel.js"></script>
 
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 <script type="text/javascript" src="js/app/model/ActionMenuModel.js"></script>
@@ -195,6 +239,7 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/controller/RemoveEntityController.js"></script>
 
 <!-- APP COMMANDS -->
+<script type="text/javascript" src="js/app/command/AttributeCommand.js"></script>
 <script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetAttackCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetMoveAttackCommandOnCommandController.js"></script>
@@ -204,13 +249,24 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
 <script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
 <script type="text/javascript" src="js/app/command/HoldCommand.js"></script>
-<script type="text/javascript" src="js/app/command/TrainWorkerCommand.js"></script>
-<script type="text/javascript" src="js/app/command/TrainWarriorCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TrainEntityCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ShowConsoleLogCommand.js"></script>
 <script type="text/javascript" src="js/app/command/TurnOffTriggerCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetUnitCountCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ConditionEqualCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ConditionEqualOrGreaterCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetEventEntityModelCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetEntityPropertyCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetResourcesValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ChangeObjectiveResultCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetVariableValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/IncrementVariableValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ShowVictoryPopupCommand.js"></script>
+<script type="text/javascript" src="js/app/command/AllObjectivesCompletedCommand.js"></script>
 
 <!-- FACTORY -->
 <script type="text/javascript" src="js/app/factory/FunctionModelFactory.js"></script>
+<script type="text/javascript" src="js/app/factory/CommandFactory.js"></script>
 
 <!-- Mouse Event Handler -->
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>

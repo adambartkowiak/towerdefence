@@ -110,7 +110,7 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
                         element = this._worldModel.getSelectedEntityListModel().getElement(elementIndex);
 
                         //if (element.getSelected() && element.getTeam() === 1) {
-                            this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, this._commandController.getAction());
+                        this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, this._commandController.getAction());
                         //}
 
                     }
@@ -128,6 +128,8 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
                 }
 
                 this._worldModel.getSelectedEntityListModel().clear();
+                this._worldModel.getActionMenu().setElements([]);
+                actionMenuView.updateMenu();
             }
 
 
@@ -146,7 +148,7 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
                     element = this._worldModel.getSelectedEntityListModel().getElement(elementIndex);
 
                     //if (element.getSelected() && element.getTeam() === 1) {
-                        this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, app.enum.FunctionEnum.MOVE);
+                    this._commandController.setActionOnEntity(element, pointerOnMapX, pointerOnMapY, targetEntity, app.enum.FunctionEnum.MOVE);
                     //}
 
                 }
@@ -198,8 +200,14 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
                         this._worldModel.getSelectedEntityListModel().addElement(element);
                     }
                 }
-
             }
+
+            var selectedEntity = Helper.getSelectedEntity(this._worldModel.getEntityListModel());
+            if (selectedEntity !== null) {
+                this._worldModel.getActionMenu().setElements(selectedEntity.getCurrentEntityStateModel().getAvailableActionsMenu());
+                actionMenuView.updateMenu();
+            }
+
 
         }
 
@@ -218,7 +226,7 @@ app.view.WorldView.prototype.onMouseEvent = function onMouseEvent(mouseEvent) {
  * @param {Number} pointerOnMapY
  * @return {app.model.EntityModel} clickedEntity
  */
-app.view.WorldView.prototype.getClickedElement = function getClickedElement(pointerOnMapX, pointerOnMapY){
+app.view.WorldView.prototype.getClickedElement = function getClickedElement(pointerOnMapX, pointerOnMapY) {
 
     var listLength,
         elementIndex,
@@ -233,7 +241,7 @@ app.view.WorldView.prototype.getClickedElement = function getClickedElement(poin
         entityToCheck = this._worldModel.getEntityListModel().getElement(elementIndex);
 
         collision = support.geom.collision.Collision.Point2dCircle(mousePoint, entityToCheck.getCircle());
-        if (collision){
+        if (collision) {
             clickedEntity = entityToCheck;
             break;
         }

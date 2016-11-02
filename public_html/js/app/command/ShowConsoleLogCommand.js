@@ -13,13 +13,17 @@ var Utils = Utils || {};
  * @namespace app.command
  * @class ShowConsoleLogCommand
  * @constructor
- * @param {String} consoleLog
+ * @param {app.command.AttributeCommand} message
  */
-app.command.ShowConsoleLogCommand = function ShowConsoleLogCommand(consoleLog) {
+app.command.ShowConsoleLogCommand = function ShowConsoleLogCommand(message) {
 
     support.command.AbstractCommand.call(this);
 
-    this._consoleLog = consoleLog;
+    /**
+     * @property {app.command.AttributeCommand} message
+     * @private
+     */
+    this._message = message;
 
 };
 
@@ -31,10 +35,10 @@ Utils.inherits(app.command.ShowConsoleLogCommand, support.command.AbstractComman
  */
 app.command.ShowConsoleLogCommand.prototype.execute = function execute(mouseEvent) {
 
-    console.log("ShowConsoleLogCommand");
+    // console.log("ShowConsoleLogCommand: execute");
 
     support.command.AbstractCommand.prototype.execute.call(this);
 
-    console.log(this._consoleLog.getValue());
+    console.log(this._message.execute(null));
 
 };

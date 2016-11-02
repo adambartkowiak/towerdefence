@@ -20,5 +20,8 @@ app.enum.GameEventEnum = {
     UNIT_LEAVES_REGION: 4,
     UNIT_CREATE: 5,
     UNIT_DIE: 6,
-    TIME_DELTA: 7
+    TIME_DELTA: 7,
+    TEAM_CREATE: 8,
+    TEAM_REMOVE: 9,
+    CHANGE_TEAM_RESOURCES_VALUE: 10
 };

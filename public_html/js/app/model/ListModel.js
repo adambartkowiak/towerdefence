@@ -31,9 +31,11 @@ Utils.inherits(app.model.ListModel, Object);
  * @return {app.model.ListModel} this
  */
 app.model.ListModel.prototype.addElement = function addElement(object) {
-    this.onAddElement(object);
+
     this._elements.push(object);
 
+    this.onAddElement(object);
+    
     return this;
 };
 
@@ -69,8 +71,10 @@ app.model.ListModel.prototype.getElement = function getElement(index) {
  * @param {Number} index
  */
 app.model.ListModel.prototype.removeElementByIndex = function removeElementByIndex(index) {
-    this.onRemoveElement(this._elements[index]);
+    var element = this._elements[index];
     this._elements.splice(index, 1);
+
+    this.onRemoveElement(element);
 };
 
 /**

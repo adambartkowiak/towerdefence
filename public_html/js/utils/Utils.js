@@ -79,14 +79,19 @@ Array.prototype.extend = function extend(other_array) {
 };
 
 Array.prototype.extendUnique = function extendUnique(otherArray, checkId) {
-    otherArray.forEach(function (x) {
 
-        if (x._checkId !== checkId){
-            x._checkId = checkId;
-            this.push(x);
+    var i,
+        max = otherArray.length,
+        element = null;
+
+    for (i = 0; i < max; i++) {
+        element = otherArray[i];
+
+        if (element._checkId !== checkId) {
+            element._checkId = checkId;
+            this.push(element);
         }
-
-    }, this);
+    }
 };
 
 String.prototype.replaceAll = function (search, replacement) {

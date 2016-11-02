@@ -22,17 +22,3 @@ app.model.function.ConditionEqualModel = function ConditionEqualModel(id, leftVa
 };
 
 Utils.inherits(app.model.function.ConditionEqualModel, app.model.function.AbstractFunctionModel);
-//
-// /**
-//  * @method getValue
-//  */
-// app.model.function.ConditionEqualModel.prototype.getValue = function getValue() {
-//
-//     var leftParam = this._functionAttributes[0].getValue(),
-//         rightParam = this._functionAttributes[1].getValue();
-//
-//     if (leftParam === rightParam) {
-//         return true;
-//     }
-//     return false;
-// };

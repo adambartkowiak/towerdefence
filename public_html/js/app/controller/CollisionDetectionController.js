@@ -10,14 +10,6 @@
  */
 
 'use strict';
-
-var totalElementsToCheck = 0;
-var uniqueElementsToCheck = 0;
-var totalArrayExtends = 0;
-var getPotentialCollisionArrayForCircle_CALL_NUMBER = 1;
-
-var UNIQUE_EXTEND = true;
-
 var app = app || {};
 app.controller = app.controller || {};
 
@@ -73,6 +65,21 @@ app.controller.CollisionDetectionController = function CollisionDetectionControl
      * @private
      */
     this._tileHeight = 0;
+
+    /**
+     * @property {number} _COLLISION_ARRAY_FOR_CIRCLE_CALL_NUMBER
+     * @private
+     */
+    this._COLLISION_ARRAY_FOR_CIRCLE_CALL_NUMBER = 0;
+
+    /**
+     * @property {boolean} _UNIQUE_EXTEND
+     * @private
+     */
+    this._UNIQUE_EXTEND = true;
+
+
+    //OPTYMALIZACJA TEST
 
 };
 
@@ -155,8 +162,6 @@ app.controller.CollisionDetectionController.prototype.prepareObjectsGroups = fun
  */
 app.controller.CollisionDetectionController.prototype.getPotentialCollisionArrayForCircle = function getPotentialCollisionArrayForCircle(x, y, collisionRadius, mask) {
 
-    getPotentialCollisionArrayForCircle_CALL_NUMBER += 1;
-
     var tileWidth = this._mapModel.getMapGraphicModel().getTileWidth(),
         tileHeight = this._mapModel.getMapGraphicModel().getTileHeight(),
         maxTileIndexY = Math.ceil(this._mapModel.getMapGraphicModel().getMapHeight() / tileHeight),
@@ -167,38 +172,29 @@ app.controller.CollisionDetectionController.prototype.getPotentialCollisionArray
         endTileIndexY = Math.floor((y + collisionRadius) / tileHeight),
 
         selectedIndex = 0,
-        result = [];
+        result = [],
 
-    for (var tileIndexX = startTileIndexX; tileIndexX <= endTileIndexX; tileIndexX++) {
-        for (var tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++) {
+        tileIndexX,
+        tileIndexY;
+
+    this._COLLISION_ARRAY_FOR_CIRCLE_CALL_NUMBER++;
+
+    for (tileIndexX = startTileIndexX; tileIndexX <= endTileIndexX; tileIndexX++) {
+        for (tileIndexY = startTileIndexY; tileIndexY <= endTileIndexY; tileIndexY++) {
 
             selectedIndex = maxTileIndexY * tileIndexX + tileIndexY;
             if (this._collisionMap[selectedIndex] !== undefined) {
 
-                if (UNIQUE_EXTEND){
-                    result.extendUnique(this._collisionMap[selectedIndex], getPotentialCollisionArrayForCircle_CALL_NUMBER);
+                if (this._UNIQUE_EXTEND){
+                    result.extendUnique(this._collisionMap[selectedIndex], this._COLLISION_ARRAY_FOR_CIRCLE_CALL_NUMBER);
                 } else {
                     result.extend(this._collisionMap[selectedIndex]);
                 }
 
-                // totalElementsToCheck += this._collisionMap[selectedIndex].length;
-                // totalArrayExtends += 1;
             }
 
         }
     }
-
-    // //UNIQUES CHECK
-    // var counts = {};
-    // for (var i = 0; i < result.length; i++) {
-    //     counts[result[i].getId()] = 1 + (counts[result[i].getId()] || 0);
-    //     if (counts[result[i].getId()] === 1) {
-    //         uniqueElementsToCheck++;
-    //     }
-    // }
-
-    // totalElementsToCheck += result.length;
-
 
     return result;
 };
@@ -214,7 +210,7 @@ app.controller.CollisionDetectionController.prototype.getCollisionArrayForCircle
 
     var potentialCollisionArray = this.getPotentialCollisionArrayForCircle(x, y, collisionRadius, mask),
         potentialCollisionArrayLength = potentialCollisionArray.length,
-        i = 0,
+        i,
         entity = null,
         result = [];
 

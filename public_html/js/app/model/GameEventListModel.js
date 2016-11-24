@@ -14,6 +14,7 @@ var Utils = Utils || {};
 /**
  * @namespace app.model
  * @class GameEventListModel
+ * @memberOf app.model
  * @constructor
  */
 app.model.GameEventListModel = function GameEventListModel() {

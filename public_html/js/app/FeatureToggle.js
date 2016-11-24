@@ -20,3 +20,9 @@ me.HEALTH_BAR = false;
 me.DRAW_ENTITY = true;
 
 me.COLISION_SQUARE_SIZE = 60;
+
+me.CONSOLE_LOG = false;
+
+if (!me.CONSOLE_LOG){
+    console.log = function (){}
+}

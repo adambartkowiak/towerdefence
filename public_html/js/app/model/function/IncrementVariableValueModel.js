@@ -12,12 +12,13 @@ var Utils = Utils || {};
  * @class IncrementVariableValueModel
  * @constructor
  * @param {string} id
- * @param {number} team
+ * @param {string} variableId
  */
-app.model.function.IncrementVariableValueModel = function IncrementVariableValueModel(id, variableName) {
+app.model.function.IncrementVariableValueModel = function IncrementVariableValueModel(id, variableId) {
 
-    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.INCREMENT_VARIABLE_VALUE, [variableName]);
+    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.INCREMENT_VARIABLE_VALUE, [variableId]);
 
+    this._functionAttributeNames = ["variableId"];
 };
 
 Utils.inherits(app.model.function.IncrementVariableValueModel, app.model.function.AbstractFunctionModel);

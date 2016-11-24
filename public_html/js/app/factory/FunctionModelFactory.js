@@ -10,6 +10,7 @@ var Utils = Utils || {};
 /**
  * @namespace app.factory
  * @class FunctionModelFactory
+ * @memberOf app.factory
  * @constructor
  * @param {app.listener.GlobalEventListener} globelEventListener
  */
@@ -69,7 +70,48 @@ app.factory.FunctionModelFactory.prototype.createFunction = function createFunct
             result = new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "SELECT TRIGGER ID"));
             break;
         }
+        case app.enum.FunctionEnum.TURN_ON_TRIGGER:
+        {
+            result = new app.model.function.TurnOnTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "SELECT TRIGGER ID"));
+            break;
+        }
+        case app.enum.FunctionEnum.SHOW_VICTORY_POPUP:
+        {
+            result = new app.model.function.ShowVictoryPopupModel(Utils.guid());
+            break;
+        }
+        case app.enum.FunctionEnum.ALL_OBJECTIVES_COMPLETED:
+        {
+            result = new app.model.function.AllObjectivesCompletedModel(Utils.guid());
+            break;
+        }
+        case app.enum.FunctionEnum.CHANGE_OBJECTIVE_RESULT:
+        {
+            result = new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "OBJECTIVE_ID") /*ObjectiveId*/, new app.model.function.AttributeModel(Utils.guid(), "OBJECTIVE_RESULT_BOOLEAN")/*ObjectiveResult*/);
+            break;
+        }
+        case app.enum.FunctionEnum.GET_RESOURCES_VALUE:
+        {
+            result = new app.model.function.GetResourcesValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TEAM_ID") /*TeamId*/, new app.model.function.AttributeModel(Utils.guid(), "RESOURCES_NAME")/*ResourcesName*/);
+            break;
+        }
+        case app.enum.FunctionEnum.GET_VARIABLE_VALUE:
+        {
+            result = new app.model.function.GetVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "VARIBALE_ID") /*VariableId*/);
+            break;
+        }
+        case app.enum.FunctionEnum.INCREMENT_VARIABLE_VALUE:
+        {
+            result = new app.model.function.IncrementVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "VARIBALE_ID") /*VariableId*/);
+            break;
+        }
+        case app.enum.FunctionEnum.VALUE:
+        {
+            result = new app.model.function.AttributeModel(Utils.guid(), "__EMPTY_VALUE__")
+            break;
+        }
     }
 
+    result.setFunctionModelFactory(this);
     return result;
 };

@@ -64,9 +64,25 @@ body {
     overflow: scroll;
 }
 
-.myuploadbutton {
-    width: 300px;
-    float: left;
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0px 10px 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#exportMapButton {
+    margin-right: 50px;
 }
 
 /*COMMON WINDOW STYLE*/
@@ -116,6 +132,7 @@ body {
     height: calc(100% - 38px);
 }
 
+/*TRIGGER MODULE*/
 #trigger-list {
     position: relative;
     float: left;
@@ -135,10 +152,41 @@ body {
     float: left;
     width: calc(1200px - 303px);
     height: 100%;
+    padding: 5px;
 
 }
 
 #trigger-list-add-button {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+/*OBJECTIVE MODULE*/
+#objective-list {
+    position: relative;
+    float: left;
+    width: 300px;
+    height: 100%;
+}
+
+#objective-list-content {
+    width: 100%;
+    height: calc(100% - 34px);
+    overflow-y: auto;
+}
+
+#objective-configuration {
+    position: relative;
+    overflow-y: scroll;
+    float: left;
+    width: calc(1200px - 303px);
+    height: 100%;
+    padding: 5px;
+
+}
+
+#objective-list-add-button {
     position: absolute;
     width: 100%;
     bottom: 0px;

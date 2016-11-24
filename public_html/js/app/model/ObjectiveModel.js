@@ -137,6 +137,8 @@ app.model.ObjectiveModel.prototype.setResult = function setResult(result) {
 app.model.ObjectiveModel.prototype.clone = function clone() {
 
     var result = new app.model.ObjectiveModel(this.getName(), this.getMessage(), this.getFinished(), this.getResult());
+    result.setId(this.getId());
+    
     return result;
 };
 

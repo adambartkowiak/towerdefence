@@ -77,21 +77,22 @@ editor.controller.TriggerModuleController.prototype.addTrigger = function addTri
 
     var triggerListModel = this._worldModel.getTriggerListModel(),
         count = triggerListModel.length(),
-        newTriggerId = Utils.guid();
+        newTriggerId = Utils.guid(),
+        functionModelFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener());
 
     triggerListModel.addElement(
         new app.model.TriggerModel(
             newTriggerId,
             "TRIGGER: " + count,
             new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.NONE)),
-            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
+            new app.model.FunctionListModel(functionModelFactory).addElement(new app.model.function.ConditionEqualModel(
                 Utils.guid(),
                 new app.model.function.AttributeModel(Utils.guid(), 0),
                 new app.model.function.AttributeModel(Utils.guid(), 0))),
-            new app.model.FunctionListModel().addElement(
+            new app.model.FunctionListModel(functionModelFactory).addElement(
                 new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "VICTORY"))
             ).addElement(
-                new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), newTriggerId)))));
+                new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), newTriggerId))), true,  this._worldModel.getGlobalEventListener()));
 
     this._view.show();
 

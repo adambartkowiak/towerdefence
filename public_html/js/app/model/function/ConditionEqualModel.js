@@ -19,6 +19,7 @@ app.model.function.ConditionEqualModel = function ConditionEqualModel(id, leftVa
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.EQUALS, [leftValue, rightValue]);
 
+    this._functionAttributeNames = ["leftValue", "rightValue"];
 };
 
 Utils.inherits(app.model.function.ConditionEqualModel, app.model.function.AbstractFunctionModel);

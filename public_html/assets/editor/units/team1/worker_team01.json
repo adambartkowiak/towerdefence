@@ -9,8 +9,8 @@
       {
         "_id": "default",
         "_mass": 0,
-        "_radius": 12,
-        "_collisionRadius": 12,
+        "_radius": 10,
+        "_collisionRadius": 10,
         "_viewRadius": 200,
         "_selectTargetRadius": 200,
         "_groundSpeed": 80,
@@ -18,7 +18,7 @@
         "_graphicUrl": "assets/graphics/images/worker_01.png",
         "_graphicOffset": {
           "_x": 0,
-          "_y": 18
+          "_y": 16
         },
         "_rotateGraphicOnMove": false,
         "_entityAttackListModel": {

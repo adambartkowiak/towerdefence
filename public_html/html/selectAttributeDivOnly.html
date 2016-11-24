@@ -16,8 +16,43 @@
                 </div>
                 <div id="select-attribute-customvalue-div" class="hidden select-attribute-div-content">
                     <form action="">
-                        <label>Type Attribute Value:</label>
-                        <input id="select-attribute-value-text-input" class="form-control" type="text" name="value">
+
+                        <div class="dropdown">
+                            <span>Select Value Type:</span>
+                            <button id="select-attribute-value-selectvaluetypedropdown"
+                                    class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">String
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="select-attribute-value-selectvaluetypedropdown-string">String</a>
+                                </li>
+                                <li><a href="#" id="select-attribute-value-selectvaluetypedropdown-number">Number</a>
+                                </li>
+                                <li><a href="#" id="select-attribute-value-selectvaluetypedropdown-boolean">Boolean</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="select-attribute-value-string-div" class="form-group">
+                            <label>Type Attribute Value (String):</label>
+                            <input id="select-attribute-value-text-input" class="form-control" type="text" name="value">
+                        </div>
+
+                        <div id="select-attribute-value-number-div" class="form-group hidden">
+                            <label>Type Attribute Value (Number):</label>
+                            <input id="select-attribute-value-number-input" class="form-control" type="text"
+                                   name="value">
+                        </div>
+
+                        <div id="select-attribute-value-boolean-div" class="form-group hidden">
+                            <label>Select Attribute Value (Boolean):</label>
+                            <div class="radio">
+                                <label><input type="radio" name="boolean" value="true" checked>true</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="boolean" value="false">false</label>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
                 <div id="select-attribute-variable-div" class="hidden select-attribute-div-content">
@@ -31,11 +66,13 @@
             <div>
                 <button type="button" class="btn btn-success pull-right" id="select-attribute-accept-button">Accept
                 </button>
-                <button type="button" class="btn btn-link pull-right" id="select-attribute-cancel-button">cancel</button>
+                <button type="button" class="btn btn-link pull-right" id="select-attribute-cancel-button">cancel
+                </button>
             </div>
         </div>
     </div>
 </div>
+
 
 <script>
 
@@ -53,7 +90,6 @@
         $(functionDiv).addClass("hidden");
     });
 
-
     var customValueButton = document.getElementById("select-attribute-custom-value-button");
     customValueButton.addEventListener("click", function () {
 
@@ -66,8 +102,77 @@
         $(customValueDiv).removeClass("hidden");
         $(variableDiv).addClass("hidden");
         $(functionDiv).addClass("hidden");
+
+        console.log("cos cos cos");
     });
 
+
+    var selectAttributeCustomValueStringItem = document.getElementById("select-attribute-value-selectvaluetypedropdown-string");
+    selectAttributeCustomValueStringItem.addEventListener("click", function () {
+        var formGroups,
+                formGroup,
+                index;
+
+        customValueSelectValueTypeDropDown.innerHTML = "String <span class=\"caret\"></span>";
+
+        //show selected formGroup and hidden rest
+        formGroups = customValueDiv.getElementsByClassName("form-group");
+        for (index = 0; index < formGroups.length; index++) {
+
+            formGroup = formGroups[index];
+
+            if (formGroup.id === "select-attribute-value-string-div") {
+                $(formGroup).removeClass("hidden");
+            } else {
+                $(formGroup).addClass("hidden");
+            }
+        }
+    });
+
+    var selectAttributeCustomValueNumberItem = document.getElementById("select-attribute-value-selectvaluetypedropdown-number");
+    selectAttributeCustomValueNumberItem.addEventListener("click", function () {
+        var formGroups,
+                formGroup,
+                index;
+
+        customValueSelectValueTypeDropDown.innerHTML = "Number <span class=\"caret\"></span>";
+
+        //show selected formGroup and hidden rest
+        formGroups = customValueDiv.getElementsByClassName("form-group");
+        for (index = 0; index < formGroups.length; index++) {
+
+            formGroup = formGroups[index];
+
+            if (formGroup.id === "select-attribute-value-number-div") {
+                $(formGroup).removeClass("hidden");
+            } else {
+                $(formGroup).addClass("hidden");
+            }
+        }
+    });
+
+
+    var selectAttributeCustomValueBooleanItem = document.getElementById("select-attribute-value-selectvaluetypedropdown-boolean");
+    selectAttributeCustomValueBooleanItem.addEventListener("click", function () {
+        var formGroups,
+                formGroup,
+                index;
+
+        customValueSelectValueTypeDropDown.innerHTML = "Boolean <span class=\"caret\"></span>";
+
+        //show selected formGroup and hidden rest
+        formGroups = customValueDiv.getElementsByClassName("form-group");
+        for (index = 0; index < formGroups.length; index++) {
+
+            formGroup = formGroups[index];
+
+            if (formGroup.id === "select-attribute-value-boolean-div") {
+                $(formGroup).removeClass("hidden");
+            } else {
+                $(formGroup).addClass("hidden");
+            }
+        }
+    });
 
     var variableButton = document.getElementById("select-attribute-variable-button");
     variableButton.addEventListener("click", function () {
@@ -102,5 +207,6 @@
     var customValueDiv = document.getElementById("select-attribute-customvalue-div");
     var variableDiv = document.getElementById("select-attribute-variable-div");
     var functionDiv = document.getElementById("select-attribute-function-div");
+    var customValueSelectValueTypeDropDown = document.getElementById("select-attribute-value-selectvaluetypedropdown");
 
 </script>

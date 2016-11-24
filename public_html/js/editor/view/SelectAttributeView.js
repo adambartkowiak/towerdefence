@@ -47,6 +47,10 @@ editor.view.SelectAttributeView.prototype.show = function show() {
         customValueDiv,
         variableDiv,
         functionDiv,
+        customValueSelectValueTypeDropDown,
+        selectAttributeCustomValueStringItem,
+        selectAttributeCustomValueNumberItem,
+        selectAttributeCustomValueBooleanItem,
         that = this;
 
     //set style and inner HTML
@@ -66,6 +70,12 @@ editor.view.SelectAttributeView.prototype.show = function show() {
     customValueDiv = document.getElementById("select-attribute-customvalue-div");
     variableDiv = document.getElementById("select-attribute-variable-div");
     functionDiv = document.getElementById("select-attribute-function-div");
+
+    //get custom value elments
+    customValueSelectValueTypeDropDown = document.getElementById("select-attribute-value-selectvaluetypedropdown");
+    selectAttributeCustomValueStringItem = document.getElementById("select-attribute-value-selectvaluetypedropdown-string");
+    selectAttributeCustomValueNumberItem = document.getElementById("select-attribute-value-selectvaluetypedropdown-number");
+    selectAttributeCustomValueBooleanItem = document.getElementById("select-attribute-value-selectvaluetypedropdown-boolean");
 
     //create predefinedValues groupview
     this._createPredefinedValuesList(predefinedValueDiv);
@@ -95,8 +105,20 @@ editor.view.SelectAttributeView.prototype.show = function show() {
 
         } else if ($(customValueButton).hasClass("active")) {
 
-            var customValue = document.getElementById("select-attribute-value-text-input");
-            that._selectAttributeController.onAccept(new editor.model.SelectAttributeModel(editor.enum.SelectAttributeEnum.CUSTOM_VALUE, customValue.value));
+            var customValueText = document.getElementById("select-attribute-value-text-input").value;
+            var customValueNumber = document.getElementById("select-attribute-value-number-input").value;
+            var customValueBoolean = $('#select-attribute-value-boolean-div input:radio:checked').val();
+            var customValue = 0;
+
+            if (!$("#select-attribute-value-string-div").hasClass("hidden")) {
+                customValue = customValueText;
+            } else if (!$("#select-attribute-value-number-div").hasClass("hidden")) {
+                customValue = parseInt(customValueNumber);
+            } else if (!$("#select-attribute-value-boolean-div").hasClass("hidden")) {
+                customValue = (customValueBoolean === 'true');
+            }
+
+            that._selectAttributeController.onAccept(new editor.model.SelectAttributeModel(editor.enum.SelectAttributeEnum.CUSTOM_VALUE, customValue));
 
         } else if ($(variableButton).hasClass("active")) {
 
@@ -165,6 +187,69 @@ editor.view.SelectAttributeView.prototype.show = function show() {
         $(functionDiv).removeClass("hidden");
 
         $(acceptButton).prop('disabled', false);
+    });
+
+    selectAttributeCustomValueStringItem.addEventListener("click", function () {
+        var formGroups,
+            formGroup,
+            index;
+
+        customValueSelectValueTypeDropDown.innerHTML = "String <span class=\"caret\"></span>";
+
+        //show selected formGroup and hidden rest
+        formGroups = customValueDiv.getElementsByClassName("form-group");
+        for (index = 0; index < formGroups.length; index++) {
+
+            formGroup = formGroups[index];
+
+            if (formGroup.id === "select-attribute-value-string-div") {
+                $(formGroup).removeClass("hidden");
+            } else {
+                $(formGroup).addClass("hidden");
+            }
+        }
+    });
+
+    selectAttributeCustomValueNumberItem.addEventListener("click", function () {
+        var formGroups,
+            formGroup,
+            index;
+
+        customValueSelectValueTypeDropDown.innerHTML = "Number <span class=\"caret\"></span>";
+
+        //show selected formGroup and hidden rest
+        formGroups = customValueDiv.getElementsByClassName("form-group");
+        for (index = 0; index < formGroups.length; index++) {
+
+            formGroup = formGroups[index];
+
+            if (formGroup.id === "select-attribute-value-number-div") {
+                $(formGroup).removeClass("hidden");
+            } else {
+                $(formGroup).addClass("hidden");
+            }
+        }
+    });
+
+    selectAttributeCustomValueBooleanItem.addEventListener("click", function () {
+        var formGroups,
+            formGroup,
+            index;
+
+        customValueSelectValueTypeDropDown.innerHTML = "Boolean <span class=\"caret\"></span>";
+
+        //show selected formGroup and hidden rest
+        formGroups = customValueDiv.getElementsByClassName("form-group");
+        for (index = 0; index < formGroups.length; index++) {
+
+            formGroup = formGroups[index];
+
+            if (formGroup.id === "select-attribute-value-boolean-div") {
+                $(formGroup).removeClass("hidden");
+            } else {
+                $(formGroup).addClass("hidden");
+            }
+        }
     });
 
 };

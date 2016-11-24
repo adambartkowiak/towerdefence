@@ -14,14 +14,14 @@
       {
         "_id": "default",
         "_mass": -1,
-        "_radius": 43,
-        "_collisionRadius": 43,
+        "_radius": 35,
+        "_collisionRadius": 35,
         "_groundSpeed": 0,
         "_hp": 1000,
         "_graphicUrl": "assets/graphics/images/barracks_team01.png",
         "_graphicOffset": {
-          "_x": -6,
-          "_y": 35
+          "_x": -2,
+          "_y": 18
         },
         "_rotateGraphicOnMove": false,
         "_availableActionsMenu" : [

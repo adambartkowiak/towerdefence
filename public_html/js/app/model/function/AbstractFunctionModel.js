@@ -34,6 +34,9 @@ app.model.function.AbstractFunctionModel = function AbstractFunctionModel(id, fu
     //set paretn on elements
     this._functionAttributes.forEach(this._setParent, this);
 
+
+    this._functionAttributeNames;
+
 };
 
 Utils.inherits(app.model.function.AbstractFunctionModel, app.model.function.AbstractValueModel);
@@ -52,6 +55,14 @@ app.model.function.AbstractFunctionModel.prototype.getFunctionAttributes = funct
  */
 app.model.function.AbstractFunctionModel.prototype.setFunctionAttributes = function setFunctionAttributes(functionAttributes) {
     this._functionAttributes = functionAttributes;
+};
+
+/**
+ * @method getFunctionAttributeNames
+ * @return {Array} functionAttributes
+ */
+app.model.function.AbstractFunctionModel.prototype.getFunctionAttributeNames = function getFunctionAttributeNames() {
+    return this._functionAttributeNames;
 };
 
 /**
@@ -159,10 +170,29 @@ app.model.function.AbstractFunctionModel.prototype.clone = function clone() {
  * @property {Object} unMinifyJSON
  */
 app.model.function.AbstractFunctionModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+
+    var attributeModel,
+        attributeJSON,
+        i,
+        functionAttributes = JSON._functionAttributes,
+        max = functionAttributes.length,
+        functionEnumValue;
+
     this._id = JSON._id;
     this._functionEnumValue = JSON._functionEnumValue;
+    this._functionAttributeNames = JSON._functionAttributeNames;
 
-    //load from JSON attributes
+
+    for (i = 0; i < max; i++) {
+        attributeJSON = functionAttributes[i];
+        functionEnumValue = attributeJSON._functionEnumValue;
+
+        attributeModel = this._functionModelFactory.createFunction(functionEnumValue);
+        attributeModel.loadFromJSON(attributeJSON);
+
+        this.removeElementByIndex(i);
+        this.insertElement(i, attributeModel);
+    }
 
 };
 
@@ -173,18 +203,24 @@ app.model.function.AbstractFunctionModel.prototype.loadFromJSON = function loadF
 app.model.function.AbstractFunctionModel.prototype.getMinifyJSON = function getMinifyJSON() {
 
     var functionAttributesMinifyJson = [],
+        functionAttributesNamesMinifyJson = [],
         i,
-        attribute;
+        attribute,
+        attributeName;
 
-    for(i=0; i<this._functionAttributes.length; i++){
+    for (i = 0; i < this._functionAttributes.length; i++) {
         attribute = this._functionAttributes[i].getMinifyJSON();
+        // attributeName = this._functionAttributeNames[i];
+
         functionAttributesMinifyJson.push(attribute);
+        // functionAttributesNamesMinifyJson.push(attributeName)
     }
 
     var result = {
         1: this._id,
         2: this._functionEnumValue,
-        3: functionAttributesMinifyJson
+        3: functionAttributesMinifyJson,
+        4: this._functionAttributeNames,
     };
 
     return result;
@@ -197,10 +233,37 @@ app.model.function.AbstractFunctionModel.prototype.getMinifyJSON = function getM
  */
 app.model.function.AbstractFunctionModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
+    //tutaj trzeba stworzyc odpowiednie obiekty aby odminifikowac dobrze jsona
+
+    var functionAttributesArray = minifyJSON["3"],
+        minifiedFunctionAttribute,
+        fuctionAttributeModel,
+        i,
+        max = functionAttributesArray.length,
+        unminifedFunctionAttributes = [],
+        unminifedAttributeJSON,
+        functionEnumValue;
+
+    for (i = 0; i < max; i++) {
+
+        //1. create object AbstractFUnctionModel or AbstractValueModel
+        minifiedFunctionAttribute = functionAttributesArray[i];
+        functionEnumValue = minifiedFunctionAttribute["2"];
+        fuctionAttributeModel = this._functionModelFactory.createFunction(functionEnumValue);
+
+        //2. unminify object json
+        unminifedAttributeJSON = fuctionAttributeModel.unMinifyJSON(minifiedFunctionAttribute);
+
+        //3. add json to unminifedFunctionAttributes Array
+        unminifedFunctionAttributes.push(unminifedAttributeJSON)
+
+    }
+
     var result = {
         _id: minifyJSON["1"],
         _functionEnumValue: minifyJSON["2"],
-
+        _functionAttributes: unminifedFunctionAttributes,
+        _functionAttributeNames: minifyJSON["4"]
     };
 
     return result;

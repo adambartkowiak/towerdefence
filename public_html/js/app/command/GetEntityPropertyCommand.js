@@ -42,7 +42,7 @@ Utils.inherits(app.command.GetEntityPropertyCommand, support.command.AbstractCom
  */
 app.command.GetEntityPropertyCommand.prototype.execute = function execute(mouseEvent) {
 
-    // console.log("GetEntityPropertyCommand: execute");
+    console.log("GetEntityPropertyCommand: execute");
 
     support.command.AbstractCommand.prototype.execute.call(this);
 
@@ -54,6 +54,9 @@ app.command.GetEntityPropertyCommand.prototype.execute = function execute(mouseE
 
     if (property === app.enum.EntityPropertyEnum.GRAPHIC_URL) {
         return entity.getGraphicUrl();
+    }
+    if (property === app.enum.EntityPropertyEnum.TEAM) {
+        return entity.getTeam();
     }
 
 };

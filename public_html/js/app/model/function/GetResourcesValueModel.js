@@ -19,6 +19,7 @@ app.model.function.GetResourcesValueModel = function GetResourcesValueModel(id, 
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.GET_RESOURCES_VALUE, [teamName, resourceName]);
 
+    this._functionAttributeNames = ["teamName", "resourceName"];
 };
 
 Utils.inherits(app.model.function.GetResourcesValueModel, app.model.function.AbstractFunctionModel);

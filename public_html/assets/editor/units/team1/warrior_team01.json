@@ -9,16 +9,16 @@
       {
         "_id": "default",
         "_mass": 0,
-        "_radius": 14,
-        "_collisionRadius": 14,
+        "_radius": 10,
+        "_collisionRadius": 10,
         "_groundSpeed": 80,
         "_viewRadius": 250,
         "_selectTargetRadius": 200,
         "_hp": 400,
         "_graphicUrl": "assets/graphics/images/warrior_01.png",
         "_graphicOffset": {
-          "_x": -22,
-          "_y": 29
+          "_x": -1,
+          "_y": 24
         },
         "_rotateGraphicOnMove": false,
         "_availableActionsMenu" : [

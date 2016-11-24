@@ -18,6 +18,7 @@ app.model.function.ShowConsoleLogModel = function ShowConsoleLogModel(id, consol
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.SHOW_CONSOLE_LOG, [consolelog]);
 
+    this._functionAttributeNames = ["message"];
 };
 
 Utils.inherits(app.model.function.ShowConsoleLogModel, app.model.function.AbstractFunctionModel);

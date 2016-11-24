@@ -12,12 +12,13 @@ var Utils = Utils || {};
  * @class GetVariableValueModel
  * @constructor
  * @param {string} id
- * @param {number} team
+ * @param {string} varibaleId
  */
-app.model.function.GetVariableValueModel = function GetVariableValueModel(id, variableName) {
+app.model.function.GetVariableValueModel = function GetVariableValueModel(id, varibaleId) {
 
-    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.GET_VARIABLE_VALUE, [variableName]);
+    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.GET_VARIABLE_VALUE, [varibaleId]);
 
+    this._functionAttributeNames = ["variableId"];
 };
 
 Utils.inherits(app.model.function.GetVariableValueModel, app.model.function.AbstractFunctionModel);

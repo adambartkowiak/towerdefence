@@ -5,11 +5,10 @@
 'use strict';
 var ns = Utils.namespace("app.model");
 
-var Utils = Utils || {};
-
 /**
  * @namespace app.model
  * @class TriggerModel
+ * @memberOf app.model
  * @constructor
  * @param {String} id
  * @param {String} name
@@ -17,8 +16,9 @@ var Utils = Utils || {};
  * @param {app.model.FunctionListModel} conditionListModel
  * @param {app.model.FunctionListModel} commandArray
  * @param {boolean} active
+ * @param {app.listener.GlobalEventListener} globalEventListener
  */
-app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, conditionListModel, actionListModel, active) {
+app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, conditionListModel, actionListModel, active, globalEventListener) {
 
     /**
      *
@@ -61,6 +61,20 @@ app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, con
      * @private
      */
     this._actionListModel = actionListModel;
+
+    /**
+     *
+     * @property {app.listener.GlobalEventListener} _globalEventListener
+     * @private
+     */
+    this._globalEventListener = globalEventListener;
+
+    /**
+     *
+     * @property {app.factory.FunctionModelFactory} _functionModelFactory
+     * @private
+     */
+    this._functionModelFactory = new app.factory.FunctionModelFactory(this._globalEventListener);
 
 
 };
@@ -157,13 +171,13 @@ app.model.TriggerModel.prototype.setActionListModel = function setActionListMode
 
 /**
  * @method getAttributeById
- * @param {app.model.function.AbstractValueModel} abstractValueModel
+ * @param {String} id
  */
 app.model.TriggerModel.prototype.getAttributeById = function getAttributeById(id) {
 
     var result = this.getConditionListModel().getElementById(id);
 
-    if (result === null){
+    if (result === null) {
         result = this.getActionListModel().getElementById(id)
     }
 
@@ -172,38 +186,28 @@ app.model.TriggerModel.prototype.getAttributeById = function getAttributeById(id
 
 /**
  * @method getFunctionListModelByAttributeId
- * @param {app.model.FunctionListModel} functionListModel
+ * @param {String} id
  */
 app.model.TriggerModel.prototype.getFunctionListModelByAttributeId = function getFunctionListModelByAttributeId(id) {
 
     var result;
 
-    if (this.getConditionListModel().getElementById(id) !== null){
+    if (this.getConditionListModel().getElementById(id) !== null) {
         result = this.getConditionListModel();
 
-    } else if (this.getActionListModel().getElementById(id) !== null){
+    } else if (this.getActionListModel().getElementById(id) !== null) {
         result = this.getActionListModel();
     }
 
     return result;
 };
 
-
-
-
-
-
-
-
-
-
-
 /**
  * @method clone
- * @return {app.model.TargetModel} clone
+ * @return {app.model.TriggerModel} clone
  */
 app.model.TriggerModel.prototype.clone = function clone() {
-    return new app.model.TriggerModel(this.getId(), this.getName(), this.getGameEventListModel(), this.getConditionListModel(), this.getActionListModel(), this.getActive());;
+    return new app.model.TriggerModel(this.getId(), this.getName(), this.getGameEventListModel(), this.getConditionListModel(), this.getActionListModel(), this.getActive(), this._globalEventListener);
 };
 
 /**
@@ -214,9 +218,9 @@ app.model.TriggerModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
     this._id = JSON._id;
     this._name = JSON._name;
     this._active = JSON._active;
-    this._gameEventListModel.loadFromJSON(JOSN._gameEventListModel);
-    this._conditionListModel.loadFromJSON(JOSN._conditionListModel);
-    this._actionListModel.loadFromJSON(JOSN._actionListModel);
+    this._gameEventListModel.loadFromJSON(JSON._gameEventListModel);
+    this._conditionListModel.loadFromJSON(JSON._conditionListModel);
+    this._actionListModel.loadFromJSON(JSON._actionListModel);
 };
 
 /**
@@ -225,12 +229,12 @@ app.model.TriggerModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
  */
 app.model.TriggerModel.prototype.getMinifyJSON = function getMinifyJSON() {
     var result = {
-        1:this._id,
-        2:this._name,
-        3:this._active,
-        4:this._gameEventListModel.getMinifyJSON(),
-        5:this._conditionListModel.getMinifyJSON(),
-        6:this._actionListModel.getMinifyJSON()
+        1: this._id,
+        2: this._name,
+        3: this._active,
+        4: this._gameEventListModel.getMinifyJSON(),
+        5: this._conditionListModel.getMinifyJSON(),
+        6: this._actionListModel.getMinifyJSON()
     };
 
     return result;
@@ -244,8 +248,8 @@ app.model.TriggerModel.prototype.getMinifyJSON = function getMinifyJSON() {
 app.model.TriggerModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
     var gameEventListModel = new app.model.GameEventListModel(),
-        conditionListModel = new app.model.FunctionListModel(),
-        actionListModel = new app.model.FunctionListModel();
+        conditionListModel = new app.model.FunctionListModel(this._functionModelFactory),
+        actionListModel = new app.model.FunctionListModel(this._functionModelFactory);
 
     var result = {
         _id: minifyJSON["1"],

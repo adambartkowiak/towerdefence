@@ -2,10 +2,6 @@
  * Created by adambartkowiak on 31/07/15.
  */
 
-/*
-
- */
-
 'use strict';
 var ns = Utils.namespace("app.model");
 
@@ -14,11 +10,19 @@ var Utils = Utils || {};
 /**
  * @namespace app.model
  * @class FunctionListModel
+ * @memberOf app.model
  * @constructor
+ * @param {app.factory.FunctionModelFactory} functionModelFactory
  */
-app.model.FunctionListModel = function FunctionListModel() {
+app.model.FunctionListModel = function FunctionListModel(functionModelFactory) {
 
     app.model.ListModel.call(this);
+
+    /**
+     * @property {app.factory.FunctionModelFactory} functionModelFactory
+     * @private
+     */
+    this._functionModelFactory = functionModelFactory;
 
 };
 
@@ -75,7 +79,6 @@ app.model.FunctionListModel.prototype.getElementIndex = function getElementIndex
  */
 app.model.FunctionListModel.prototype.removeElementById = function removeElementById(id) {
 
-
     var element = this.getElementById(id);
 
     if (element !== null) {
@@ -89,21 +92,34 @@ app.model.FunctionListModel.prototype.removeElementById = function removeElement
  * @return {app.model.FunctionListModel}
  */
 app.model.FunctionListModel.prototype.createMe = function createMe() {
-    return new app.model.FunctionListModel();
+    return new app.model.FunctionListModel(this._functionModelFactory);
 };
 
 /**
  * @method createListElement
  * @param {Object} elementJSON
  * @param {boolean} minified
- * @return {app.model.EntityModel}
+ * @return {app.model.function.AbstractFunction}
  */
 app.model.FunctionListModel.prototype.createListElement = function createListElement(elementJSON, minified) {
 
-    //Mozna by tu jakos przeslac parametry i robic juz od poczatku poprawne elementy.
+    var functionEnumValue,
+        result;
 
-    console.log(elementJSON, minified);
+    console.log("create descriptor in factory");
 
-    return new app.model.function.AbstractFunction("", app.enum.FunctionEnum.NONE, []);
+    if (minified) {
+        //when JSON is minified "_functionEnumValue" is assigned to property "2"
+        // console.log("elementJSON._functionEnumValue: " + elementJSON["2"]);
+        functionEnumValue = elementJSON["2"];
+    } else {
+        // console.log("elementJSON._functionEnumValue: " + elementJSON._functionEnumValue);
+        functionEnumValue = elementJSON._functionEnumValue;
+    }
+
+
+    result = this._functionModelFactory.createFunction(functionEnumValue);
+
+    return result;
 
 };

@@ -19,13 +19,6 @@ editor.view.TriggerModuleView = function TriggerModuleView(triggerModuleControll
      */
     this._triggerModuleController = triggerModuleController;
 
-
-    /**
-     * @param {node} _lassClickedNode
-     * @private
-     */
-    this._lassClickedNode = null;
-
 };
 
 Utils.inherits(editor.view.TriggerModuleView, Object);
@@ -53,7 +46,7 @@ editor.view.TriggerModuleView.prototype.show = function show() {
         $(moduleWindowDiv).addClass("hidden");
     });
 
-    //add add trigger button
+    //add trigger button
     var triggerListAddButton = document.getElementById("trigger-list-add-button");
     triggerListAddButton.addEventListener("click", function () {
         that._triggerModuleController.addTrigger()
@@ -158,8 +151,6 @@ editor.view.TriggerModuleView.prototype.showTriggerConfiguration = function show
                     that._triggerModuleController.showEditAttributeView(data.node.key);
                 }
             }
-
-            that._lassClickedNode = data.node;
 
         }
     });
@@ -280,8 +271,20 @@ editor.view.TriggerModuleView.prototype._createTreeNodesForConditionListModel = 
  */
 editor.view.TriggerModuleView.prototype._createTreeNodesForFunction = function _createTreeNodesForFunction(node, functionModel, insertIndex) {
 
+    var attributeIndex = 0,
+        parent = functionModel.getParent(),
+        attributeName = "",
+        attributeTitle = "";
+
+    if (parent !== null) {
+        attributeIndex = parent.getElementIndex(functionModel);
+        attributeName = functionModel.getParent().getFunctionAttributeNames()[attributeIndex];
+
+        attributeTitle = /*(attributeIndex + 1) + ".*/ "<i>" + attributeName + "</i>" + ": ";
+    }
+
     var functionNode = node.addChildren({
-        title: "Function: " + Utils.getPropertyNameByValue(app.enum.FunctionEnum, functionModel.getFunctionEnumValue()),
+        title: attributeTitle + "Function: " + Utils.getPropertyNameByValue(app.enum.FunctionEnum, functionModel.getFunctionEnumValue()),
         key: functionModel.getId()
     }, insertIndex);
 
@@ -305,10 +308,23 @@ editor.view.TriggerModuleView.prototype._createTreeNodesForFunction = function _
  */
 editor.view.TriggerModuleView.prototype._createTreeNodeForAttribute = function _createTreeNodeForAttribute(node, abstractValue, insertIndex) {
 
+    var attributeIndex = "",
+        parent = abstractValue.getParent(),
+        attributeName = "",
+        attributeTitle = "";
+
+
     if (abstractValue instanceof app.model.function.AttributeModel) {
 
+        if (parent !== null) {
+            attributeIndex = parent.getElementIndex(abstractValue);
+            attributeName = abstractValue.getParent().getFunctionAttributeNames()[attributeIndex];
+
+            attributeTitle = /*(attributeIndex + 1) + ".*/ "<i>" + attributeName + "</i>" + ": ";
+        }
+
         node.addChildren({
-            title: abstractValue.constructor.name + " (" + abstractValue.getValue() + ")",
+            title: attributeTitle + abstractValue.constructor.name + " (" + abstractValue.getValue() + ")",
             key: abstractValue.getId()
         }, insertIndex);
 

@@ -76,16 +76,14 @@ editor.controller.EditAttributeController.prototype.onAccept = function onAccept
         newAttributeGuid = Utils.guid(),
         functionListModel = null;
 
-    if (parent !== null){
-        index = parent.getElementIndex(attribute);
-    } else {
+    if (parent === null){
         functionListModel = this._triggerModel.getFunctionListModelByAttributeId(this._attributeId);
         functionListModel.getElementIndex(attribute);
         parent = functionListModel;
     }
 
+    index = parent.getElementIndex(attribute);
     parent.removeElementByIndex(index);
-
 
     if (selectAttributeModel.getAttributeEnumValue() === editor.enum.SelectAttributeEnum.CUSTOM_VALUE) {
 

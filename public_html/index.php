@@ -204,6 +204,7 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/model/function/GetUnitCountModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/ShowConsoleLogModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/TurnOffTriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/TurnOnTriggerModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/GetResourcesValueModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/ChangeObjectiveResultModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/GetVariableValueModel.js"></script>
@@ -252,6 +253,7 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/command/TrainEntityCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ShowConsoleLogCommand.js"></script>
 <script type="text/javascript" src="js/app/command/TurnOffTriggerCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TurnOnTriggerCommand.js"></script>
 <script type="text/javascript" src="js/app/command/GetUnitCountCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ConditionEqualCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ConditionEqualOrGreaterCommand.js"></script>
@@ -288,39 +290,7 @@ and open the template in the editor.
 <br>
 <br>
 
-        <span>
-            <span style="font-weight: 600">TODO:</span><br>
-            <span style="color:limegreen"> - usprawnienie systemu kolizji - DONE,</span><br>
-            <span style="color:yellow"> - zmiana struktury dziedziczenia - bardziej uniwersalna - ala RTS - juz duzo zostalo zrobione ale jeszcze jest kilka razy wiecej do zrobienia :),</span><br>
-            <span style="color:darkgray"> - nowy interface do budowania wiezyczek,</span><br>
-            <span style="color:limegreen"> - zaznaczanie obiektow: przeciwnikow i wiezyczek - udalo sie zrobic w wersji podstawowej,</span><br>
-            <span style="color:darkgray"> - nowi przeciwnicy,</span><br>
-            <span style="color:darkgray"> - nowe wiezyczki,</span><br>
-            <span style="color:darkgray"> - nowe naboje,</span><br>
-            <span style="color:darkgray"> - menu gry,</span><br>
-            <span style="color:limegreen"> - rozpoczynanie nowej gry,</span><br>
-            <span style="color:limegreen"> - wczytywanie gry,</span><br>
-            <span style="color:limegreen"> - zapisywanie gry,</span><br>
-            <span style="color:darkgray"> - podpiecie gry do Facebooka,</span><br>
-            <span style="color:darkgray"> - inne TODO dojdzie</span><br>
-        </span>
-        <br>
-        <br>
-        <span style="color:white">
-            - Dodano 2 bazy i model rozkrywki przypominajacy cos jakby gre w wersji super alpha :)<br>
-            - Poprawiono model wykrywania kolizji - rectangle-circle - co skutkuje np. lepszym zaznaczaniem obiektow na mapie<br>
-            - dodano wlasciwosci do obiektow np. team, targetable, selectable itp.<br>
-        </span>
-
-
-DODAC: minimape, button, text, statusmenu tak aby odtworzyc funkcjonalnosc ktora juz mamy + dodatkowo dodac kontrolery do widokow <br>
-Dodac tez logike przekazywania eventow po struktorze drzewa dla GUI.
-
-
-<br>
-<br>
 <span id="LoadGameResult"/>
-
 
 </body>
 </html>

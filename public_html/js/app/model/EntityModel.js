@@ -840,7 +840,12 @@ app.model.EntityModel.prototype.setCurrentHp = function setCurrentHp(value) {
  * @return {Number} attackRange
  */
 app.model.EntityModel.prototype.getAttackRange = function getAttackRange() {
+
+    this.getCurrentEntityStateModel().getAttackRange();
+
+
     return this.getCurrentEntityStateModel().getAttackRange();
+
 };
 
 /**

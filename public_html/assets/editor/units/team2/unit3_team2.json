@@ -17,8 +17,8 @@
         "_hp": 500,
         "_graphicUrl": "assets/graphics/images/enemy_01.png",
         "_graphicOffset": {
-          "_x": -4,
-          "_y": 27
+          "_x": 4,
+          "_y": 22
         },
         "_rotateGraphicOnMove": false
       }

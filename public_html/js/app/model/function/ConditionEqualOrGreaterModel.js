@@ -19,6 +19,7 @@ app.model.function.ConditionEqualOrGreaterModel = function ConditionEqualOrGreat
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.EQUALS_OR_GREATER, [leftValue, rightValue]);
 
+    this._functionAttributeNames = ["leftValue", "rightValue"];
 };
 
 Utils.inherits(app.model.function.ConditionEqualOrGreaterModel, app.model.function.AbstractFunctionModel);

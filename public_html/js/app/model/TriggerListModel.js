@@ -7,16 +7,18 @@
  */
 
 'use strict';
+
 var ns = Utils.namespace("app.model");
 
-var Utils = Utils || {};
 
 /**
  * @namespace app.model
+ * @memberOf app.model
  * @class TriggerListModel
  * @constructor
+ * @param {app.listener.GlobalEventListener} globalEventListener
  */
-app.model.TriggerListModel = function TriggerListModel() {
+app.model.TriggerListModel = function TriggerListModel(globalEventListener) {
 
     app.model.ListModel.call(this);
 
@@ -25,6 +27,12 @@ app.model.TriggerListModel = function TriggerListModel() {
      * @private
      */
     this._entityListListener = null;
+
+    /**
+     * @property {app.listener.GlobalEventListener} _globalEventListener
+     * @private
+     */
+    this._globalEventListener = globalEventListener;
 
 };
 
@@ -74,16 +82,19 @@ app.model.TriggerListModel.prototype.removeElementById = function removeElementB
 
 /**
  * @method createMe
- * @return {app.model.TaskListModel} createMe
+ * @return {app.model.TriggerListModel} createMe
  */
 app.model.TriggerListModel.prototype.createMe = function createMe() {
-    return new app.model.TriggerListModel();
+    return new app.model.TriggerListModel(this._globalEventListener);
 };
 
 /**
  * @method createListElement
- * @returns {app.model.EntityModel}
+ * @returns {app.model.TriggerModel}
  */
 app.model.TriggerListModel.prototype.createListElement = function createListElement() {
-    return new app.model.TriggerModel("", "", new app.model.GameEventListModel(), new app.model.FunctionListModel(), new app.model.FunctionListModel(), true);
+
+    var functionModelFactory = new app.factory.FunctionModelFactory(this._globalEventListener);
+
+    return new app.model.TriggerModel("", "", new app.model.GameEventListModel(), new app.model.FunctionListModel(functionModelFactory), new app.model.FunctionListModel(functionModelFactory), true, this._globalEventListener);
 };

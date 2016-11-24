@@ -34,15 +34,10 @@ Utils.inherits(app.command.GetUnitCountCommand, support.command.AbstractCommand)
  */
 app.command.GetUnitCountCommand.prototype.execute = function execute(mouseEvent) {
 
-    // console.log("GetUnitCountCommand: execute");
-
     support.command.AbstractCommand.prototype.execute.call(this);
-
 
     var team = this._team.execute(null);
 
     return worldModel.getEntityListModel().getEntityCountByTeam(team);
-
-    console.log(this._team.execute(null));
 
 };

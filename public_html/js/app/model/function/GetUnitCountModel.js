@@ -18,6 +18,7 @@ app.model.function.GetUnitCountModel = function GetUnitCountModel(id, team) {
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.GET_UNIT_COUNT, [team]);
 
+    this._functionAttributeNames = ["team"];
 };
 
 Utils.inherits(app.model.function.GetUnitCountModel, app.model.function.AbstractFunctionModel);

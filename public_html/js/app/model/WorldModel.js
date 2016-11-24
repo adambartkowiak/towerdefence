@@ -92,7 +92,7 @@ app.model.WorldModel = function WorldModel() {
      * @property {app.model.TriggerListModel} _triggerModelList
      * @private
      */
-    this._triggerListModel = new app.model.TriggerListModel();
+    this._triggerListModel = new app.model.TriggerListModel(this._globalEventListener);
 
     /**
      * @property {app.model.ListModel} _waypointCollisionListModel
@@ -323,12 +323,11 @@ app.model.WorldModel.prototype.loadFromJSON = function loadFromJSON(worldModelJS
     this._entityModelIndex = worldModelJSON._entityModelIndex;
     app.model.EntityModelIndex.ENTITY_MODEL_INDEX = worldModelJSON._entityModelIndex;
 
-    // this._teamListModel.loadFromJSON(worldModelJSON._teamListModel);
-    // this._triggerListModel.loadFromJSON(worldModelJSON._triggerListModel);
-    // this._variableListModel.loadFromJSON(worldModelJSON._variableListModel);
-    // this._objectiveListModel.loadFromJSON(worldModelJSON._objectiveListModel);
+    this._teamListModel.loadFromJSON(worldModelJSON._teamListModel);
+    this._triggerListModel.loadFromJSON(worldModelJSON._triggerListModel);
+    this._variableListModel.loadFromJSON(worldModelJSON._variableListModel);
+    this._objectiveListModel.loadFromJSON(worldModelJSON._objectiveListModel);
 
-    // this._triggerListModel.loadFromJSON(worldModelJSON._triggerListModel);
 
 };
 
@@ -350,170 +349,170 @@ app.model.WorldModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(
 
     this._variableListModel.clear();
 
-    this._objectiveListModel.clear();
-    var objToAdd = null;
-    objToAdd = new app.model.ObjectiveModel("obj1", "Zbierz 100 drewna", false, false);
-    objToAdd.setId("obj1");
-    this._objectiveListModel.addElement(objToAdd);
-
-    objToAdd = new app.model.ObjectiveModel("obj2", "Zbierz 200 zlota", false, false);
-    objToAdd.setId("obj2");
-    this._objectiveListModel.addElement(objToAdd);
-
-    objToAdd = new app.model.ObjectiveModel("obj3", "Wybuduj 2 wieze", false, false);
-    objToAdd.setId("obj3");
-    this._objectiveListModel.addElement(objToAdd);
-
-    objToAdd = new app.model.ObjectiveModel("obj4", "Obroń się przed atakiem wroga", false, false);
-    objToAdd.setId("obj4");
-    this._objectiveListModel.addElement(objToAdd);
-
-
-
-    //trigers from config
-    this._triggerListModel.clear();
-
-    var woodResourcesTriggerId = Utils.guid();
-    this._triggerListModel.addElement(
-        new app.model.TriggerModel(
-            woodResourcesTriggerId,
-            "WOOD RESOURCES TRIGGER",
-            /*
-             Eventy
-             */
-            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.CHANGE_TEAM_RESOURCES_VALUE)),
-            /*
-             Condition
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualOrGreaterModel(
-                Utils.guid(),
-                new app.model.function.GetResourcesValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "DRUZYNA ADAMA")/*team*/, new app.model.function.AttributeModel(Utils.guid(), "wood")/*resource name*/),
-                new app.model.function.AttributeModel(Utils.guid(), 100))),
-            /*
-             Action
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "WOOD RESOURCES TRIGGER"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj1"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), woodResourcesTriggerId))),
-            true));
-
-
-    var goldResourcesTriggerId = Utils.guid();
-    this._triggerListModel.addElement(
-        new app.model.TriggerModel(
-            goldResourcesTriggerId,
-            "GOLD RESOURCES TRIGGER",
-            /*
-             Eventy
-             */
-            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.CHANGE_TEAM_RESOURCES_VALUE)),
-            /*
-             Condition
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualOrGreaterModel(
-                Utils.guid(),
-                new app.model.function.GetResourcesValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "DRUZYNA ADAMA")/*team*/, new app.model.function.AttributeModel(Utils.guid(), "gold")/*resource name*/),
-                new app.model.function.AttributeModel(Utils.guid(), 200))),
-            /*
-             Action
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "GOLD RESOURCES TRIGGER"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj2"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), goldResourcesTriggerId))),
-            true));
-
-
-    var enemyUnitCountTriggerId = Utils.guid();
-    this._triggerListModel.addElement(
-        new app.model.TriggerModel(
-            enemyUnitCountTriggerId,
-            "UNIT_DIE",
-            /*
-             Eventy
-             */
-            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_DIE)),
-            /*
-             Condition
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-                Utils.guid(),
-                new app.model.function.GetUnitCountModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), 2)/*team*/),
-                new app.model.function.AttributeModel(Utils.guid(), 0))),
-
-            /*
-             Action
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj4"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), enemyUnitCountTriggerId))),
-            true));
-
-
-    //Create tower
-    var createUnitTriggerId = Utils.guid();
-    this._triggerListModel.addElement(
-        new app.model.TriggerModel(
-            createUnitTriggerId,
-            "BUILD_TOWER",
-            /*
-             Eventy
-             */
-            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
-            /*
-             Condition
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-                Utils.guid(),
-                new app.model.function.GetEntityPropertyModel(Utils.guid(), new app.model.function.GetEventEntityModel(Utils.guid(), this._globalEventListener), new app.model.function.AttributeModel(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)),
-                new app.model.function.AttributeModel(Utils.guid(), "assets/graphics/images/tower_01.png"))),
-
-            /*
-             Action
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER CREATED"))).addElement(new app.model.function.IncrementVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT"))),
-            true));
-
-    //Check variable tower count
-    var checkTowerCountVariableTriggerId = Utils.guid();
-    this._triggerListModel.addElement(
-        new app.model.TriggerModel(
-            checkTowerCountVariableTriggerId,
-            "BUILD_TOWER",
-            /*
-             Eventy
-             */
-            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
-            /*
-             Condition
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-                Utils.guid(),
-                new app.model.function.GetVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT")),
-                new app.model.function.AttributeModel(Utils.guid(), 2))),
-
-            /*
-             Action
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT_OK!!"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj3"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), checkTowerCountVariableTriggerId))),
-            true));
-
-    //All objectives true victory
-    var allObjectivesTriggerId = Utils.guid();
-    this._triggerListModel.addElement(
-        new app.model.TriggerModel(
-            allObjectivesTriggerId,
-            "ALL_OBJECTIVES_COMPLETED",
-            /*
-             Eventy
-             */
-            new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.TIME_DELTA)),
-            /*
-             Condition
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-                Utils.guid(),
-                new app.model.function.AllObjectivesCompletedModel(Utils.guid()),
-                new app.model.function.AttributeModel(Utils.guid(), true))),
-
-            /*
-             Action
-             */
-            new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "ALL_OBJECTIVES_COMPLETED"))).addElement(new app.model.function.ShowVictoryPopupModel(Utils.guid())).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), allObjectivesTriggerId))),
-            true));
+    // this._objectiveListModel.clear();
+    // var objToAdd = null;
+    // objToAdd = new app.model.ObjectiveModel("obj1", "Zbierz 100 drewna", false, false);
+    // objToAdd.setId("obj1");
+    // this._objectiveListModel.addElement(objToAdd);
+    //
+    // objToAdd = new app.model.ObjectiveModel("obj2", "Zbierz 200 zlota", false, false);
+    // objToAdd.setId("obj2");
+    // this._objectiveListModel.addElement(objToAdd);
+    //
+    // objToAdd = new app.model.ObjectiveModel("obj3", "Wybuduj 2 wieze", false, false);
+    // objToAdd.setId("obj3");
+    // this._objectiveListModel.addElement(objToAdd);
+    //
+    // objToAdd = new app.model.ObjectiveModel("obj4", "Obroń się przed atakiem wroga", false, false);
+    // objToAdd.setId("obj4");
+    // this._objectiveListModel.addElement(objToAdd);
+    //
+    //
+    //
+    // //trigers from config
+    // this._triggerListModel.clear();
+    //
+    // var woodResourcesTriggerId = Utils.guid();
+    // this._triggerListModel.addElement(
+    //     new app.model.TriggerModel(
+    //         woodResourcesTriggerId,
+    //         "WOOD RESOURCES TRIGGER",
+    //         /*
+    //          Eventy
+    //          */
+    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.CHANGE_TEAM_RESOURCES_VALUE)),
+    //         /*
+    //          Condition
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualOrGreaterModel(
+    //             Utils.guid(),
+    //             new app.model.function.GetResourcesValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "DRUZYNA ADAMA")/*team*/, new app.model.function.AttributeModel(Utils.guid(), "wood")/*resource name*/),
+    //             new app.model.function.AttributeModel(Utils.guid(), 100))),
+    //         /*
+    //          Action
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "WOOD RESOURCES TRIGGER"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj1"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), woodResourcesTriggerId))),
+    //         true));
+    //
+    //
+    // var goldResourcesTriggerId = Utils.guid();
+    // this._triggerListModel.addElement(
+    //     new app.model.TriggerModel(
+    //         goldResourcesTriggerId,
+    //         "GOLD RESOURCES TRIGGER",
+    //         /*
+    //          Eventy
+    //          */
+    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.CHANGE_TEAM_RESOURCES_VALUE)),
+    //         /*
+    //          Condition
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualOrGreaterModel(
+    //             Utils.guid(),
+    //             new app.model.function.GetResourcesValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "DRUZYNA ADAMA")/*team*/, new app.model.function.AttributeModel(Utils.guid(), "gold")/*resource name*/),
+    //             new app.model.function.AttributeModel(Utils.guid(), 200))),
+    //         /*
+    //          Action
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "GOLD RESOURCES TRIGGER"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj2"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), goldResourcesTriggerId))),
+    //         true));
+    //
+    //
+    // var enemyUnitCountTriggerId = Utils.guid();
+    // this._triggerListModel.addElement(
+    //     new app.model.TriggerModel(
+    //         enemyUnitCountTriggerId,
+    //         "UNIT_DIE",
+    //         /*
+    //          Eventy
+    //          */
+    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_DIE)),
+    //         /*
+    //          Condition
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
+    //             Utils.guid(),
+    //             new app.model.function.GetUnitCountModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), 2)/*team*/),
+    //             new app.model.function.AttributeModel(Utils.guid(), 0))),
+    //
+    //         /*
+    //          Action
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj4"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), enemyUnitCountTriggerId))),
+    //         true));
+    //
+    //
+    // //Create tower
+    // var createUnitTriggerId = Utils.guid();
+    // this._triggerListModel.addElement(
+    //     new app.model.TriggerModel(
+    //         createUnitTriggerId,
+    //         "BUILD_TOWER",
+    //         /*
+    //          Eventy
+    //          */
+    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
+    //         /*
+    //          Condition
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
+    //             Utils.guid(),
+    //             new app.model.function.GetEntityPropertyModel(Utils.guid(), new app.model.function.GetEventEntityModel(Utils.guid(), this._globalEventListener), new app.model.function.AttributeModel(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)),
+    //             new app.model.function.AttributeModel(Utils.guid(), "assets/graphics/images/tower_01.png"))),
+    //
+    //         /*
+    //          Action
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER CREATED"))).addElement(new app.model.function.IncrementVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT"))),
+    //         true));
+    //
+    // //Check variable tower count
+    // var checkTowerCountVariableTriggerId = Utils.guid();
+    // this._triggerListModel.addElement(
+    //     new app.model.TriggerModel(
+    //         checkTowerCountVariableTriggerId,
+    //         "BUILD_TOWER",
+    //         /*
+    //          Eventy
+    //          */
+    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
+    //         /*
+    //          Condition
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
+    //             Utils.guid(),
+    //             new app.model.function.GetVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT")),
+    //             new app.model.function.AttributeModel(Utils.guid(), 2))),
+    //
+    //         /*
+    //          Action
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT_OK!!"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj3"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), checkTowerCountVariableTriggerId))),
+    //         true));
+    //
+    // //All objectives true victory
+    // var allObjectivesTriggerId = Utils.guid();
+    // this._triggerListModel.addElement(
+    //     new app.model.TriggerModel(
+    //         allObjectivesTriggerId,
+    //         "ALL_OBJECTIVES_COMPLETED",
+    //         /*
+    //          Eventy
+    //          */
+    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.TIME_DELTA)),
+    //         /*
+    //          Condition
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
+    //             Utils.guid(),
+    //             new app.model.function.AllObjectivesCompletedModel(Utils.guid()),
+    //             new app.model.function.AttributeModel(Utils.guid(), true))),
+    //
+    //         /*
+    //          Action
+    //          */
+    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "ALL_OBJECTIVES_COMPLETED"))).addElement(new app.model.function.ShowVictoryPopupModel(Utils.guid())).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), allObjectivesTriggerId))),
+    //         true));
 
 };
 
@@ -547,7 +546,7 @@ app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) 
         cameraModel = new app.model.CameraModel(0, 0, 0, 0),
         mapModel = new app.model.MapModel(200, 200, FEATURE_TOGGLE.COLISION_SQUARE_SIZE, FEATURE_TOGGLE.COLISION_SQUARE_SIZE),
         teamListModel = new app.model.TeamListModel(),
-        triggerListModel = new app.model.TriggerListModel(),
+        triggerListModel = new app.model.TriggerListModel(this._globalEventListener),
         variableListModel = new app.model.VariableListModel(),
         objectiveListModel = new app.model.ObjectiveListModel();
 

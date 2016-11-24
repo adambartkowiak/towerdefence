@@ -67,7 +67,7 @@ app.controller.SelectTargetController.prototype.update = function update(timeDel
 
         element = this._list.getElement(elementIndex);
 
-        if (element.getSelectTargetRadius() === 0) {
+        if (element.getSelectTargetRadius() === 0 || element.getCurrentEntityStateModel().getEntityAttackListModel().length() === 0) {
             continue;
         }
 

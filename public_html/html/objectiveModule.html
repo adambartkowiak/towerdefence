@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- JQUERY -->
+    <script src="../lib/jquery/jquery-2.1.4.min.js"></script>
+
+    <!-- BOOSTRAP - Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+
+    <!-- BOOSTRAP - Optional theme -->
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css"/>
+
+    <!-- BOOSTRAP - Latest compiled and minified JavaScript -->
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+    <!-- MY FILES -->
+    <link rel="stylesheet" type="text/css" href="../css/editor.css"/>
+</head>
+<body>
+<div class="my-large-window" id="module-window">
+    <div class="panel panel-primary my-panel-with-shadow my-100p-height">
+        <div class="panel-heading">
+            <h3 class="panel-title">Objective Module</h3>
+            <button type="button" class="close my-close-button" id="objective-module-close-button">&times;</button>
+        </div>
+        <div class="module-window-content" id="module-window-content">
+            <div id="objective-list">
+                <div class="list-group" id="objective-list-content">
+                </div>
+                <button class="btn btn-default" id="objective-list-add-button">ADD OBJECTIVE</button>
+            </div>
+            <div id="objective-configuration">
+                <span id="objective-module-configuration-span">This module is responsible for management map objectives.</span>
+                <div id="objective-module-configuration-form" class="form-group">
+                    <div class="form-group">
+                        <label>Objective Name:</label>
+                        <input id="objective-module-configuration-name" type="text" class="form-control" name="name"
+                               placeholder="Enter here Objective Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Objective Description:</label>
+                        <input id="objective-module-configuration-description" type="text" class="form-control"
+                               name="description"
+                               placeholder="Enter here Objective Description (short sentence)">
+                    </div>
+
+                    <div>
+                        <button type="button" class="btn btn-success pull-right"
+                                id="objective-module-configuration-accept-button">Accept
+                        </button>
+                        <button type="button" class="btn btn-link pull-right"
+                                id="objective-module-configuration-cancel-button">cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!--<a href="#" class="list-group-item my-list-group-item">-->
+<!--<p class="glyphicon glyphicon-trash my-list-item-remove" aria-hidden="true"></p>-->
+<!--<p class="glyphicon glyphicon-pencil my-list-item-edit" aria-hidden="true"></p>-->
+<!--<span>Change Time</span>-->
+<!--</a>-->
+
+<!--<div class="my-large-window" id="module-window">-->
+<!--<div class="panel panel-primary my-panel-with-shadow">-->
+<!--<div class="panel-heading">-->
+<!--<h3 class="panel-title">Trigger Module</h3>-->
+<!--<button type="button" class="close my-close-button" id="moduleViewClose">&times;</button>-->
+<!--</div>-->
+<!--<div class="module-window-content" id="module-window-content">-->
+<!--<div id="trigger-list">-->
+<!--<div class="list-group" id="trigger-list-content">-->
+<!--<a href="#" class="list-group-item my-list-group-item">-->
+<!--<p class="glyphicon glyphicon-trash my-list-item-remove" aria-hidden="true"></p>-->
+<!--<p class="glyphicon glyphicon-pencil my-list-item-edit" aria-hidden="true"></p>-->
+<!--<span>Unit Create</span>-->
+<!--</a>-->
+<!--<a href="#" class="list-group-item my-list-group-item">-->
+<!--<p class="glyphicon glyphicon-trash my-list-item-remove" aria-hidden="true"></p>-->
+<!--<p class="glyphicon glyphicon-pencil my-list-item-edit" aria-hidden="true"></p>-->
+<!--<span>Unit Die</span>-->
+<!--</a>-->
+<!--</div>-->
+<!--<button class="btn btn-default" id="trigger-list-add-button">ADD TRIGGER</button>-->
+<!--</div>-->
+<!--<div id="trigger-configuration">This module is responsible for management in game triggers.</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+

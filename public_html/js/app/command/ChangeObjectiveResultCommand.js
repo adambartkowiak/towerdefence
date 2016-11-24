@@ -56,9 +56,11 @@ app.command.ChangeObjectiveResultCommand.prototype.execute = function execute(mo
 
     var objectiveId = this._objectiveId.execute(null),
         objectiveResult = this._objectiveResult.execute(null),
-        objectiveModel = this._objectiveListModel.getElementById(objectiveId);
+        objectiveModel = this._objectiveListModel.getElementByName(objectiveId);
 
-    objectiveModel.setFinished(true);
-    objectiveModel.setResult(objectiveResult);
+    if (objectiveModel !== null){
+        objectiveModel.setFinished(true);
+        objectiveModel.setResult(objectiveResult);
+    }
 
 };

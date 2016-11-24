@@ -49,17 +49,16 @@ Utils.inherits(app.command.GetResourcesValueCommand, support.command.AbstractCom
  */
 app.command.GetResourcesValueCommand.prototype.execute = function execute(mouseEvent) {
 
-    // console.log("GetResourcesValueCommand: execute");
-
     support.command.AbstractCommand.prototype.execute.call(this);
-
 
     var teamName = this._teamName.execute(null),
         resourceName = this._resourceName.execute(null),
         teamModel = this._teamListModel.getTeamByName(teamName);
 
-    // console.log(teamModel.getResourcesArray()[resourceName]);
-
-    return teamModel.getResourcesArray()[resourceName];
+    if (teamModel !== null){
+        return teamModel.getResourcesArray()[resourceName];
+    } else {
+        return null;
+    }
 
 };

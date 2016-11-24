@@ -19,6 +19,7 @@ app.model.function.GetEntityPropertyModel = function GetEntityPropertyModel(id, 
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.GET_ENTITY_PROPERTY, [entity, property]);
 
+    this._functionAttributeNames = ["entity", "property"];
 };
 
 Utils.inherits(app.model.function.GetEntityPropertyModel, app.model.function.AbstractFunctionModel);

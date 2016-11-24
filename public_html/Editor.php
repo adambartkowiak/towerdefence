@@ -17,7 +17,7 @@
 
 
     <!-- FANCYtrEE -->
-<!--    <script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+    <!--    <script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
     <link href="lib/fancytree-master/src/skin-lion/ui.fancytree.css" rel="stylesheet" type="text/css">
@@ -95,14 +95,20 @@
 <script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModel.js"></script>
+<script type="text/javascript" src="js/app/model/ObjectiveModel.js"></script>
 <script type="text/javascript" src="js/app/model/ListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityAttackListModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityStateListModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TaskListModel.js"></script>
+<script type="text/javascript" src="js/app/model/VariableModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityListModel.js"></script>
+<script type="text/javascript" src="js/app/model/TeamListModel.js"></script>
+<script type="text/javascript" src="js/app/model/ObjectiveListModel.js"></script>
 <script type="text/javascript" src="js/app/model/TriggerListModel.js"></script>
 <script type="text/javascript" src="js/app/model/FunctionListModel.js"></script>
+<script type="text/javascript" src="js/app/model/VariableListModel.js"></script>
+
 <script type="text/javascript" src="js/app/model/map/AbstractMapLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapCollisionLayerModel.js"></script>
 <script type="text/javascript" src="js/app/model/map/MapGraphicLayerModel.js"></script>
@@ -118,6 +124,13 @@
 <script type="text/javascript" src="js/app/model/function/GetUnitCountModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/ShowConsoleLogModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/TurnOffTriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/TurnOnTriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetResourcesValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ChangeObjectiveResultModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/GetVariableValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/IncrementVariableValueModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/AllObjectivesCompletedModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/ShowVictoryPopupModel.js"></script>
 
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 <script type="text/javascript" src="js/app/model/ActionMenuModel.js"></script>
@@ -143,6 +156,7 @@
 <script type="text/javascript" src="js/app/controller/SelectTargetController.js"></script>
 
 <!-- APP COMMANDS -->
+<script type="text/javascript" src="js/app/command/AttributeCommand.js"></script>
 <script type="text/javascript" src="js/app/command/SetMoveCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetAttackCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/SetMoveAttackCommandOnCommandController.js"></script>
@@ -152,13 +166,25 @@
 <script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
 <script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
 <script type="text/javascript" src="js/app/command/HoldCommand.js"></script>
-<script type="text/javascript" src="js/app/command/TrainWorkerCommand.js"></script>
-<script type="text/javascript" src="js/app/command/TrainWarriorCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TrainEntityCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ShowConsoleLogCommand.js"></script>
 <script type="text/javascript" src="js/app/command/TurnOffTriggerCommand.js"></script>
+<script type="text/javascript" src="js/app/command/TurnOnTriggerCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetUnitCountCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ConditionEqualCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ConditionEqualOrGreaterCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetEventEntityModelCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetEntityPropertyCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetResourcesValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ChangeObjectiveResultCommand.js"></script>
+<script type="text/javascript" src="js/app/command/GetVariableValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/IncrementVariableValueCommand.js"></script>
+<script type="text/javascript" src="js/app/command/ShowVictoryPopupCommand.js"></script>
+<script type="text/javascript" src="js/app/command/AllObjectivesCompletedCommand.js"></script>
 
 <!-- FACTORY -->
 <script type="text/javascript" src="js/app/factory/FunctionModelFactory.js"></script>
+<script type="text/javascript" src="js/app/factory/CommandFactory.js"></script>
 
 <!-- Mouse Event Handler -->
 <script type="text/javascript" src="js/app/mouseHandler/MouseEventHandler.js"></script>
@@ -181,6 +207,7 @@
 <script type="text/javascript" src="js/editor/controller/EditorMapController.js"></script>
 <script type="text/javascript" src="js/editor/controller/NewMapModuleController.js"></script>
 <script type="text/javascript" src="js/editor/controller/TriggerModuleController.js"></script>
+<script type="text/javascript" src="js/editor/controller/ObjectiveModuleController.js"></script>
 <script type="text/javascript" src="js/editor/controller/AddGameEventController.js"></script>
 <script type="text/javascript" src="js/editor/controller/EditGameEventController.js"></script>
 <script type="text/javascript" src="js/editor/controller/EditAttributeController.js"></script>
@@ -189,24 +216,29 @@
 <script type="text/javascript" src="js/editor/view/WorldView.js"></script>
 <script type="text/javascript" src="js/editor/view/NewMapModuleView.js"></script>
 <script type="text/javascript" src="js/editor/view/TriggerModuleView.js"></script>
+<script type="text/javascript" src="js/editor/view/ObjectiveModuleView.js"></script>
 <script type="text/javascript" src="js/editor/view/SelectGameEventView.js"></script>
 <script type="text/javascript" src="js/editor/view/SelectAttributeView.js"></script>
 
 <!-- HTML VIEWS -->
 <template id="HTMLNewMapModule">
-    <?php include 'html/newMapModuleDivOnly.html';?>
+    <?php include 'html/newMapModuleDivOnly.html'; ?>
 </template>
 
 <template id="HTMLTriggerModule">
-    <?php include 'html/triggerModuleDivOnly.html';?>
+    <?php include 'html/triggerModuleDivOnly.html'; ?>
+</template>
+
+<template id="HTMLObjectiveModule">
+    <?php include 'html/objectiveModuleDivOnly.html'; ?>
 </template>
 
 <template id="HTMLSelectGameEvent">
-    <?php include 'html/selectGameEventDivOnly.html';?>
+    <?php include 'html/selectGameEventDivOnly.html'; ?>
 </template>
 
 <template id="HTMLSelectAttribute">
-    <?php include 'html/selectAttributeDivOnly.html';?>
+    <?php include 'html/selectAttributeDivOnly.html'; ?>
 </template>
 
 
@@ -215,6 +247,10 @@
 
     var editor = editor || {};
     var FEATURE_TOGGLE = editor.FeatureToggle;
+
+    var timer = new support.Timer();
+    var logicTimer = new support.Timer();
+    var rendererTimer = new support.Timer();
 
     var cameraViewPortWidth = 1180,
         cameraViewPortHeight = 780,
@@ -282,10 +318,11 @@
     //Controllers and Views
     var newMapModuleController;
     var triggerModuleController;
+    var objectiveModuleController;
 
-    var triggerModuleView;
     var newMapModuleView;
-
+    var triggerModuleView;
+    var objectiveModuleView;
 
 
     window.onload = function () {
@@ -311,8 +348,8 @@
             var paresdJson = JSON.parse(assetName);
             assetName = paresdJson._graphicUrl;
 
-            if (assetName === undefined){
-                for (var i = 0; i<paresdJson._entityStateListModel._elements.length; i++){
+            if (assetName === undefined) {
+                for (var i = 0; i < paresdJson._entityStateListModel._elements.length; i++) {
                     assetName = paresdJson._entityStateListModel._elements[i]._graphicUrl;
                     graphicsBuffor.load(assetName);
                 }
@@ -322,7 +359,6 @@
             }
 
         }
-
 
 
         worldModel.setCameraModel(cameraModel);
@@ -367,17 +403,19 @@
         //Controllers and Views
         newMapModuleController = new editor.controller.NewMapModuleController(worldModel, editorWorldView, miniMapView);
         triggerModuleController = new editor.controller.TriggerModuleController(worldModel);
+        objectiveModuleController = new editor.controller.ObjectiveModuleController(worldModel);
 
-        triggerModuleView = new editor.view.TriggerModuleView(triggerModuleController);
         newMapModuleView = new editor.view.NewMapModuleView(newMapModuleController);
-
+        triggerModuleView = new editor.view.TriggerModuleView(triggerModuleController);
+        objectiveModuleView = new editor.view.ObjectiveModuleView(objectiveModuleController);
 
         triggerModuleController.setView(triggerModuleView);
+        objectiveModuleController.setView(objectiveModuleView);
 
         function mainDraw() {
 
             backgroundStep();
-            mapRootView.draw();
+            mapRootView.draw(20, 20);
             miniMapRootView.draw();
 
             window.requestAnimationFrame(mainDraw);
@@ -396,19 +434,29 @@
         function handleFileSelect(evt) {
             var files = evt.target.files; // FileList object
             var objectURL = null;
+            var max = files.length;
+            var i;
+            var f;
 
             // files is a FileList of File objects. List some properties.
-            var output = [];
-            for (var i = 0, f; f = files[i]; i++) {
+            for (i = 0; i < max; i++) {
+                f = files[i];
                 objectURL = window.URL.createObjectURL(f);
             }
-
-//            console.log(objectURL);
 
             uploadMapFile(objectURL);
         }
 
-        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+        //click
+        document.getElementById('upload-map-button').addEventListener('click', function () {
+            this.value = null
+        });
+
+        //change
+        document.getElementById('upload-map-button').addEventListener('change', handleFileSelect, false);
+        document.getElementById('upload-map-button').addEventListener('change', function () {
+            console.log("change: upload-map-button")
+        }, false);
 
     };
 
@@ -425,16 +473,19 @@
 
     uploadMapFile = function uploadMapFile(url) {
 
+        if (!url) {
+            return;
+        }
+
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = function () {
-
-            mapModel.loadFromMinifyJSON(JSON.parse(xmlhttp.response));
-
+            if (xmlhttp.status === 200) {
+                worldModel.loadFromMinifyJSON(JSON.parse(xmlhttp.response));
+            }
         };
 
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
-
     };
 
     /*
@@ -444,9 +495,13 @@
     var editorExportMap = function editorExportMap() {
 
         var xmlhttp = new XMLHttpRequest();
+        var worldModelMinifiedJSON = worldModel.getMinifyJSON();
+        var JSONtoSend = JSON.stringify(worldModelMinifiedJSON);
+
         xmlhttp.open("POST", "backend/editorExportMap.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/json");
-        xmlhttp.send(JSON.stringify(worldModel.getMinifyJSON()));
+
+        xmlhttp.send(JSONtoSend);
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -456,7 +511,7 @@
 
     };
 
-    var hideModuleWindow = function hideModuleWindow(){
+    var hideModuleWindow = function hideModuleWindow() {
         document.getElementById("module-window").style.display = "none";
     };
 
@@ -490,28 +545,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Editor</a>
+            <!--            <a class="navbar-brand" href="#">Editor</a>-->
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-            <div class="fileupload fileupload-new myuploadbutton" data-provides="fileupload">
-                <span class="btn btn-primary btn-file"><span class="fileupload-new">UPLOAD MAP</span>
-                <input type="file" id="files" name="files[]"/>
+            <div class="fileUpload btn btn-primary">
+                <span>Load Map</span>
+                <input type="file" id="upload-map-button" class="upload""/>
             </div>
 
-            <button id="exportMapButton" class="btn btn-default" type="submit" onclick="editorExportMap()">EXPORT MAP TO GAME</button>
+            <button id="exportMapButton" class="btn btn-warning" type="submit" onclick="editorExportMap()">Save/Export
+                Map
+            </button>
 
-            <button id="newMapButton" class="btn btn-default" type="submit" onclick="newMapModuleView.show()">NEW MAP</button>
+            <button id="newMapButton" class="btn btn-default" type="submit" onclick="newMapModuleView.show()">New Map
+            </button>
 
-            <button id="terrainModuleButton" class="btn btn-default" type="submit" onclick="">TERRAIN MODULE</button>
+            <!--            <button id="dataModuleButton" class="btn btn-default" type="submit" onclick="">DATA MODULE</button>-->
 
-            <button id="entityModuleButton" class="btn btn-default" type="submit" onclick="">ENTITY MODULE</button>
+            <button id="triggersModuleButton" class="btn btn-default" type="submit" onclick="triggerModuleView.show()">
+                Trigger Module
+            </button>
 
-            <button id="dataModuleButton" class="btn btn-default" type="submit" onclick="">DATA MODULE</button>
-
-            <button id="triggersModuleButton" class="btn btn-default" type="submit" onclick="triggerModuleView.show()">TRIGGER MODULE</button>
+            <button id="objectivesModuleButton" class="btn btn-default" type="submit"
+                    onclick="objectiveModuleView.show()">Objectives Module
+            </button>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

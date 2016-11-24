@@ -118,6 +118,11 @@ app.factory.CommandFactory.prototype.createCommand = function createCommand(abst
             result = new app.command.TurnOffTriggerCommand(this.createCommand(abstractValueModel.getFunctionAttributes()[0]), this._triggerModelList);
             break;
         }
+        case app.enum.FunctionEnum.TURN_ON_TRIGGER:
+        {
+            result = new app.command.TurnOnTriggerCommand(this.createCommand(abstractValueModel.getFunctionAttributes()[0]), this._triggerModelList);
+            break;
+        }
         case app.enum.FunctionEnum.GET_RESOURCES_VALUE:
         {
             result = new app.command.GetResourcesValueCommand(this.createCommand(abstractValueModel.getFunctionAttributes()[0]) /*team*/, this.createCommand(abstractValueModel.getFunctionAttributes()[1]) /*resourceName*/, this._teamListModel);

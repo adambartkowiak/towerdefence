@@ -18,6 +18,7 @@ app.model.function.TurnOffTriggerModel = function TurnOffTriggerModel(id, trigge
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.TURN_OFF_TRIGGER, [triggerId]);
 
+    this._functionAttributeNames = ["triggerId"];
 };
 
 Utils.inherits(app.model.function.TurnOffTriggerModel, app.model.function.AbstractFunctionModel);

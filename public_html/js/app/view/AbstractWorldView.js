@@ -752,6 +752,28 @@ app.view.AbstractWorldView.prototype._drawFpsMeter = function _drawFpsMeter(canv
     }
     canvasContext.stroke();
 
+    // //FPSMeter 20ms
+    // canvasContext.strokeStyle = 'rgba(255,255,255,0.8)';
+    // canvasContext.moveTo(0, fpsMeterHeight - 20);
+    // canvasContext.lineTo(MEMORY_SIZE, fpsMeterHeight - 20);
+    //
+    // //FPSMeter 40ms
+    // canvasContext.strokeStyle = 'rgba(255,255,255,0.8)';
+    // canvasContext.moveTo(0, fpsMeterHeight - 40);
+    // canvasContext.lineTo(MEMORY_SIZE, fpsMeterHeight - 40);
+    //
+    // //FPSMeter 60ms
+    // canvasContext.strokeStyle = 'rgba(255,255,255,0.8)';
+    // canvasContext.moveTo(0, fpsMeterHeight - 60);
+    // canvasContext.lineTo(MEMORY_SIZE, fpsMeterHeight - 60);
+    //
+    // //FPSMeter 80ms
+    // canvasContext.strokeStyle = 'rgba(255,255,255,0.8)';
+    // canvasContext.moveTo(0, fpsMeterHeight - 80);
+    // canvasContext.lineTo(MEMORY_SIZE, fpsMeterHeight - 80);
+    //
+    // canvasContext.stroke();
+
 
     //Statistic Data
     canvasContext.fillStyle = 'rgba(0,0,0,0.4)';

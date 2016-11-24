@@ -39,6 +39,7 @@ app.command.ConditionEqualCommand.prototype.execute = function execute(mouseEven
 
     var param1 = this._param1.execute(null),
         param2 = this._param2.execute(null);
+
     // console.log("ConditionEqualCommand - param1: ");
     // console.log(param1);
 

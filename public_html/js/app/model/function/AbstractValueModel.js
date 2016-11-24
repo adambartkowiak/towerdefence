@@ -28,6 +28,8 @@ app.model.function.AbstractValueModel = function AbstractValueModel(id, value) {
 
     this._parent = null;
 
+    this._functionModelFactory = null;
+
 };
 
 Utils.inherits(app.model.function.AbstractValueModel, Object);
@@ -94,6 +96,14 @@ app.model.function.AbstractValueModel.prototype.getParent = function getParent()
  */
 app.model.function.AbstractValueModel.prototype.setParent = function setParent(parent) {
     this._parent = parent;
+};
+
+/**
+ * @method setFunctionModelFactory
+ * @param {app.factory.FunctionModelFactory} functionModelFactory
+ */
+app.model.function.AbstractValueModel.prototype.setFunctionModelFactory = function setFunctionModelFactory(functionModelFactory) {
+    this._functionModelFactory = functionModelFactory;
 };
 
 /**

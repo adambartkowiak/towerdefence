@@ -18,6 +18,9 @@ var Utils = Utils || {};
 app.model.function.ChangeObjectiveResultModel = function ChangeObjectiveResultModel(id, objectiveId, objectiveResult) {
 
     app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.CHANGE_OBJECTIVE_RESULT, [objectiveId, objectiveResult]);
+    
+    this._functionAttributeNames = ["objectiveName", "objectiveResult"];
+
 
 };
 

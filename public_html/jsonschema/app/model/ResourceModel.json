@@ -1,0 +1,19 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/app/model/ResourceModel.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Resource",
+  "description": "Resource",
+  "type": "object",
+  "properties": {
+    "_name": {
+      "type": "string"
+    },
+    "_value": {
+      "type": "integer"
+    },
+    "_maxValue": {
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

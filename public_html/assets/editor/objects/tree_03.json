@@ -1,9 +1,13 @@
 {
+  "_modelName": "tree_03",
   "_team": 0,
   "_selectable": true,
   "_targetable": true,
-  "_maxAmountOfWood": 200,
-  "_currentAmountOfWood": 200,
+  "_resource": {
+    "_name": "wood",
+    "_value": 200,
+    "_maxValue": 200
+  },
   "_currentHp": 100,
   "_currentStateId": "default",
   "_entityStateListModel": {

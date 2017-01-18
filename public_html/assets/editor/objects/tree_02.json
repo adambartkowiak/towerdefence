@@ -1,9 +1,13 @@
 {
+  "_modelName": "tree_02",
   "_team": 0,
   "_selectable": true,
   "_targetable": true,
-  "_maxAmountOfWood": 100,
-  "_currentAmountOfWood": 100,
+  "_resource": {
+    "_name": "wood",
+    "_value": 100,
+    "_maxValue": 100
+  },
   "_currentHp": 100,
   "_currentStateId": "default",
   "_entityStateListModel": {
@@ -15,7 +19,6 @@
         "_collisionRadius": 10,
         "_groundSpeed": 0,
         "_hp": 100,
-        "_currentHp": 100,
         "_graphicUrl": "assets/graphics/images/tree_02.png",
         "_graphicOffset": {
           "_x": 0,

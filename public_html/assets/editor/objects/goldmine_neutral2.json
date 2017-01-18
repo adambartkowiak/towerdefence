@@ -1,9 +1,13 @@
 {
+  "_modelName": "goldmine_neutral2",
   "_team": 0,
   "_selectable": true,
   "_targetable": true,
-  "_maxAmountOfGold": 1000,
-  "_currentAmountOfGold": 1000,
+  "_resource": {
+    "_name": "gold",
+    "_value": 1000,
+    "_maxValue": 1000
+  },
   "_currentHp": 1000,
   "_currentStateId": "default",
   "_entityStateListModel": {

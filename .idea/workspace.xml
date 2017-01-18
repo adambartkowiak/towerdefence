@@ -5,7 +5,180 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/ResourceModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityAttackListModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityAttackModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityListModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityStateListModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityStateModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/ResourceModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/TaskListModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/app/model/TaskModel.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/support/geom/Circle.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/jsonschema/support/geom/Point2d.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/.tonic_example.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/dist/ajv.bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/dist/ajv.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/dist/ajv.min.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/dist/nodent.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/dist/regenerator.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/ajv.d.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/ajv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/async.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/cache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/_rules.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/equal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/formats.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/resolve.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/rules.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/schema_obj.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/ucs2length.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/compile/validation_error.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/_limit.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/_limitItems.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/_limitLength.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/_limitProperties.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/allOf.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/anyOf.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/coerce.def" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/custom.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/defaults.def" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/definitions.def" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/dependencies.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/enum.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/errors.def" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/format.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/items.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/missing.def" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/multipleOf.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/not.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/oneOf.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/pattern.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/properties.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/ref.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/required.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/uniqueItems.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/v5/_formatLimit.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/v5/constant.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/v5/patternRequired.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/v5/switch.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dot/validate.jst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/_formatLimit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/_limit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/_limitItems.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/_limitLength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/_limitProperties.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/allOf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/anyOf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/constant.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/dependencies.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/enum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/format.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/items.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/multipleOf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/not.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/oneOf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/pattern.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/patternRequired.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/properties.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/ref.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/required.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/uniqueItems.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/dotjs/validate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/keyword.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/refs/json-schema-draft-04.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/refs/json-schema-v5.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/lib/v5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/scripts/bundle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/scripts/compile-dots.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/scripts/info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/scripts/prepare-tests" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/ajv/scripts/travis-gh-pages" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/co/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/co/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/co/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/co/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/co/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/example/key_cmp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/example/nested.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/example/str.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/example/value_cmp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/test/cmp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/test/nested.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/test/replacer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/test/space.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/test/str.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/json-stable-stringify/test/to-json.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/jsonify/README.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/jsonify/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/jsonify/lib/parse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/jsonify/lib/stringify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/jsonify/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/jsonify/test/parse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/node_modules/jsonify/test/stringify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/script1.sh" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/base_03.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/base_04.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/bulding1_neutral.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/bulding2_neutral.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/bush_01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/rock_01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/rock_02.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/tree_01.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit1_neutral.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit1_team2.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit2_neutral.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/unit2_team2.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushCobblestones.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushGrass.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushHighGround.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/neutral/goldmine_neutral.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tgcc06.png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team0.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team0.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageB_team0.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage_team01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team0.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_team01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_team0.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team0.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team01.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team0.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/bush_02.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/bush_02.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/goldmine_neutral2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/goldmine_neutral2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_03.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_03.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_02.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_02.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_03.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_03.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit3_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit3_team2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" afterPath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.php" afterPath="$PROJECT_DIR$/public_html/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/Main.js" afterPath="$PROJECT_DIR$/public_html/js/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/ActionMenuModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/ActionMenuModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/helper/Helper.js" afterPath="$PROJECT_DIR$/public_html/js/helper/Helper.js" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,104 +206,105 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="243">
-      <file leaf-file-name="unit3_team2.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/unit3_team2.json">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="263">
+      <file leaf-file-name="ActionMenuView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+            <state relative-caret-position="450">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="warrior_team01.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team01.json">
+      <file leaf-file-name="Main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+            <state relative-caret-position="612">
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConditionEqualCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ConditionEqualCommand.js">
+      <file leaf-file-name="editor.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/editor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FunctionListModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/FunctionListModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeatureToggle.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/FeatureToggle.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CollisionDetectionController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/CollisionDetectionController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="193" column="13" selection-start-line="193" selection-start-column="13" selection-end-line="193" selection-end-column="13" />
+            <state relative-caret-position="558">
+              <caret line="388" column="0" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <marker date="1484687125000" expanded="true" signature="31266:31410" ph="..." />
+                <marker date="1484687125000" expanded="true" signature="33277:33929" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
+      <file leaf-file-name="SetBuildBuildingCommandOnCommandController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-965">
+            <state relative-caret-position="365">
+              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="worker_team0.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team0.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="648">
+              <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="warrior_team0.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team0.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectTargetController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js">
+      <file leaf-file-name="barracks_team0.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team0.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+            <state relative-caret-position="702">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="worker_team01.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team01.json">
+      <file leaf-file-name="EditorMapController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state relative-caret-position="3204">
+              <caret line="178" column="77" selection-start-line="178" selection-start-column="77" selection-end-line="178" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cottageA_team01.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team01.json">
+      <file leaf-file-name="TrainEntityCommand.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+            <state relative-caret-position="630">
+              <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowVictoryPopupCommand.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ShowVictoryPopupCommand.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -150,60 +324,63 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/GetUnitCountModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ShowConsoleLogModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/TurnOffTriggerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/html/triggerModuleListElementDivOnly.html" />
-        <option value="$PROJECT_DIR$/public_html/html/triggerModule.html" />
-        <option value="$PROJECT_DIR$/public_html/html/triggerModuleListElementString.html" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/view/TriggerModuleView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
-        <option value="$PROJECT_DIR$/public_html/html/newMapModuleDivOnly.html" />
-        <option value="$PROJECT_DIR$/public_html/css/editor.css" />
-        <option value="$PROJECT_DIR$/public_html/html/objectiveModule.html" />
-        <option value="$PROJECT_DIR$/public_html/html/objectiveModuleDivOnly.html" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/controller/ObjectiveModuleController.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/view/ObjectiveModuleView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/ObjectiveModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/GameEventListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/TriggerListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditAttributeController.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/AbstractValueModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/AbstractFunctionModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/GetEntityPropertyCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/ChangeObjectiveResultCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityStateModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
-        <option value="$PROJECT_DIR$/public_html/html/selectAttribute.html" />
-        <option value="$PROJECT_DIR$/public_html/html/selectAttributeDivOnly.html" />
-        <option value="$PROJECT_DIR$/public_html/js/editor/view/SelectAttributeView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/TurnOnTriggerCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/TurnOnTriggerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/editor.php" />
+        <option value="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/ObjectUnitJsonSchema.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/exampleJson/entity.json" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/ActionMenuModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/ResourceModel.js" />
         <option value="$PROJECT_DIR$/public_html/index.php" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/GetVariableValueModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/FunctionModelFactory.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/IncrementVariableValueModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/GetResourcesValueCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/GetUnitCountCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage_team01.json" />
+        <option value="$PROJECT_DIR$/public_html/js/helper/Helper.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/support/geom/Circle.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/support/geom/Point2d.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/TaskModel.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/TaskListModel.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/ResourceModel.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityStateModel.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityStateListModel.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityListModel.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityAttackModel.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityAttackListModel.json" />
+        <option value="$PROJECT_DIR$/public_html/script1" />
+        <option value="$PROJECT_DIR$/public_html/script1.sh" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team01.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage_team01.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team01.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team01.json" />
-        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team01.json" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/index.html" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageB_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team0.json" />
         <option value="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit3_team2.json" />
-        <option value="$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/ConditionEqualCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/FunctionListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityModel.js" />
+        <option value="$PROJECT_DIR$/public_html/jsonschema/app/model/EntityModel.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/bush_02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/goldmine_neutral2.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock_03.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/tree_02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/tree_03.json" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js" />
+        <option value="$PROJECT_DIR$/public_html/editor.php" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/Main.js" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
       </list>
     </option>
   </component>
@@ -213,15 +390,18 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/public_html/node_modules" />
+  </component>
   <component name="PhpServers">
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-528" />
-    <option name="y" value="-1417" />
-    <option name="width" value="2544" />
-    <option name="height" value="1372" />
+    <option name="x" value="13" />
+    <option name="y" value="23" />
+    <option name="width" value="1650" />
+    <option name="height" value="949" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -377,6 +557,28 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="External Dependencies">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="/">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Users">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="adambartkowiak">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="HTML5GAME">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -399,7 +601,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
+            <PATH_ELEMENT USER_OBJECT="jsonschema">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -417,55 +619,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public_html">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="model">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public_html">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
+            <PATH_ELEMENT USER_OBJECT="jsonschema">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -477,7 +631,21 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="function">
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -499,11 +667,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="factory">
+            <PATH_ELEMENT USER_OBJECT="editor">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -525,29 +689,11 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
+            <PATH_ELEMENT USER_OBJECT="editor">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="command">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public_html">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="html">
+            <PATH_ELEMENT USER_OBJECT="controller">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -592,10 +738,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="units">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="team2">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -683,7 +825,7 @@
     <property name="last_opened_file_path" value="/usr/bin/git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.VCS" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -692,19 +834,19 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public_html/assets/editor/units/team1" />
-      <recent name="$PROJECT_DIR$/public_html/js/app/model/function" />
-      <recent name="$PROJECT_DIR$/public_html/js/app/command" />
-      <recent name="$PROJECT_DIR$/public_html/html" />
-      <recent name="$PROJECT_DIR$/public_html/js/editor/controller" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public_html/assets/editor/units/team1" />
       <recent name="$PROJECT_DIR$/public_html/assets/editor/old configs" />
       <recent name="$PROJECT_DIR$/public_html/js/app/model/function" />
       <recent name="$PROJECT_DIR$/public_html/js/app/enum" />
       <recent name="$PROJECT_DIR$/public_html/assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public_html" />
+      <recent name="$PROJECT_DIR$/public_html/jsonschema/app/model" />
+      <recent name="$PROJECT_DIR$/public_html/jsonschema/support/geom" />
+      <recent name="$PROJECT_DIR$/public_html/assets/editor/units/team1" />
+      <recent name="$PROJECT_DIR$/public_html/js/app/model/function" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.php">
@@ -826,7 +968,19 @@
       <workItem from="1479319013264" duration="7028000" />
       <workItem from="1479404459454" duration="5051000" />
       <workItem from="1479492580435" duration="5192000" />
-      <workItem from="1479851986309" duration="4554000" />
+      <workItem from="1479851986309" duration="5108000" />
+      <workItem from="1480058864864" duration="128000" />
+      <workItem from="1480171195015" duration="88000" />
+      <workItem from="1480463878750" duration="1754000" />
+      <workItem from="1480506374479" duration="514000" />
+      <workItem from="1480669401388" duration="26355000" />
+      <workItem from="1481907161439" duration="1770000" />
+      <workItem from="1481931053469" duration="10778000" />
+      <workItem from="1482371661777" duration="285000" />
+      <workItem from="1482956176186" duration="15205000" />
+      <workItem from="1483901065411" duration="2084000" />
+      <workItem from="1484081244177" duration="232000" />
+      <workItem from="1484120874859" duration="27469000" />
     </task>
     <task id="LOCAL-00001" summary="Komentarze w czesci klas dla YuiDoc'a">
       <created>1437327357132</created>
@@ -1150,11 +1304,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480015395325</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Poprawki w optymalizacji + poprawki edytora">
+      <created>1480015408259</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1480015408259</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1026806000" />
+    <option name="totallyTimeSpent" value="1114022000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1166,24 +1327,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-528" y="-1417" width="2544" height="1372" extended-state="0" />
+    <frame x="13" y="23" width="1650" height="949" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15762578" sideWeight="0.49594322" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2278788" sideWeight="0.49594322" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24078947" sideWeight="0.5190476" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760596" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20208333" sideWeight="0.5040568" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3806818" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849604" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1658031" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21479958" sideWeight="0.48095238" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849604" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3849607" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26815644" sideWeight="0.48095238" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1234,80 +1397,247 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TaskModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3345">
-          <caret line="223" column="2" selection-start-line="223" selection-start-column="2" selection-end-line="223" selection-end-column="2" />
+        <state relative-caret-position="3474">
+          <caret line="193" column="43" selection-start-line="193" selection-start-column="28" selection-end-line="193" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TaskListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3105">
-          <caret line="207" column="22" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="22" />
+        <state relative-caret-position="-266">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditAttributeController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/AbstractValueModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityStateModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="150" column="20" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
+        <state relative-caret-position="-1350">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetEntityPropertyCommand.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityAttackListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+        <state relative-caret-position="-617">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityAttackModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="71" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/node_modules/co/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/support/geom/Point2d.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/AbstractFunctionModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="216" column="5" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/ObjectiveListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="73" column="55" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ChangeObjectiveResultCommand.js">
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/support/geom/Circle.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/TaskListModel.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/ResourceModel.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5994">
-          <caret line="333" column="3" selection-start-line="333" selection-start-column="3" selection-end-line="333" selection-end-column="3" />
+        <state relative-caret-position="288">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/EntityStateListModel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/EntityListModel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/EntityAttackModel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/EntityAttackListModel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/script1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/EntityStateModel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/TaskModel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushHighGround.json" />
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushGrass.json" />
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/terrain/terrain 1/brushCobblestones.json" />
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/exampleJson/entity.json" />
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="257" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageB_team0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_team0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="1221" column="80" selection-start-line="1221" selection-start-column="80" selection-end-line="1221" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/jsonschema/app/model/EntityModel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/unit3_team2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/bush_02.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/goldmine_neutral2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/rock_03.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/tree_02.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/tree_03.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,313 +1645,121 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityStateModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4914">
-          <caret line="273" column="38" selection-start-line="273" selection-start-column="16" selection-end-line="273" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityAttackModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8640">
-          <caret line="480" column="0" selection-start-line="480" selection-start-column="0" selection-end-line="480" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/AttackController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="119" column="53" selection-start-line="119" selection-start-column="53" selection-end-line="119" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="1000" column="0" selection-start-line="1000" selection-start-column="0" selection-end-line="1000" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/FeatureToggle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/html/selectGameEventDivOnly.html">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/html/objectiveModuleDivOnly.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/html/selectAttribute.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3852">
-          <caret line="214" column="42" selection-start-line="214" selection-start-column="42" selection-end-line="214" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/html/selectAttributeDivOnly.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/editor/view/SelectAttributeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/helper/Helper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-278">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/TurnOnTriggerCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/TurnOnTriggerModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/editor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="174" column="51" selection-start-line="174" selection-start-column="51" selection-end-line="174" selection-end-column="51" />
-          <folding>
-            <marker date="1479544016000" expanded="true" signature="31813:32588" ph="..." />
-            <marker date="1479544016000" expanded="true" signature="34997:35649" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="280" column="27" selection-start-line="280" selection-start-column="27" selection-end-line="280" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/GetResourcesValueModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetVariableValueCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/GetVariableValueModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/IncrementVariableValueModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2556">
-          <caret line="142" column="84" selection-start-line="142" selection-start-column="84" selection-end-line="142" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/FunctionModelFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="86" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_team01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetResourcesValueCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetUnitCountCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+        <state relative-caret-position="445">
+          <caret line="400" column="48" selection-start-line="400" selection-start-column="48" selection-end-line="400" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+        <state relative-caret-position="1116">
+          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityModel.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/support/command/AbstractCommand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1313" column="32" selection-start-line="1313" selection-start-column="32" selection-end-line="1313" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage_team01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/unit3_team2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team01.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ConditionEqualCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/FunctionListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/FeatureToggle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/CollisionDetectionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="193" column="13" selection-start-line="193" selection-start-column="13" selection-end-line="193" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/utils/Utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-965">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/SelectTargetController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ShowConsoleLogCommand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team01.json">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ShowVictoryPopupCommand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team01.json">
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        <state relative-caret-position="630">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/editor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="388" column="0" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
+          <folding>
+            <marker date="1484687125000" expanded="true" signature="31266:31410" ph="..." />
+            <marker date="1484687125000" expanded="true" signature="33277:33929" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3204">
+          <caret line="178" column="77" selection-start-line="178" selection-start-column="77" selection-end-line="178" selection-end-column="77" />
           <folding />
         </state>
       </provider>

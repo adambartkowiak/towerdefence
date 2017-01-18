@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script type="text/javascript" src="../node_modules/ajv/dist/ajv.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        var Ajv = require('ajv');
+        var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
+        var validate = ajv.compile(schema);
+        var valid = validate(data);
+        if (!valid) console.log(validate.errors);
+    </script>
+
+</body>
+</html>
+
+
+
+/Users/adambartkowiak/PhpstormProjects/HTML5GAME/public_html/
+
+ajv -s "jsonschema/app/model/EntityModel.json" -d "assets/editor/objects/*.json" -r "jsonschema/support/geom/*.json" -r "jsonschema/app/model/*.json"
+
+
+ajv -s "jsonschema/app/model/EntityModel.json" -d "assets/editor/objects/*.json" -d "assets/editor/units/*/*.json" -r "jsonschema/support/geom/*.json" -r "jsonschema/app/model/*.json" --errors text
+
+
+ajv -s "public_html/jsonschema/app/model/EntityModel.json" -d "public_html/assets/editor/objects/*.json" -d "public_html/assets/editor/units/*/*.json" -r "public_html/jsonschema/support/geom/*.json" -r "public_html/jsonschema/app/model/*.json" --errors text

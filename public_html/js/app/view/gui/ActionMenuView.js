@@ -21,8 +21,9 @@ var Utils = Utils || {};
  * @param {app.controller.CommandController} commandController
  * @param {app.model.ActionMenuModel} actionMenuModel
  * @param {app.model.EntityListModel} entityListModel
+ * @param {app.model.EntityListModel} entityDictionary
  */
-app.view.gui.ActionMenuView = function ActionMenuView(x, y, width, height, commandController, actionMenuModel, entityListModel) {
+app.view.gui.ActionMenuView = function ActionMenuView(x, y, width, height, commandController, actionMenuModel, entityListModel, entityDictionary) {
 
     /*
      Call Base/Super Constructor
@@ -42,6 +43,8 @@ app.view.gui.ActionMenuView = function ActionMenuView(x, y, width, height, comma
     this._commandController = commandController;
 
     this._entityListModel = entityListModel;
+
+    this._entityDictionary = entityDictionary;
 
     for (var i = 0; i < 12; i++) {
         var view = new support.view.ButtonView(5 + 65 * (i % 4), 5 + 65 * (parseInt(i / 4)), 60, 60);
@@ -101,7 +104,7 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
             var command = null;
             var elementAction = elements[i].action;
             var elementActionType = null;
-            var taskEntityModel = null;
+            var entityModelName = null;
 
 
             if (!!elementAction) {
@@ -129,13 +132,11 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
             } else if (elementActionType === app.enum.FunctionEnum.HOLD) {
                 command = new app.command.HoldCommand(this._entityListModel);
             } else if (elementActionType === app.enum.FunctionEnum.SET_BUILD_BUILDING) {
-                taskEntityModel = new app.model.EntityModel();
-                taskEntityModel.loadFromJSON(JSON.parse(elementAction[3]));
-                command = new app.command.SetBuildBuildingCommandOnCommandController(this._commandController, taskEntityModel);
+                entityModelName = elementAction[3];
+                command = new app.command.SetBuildBuildingCommandOnCommandController(this._commandController, this._entityDictionary, entityModelName);
             } else if (elementActionType === app.enum.FunctionEnum.TRAIN_UNIT) {
-                taskEntityModel = new app.model.EntityModel();
-                taskEntityModel.loadFromJSON(JSON.parse(elementAction[3]));
-                command = new app.command.TrainEntityCommand(this._entityListModel, taskEntityModel);
+                entityModelName = elementAction[3];
+                command = new app.command.TrainEntityCommand(this._entityListModel, this._entityDictionary, entityModelName);
             }
 
             if (command !== null) {

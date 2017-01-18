@@ -12,10 +12,11 @@ var Utils = Utils || {};
  * @namespace app.command
  * @class TrainEntityCommand
  * @param {app.model.EntityListModel} entityListModel
- * @param {app.model.EntityModel} entityModelToTrain
+ * @param {app.model.EntityListModel} entityDictionary
+ * @param {String} entityModelNameToTrain
  * @constructor
  */
-app.command.TrainEntityCommand = function TrainEntityCommand(entityListModel, entityModelToTrain) {
+app.command.TrainEntityCommand = function TrainEntityCommand(entityListModel, entityDictionary, entityModelNameToTrain) {
 
     support.command.AbstractCommand.call(this);
 
@@ -26,10 +27,16 @@ app.command.TrainEntityCommand = function TrainEntityCommand(entityListModel, en
     this._entityListModel = entityListModel;
 
     /**
-     * @property {app.model.EntityModel} entityModelToTrain
+     * @param {app.model.EntityListModel} entityDictionary
      * @private
      */
-    this._entityModelToTrain = entityModelToTrain;
+    this._entityDictionary = entityDictionary;
+
+    /**
+     * @property {String} entityModelNameToTrain
+     * @private
+     */
+    this._entityModelNameToTrain = entityModelNameToTrain;
 
 };
 
@@ -44,7 +51,8 @@ app.command.TrainEntityCommand.prototype.execute = function execute(mouseEvent) 
     support.command.AbstractCommand.prototype.execute.call(this);
 
     var selectedEntity = Helper.getSelectedEntity(this._entityListModel),
-        entityToTrain = this._entityModelToTrain.clone(),
+        entityModelToTrain = this._entityDictionary.getElementByModelName(this._entityModelNameToTrain),
+        entityToTrain = entityModelToTrain.clone(),
         randX = Math.random() - 0.5,
         randY = Math.random() - 0.5;
 

@@ -48,7 +48,6 @@ app.controller.GatherController.prototype.update = function update(timeDelta) {
         cargoValue,
         destinationEntityCargoValue = 0;
 
-    //PORUSZANIE OBIEKTOW + OMIJANIE PRZECIWNIKOW
     for (elementIndex = 0; elementIndex < listLength; elementIndex++) {
 
         element = this._list.getElement(elementIndex);
@@ -67,46 +66,34 @@ app.controller.GatherController.prototype.update = function update(timeDelta) {
             //dodaje do entity resourcy, ktore niesie
             destinationEntity = this._list.getElementById(element.getTask().getEntityId());
 
-            if (destinationEntity === null){
+            if (destinationEntity === null) {
                 continue;
             }
 
-            if (destinationEntity.getCurrentAmountOfGold() > 0) {
-                destinationEntityCargoValue = destinationEntity.getCurrentAmountOfGold();
+            if (destinationEntity.getResource().getValue() > 0) {
+                destinationEntityCargoValue = destinationEntity.getResource().getValue();
                 cargoValue = Math.min(this._MAX_CARGO_VALUE, destinationEntityCargoValue);
 
-                element.setCargoName("gold");
-                element.setAmountOfCargo(cargoValue);
-                element.setCurrentStateId("withgold");
+                element.setCarriedResource(new app.model.ResourceModel(destinationEntity.getResource().getName(), cargoValue, -1));
 
-                destinationEntity.setCurrentAmountOfGold(destinationEntityCargoValue - cargoValue);
+                //troszke to jest hak na zmiane grafiki z resourceami...
+                //moze w sumie nie byc takiego stanu - moze tutaj by rzucic wyjątek??
+                element.setCurrentStateId("with" + destinationEntity.getResource().getName());
+
+                destinationEntity.getResource.setValue(destinationEntityCargoValue - cargoValue);
 
                 //zmien grafike kiedy 0 resourcow
-                if (destinationEntity.getCurrentAmountOfGold() === 0){
+                if (destinationEntity.getResource().getValue() === 0) {
                     destinationEntity.setCurrentStateId("noresources");
                 }
 
-            } else if (destinationEntity.getCurrentAmountOfWood() > 0) {
-                destinationEntityCargoValue = destinationEntity.getCurrentAmountOfWood();
-                cargoValue = Math.min(this._MAX_CARGO_VALUE, destinationEntityCargoValue);
-
-                element.setCargoName("wood");
-                element.setAmountOfCargo(cargoValue);
-                element.setCurrentStateId("withwood");
-
-                destinationEntity.setCurrentAmountOfWood(destinationEntityCargoValue - cargoValue);
-
-                //zmien grafike kiedy 0 resourcow
-                if (destinationEntity.getCurrentAmountOfWood() === 0){
-                    destinationEntity.setCurrentStateId("noresources");
-                }
             }
 
             //kasuje cel, z listy punktow do odwiedzenia
             element.getMoveList().clear();
 
             //znajduje najblizszy entitty w ktorym moze oddawac resurcy i idzie do niego z akcja zwracania resourcow
-            element.getMoveList().addElement(new app.model.TaskModel(0, 0, 5, Helper.getNearestGoldStorageId(this._list, element.getX(), element.getY()), app.enum.FunctionEnum.RETURN_CARGO));
+            element.getMoveList().addElement(new app.model.TaskModel(0, 0, 5, Helper.getNearestResourceStorageId(element.getResource().getName(), this._list, element.getX(), element.getY()), app.enum.FunctionEnum.RETURN_CARGO));
         }
 
     }

@@ -1,0 +1,80 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/app/model/EntityModel.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Entity",
+  "description": "Entity",
+  "type": "object",
+  "properties": {
+    "_modelName": {
+      "type" : "string"
+    },
+    "_id": {
+      "type": "integer"
+    },
+    "_team": {
+      "type": "integer"
+    },
+    "_circle": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/support/geom/Circle.json"
+    },
+    "_lastPosition": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/support/geom/Point2d.json"
+    },
+    "_currentStateId": {
+      "type": "string"
+    },
+    "_entityStateListModel": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/EntityStateListModel.json"
+    },
+    "_currentHp": {
+      "type": "number"
+    },
+    "_angle": {
+      "type": "number"
+    },
+    "_attackCooldown": {
+      "type": "number"
+    },
+    "_buildTime": {
+      "type": "number"
+    },
+    "_currentBuildTime": {
+      "type": "number"
+    },
+    "_selected": {
+      "type": "boolean"
+    },
+    "_selectable": {
+      "type": "boolean"
+    },
+    "_targetable": {
+      "type": "boolean"
+    },
+    "_gatherTime": {
+      "type": "number"
+    },
+    "_resourceStorageArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "_resource": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/ResourceModel.json"
+    },
+    "_carriedResource": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/ResourceModel.json"
+    },
+    "_moveList": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/TaskListModel.json"
+    },
+    "_buildList": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/EntityListModel.json"
+    },
+    "_task": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/TaskModel.json"
+    }
+  },
+  "required": ["_modelName"],
+  "additionalProperties": false
+}

@@ -1,0 +1,20 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/support/geom/Point2d.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Point2d",
+  "description": "Point2d",
+  "type": "object",
+  "properties": {
+    "_x": {
+      "type": "number"
+    },
+    "_y": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "_x",
+    "_y"
+  ],
+  "additionalProperties": false
+}

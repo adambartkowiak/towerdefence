@@ -13,6 +13,12 @@ var Utils = Utils || {};
  * @constructor
  */
 app.model.WorldModel = function WorldModel() {
+    /**
+     * Słownik/Baza obiektów, które mogą znajdować się w świecie gry
+     * @property {app.model.EntityDictionary} _entityDictionary
+     * @private
+     */
+    this._entityDictionary = new app.model.EntityListModel();
 
     /**
      * Wszystkie obiekty znajdujace sie w swiecie gry
@@ -144,6 +150,14 @@ app.model.WorldModel = function WorldModel() {
 Utils.inherits(app.model.WorldModel, Object);
 
 /**
+ * @method getEntityDictionary
+ * @return {app.model.EntityListModel}
+ */
+app.model.WorldModel.prototype.getEntityDictionary = function getEntityDictionary() {
+    return this._entityDictionary;
+};
+
+/**
  * @method getEntityListModel
  * @return {app.model.EntityListModel}
  */
@@ -249,6 +263,14 @@ app.model.WorldModel.prototype.getActionMenu = function getActionMenu() {
 
 
 /**
+ * @method setEntityDictionary
+ * @param {app.model.EntityListModel} entityDictionary
+ */
+app.model.WorldModel.prototype.setEntityDictionary = function setEntityDictionary(entityDictionary) {
+    this._entityDictionary = entityDictionary;
+};
+
+/**
  * @method setEntityListModel
  * @param {app.model.EntityListModel} entityListModel
  */
@@ -319,6 +341,7 @@ app.model.WorldModel.prototype.loadFromJSON = function loadFromJSON(worldModelJS
     this._cameraModel.loadFromJSON(worldModelJSON._cameraModel);
     this._mapModel.loadFromJSON(worldModelJSON._mapModel);
 
+    this._entityDictionary.loadFromJSON(worldModelJSON._entityDictionary);
     this._entityModelList.loadFromJSON(worldModelJSON._entityModelList);
     this._entityModelIndex = worldModelJSON._entityModelIndex;
     app.model.EntityModelIndex.ENTITY_MODEL_INDEX = worldModelJSON._entityModelIndex;
@@ -348,172 +371,6 @@ app.model.WorldModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(
     this._teamListModel.addElement(new app.model.TeamModel("DRUZYNA ADAMA", "#1E88E5"));
 
     this._variableListModel.clear();
-
-    // this._objectiveListModel.clear();
-    // var objToAdd = null;
-    // objToAdd = new app.model.ObjectiveModel("obj1", "Zbierz 100 drewna", false, false);
-    // objToAdd.setId("obj1");
-    // this._objectiveListModel.addElement(objToAdd);
-    //
-    // objToAdd = new app.model.ObjectiveModel("obj2", "Zbierz 200 zlota", false, false);
-    // objToAdd.setId("obj2");
-    // this._objectiveListModel.addElement(objToAdd);
-    //
-    // objToAdd = new app.model.ObjectiveModel("obj3", "Wybuduj 2 wieze", false, false);
-    // objToAdd.setId("obj3");
-    // this._objectiveListModel.addElement(objToAdd);
-    //
-    // objToAdd = new app.model.ObjectiveModel("obj4", "Obroń się przed atakiem wroga", false, false);
-    // objToAdd.setId("obj4");
-    // this._objectiveListModel.addElement(objToAdd);
-    //
-    //
-    //
-    // //trigers from config
-    // this._triggerListModel.clear();
-    //
-    // var woodResourcesTriggerId = Utils.guid();
-    // this._triggerListModel.addElement(
-    //     new app.model.TriggerModel(
-    //         woodResourcesTriggerId,
-    //         "WOOD RESOURCES TRIGGER",
-    //         /*
-    //          Eventy
-    //          */
-    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.CHANGE_TEAM_RESOURCES_VALUE)),
-    //         /*
-    //          Condition
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualOrGreaterModel(
-    //             Utils.guid(),
-    //             new app.model.function.GetResourcesValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "DRUZYNA ADAMA")/*team*/, new app.model.function.AttributeModel(Utils.guid(), "wood")/*resource name*/),
-    //             new app.model.function.AttributeModel(Utils.guid(), 100))),
-    //         /*
-    //          Action
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "WOOD RESOURCES TRIGGER"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj1"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), woodResourcesTriggerId))),
-    //         true));
-    //
-    //
-    // var goldResourcesTriggerId = Utils.guid();
-    // this._triggerListModel.addElement(
-    //     new app.model.TriggerModel(
-    //         goldResourcesTriggerId,
-    //         "GOLD RESOURCES TRIGGER",
-    //         /*
-    //          Eventy
-    //          */
-    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.CHANGE_TEAM_RESOURCES_VALUE)),
-    //         /*
-    //          Condition
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualOrGreaterModel(
-    //             Utils.guid(),
-    //             new app.model.function.GetResourcesValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "DRUZYNA ADAMA")/*team*/, new app.model.function.AttributeModel(Utils.guid(), "gold")/*resource name*/),
-    //             new app.model.function.AttributeModel(Utils.guid(), 200))),
-    //         /*
-    //          Action
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "GOLD RESOURCES TRIGGER"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj2"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), goldResourcesTriggerId))),
-    //         true));
-    //
-    //
-    // var enemyUnitCountTriggerId = Utils.guid();
-    // this._triggerListModel.addElement(
-    //     new app.model.TriggerModel(
-    //         enemyUnitCountTriggerId,
-    //         "UNIT_DIE",
-    //         /*
-    //          Eventy
-    //          */
-    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_DIE)),
-    //         /*
-    //          Condition
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-    //             Utils.guid(),
-    //             new app.model.function.GetUnitCountModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), 2)/*team*/),
-    //             new app.model.function.AttributeModel(Utils.guid(), 0))),
-    //
-    //         /*
-    //          Action
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj4"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), enemyUnitCountTriggerId))),
-    //         true));
-    //
-    //
-    // //Create tower
-    // var createUnitTriggerId = Utils.guid();
-    // this._triggerListModel.addElement(
-    //     new app.model.TriggerModel(
-    //         createUnitTriggerId,
-    //         "BUILD_TOWER",
-    //         /*
-    //          Eventy
-    //          */
-    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
-    //         /*
-    //          Condition
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-    //             Utils.guid(),
-    //             new app.model.function.GetEntityPropertyModel(Utils.guid(), new app.model.function.GetEventEntityModel(Utils.guid(), this._globalEventListener), new app.model.function.AttributeModel(Utils.guid(), app.enum.EntityPropertyEnum.GRAPHIC_URL)),
-    //             new app.model.function.AttributeModel(Utils.guid(), "assets/graphics/images/tower_01.png"))),
-    //
-    //         /*
-    //          Action
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER CREATED"))).addElement(new app.model.function.IncrementVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT"))),
-    //         true));
-    //
-    // //Check variable tower count
-    // var checkTowerCountVariableTriggerId = Utils.guid();
-    // this._triggerListModel.addElement(
-    //     new app.model.TriggerModel(
-    //         checkTowerCountVariableTriggerId,
-    //         "BUILD_TOWER",
-    //         /*
-    //          Eventy
-    //          */
-    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.UNIT_CREATE)),
-    //         /*
-    //          Condition
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-    //             Utils.guid(),
-    //             new app.model.function.GetVariableValueModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT")),
-    //             new app.model.function.AttributeModel(Utils.guid(), 2))),
-    //
-    //         /*
-    //          Action
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "TOWER_COUNT_OK!!"))).addElement(new app.model.function.ChangeObjectiveResultModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "obj3"), new app.model.function.AttributeModel(Utils.guid(), true))).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), checkTowerCountVariableTriggerId))),
-    //         true));
-    //
-    // //All objectives true victory
-    // var allObjectivesTriggerId = Utils.guid();
-    // this._triggerListModel.addElement(
-    //     new app.model.TriggerModel(
-    //         allObjectivesTriggerId,
-    //         "ALL_OBJECTIVES_COMPLETED",
-    //         /*
-    //          Eventy
-    //          */
-    //         new app.model.GameEventListModel().addElement(new app.model.GameEventModel(Utils.guid(), app.enum.GameEventEnum.TIME_DELTA)),
-    //         /*
-    //          Condition
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ConditionEqualModel(
-    //             Utils.guid(),
-    //             new app.model.function.AllObjectivesCompletedModel(Utils.guid()),
-    //             new app.model.function.AttributeModel(Utils.guid(), true))),
-    //
-    //         /*
-    //          Action
-    //          */
-    //         new app.model.FunctionListModel().addElement(new app.model.function.ShowConsoleLogModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), "ALL_OBJECTIVES_COMPLETED"))).addElement(new app.model.function.ShowVictoryPopupModel(Utils.guid())).addElement(new app.model.function.TurnOffTriggerModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), allObjectivesTriggerId))),
-    //         true));
-
 };
 
 /**
@@ -522,14 +379,15 @@ app.model.WorldModel.prototype.loadFromMinifyJSON = function loadFromMinifyJSON(
  */
 app.model.WorldModel.prototype.getMinifyJSON = function getMinifyJSON() {
     var result = {
-        1: this._entityModelList.getMinifyJSON(),
-        2: app.model.EntityModelIndex.ENTITY_MODEL_INDEX,
-        3: this._cameraModel.getMinifyJSON(),
-        4: this._mapModel.getMinifyJSON(),
-        5: this._teamListModel.getMinifyJSON(),
-        6: this._triggerListModel.getMinifyJSON(),
-        7: this._variableListModel.getMinifyJSON(),
-        8: this._objectiveListModel.getMinifyJSON()
+        1: this._entityDictionary.getMinifyJSON(),
+        2: this._entityModelList.getMinifyJSON(),
+        3: app.model.EntityModelIndex.ENTITY_MODEL_INDEX,
+        4: this._cameraModel.getMinifyJSON(),
+        5: this._mapModel.getMinifyJSON(),
+        6: this._teamListModel.getMinifyJSON(),
+        7: this._triggerListModel.getMinifyJSON(),
+        8: this._variableListModel.getMinifyJSON(),
+        9: this._objectiveListModel.getMinifyJSON()
     };
 
     return result;
@@ -542,7 +400,8 @@ app.model.WorldModel.prototype.getMinifyJSON = function getMinifyJSON() {
  */
 app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
-    var entityListModel = new app.model.EntityListModel(),
+    var entityDictionary = new app.model.EntityListModel(),
+        entityListModel = new app.model.EntityListModel(),
         cameraModel = new app.model.CameraModel(0, 0, 0, 0),
         mapModel = new app.model.MapModel(200, 200, FEATURE_TOGGLE.COLISION_SQUARE_SIZE, FEATURE_TOGGLE.COLISION_SQUARE_SIZE),
         teamListModel = new app.model.TeamListModel(),
@@ -551,14 +410,15 @@ app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) 
         objectiveListModel = new app.model.ObjectiveListModel();
 
     var result = {
-        _entityModelList: entityListModel.unMinifyJSON(minifyJSON["1"]),
-        _entityModelIndex: minifyJSON["2"],
-        _cameraModel: cameraModel.unMinifyJSON(minifyJSON["3"]),
-        _mapModel: mapModel.unMinifyJSON(minifyJSON["4"]),
-        _teamListModel: teamListModel.unMinifyJSON(minifyJSON["5"]),
-        _triggerListModel: triggerListModel.unMinifyJSON(minifyJSON["6"]),
-        _variableListModel: variableListModel.unMinifyJSON(minifyJSON["7"]),
-        _objectiveListModel: objectiveListModel.unMinifyJSON(minifyJSON["8"])
+        _entityDictionary: entityDictionary.unMinifyJSON(minifyJSON["1"]),
+        _entityModelList: entityListModel.unMinifyJSON(minifyJSON["2"]),
+        _entityModelIndex: minifyJSON["3"],
+        _cameraModel: cameraModel.unMinifyJSON(minifyJSON["4"]),
+        _mapModel: mapModel.unMinifyJSON(minifyJSON["5"]),
+        _teamListModel: teamListModel.unMinifyJSON(minifyJSON["6"]),
+        _triggerListModel: triggerListModel.unMinifyJSON(minifyJSON["7"]),
+        _variableListModel: variableListModel.unMinifyJSON(minifyJSON["8"]),
+        _objectiveListModel: objectiveListModel.unMinifyJSON(minifyJSON["9"])
     };
 
     return result;

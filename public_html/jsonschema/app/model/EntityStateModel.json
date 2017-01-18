@@ -1,0 +1,55 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/app/model/EntityStateModel.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "EntityStateModel",
+  "description": "EntityStateModel",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "_mass": {
+      "type": "number"
+    },
+    "_radius": {
+      "type": "number"
+    },
+    "_collisionRadius": {
+      "type": "number"
+    },
+    "_moveCollisionDetectionRadius": {
+      "type": "number"
+    },
+    "_viewRadius": {
+      "type": "number"
+    },
+    "_selectTargetRadius": {
+      "type": "number"
+    },
+    "_groundSpeed": {
+      "type": "number"
+    },
+    "_hp": {
+      "type": "number"
+    },
+    "_entityAttackListModel": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/EntityAttackListModel.json"
+    },
+    "_graphicUrl": {
+      "type": "string"
+    },
+    "_graphicOffset": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/support/geom/Point2d.json"
+    },
+    "_rotateGraphicOnMove": {
+      "type": "boolean"
+    },
+    "_availableActionsMenu": {
+      "type": "array"
+    },
+    "_removeAfterHit": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

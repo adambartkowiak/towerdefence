@@ -1,9 +1,8 @@
 {
+  "_modelName": "rock_03",
   "_team": 0,
   "_selectable": true,
   "_targetable": true,
-  "_maxAmountOfWood": 100,
-  "_currentAmountOfWood": 100,
   "_currentHp": 100,
   "_currentStateId": "default",
   "_entityStateListModel": {
@@ -15,7 +14,6 @@
         "_collisionRadius": 25,
         "_groundSpeed": 0,
         "_hp": 100,
-        "_currentHp": 100,
         "_graphicUrl": "assets/graphics/images/rock_03.png",
         "_graphicOffset": {
           "_x": 0,

@@ -121,11 +121,11 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
             //add cargo to team resources
             var entityModel = collision.getEntityModel();
             var team = this._worldModel.getTeamListModel().getElement(entityModel.getTeam());
-            team.addResource(entityModel.getCargoName(), entityModel.getAmountOfCargo());
+            team.addResource(entityModel.getCarriedResource().getName(), entityModel.getCarriedResource().getValue());
 
             //reset cargo
-            entityModel.setCargoName("");
-            entityModel.setAmountOfCargo(0);
+            entityModel.getCarriedResource().setName("");
+            entityModel.getCarriedResource().setValue(0);
             entityModel.setCurrentStateId("default");
 
 
@@ -140,10 +140,8 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
 
                 //Ustaw taska na inne entity z resourcami
                 if (resourcesEntity !== null) {
-                    if (resourcesEntity.getCurrentAmountOfWood() === 0 && resourcesEntity.getMaxAmountOfWood() > 0) {
-                        newResourceEntity = Helper.getNearestWoodResources(this._list, resourcesEntity.getX(), resourcesEntity.getY());
-                    } else if (resourcesEntity.getCurrentAmountOfGold() === 0 && resourcesEntity.getMaxAmountOfGold() > 0) {
-                        newResourceEntity = Helper.getNearestGoldResources(this._list, resourcesEntity.getX(), resourcesEntity.getY());
+                    if (resourcesEntity.getResource().getValue() === 0 && resourcesEntity.getResource().getMaxValue() > 0) {
+                        newResourceEntity = Helper.getNearestResourcesEntity(resourcesEntity.getResource().getName(), this._list, resourcesEntity.getX(), resourcesEntity.getY());
                     }
 
                     if (newResourceEntity !== null) {
@@ -180,7 +178,7 @@ app.controller.WaypointCollisionReactionController.prototype.update = function u
 
 
             //if (collision.getEntityModel().getTargetEntity() === null) {
-                collision.getEntityModel().setToRemove(true);
+            collision.getEntityModel().setToRemove(true);
             //}
 
             // console.log(collision.getEntityModel());

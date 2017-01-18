@@ -16,6 +16,13 @@ var Utils = Utils || {};
 app.model.EntityModel = function EntityModel() {
 
     /**
+     * Identyfikator modelu jednostki
+     * @property {String} _modelName
+     * @private
+     */
+    this._modelName = undefined;
+
+    /**
      * Identyfikator jednostki
      * @property {Number} _id
      * @private
@@ -23,17 +30,17 @@ app.model.EntityModel = function EntityModel() {
     this._id = app.model.EntityModelIndex.getEntityModelIndex();
 
     /**
-     * @property {support.geom.Circle}
-     * @private
-     */
-    this._circle = new support.geom.Circle(0, 0, 0);
-
-    /**
      * Drozyna do kotrej nalezy jednostka 0 neutralna
      * @property {Number} _team
      * @private
      */
     this._team = 0;
+
+    /**
+     * @property {support.geom.Circle}
+     * @private
+     */
+    this._circle = new support.geom.Circle(0, 0, 0);
 
     /**
      * Nazwa stany entity
@@ -79,13 +86,6 @@ app.model.EntityModel = function EntityModel() {
      * @private
      */
     this._attackCooldown = 0;
-
-    /**
-     * Okresla czy budowa ma odbywac sie cigle
-     * @property {Boolean} _constantBuild
-     * @private
-     */
-    this._constantBuild = false;
 
     /**
      *
@@ -162,40 +162,16 @@ app.model.EntityModel = function EntityModel() {
     this._isSleepingY = false;
 
     /**
-     * @property {Number} _maxAmountOfWood
+     * @property {app.model.ResourcesModel} _resource
      * @private
      */
-    this._maxAmountOfWood = 0;
+    this._resource = new app.model.ResourceModel("", 0, 0);
 
     /**
-     * @property {Number} _currentAmountOfWood
+     * @property {Array String} _resourceStorageArray
      * @private
      */
-    this._currentAmountOfWood = 0;
-
-    /**
-     * @property {Number} _maxAmountOfGold
-     * @private
-     */
-    this._maxAmountOfGold = 0;
-
-    /**
-     * @property {Number} _currentAmountOfGold
-     * @private
-     */
-    this._currentAmountOfGold = 0;
-
-    /**
-     * @property {Boolean} _woodStorage
-     * @private
-     */
-    this._woodStorage = false;
-
-    /**
-     * @property {Boolean} _goldStorage
-     * @private
-     */
-    this._goldStorage = false;
+    this._resourceStorageArray = [];
 
     /**
      * @property {Number} _tempX
@@ -222,16 +198,10 @@ app.model.EntityModel = function EntityModel() {
     this._gatherTime = 0;
 
     /**
-     * @property {String} _cargoName
+     * @property {app.model.ResourceModel} _carriedResource
      * @private
      */
-    this._cargoName = "";
-
-    /**
-     * @property {Number} _amountOfCargo
-     * @private
-     */
-    this._amountOfCargo = 0;
+    this._carriedResource = new app.model.ResourceModel("", 0, 0);
 
     /**
      * @property {Number} _targetEntityId
@@ -264,6 +234,21 @@ app.model.EntityModel = function EntityModel() {
 
 Utils.inherits(app.model.EntityModel, Object);
 
+/**
+ * @method getModelName
+ * @return {String} id
+ */
+app.model.EntityModel.prototype.getModelName = function getModelName() {
+    return this._modelName;
+};
+
+/**
+ * @method setModelName
+ * @param {String} value
+ */
+app.model.EntityModel.prototype.setModelName = function setModelName(value) {
+    this._modelName = value
+};
 
 /**
  * @method getId
@@ -426,14 +411,6 @@ app.model.EntityModel.prototype.setAttackCooldown = function setAttackCooldown(v
 };
 
 /**
- * @method setConstantBuild
- * @param {Boolean} value
- */
-app.model.EntityModel.prototype.setConstantBuild = function setConstantBuild(value) {
-    this._constantBuild = value;
-};
-
-/**
  * @method setBuildTime
  * @param {Number} value
  */
@@ -533,51 +510,19 @@ app.model.EntityModel.prototype.setBuildList = function setBuildList(value) {
 };
 
 /**
- * @method setMaxAmountOfWood
- * @param {Number} value
+ * @method setResource
+ * @param {app.model.ResourceModel} resource
  */
-app.model.EntityModel.prototype.setMaxAmountOfWood = function setMaxAmountOfWood(value) {
-    this._maxAmountOfWood = value;
+app.model.EntityModel.prototype.setResource = function setResource(resource) {
+    this._resource = resource;
 };
 
 /**
- * @method setCurrentAmountOfWood
- * @param {Number} value
+ * @method setResourceStorageArray
+ * @param {Array String} array
  */
-app.model.EntityModel.prototype.setCurrentAmountOfWood = function setCurrentAmountOfWood(value) {
-    this._currentAmountOfWood = value;
-};
-
-/**
- * @method setMaxAmountOfGold
- * @param {Number} value
- */
-app.model.EntityModel.prototype.setMaxAmountOfGold = function setMaxAmountOfGold(value) {
-    this._maxAmountOfGold = value;
-};
-
-/**
- * @method setCurrentAmountOfGold
- * @param {Number} value
- */
-app.model.EntityModel.prototype.setCurrentAmountOfGold = function setCurrentAmountOfGold(value) {
-    this._currentAmountOfGold = value;
-};
-
-/**
- * @method setWoodStorage
- * @param {Boolean} value
- */
-app.model.EntityModel.prototype.setWoodStorage = function setWoodStorage(value) {
-    this._woodStorage = value;
-};
-
-/**
- * @method setGoldStorage
- * @param {Boolean} value
- */
-app.model.EntityModel.prototype.setGoldStorage = function setGoldStorage(value) {
-    this._goldStorage = value;
+app.model.EntityModel.prototype.setResourceStorageArray = function setResourceStorageArray(array) {
+    this._resourceStorageArray = array;
 };
 
 /**
@@ -627,19 +572,11 @@ app.model.EntityModel.prototype.setGatherTime = function setGatherTime(value) {
 };
 
 /**
- * @method setCargoName
- * @param {String} name
+ * @method setCarriedResource
+ * @param {app.model.ResourceModel} carriedResource
  */
-app.model.EntityModel.prototype.setCargoName = function setCargoName(name) {
-    this._cargoName = name;
-};
-
-/**
- * @method setAmountOfCargo
- * @param {Number} value
- */
-app.model.EntityModel.prototype.setAmountOfCargo = function setAmountOfCargo(value) {
-    this._amountOfCargo = value;
+app.model.EntityModel.prototype.setCarriedResource = function setCarriedResource(carriedResource) {
+    this._carriedResource = carriedResource;
 };
 
 /**
@@ -873,14 +810,6 @@ app.model.EntityModel.prototype.getAttackCooldown = function getAttackCooldown()
 };
 
 /**
- * @method getConstantBuild
- * @return {Boolean} constantBuild
- */
-app.model.EntityModel.prototype.getConstantBuild = function getConstantBuild() {
-    return this._constantBuild;
-};
-
-/**
  * @method getBuildTime
  * @return {Number} buildTime
  */
@@ -969,51 +898,19 @@ app.model.EntityModel.prototype.isSleeping = function isSleeping() {
 };
 
 /**
- * @method getMaxAmountOfWood
- * @return {Number} maxAmountOfWood
+ * @method getResource
+ * @return {app.model.ResourceModel} resource
  */
-app.model.EntityModel.prototype.getMaxAmountOfWood = function getMaxAmountOfWood() {
-    return this._maxAmountOfWood;
+app.model.EntityModel.prototype.getResource = function getResource() {
+    return this._resource;
 };
 
 /**
- * @method getCurrentAmountOfWood
- * @return {Number} currentAmountOfWood
- */
-app.model.EntityModel.prototype.getCurrentAmountOfWood = function getCurrentAmountOfWood() {
-    return this._currentAmountOfWood;
-};
-
-/**
- * @method getMaxAmountOfGold
- * @return {Number} maxAmountOfGold
- */
-app.model.EntityModel.prototype.getMaxAmountOfGold = function getMaxAmountOfGold() {
-    return this._maxAmountOfGold;
-};
-
-/**
- * @method getCurrentAmountOfGold
- * @return {Number} currentAmountOfGold
- */
-app.model.EntityModel.prototype.getCurrentAmountOfGold = function getCurrentAmountOfGold() {
-    return this._currentAmountOfGold;
-};
-
-/**
- * @method getWoodStorage
- * @return {Boolean} woodStorage
- */
-app.model.EntityModel.prototype.getWoodStorage = function getWoodStorage() {
-    return this._woodStorage;
-};
-
-/**
- * @method getGoldStorage
+ * @method getResourceStorageArray
  * @return {Boolean} goldStorage
  */
-app.model.EntityModel.prototype.getGoldStorage = function getGoldStorage() {
-    return this._goldStorage;
+app.model.EntityModel.prototype.getResourceStorageArray = function getResourceStorageArray() {
+    return this._resourceStorageArray;
 };
 
 /**
@@ -1057,19 +954,11 @@ app.model.EntityModel.prototype.getGatherTime = function getGatherTime() {
 };
 
 /**
- * @method getCargoName
- * @return {String} name
+ * @method getCarriedResource
+ * @return {app.model.ResourceModel} carriedResource
  */
-app.model.EntityModel.prototype.getCargoName = function getCargoName() {
-    return this._cargoName;
-};
-
-/**
- * @method getAmountOfCargo
- * @return {Number} value
- */
-app.model.EntityModel.prototype.getAmountOfCargo = function getAmountOfCargo() {
-    return this._amountOfCargo;
+app.model.EntityModel.prototype.getCarriedResource = function getCarriedResource() {
+    return this._carriedResource;
 };
 
 
@@ -1126,6 +1015,8 @@ app.model.EntityModel.prototype.clone = function clone() {
 
     var clone = new app.model.EntityModel();
 
+    clone._modelName = this._modelName;
+
     clone._team = this._team;
     clone._circle = new support.geom.Circle(this._circle.getX(), this._circle.getY(), this._circle.getRadius());
     clone._tempX = this._tempX;
@@ -1135,23 +1026,17 @@ app.model.EntityModel.prototype.clone = function clone() {
     clone._currentHp = this._currentHp;
     clone._angle = this._angle;
     clone._attackCooldown = this._attackCooldown;
-    clone._constantBuild = this._constantBuild;
     clone._buildTime = this._buildTime;
     clone._currentBuildTime = this._currentBuildTime;
     clone._selected = this._selected;
     clone._selectable = this._selectable;
     clone._targetable = this._targetable;
-    clone._maxAmountOfWood = this._maxAmountOfWood;
-    clone._currentAmountOfWood = this._currentAmountOfWood;
-    clone._maxAmountOfGold = this._maxAmountOfGold;
-    clone._currentAmountOfGold = this._currentAmountOfGold;
-    clone._woodStorage = this._woodStorage;
-    clone._goldStorage = this._goldStorage;
+    clone._resource = this._resource.clone();
+    clone._resourceStorageArray = this._resourceStorageArray;
     clone._task = new app.model.TaskModel(this._task.getX(), this._task.getY(), this._task.getRadius(), this._task.getEntityId(), this._task.getTaskEnum());
-    clone._rotateGraphicOnMove = this._rotateGraphicOnMove;
+
     clone._gatherTime = this._gatherTime;
-    clone._cargoName = this._cargoName;
-    clone._amountOfCargo = this._amountOfCargo;
+    clone._carriedResource = this._carriedResource.clone();
 
     //klonowanie obiektow
     clone._entityStateListModel = this._entityStateListModel.clone();
@@ -1169,6 +1054,10 @@ app.model.EntityModel.prototype.clone = function clone() {
  * @property {Object} unMinifyJSON
  */
 app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
+
+    if (JSON._modelName !== undefined) {
+        this._modelName = JSON._modelName;
+    }
 
     if (JSON._id !== undefined) {
         this._id = JSON._id;
@@ -1211,10 +1100,6 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
         this._attackCooldown = JSON._attackCooldown;
     }
 
-    if (JSON._constantBuild !== undefined) {
-        this._constantBuild = JSON._constantBuild;
-    }
-
     if (JSON._buildTime !== undefined) {
         this._buildTime = JSON._buildTime;
     }
@@ -1243,48 +1128,24 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
         this._buildList.loadFromJSON(JSON._buildList);
     }
 
-    if (JSON._maxAmountOfWood !== undefined) {
-        this._maxAmountOfWood = JSON._maxAmountOfWood;
+    if (JSON._resource !== undefined) {
+        this._resource.loadFromJSON(JSON._resource);
     }
 
-    if (JSON._currentAmountOfWood !== undefined) {
-        this._currentAmountOfWood = JSON._currentAmountOfWood;
-    }
-
-    if (JSON._maxAmountOfGold !== undefined) {
-        this._maxAmountOfGold = JSON._maxAmountOfGold;
-    }
-
-    if (JSON._currentAmountOfGold !== undefined) {
-        this._currentAmountOfGold = JSON._currentAmountOfGold;
-    }
-
-    if (JSON._woodStorage !== undefined) {
-        this._woodStorage = JSON._woodStorage;
-    }
-
-    if (JSON._goldStorage !== undefined) {
-        this._goldStorage = JSON._goldStorage;
+    if (JSON._resourceStorageArray !== undefined) {
+        this._resourceStorageArray = JSON._resourceStorageArray;
     }
 
     if (JSON._task !== undefined) {
         this._task = new app.model.TaskModel(0, 0, 0, 0, app.enum.FunctionEnum.NONE);
     }
 
-    if (JSON._rotateGraphicOnMove !== undefined) {
-        this._rotateGraphicOnMove = JSON._rotateGraphicOnMove;
-    }
-
     if (JSON._gatherTime !== undefined) {
         this._gatherTime = JSON._gatherTime;
     }
 
-    if (JSON._cargoName !== undefined) {
-        this._cargoName = JSON._cargoName;
-    }
-
-    if (JSON._amountOfCargo !== undefined) {
-        this._amountOfCargo = JSON._amountOfCargo;
+    if (JSON._carriedResource !== undefined) {
+        this._carriedResource.loadFromJSON(JSON._carriedResource);
     }
 
     //init
@@ -1308,6 +1169,7 @@ app.model.EntityModel.prototype.loadFromJSON = function loadFromJSON(JSON) {
 app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
 
     var result = {
+        0: this._modelName,
         1: this._id,
         2: this._team,
         3: this._circle.getMinifyJSON(),
@@ -1317,25 +1179,18 @@ app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
         7: this._currentHp,
         8: this._angle,
         9: this._attackCooldown,
-        a: this._constantBuild,
-        b: this._buildTime,
-        c: this._currentBuildTime,
-        d: this._selected,
-        e: this._selectable,
-        f: this._targetable,
-        g: this._moveList.getMinifyJSON(),
-        h: this._buildList.getMinifyJSON(),
-        i: this._maxAmountOfWood,
-        j: this._currentAmountOfWood,
-        k: this._maxAmountOfGold,
-        l: this._currentAmountOfGold,
-        m: this._woodStorage,
-        n: this._goldStorage,
-        o: this._task.getMinifyJSON(),
-        p: this._rotateGraphicOnMove,
-        r: this._gatherTime,
-        s: this._cargoName,
-        t: this._amountOfCargo
+        a: this._buildTime,
+        b: this._currentBuildTime,
+        c: this._selected,
+        d: this._selectable,
+        e: this._targetable,
+        f: this._moveList.getMinifyJSON(),
+        g: this._buildList.getMinifyJSON(),
+        h: this._resource.getMinifyJSON(),
+        i: this._resourceStorageArray,
+        j: this._task.getMinifyJSON(),
+        k: this._gatherTime,
+        l: this._carriedResource.getMinifyJSON()
 
     };
 
@@ -1349,14 +1204,17 @@ app.model.EntityModel.prototype.getMinifyJSON = function getMinifyJSON() {
  */
 app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) {
 
-    var circle = new support.geom.Circle(0, 0, 0);
-    var point2d = new support.geom.Point2d(0, 0);
-    var taskListModel = new app.model.TaskListModel();
-    var entityListModel = new app.model.EntityListModel();
-    var entityStateListModel = new app.model.EntityStateListModel();
-    var taskModel = new app.model.TaskModel(0, 0, 0, 0, app.enum.FunctionEnum.NONE);
+    var circle = new support.geom.Circle(0, 0, 0),
+        point2d = new support.geom.Point2d(0, 0),
+        taskListModel = new app.model.TaskListModel(),
+        entityListModel = new app.model.EntityListModel(),
+        entityStateListModel = new app.model.EntityStateListModel(),
+        taskModel = new app.model.TaskModel(0, 0, 0, 0, app.enum.FunctionEnum.NONE),
+        carriedResource = new app.model.ResourceModel("", 0, 0),
+        resource = new app.model.ResourceModel("", 0, 0);
 
     var result = {
+        _modelName: minifyJSON["0"],
         _id: minifyJSON["1"],
         _team: minifyJSON["2"],
         _circle: circle.unMinifyJSON(minifyJSON["3"]),
@@ -1366,25 +1224,19 @@ app.model.EntityModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON)
         _currentHp: minifyJSON["7"],
         _angle: minifyJSON["8"],
         _attackCooldown: minifyJSON["9"],
-        _constantBuild: minifyJSON["a"],
-        _buildTime: minifyJSON["b"],
-        _currentBuildTime: minifyJSON["c"],
-        _selected: minifyJSON["d"],
-        _selectable: minifyJSON["e"],
-        _targetable: minifyJSON["f"],
-        _moveList: taskListModel.unMinifyJSON(minifyJSON["g"]),
-        _buildList: entityListModel.unMinifyJSON(minifyJSON["h"]),
-        _maxAmountOfWood: minifyJSON["i"],
-        _currentAmountOfWood: minifyJSON["j"],
-        _maxAmountOfGold: minifyJSON["k"],
-        _currentAmountOfGold: minifyJSON["l"],
-        _woodStorage: minifyJSON["m"],
-        _goldStorage: minifyJSON["n"],
-        //_task: taskModel.unMinifyJSON(minifyJSON["o"])
-        _rotateGraphicOnMove: minifyJSON["p"],
-        _gatherTime: minifyJSON["r"],
-        _cargoName: minifyJSON["s"],
-        _amountOfCargo: minifyJSON["t"]
+        _buildTime: minifyJSON["a"],
+        _currentBuildTime: minifyJSON["b"],
+        _selected: minifyJSON["c"],
+        _selectable: minifyJSON["d"],
+        _targetable: minifyJSON["e"],
+        _moveList: taskListModel.unMinifyJSON(minifyJSON["f"]),
+        _buildList: entityListModel.unMinifyJSON(minifyJSON["g"]),
+        _resource: resource.unMinifyJSON(minifyJSON["h"]),
+        _resourceStorageArray: minifyJSON["i"],
+        _task: taskModel.unMinifyJSON(minifyJSON["j"]),
+        _gatherTime: minifyJSON["k"],
+        _carriedResource: carriedResource.unMinifyJSON(minifyJSON["l"])
     };
+
     return result;
 };

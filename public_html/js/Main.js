@@ -289,6 +289,9 @@ if (loadFromFile) {
             graphicPath = "assets/graphics/images/cottage_team01.png";
             graphicsBuffor.load(graphicPath);
 
+            graphicPath = "assets/graphics/images/cottageA_team01.png";
+            graphicsBuffor.load(graphicPath);
+
             graphicPath = "assets/graphics/images/barracks_team01.png";
             graphicsBuffor.load(graphicPath);
 
@@ -372,7 +375,7 @@ minimapView.setViewPort(worldModel.getCameraModel());
 minimapView.setElements(worldModel.getEntityListModel().getElements());
 
 //Action Menu
-var actionMenuView = new app.view.gui.ActionMenuView(app.GuiConfig.actionmenux, app.GuiConfig.actionmenuy, app.GuiConfig.actionmenuwidth, app.GuiConfig.actionmenuheight, commandController, worldModel.getActionMenu(), entityListModel);
+var actionMenuView = new app.view.gui.ActionMenuView(app.GuiConfig.actionmenux, app.GuiConfig.actionmenuy, app.GuiConfig.actionmenuwidth, app.GuiConfig.actionmenuheight, commandController, worldModel.getActionMenu(), entityListModel, worldModel.getEntityDictionary());
 var actionMenuBackgroundImage = new Image();
 actionMenuBackgroundImage.src = "assets/graphics/menu/background_actionMenu.png";
 actionMenuView.setBackgroundImage(actionMenuBackgroundImage);

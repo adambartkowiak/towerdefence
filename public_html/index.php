@@ -170,6 +170,7 @@ and open the template in the editor.
 <script type="text/javascript" src="js/app/model/TaskModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventModel.js"></script>
 <script type="text/javascript" src="js/app/model/TriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/ResourceModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
 <script type="text/javascript" src="js/app/model/TeamModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>

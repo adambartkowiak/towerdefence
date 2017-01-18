@@ -1,0 +1,24 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/support/geom/Circle.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Circle",
+  "description": "Circle",
+  "type": "object",
+  "properties": {
+    "_x": {
+      "type": "number"
+    },
+    "_y": {
+      "type": "number"
+    },
+    "_radius": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "_x",
+    "_y",
+    "_radius"
+  ],
+  "additionalProperties": false
+}

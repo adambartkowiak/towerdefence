@@ -176,6 +176,7 @@ editor.controller.EditorMapController.prototype.onMouseEvent = function onMouseE
                 unit.setX(x);
                 unit.setY(y);
 
+                //Tu trzeba sprawdzic kolizje czy mozna tutaj dodac jednostke
                 this._worldModel.getEntityListModel().addElement(unit);
             }
 

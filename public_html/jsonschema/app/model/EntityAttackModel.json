@@ -1,0 +1,34 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/app/model/EntityAttackModel.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "EntityStateModel",
+  "description": "EntityStateModel",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "_minRange": {
+      "type": "number"
+    },
+    "_maxRange": {
+      "type": "number"
+    },
+    "_damage": {
+      "type": "number"
+    },
+    "_rate": {
+      "type": "number"
+    },
+    "_createBullet": {
+      "type": "boolean"
+    },
+    "_bulletOffset": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/support/geom/Point2d.json"
+    },
+    "_bulletEntity": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/EntityModel.json"
+    }
+  },
+  "additionalProperties": false
+}

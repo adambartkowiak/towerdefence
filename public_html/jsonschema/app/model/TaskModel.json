@@ -1,0 +1,22 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/app/model/TaskModel.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "TaskModel",
+  "description": "TaskModel",
+  "type": "object",
+  "properties": {
+    "_circle": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/support/geom/Circle.json"
+    },
+    "_entityId": {
+      "type": "number"
+    },
+    "_taskEnum": {
+      "type": "string"
+    },
+    "_taskEntityModel": {
+      "$ref": "http://supertowerdefence.pl/jsonschema/app/model/EntityModel.json"
+    }
+  },
+  "additionalProperties": false
+}

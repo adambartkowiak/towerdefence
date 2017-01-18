@@ -1,0 +1,16 @@
+{
+  "id": "http://supertowerdefence.pl/jsonschema/app/model/TaskListModel.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "TaskListModel",
+  "description": "TaskListModel",
+  "type": "object",
+  "properties": {
+    "_elements": {
+      "type": "array",
+      "items": {
+        "$ref": "http://supertowerdefence.pl/jsonschema/app/model/TaskModel.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

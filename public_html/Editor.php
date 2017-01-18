@@ -90,6 +90,7 @@
 <script type="text/javascript" src="js/app/model/TaskModel.js"></script>
 <script type="text/javascript" src="js/app/model/GameEventModel.js"></script>
 <script type="text/javascript" src="js/app/model/TriggerModel.js"></script>
+<script type="text/javascript" src="js/app/model/ResourceModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityModelIndex.js"></script>
 <script type="text/javascript" src="js/app/model/TeamModel.js"></script>
 <script type="text/javascript" src="js/app/model/EntityAttackModel.js"></script>
@@ -259,6 +260,7 @@
 
     var cameraModel = new app.model.CameraModel(cameraStartX, cameraStartY, cameraViewPortWidth, cameraViewPortHeight);
     var worldModel = new app.model.WorldModel();
+    var entityDictionary = new app.model.EntityListModel();
     var entityListModel = worldModel.getEntityListModel();
 
     var graphicListModel;
@@ -345,21 +347,30 @@
         for (var index = 0; index < assetsElementLength; index++) {
 
             assetName = assetsElement[index].dataset["json"];
-            var paresdJson = JSON.parse(assetName);
-            assetName = paresdJson._graphicUrl;
+            var parsedJson = JSON.parse(assetName);
 
-            if (assetName === undefined) {
-                for (var i = 0; i < paresdJson._entityStateListModel._elements.length; i++) {
-                    assetName = paresdJson._entityStateListModel._elements[i]._graphicUrl;
-                    graphicsBuffor.load(assetName);
-                }
-
-            } else {
+            for (var i = 0; i < parsedJson._entityStateListModel._elements.length; i++) {
+                assetName = parsedJson._entityStateListModel._elements[i]._graphicUrl;
                 graphicsBuffor.load(assetName);
             }
 
+
         }
 
+        //Załadowanie konfiguracji do Dictionary
+        assetsElement = document.getElementsByClassName("entityElement");
+        assetsElementLength = assetsElement.length;
+        for (var index = 0; index < assetsElementLength; index++) {
+
+            assetName = assetsElement[index].dataset["json"];
+            var parsedJson = JSON.parse(assetName);
+            var tempEntityModel = new app.model.EntityModel();
+            tempEntityModel.loadFromJSON(parsedJson);
+            entityDictionary.addElement(tempEntityModel);
+
+        }
+
+        worldModel.setEntityDictionary(entityDictionary);
 
         worldModel.setCameraModel(cameraModel);
 
@@ -702,58 +713,22 @@
                     $str = file_get_contents("{$path}/{$tabElement}");
                     $json = json_decode($str, true);
 
-                    $graphicPath = $json['graphicPath'];
-                    $graphicOffsetX = $json['graphicOffsetX'];
-                    $graphicOffsetY = $json['graphicOffsetY'];
-                    $radius = $json['radius'];
-                    $groundSpeed = $json['groundSpeed'];
-                    $team = $json['team'];
-                    $mass = $json['mass'];
-                    $hp = $json['hp'];
-                    $currentHp = $json['currentHp'];
-                    $selectable = $json['selectable'];
-                    $targetable = $json['targetable'];
-
                     $tabElement = substr($tabElement, 0, strlen($tabElement) - strlen(".json"));
 
-//                {
-//                      "graphicPath": "/assets/editor/graphic/tree_01.png",
-//                      "graphicOffsetX": 0,
-//                      "graphicOffsetY": 0,
-//                      "radius": 20,
-//                      "groundSpeed": 0,
-//                      "team": 0,
-//                      "mass": 0,
-//                      "hp": 100,
-//                      "currentHp": 100,
-//                      "selectable": true,
-//                      "targetable": true
-//                }
-
                     $escapedJson = htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+
 
                     print("
                     <graphicData class=\"entityElement\"
                         data-entityid=\"{$tabElement}\"
-                        data-assetname=\"{$graphicPath}\"
-                        data-graphicoffsetx=\"{$graphicOffsetX}\"
-                        data-graphicoffsety=\"{$graphicOffsetY}\"
-                        data-radius=\"{$radius}\"
-                        data-groundspeed=\"{$groundSpeed}\"
-                        data-team=\"{$team}\"
-                        data-mass=\"{$mass}\"
-                        data-hp=\"{$hp}\"
-                        data-currenthp=\"{$currentHp}\"
-                        data-selectable=\"{$selectable}\"
-                        data-targetable=\"{$targetable}\"
-                        data-json=\"{$escapedJson}\"
-                        >
+                        data-json=\"{$escapedJson}\">
                     </graphicData>");
 
                 }
 
             }
         }
+
 
         /*
          * Create HTML with tile configs (from JSON) that can be read in Javascript as model
@@ -792,20 +767,6 @@
 
                     $tabElement = substr($tabElement, 0, strlen($tabElement) - strlen(".json"));
 
-//              {
-//                  "graphicOffsetX": 0,
-//                  "graphicOffsetY": 0,
-//                  "graphicWidth": 40,
-//                  "graphicHeight": 40,
-
-//                  "graphicPatternX": 0,
-//                  "graphicPatternY": 0,
-//                  "graphicPatternWidth": 1,
-//                  "graphicPatternHeight": 1,
-//                  "graphicPatternArray": [
-//                                  [["cobblestones", "cobblestones", "grass", "grass"]]
-//                            ]
-//              }
 
                     print("
                     <graphicData class=\"mapTileElement\"

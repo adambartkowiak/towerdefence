@@ -70,6 +70,25 @@ app.model.EntityListModel.prototype.getElementById = function getElementById(id)
 };
 
 /**
+ * @method getElementByModelName
+ * @param {String} modelName
+ * @return {Object} object
+ */
+app.model.EntityListModel.prototype.getElementByModelName = function getElementByModelName(modelName) {
+
+    var index;
+    var length = this.length();
+
+    for (index = 0; index < length; index++) {
+        if (this._elements[index].getModelName() === modelName) {
+            return this._elements[index];
+        }
+    }
+
+    return null;
+};
+
+/**
  * @method getEntityCountByTeam
  * @param {Number} team
  * @return {Number} count

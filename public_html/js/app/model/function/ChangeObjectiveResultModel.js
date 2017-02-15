@@ -10,6 +10,7 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class ChangeObjectiveResultModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
  * @param {app.model.function.AbstractValueModel} objectiveId
@@ -25,4 +26,3 @@ app.model.function.ChangeObjectiveResultModel = function ChangeObjectiveResultMo
 };
 
 Utils.inherits(app.model.function.ChangeObjectiveResultModel, app.model.function.AbstractFunctionModel);
-

@@ -20,8 +20,16 @@ app.command.IncrementVariableValueCommand = function IncrementVariableValueComma
 
     support.command.AbstractCommand.call(this);
 
+    /**
+     * @property {app.command.AttributeCommand} variableId
+     * @private
+     */
     this._variableId = variableId;
 
+    /**
+     * @property {app.model.VariableListModel} variableListModel
+     * @private
+     */
     this._variableListModel = variableListModel;
 
 };

@@ -13,6 +13,21 @@ var Utils = Utils || {};
  * @constructor
  */
 app.model.WorldModel = function WorldModel() {
+
+    /**
+     * Głowny listener gry nasluchujacy na wszystkie eventy gry
+     * @property {app.listener.GlobalEventListener} _globalEventListener
+     * @private
+     */
+    this._globalEventListener = new app.listener.GlobalEventListener();
+
+    /**
+     * Głowna fabryka do tworzenia modelów funkcji
+     * @property {app.factory.FunctionModelFactory} _functionModelFactory
+     * @private
+     */
+    this._functionModelFactory = new app.factory.FunctionModelFactory();
+
     /**
      * Słownik/Baza obiektów, które mogą znajdować się w świecie gry
      * @property {app.model.EntityDictionary} _entityDictionary
@@ -87,18 +102,11 @@ app.model.WorldModel = function WorldModel() {
     this._entityModelIndex = 0;
 
     /**
-     * Głowny listener gry nasluchujacy na wszystkie eventy gry
-     * @property {app.listener.GlobalEventListener} _globalEventListener
-     * @private
-     */
-    this._globalEventListener = new app.listener.GlobalEventListener();
-
-    /**
      * Lista triggerów (elementów łapiących/ragujących) na eventy rzucane przez system gry.
      * @property {app.model.TriggerListModel} _triggerModelList
      * @private
      */
-    this._triggerListModel = new app.model.TriggerListModel(this._globalEventListener);
+    this._triggerListModel = new app.model.TriggerListModel(this._globalEventListener, this._functionModelFactory);
 
     /**
      * @property {app.model.ListModel} _waypointCollisionListModel
@@ -136,6 +144,7 @@ app.model.WorldModel = function WorldModel() {
      */
     this._showVictoryPopup = false;
 
+
     //INIT:
     this._entityModelList.setEntityListListener(this._globalEventListener);
     this._teamListModel.setTeamListModelListener(this._globalEventListener);
@@ -145,6 +154,23 @@ app.model.WorldModel = function WorldModel() {
     this._globalEventListener.setTeamListModel(this._teamListModel);
     this._globalEventListener.setObjectiveListModel(this._objectiveListModel);
     this._globalEventListener.setVariableListModel(this._variableListModel);
+
+    this._functionModelFactory.register(new app.factory.model.function.AllObjectivesCompleted(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.Attribute(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.ChangeObjectiveResult(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.Equal(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.EqualOrGreater(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.GetEntityProperty(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.GetEventEntity(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.GetResourcesValue(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.GetUnitCount(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.GetVariableValue(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.IncrementVariableValue(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.Move(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.ShowConsoleLog(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.ShowVictoryPopup(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.TurnOffTrigger(this._functionModelFactory));
+    this._functionModelFactory.register(new app.factory.model.function.TurnOnTrigger(this._functionModelFactory));
 };
 
 Utils.inherits(app.model.WorldModel, Object);
@@ -405,7 +431,7 @@ app.model.WorldModel.prototype.unMinifyJSON = function unMinifyJSON(minifyJSON) 
         cameraModel = new app.model.CameraModel(0, 0, 0, 0),
         mapModel = new app.model.MapModel(200, 200, FEATURE_TOGGLE.COLISION_SQUARE_SIZE, FEATURE_TOGGLE.COLISION_SQUARE_SIZE),
         teamListModel = new app.model.TeamListModel(),
-        triggerListModel = new app.model.TriggerListModel(this._globalEventListener),
+        triggerListModel = new app.model.TriggerListModel(this._globalEventListener, this._functionModelFactory),
         variableListModel = new app.model.VariableListModel(),
         objectiveListModel = new app.model.ObjectiveListModel();
 

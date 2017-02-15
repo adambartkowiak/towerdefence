@@ -246,7 +246,7 @@ app.model.function.AbstractFunctionModel.prototype.unMinifyJSON = function unMin
 
     for (i = 0; i < max; i++) {
 
-        //1. create object AbstractFUnctionModel or AbstractValueModel
+        //1. create object AbstractFunctionModel or AbstractValueModel
         minifiedFunctionAttribute = functionAttributesArray[i];
         functionEnumValue = minifiedFunctionAttribute["2"];
         fuctionAttributeModel = this._functionModelFactory.createFunction(functionEnumValue);

@@ -19,6 +19,10 @@ app.command.CancelCommand = function CancelCommand(entityListModel) {
 
     support.command.AbstractCommand.call(this);
 
+    /**
+     * @property {app.model.EntityListModel} entityListModel
+     * @private
+     */
     this._entityListModel = entityListModel;
 
 };

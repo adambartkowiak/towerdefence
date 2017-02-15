@@ -13,15 +13,23 @@ var Utils = Utils || {};
  * @namespace app.command
  * @class GetUnitCountCommand
  * @constructor
- * @param {String} team
+ * @param {app.command.AttributeCommand} team
  * @param {app.model.TriggerListModel} triggerListModel
  */
 app.command.GetUnitCountCommand = function GetUnitCountCommand(team, triggerList) {
 
     support.command.AbstractCommand.call(this);
 
+    /**
+     * @property {app.command.AttributeCommand} team
+     * @private
+     */
     this._team = team;
 
+    /**
+     * @property {app.model.TriggerListModel} triggerList
+     * @private
+     */
     this._triggerList = triggerList;
 
 };

@@ -10,9 +10,10 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class IncrementVariableValueModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
- * @param {string} variableId
+ * @param {app.model.function.AbstractValueModel} variableId
  */
 app.model.function.IncrementVariableValueModel = function IncrementVariableValueModel(id, variableId) {
 

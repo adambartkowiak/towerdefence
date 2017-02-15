@@ -17,8 +17,9 @@ var ns = Utils.namespace("app.model");
  * @param {app.model.FunctionListModel} commandArray
  * @param {boolean} active
  * @param {app.listener.GlobalEventListener} globalEventListener
+ * @param {app.factory.FunctionModelFactory} functionModelFactory
  */
-app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, conditionListModel, actionListModel, active, globalEventListener) {
+app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, conditionListModel, actionListModel, active, globalEventListener, functionModelFactory) {
 
     /**
      *
@@ -74,7 +75,7 @@ app.model.TriggerModel = function TriggerModel(id, name, gameEventListModel, con
      * @property {app.factory.FunctionModelFactory} _functionModelFactory
      * @private
      */
-    this._functionModelFactory = new app.factory.FunctionModelFactory(this._globalEventListener);
+    this._functionModelFactory = functionModelFactory;
 
 
 };

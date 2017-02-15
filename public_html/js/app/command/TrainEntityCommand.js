@@ -13,7 +13,7 @@ var Utils = Utils || {};
  * @class TrainEntityCommand
  * @param {app.model.EntityListModel} entityListModel
  * @param {app.model.EntityListModel} entityDictionary
- * @param {String} entityModelNameToTrain
+ * @param {app.command.AttributeCommand} entityModelNameToTrain
  * @constructor
  */
 app.command.TrainEntityCommand = function TrainEntityCommand(entityListModel, entityDictionary, entityModelNameToTrain) {
@@ -33,7 +33,7 @@ app.command.TrainEntityCommand = function TrainEntityCommand(entityListModel, en
     this._entityDictionary = entityDictionary;
 
     /**
-     * @property {String} entityModelNameToTrain
+     * @property {app.command.AttributeCommand} entityModelNameToTrain
      * @private
      */
     this._entityModelNameToTrain = entityModelNameToTrain;
@@ -51,14 +51,17 @@ app.command.TrainEntityCommand.prototype.execute = function execute(mouseEvent) 
     support.command.AbstractCommand.prototype.execute.call(this);
 
     var selectedEntity = Helper.getSelectedEntity(this._entityListModel),
-        entityModelToTrain = this._entityDictionary.getElementByModelName(this._entityModelNameToTrain),
+        entityModelToTrain = this._entityDictionary.getElementByModelName(this._entityModelNameToTrain.execute(null)),
         entityToTrain = entityModelToTrain.clone(),
-        randX = Math.random() - 0.5,
-        randY = Math.random() - 0.5;
+        randX = (Math.random() - 0.5),
+        randY = (Math.random() - 0.5),
+        vector2d = new support.geom.SimpleVector2d(randX, randY),
+        dX = vector2d.getNormalizedVector().getX() * (selectedEntity.getCurrentEntityStateModel().getRadius() + entityToTrain.getCurrentEntityStateModel().getRadius()),
+        dY = vector2d.getNormalizedVector().getY() * (selectedEntity.getCurrentEntityStateModel().getRadius() + entityToTrain.getCurrentEntityStateModel().getRadius());
 
     if (selectedEntity !== null) {
-        entityToTrain.setStartValueX(selectedEntity.getX() + randX);
-        entityToTrain.setStartValueY(selectedEntity.getY() + randY);
+        entityToTrain.setStartValueX(selectedEntity.getX() + dX);
+        entityToTrain.setStartValueY(selectedEntity.getY() + dY);
 
         this._entityListModel.addElement(entityToTrain);
     }

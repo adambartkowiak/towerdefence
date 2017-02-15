@@ -154,7 +154,7 @@ editor.controller.TriggerModuleController.prototype.addCondition = function addC
 
     var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid),
         functionFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener),
-        newAttribute = functionFactory.createFunction(app.enum.FunctionEnum.EQUALS);
+        newAttribute = functionFactory.createFunction(app.enum.FunctionEnum.EQUAL);
 
     triggerModel.getConditionListModel().addElement(
         newAttribute

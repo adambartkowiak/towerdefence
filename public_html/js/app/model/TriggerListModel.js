@@ -17,8 +17,9 @@ var ns = Utils.namespace("app.model");
  * @class TriggerListModel
  * @constructor
  * @param {app.listener.GlobalEventListener} globalEventListener
+ * @param {app.factory.FunctionModelFactory} functionModelFactory
  */
-app.model.TriggerListModel = function TriggerListModel(globalEventListener) {
+app.model.TriggerListModel = function TriggerListModel(globalEventListener, functionModelFactory) {
 
     app.model.ListModel.call(this);
 
@@ -34,6 +35,11 @@ app.model.TriggerListModel = function TriggerListModel(globalEventListener) {
      */
     this._globalEventListener = globalEventListener;
 
+    /**
+     * @property {app.factory.FunctionModelFactory} _functionModelFactory
+     * @private
+     */
+    this._functionModelFactory = functionModelFactory;
 };
 
 Utils.inherits(app.model.TriggerListModel, app.model.ListModel);
@@ -85,7 +91,7 @@ app.model.TriggerListModel.prototype.removeElementById = function removeElementB
  * @return {app.model.TriggerListModel} createMe
  */
 app.model.TriggerListModel.prototype.createMe = function createMe() {
-    return new app.model.TriggerListModel(this._globalEventListener);
+    return new app.model.TriggerListModel(this._globalEventListener, this._functionModelFactory);
 };
 
 /**
@@ -94,7 +100,5 @@ app.model.TriggerListModel.prototype.createMe = function createMe() {
  */
 app.model.TriggerListModel.prototype.createListElement = function createListElement() {
 
-    var functionModelFactory = new app.factory.FunctionModelFactory(this._globalEventListener);
-
-    return new app.model.TriggerModel("", "", new app.model.GameEventListModel(), new app.model.FunctionListModel(functionModelFactory), new app.model.FunctionListModel(functionModelFactory), true, this._globalEventListener);
+    return new app.model.TriggerModel("", "", new app.model.GameEventListModel(), new app.model.FunctionListModel(this._functionModelFactory), new app.model.FunctionListModel(this._functionModelFactory), true, this._globalEventListener, this._functionModelFactory);
 };

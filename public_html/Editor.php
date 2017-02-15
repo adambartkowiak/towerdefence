@@ -132,6 +132,7 @@
 <script type="text/javascript" src="js/app/model/function/IncrementVariableValueModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/AllObjectivesCompletedModel.js"></script>
 <script type="text/javascript" src="js/app/model/function/ShowVictoryPopupModel.js"></script>
+<script type="text/javascript" src="js/app/model/function/MoveModel.js"></script>
 
 <script type="text/javascript" src="js/app/model/CameraModel.js"></script>
 <script type="text/javascript" src="js/app/model/ActionMenuModel.js"></script>
@@ -166,6 +167,8 @@
 <script type="text/javascript" src="js/app/command/SetBuildBuildingCommandOnCommandController.js"></script>
 <script type="text/javascript" src="js/app/command/ActionMenuUpdateMenuCommand.js"></script>
 <script type="text/javascript" src="js/app/command/CancelCommand.js"></script>
+<script type="text/javascript" src="js/app/command/MoveCommand.js"></script>
+<script type="text/javascript" src="js/app/command/AttackCommand.js"></script>
 <script type="text/javascript" src="js/app/command/HoldCommand.js"></script>
 <script type="text/javascript" src="js/app/command/TrainEntityCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ShowConsoleLogCommand.js"></script>
@@ -182,6 +185,25 @@
 <script type="text/javascript" src="js/app/command/IncrementVariableValueCommand.js"></script>
 <script type="text/javascript" src="js/app/command/ShowVictoryPopupCommand.js"></script>
 <script type="text/javascript" src="js/app/command/AllObjectivesCompletedCommand.js"></script>
+
+<!-- FACTORY - MODEL -->
+<script type="text/javascript" src="js/app/factory/model/function/AbstractFunctionModelFactory.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/AllObjectivesCompleted.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/Attribute.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/ChangeObjectiveResult.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/Equal.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/EqualOrGreater.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/GetEntityProperty.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/GetEventEntity.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/GetResourcesValue.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/GetUnitCount.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/GetVariableValue.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/IncrementVariableValue.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/Move.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/ShowConsoleLog.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/ShowVictoryPopup.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/TurnOffTrigger.js"></script>
+<script type="text/javascript" src="js/app/factory/model/function/TurnOnTrigger.js"></script>
 
 <!-- FACTORY -->
 <script type="text/javascript" src="js/app/factory/FunctionModelFactory.js"></script>

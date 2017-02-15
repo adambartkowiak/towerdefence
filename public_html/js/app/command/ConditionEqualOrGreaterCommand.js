@@ -13,14 +13,23 @@ var Utils = Utils || {};
  * @namespace app.command
  * @class ConditionEqualOrGreaterCommand
  * @constructor
- * @param {String} team
+ * @param {app.command.AttributeCommand} param1
+ * @param {app.command.AttributeCommand} param2
  */
 app.command.ConditionEqualOrGreaterCommand = function ConditionEqualOrGreaterCommand(param1, param2) {
 
     support.command.AbstractCommand.call(this);
 
+    /**
+     * @property {app.command.AttributeCommand} param1
+     * @private
+     */
     this._param1 = param1;
 
+    /**
+     * @property {app.command.AttributeCommand} param2
+     * @private
+     */
     this._param2 = param2;
 
 };

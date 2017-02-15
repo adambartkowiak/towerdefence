@@ -13,13 +13,17 @@ var Utils = Utils || {};
  * @namespace app.command
  * @class AttributeCommand
  * @constructor
- * @param {app.model.function.AttributeModel} attributeModel
+ * @param {string|number|boolean} value
  */
-app.command.AttributeCommand = function AttributeCommand(attributeModel) {
+app.command.AttributeCommand = function AttributeCommand(value) {
 
     support.command.AbstractCommand.call(this);
 
-    this._attributeModel = attributeModel;
+    /**
+     * @property {string|number|boolean} value
+     * @private
+     */
+    this._value = value;
 
 };
 
@@ -34,6 +38,6 @@ app.command.AttributeCommand.prototype.execute = function execute(mouseEvent) {
 
     support.command.AbstractCommand.prototype.execute.call(this);
 
-    return this._attributeModel.getValue();
+    return this._value;
 
 };

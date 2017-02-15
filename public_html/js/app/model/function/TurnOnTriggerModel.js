@@ -10,9 +10,10 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class TurnOnTriggerModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
- * @param {string} triggerId
+ * @param {app.model.function.AbstractValueModel} triggerId
  */
 app.model.function.TurnOnTriggerModel = function TurnOnTriggerModel(id, triggerId) {
 

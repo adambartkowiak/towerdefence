@@ -13,7 +13,7 @@ var Utils = Utils || {};
  * @class SetBuildBuildingCommandOnCommandController
  * @param {app.controller.CommandController} commandController
  * @param {app.model.EntityListModel} entityDictionary
- * @param {String} entityModelNameToBuild
+ * @param {app.command.AttributeCommand} entityModelNameToBuild
  * @constructor
  */
 app.command.SetBuildBuildingCommandOnCommandController = function SetBuildBuildingCommandOnCommandController(commandController, entityDictionary, entityModelNameToBuild) {
@@ -33,7 +33,7 @@ app.command.SetBuildBuildingCommandOnCommandController = function SetBuildBuildi
     this._entityDictionary = entityDictionary;
 
     /**
-     * @property {String} entityModelNameToBuild
+     * @property {app.command.AttributeCommand} entityModelNameToBuild
      * @private
      */
     this._entityModelNameToBuild = entityModelNameToBuild;
@@ -53,10 +53,9 @@ app.command.SetBuildBuildingCommandOnCommandController.prototype.execute = funct
     console.log("app.command.SetBuildBuildingCommandOnCommandController.prototype.execute");
 
 
-    var entityModelToBuild = this._entityDictionary.getElementByModelName(this._entityModelNameToBuild),
-    entityToBuild = entityModelToBuild.clone();
+    var entityModelNameToBuild = this._entityModelNameToBuild.execute(null);
 
     this._commandController.setAction(app.enum.FunctionEnum.BUILD_BUILDING);
-    this._commandController.setActionEntityModel(entityToBuild);
+    this._commandController.setEntityModelNameToBuild(this._entityModelNameToBuild.execute(null));
     
 };

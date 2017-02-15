@@ -10,6 +10,7 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class ShowVictoryPopupModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
  */

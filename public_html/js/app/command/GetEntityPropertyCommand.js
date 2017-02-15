@@ -60,28 +60,3 @@ app.command.GetEntityPropertyCommand.prototype.execute = function execute(mouseE
     }
 
 };
-
-//
-// /**
-//  * @method getValue
-//  */
-// app.model.function.GetEntityPropertyModel.prototype.getValue = function getValue() {
-//
-//     var property = this._functionAttributes[0].getValue(),
-//         entity = this._functionAttributes[1].getValue();
-//
-//     if (property === app.enum.EntityPropertyEnum.GRAPHIC_URL) {
-//         return entity.getGraphicUrl();
-//     }
-//     else if (property === app.enum.EntityPropertyEnum.HP) {
-//         return entity.getCurrentHp();
-//     }
-//     else if (property === app.enum.EntityPropertyEnum.ID) {
-//         return entity.getId();
-//     }
-//     else if (property === app.enum.EntityPropertyEnum.TEAM) {
-//         return entity.getTeam();
-//     }
-//
-//     return null;
-// };

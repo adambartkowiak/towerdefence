@@ -10,13 +10,14 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class GetVariableValueModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
- * @param {string} varibaleId
+ * @param {app.model.function.AbstractValueModel} variableId
  */
-app.model.function.GetVariableValueModel = function GetVariableValueModel(id, varibaleId) {
+app.model.function.GetVariableValueModel = function GetVariableValueModel(id, variableId) {
 
-    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.GET_VARIABLE_VALUE, [varibaleId]);
+    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.GET_VARIABLE_VALUE, [variableId]);
 
     this._functionAttributeNames = ["variableId"];
 };

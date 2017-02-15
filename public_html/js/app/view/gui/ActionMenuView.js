@@ -133,10 +133,10 @@ app.view.gui.ActionMenuView.prototype.updateMenu = function updateMenu() {
                 command = new app.command.HoldCommand(this._entityListModel);
             } else if (elementActionType === app.enum.FunctionEnum.SET_BUILD_BUILDING) {
                 entityModelName = elementAction[3];
-                command = new app.command.SetBuildBuildingCommandOnCommandController(this._commandController, this._entityDictionary, entityModelName);
+                command = new app.command.SetBuildBuildingCommandOnCommandController(this._commandController, this._entityDictionary, new app.command.AttributeCommand(entityModelName));
             } else if (elementActionType === app.enum.FunctionEnum.TRAIN_UNIT) {
                 entityModelName = elementAction[3];
-                command = new app.command.TrainEntityCommand(this._entityListModel, this._entityDictionary, entityModelName);
+                command = new app.command.TrainEntityCommand(this._entityListModel, this._entityDictionary, new app.command.AttributeCommand(entityModelName));
             }
 
             if (command !== null) {

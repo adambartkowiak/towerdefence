@@ -295,7 +295,6 @@ if (loadFromFile) {
             graphicPath = "assets/graphics/images/barracks_team01.png";
             graphicsBuffor.load(graphicPath);
 
-
         }, saveGameName);
     };
 
@@ -327,7 +326,6 @@ if (loadFromWebservice) {
         console.log(response.response);
     }, "LoadGame.php?" + paramName + "=" + paramValue);
 }
-
 
 //MOUSE + MOUSE HANDEL
 var mouseHandler = new app.mouseHandler.MouseEventHandler("map");
@@ -401,7 +399,7 @@ hudLabelGold.setLabelIcon(hudLabelGoldIcon);
 var teamResources = worldModel.getTeamListModel().getElement(1);
 var goldValue = 0;
 
-if (!!teamResources){
+if (!!teamResources) {
     goldValue = worldModel.getTeamListModel().getElement(1).getResourcesArray()["gold"];
 }
 
@@ -417,7 +415,7 @@ hudLabelWood.setBackgroundImage(hudLabelGoldBackgroundImage);
 hudLabelWood.setLabelIcon(hudLabelWoodIcon);
 var woodValue = 0;
 
-if (!!teamResources){
+if (!!teamResources) {
     woodValue = worldModel.getTeamListModel().getElement(1).getResourcesArray()["wood"];
 }
 hudLabelWood.setText(woodValue);
@@ -560,7 +558,7 @@ var logicFunction = function (timeDelta) {
     //Update HUD
     var teamResources = worldModel.getTeamListModel().getElement(1);
 
-    if (teamResources !== null){
+    if (teamResources !== null) {
         if (teamResources.getResourcesArray()["gold"] === undefined) {
             teamResources.getResourcesArray()["gold"] = 0;
         }

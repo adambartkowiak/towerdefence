@@ -83,12 +83,12 @@ app.factory.CommandFactory.prototype.createCommand = function createCommand(abst
         functionEnumValue = abstractValueModel.getFunctionEnumValue();
 
     switch (functionEnumValue) {
-        case app.enum.FunctionEnum.EQUALS:
+        case app.enum.FunctionEnum.EQUAL:
         {
             result = new app.command.ConditionEqualCommand(this.createCommand(abstractValueModel.getFunctionAttributes()[0]), this.createCommand(abstractValueModel.getFunctionAttributes()[1]));
             break;
         }
-        case app.enum.FunctionEnum.EQUALS_OR_GREATER:
+        case app.enum.FunctionEnum.EQUAL_OR_GREATER:
         {
             result = new app.command.ConditionEqualOrGreaterCommand(this.createCommand(abstractValueModel.getFunctionAttributes()[0]), this.createCommand(abstractValueModel.getFunctionAttributes()[1]));
             break;
@@ -153,11 +153,14 @@ app.factory.CommandFactory.prototype.createCommand = function createCommand(abst
             result = new app.command.ShowVictoryPopupCommand();
             break;
         }
+        case app.enum.FunctionEnum.MOVE:
+        {
+            result = new app.command.MoveCommand( this.createCommand(abstractValueModel.getFunctionAttributes()[0]) /*EntityId*/, this.createCommand(abstractValueModel.getFunctionAttributes()[1]) /*"destinationX"*/, this.createCommand(abstractValueModel.getFunctionAttributes()[2]) /*destinationX*/, this.createCommand(abstractValueModel.getFunctionAttributes()[3]) /*targetEntityId*/);
+            break;
+        }
         case app.enum.FunctionEnum.VALUE:
         {
-            // result = new app.model.function.GetUnitCountModel(Utils.guid(), new app.model.function.AttributeModel(Utils.guid(), 0));
-            result = new app.command.AttributeCommand(abstractValueModel);
-            // console.log("createCommand: Attribute command");
+            result = new app.command.AttributeCommand(abstractValueModel.getValue());
             break;
         }
     }

@@ -19,6 +19,10 @@ app.command.HoldCommand = function HoldCommand(entityListModel) {
 
     support.command.AbstractCommand.call(this);
 
+    /**
+     * @property {app.model.EntityListModel} entityListModel
+     * @private
+     */
     this._entityListModel = entityListModel;
 
 };

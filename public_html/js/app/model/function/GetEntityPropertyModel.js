@@ -10,10 +10,11 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class GetEntityPropertyModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
- * @param {app.model.function.AbstractValue} entity
- * @param {app.model.function.AbstractValue} property | PropertyEnum
+ * @param {app.model.function.AbstractValueModel} entity
+ * @param {app.model.function.AbstractValueModel} property | PropertyEnum
  */
 app.model.function.GetEntityPropertyModel = function GetEntityPropertyModel(id, entity, property) {
 

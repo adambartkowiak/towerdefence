@@ -10,6 +10,7 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class AllObjectivesCompletedModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
  */

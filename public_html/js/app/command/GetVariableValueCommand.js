@@ -20,8 +20,16 @@ app.command.GetVariableValueCommand = function GetVariableValueCommand(variableI
 
     support.command.AbstractCommand.call(this);
 
+    /**
+     * @property {app.command.AttributeCommand} variableId
+     * @private
+     */
     this._variableId = variableId;
 
+    /**
+     * @property {app.model.VariableListModel} variableListModel
+     * @private
+     */
     this._variableListModel = variableListModel;
 
 };

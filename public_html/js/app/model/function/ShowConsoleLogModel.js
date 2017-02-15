@@ -10,13 +10,14 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class ShowConsoleLogModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
- * @param {app.model.function.AbstractValueModel} consolelog
+ * @param {app.model.function.AbstractValueModel} message
  */
-app.model.function.ShowConsoleLogModel = function ShowConsoleLogModel(id, consolelog) {
+app.model.function.ShowConsoleLogModel = function ShowConsoleLogModel(id, message) {
 
-    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.SHOW_CONSOLE_LOG, [consolelog]);
+    app.model.function.AbstractFunctionModel.call(this, id, app.enum.FunctionEnum.SHOW_CONSOLE_LOG, [message]);
 
     this._functionAttributeNames = ["message"];
 };

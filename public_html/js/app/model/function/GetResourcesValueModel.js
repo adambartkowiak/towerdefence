@@ -10,6 +10,7 @@ var Utils = Utils || {};
 /**
  * @namespace app.model.function
  * @class GetResourcesValueModel
+ * @memberOf app.model.function
  * @constructor
  * @param {string} id
  * @param {app.model.function.AbstractValueModel} teamName

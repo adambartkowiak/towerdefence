@@ -20,8 +20,8 @@ app.enum.FunctionEnum = {
     CANCEL: 2,
 
     //Logic
-    EQUALS: 10,
-    EQUALS_OR_GREATER: 11,
+    EQUAL: 10,
+    EQUAL_OR_GREATER: 11,
 
     //Entity Action - connected with movement
     MOVE: 100,

@@ -5,90 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/AttackCommand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/BuildCommand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/GoGatherCommand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/command/PatrolCommand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/AbstractCommandFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/AllObjectivesCompleted.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/Attribute.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/ChangeObjectiveResult.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/Equal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/EqualOrGreater.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/GetEntityProperty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/GetEventEntity.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/GetResourcesValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/GetUnitCount.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/GetVariableValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/GoGather.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/IncrementVariableValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/Move.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/ShowConsoleLog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/ShowVictoryPopup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/TurnOffTrigger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/TurnOnTrigger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/AbstractFunctionModelFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/AllObjectivesCompleted.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/Attribute.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/ChangeObjectiveResult.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/Equal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/EqualOrGreater.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetEntityProperty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetEventEntity.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetResourcesValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetUnitCount.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetVariableValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/GoGather.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/IncrementVariableValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/Move.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/ShowConsoleLog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/ShowVictoryPopup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/TurnOffTrigger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/factory/model/function/TurnOnTrigger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/MoveModel.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/editor/old configs/goldmine_neutral.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" afterPath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.php" afterPath="$PROJECT_DIR$/public_html/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/Main.js" afterPath="$PROJECT_DIR$/public_html/js/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/AttributeCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/AttributeCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/CancelCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/CancelCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/ConditionEqualCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/ConditionEqualCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/ConditionEqualOrGreaterCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/ConditionEqualOrGreaterCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/GetEntityPropertyCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/GetEntityPropertyCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/GetUnitCountCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/GetUnitCountCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/GetVariableValueCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/GetVariableValueCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/HoldCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/HoldCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/IncrementVariableValueCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/IncrementVariableValueCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" afterPath="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js" afterPath="$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/factory/FunctionModelFactory.js" afterPath="$PROJECT_DIR$/public_html/js/app/factory/FunctionModelFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/TriggerListModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TriggerListModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/AbstractFunctionModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/AbstractFunctionModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/AllObjectivesCompletedModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/AllObjectivesCompletedModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/AttributeModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/AttributeModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualOrGreaterModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ConditionEqualOrGreaterModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/GetEntityPropertyModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetEntityPropertyModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/GetEventEntityModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetEventEntityModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/GetResourcesValueModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetResourcesValueModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/GetUnitCountModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetUnitCountModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/GetVariableValueModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/GetVariableValueModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/IncrementVariableValueModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/IncrementVariableValueModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/ShowConsoleLogModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ShowConsoleLogModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/ShowVictoryPopupModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ShowVictoryPopupModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/TurnOffTriggerModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/TurnOffTriggerModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/TurnOnTriggerModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/TurnOnTriggerModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/editor.php" afterPath="$PROJECT_DIR$/public_html/editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,26 +36,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="169">
-      <file leaf-file-name="AttackCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/AttackCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="62" column="20" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TurnOffTriggerCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/TurnOffTriggerCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-336">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ShowVictoryPopupCommand.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ShowVictoryPopupCommand.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -187,15 +86,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editor.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="editor.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/editor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="209" column="79" selection-start-line="209" selection-start-column="79" selection-end-line="209" selection-end-column="79" />
+            <state relative-caret-position="427">
+              <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
               <folding>
                 <marker date="1487198427000" expanded="true" signature="33165:33309" ph="..." />
                 <marker date="1487198427000" expanded="true" signature="35176:35828" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoGatherCommand.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GoGatherCommand.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-482">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GatherController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/GatherController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="526">
+              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -237,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/IncrementVariableValueModel.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/model/function/MoveModel.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/model/function/ShowConsoleLogModel.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/model/function/TurnOffTriggerModel.js" />
@@ -288,6 +206,7 @@
         <option value="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js" />
         <option value="$PROJECT_DIR$/public_html/editor.php" />
+        <option value="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" />
       </list>
     </option>
   </component>
@@ -305,8 +224,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="9" />
+    <option name="y" value="23" />
+    <option name="width" value="1431" />
+    <option name="height" value="830" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -805,7 +726,6 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="ToolWindowFind.ShowToolbar" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -956,7 +876,7 @@
       <workItem from="1484081244177" duration="232000" />
       <workItem from="1484120874859" duration="78225000" />
       <workItem from="1485642567230" duration="9138000" />
-      <workItem from="1485932029732" duration="28280000" />
+      <workItem from="1485932029732" duration="28976000" />
     </task>
     <task id="LOCAL-00001" summary="Komentarze w czesci klas dla YuiDoc'a">
       <created>1437327357132</created>
@@ -1294,11 +1214,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484729923757</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Przerobienie i dodanie Commandow na duza czesc funkcjonalnosci.">
+      <created>1487198676425</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1487198676425</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1202196000" />
+    <option name="totallyTimeSpent" value="1202892000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1310,14 +1237,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="9" y="23" width="1431" height="830" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26108727" sideWeight="0.49594322" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26277897" sideWeight="0.49594322" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24078947" sideWeight="0.5190476" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10361446" sideWeight="0.48095238" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11653116" sideWeight="0.48095238" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760596" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20208333" sideWeight="0.5040568" order="2" side_tool="true" content_ui="tabs" />
@@ -1345,7 +1272,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Wczytywanie i zapisywanie Mapy&#10;Modyfikacja plikow gry (saveow)" />
     <MESSAGE value="Poczyszczenie Projektu" />
     <MESSAGE value="Praca nad ActionMenu i menu statusu postaci/grupy postaci" />
     <MESSAGE value="Prace nad wydzieleniem GUI oraz wydzieleniem przechwytywania eventow do Widokow + obslugi ich w kontrolerach" />
@@ -1370,7 +1296,8 @@
     <MESSAGE value="Stworzenie pierwszej grywalnej misji" />
     <MESSAGE value="Poprawki w optymalizacji + poprawki edytora" />
     <MESSAGE value="Dodaje: &#10;JSON Schemy,&#10;Poprawnie configow obiektow/jednostek,&#10;Dodanie slownika jednostek,&#10;Mozliwosc zapetlonego budowania Worker -&gt; Zamek -&gt; Worek -&gt; Zamek itd.." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodaje: &#10;JSON Schemy,&#10;Poprawnie configow obiektow/jednostek,&#10;Dodanie slownika jednostek,&#10;Mozliwosc zapetlonego budowania Worker -&gt; Zamek -&gt; Worek -&gt; Zamek itd.." />
+    <MESSAGE value="Przerobienie i dodanie Commandow na duza czesc funkcjonalnosci." />
+    <option name="LAST_COMMIT_MESSAGE" value="Przerobienie i dodanie Commandow na duza czesc funkcjonalnosci." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1380,14 +1307,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/WorldModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="163" column="38" selection-start-line="163" selection-start-column="38" selection-end-line="163" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/model/FunctionListModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -1676,14 +1595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GoGatherCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
@@ -1782,12 +1693,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/editor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="209" column="79" selection-start-line="209" selection-start-column="79" selection-end-line="209" selection-end-column="79" />
+        <state relative-caret-position="427">
+          <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
           <folding>
             <marker date="1487198427000" expanded="true" signature="33165:33309" ph="..." />
             <marker date="1487198427000" expanded="true" signature="35176:35828" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GoGatherCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-482">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/GatherController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

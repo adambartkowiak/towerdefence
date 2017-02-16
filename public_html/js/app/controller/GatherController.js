@@ -80,7 +80,7 @@ app.controller.GatherController.prototype.update = function update(timeDelta) {
                 //moze w sumie nie byc takiego stanu - moze tutaj by rzucic wyjątek??
                 element.setCurrentStateId("with" + destinationEntity.getResource().getName());
 
-                destinationEntity.getResource.setValue(destinationEntityCargoValue - cargoValue);
+                destinationEntity.getResource().setValue(destinationEntityCargoValue - cargoValue);
 
                 //zmien grafike kiedy 0 resourcow
                 if (destinationEntity.getResource().getValue() === 0) {
@@ -93,7 +93,7 @@ app.controller.GatherController.prototype.update = function update(timeDelta) {
             element.getMoveList().clear();
 
             //znajduje najblizszy entitty w ktorym moze oddawac resurcy i idzie do niego z akcja zwracania resourcow
-            element.getMoveList().addElement(new app.model.TaskModel(0, 0, 5, Helper.getNearestResourceStorageId(element.getResource().getName(), this._list, element.getX(), element.getY()), app.enum.FunctionEnum.RETURN_CARGO));
+            element.getMoveList().addElement(new app.model.TaskModel(0, 0, 5, Helper.getNearestResourceStorageId(element.getCarriedResource().getName(), this._list, element.getX(), element.getY()), app.enum.FunctionEnum.RETURN_CARGO));
         }
 
     }

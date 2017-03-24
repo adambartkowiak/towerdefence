@@ -1,0 +1,94 @@
+{
+  "_modelName": "castle_t01",
+  "_team": 1,
+  "_selectable": true,
+  "_targetable": true,
+  "_currentHp": 1000,
+  "_resourceStorageArray": ["gold", "wood"],
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": -1,
+        "_radius": 43,
+        "_viewRadius": 300,
+        "_collisionRadius": 43,
+        "_groundSpeed": 0,
+        "_hp": 1000,
+        "_graphicUrl": "assets/graphics/images/castle_t01.png",
+        "_graphicOffset": {
+          "_x": -6,
+          "_y": 35
+        },
+        "_rotateGraphicOnMove": false,
+        "_availableActionsMenu" : [
+          {
+            "text": "Worker",
+            "icon": "assets/graphics/icons/worker_01_icon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 301,
+              "3": "worker_t01"
+            }
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          }
+        ]
+      }
+    ]
+  }
+}

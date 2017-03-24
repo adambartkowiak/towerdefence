@@ -1,0 +1,44 @@
+{
+  "_modelName": "tree01",
+  "_team": 0,
+  "_selectable": true,
+  "_targetable": true,
+  "_resource": {
+    "_name": "wood",
+    "_value": 100,
+    "_maxValue": 100
+  },
+  "_currentHp": 100,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": -1,
+        "_radius": 10,
+        "_collisionRadius": 10,
+        "_groundSpeed": 0,
+        "_hp": 100,
+        "_graphicUrl": "assets/graphics/images/tree01.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 18
+        },
+        "_rotateGraphicOnMove": false
+      },
+      {
+        "_id": "noresources",
+        "_mass": -1,
+        "_radius": 10,
+        "_collisionRadius": 0,
+        "_groundSpeed": 0,
+        "_graphicUrl": "assets/graphics/images/tree01cut.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 18
+        },
+        "_rotateGraphicOnMove": false
+      }
+    ]
+  }
+}

@@ -10,7 +10,7 @@ body {
 #headerArea {
     position: fixed;
     width: 100%;
-    height: 60px;
+    height: 90px;
 }
 
 #contentArea {
@@ -21,23 +21,23 @@ body {
 
 #miniMapCanvas {
     position: relative;
+    display: block;
     width: 180px;
     height: 180px;
-    top: 10px;
-    left: 10px;
-    margin-bottom: 10px;
+    margin: auto auto;
     background-color: #222222;
 }
 
 #editorMenu {
     position: fixed;
     width: 300px;
-    top: 60px;
+    height: calc(100% - 90px);
+    top: 90px;
     z-index: 10;
 }
 
 #mapArea {
-    margin-top: 60px;
+    margin-top: 90px;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -60,7 +60,7 @@ body {
 }
 
 #tree {
-    height: 500px;
+    height: calc(100% - 200px);
     overflow: scroll;
 }
 

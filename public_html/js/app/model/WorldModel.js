@@ -353,6 +353,16 @@ app.model.WorldModel.prototype.save = function save() {
     return JSON.stringify(this);
 };
 
+/**
+ * @method getFunctionModelFactory
+ * @returns {app.factory.FunctionModelFactory} functionModelFactory
+ */
+app.model.WorldModel.prototype.getFunctionModelFactory = function getFunctionModelFactory() {
+    return this._functionModelFactory;
+};
+
+
+
 /*
  Ładowanie JSONa NORMALNEGO, Minifikacja, Odminifikowanie, Ładowanie JSONa ZMINIFIKOWANEGO,
  */

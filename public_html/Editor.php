@@ -10,7 +10,10 @@
     <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
 
     <!-- BOOSTRAP - Optional theme -->
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css"/>
+    <!--    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css"/>-->
+
+    <!-- BOOSTRAP - Custom theme -->
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.5-dist/css/bootstrap-lumen.min.css"/>
 
     <!-- BOOSTRAP - Latest compiled and minified JavaScript -->
     <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
@@ -243,6 +246,7 @@
 <script type="text/javascript" src="js/editor/view/SelectGameEventView.js"></script>
 <script type="text/javascript" src="js/editor/view/SelectAttributeView.js"></script>
 
+
 <!-- HTML VIEWS -->
 <template id="HTMLNewMapModule">
     <?php include 'html/newMapModuleDivOnly.html'; ?>
@@ -269,6 +273,7 @@
 <script type="text/javascript">
 
     var editor = editor || {};
+
     var FEATURE_TOGGLE = editor.FeatureToggle;
 
     var timer = new support.Timer();
@@ -283,13 +288,12 @@
     var cameraModel = new app.model.CameraModel(cameraStartX, cameraStartY, cameraViewPortWidth, cameraViewPortHeight);
     var worldModel = new app.model.WorldModel();
     var entityDictionary = new app.model.EntityListModel();
-    var entityListModel = worldModel.getEntityListModel();
 
     var graphicListModel;
     var graphicsBuffor = new support.data.ImageDataList();
 
-    //    var mapModel = new app.model.MapModel(2000, 2000, 40, 40);
-    var mapModel = new app.model.MapModel(4000, 4000, 40, 40);
+        var mapModel = new app.model.MapModel(3000, 3000, 40, 40);
+    //        var mapModel = new app.model.MapModel(4000, 4000, 40, 40);
     //        var mapModel = new app.model.MapModel(10000, 10000, 40, 40);
     //        var mapModel = new app.model.MapModel(30000, 30000, 40, 40);
 
@@ -606,6 +610,39 @@
                     onclick="objectiveModuleView.show()">Objectives Module
             </button>
 
+
+            <!--LABLES-->
+            <div class="row"></div>
+
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('DRAW_ENTITY');">DRAW_ENTITY </input>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('DRAW_ENTITY_ID');">DRAW_ENTITY_ID </input>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('HEALTH_BAR');">HEALTH_BAR </input>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('FOG_OF_WAR');">FOG_OF_WAR </input>
+            </label>
+
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('VIEW_RADIUS');">VIEW_RADIUS </input>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('COLLISION_RADIUS');">COLLISION_RADIUS </input>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('SELECT_TARGET_RADIUS');">SELECT_TARGET_RADIUS </input>
+            </label>
+<!--            <label class="checkbox-inline">-->
+<!--                <input type="checkbox" onclick="FEATURE_TOGGLE.change('ATTACK_RANGE');">ATTACK_RANGE </input>-->
+<!--            </label>-->
+            <label class="checkbox-inline">
+                <input type="checkbox" onclick="FEATURE_TOGGLE.change('MARK_SELECTED_TARGET');">MARK_SELECTED_TARGET </input>
+            </label>
+
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
@@ -614,11 +651,12 @@
     <div id="editorMenu">
         <canvas id="miniMapCanvas" width="180px" height="180px">CANVAS NOt SUPPORTED</canvas>
 
+<!--TREE-->
         <div id="tree">
             <ul id="treeData" style="display: none;">
                 <li id="id1" class="folder expanded">terrain
                     <ul>
-                        <li id="id1.1" class="folder expanded">terrain 1
+                        <li id="id1.1" class="folder">terrain 1
                             <ul>
                                 <li id="brushGrass">brushGrass</li>
                                 <li id="brushCobblestones">brushCobblestones</li>
@@ -792,7 +830,7 @@
 
                     print("
                     <graphicData class=\"mapTileElement\"
-                        data-assetname=\"assets/graphics/images/{$tabElement}.png\"
+                        data-assetname=\"assets/graphics/images/terrain/{$tabElement}.png\"
                         data-graphicLayer=\"{$graphicLayer}\"
                         data-graphicPatternX=\"{$graphicPatternX}\"
                         data-graphicPatternY=\"{$graphicPatternY}\"

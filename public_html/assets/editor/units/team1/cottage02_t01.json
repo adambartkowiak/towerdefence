@@ -1,0 +1,27 @@
+{
+  "_modelName": "cottage02_t01",
+  "_team": 1,
+  "_selectable": true,
+  "_targetable": true,
+  "_currentHp": 1000,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": -1,
+        "_radius": 25,
+        "_viewRadius": 200,
+        "_collisionRadius": 25,
+        "_groundSpeed": 0,
+        "_hp": 1000,
+        "_graphicUrl": "assets/graphics/images/cottage02_t01.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 18
+        },
+        "_rotateGraphicOnMove": false
+      }
+    ]
+  }
+}

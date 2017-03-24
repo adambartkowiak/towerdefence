@@ -1,0 +1,272 @@
+{
+  "_modelName": "worker_t01",
+  "_team": 1,
+  "_selectable": true,
+  "_targetable": true,
+  "_currentHp": 300,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": 0,
+        "_radius": 10,
+        "_collisionRadius": 10,
+        "_viewRadius": 200,
+        "_selectTargetRadius": 200,
+        "_groundSpeed": 80,
+        "_hp": 300,
+        "_graphicUrl": "assets/graphics/images/worker_t01.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 16
+        },
+        "_rotateGraphicOnMove": false,
+        "_entityAttackListModel": {
+          "_elements": [
+            {
+              "_id": "melee",
+              "_minRange": 0,
+              "_maxRange": 5,
+              "_rate": 1000,
+              "_damage": 100,
+              "_createBullet": false
+            },
+            {
+              "_id": "range",
+              "_minRange": 5,
+              "_maxRange": 150,
+              "_rate": 500,
+              "_createBullet": true,
+              "_bulletOffset": {
+                "_x": 0,
+                "_y": 18
+              },
+              "_bulletEntity": {
+                "_modelName": "bullet_01",
+                "_currentStateId": "default",
+                "_selectable": false,
+                "_entityStateListModel": {
+                  "_elements": [
+                    {
+                      "_id": "default",
+                      "_mass": 0,
+                      "_radius": 5,
+                      "_collisionRadius": 5,
+                      "_selectTargetRadius": 1000,
+                      "_groundSpeed": 500,
+                      "_removeAfterHit": true,
+                      "_graphicUrl": "assets/graphics/images/bullet0.png",
+                      "_graphicOffset": {
+                        "_x": 0,
+                        "_y": 0
+                      },
+                      "_entityAttackListModel": {
+                        "_elements": [
+                          {
+                            "_id": "melee",
+                            "_minRange": 0,
+                            "_maxRange": 5,
+                            "_rate": 1,
+                            "_damage": 20,
+                            "_createBullet": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "_availableActionsMenu": [
+          {
+            "text": "MOVE",
+            "icon": "assets/graphics/icons/moveicon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 400
+            }
+          },
+          {
+            "text": "Cancel",
+            "icon": "assets/graphics/icons/cancelicon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 2
+            }
+          },
+          {
+            "text": "Hold",
+            "icon": "assets/graphics/icons/holdicon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 103
+            }
+          },
+          {
+            "text": "Patrol",
+            "icon": "assets/graphics/icons/patrolicon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 402
+            }
+          },
+          {
+            "text": "Attack",
+            "icon": "assets/graphics/icons/attackicon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 401
+            }
+          },
+          {
+            "text": "Gather",
+            "icon": "assets/graphics/icons/gathericon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 403
+            }
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": "Build",
+            "icon": "assets/graphics/icons/castle_01_icon.png",
+            "elements": [
+              {
+                "text": "Castle",
+                "icon": "assets/graphics/icons/castle_01_icon.png",
+                "action": {
+                  "1": "##GENERATE_GUID##",
+                  "2": 404,
+                  "3": "castle_t01"
+                }
+              },
+              {
+                "text": "Barrack",
+                "icon": "assets/graphics/icons/tower_01_icon.png",
+                "action": {
+                  "1": "##GENERATE_GUID##",
+                  "2": 404,
+                  "3": "barracks01_t01"
+                }
+              },
+              {
+                "text": "Tower",
+                "icon": "assets/graphics/icons/tower_01_icon.png",
+                "action": {
+                  "1": "##GENERATE_GUID##",
+                  "2": 404,
+                  "3": "tower01_t01"
+                }
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": null,
+                "icon": null,
+                "action": null
+              },
+              {
+                "text": "Back",
+                "icon": "assets/graphics/icons/backicon.png",
+                "action": {
+                  "1": "##GENERATE_GUID##",
+                  "2": 1005
+                }
+              }
+            ]
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          }
+        ]
+      },
+      {
+        "_id": "withgold",
+        "_mass": 0,
+        "_radius": 12,
+        "_collisionRadius": 12,
+        "_viewRadius": 150,
+        "_selectTargetRadius": 150,
+        "_groundSpeed": 50,
+        "_graphicUrl": "assets/graphics/images/workerwithgold_t01.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 18
+        },
+        "_rotateGraphicOnMove": false
+      },
+      {
+        "_id": "withwood",
+        "_mass": 0,
+        "_radius": 12,
+        "_collisionRadius": 12,
+        "_viewRadius": 150,
+        "_selectTargetRadius": 150,
+        "_groundSpeed": 50,
+        "_graphicUrl": "assets/graphics/images/workerwithwood_t01.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 18
+        },
+        "_rotateGraphicOnMove": false
+      }
+    ]
+  }
+}

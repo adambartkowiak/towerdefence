@@ -465,9 +465,9 @@ app.view.AbstractWorldView.prototype._drawEntities = function _drawEntities(canv
                     this._image.drawRotateImage(canvasContext, graphicUrl, drawEntityX - entity.getGraphicOffset().getX(), drawEntityY - entity.getGraphicOffset().getY(), entity.getAngle());
                 } else {
 
-                    var flipHorizontal = true;
+                    var flipHorizontal = false;
                     if (entity.getAngle() > -90 && entity.getAngle() < 90) {
-                        flipHorizontal = false;
+                        flipHorizontal = true;
                     }
 
                     if (flipHorizontal) {

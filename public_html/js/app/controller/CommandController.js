@@ -130,4 +130,6 @@ app.controller.CommandController.prototype.setActionOnEntity = function setActio
 
     }
 
+
+
 };

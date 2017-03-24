@@ -78,7 +78,7 @@ editor.controller.TriggerModuleController.prototype.addTrigger = function addTri
     var triggerListModel = this._worldModel.getTriggerListModel(),
         count = triggerListModel.length(),
         newTriggerId = Utils.guid(),
-        functionModelFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener());
+        functionModelFactory = this._worldModel.getFunctionModelFactory();
 
     triggerListModel.addElement(
         new app.model.TriggerModel(
@@ -153,7 +153,7 @@ editor.controller.TriggerModuleController.prototype.showEditGameEventView = func
 editor.controller.TriggerModuleController.prototype.addCondition = function addCondition() {
 
     var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid),
-        functionFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener),
+        functionFactory = this._worldModel.getFunctionModelFactory(),
         newAttribute = functionFactory.createFunction(app.enum.FunctionEnum.EQUAL);
 
     triggerModel.getConditionListModel().addElement(
@@ -176,7 +176,7 @@ editor.controller.TriggerModuleController.prototype.addCondition = function addC
 editor.controller.TriggerModuleController.prototype.addAction = function addAction() {
 
     var triggerModel = this._worldModel.getTriggerListModel().getElementById(this._editingTriggerid),
-        functionFactory = new app.factory.FunctionModelFactory(this._worldModel.getGlobalEventListener),
+        functionFactory = this._worldModel.getFunctionModelFactory(),
         newAttribute = functionFactory.createFunction(app.enum.FunctionEnum.SHOW_CONSOLE_LOG);
 
     triggerModel.getActionListModel().addElement(

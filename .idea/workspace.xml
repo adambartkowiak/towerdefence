@@ -5,9 +5,177 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc8d8d64-28fb-401b-b83c-bbdf13424a00" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bush01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/bush02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/castle_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/cottage01_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/cottage02_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/goldmine01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/goldmine01out.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/monster_t02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/rock01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/rock02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/rock03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/rock04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tower_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tree01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tree01cut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tree02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/tree02cut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/warrior_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/worker_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/workerwithgold_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/workerwithwood_t01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/bush01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock01.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock02.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock04.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/bootstrap-cosmo.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/bootstrap-lumen.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/bootstrap-paper.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/bootstrap-sandstone.min.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/base1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/base2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/base3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/base4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/base_03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/base_04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/building1_neutral.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/building1_team1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/building1_team2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/building2_neutral.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/building2_team1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/building2_team2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/bullet4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/bush_01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/enemy3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/holder0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/pine-none04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/rock_01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/rock_02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tower0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tower1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tower2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tree_01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/unit1_neutral.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/unit1_team1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/unit1_team2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/unit2_neutral.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/unit2_team1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/unit2_team2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/assets/test/testJson.json" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/bush_02.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/bush02.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/goldmine_neutral2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/goldmine01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/rock_03.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/rock03.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_02.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/tree02.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/objects/tree_03.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/objects/tree01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team0.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks01_t01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team0.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_t01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team0.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage01_t01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageB_team0.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage02_t01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_team0.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_t01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_team0.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_t01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_team0.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_t01.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/editor/units/team2/unit3_team2.json" afterPath="$PROJECT_DIR$/public_html/assets/editor/units/team2/monster_t02.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_01a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_01a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_02a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_02a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_03a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_03a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_04a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_04a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_05a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_05a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_06a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_06a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_07a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_07a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_08a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_08a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_09a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_09a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_0a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_0a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_10a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_10a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_11a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_11a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_12a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_12a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_13a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_13a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_14a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_14a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_15a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_15a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_16a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_16a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_17a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_17a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/1water_18a.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/1water_18a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gbc01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gbc01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gbl01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gbl01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gbl02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gbl02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gbr01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gbr01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gbr02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gbr02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gcc01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gcc01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gcc02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gcc02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gcc1.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gcc1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gcc2.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gcc2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gcl01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gcl01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gcr01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gcr01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gtc01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gtc01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gtl01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gtl01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gtl02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gtl02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gtr01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gtr01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/gtr02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/gtr02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_1.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_2.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_bl.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_bl.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_br.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_br.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_i.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_i.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_ib.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_ib.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_ibl.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_ibl.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_ibr.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_ibr.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_il.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_il.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_ir.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_ir.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_it.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_it.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_itl.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_itl.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_itr.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_itr.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_tl.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_tl.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/paving_tr.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/paving_tr.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tgcc01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/tgcc01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tgcc02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/tgcc02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tgcc03.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/tgcc03.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tgcc04.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/tgcc04.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/tgcc05.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/tgcc05.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbc01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbc01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbc02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbc02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbl01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbl01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbl02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbl02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbl03.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbl03.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbl04.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbl04.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbr01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbr01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbr02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbr02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbr03.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbr03.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wbr04.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wbr04.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wcl01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wcl01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wcl02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wcl02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wcr01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wcr01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wcr02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wcr02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtc01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtc01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtc02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtc02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtl01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtl01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtl02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtl02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtl03.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtl03.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtr01.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtr01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtr02.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtr02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public_html/assets/graphics/images/wtr03.png" afterPath="$PROJECT_DIR$/public_html/assets/graphics/images/terrain/wtr03.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/editor.php" afterPath="$PROJECT_DIR$/public_html/editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/Editor.php" afterPath="$PROJECT_DIR$/public_html/Editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/editor.css" afterPath="$PROJECT_DIR$/public_html/css/editor.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" afterPath="$PROJECT_DIR$/public_html/files/mapexports/mapsave.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/Main.js" afterPath="$PROJECT_DIR$/public_html/js/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" afterPath="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js" afterPath="$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" afterPath="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" afterPath="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/enum/GameEventEnum.js" afterPath="$PROJECT_DIR$/public_html/js/app/enum/GameEventEnum.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/factory/command/Move.js" afterPath="$PROJECT_DIR$/public_html/js/app/factory/command/Move.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js" afterPath="$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" afterPath="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" afterPath="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" />
     </list>
     <ignored path="HTML5GAME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,102 +203,93 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="169">
-      <file leaf-file-name="ShowVictoryPopupCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ShowVictoryPopupCommand.js">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="256">
+      <file leaf-file-name="barracks01_t01.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks01_t01.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/MoveModel.js">
+      <file leaf-file-name="monster_t02.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/monster_t02.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+            <state relative-caret-position="126">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChangeObjectiveResult.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/ChangeObjectiveResult.js">
+      <file leaf-file-name="castle_t01.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_t01.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="828">
+              <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js">
+      <file leaf-file-name="Main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+            <state relative-caret-position="774">
+              <caret line="134" column="45" selection-start-line="134" selection-start-column="45" selection-end-line="134" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/index.php">
+      <file leaf-file-name="AbstractWorldView.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="275" column="0" selection-start-line="275" selection-start-column="0" selection-end-line="296" selection-end-column="79" />
+            <state relative-caret-position="492">
+              <caret line="446" column="27" selection-start-line="446" selection-start-column="27" selection-end-line="446" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/editor.php">
+      <file leaf-file-name="cottage02_t01.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage02_t01.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
-              <folding>
-                <marker date="1487198427000" expanded="true" signature="33165:33309" ph="..." />
-                <marker date="1487198427000" expanded="true" signature="35176:35828" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoGatherCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GoGatherCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-482">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GatherController.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/GatherController.js">
+      <file leaf-file-name="goldicon.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/goldicon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cottage02_t01.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/cottage02_t01.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tower_t01.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_t01.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <state relative-caret-position="540">
+              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FunctionModelFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/FunctionModelFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AllObjectivesCompleted.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/AllObjectivesCompleted.js">
+      <file leaf-file-name="warrior_t01.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_t01.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -156,57 +315,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/MoveModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ShowConsoleLogModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/TurnOffTriggerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/TurnOnTriggerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ShowVictoryPopupModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/AbstractFunctionModelFactory.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/AllObjectivesCompleted.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/Attribute.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/ChangeObjectiveResult.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/Equal.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/EqualOrGreater.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetEntityProperty.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetEventEntity.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetResourcesValue.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetUnitCount.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/GetVariableValue.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/IncrementVariableValue.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/Move.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/ShowConsoleLog.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/ShowVictoryPopup.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/TurnOffTrigger.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/TurnOnTrigger.js" />
-        <option value="$PROJECT_DIR$/public_html/js/Main.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/TriggerListModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/TriggerModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/FunctionModelFactory.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/GetUnitCountCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/IncrementVariableValueCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/HoldCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/GetVariableValueCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/ConditionEqualOrGreaterCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/ConditionEqualCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/CancelCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/AttributeCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/model/function/Gather.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/factory/command/GoGather.js" />
-        <option value="$PROJECT_DIR$/public_html/index.php" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/BuildCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/PatrolCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/GoGatherCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/command/AttackCommand.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/factory/command/Move.js" />
         <option value="$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/controller/CommandController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/enum/GameEventEnum.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/WorldModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/TriggerModuleController.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/model/function/ChangeObjectiveResultModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/editor/controller/EditorMapController.js" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageB_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/boostrap-paper.css" />
+        <option value="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/bootstrap-lumen.min.css" />
+        <option value="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/bootstrap-sandstone.min.css" />
+        <option value="$PROJECT_DIR$/public_html/lib/bootstrap-3.3.5-dist/css/bootstrap-cosmo.min.css" />
+        <option value="$PROJECT_DIR$/public_html/js/app/FeatureToggle.js" />
+        <option value="$PROJECT_DIR$/public_html/css/editor.css" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team0.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/tree_01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/tree_02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock_01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock_02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock_03.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock_04.json" />
         <option value="$PROJECT_DIR$/public_html/editor.php" />
-        <option value="$PROJECT_DIR$/public_html/js/app/controller/GatherController.js" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/goldmine_01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/bush_01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/bush_02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/bush01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/bush02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/goldmine01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock03.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/rock04.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/tree01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/objects/tree02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks01_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage01_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage02_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower01_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team2/monster_t02.json" />
+        <option value="$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_t01.json" />
+        <option value="$PROJECT_DIR$/public_html/js/Main.js" />
+        <option value="$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js" />
       </list>
     </option>
   </component>
@@ -224,10 +383,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
-    <option name="y" value="23" />
-    <option name="width" value="1431" />
-    <option name="height" value="830" />
+    <option name="x" value="-520" />
+    <option name="y" value="-1407" />
+    <option name="width" value="2525" />
+    <option name="height" value="1406" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -363,6 +522,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Changed Files">
@@ -402,54 +565,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="js">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public_html">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="support">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public_html">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="support">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="geom">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -515,15 +630,11 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
+            <PATH_ELEMENT USER_OBJECT="assets">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="model">
+            <PATH_ELEMENT USER_OBJECT="graphics">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -541,45 +652,15 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
+            <PATH_ELEMENT USER_OBJECT="assets">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
+            <PATH_ELEMENT USER_OBJECT="graphics">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="model">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="function">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public_html">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="js">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="factory">
+            <PATH_ELEMENT USER_OBJECT="images">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -683,6 +764,32 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="objects">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="HTML5GAME">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public_html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="assets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="editor">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -705,10 +812,6 @@
         </subPane>
         <subPane subId="Tests" />
       </pane>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -719,7 +822,7 @@
     <property name="last_opened_file_path" value="/usr/bin/git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.VCS" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -728,19 +831,19 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public_html/assets/editor/units/team1" />
-      <recent name="$PROJECT_DIR$/public_html/assets/editor/old configs" />
-      <recent name="$PROJECT_DIR$/public_html/js/app/model/function" />
-      <recent name="$PROJECT_DIR$/public_html/js/app/enum" />
-      <recent name="$PROJECT_DIR$/public_html/assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public_html/assets/graphics/images" />
+      <recent name="$PROJECT_DIR$/public_html/assets/editor/objects" />
       <recent name="$PROJECT_DIR$/public_html/js/app/command" />
       <recent name="$PROJECT_DIR$/public_html/js/app/factory/command" />
       <recent name="$PROJECT_DIR$/public_html/js/app/factory/model/function" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public_html/assets/graphics/images" />
+      <recent name="$PROJECT_DIR$/public_html/assets/graphics/images/terrain" />
+      <recent name="$PROJECT_DIR$/public_html/assets/editor/units/team1" />
+      <recent name="$PROJECT_DIR$/public_html/assets/editor/old configs" />
       <recent name="$PROJECT_DIR$/public_html/js/app/model/function" />
-      <recent name="$PROJECT_DIR$/public_html" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.php">
@@ -876,14 +979,13 @@
       <workItem from="1484081244177" duration="232000" />
       <workItem from="1484120874859" duration="78225000" />
       <workItem from="1485642567230" duration="9138000" />
-      <workItem from="1485932029732" duration="28976000" />
-    </task>
-    <task id="LOCAL-00001" summary="Komentarze w czesci klas dla YuiDoc'a">
-      <created>1437327357132</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1437327357132</updated>
+      <workItem from="1485932029732" duration="31068000" />
+      <workItem from="1487714230051" duration="10011000" />
+      <workItem from="1489331611319" duration="296000" />
+      <workItem from="1489333167076" duration="1368000" />
+      <workItem from="1489346121835" duration="43000" />
+      <workItem from="1489616254780" duration="3311000" />
+      <workItem from="1490345431525" duration="7464000" />
     </task>
     <task id="LOCAL-00002" summary="PhpStrom testowy commit">
       <created>1437327836855</created>
@@ -1221,11 +1323,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487198676425</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Poprawka zbierania zasobow">
+      <created>1487276406394</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1487276406395</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1202892000" />
+    <option name="totallyTimeSpent" value="1227477000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1237,26 +1346,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="23" width="1431" height="830" extended-state="6" />
-    <editor active="true" />
+    <frame x="-520" y="-1407" width="2525" height="1406" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26277897" sideWeight="0.49594322" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14981876" sideWeight="0.49594322" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24078947" sideWeight="0.5190476" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11653116" sideWeight="0.48095238" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760596" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20208333" sideWeight="0.5040568" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11363637" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849604" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552941" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1658031" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3849607" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.147806" sideWeight="0.48095238" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849604" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1272,7 +1381,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Poczyszczenie Projektu" />
     <MESSAGE value="Praca nad ActionMenu i menu statusu postaci/grupy postaci" />
     <MESSAGE value="Prace nad wydzieleniem GUI oraz wydzieleniem przechwytywania eventow do Widokow + obslugi ich w kontrolerach" />
     <MESSAGE value="Dodanie niezbednych plikow, funkcji i skryptow do:&#10; - Wczytywania stanu gry z backendu,&#10; - Przesyalnia stanu gry do backendu (zapis gry),&#10; - Przesylania punktow do backendu (zapis punktow)" />
@@ -1297,7 +1405,8 @@
     <MESSAGE value="Poprawki w optymalizacji + poprawki edytora" />
     <MESSAGE value="Dodaje: &#10;JSON Schemy,&#10;Poprawnie configow obiektow/jednostek,&#10;Dodanie slownika jednostek,&#10;Mozliwosc zapetlonego budowania Worker -&gt; Zamek -&gt; Worek -&gt; Zamek itd.." />
     <MESSAGE value="Przerobienie i dodanie Commandow na duza czesc funkcjonalnosci." />
-    <option name="LAST_COMMIT_MESSAGE" value="Przerobienie i dodanie Commandow na duza czesc funkcjonalnosci." />
+    <MESSAGE value="Poprawka zbierania zasobow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawka zbierania zasobow" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1307,15 +1416,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/FunctionListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="100" column="28" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/model/function/Move.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_03a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1323,7 +1424,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/model/function/GetUnitCount.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_08a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1331,7 +1432,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/model/function/GetEventEntity.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/gbl01.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1339,7 +1440,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/model/function/GetEntityProperty.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/gbr01.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1347,7 +1448,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/model/function/IncrementVariableValue.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/gcc01.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1355,7 +1456,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/Move.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/gcc1.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1363,7 +1464,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/IncrementVariableValue.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/gcc2.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1371,7 +1472,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/GetVariableValue.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/paving_br.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1379,7 +1480,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/GetEntityProperty.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/paving_it.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1387,31 +1488,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/GoGather.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/model/function/GoGather.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/gui/ActionMenuView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="125" column="24" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/GetUnitCount.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/tgcc02.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1419,15 +1496,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/TurnOnTriggerCommand.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/wbl01.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/ShowVictoryPopup.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/tgcc05.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1435,15 +1512,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ConditionEqualCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetVariableValueCommand.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_13a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1451,7 +1520,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetResourcesValueCommand.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_04a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1459,7 +1528,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetEntityPropertyCommand.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_14a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1467,15 +1536,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ActionMenuUpdateMenuCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageA_team0.json">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_16a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1483,15 +1544,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottageB_team0.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/enum/FunctionEnum.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_17a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1499,55 +1552,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_team0.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/TrainEntityCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/SetMoveAttackCommandOnCommandController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GetUnitCountCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/TaskModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/EntityListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="72" column="32" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/MoveController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/1water_18a.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1555,119 +1560,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/WaypointCollisionReactionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2682">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/SetBuildBuildingCommandOnCommandController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="55" column="76" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/CancelCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/BuildCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/PatrolCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/MoveCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/CommandController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/AttributeCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/AttackCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="62" column="20" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/TurnOffTriggerCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/ShowVictoryPopupCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/model/function/MoveModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/ChangeObjectiveResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/FunctionModelFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/command/AllObjectivesCompleted.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/gbc01.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1675,45 +1568,228 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/factory/CommandFactory.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/configs/gbr02.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="275" column="0" selection-start-line="275" selection-start-column="0" selection-end-line="296" selection-end-column="79" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/castle_01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/castle_t01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/tree_03.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/rock03.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/tree01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/editor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
+        <state relative-caret-position="527">
+          <caret line="662" column="83" selection-start-line="662" selection-start-column="83" selection-end-line="662" selection-end-column="83" />
           <folding>
-            <marker date="1487198427000" expanded="true" signature="33165:33309" ph="..." />
-            <marker date="1487198427000" expanded="true" signature="35176:35828" ph="..." />
+            <marker date="1490360511000" expanded="true" signature="34967:35111" ph="..." />
+            <marker date="1490360511000" expanded="true" signature="36978:37638" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/command/GoGatherCommand.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/rock01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/tower01_t01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/bullet0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/bush01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/bush01.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-482">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="288">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app/controller/GatherController.js">
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/bush02.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state relative-caret-position="288">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/goldmine01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/rock01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/rock02.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/rock03.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/rock04.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/tree01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/objects/tree02.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage01_t01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/worker_t01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/warrior_t01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/barracks01_t01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team2/monster_t02.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/tower_t01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/castle_t01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/editor/units/team1/cottage02_t01.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/goldicon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/assets/graphics/images/cottage02_t01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="134" column="45" selection-start-line="134" selection-start-column="45" selection-end-line="134" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app/view/AbstractWorldView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="446" column="27" selection-start-line="446" selection-start-column="27" selection-end-line="446" selection-end-column="27" />
           <folding />
         </state>
       </provider>

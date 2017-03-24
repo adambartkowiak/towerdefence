@@ -45,10 +45,12 @@ if (loadFromFile) {
             minimapView.setMapWidth(worldModel.getMapModel().getMapWidth());
             minimapView.setMapHeight(worldModel.getMapModel().getMapHeight());
 
+
             //LOAD MAP ASSETS!!! DO NAPRAWY !!!!
             //@NAPRAWIC TO !!!
             var graphicLength = worldModel.getMapModel().getMapGraphicModel().getTileArray().length;
             var graphicPath = null;
+            var graphicRootPath =  null;
             for (var i = 0; i < graphicLength; i++) {
 
                 graphicPath = worldModel.getMapModel().getMapGraphicModel().getTileArray()[i][0];
@@ -73,198 +75,90 @@ if (loadFromFile) {
 
             }
 
-            graphicPath = "assets/graphics/images/enemy0.png";
-            graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/enemy1.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/enemy2.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/enemy3.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/tower0.png";
+            //-------NEW UNITS
+            graphicPath = "assets/graphics/images/barracks01_t01.png";
             graphicsBuffor.load(graphicPath);
 
             graphicPath = "assets/graphics/images/bullet0.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/bullet1.png";
+            graphicPath = "assets/graphics/images/bush01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/bullet2.png";
+            graphicPath = "assets/graphics/images/bush02.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/bullet3.png";
+            graphicPath = "assets/graphics/images/castle_t01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/bullet4.png";
+            graphicPath = "assets/graphics/images/cottage01_t01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/base1.png";
+            graphicPath = "assets/graphics/images/cottage02_t01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/base2.png";
+            graphicPath = "assets/graphics/images/goldmine01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/base3.png";
+            graphicPath = "assets/graphics/images/goldmine01out.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/base4.png";
+            graphicPath = "assets/graphics/images/monster_t02.png";
             graphicsBuffor.load(graphicPath);
 
-
-            //-------objects
-            graphicPath = "assets/graphics/images/base_03.png";
+            graphicPath = "assets/graphics/images/rock01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/base_04.png";
+            graphicPath = "assets/graphics/images/rock02.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/bush_01.png";
+            graphicPath = "assets/graphics/images/rock03.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/pine-none04.png";
+            graphicPath = "assets/graphics/images/rock04.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/rock_01.png";
+            graphicPath = "assets/graphics/images/tower_t01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/rock_02.png";
+            graphicPath = "assets/graphics/images/tree01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/tree_01.png";
+            graphicPath = "assets/graphics/images/tree01cut.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/goldmine_neutral.png";
+            graphicPath = "assets/graphics/images/tree02.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/mineral_01_01.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/mineral_01_02.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/mineral_01_03.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/mineral_01_04.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/mineral_01_05.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/mineral_01_06.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/mineral_01_07.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/mineral_01_08.png";
-            graphicsBuffor.load(graphicPath);
-
-            //-------neutral
-            graphicPath = "assets/graphics/images/building1_neutral.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/building2_neutral.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/unit1_neutral.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/unit2_neutral.png";
+            graphicPath = "assets/graphics/images/tree02cut.png";
             graphicsBuffor.load(graphicPath);
 
 
-            //-------team1
-            graphicPath = "assets/graphics/images/building1_team1.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/building2_team1.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/unit1_team1.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/unit2_team1.png";
+            graphicPath = "assets/graphics/images/warrior_t01.png";
             graphicsBuffor.load(graphicPath);
 
 
-            //-------tem2
-            graphicPath = "assets/graphics/images/building1_team2.png";
+            graphicPath = "assets/graphics/images/worker_t01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/building2_team2.png";
+            graphicPath = "assets/graphics/images/workerwithwood_t01.png";
             graphicsBuffor.load(graphicPath);
 
-            graphicPath = "assets/graphics/images/unit1_team2.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/unit2_team2.png";
+            graphicPath = "assets/graphics/images/workerwithgold_t01.png";
             graphicsBuffor.load(graphicPath);
 
 
-            //-------NEW UNITS
-            graphicPath = "assets/graphics/images/tower_01.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/castle_01.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/warrior_01.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/enemy_01.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/tree_02.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/tree_02cut.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/tree_03.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/tree_03cut.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/bush_02.png";
-            graphicsBuffor.load(graphicPath);
-
-
-            graphicPath = "assets/graphics/images/goldmine_neutral2.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/goldmine_neutral2ruin.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/worker_01.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/worker_01withwood.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/worker_01withgold.png";
-            graphicsBuffor.load(graphicPath);
-
-            graphicPath = "assets/graphics/images/rock_03.png";
-            graphicsBuffor.load(graphicPath);
-
+            //-------INTERFACE ICONS
             graphicPath = "assets/graphics/images/goldicon.png";
             graphicsBuffor.load(graphicPath);
 
             graphicPath = "assets/graphics/images/woodicon.png";
             graphicsBuffor.load(graphicPath);
 
-
             //-------MENU GRAPHIC
             graphicPath = "assets/graphics/menu/inGamePopupMenu.png";
             graphicsBuffor.load(graphicPath);
-
 
             graphicPath = "assets/graphics/menu/hudmenu_icongold.png";
             graphicsBuffor.load(graphicPath);
@@ -275,7 +169,6 @@ if (loadFromFile) {
             graphicPath = "assets/graphics/menu/hudmenu_iconarmy.png";
             graphicsBuffor.load(graphicPath);
 
-
             graphicPath = "assets/graphics/menu/hudmenu_buttonbrown.png";
             graphicsBuffor.load(graphicPath);
 
@@ -284,7 +177,6 @@ if (loadFromFile) {
 
             graphicPath = "assets/graphics/menu/hudmenu_buttonred.png";
             graphicsBuffor.load(graphicPath);
-
 
             graphicPath = "assets/graphics/images/cottage_team01.png";
             graphicsBuffor.load(graphicPath);
@@ -602,7 +494,6 @@ function mainDraw() {
     timer.updateDelta();
 
     //Wykonanie logiki
-
     logicTimer.updateDelta();
     logicFunction(timer.getDelta());
     logicTimer.updateDelta();

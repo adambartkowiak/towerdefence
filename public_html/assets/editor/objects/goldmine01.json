@@ -1,0 +1,44 @@
+{
+  "_modelName": "goldmine01",
+  "_team": 0,
+  "_selectable": true,
+  "_targetable": true,
+  "_resource": {
+    "_name": "gold",
+    "_value": 1000,
+    "_maxValue": 1000
+  },
+  "_currentHp": 1000,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": -1,
+        "_radius": 50,
+        "_collisionRadius": 45,
+        "_groundSpeed": 0,
+        "_hp": 1000,
+        "_graphicUrl": "assets/graphics/images/goldmine01.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 0
+        },
+        "_rotateGraphicOnMove": false
+      },
+      {
+        "_id": "noresources",
+        "_mass": -1,
+        "_radius": 50,
+        "_collisionRadius": 0,
+        "_groundSpeed": 0,
+        "_graphicUrl": "assets/graphics/images/goldmine01out.png",
+        "_graphicOffset": {
+          "_x": 0,
+          "_y": 0
+        },
+        "_rotateGraphicOnMove": false
+      }
+    ]
+  }
+}

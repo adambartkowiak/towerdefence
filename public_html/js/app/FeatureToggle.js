@@ -26,3 +26,7 @@ me.CONSOLE_LOG = false;
 if (!me.CONSOLE_LOG){
     console.log = function (){}
 }
+
+me.change = function change(PROPERTY_NAME){
+  me[PROPERTY_NAME] = !me[PROPERTY_NAME];
+};

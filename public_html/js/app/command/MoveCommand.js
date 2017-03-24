@@ -13,7 +13,7 @@ var Utils = Utils || {};
  * @namespace app.command
  * @class MoveCommand
  * @constructor
- * @param {number} entityId
+ * @param {app.command.AttributeCommand} entityId
  * @param {app.command.AttributeCommand} destinationX
  * @param {app.command.AttributeCommand} destinationY
  * @param {app.command.AttributeCommand} targetEntityId

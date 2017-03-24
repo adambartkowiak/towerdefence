@@ -28,6 +28,8 @@ editor.controller.EditorMapController = function EditorMapController(editorMapMo
 
     this._entityListModel = new app.model.EntityListModel();
 
+    this._collisionDetectionController = new app.controller.CollisionDetectionController(this._worldModel.getEntityListModel());
+
 
     //Ladowanie paternów dla tilesow mapy
     var assetsElement = document.getElementsByClassName("mapTileElement");
@@ -177,7 +179,15 @@ editor.controller.EditorMapController.prototype.onMouseEvent = function onMouseE
                 unit.setY(y);
 
                 //Tu trzeba sprawdzic kolizje czy mozna tutaj dodac jednostke
-                this._worldModel.getEntityListModel().addElement(unit);
+
+                this._collisionDetectionController.prepareObjectsGroups(this._mapModel);
+
+                var potentialCollisionList = this._collisionDetectionController.getCollisionArrayForCircle(unit.getX(), unit.getY(), unit.getCollisionRadius(), 0);
+
+                if (potentialCollisionList.length === 0){
+                    this._worldModel.getEntityListModel().addElement(unit);
+                }
+
             }
 
             //tileX

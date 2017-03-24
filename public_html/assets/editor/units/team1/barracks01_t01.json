@@ -1,0 +1,93 @@
+{
+  "_modelName": "barracks01_t01",
+  "_team": 1,
+  "_selectable": true,
+  "_targetable": true,
+  "_currentHp": 1000,
+  "_currentStateId": "default",
+  "_entityStateListModel": {
+    "_elements": [
+      {
+        "_id": "default",
+        "_mass": -1,
+        "_radius": 35,
+        "_viewRadius": 200,
+        "_collisionRadius": 35,
+        "_groundSpeed": 0,
+        "_hp": 1000,
+        "_graphicUrl": "assets/graphics/images/barracks01_t01.png",
+        "_graphicOffset": {
+          "_x": -2,
+          "_y": 18
+        },
+        "_rotateGraphicOnMove": false,
+        "_availableActionsMenu" : [
+          {
+            "text": "Warrior",
+            "icon": "assets/graphics/icons/warrior_01_icon.png",
+            "action": {
+              "1": "##GENERATE_GUID##",
+              "2": 301,
+              "3": "warrior_t01"
+            }
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          },
+          {
+            "text": null,
+            "icon": null,
+            "action": null
+          }
+        ]
+      }
+    ]
+  }
+}

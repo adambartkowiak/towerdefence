@@ -22,7 +22,6 @@ app.model.function.ChangeObjectiveResultModel = function ChangeObjectiveResultMo
     
     this._functionAttributeNames = ["objectiveName", "objectiveResult"];
 
-
 };
 
 Utils.inherits(app.model.function.ChangeObjectiveResultModel, app.model.function.AbstractFunctionModel);

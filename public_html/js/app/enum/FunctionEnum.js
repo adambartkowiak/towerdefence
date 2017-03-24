@@ -15,25 +15,25 @@ var Utils = Utils || {};
 app.enum.FunctionEnum = {
 
     //Basic
-    NONE: 0,
-    VALUE: 1,
-    CANCEL: 2,
+    NONE: 0, //None
+    VALUE: 1, //Function is value
+    CANCEL: 2, //Cancel current action
 
     //Logic
-    EQUAL: 10,
-    EQUAL_OR_GREATER: 11,
+    EQUAL: 10, //Equal - ok
+    EQUAL_OR_GREATER: 11, //Equal or greater - ok
 
     //Entity Action - connected with movement
-    MOVE: 100,
-    ATTACK: 101,
-    PATROL: 102,
-    HOLD: 103,
-    STAY: 104,
-    GO_GATHER: 105,
-    REPAIR: 106,
-    RETURN_CARGO: 107,
-    GATHER: 108,
-    MOVE_ATTACK: 109,
+    MOVE: 100, //entity move - ok
+    ATTACK: 101, //
+    PATROL: 102, //patrol betwen points
+    HOLD: 103, //hold position
+    STAY: 104, //
+    GO_GATHER: 105, //
+    REPAIR: 106, //
+    RETURN_CARGO: 107, //
+    GATHER: 108, //
+    MOVE_ATTACK: 109, //
 
     //Entity Action - connected with building
     START_BUILD_BUILDING: 200,
